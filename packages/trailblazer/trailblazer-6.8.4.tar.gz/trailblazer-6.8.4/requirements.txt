@@ -1,0 +1,20 @@
+Alchy
+Click<7
+coloredlogs
+ruamel.yaml
+SQLAlchemy
+marshmallow
+tabulate
+python-dateutil
+
+# server
+Flask>=1.1.1                # versioned due to setup.py install misselecting Flask-SQLAlchemy otherwise
+Flask-Alchy
+Flask-SQLAlchemy==2.1
+Flask-CORS
+Flask-Reverse-Proxy
+google-auth
+
+# misc
+pymysql
+python-dateutil
