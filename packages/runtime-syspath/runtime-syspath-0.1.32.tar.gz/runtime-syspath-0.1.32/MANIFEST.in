@@ -1,0 +1,9 @@
+include pyproject.toml
+
+# Include the README
+include *.md
+
+# Include the data files
+recursive-include docs *
+
+recursive-include src py.typed
