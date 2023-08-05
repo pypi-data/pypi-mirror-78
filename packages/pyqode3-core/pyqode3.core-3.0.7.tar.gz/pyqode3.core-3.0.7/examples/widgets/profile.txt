@@ -1,0 +1,633 @@
+         65874 function calls (61869 primitive calls) in 0.143 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.176    0.176 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/code_edits.py:107(__init__)
+        1    0.045    0.045    0.095    0.095 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:431(__init__)
+        1    0.000    0.000    0.046    0.046 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/pygments_sh.py:161(__init__)
+        1    0.000    0.000    0.043    0.043 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/lexer.py:571(__call__)
+        1    0.000    0.000    0.042    0.042 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/lexer.py:514(process_tokendef)
+    39/19    0.000    0.000    0.042    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/lexer.py:470(_process_state)
+       66    0.000    0.000    0.042    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/lexer.py:423(_process_regex)
+       69    0.000    0.000    0.032    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/re.py:232(compile)
+       69    0.001    0.000    0.032    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/re.py:271(_compile)
+        1    0.000    0.000    0.031    0.031 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:1301(_init_settings)
+       58    0.000    0.000    0.030    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:759(compile)
+       58    0.000    0.000    0.020    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:919(parse)
+   258/58    0.002    0.000    0.019    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:417(_parse_sub)
+   534/66    0.006    0.000    0.019    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:475(_parse)
+       15    0.012    0.001    0.015    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/icons.py:29(icon)
+        1    0.001    0.001    0.013    0.013 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:1192(_init_actions)
+        5    0.000    0.000    0.010    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/lexer.py:413(get)
+        5    0.000    0.000    0.010    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/regexopt.py:83(regex_opt)
+    617/5    0.002    0.000    0.010    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/regexopt.py:27(regex_opt_inner)
+       58    0.000    0.000    0.009    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:598(_code)
+        1    0.000    0.000    0.009    0.009 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:129(__init__)
+   271/33    0.000    0.000    0.009    0.000 {method 'join' of 'str' objects}
+   696/15    0.002    0.000    0.009    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/regexopt.py:78(<genexpr>)
+   567/58    0.004    0.000    0.008    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:71(_compile)
+       15    0.000    0.000    0.007    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/modes.py:22(append)
+        1    0.002    0.002    0.006    0.006 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/_forms/search_panel_ui.py:12(setupUi)
+        5    0.000    0.000    0.005    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:40(append)
+        4    0.000    0.000    0.005    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/styles/__init__.py:56(get_style_by_name)
+        4    0.000    0.000    0.004    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:1349(_reset_stylesheet)
+        1    0.000    0.000    0.004    0.004 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/encodings.py:93(__init__)
+      110    0.004    0.000    0.004    0.000 {method 'connect' of 'PyQt5.QtCore.pyqtBoundSignal' objects}
+        9    0.004    0.000    0.004    0.000 {built-in method setFont}
+      611    0.002    0.000    0.003    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/genericpath.py:69(commonprefix)
+        5    0.000    0.000    0.003    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/panel.py:74(on_install)
+     5125    0.002    0.000    0.003    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:164(__getitem__)
+        1    0.000    0.000    0.003    0.003 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:155(_init_actions)
+       25    0.003    0.000    0.003    0.000 {fromTheme}
+        1    0.000    0.000    0.003    0.003 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/backend.py:65(start)
+        1    0.000    0.000    0.003    0.003 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/_forms/pnl_encoding_ui.py:12(setupUi)
+       20    0.000    0.000    0.003    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/mode.py:75(on_install)
+        9    0.000    0.000    0.003    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/plugin.py:63(find_plugin_styles)
+    23/19    0.000    0.000    0.003    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/lexer.py:435(_process_new_state)
+       20    0.000    0.000    0.003    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/mode.py:56(enabled)
+        3    0.003    0.001    0.003    0.001 {connectSlotsByName}
+     2421    0.001    0.000    0.003    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:254(get)
+        3    0.000    0.000    0.002    0.001 <frozen importlib._bootstrap>:978(_find_and_load)
+        2    0.001    0.000    0.002    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/prompt_line_edit.py:22(__init__)
+  611/105    0.002    0.000    0.002    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:174(getwidth)
+        6    0.000    0.000    0.002    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:2421(load)
+        1    0.000    0.000    0.002    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/pygments_sh.py:177(on_install)
+        1    0.000    0.000    0.002    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/formatters/html.py:404(__init__)
+        6    0.000    0.000    0.002    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:2446(require)
+        3    0.000    0.000    0.002    0.001 <frozen importlib._bootstrap>:948(_find_and_load_unlocked)
+       44    0.000    0.000    0.002    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:96(closegroup)
+        1    0.000    0.000    0.002    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/encodings.py:166(on_install)
+     3154    0.002    0.000    0.002    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:233(__next)
+        1    0.000    0.000    0.002    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:108(__init__)
+        1    0.000    0.000    0.002    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/read_only.py:59(__init__)
+        2    0.000    0.000    0.002    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/pygments_sh.py:294(_update_style)
+        6    0.000    0.000    0.002    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:715(resolve)
+        1    0.000    0.000    0.002    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/extended_selection.py:32(__init__)
+       20    0.000    0.000    0.002    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:212(_update)
+       58    0.000    0.000    0.002    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:536(_compile_info)
+        7    0.000    0.000    0.002    0.000 {built-in method builtins.__import__}
+7335/6590    0.001    0.000    0.002    0.000 {built-in method builtins.len}
+        6    0.000    0.000    0.002    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:144(refresh)
+        1    0.000    0.000    0.002    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/formatter.py:66(__init__)
+        1    0.000    0.000    0.002    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:365(on_install)
+        1    0.000    0.000    0.002    0.002 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/formatter.py:20(_lookup_style)
+        3    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap>:663(_load_unlocked)
+        2    0.001    0.001    0.001    0.001 {addApplicationFont}
+     7101    0.001    0.000    0.001    0.000 {built-in method builtins.isinstance}
+       98    0.001    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:276(_optimize_charset)
+       36    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:3118(__contains__)
+    10003    0.001    0.000    0.001    0.000 {method 'append' of 'list' objects}
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/encodings.py:37(__init__)
+        4    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/caret_line_highlight.py:65(refresh)
+        3    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:722(exec_module)
+       36    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/_vendor/packaging/specifiers.py:700(contains)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/encodings.py:54(_refresh_items)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:210(on_install)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/encodings.py:155(__init__)
+     1991    0.001    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:172(append)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/_forms/pnl_read_only_ui.py:12(setupUi)
+       36    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/_vendor/packaging/version.py:24(parse)
+     2192    0.001    0.000    0.001    0.000 {built-in method builtins.min}
+     1306    0.001    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:249(match)
+       36    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/_vendor/packaging/version.py:198(__init__)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/pygments_sh.py:173(_init_style)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/extended_selection.py:93(on_install)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:250(refresh_editor)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/caret_line_highlight.py:55(on_install)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/folding.py:180(on_install)
+        2    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/encodings.py:171(_refresh)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/code_completion.py:327(on_install)
+        3    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap>:211(_call_with_frames_removed)
+        2    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/encodings.py:115(_refresh)
+        3    0.000    0.000    0.001    0.000 {built-in method builtins.exec}
+        1    0.001    0.001    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/extended_selection.py:72(create_menu)
+        5    0.001    0.000    0.001    0.000 {built-in method setParent}
+       37    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:1930(getLogger)
+      249    0.001    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/regexopt.py:67(<listcomp>)
+        3    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/cache.py:50(preferred_encodings)
+        3    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap>:882(_find_spec)
+     1295    0.001    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:160(__len__)
+        3    0.000    0.000    0.001    0.000 {built-in method builtins.__build_class__}
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/formatters/html.py:468(_create_stylesheet)
+     3197    0.001    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/regexopt.py:79(<lambda>)
+        8    0.001    0.000    0.001    0.000 {built-in method setStyleSheet}
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/styles/default.py:10(<module>)
+       37    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:1221(getLogger)
+       51    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/utils.py:253(cursor_position)
+      358    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/re.py:252(escape)
+        3    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:1272(find_spec)
+        3    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:1240(_get_spec)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/style.py:62(__new__)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/caret_line_highlight.py:44(on_state_changed)
+        7    0.000    0.000    0.001    0.000 {built-in method setExtraSelections}
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:293(on_state_changed)
+     1001    0.001    0.000    0.001    0.000 {built-in method builtins.max}
+        9    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:654(<genexpr>)
+      202    0.000    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:168(__setitem__)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/encodings.py:100(__init__)
+        3    0.001    0.000    0.001    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/cache.py:38(__init__)
+        1    0.000    0.000    0.001    0.001 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:128(_load_formats_from_style)
+        1    0.000    0.000    0.001    0.001 {built-in method setDocument}
+       58    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/enum.py:836(__and__)
+        6    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:151(resize)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1356(find_spec)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/encodings.py:95(current_encoding)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:793(get_code)
+       17    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:654(add_action)
+      602    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:286(tell)
+       21    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:144(_get_format_from_style)
+        7    0.000    0.000    0.000    0.000 {built-in method setText}
+       18    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:685(add)
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/decorations.py:21(append)
+        3    0.000    0.000    0.000    0.000 {built-in method value}
+       38    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:411(_mk_bitmap)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/zoom.py:24(on_state_changed)
+      726    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:111(__init__)
+       35    0.000    0.000    0.000    0.000 {built-in method setShortcut}
+        5    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/panel.py:56(__init__)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/backend.py:22(comm)
+      107    0.000    0.000    0.000    0.000 {built-in method textCursor}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/line_number.py:12(__init__)
+      358    0.000    0.000    0.000    0.000 {method 'translate' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/code_completion.py:106(setModel)
+       18    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:2861(insert_on)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:222(on_state_changed)
+        2    0.000    0.000    0.000    0.000 {built-in method pixmap}
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/caret_line_highlight.py:59(_clear_deco)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/code_completion.py:306(_create_completer)
+       74    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:876(eventFilter)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/_forms/pnl_encoding_ui.py:57(retranslateUi)
+        3    0.000    0.000    0.000    0.000 {built-in method hide}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/caret_line_highlight.py:25(background)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/cursor_history.py:39(on_state_changed)
+       26    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/mode.py:62(__init__)
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/decoration.py:105(set_background)
+       98    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:249(_compile_charset)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/backend.py:14(_logger)
+       99    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/style.py:128(style_for_token)
+    79/57    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:461(_get_literal_prefix)
+       43    0.000    0.000    0.000    0.000 {built-in method builtins.hasattr}
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/decorations.py:36(remove)
+      793    0.000    0.000    0.000    0.000 {method 'get' of 'dict' objects}
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/panel.py:106(setVisible)
+     1767    0.000    0.000    0.000    0.000 {built-in method builtins.ord}
+       79    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/style.py:164(__iter__)
+        4    0.000    0.000    0.000    0.000 {built-in method document}
+       17    0.000    0.000    0.000    0.000 {built-in method addAction}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:328(request_search)
+      116    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/enum.py:284(__call__)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:740(add_menu)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/case_converter.py:52(on_state_changed)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/client.py:349(__init__)
+       16    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:11(_logger)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/_forms/search_panel_ui.py:162(retranslateUi)
+        9    0.000    0.000    0.000    0.000 {built-in method setPalette}
+       38    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:413(<listcomp>)
+       58    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:224(__init__)
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/utils.py:81(__init__)
+       36    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/_vendor/packaging/version.py:343(_cmpkey)
+       72    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:423(_simple)
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/encodings.py:83(_refresh_stylesheet)
+        1    0.000    0.000    0.000    0.000 {built-in method setSourceModel}
+       32    0.000    0.000    0.000    0.000 {built-in method builtins.sorted}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:594(_on_search_finished)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/encodings.py:70(foreground)
+       15    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/modes.py:8(_logger)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/case_converter.py:37(_create_actions)
+      171    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:2845(get_entry_map)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:1180(_set_whitespaces_flags)
+        7    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:234(_update_viewport_margins)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/folding.py:148(__init__)
+        6    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:1272(_fixupParents)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/_forms/pnl_read_only_ui.py:30(retranslateUi)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:1310(_init_style)
+        5    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/locale.py:647(getpreferredencoding)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1404(_fill_cache)
+       58    0.000    0.000    0.000    0.000 {built-in method _sre.compile}
+       23    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:178(_get_brush)
+       20    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:127(__len__)
+       78    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/token.py:16(split)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:585(_update_label_matches)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:576(module_from_spec)
+      174    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:668(__iter__)
+       74    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:408(_uniq)
+        1    0.000    0.000    0.000    0.000 {built-in method setTabStopWidth}
+       35    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:1434(log)
+      392    0.000    0.000    0.000    0.000 {method 'find' of 'bytearray' objects}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:523(_compile_bytecode)
+       29    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:492(_get_charset_prefix)
+       44    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:84(opengroup)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:277(__init__)
+       65    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:343(_escape)
+        1    0.000    0.000    0.000    0.000 {built-in method posix.listdir}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:233(background)
+       78    0.000    0.000    0.000    0.000 {built-in method type}
+       36    0.000    0.000    0.000    0.000 {method 'search' of 're.Pattern' objects}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:504(_init_module_attrs)
+      207    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:81(groups)
+      113    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/regexopt.py:64(<listcomp>)
+        7    0.000    0.000    0.000    0.000 {built-in method menuAction}
+        6    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:270(_compute_zones_sizes)
+       10    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:74(_path_stat)
+        3    0.000    0.000    0.000    0.000 {built-in method marshal.loads}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:914(get_data)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/code_completion.py:97(__init__)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1203(_path_importer_cache)
+       78    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/formatters/html.py:451(_get_css_class)
+        6    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:2436(resolve)
+       18    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/posixpath.py:154(dirname)
+       41    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:212(_acquireLock)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/lexer.py:522(get_tokendefs)
+       10    0.000    0.000    0.000    0.000 {built-in method posix.stat}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/filewatcher.py:58(on_state_changed)
+       76    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:134(panels_for_zone)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/backend.py:43(__init__)
+      116    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/enum.py:526(__new__)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1190(_path_hooks)
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/read_only.py:50(_refresh_stylesheet)
+       36    0.000    0.000    0.000    0.000 {built-in method setShortcutContext}
+       66    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/types.py:164(__get__)
+        4    0.000    0.000    0.000    0.000 {built-in method addActions}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/read_only.py:37(foreground)
+        4    0.000    0.000    0.000    0.000 {built-in method addSeparator}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:147(__enter__)
+       13    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:188(_get_color)
+       24    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:2725(requires)
+      192    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
+       35    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:1619(isEnabledFor)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/folding.py:623(on_state_changed)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/json/__init__.py:183(dumps)
+      116    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:595(isstring)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/cursor_history.py:33(__init__)
+       15    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/locale.py:589(setlocale)
+       78    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/formatters/html.py:50(_get_ttype_class)
+        6    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:1341(__init__)
+       20    0.000    0.000    0.000    0.000 {built-in method setIcon}
+       58    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:903(fix_flags)
+       28    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:432(_generate_overlap_table)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1445(path_hook_for_FileFinder)
+        6    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:271(cache_from_source)
+       65    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/formatters/html.py:44(webify)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/json/__init__.py:299(loads)
+        2    0.000    0.000    0.000    0.000 {built-in method sizeHint}
+        6    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:403(cached)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/autocomplete.py:21(__init__)
+       18    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:2887(<listcomp>)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:248(foreground)
+        1    0.000    0.000    0.000    0.000 {built-in method setLineWrapMode}
+       18    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1009(_handle_fromlist)
+      360    0.000    0.000    0.000    0.000 {method 'group' of 're.Match' objects}
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:649(_update_buttons)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/panel.py:9(_logger)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:21(__init__)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/backend.py:56(pick_free_port)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/json/encoder.py:182(encode)
+       39    0.000    0.000    0.000    0.000 {built-in method setObjectName}
+       24    0.000    0.000    0.000    0.000 {built-in method addWidget}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/code_completion.py:338(on_state_changed)
+      144    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/_vendor/packaging/version.py:207(<genexpr>)
+       23    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/utils.py:140(__init__)
+       20    0.000    0.000    0.000    0.000 {built-in method viewport}
+       18    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:56(_path_join)
+        7    0.000    0.000    0.000    0.000 {built-in method setViewportMargins}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:369(_get_cached)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/filewatcher.py:45(__init__)
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:139(_get_format_from_color)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/file.py:149(__init__)
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/decoration.py:35(__init__)
+       15    0.000    0.000    0.000    0.000 {built-in method _locale.setlocale}
+        1    0.000    0.000    0.000    0.000 {built-in method setDefaultTextOption}
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/code_completion.py:33(__init__)
+       51    0.000    0.000    0.000    0.000 {built-in method columnNumber}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:157(_get_module_lock)
+        7    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/encodings.py:98(convert_to_codec_key)
+       26    0.000    0.000    0.000    0.000 {built-in method update}
+      193    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/_forms/pnl_encoding_ui.py:9(<module>)
+       58    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:76(__init__)
+       99    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/mode.py:31(editor)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/json/decoder.py:332(decode)
+       66    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/lexer.py:429(_process_token)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/occurences.py:102(__init__)
+       87    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/manager.py:35(editor)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:84(_path_is_mode_type)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/matcher.py:114(__init__)
+       77    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:65(_combine_flags)
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/utils.py:48(drift_color)
+       16    0.000    0.000    0.000    0.000 {built-in method setColor}
+      160    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/regexopt.py:73(<genexpr>)
+       41    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:221(_releaseLock)
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/decoration.py:137(set_full_width)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/json/encoder.py:204(iterencode)
+       18    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:944(markers_pass)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1319(__init__)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1351(_get_spec)
+      275    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/right_margin.py:59(on_state_changed)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/autocomplete.py:32(on_state_changed)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/indenter.py:47(on_state_changed)
+       36    0.000    0.000    0.000    0.000 <string>:1(__new__)
+       37    0.000    0.000    0.000    0.000 {built-in method __new__ of type object at 0x5644239fc3c0}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/_forms/pnl_read_only_ui.py:9(<module>)
+      205    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+        2    0.000    0.000    0.000    0.000 {built-in method setMouseTracking}
+      135    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method defaultTextOption}
+        1    0.000    0.000    0.000    0.000 {built-in method createUndoAction}
+       19    0.000    0.000    0.000    0.000 {method 'index' of 'list' objects}
+       11    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/regexopt.py:23(make_charset)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/plugin.py:44(iter_entry_points)
+        6    0.000    0.000    0.000    0.000 {built-in method actions}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:93(_path_isfile)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:206(_init_style)
+        8    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:522(eventFilter)
+      102    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/utils.py:133(_editor)
+       35    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/style.py:68(colorformat)
+       11    0.000    0.000    0.000    0.000 {built-in method setToolTip}
+        1    0.000    0.000    0.000    0.000 {function SubsequenceCompleter.setModel at 0x7f30cd9272f0}
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/encodings.py:109(_clear_actions)
+       41    0.000    0.000    0.000    0.000 {method 'acquire' of '_thread.RLock' objects}
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:699(add_separator)
+        2    0.000    0.000    0.000    0.000 {built-in method start}
+       24    0.000    0.000    0.000    0.000 {method 'sort' of 'list' objects}
+       71    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/gettext.py:271(gettext)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/right_margin.py:53(__init__)
+      144    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:2336(_normalize_cached)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/code_completion.py:280(__init__)
+      108    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_compile.py:453(_get_iscased)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:318(__exit__)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:951(path_stats)
+       16    0.000    0.000    0.000    0.000 {built-in method palette}
+       18    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:58(<listcomp>)
+       14    0.000    0.000    0.000    0.000 {built-in method contains}
+        8    0.000    0.000    0.000    0.000 {built-in method setEnabled}
+        3    0.000    0.000    0.000    0.000 {method 'read' of '_io.FileIO' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/styles/default.py:17(DefaultStyle)
+       51    0.000    0.000    0.000    0.000 {built-in method blockNumber}
+        1    0.000    0.000    0.000    0.000 {built-in method createRedoAction}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:438(_classify_pyc)
+       36    0.000    0.000    0.000    0.000 {built-in method builtins.all}
+       13    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:295(_class_escape)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/lexer.py:98(__init__)
+        1    0.000    0.000    0.000    0.000 {built-in method fontMetrics}
+       18    0.000    0.000    0.000    0.000 {built-in method contentsRect}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:574(spec_from_file_location)
+       40    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/encodings.py:46(color)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/extended_selection.py:104(on_state_changed)
+       21    0.000    0.000    0.000    0.000 {built-in method setForeground}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:93(background)
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/prompt_line_edit.py:98(set_button_visible)
+       54    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:3130(__hash__)
+        5    0.000    0.000    0.000    0.000 {built-in method removeAction}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:78(acquire)
+       38    0.000    0.000    0.000    0.000 {method 'translate' of 'bytearray' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/occurences.py:113(on_state_changed)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/autoindent.py:43(on_state_changed)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/backspace.py:16(on_state_changed)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/encodings.py:53(color)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/read_only.py:20(color)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/matcher.py:162(on_state_changed)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:719(remove_action)
+        2    0.000    0.000    0.000    0.000 {built-in method addItem}
+        4    0.000    0.000    0.000    0.000 {built-in method setMinimumSize}
+       60    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+        5    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/_bootlocale.py:33(getpreferredencoding)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:98(_path_isdir)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:151(__exit__)
+       54    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:2628(key)
+       52    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/panel.py:41(scrollable)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/socket.py:139(__init__)
+        6    0.000    0.000    0.000    0.000 {built-in method setBackground}
+       66    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/enum.py:628(value)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/encodings.py:66(foreground)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/read_only.py:13(color)
+        4    0.000    0.000    0.000    0.000 {built-in method setProperty}
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:1169(__init__)
+        6    0.000    0.000    0.000    0.000 {method 'match' of 're.Pattern' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/socket.py:416(close)
+        2    0.000    0.000    0.000    0.000 {built-in method addLayout}
+       54    0.000    0.000    0.000    0.000 {built-in method isVisible}
+        9    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:51(_r_long)
+       19    0.000    0.000    0.000    0.000 {built-in method builtins.getattr}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:1342(_on_text_changed)
+        4    0.000    0.000    0.000    0.000 {built-in method setContentsMargins}
+        4    0.000    0.000    0.000    0.000 {built-in method setTitle}
+       18    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/posixpath.py:41(_get_sep)
+        8    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1325(<genexpr>)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:111(foreground)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/pygments_sh.py:313(_clear_caches)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/indenter.py:30(__init__)
+       48    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/_vendor/packaging/version.py:352(<lambda>)
+       72    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/_vendor/packaging/_structures.py:33(__neg__)
+        6    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:752(<lambda>)
+        1    0.000    0.000    0.000    0.000 {built-in method highlight}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:103(release)
+      108    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/_vendor/packaging/version.py:298(_parse_letter_version)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/socket.py:412(_real_close)
+        5    0.000    0.000    0.000    0.000 {built-in method setVisible}
+        1    0.000    0.000    0.000    0.000 {built-in method setCursorWidth}
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:1605(getEffectiveLevel)
+       21    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:222(_verbose_message)
+        6    0.000    0.000    0.000    0.000 {built-in method _functools.reduce}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/case_converter.py:19(__init__)
+       15    0.000    0.000    0.000    0.000 {instance}
+       11    0.000    0.000    0.000    0.000 {method 'sub' of 're.Pattern' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/read_only.py:33(foreground)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/caret_line_highlight.py:38(__init__)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/code_completion.py:37(set_prefix)
+       24    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:3009(_dep_map)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:646(iter_entry_points)
+        2    0.000    0.000    0.000    0.000 {built-in method setData}
+        4    0.000    0.000    0.000    0.000 {built-in method setPixmap}
+        4    0.000    0.000    0.000    0.000 {built-in method raise_}
+        3    0.000    0.000    0.000    0.000 {built-in method setWindowTitle}
+       12    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:1175(append)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/contextlib.py:116(__exit__)
+       36    0.000    0.000    0.000    0.000 {method 'setdefault' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/autoindent.py:15(__init__)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:92(background)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/json/decoder.py:343(raw_decode)
+       13    0.000    0.000    0.000    0.000 {built-in method setRgb}
+        6    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:62(_path_split)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:58(__init__)
+        3    0.000    0.000    0.000    0.000 {built-in method builtins.any}
+       24    0.000    0.000    0.000    0.000 {method 'rpartition' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/zoom.py:19(__init__)
+       12    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:371(panels)
+        9    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/util.py:50(get_bool_opt)
+        1    0.000    0.000    0.000    0.000 {function socket.close at 0x7f30ce6efae8}
+       14    0.000    0.000    0.000    0.000 {built-in method rect}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:471(_validate_timestamp_pyc)
+        3    0.000    0.000    0.000    0.000 {built-in method builtins.setattr}
+       24    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+       18    0.000    0.000    0.000    0.000 {method 'pop' of 'list' objects}
+       36    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:2669(version)
+       25    0.000    0.000    0.000    0.000 {built-in method width}
+        2    0.000    0.000    0.000    0.000 {built-in method setCursor}
+       41    0.000    0.000    0.000    0.000 {method 'release' of '_thread.RLock' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/utils.py:110(cancel_requests)
+        5    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/manager.py:42(__init__)
+        5    0.000    0.000    0.000    0.000 {built-in method font}
+        5    0.000    0.000    0.000    0.000 {built-in method text}
+        6    0.000    0.000    0.000    0.000 {built-in method title}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:176(cb)
+        5    0.000    0.000    0.000    0.000 {built-in method _locale.nl_langinfo}
+        9    0.000    0.000    0.000    0.000 {built-in method setFontWeight}
+        3    0.000    0.000    0.000    0.000 {built-in method installEventFilter}
+        6    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:727(__init__)
+       15    0.000    0.000    0.000    0.000 {built-in method _imp.acquire_lock}
+        4    0.000    0.000    0.000    0.000 {built-in method name}
+       25    0.000    0.000    0.000    0.000 {built-in method y}
+        1    0.000    0.000    0.000    0.000 {method 'bind' of '_socket.socket' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method isChecked}
+        3    0.000    0.000    0.000    0.000 {built-in method setSeparator}
+        3    0.000    0.000    0.000    0.000 {built-in method resize}
+        5    0.000    0.000    0.000    0.000 {built-in method sizePolicy}
+        9    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:855(__enter__)
+        9    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:859(__exit__)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:401(_check_name_wrapper)
+       27    0.000    0.000    0.000    0.000 {built-in method posix.fspath}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.next}
+        9    0.000    0.000    0.000    0.000 {built-in method from_bytes}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:90(get)
+        2    0.000    0.000    0.000    0.000 {built-in method color}
+        2    0.000    0.000    0.000    0.000 {built-in method darker}
+        5    0.000    0.000    0.000    0.000 {built-in method window}
+        1    0.000    0.000    0.000    0.000 {method 'getsockname' of '_socket.socket' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method setItemData}
+        5    0.000    0.000    0.000    0.000 {built-in method setSizePolicy}
+        8    0.000    0.000    0.000    0.000 {built-in method setTabOrder}
+        6    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/logging/__init__.py:187(_checkLevel)
+       78    0.000    0.000    0.000    0.000 {method 'reverse' of 'list' objects}
+        8    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/formatters/html.py:531(_decodeifneeded)
+       36    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/_vendor/packaging/version.py:332(_parse_local_version)
+       36    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/_vendor/packaging/specifiers.py:725(<genexpr>)
+       16    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:363(modes)
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/util.py:84(get_list_opt)
+        4    0.000    0.000    0.000    0.000 {built-in method setObjectType}
+        1    0.000    0.000    0.000    0.000 {built-in method flags}
+        4    0.000    0.000    0.000    0.000 {built-in method styleSheet}
+        1    0.000    0.000    0.000    0.000 {built-in method insertSeparator}
+        2    0.000    0.000    0.000    0.000 {built-in method caseSensitivity}
+        2    0.000    0.000    0.000    0.000 {built-in method setMaximumSize}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:311(__enter__)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:369(__init__)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:792(find_spec)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/folding.py:688(refresh_decorations)
+       18    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pkg_resources/__init__.py:953(<genexpr>)
+        5    0.000    0.000    0.000    0.000 {built-in method windowText}
+        4    0.000    0.000    0.000    0.000 {built-in method clearSelection}
+        2    0.000    0.000    0.000    0.000 {built-in method background}
+        8    0.000    0.000    0.000    0.000 {eventFilter}
+        1    0.000    0.000    0.000    0.000 {built-in method setFrameShape}
+        5    0.000    0.000    0.000    0.000 {built-in method repaint}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:884(__init__)
+       12    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:321(<genexpr>)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:416(parent)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:35(_new_module)
+        3    0.000    0.000    0.000    0.000 {built-in method _imp._fix_co_filename}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:100(highlight)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/modes.py:18(__init__)
+        9    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:162(<lambda>)
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:241(foreground)
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:287(selection_foreground)
+        7    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:379(decorations)
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/util.py:70(get_int_opt)
+        3    0.000    0.000    0.000    0.000 {built-in method addPixmap}
+        1    0.000    0.000    0.000    0.000 {built-in method invalidate}
+        2    0.000    0.000    0.000    0.000 {built-in method setSortRole}
+        1    0.000    0.000    0.000    0.000 {built-in method sort}
+        3    0.000    0.000    0.000    0.000 {built-in method setInterval}
+        1    0.000    0.000    0.000    0.000 {built-in method setCaseSensitivity}
+        5    0.000    0.000    0.000    0.000 {built-in method setHeightForWidth}
+        5    0.000    0.000    0.000    0.000 {built-in method setHorizontalStretch}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:143(__init__)
+       15    0.000    0.000    0.000    0.000 {built-in method _imp.release_lock}
+        3    0.000    0.000    0.000    0.000 {built-in method _imp.is_frozen}
+       14    0.000    0.000    0.000    0.000 {built-in method builtins.callable}
+       10    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+        6    0.000    0.000    0.000    0.000 {method 'clear' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/datamatrix/functional.py:35(profile)
+        7    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/mode.py:45(enabled)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/decorations.py:17(__init__)
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/file.py:101(encoding)
+        6    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:226(background)
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:272(selection_background)
+        2    0.000    0.000    0.000    0.000 {built-in method lightness}
+        2    0.000    0.000    0.000    0.000 {built-in method setCheckable}
+        4    0.000    0.000    0.000    0.000 {built-in method setIconVisibleInMenu}
+        2    0.000    0.000    0.000    0.000 {built-in method setWordWrap}
+        2    0.000    0.000    0.000    0.000 {built-in method setTextMargins}
+        5    0.000    0.000    0.000    0.000 {built-in method hasHeightForWidth}
+        2    0.000    0.000    0.000    0.000 {built-in method setFocusPolicy}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:307(__init__)
+        4    0.000    0.000    0.000    0.000 {method 'get' of 'mappingproxy' objects}
+        6    0.000    0.000    0.000    0.000 {built-in method _thread.allocate_lock}
+        1    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/widgets/prompt_line_edit.py:52(prompt_text)
+        5    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:200(<lambda>)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:181(font_name)
+        2    0.000    0.000    0.000    0.000 {built-in method foreground}
+        4    0.000    0.000    0.000    0.000 {built-in method parent}
+        3    0.000    0.000    0.000    0.000 {built-in method setIconSize}
+        2    0.000    0.000    0.000    0.000 {built-in method setStretch}
+        1    0.000    0.000    0.000    0.000 {built-in method setFrameShadow}
+        2    0.000    0.000    0.000    0.000 {built-in method setScaledContents}
+        2    0.000    0.000    0.000    0.000 {built-in method getTextMargins}
+        5    0.000    0.000    0.000    0.000 {built-in method setVerticalStretch}
+        6    0.000    0.000    0.000    0.000 {method 'end' of 're.Match' objects}
+        3    0.000    0.000    0.000    0.000 {method 'remove' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/_forms/pnl_read_only_ui.py:11(Ui_Form)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/folding.py:126(highlight_caret_scope)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:615(_clear_occurrences)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:628(_clear_decorations)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/autocomplete.py:28(<dictcomp>)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/modes.py:57(get)
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/panel.py:52(scrollable)
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/decorations.py:31(<lambda>)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/file.py:75(string)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:266(whitespaces_foreground)
+        2    0.000    0.000    0.000    0.000 {built-in method height}
+        1    0.000    0.000    0.000    0.000 {built-in method icon}
+        2    0.000    0.000    0.000    0.000 {built-in method setChecked}
+        1    0.000    0.000    0.000    0.000 {built-in method setEditable}
+        1    0.000    0.000    0.000    0.000 {built-in method setCompletionMode}
+        1    0.000    0.000    0.000    0.000 {built-in method setUndoLimit}
+        6    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/sre_parse.py:162(__delitem__)
+        6    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
+        1    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
+        2    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/_forms/pnl_encoding_ui.py:11(Ui_Form)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/panels/search_and_replace.py:376(get_occurences)
+       19    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pygments/lexer.py:259(__repr__)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/autocomplete.py:26(<dictcomp>)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:84(name)
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/syntax_highlighter.py:233(color_scheme)
+        3    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/panels.py:188(<lambda>)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/managers/backend.py:220(running)
+        2    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:338(file)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/code_edit.py:355(backend)
+        1    0.000    0.000    0.000    0.000 {built-in method highlightedText}
+        1    0.000    0.000    0.000    0.000 {built-in method setFlags}
+        1    0.000    0.000    0.000    0.000 {built-in method stop}
+        2    0.000    0.000    0.000    0.000 {built-in method setSpacing}
+        1    0.000    0.000    0.000    0.000 {built-in method clear}
+        1    0.000    0.000    0.000    0.000 {built-in method count}
+        1    0.000    0.000    0.000    0.000 {built-in method setCenterOnScroll}
+        1    0.000    0.000    0.000    0.000 {built-in method setContextMenuPolicy}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:719(create_module)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:719(find_spec)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:40(_relax_case)
+        3    0.000    0.000    0.000    0.000 {built-in method builtins.abs}
+        2    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/code_completion.py:160(filter_mode)
+        1    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/modes/code_completion.py:234(case_sensitive)
+        4    0.000    0.000    0.000    0.000 /home/sebastiaan/anaconda3/envs/opensesame-py3/lib/python3.7/site-packages/pyqode/core/api/mode.py:98(on_state_changed)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:909(get_filename)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:424(has_location)
+
+
