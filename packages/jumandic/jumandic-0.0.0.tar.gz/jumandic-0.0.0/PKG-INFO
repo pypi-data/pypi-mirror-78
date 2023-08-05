@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: jumandic
+Version: 0.0.0
+Summary: JumanDic packaged for use from Python
+Home-page: https://github.com/polm/jumandic-py
+Author: Paul O'Leary McCann
+Author-email: polm@dampfkraft.com
+License: UNKNOWN
+Description: # jumandic-py
+        
+        This packages JumanDic for MeCab for installation via PyPI.
+        
+        JumanDic is unmaintained and has not been updated in over ten years; this
+        package is provided for compatability, but should not be used for new projects.
+        
+        ## License
+        
+        JumanDic is copyright 2005 the University of Tokyo and is distributed under the
+        terms of the BSD License. See the included LICENSE.jumandic file for details.
+        
+        The code original to this repository is released under the MIT License.
+        
+        The version of JumanDic in this repository was taken from the most recent
+        version of MeCab.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: Japanese
+Description-Content-Type: text/markdown
