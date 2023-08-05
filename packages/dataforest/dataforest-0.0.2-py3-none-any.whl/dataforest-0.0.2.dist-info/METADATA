@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: dataforest
+Version: 0.0.2
+Summary: An interactive data science workflow manager
+Home-page: https://github.com/TheAustinator/dataforest
+Author: Austin McKay
+Author-email: austinmckay303@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pathlib
+Requires-Dist: pyyaml
+Requires-Dist: termcolor
+Requires-Dist: Ipython
+Provides-Extra: all
+Requires-Dist: matplotlib ; extra == 'all'
+Requires-Dist: numpy ; extra == 'all'
+Requires-Dist: pandas ; extra == 'all'
+Requires-Dist: pathlib ; extra == 'all'
+Requires-Dist: pyyaml ; extra == 'all'
+Requires-Dist: termcolor ; extra == 'all'
+Requires-Dist: Ipython ; extra == 'all'
+Provides-Extra: dev
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
+<p align="center"><img width=80% src="https://raw.githubusercontent.com/theaustinator/dataforest/master/static/dataforest.jpg" alt="dataforest"></p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Python](https://img.shields.io/badge/python-v3.6+-blue.svg)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
+[![GitHub Issues](https://img.shields.io/github/issues/TheAustinator/dataforest.svg)](https://github.com/TheAustinator/dataforest/issues)
+[![Build Status](https://travis-ci.org/TheAustinator/dataforest.svg?branch=master)](https://travis-ci.org/TheAustinator/dataforest)
+<!--[![PyPI version](https://badge.fury.io/py/.svg)](https://badge.fury.io/py/dataforest)-->
+
+
+## A simple, interactive, and customizable data science workflow manager
+<p align="center">
+  <a href="#core concepts">Core Concepts</a> •
+  <a href="#overview">Overview</a> •
+  <a href="#features">Features</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#upcoming-features">Upcoming Features</a>
+</p>
+
+
+## Core Concepts
+
+
+
+### Features
+
+## Usage
+**Install**
+```
+pip install dataforest
+```
+**Import**
+```python
+from dataforest import DataBranch
+```
+
+### Examples
+
+
+## Upcoming Features
+
+
