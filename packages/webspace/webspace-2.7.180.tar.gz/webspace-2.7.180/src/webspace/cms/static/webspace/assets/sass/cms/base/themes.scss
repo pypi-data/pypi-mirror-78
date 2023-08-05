@@ -1,0 +1,158 @@
+$color-1: #171721;
+$color-2: #2FB196;
+$color-4: #2DDDF5;
+$color-5: #20202C;
+$grey-1: #F7F7F7;
+$grey-2: #EDEDED;
+$grey-3: #DADADA;
+$grey-4: #C4C4C4;
+
+$color-warning: #FF9700;
+$color-error: #9A1F20;
+
+$themes: (
+        space: (
+                bgColor: $color-1,
+                colorH1: $color-2,
+                colorH2: $grey-1,
+                colorH3: $grey-1,
+                colorH4: $grey-1,
+                colorH5: $grey-1,
+                colorH6: $grey-1,
+                colorP: $grey-1,
+                colorA: $color-2,
+                colorAHover: $grey-1,
+                colorListDecoration: $color-2,
+                colorHr: $color-2,
+                colorPlaceholder: #45455B,
+                btnBlueLight: $color-4,
+                btnWhiteLight: $grey-1,
+                btnWhiteLightHover: $grey-4,
+                btnWhiteFullColor: $color-1,
+                btnWhiteFullBgColor: $grey-1,
+                uks: $color-1,
+                kaks: $color-5,
+                kolme: $color-1,
+                boxShadowUks: 0 0 3px 0 $color-1,
+                boxShadowKaks: 0 0 3px 0 $color-5,
+                colorCircleBg: $grey-1,
+                colorCircleText: $color-1,
+                scrollbarBg: $color-1,
+                scrollbarThumb: $grey-1,
+                bgColorLayer: rgba(19, 31, 40, 0.3),
+        ),
+        space-inverse: (
+                bgColor: $color-5,
+                colorH1: $color-2,
+                colorH2: $grey-1,
+                colorH3: $grey-1,
+                colorH4: $grey-1,
+                colorH5: $grey-1,
+                colorH6: $grey-1,
+                colorP: $grey-1,
+                colorA: $color-2,
+                colorAHover: $grey-1,
+                colorListDecoration: $color-2,
+                colorHr: $color-2,
+                colorPlaceholder: $grey-3,
+                btnBlueLight: $color-4,
+                btnWhiteLight: $grey-1,
+                btnWhiteLightHover: $grey-4,
+                btnWhiteFullColor: $color-1,
+                btnWhiteFullBgColor: $grey-1,
+                uks: $color-5,
+                kaks: $color-1,
+                kolme: $color-5,
+                boxShadowUks: 0 0 3px 0 $color-1,
+                boxShadowKaks: 0 0 3px 0 $color-5,
+                colorCircleBg: $grey-1,
+                colorCircleText: $color-1,
+                scrollbarBg: $color-1,
+                scrollbarThumb: $grey-1,
+                bgColorLayer: rgba(19, 31, 40, 0.3),
+        ),
+        light: (
+                bgColor: $grey-1,
+                colorH1: $color-2,
+                colorH2: $color-1,
+                colorH3: $color-1,
+                colorH4: $color-1,
+                colorH5: $color-1,
+                colorH6: $color-1,
+                colorP: $color-1,
+                colorA: $color-2,
+                colorAHover: $color-1,
+                colorListDecoration: $color-2,
+                colorHr: $color-1,
+                colorPlaceholder: $grey-3,
+                btnBlueLight: $color-1,
+                btnWhiteLight: $color-1,
+                btnWhiteLightHover: $grey-4,
+                btnWhiteFullColor: $grey-1,
+                btnWhiteFullBgColor: $color-1,
+                uks: $grey-1,
+                kaks: $grey-2,
+                kolme: $grey-3,
+                boxShadowUks: 0 0 3px 0 $grey-1,
+                boxShadowKaks: 0 0 3px 0 $grey-2,
+                colorCircleBg: $color-1,
+                colorCircleText: $grey-1,
+                scrollbarBg: $color-1,
+                scrollbarThumb: $grey-1,
+                bgColorLayer: rgba(19, 31, 40, 0.3),
+        ),
+);
+
+@mixin theme($themes: $themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}
+
+@each $name, $colors in $themes {
+  .theme-bg-#{$name} {
+    background: map-get($colors, bgColor);
+  }
+}
+
+.error {
+  color: $color-error !important;
+}
+
+.theme-bg-space-space-inverse {
+  background: linear-gradient(to bottom, $color-1 0%, $color-1 50%, $color-5 50%, $color-5 100%);
+}
+
+.theme-bg-space-light {
+  background: linear-gradient(to bottom, $color-1 0%, $color-1 50%, $grey-1 50%, $grey-1 100%);
+}
+
+.theme-bg-space-inverse-space {
+  background: linear-gradient(to bottom, $color-5 0%, $color-5 50%, $color-1 50%, $color-1 100%);
+}
+
+.theme-bg-space-inverse-light {
+  background: linear-gradient(to bottom, $color-5 0%, $color-5 50%, $grey-1 50%, $grey-1 100%);
+}
+
+
+.theme-bg-light-space {
+  background: linear-gradient(to bottom, $grey-1 0%, $grey-1 50%, $color-1 50%, $color-1 100%);
+}
+
+.theme-bg-light-space-inverse {
+  background: linear-gradient(to bottom, $grey-1 0%, $grey-1 50%, $color-5 50%, $color-5 100%);
+}

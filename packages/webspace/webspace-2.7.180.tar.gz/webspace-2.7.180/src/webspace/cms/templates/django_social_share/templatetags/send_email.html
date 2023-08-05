@@ -1,0 +1,8 @@
+{% load my my_amp %}
+
+<a rel="noreferrer" target="_blank" href="{{ mailto_url|safe }}">
+    {% amp_img %}
+        <img loading="lazy" class="s-icon x2" data-src="{{ icons.email|ico:page.theme }}"
+             alt="Icon Email"/>
+    {% endamp_img %}
+</a>

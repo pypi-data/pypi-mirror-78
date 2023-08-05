@@ -1,0 +1,10 @@
+.image {
+  amp-img {
+    max-width: 768px;
+    width: 100%;
+  }
+}
+
+amp-img.contain img {
+  object-fit: contain;
+}

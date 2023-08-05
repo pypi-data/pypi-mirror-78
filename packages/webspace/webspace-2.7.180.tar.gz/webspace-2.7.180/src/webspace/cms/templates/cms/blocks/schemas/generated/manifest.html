@@ -1,0 +1,29 @@
+{% load my_minify wagtailimages_tags %}
+
+{% image settings.cms.WebspaceSettings.favicon fill-200x200 format-png as img_192 %}
+{% image settings.cms.WebspaceSettings.favicon fill-500x500 format-png as img_512 %}
+
+<link rel="manifest" href='data:application/manifest+json, {% minify_schema %}
+{
+    "name": "{{ settings.cms.WebspaceSettings.brand_name }}",
+    "short_name": "{{ settings.cms.WebspaceSettings.brand_short_name }}",
+    "description": "{{ settings.cms.WebspaceSettings.brand_description }}",
+    "icons": [
+        {
+          "src": "{{ img_192.url }}",
+          "type": "image/png",
+          "sizes": "200x200"
+        },
+        {
+          "src": "{{ img_512.url }}",
+          "type": "image/png",
+          "sizes": "500x500"
+        }
+    ],
+    "start_url": "http{% if not debug %}s{% endif %}://{{ request.get_host }}/",
+    "display": "standalone",
+    "scope": "http{% if not debug %}s{% endif %}://{{ request.get_host }}/",
+    "theme_color": "{{ settings.cms.WebspaceSettings.primary_color_uks|urlencode }}",
+    "background_color": "{{ settings.cms.WebspaceSettings.primary_bg_color|urlencode }}"
+}
+{% endminify_schema %}'/>

@@ -1,0 +1,42 @@
+{% load social_share wagtailimages_tags wagtailcore_tags my my_amp %}
+
+{% for block in page.body %}
+    {% include_block block with block_num=forloop.counter %}
+{% endfor %}
+
+{% comment %}---------------------------- Portfolio related ----------------------------{% endcomment %}
+
+{% if page.related_portfolio %}
+    <div id="block-title-article-related" class="text theme-bg-light">
+        <div class="container content theme-light">
+            <div class="rich-text-container align-text-center">
+                {{ settings.cms.WebspaceSettings.related_portfolios_text|richtext }}
+            </div>
+        </div>
+    </div>
+    <div id="block-article-related" class="theme-bg-light">
+        <div class="container regular nopadtop nopadbottom theme-light">
+            <div class="articles-container">
+                {% for portfolio in page.related_portfolio %}
+                    {% include 'cms/blocks/common/portfolio.html' with portfolio=portfolio.value %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="block-6" class="buttons theme-bg-light">
+        <div class="container content theme-light">
+            <div class="btn-container align-text-center">
+                <a class="btn secondary-full space-c" href="{% pageurl page.get_parent %}">
+                    {% if settings.cms.WebspaceSettings.button_view_all_portfolios %}
+                        {{ settings.cms.WebspaceSettings.button_view_all_portfolios }}
+                    {% else %}
+                        Voir toutes les réalisations
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {% include 'cms/blocks/static/social_share.html' %}
+
+{% endif %}
