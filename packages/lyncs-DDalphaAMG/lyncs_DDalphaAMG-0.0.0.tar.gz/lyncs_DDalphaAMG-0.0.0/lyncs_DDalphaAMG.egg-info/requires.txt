@@ -1,0 +1,12 @@
+lyncs-mpi
+lyncs-cppyy
+lyncs-utils
+lyncs-setuptools
+
+[all]
+pytest
+pytest-cov
+
+[test]
+pytest
+pytest-cov
