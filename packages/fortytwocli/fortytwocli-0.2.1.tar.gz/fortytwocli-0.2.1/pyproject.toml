@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "fortytwocli"
+version = "0.2.1"
+description = "command line tool for 42 intra."
+license = "MIT"
+authors = ["Hibiki Okada <hokada@student.42tokyo.jp>"]
+readme = "README.md"
+repository = "https://github.com/dhaiibfiukkiu/42cli"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "^7.1.2"
+inquirer = "^2.6.3"
+halo = "^0.0.29"
+GitPython = "^3.1.3"
+rich = "^6.0.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pytest-cov = "^2.9.0"
+
+[tool.poetry.scripts]
+42 = "fortytwocli.main:fourtyTwo"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
