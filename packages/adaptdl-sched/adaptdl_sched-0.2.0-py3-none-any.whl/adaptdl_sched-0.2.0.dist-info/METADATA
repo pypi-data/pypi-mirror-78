@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: adaptdl-sched
+Version: 0.2.0
+Summary: Dynamic-resource trainer and scheduler for deep learning
+Home-page: https://github.com/petuum/adaptdl
+Author: Petuum Inc. & The AdaptDL Authors
+Author-email: aurick.qiao@petuum.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6
+Requires-Dist: adaptdl
+Requires-Dist: future (>=0.17.1)
+Requires-Dist: kubernetes-asyncio (==9.1.0)
+Requires-Dist: prometheus-client (>=0.7.1)
+Requires-Dist: pymoo (>=0.4.0)
+Requires-Dist: python-dateutil (>=2.7.3)
+Requires-Dist: requests (>=2.7.0)
+Requires-Dist: numpy (>=1.17)
+Requires-Dist: aiohttp (>=3.6.2)
+
+UNKNOWN
+
+
