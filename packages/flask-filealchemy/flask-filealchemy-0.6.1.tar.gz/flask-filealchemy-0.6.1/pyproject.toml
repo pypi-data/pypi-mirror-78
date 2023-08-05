@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "flask-filealchemy"
+version = "0.6.1"
+description = "YAML-formatted plain-text file based models for Flask backed by Flask-SQLAlchemy"
+readme = "README.md"
+authors = ["Siddhant Goel <me@sgoel.org>"]
+license = "MIT"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Web Environment",
+    "Framework :: Flask",
+    "Topic :: Database",
+    "Topic :: Database :: Front-Ends",
+    "Topic :: Text Processing :: Markup",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3 :: Only",
+]
+keywords = ["flask", "sqlalchemy", "yaml", "plaintext", "web"]
+repository = "https://github.com/siddhantgoel/flask-filealchemy"
+documentation = "https://github.com/siddhantgoel/flask-filealchemy"
+
+[tool.poetry.dependencies]
+python = "^3.5"
+flask = "^1.0"
+flask-sqlalchemy = "^2.4"
+ruamel-yaml = "^0.16"
+python-frontmatter = "^0.5.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.7"
+flask = "^1.1"
+pytest = "^5.4"
+black = {version = "^19.10b0",python = "^3.6"}
+mypy = "^0.770.0"
+sqlalchemy-stubs = "^0.3"
+
+[tool.black]
+line-length = 79
+skip-string-normalization = true
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
