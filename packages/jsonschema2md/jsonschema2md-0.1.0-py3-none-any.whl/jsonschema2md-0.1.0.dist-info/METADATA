@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: jsonschema2md
+Version: 0.1.0
+Summary: Convert JSON Schema to human-readable Markdown documentation
+Home-page: https://github.com/RalfG/jsonschema2md
+License: Apache-2.0
+Keywords: JSON Schema,Markdown,Converter,Parser,Documentation
+Author: Ralf Gabriels
+Author-email: ralfg@hotmail.be
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Documentation
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Project-URL: Repository, https://github.com/RalfG/jsonschema2md
+Description-Content-Type: text/markdown
+
+# jsonschema2md
+
+_Convert JSON Schema to human-readable Markdown documentation_
+
+
