@@ -1,0 +1,4 @@
+[console_scripts]
+crossgrade-package-check = debian_crossgrader.tools.package_check:main
+crossgrader = debian_crossgrader.__main__:main
+
