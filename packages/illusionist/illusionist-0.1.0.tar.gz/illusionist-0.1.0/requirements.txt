@@ -1,0 +1,32 @@
+# Used for CI - It should match environment.yml
+
+# Base
+setuptools
+setuptools_scm
+pylint
+flake8
+black
+isort
+twine
+wheel
+pytest
+pytest-cov
+
+# Docs
+mkdocs
+mkdocs-material
+mkdocs-jupyter
+mkdocs-minify-plugin
+pygments
+pymdown-extensions
+
+# Package
+nbconvert<6,>=5.5.0
+nbclient>=0.4.0
+nbformat
+
+# Other
+notebook
+jupyterlab
+ipywidgets
+matplotlib
