@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: bestiapop
+Version: 3.0.4
+Summary: Climate Data Mining Automation Framework
+Home-page: https://bestiapop.readthedocs.io/en/latest/
+Author: Diego Perez & Jonathan Ojeda
+Author-email: darkquasar7@gmail.com
+License: bsd-3-clause
+Download-URL: https://github.com/JJguri/bestiapop/archive/v3.0.4.tar.gz
+Description: 
+        BestiaPop (a spanish word that translates to *pop beast*), is a Python package which allows
+        climate and agricultural data scientists to automatically download
+        SILO's (Scientific Information for Land Owners) or NASAPOWER gridded climate data
+        and convert this data to files that can be ingested by *Crop Modelling Software* like APSIM or DSSAT.
+        The package offers the possibility to select a range of grids (5 km × 5 km resolution)
+        and years producing various types of output files: CSV, MET (for APSIM),
+        WTH (for DSSAT) and soon JSON (which will become part of BestiaPop's API in the future).
+        
+Keywords: silo,apsim,nasapower,dssat,met,wth,crop modelling,crops,agriculture,data science,climate,weather,automation
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
