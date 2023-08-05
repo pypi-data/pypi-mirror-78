@@ -1,0 +1,80 @@
+systems:
+  # this is actual information for running on Transcend
+  # as if it were a customer system
+  # (the information for uploading to Transcend is in config.yaml)
+  Transcend:
+    siteid:      "TDCLOUD14TD03"  # this is the actual SiteID for Transcend Prod (on-prem)
+    active:      "True"
+    manual_run:  "False"
+    host:        "tdprd.td.teradata.com"
+    username:    "{td_quicklook}"
+    password:    "{td_password}"
+    logmech:     "ldap"
+    driver:      "sqlalchemy" # valid values: "sqlalchemy", "teradataml", or an odbc driver name
+    encryption:  "false"
+    use:         "test"   # prod/qa/dr/dev/etc
+    some_value:  "Bear"
+    dbsversion:  "16.20"
+    collection:  "pdcr"
+    filesets:
+      demo:
+        active:     "True"
+        some_value: "Aardvark"
+
+  TranscendAWS:
+    siteid:      "TRNAWS01"  # this is the actual SiteID for Transcend Prod (on-prem)
+    active:      "True"
+    manual_run:  "False"
+    host:        "tdprd.td.teradata.com"
+    username:    "{td_quicklook}"
+    password:    "{td_password}"
+    logmech:     "ldap"
+    driver:      "sqlalchemy" # valid values: "sqlalchemy", "teradataml", or an odbc driver name
+    encryption:  "false"
+    use:         "test"   # prod/qa/dr/dev/etc
+    some_value:  "Bear"
+    dbsversion:  "16.20"
+    collection:  "pdcr"
+    filesets:
+      demo:
+        active:     "True"
+        some_value: "Aardvark"
+
+
+  Axeda_SystemABC:
+    siteid:      "Enter_Site_ID_Here"  # Enter
+    active:      "True"
+    manual_run:  "False"
+    host:        "127.0.0.10"
+    username:    "{custsys_username}"
+    password:    "{custsys_password}"
+    logmech:     "ldap"
+    driver:      "sqlalchemy" # valid values: "sqlalchemy", "teradataml", or an odbc driver name
+    encryption:  "false"
+    use:         "test"   # prod/qa/dr/dev/etc
+    some_value:  "Bear"
+    dbsversion:  "16.20"
+    collection:  "pdcr"
+    filesets:
+      demo:
+        active:     "True"
+        some_value: "Aardvark"
+
+
+  # this is intended as a mock-up, to alter for your customer:
+  Customer_System_Example:
+    siteid:      "custabcprod01"
+    active:      "false"
+    manual_run:  "True"
+    host:        "prod.custabc.com"
+    username:    "{custsys_username}"
+    password:    "{custsys_password}"
+    logmech:     ""
+    driver:      "sqlalchemy" # valid values: "sqlalchemy", "teradataml", or an odbc driver name
+    encryption:  "false"
+    use:         "prod"
+    dbsversion:  "16.20"
+    collection:  "dbc"
+    filesets:
+      demo:
+        active: "False"
