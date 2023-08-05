@@ -1,0 +1,110 @@
+[
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 1,
+        "fields": {
+            "name": "Cooperation",
+            "name_en": "Cooperation",
+            "name_fr": "Coopération"
+        }
+    },
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 2,
+        "fields": {
+            "name": "Entrepreneurship",
+            "name_en": "Entrepreneurship",
+            "name_fr": "Entrepreneuriat"
+        }
+    },
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 3,
+        "fields": {
+            "name": "Litterature",
+            "name_en": "Litterature",
+            "name_fr": "Littérature"
+        }
+    },
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 4,
+        "fields": {
+            "name": "Autonomy",
+            "name_en": "Autonomy",
+            "name_fr": "Autonomie"
+        }
+    },
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 5,
+        "fields": {
+            "name": "Financing",
+            "name_en": "Financing",
+            "name_fr": "Financement"
+        }
+    },
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 6,
+        "fields": {
+            "name": "Budgetting",
+            "name_en": "Budgetting",
+            "name_fr": "Gestion budgétaire"
+        }
+    },
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 7,
+        "fields": {
+            "name": "Management",
+            "name_en": "Management",
+            "name_fr": "Management"
+        }
+    },
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 8,
+        "fields": {
+            "name": "Development",
+            "name_en": "Development",
+            "name_fr": "Développement"
+        }
+    },
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 9,
+        "fields": {
+            "name": "Diversification",
+            "name_en": "Diversification",
+            "name_fr": "Diversification"
+        }
+    },
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 10,
+        "fields": {
+            "name": "Product development",
+            "name_en": "Product development",
+            "name_fr": "Développement de produit"
+        }
+    },
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 11,
+        "fields": {
+            "name": "Training",
+            "name_en": "Training",
+            "name_fr": "Formation"
+        }
+    },
+    {
+        "model": "coopstarter_data.learningoutcome",
+        "pk": 12,
+        "fields": {
+            "name": "Economic development",
+            "name_en": "Economic development",
+            "name_fr": "Développement économique"
+        }
+    }
+]
