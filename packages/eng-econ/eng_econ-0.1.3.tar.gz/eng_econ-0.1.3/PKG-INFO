@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: eng-econ
+Version: 0.1.3
+Summary: This package provides some of the basic functions of engineering economics
+Home-page: https://songyu-wang.github.io/engineering-economics-basics/
+License: MIT
+Keywords: engineering,economics,economy,investments
+Author: Songyu-Wang
+Author-email: wangsongyuf@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Office/Business :: Financial
+Project-URL: Repository, https://github.com/Songyu-Wang/engineering-economics-basics
+Description-Content-Type: text/markdown
+
+
+# engineering-economics-basics
+
+## Overview
+
+This package provides some of the basic functions of engineering economics
+
+You can find it at: [https://pypi.org/project/eng-econ/](https://pypi.org/project/eng-econ/)
+
+## Install
+
+```
+pip install eng_econ
+```
+
+## Usage
+
+```
+# Using uniform_gradient_present_worth_factor as an example
+from eng_econ.factors import uniform_gradient_present_worth_factor
+uniform_gradient_present_worth_factor(0.01, 20)
+```
+
+## Documents
+
+See [https://songyu-wang.github.io/engineering-economics-basics/docs/eng_econ/index.html](https://songyu-wang.github.io/engineering-economics-basics/docs/eng_econ/index.html)
+
+## Test Coverage
+
+see [https://songyu-wang.github.io/engineering-economics-basics/htmlcov/index.html](https://songyu-wang.github.io/engineering-economics-basics/htmlcov/index.html)
+
+### Reference
+
+National Council of Examiners for Engineering and Surveying(NCEES). FE Reference Handbook, 9.5 Edition, (ISBN 978-1-932613-67-4).
+
