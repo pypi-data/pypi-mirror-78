@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: pydatafaker
+Version: 0.1.1a0
+Summary: A python package to create fake data with relationships between tables.
+License: MIT
+Author: Sam Edwardes
+Author-email: edwardes.s@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: faker (>=4.1.2,<5.0.0)
+Requires-Dist: pandas (>=1.1.1,<2.0.0)
+Description-Content-Type: text/markdown
+
+# pydatafaker
+A python package to create fake data with relationships between tables.
+
+## Notes for developers
+
+Helpful reminders for PyDataFaker developers
+
+### Create a new release
+
+```bash
+poetry version patch # see https://python-poetry.org/docs/cli/#version
+poetry run pytest
+poetry build
+poetry publish
+```
+
+### Updating the documentation
+
+```bash
+poetry run sphinx-apidoc -f -o docs/source pydatafaker
+cd docs
+poetry run make html
+```
+
