@@ -1,0 +1,17 @@
+requests
+pydantic
+beautifulsoup4
+typer
+
+[dev]
+pipenv
+pytest
+coverage
+flake8
+ipdb
+pre-commit
+black
+
+[docs]
+mkdocs
+mkdocs-material
