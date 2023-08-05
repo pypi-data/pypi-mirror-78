@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: injecta
+Version: 0.8.8
+Summary: Dependency Injection Container Library
+Home-page: https://github.com/pyfony/injecta
+License: MIT
+Author: Jiri Koutny
+Author-email: jiri.koutny@datasentics.com
+Requires-Python: >=3.7.3,<3.8.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: PyYAML (>=5.1.0,<5.2.0)
+Requires-Dist: python-box (>=3.4.0,<3.5.0)
+Requires-Dist: tomlkit (>=0.5.8,<0.6.0)
+Project-URL: Repository, https://github.com/pyfony/injecta
+Description-Content-Type: text/markdown
+
+# Injecta
+
+Dependency Injection (DI) Container written in Python. Main component of the [Pyfony Framework](https://github.com/pyfony/pyfony).
+
+## Installation
+
+```
+$ pip install injecta
+```
+
+## Simple container initialization
+
+(The following steps are covered in the [ContainerInitializerTest](src/injecta/container/ContainerInitializerTest.py))
+
+To start using Injecta, create a simple `config.yaml` file to define your DI services:
+
+```yaml
+parameters:
+  api:
+    endpoint: 'https://api.mycompany.com'
+
+services:
+    mycompany.api.ApiClient:
+      arguments:
+        - '@mycompany.api.Authenticator'
+
+    mycompany.api.Authenticator:
+      class: mycompany.authenticator.RestAuthenticator
+      arguments:
+        - '%api.endpoint%'
+        - '%env(API_TOKEN)%'
+```
+
+Then, initialize the container:
+
+```python
+from injecta.container.ContainerBuilder import ContainerBuilder
+from injecta.config.YamlConfigReader import YamlConfigReader
+from injecta.container.ContainerInitializer import ContainerInitializer
+
+config = YamlConfigReader().read('/path/to/config.yaml')
+
+containerBuild = ContainerBuilder().build(config)
+
+container = ContainerInitializer().init(containerBuild)
+```
+
+Use `container.get()` to finally retrieve your service:
+
+```python
+from mycompany.api.ApiClient import ApiClient
+
+apiClient = container.get('mycompany.api.ApiClient') # type: ApiClient   
+apiClient.get('/foo/bar')
+```
+
+## Advanced examples
+
+1. [Configuring services using parameters](docs/parameters.md)
+1. [Service autowiring](docs/autowiring.md)
+1. [Using service factories](docs/factories.md)
+1. [Tagged services](docs/tagging.md)
+
