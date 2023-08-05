@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+sqlanalyzer/__init__.py
+sqlanalyzer/column_parser.py
+sqlanalyzer/query_analyzer.py
+sqlanalyzer/unbundle.py
+sqlanalyzer.egg-info/PKG-INFO
+sqlanalyzer.egg-info/SOURCES.txt
+sqlanalyzer.egg-info/dependency_links.txt
+sqlanalyzer.egg-info/not-zip-safe
+sqlanalyzer.egg-info/requires.txt
+sqlanalyzer.egg-info/top_level.txt
