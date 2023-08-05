@@ -1,0 +1,23 @@
+{% extends "detail.html" %}
+{% load boolicontag %}
+
+{% block content %}
+<table class="table table-hover">
+  <tr>
+    <td>Process name</td>
+    <td>{{ object.name }}</td>
+  </tr>
+  {% if object.colour is not None %}
+  <tr>
+    <td>Colour</td>
+    <td>{{ object.colour|boolicontag }}</td>
+  </tr>
+  {% endif %}
+  {% if object.positive is not None %}
+  <tr>
+    <td>Positive</td>
+    <td>{{ object.positive|boolicontag }}</td>
+  </tr>
+  {% endif %}
+</table>
+{% endblock %}
