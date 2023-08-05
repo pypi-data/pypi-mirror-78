@@ -1,0 +1,12 @@
+--- sumo
++++ sumo
+@@ -2820,7 +2835,8 @@
+     if args.BUILDTAG:
+         tags= [args.BUILDTAG]
+     else:
+-        tags= sort_buildtags(builddb.iter_builds(), builddb, options)
++        tags= sorted(filter_buildtags(builddb.iter_builds(),
++                                      builddb, options))
+     # pylint: enable= no-member
+     l= 0
+     for tag in tags:
