@@ -1,0 +1,5 @@
+
+      [console_scripts]
+      qrun=qrun.scripts:qrun
+      qrun-util=qrun.scripts:qrun_util
+    
