@@ -1,0 +1,9 @@
+
+      [console_scripts]
+      synscanGoto=synscan.scripts.cli:goto
+      synscanTrack=synscan.scripts.cli:track
+      synscanStop=synscan.scripts.cli:stop
+      synscanWatch=synscan.scripts.cli:watch
+      synscanSync=synscan.scripts.cli:syncronize
+      synscanSwitch=synscan.scripts.cli:switch
+      
