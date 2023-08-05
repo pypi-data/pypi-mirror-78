@@ -1,0 +1,17 @@
+README.rst
+setup.py
+django_database_pool.egg-info/PKG-INFO
+django_database_pool.egg-info/SOURCES.txt
+django_database_pool.egg-info/dependency_links.txt
+django_database_pool.egg-info/requires.txt
+django_database_pool.egg-info/top_level.txt
+djdbpool/__init__.py
+djdbpool/db/__init__.py
+djdbpool/db/pool.py
+djdbpool/db/backends/__init__.py
+djdbpool/db/backends/mysql/__init__.py
+djdbpool/db/backends/mysql/base.py
+djdbpool/db/backends/postgresql/__init__.py
+djdbpool/db/backends/postgresql/base.py
+djdbpool/db/backends/postgresql_psycopg2/__init__.py
+djdbpool/db/backends/postgresql_psycopg2/base.py
