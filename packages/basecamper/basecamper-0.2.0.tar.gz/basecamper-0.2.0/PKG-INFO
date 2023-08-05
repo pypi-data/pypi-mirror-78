@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: basecamper
+Version: 0.2.0
+Summary: Training utility library and config manager for Granular Machine Vision research
+Home-page: https://github.com/granularai/basecamper
+License: MIT
+Author: Sagar Verma
+Author-email: sagar@granular.ai
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: MedPy (==0.4.0)
+Requires-Dist: numpy (==1.18.1)
+Requires-Dist: polyaxon (==1.1.7post4)
+Requires-Dist: sphinx_rtd_theme (>=0.4.3,<0.5.0)
+Requires-Dist: torch (==1.6.0)
+Project-URL: Repository, https://github.com/granularai/basecamper
+Description-Content-Type: text/x-rst
+
+===================
+Granular Basecamper
+===================
+
+
+Utility package for satellite machine learning training
+
+
+* Free software: MIT license
+* Documentation: docs.granular.ai/basecamper.
+
+
+Features
+--------
+
+* Polyaxon auto-param capture
+* Configuration enforcement and management for translation into Dione environment
+* Precomposed loss functions and metrics
+
+
+TODO
+----
+
+* Shift build logic from cloudbuild to github actions
+
+
+Build Details
+-------------
+
+* packages are managed using poetry
+* packages poetry maintains pyproject.toml
+* PRs and commits to `develop` branch trigger a google cloudbuild (image: cloudbuild.yaml, docs: cloudbuild_docs.yaml)
+* Dockerfile builds image by exporting poetry dependencies as tmp_requirements.txt and installing them
+
