@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: pyKamibot
+Version: 0.10
+Summary: A Python Library For Kamibot
+Home-page: https://github.com/devdio/pyKamibot.git
+Author: devdio
+Author-email: kei.devdio@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/devdio/pyKamibot.git
+Keywords: Kamibot,Robot
+Platform: UNKNOWN
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: pyserial
+
+## pyKamibot
+
+### example
+
+```
+from kamibot4py.kamibot import Kamibot
+
+# ---------------------------------------------------
+# RGB LED
+# ---------------------------------------------------
+kamibot = Kamibot('COM23', 57600)
+kamibot.turn_led(200, 0, 0)
+kamibot.delay(1)
+kamibot.turn_led(0, 200, 0)
+kamibot.delay(1)
+kamibot.turn_led(0, 0, 200)
+kamibot.delay(1)
+
+for i in range(0, 100):
+    kamibot.turn_led(200, 0, 0)
+    kamibot.delay(1)
+    kamibot.turn_led(0, 200, 0)
+    kamibot.delay(1)
+```
+
+
