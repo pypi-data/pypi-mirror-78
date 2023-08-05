@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+django_db_readonly.egg-info/PKG-INFO
+django_db_readonly.egg-info/SOURCES.txt
+django_db_readonly.egg-info/dependency_links.txt
+django_db_readonly.egg-info/requires.txt
+django_db_readonly.egg-info/top_level.txt
+readonly/__init__.py
+readonly/context_processors.py
+readonly/cursor.py
+readonly/exceptions.py
+readonly/middleware.py

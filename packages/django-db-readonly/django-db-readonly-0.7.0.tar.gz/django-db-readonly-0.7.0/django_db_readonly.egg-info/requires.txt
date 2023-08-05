@@ -1,0 +1,6 @@
+Django>=1.9
+
+[test]
+pytest
+pytest-django
+flake8
