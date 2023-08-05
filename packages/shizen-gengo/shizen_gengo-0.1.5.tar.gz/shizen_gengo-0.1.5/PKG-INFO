@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: shizen_gengo
+Version: 0.1.5
+Summary: Python Library for common NLP Tasks
+Home-page: https://github.com/raoulbia/shizen_gengo.git
+Author: raoul biagioni
+Author-email: raoulbia.research@gmail.com
+License: 	gpl-3.0
+Project-URL: Documentation, https://shizen-gengo.readthedocs.io/en/latest/
+Description: Shizen Gengo
+        ==============================
+        
+        ### A Python library for common NLP tasks.
+        
+        The library is designed to work on Pandas dataframe columns that contain 
+        natural language text.
+        
+Keywords: nlp,pandas,dataframe
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Provides-Extra: tests
+Provides-Extra: docs
