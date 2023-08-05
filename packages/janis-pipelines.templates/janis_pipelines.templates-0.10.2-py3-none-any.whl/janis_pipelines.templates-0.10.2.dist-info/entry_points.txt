@@ -1,0 +1,9 @@
+[janis.extension]
+templates = janis_templates
+
+[janis.templates]
+pawsey = janis_templates.pawsey:PawseyTemplate
+pmac = janis_templates.petermac:PeterMacTemplate
+spartan = janis_templates.spartan:SpartanTemplate
+wehi = janis_templates.wehi:WEHITemplate
+
