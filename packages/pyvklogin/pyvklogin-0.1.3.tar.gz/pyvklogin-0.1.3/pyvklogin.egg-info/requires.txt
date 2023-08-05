@@ -1,0 +1,11 @@
+pyvk
+
+[dev]
+check-manifest
+
+[gui]
+PyQt5
+PyQtWebEngine
+
+[test]
+coverage
