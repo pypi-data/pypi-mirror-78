@@ -1,0 +1,6 @@
+#!python
+# encoding: utf-8
+
+from dcli import cli
+
+cli.main()
