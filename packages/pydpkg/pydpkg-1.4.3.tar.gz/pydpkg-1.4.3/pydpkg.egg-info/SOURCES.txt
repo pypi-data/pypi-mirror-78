@@ -1,0 +1,12 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+pydpkg/__init__.py
+pydpkg.egg-info/PKG-INFO
+pydpkg.egg-info/SOURCES.txt
+pydpkg.egg-info/dependency_links.txt
+pydpkg.egg-info/requires.txt
+pydpkg.egg-info/top_level.txt
+scripts/dpkg-inspect.py
