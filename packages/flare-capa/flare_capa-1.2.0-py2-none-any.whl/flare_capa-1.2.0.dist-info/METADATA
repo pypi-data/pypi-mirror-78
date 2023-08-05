@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: flare-capa
+Version: 1.2.0
+Summary: The FLARE team's open-source tool to identify capabilities in executable files.
+Home-page: https://www.github.com/fireeye/capa
+Author: Willi Ballenthin, Moritz Raabe
+Author-email: william.ballenthin@mandiant.com, moritz.raabe@mandiant.com
+License: UNKNOWN
+Keywords: capa
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: six
+Requires-Dist: tqdm
+Requires-Dist: pyyaml
+Requires-Dist: tabulate
+Requires-Dist: colorama
+Requires-Dist: termcolor
+Requires-Dist: ruamel.yaml
+Requires-Dist: wcwidth
+Requires-Dist: halo (==0.0.30)
+Requires-Dist: enum34 (==1.1.6)
+Requires-Dist: vivisect (==0.1.0rc3)
+Requires-Dist: viv-utils
+Requires-Dist: networkx (==2.2)
+Requires-Dist: backports.functools-lru-cache
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-sugar ; extra == 'dev'
+Requires-Dist: pytest-instafail ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pycodestyle ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: black ; (python_version > "3.0") and extra == 'dev'
+
+UNKNOWN
+
+
