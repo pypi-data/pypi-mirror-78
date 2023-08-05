@@ -1,0 +1,190 @@
+[metadata]
+description-file = "README.md"
+
+[build-system]
+requires = ["poetry>=1.0", "coverage[toml]"]
+build-backend = "poetry.masonry.api"
+
+
+#########################################################################################
+# Poetry metadata
+#########################################################################################
+
+[tool.poetry]
+name = "${pkg}"
+version = "0.1.0"
+# TODO Set the description and keywrods here
+description = "${description}"
+keywords = ${keywords}
+authors = ${authors}
+maintainers = ${authors}
+# TODO must be an identifier listed in https://spdx.org/licenses/
+license = "${license.official}"
+readme = "README.md"
+homepage = "https://github.com/${user}/${project}"
+repository = "https://github.com/${user}/${project}"
+documentation = "https://${project}.readthedocs.io"
+# TODO Add topics here
+# Note: Poetry adds the license to the classifiers automatically
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+	"Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+include = [
+    "README.md",
+    "LICENSE.txt",
+    "CHANGELOG.md"
+]
+
+[tool.poetry.urls]
+CI = "https://github.com/${user}/${project}/actions"
+Issues = "https://github.com/${user}/${project}/issues"
+Download = "https://pypi.org/project/${pkg}/"
+
+
+#########################################################################################
+# Poetry build & dependencies
+#########################################################################################
+
+[tool.poetry.scripts]
+# TODO Is your code a script?
+tyrannosaurus = "${pkg}.cli:cli"
+
+[tool.poetry.dependencies]
+# TODO Add and remove dependencies here
+python                   = ">=3.8, <4"
+typer                    = ">=0.3, <1.0"
+requests                 = "^2"
+
+[tool.poetry.dev-dependencies]
+# TODO Remove build dependencies you don't want (like xdoctest, perhaps)
+pre-commit               = "^2"
+pytest                   = "^6"
+coverage                 = {extras = ["toml"], version = "^5"}
+pytest-cov               = "^2"
+sphinx                   = "^3"
+sphinx-autoapi           = "^1"
+sphinx-rtd-theme         = ">=0.5, <1.0"
+mypy                     = ">=0.700, <1.0"
+flake8                   = "^3"
+flake8-docstrings        = "^1"
+black                    = "=19.10b0"
+isort                    = "^5"
+sphinx-autodoc-typehints = "^1"
+xdoctest                 = "^0.12, <1.0"
+hypothesis               = "^5"
+flake8-bandit            = "^2"
+flake8-bugbear           = "^20"
+tomlkit                  = ">=0.5, <1.0"
+tyrannosaurus            = ">=0.7, <1.0"
+
+[tool.poetry.extras]
+# auto-filled from dev-deps
+dev     = [
+        "tyrannosaurus",
+        "pre-commit", "pytest", "coverage", "xdoctest", "hypothesis",
+        "sphinx", "sphinx-autodoc-typehints", "sphinx-autoapi",
+        "mypy",
+        "flake8", "flake8-docstrings",
+        "black", "isort",
+        "flake8-bandit", "flake8-bugbear"
+]
+
+
+#########################################################################################
+# Tyrannosaurus
+#########################################################################################
+
+[tool.tyrannosaurus.options]
+align    = true
+
+[tool.tyrannosaurus.sources]
+# use a literal value ('') or refer to a pyproject setting
+# ${today} is the date you run it at, and ${now} is the datetime
+status             = "'Development'"
+date               = "'${today}'"
+copyright          = "'Copyright ${today.year}'"
+version            = "tool.poetry.version"
+release            = "tool.poetry.version"
+pyversions         = "tool.poetry.dependencies"
+devdeps            = "tool.poetry.dev-dependencies"
+linelength         = "tool.black.line-length"
+# TODO Fill in authors, contributors, and maintainers
+# Can be literal lists or pyproject setting references
+# Use this syntax: "Douglas Myers-Turnbull <github:dmyersturnbull,orcid:0000-0003-3610-4808>"
+# You should include Github usernames and Orcid IDs if they're available
+# But they're not required
+authors = [
+    "<<Author Name>> <github:<<username>>,orcid:<<id>>>"
+]
+contributors = [
+
+]
+maintainers = "tool.tyrannosaurus.sources.authors"
+
+[tool.tyrannosuarus.paths]
+recipe             = "'recipes/${project}/meta.yaml'"
+environment        = "'environment.yml'"
+
+[tool.tyrannosaurus.targets]
+# these are file and directory names, without filename extensions
+# they will only be synced if they exist; never created
+# to get a recipe and anaconda env, run 'tyrannosaurus recipe' and 'tyrannosaurus env'
+pyproject    = true
+init         = true
+tox          = true
+docs         = true
+recipes      = true
+license      = true
+authors      = true
+github       = true
+travis       = true
+dockerfile   = true
+readme       = true
+changelog    = true
+citation     = true
+codemeta     = true
+environment  = false
+
+
+#########################################################################################
+# Style checking
+#########################################################################################
+
+[tool.coverage.paths]
+source = ["${pkg}"]
+
+[tool.coverage.run]
+source = ["${pkg}"]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.black]
+line-length = 100
+target-version = ["py38"]
+
+[tool.isort]
+line_length = 100
+
+[mypy]
+check_untyped_defs = true
+strict_optional = true
+
+[pycodestyle]
+max-line-length = 100
+statistics = true
+
+[pydocstyle]
+# 212 and 213 contradict; 203 and 204 contradict; D302 is not relevant in Py3
+# D107 isn't needed sometimes
+# and the rest are just too picky
+ignore = ["D107", "D200", "D203", "D205", "D212", "D302", "D400", "D403", "D409", "D411"]
