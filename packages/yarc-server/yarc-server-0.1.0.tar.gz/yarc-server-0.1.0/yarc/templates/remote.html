@@ -1,0 +1,198 @@
+<head>
+    <title>yarc | Yet Another Remote Control</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="theme-color" content="#222">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='{{ url_for("static",filename="styles/remote.css") }}'>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+<div class="settings-bar">
+    <i class="fa fa-cog"></i>
+</div>
+<div class='container'>
+    <div class='remote-container'>
+        <header>
+            <div id="brightness-low"></div>
+            <div id="brightness-high"></div>
+        </header>
+        <main>
+            <div class='player'>
+                <i class='fa fa-volume-up' buttonid='volumeup'></i>
+                <i class='fa fa-fast-backward' buttonid='left'></i>
+                <i class='fa fa-play' buttonid='playpause'></i>
+                <i class='fa fa-fast-forward' buttonid='right'></i>
+                <i class='fa fa-volume-down' buttonid='volumedown'></i>
+            </div>
+        </main>
+        <footer>
+            <div id="mute"></div>
+            <div id="fullscreen"></div>
+        </footer>
+    </div>
+    <div class='remote-container'>
+        <header></header>
+        <main>
+            <div class='keyboard'>
+                <div class='view' style='display:block'>
+                    <div class='keyboard-row'>
+                        <span class='key tab' buttonid='tab'>tab</span>
+                        <span class='key' buttonid='q'>Q</span>
+                        <span class='key' buttonid='w'>W</span>
+                        <span class='key' buttonid='e'>E</span>
+                        <span class='key' buttonid='r'>R</span>
+                        <span class='key' buttonid='t'>T</span>
+                        <span class='key' buttonid='y'>Y</span>
+                        <span class='key' buttonid='u'>U</span>
+                        <span class='key' buttonid='i'>I</span>
+                        <span class='key' buttonid='o'>O</span>
+                        <span class='key' buttonid='p'>P</span>
+                        <span class='key backspace' buttonid='backspace'>
+                            <img src='{{ url_for("static",filename="resources/backspace.svg") }}'/>
+                        </span>
+                    </div>
+                    <div class='keyboard-row'>
+                        <span class='key caps' buttonid='capslock'>caps</span>
+                        <span class='key' buttonid='a'>A</span>
+                        <span class='key' buttonid='s'>S</span>
+                        <span class='key' buttonid='d'>D</span>
+                        <span class='key' buttonid='f'>F</span>
+                        <span class='key' buttonid='g'>G</span>
+                        <span class='key' buttonid='h'>H</span>
+                        <span class='key' buttonid='j'>J</span>
+                        <span class='key' buttonid='k'>K</span>
+                        <span class='key' buttonid='l'>L</span>
+                        <span class='key' buttonid=','>,</span>
+                        <span class='key' buttonid='up'>
+                            <i class='fa fa-arrow-up'></i>
+                        </span>
+                        <span class='key' buttonid='@'>@</span>
+
+                    </div>
+                    <div class='keyboard-row'>
+                        <span class='key shift' buttonid='shiftleft'>shift</span>
+                        <span class='key' buttonid='z'>Z</span>
+                        <span class='key' buttonid='x'>X</span>
+                        <span class='key' buttonid='c'>C</span>
+                        <span class='key' buttonid='v'>V</span>
+                        <span class='key' buttonid='b'>B</span>
+                        <span class='key' buttonid='n'>N</span>
+                        <span class='key' buttonid='m'>M</span>
+                        <span class='key' buttonid='.'>.</span>
+                        <span class='key' buttonid='/'>/</span>
+                        <span class='key' buttonid='left'>
+                            <i class='fa fa-arrow-left'></i>
+                        </span>
+                        <span class='key' buttonid='down'>
+                            <i class='fa fa-arrow-down'></i>
+                        </span>
+                        <span class='key' buttonid='right'>
+                            <i class='fa fa-arrow-right'></i>
+                        </span>
+                    </div>
+                    <div class='keyboard-row'>
+                        <span class='key toggle'>?123</span>
+                        <span class='key cmd' buttonid='winleft'>
+                            <i class="fa fa-windows"></i>
+                        </span>
+                        <span class='key spacebar' buttonid='space'>&nbsp;</span>
+                        <span class='key enter' buttonid='enter'>
+                            <i class="fa fa-level-down fa-rotate-90"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class='view' style='display:none'>
+                    <div class='keyboard-row'>
+                        <span class='key' buttonid='`'>`</span>
+                        <span class='key' buttonid='0'>0</span>
+                        <span class='key' buttonid='1'>1</span>
+                        <span class='key' buttonid='2'>2</span>
+                        <span class='key' buttonid='3'>3</span>
+                        <span class='key' buttonid='4'>4</span>
+                        <span class='key' buttonid='5'>5</span>
+                        <span class='key' buttonid='6'>6</span>
+                        <span class='key' buttonid='7'>7</span>
+                        <span class='key' buttonid='8'>8</span>
+                        <span class='key' buttonid='9'>9</span>
+                        <span class='key backspace' buttonid='backspace'>
+                            <img src='{{ url_for("static",filename="resources/backspace.svg") }}'/>
+                        </span>
+                    </div>
+                    <div class='keyboard-row'>
+                        <span class='key' buttonid='~'>~</span>
+                        <span class='key' buttonid='!'>!</span>
+                        <span class='key' buttonid='#'>#</span>
+                        <span class='key' buttonid='$'>$</span>
+                        <span class='key' buttonid='%'>%</span>
+                        <span class='key' buttonid='^'>^</span>
+                        <span class='key' buttonid='&'>&</span>
+                        <span class='key' buttonid='*'>*</span>
+                        <span class='key' buttonid='('>(</span>
+                        <span class='key' buttonid=')'>)</span>
+                        <span class='key' buttonid="_">_</span>
+                        <span class='key' buttonid='='>=</span>
+                        <span class='key' buttonid="'">'</span>
+                        <span class='key' buttonid='.'>.</span>
+                    </div>
+                    <div class='keyboard-row'>
+                        <span class='key' buttonid='+'>+</span>
+                        <span class='key' buttonid='{'>{</span>
+                        <span class='key' buttonid='}'>}</span>
+                        <span class='key' buttonid=':'>:</span>
+                        <span class='key' buttonid='"'>"</span>
+                        <span class='key' buttonid='|'>|</span>
+                        <span class='key' buttonid='<'>&lt;</span>
+                        <span class='key' buttonid='>'>&gt;</span>
+                        <span class='key' buttonid='?'>?</span>
+                        <span class='key' buttonid='-'>-</span>
+                        <span class='key' buttonid=';'>;</span>
+                        <span class='key' buttonid='['>[</span>
+                        <span class='key' buttonid=']'>]</span>
+                        <span class='key' buttonid='\\'>\</span>
+                    </div>
+                    <div class='keyboard-row'>
+                        <span class='key toggle'>Abc</span>
+                        <span class='key cmd' buttonid='winleft'>
+                            <i class="fa fa-windows"></i>
+                        </span>
+                        <span class='key spacebar' buttonid='space'>&nbsp;</span>
+                        <span class='key enter' buttonid='enter'>
+                            <i class="fa fa-level-down fa-rotate-90"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer></footer>
+    </div>
+    <div class='remote-container'>
+        <header></header>
+        <main>
+            <div class='mouse'>
+                <div class='surface'>
+                    <div class='touchpad'></div>
+                    <div class='mouse-btn left-mouse-btn'></div>
+                    <div class='mouse-btn right-mouse-btn'></div>
+                    <div class='scroll'></div>
+                </div>
+            </div>
+        </main>
+        <footer></footer>
+    </div>
+</div>
+
+<div class='switch-remote'>
+    <div class='left-remote' onclick='switchRemote(-1)'>
+        <i class='fa fa-angle-double-left'></i>
+    </div>
+    <div class='right-remote' onclick='switchRemote(1)'>
+        <i class='fa fa-angle-double-right'></i>
+    </div>
+</div>
+
+<script src='{{ url_for("static",filename="scripts/remote.js") }}'></script>
+
+</body>

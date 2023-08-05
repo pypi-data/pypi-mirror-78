@@ -1,0 +1,374 @@
+body {
+    background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#111));
+    background: linear-gradient(180deg, #333, #111);
+    color: #000;
+}
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    max-width: 970px;
+}
+header {
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.8rem;
+    padding: 1rem 1rem;
+    clear: both;
+    box-sizing: border-box;
+}
+main {
+    clear: both;
+    box-sizing: border-box;
+}
+main .player {
+    position: relative;
+    width: 176px;
+    height: 176px;
+    background: -webkit-gradient(linear, left bottom, left top, from(#222), to(#111));
+    /* background: linear-gradient(0deg, #222, #111); */
+    background: linear-gradient(0deg, #eee, #ddd);
+    border-radius: 100%;
+    border: solid 2px #000;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 4px 2px rgba(0, 0, 0, 0.2);
+    margin-left: auto;
+    margin-right: auto;
+}
+main .player .fa {
+    font-size: 1.2rem;
+    position: absolute;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+main .player .fa:active {
+    color: cyan;
+    text-shadow: 0 0 4px cyan;
+}
+main .player .fa.fa-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 88px;
+    height: 88px;
+    border: solid 2px #000;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 0 8px rgba(0, 0, 0, 0.6);
+    border-radius: 100%;
+    line-height: 88px;
+    text-align: center;
+    background: -webkit-gradient(linear, left bottom, left top, from(#111), to(#222));
+    /* background: linear-gradient(0deg, #111, #222); */
+    background: linear-gradient(0deg, #ddd, #eee);
+}
+main .player .fa.fa-volume-up {
+    top: 8%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+main .player .fa.fa-fast-backward {
+    top: 50%;
+    left: 8%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+main .player .fa.fa-fast-forward {
+    top: 50%;
+    left: 82%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+main .player .fa.fa-volume-down {
+    top: 82%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+footer {
+    clear: both;
+    padding: 1rem 1rem;
+    color: #999;
+    text-shadow: 2px 2px #111;
+    box-sizing: border-box;
+}
+
+main .keyboard {
+    position: relative;
+    background: -webkit-gradient(linear, left bottom, left top, from(#ddd), to(#eee));
+    background: linear-gradient(0deg, #eee, #ddd);
+    padding: 25px;
+    max-width: 970px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.mouse .surface {
+    background: -webkit-gradient(linear, left bottom, left top, from(#ddd), to(#eee));
+    background: linear-gradient(0deg, #ddd, #eee);
+    width: 300px;
+    min-width: 300px;
+    margin: auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 200px;
+    position: relative;
+}
+.mouse .mouse-btn {
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 5px;
+    background: #eee;
+    cursor: pointer;
+    height: 20px;
+    width: 140px;
+    transition: border-bottom 0.5s linear;
+    box-shadow: 0px 2px 0px 1px #AAA;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    flex: auto;
+    background: linear-gradient(0deg, #ddd, #eee);
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+}
+.mouse-btn:active {
+    box-shadow: 0px 0px 1px 0px rgb(138, 138, 138);
+    transform: translateY(2px);
+}
+.mouse-btn.left-mouse-btn {
+    left: 5px;
+    border-bottom-left-radius: 15px;
+}
+.mouse-btn.right-mouse-btn {
+    right: 5px;
+    border-bottom-right-radius: 15px;
+}
+.scroll {
+    display: inline-block;
+    height: 145px;
+    width: 20px;
+    background: linear-gradient(#666, #666) no-repeat center/1px 100%;
+    right: 0px;
+    position: absolute;
+    top: 10px;
+    z-index: 10;
+}
+.touchpad {
+    height: 150px;
+    width: 270px;
+    display: inline-block;
+}
+
+.settings-bar {
+    display: none;
+}
+
+.keyboard-row {
+    text-align: center;
+    display: flex;
+}
+.key {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+    background: #eee;
+    cursor: pointer;
+    height: 20px;
+    width: 5%;
+    transition: border-bottom 0.5s linear;
+    box-shadow: 0px 2px 0px 1px #AAA;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    flex: auto;
+    background: linear-gradient(0deg, #ddd, #eee);
+}
+.key:active {
+    box-shadow: 0px 0px 1px 0px rgb(138, 138, 138);
+    transform: translateY(2px);
+}
+.key.tab {
+    width: 8%;
+}
+.key.caps {
+    width: 10%;
+}
+.key.shift {
+    width: 12%;
+}
+.key.toggle{
+    width: 4%;
+}
+.key.cmd{
+    width: 4%;
+}
+.key.spacebar {
+    width: 50%;
+}
+.key.enter {
+    width: 15%;
+}
+.key.backspace {
+    width: 10%;
+}
+.backspace > img {
+    width: 20px;
+    height: 20px;
+}
+
+
+.switch-remote {
+    height: 100%;
+    font-size: 30px;
+    position: relative;
+    display: flex;
+}
+
+
+@media screen and (orientation:portrait)
+{
+    /*
+    In portrait mode, the keyboard keys are made similar to how they are in mobile keyboard.
+    This saves up lot of space to make keys more visible.
+    */
+    .key {
+        border: 1px solid #b5b5b5;
+        border-radius: 0px;
+        padding: 2px;
+        background: #eee;
+        cursor: pointer;
+        height: 5%;
+        width: 5%;
+        min-width: 15px;
+        transition: border-bottom 0.5s linear;
+        font-size: 14px;
+        min-height: 16px;
+    }
+    .keyboard-row {
+        font-size: 0;
+    }
+    .switch-remote {
+        font-size: 20px;
+    }
+    main .keyboard {
+        padding: 15px;
+    }
+    .key.tab, .key.caps, .key.shift, .key.toggle {
+        font-size: 12px;
+    }
+    .backspace > img {
+        height: 5%;
+        min-height: 16px;
+    }
+    .settings-bar {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        color: white;
+    }
+}
+
+.left-remote {
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    position: absolute;
+    left: -8;
+    top: -8;
+    bottom: -8;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.right-remote {
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    position: absolute;
+    right: -8;
+    top: -8;
+    bottom: -8;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.left-remote:active {
+    color: cyan;
+    text-shadow: 0 0 4px cyan;
+}
+.right-remote:active {
+    color: cyan;
+    text-shadow: 0 0 4px cyan;
+}
+#brightness-low {
+    mask: url("../resources/brightness.svg");
+    -webkit-mask: url("../resources/brightness.svg");
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    left: 20px;
+    position: absolute;
+    cursor: pointer;
+}
+#brightness-high {
+    mask: url("../resources/brightness.svg");
+    -webkit-mask: url("../resources/brightness.svg");
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    right: 20px;
+    position: absolute;
+    cursor: pointer;
+}
+#mute {
+    mask: url("../resources/mute.svg");
+    -webkit-mask: url("../resources/mute.svg");
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    left: 20px;
+    position: absolute;
+    cursor: pointer;
+}
+#fullscreen {
+    mask: url("../resources/fullscreen.svg");
+    -webkit-mask: url("../resources/fullscreen.svg");
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    right: 20px;
+    position: absolute;
+    cursor: pointer;
+}
+
+
+
+* {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+    font-family: 'Roboto', sans-serif;
+}
