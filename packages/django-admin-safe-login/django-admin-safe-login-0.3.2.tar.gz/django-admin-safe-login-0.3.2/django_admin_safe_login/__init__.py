@@ -1,0 +1,1 @@
+default_app_config = "django_admin_safe_login.apps.DjangoAdminSafeLoginConfig"
