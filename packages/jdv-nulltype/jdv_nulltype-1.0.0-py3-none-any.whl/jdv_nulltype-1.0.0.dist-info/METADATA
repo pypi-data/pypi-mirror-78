@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: jdv-nulltype
+Version: 1.0.0
+Summary: Just a singleton Null object (i.e. `Null is not None`)
+Author: Justin Vrana
+Author-email: justin.vrana@gmail.com
+Requires-Python: >=3.5,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: keats (>=0.2.28,<0.3.0)
