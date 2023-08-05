@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: n0translate
+Version: 0.2.0
+Summary: Easy transliteration for Python3: dst_str = src_str.translate(n0translate.translit_dict)
+Home-page: https://github.com/pythonist552/n0translate/
+Author: pythonist552
+Author-email: pythonist552@gmail.com
+License: ASL
+Platform: any
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+n0translate.translit_dict is a dictionary for Python3 str.translate(dict) allows to translit cyrillic/french/spanish and other latin like languages from UTF-8 into ASCII-7 encoding
+
+
