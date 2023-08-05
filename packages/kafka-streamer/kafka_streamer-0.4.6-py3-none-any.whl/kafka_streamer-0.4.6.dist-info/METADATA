@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: kafka-streamer
+Version: 0.4.6
+Summary: 
+Home-page: https://github.com/sam-mosleh/kafka-streamer
+License: BSD-3-Clause
+Keywords: Apache Kafka,Stream processing
+Author: Sam Mosleh
+Author-email: sam.mosleh@ut.ac.ir
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: avro-schema (>=0.3.1,<0.4.0)
+Requires-Dist: confluent_avro (>=1.7.0,<2.0.0)
+Requires-Dist: confluent_kafka (>=1.4.1,<2.0.0)
+Requires-Dist: fastavro (>=0.23.3,<0.24.0)
+Description-Content-Type: text/markdown
+
+# kafka-streamer
+Apache Kafka python client for streaming data
+
