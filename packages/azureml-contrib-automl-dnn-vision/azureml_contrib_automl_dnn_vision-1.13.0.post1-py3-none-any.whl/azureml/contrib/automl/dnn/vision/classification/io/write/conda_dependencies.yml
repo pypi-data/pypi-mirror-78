@@ -1,0 +1,6 @@
+name: vision-classification-scoring
+dependencies:
+  - python==3.6
+  - pip
+  - pip:
+      - https://visionpips.blob.core.windows.net/bleeding/azureml_contrib_automl_dnn_vision-0.1.0.0-py3-none-any.whl
