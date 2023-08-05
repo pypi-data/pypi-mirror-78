@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: simframe
+Version: 0.4.5
+Summary: Framework for scientific simulations
+Home-page: https://github.com/stammler/simframe
+Author: Sebastian Stammler, Til Birnstiel
+Author-email: stammler@usm.lmu.de, til.birnstiel@lmu.de
+Maintainer: Sebastian Stammler
+License: GPLv3
+Project-URL: Source Code, https://github.com/stammler/simframe/
+Project-URL: Documentation, https://simframe.readthedocs.io/
+Description: # simframe
+        
+        Framework for scientific simulations
+        
+        `simframe` is a framework to flexibly build scientific simulations.  
+        It comes with a variety of integration schemes and some infrastrcuture for writing and reading data files.
+        
+        ## Installation
+        
+        `pip install simframe`
+        
+        ## Documentation
+        
+        [https://simframe.readthedocs.io/](https://simframe.readthedocs.io/)
+        
+        1. [Simple Integration](https://simframe.readthedocs.io/en/latest/1_simple_integration.html)
+        2. [Advanced Integration](https://simframe.readthedocs.io/en/latest/2_advanced_integration.html)
+        3. [Updating Groups and Fields](https://simframe.readthedocs.io/en/latest/3_updating.html)
+        4. [Custom Integration Schemes](https://simframe.readthedocs.io/en/latest/4_custom_schemes.html)
+        5. [Adaptive Integration Schemes](https://simframe.readthedocs.io/en/latest/5_adaptive_schemes.html)
+        6. [Implicit Integration](https://simframe.readthedocs.io/en/latest/6_implicit_integration.html)
+        7. [Coupled Oscillators](https://simframe.readthedocs.io/en/latest/7_coupled_oscillators.html)
+        
+        [Module Reference](https://simframe.readthedocs.io/en/latest/api.html)
+        
+        ## Ackowledgements
+        
+        `simframe` has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation programme under grant agreement No 714769.
+        
+        
+Keywords: numerical,simulation,integration,science,mathematics,physics
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
+Description-Content-Type: text/markdown
