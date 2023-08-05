@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: elsie
+Version: 2.0
+Summary: Framework for making slides
+Home-page: http://github.com/spirali/elsie
+Author: Stanislav Bohm
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: lxml
+Requires-Dist: pillow
+Requires-Dist: pygments
+Requires-Dist: pypdf2
+
+
+Elsie is a Framework for making slides in Python,
+see http://github.com/spirali/elsie for an example.
+
+
