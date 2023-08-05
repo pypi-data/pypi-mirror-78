@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: simplearg
+Version: 0.0.1a0
+Summary: UNKNOWN
+Home-page: https://github.com
+Author: 
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# simplearg
+
+> Simple argument parser support easy multi-level sub commands
+
+# Prerequisition
+* docker: ">= 17.06"
+* docker-compose: ">= 1.26"
+* docker-slim (optional)
+
+# Quick Start
+
+## Test
+```bash
+make test
+```
+## Dist
+```bash
+make dist
+```
+
