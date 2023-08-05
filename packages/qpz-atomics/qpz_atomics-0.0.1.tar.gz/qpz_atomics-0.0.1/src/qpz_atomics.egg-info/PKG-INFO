@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: qpz-atomics
+Version: 0.0.1
+Summary: Quantum Protocol Zoo Atomic Functions Library
+Home-page: https://github.com/quantumprotocolzoo/qpz_atomics
+Author: Harold Ollivier
+Author-email: harold.ollivier@mines.org
+License: mit
+Project-URL: Documentation, https://github.com/quantumprotocolzoo/qpz_atomics/docs
+Description: ===========
+        qpz_atomics
+        ===========
+        
+        
+        This library provides atomic functions implementations and make them available to several quantum simulation backends.
+        
+        
+        Description
+        ===========
+        
+        * Status
+        
+        The library is under active development but in a very ealy stage. 
+        
+        
+        * Design principles
+        
+        -   Backend mappings
+        -   Modularity
+        -   Tests
+        
+        
+        * Usage
+        
+        Look at the `examples/examples.py` file. The library is instantiated for each node (as if the nodes were independent computers, each loading its version of the library). 
+        
+        Other sources of inspirations are the tests defined in the `tests` directory
+        
+        New atomic functions will be added following the list established by extracting atomic functions from the Quantum Protocol Zoo.
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst; charset=UTF-8
+Provides-Extra: testing
