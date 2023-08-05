@@ -1,0 +1,16 @@
+<section class="content-header word-wrap">
+  <h1>
+    Version Manager
+      <small>for {{ data.object_name }} <b>{{data.version_manager.title }}</b></small>
+  </h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            {% block list_includes %}
+            {% include 'core_main_app/common/templates/versions/available.html' %}
+            {% endblock %}
+        </div>
+    </div>
+</section>
