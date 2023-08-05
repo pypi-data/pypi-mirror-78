@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: oncall-slackbot
+Version: 1.2.2
+Summary: Extended slackbot made specifically to handle on-call requests
+Home-page: http://github.com/bluesliverx/oncall-slackbot
+Author: Brian Saville
+Author-email: bksaville@gmail.com
+License: MIT
+Platform: Any
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: slackbot (==0.5.5)
+Requires-Dist: pygerduty (>=0.38.2)
+Requires-Dist: pytz (>=2019.3)
+Requires-Dist: humanize (>=0.5.1)
+Requires-Dist: spacy (==2.2.3)
+
+UNKNOWN
+
+
