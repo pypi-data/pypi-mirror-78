@@ -1,0 +1,17 @@
+cobra
+depinfo
+optlang
+symengine
+sympy
+pandas
+
+[development]
+black
+isort
+tox
+
+[matplotlib]
+matplotlib
+
+[plotly]
+plotly~=4.4
