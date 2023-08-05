@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: python-pysh
+Version: 0.0.1
+Summary: A Python package that mimics the Oh-My-ZSH shell. This package creates a colorful ZSH prompt.
+Home-page: https://github.com/Python3-8/python-pysh
+Author: Pranav Balaji Pooruli
+Author-email: pranav.pooruli@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+
+# PySh
+
+A Python package that mimics the Oh-My-ZSH shell. This package creates a colorful ZSH prompt.
+
+## Installation
+To install PySh onto your system, run `pip install python-pysh` in your terminal.
+If the command errors out, try `pip install git+git://github.com/Python3-8/python-pysh`.
+If the second command errors out too, clone the GitHub repo for PySh and move the `pysh` folder to  
+your Python `site-packages` directory.
+
+## Usage
+
+The following command on your terminal will run the PySh shell.
+
+```sh
+$ pysh
+```
+
+## Contact
+You may contact the developer of PySh at: pranav.pooruli@gmail.com
+
+
