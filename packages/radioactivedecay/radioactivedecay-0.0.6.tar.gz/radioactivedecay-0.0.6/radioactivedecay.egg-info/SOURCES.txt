@@ -1,0 +1,17 @@
+README.md
+setup.py
+radioactivedecay/__init__.py
+radioactivedecay/decaydata.py
+radioactivedecay/decayfunctions.py
+radioactivedecay.egg-info/PKG-INFO
+radioactivedecay.egg-info/SOURCES.txt
+radioactivedecay.egg-info/dependency_links.txt
+radioactivedecay.egg-info/requires.txt
+radioactivedecay.egg-info/top_level.txt
+radioactivedecay/icrp107/__init__.py
+radioactivedecay/icrp107/c.npz
+radioactivedecay/icrp107/cinverse.npz
+radioactivedecay/icrp107/radionuclides_decay_consts.npz
+tests/__init__.py
+tests/test_decaydata.py
+tests/test_decayfunctions.py
