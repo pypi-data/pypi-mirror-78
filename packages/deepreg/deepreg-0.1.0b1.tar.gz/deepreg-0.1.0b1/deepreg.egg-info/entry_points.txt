@@ -1,0 +1,5 @@
+[console_scripts]
+deepreg_predict = deepreg.predict:main
+deepreg_train = deepreg.train:main
+deepreg_warp = deepreg.warp:main
+
