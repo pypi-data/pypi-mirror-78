@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: wf-minimal-honeycomb-python
+Version: 0.6.0
+Summary: An implementation of a minimal Python API for Wildflower's Honeycomb database
+Home-page: https://github.com/WildflowerSchools/wf-minimal-honeycomb-python
+Author: Theodore Quinn
+Author-email: ted.quinn@wildflowerschools.org
+License: UNKNOWN
+Keywords: database
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Requires-Dist: wf-gqlpycgen (>=0.5.11)
+
+# minimal_honeycomb
+
+An implementation of a minimal Python API for Wildflower's Honeycomb database
+
+
