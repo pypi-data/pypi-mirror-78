@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        reconstruct_poses_3d=process_pose_data.workers:reconstruct_poses_3d_alphapose_local_by_time_segment
+    
