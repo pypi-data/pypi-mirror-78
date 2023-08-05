@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: simple-diceware
+Version: 0.4.1
+Summary: Create diceware passwords from the command line
+Home-page: https://github.com/bchopson/simple-diceware
+License: MIT
+Author: Ben Chopson
+Author-email: bchopson@users.noreply.github.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Project-URL: Repository, https://github.com/bchopson/simple-diceware
+Description-Content-Type: text/markdown
+
+# Simple Diceware
+
+Create diceware-style passwords from the command line. 
+
+Wordlist copied from https://www.eff.org/files/2016/07/18/eff_large_wordlist.txt
+
+### Install
+
+`pip install --user simple-diceware`
+
+### Use
+
+`diceware 6` to generate six-word passphrase
+
