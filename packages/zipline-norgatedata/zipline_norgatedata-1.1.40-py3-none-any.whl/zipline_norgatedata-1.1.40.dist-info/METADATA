@@ -1,0 +1,125 @@
+Metadata-Version: 2.1
+Name: zipline-norgatedata
+Version: 1.1.40
+Summary: Zipline extension to provide bundles of data from Norgate Data into the Zipline algorithmic trading library for the Python programming language
+Home-page: https://norgatedata.com
+Author: NorgateData Pty Ltd
+Author-email: support@norgatedata.com
+License: EULA
+Platform: UNKNOWN
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Topic :: Office/Business :: Financial :: Investment
+Requires-Python: >=3.5.0,<3.7
+Description-Content-Type: text/markdown
+Requires-Dist: zipline
+Requires-Dist: pandas
+Requires-Dist: norgatedata
+Requires-Dist: numpy
+Requires-Dist: logbook
+
+
+# Zipline 1.3.0 Limitations/Quirks
+
+- Zipline 1.3.0 is only compatible with Python 3.5.  Hopefully they'll update it one day....
+- Zipline has not been not had an official release since v1.3.0 (July 2018).  For reasons unknown, even though many fixes and changes have been implemented to the source code, no release has been made.
+- Zipline is hard-coded to handle equities data from 1990 onwards only
+- Zipline is hard-coded handle futures data from 2000 onwards.
+- Zipline has unnecessarily complicated futures contracts by restricting symbols to 2 characters.  This is not a conventional followed by exchanges.  We hope they see the light and allow variable futures root symbol lengths (up to 5 characters).  In the meantime, you can get a list of futures market sessions covered and translated to their 2 character limit with: zipline_futures_root_symbols()
+- Zipline doesn't define all futures markets and doesn't provide any runtime extensibility in this area - you will need to add them to <your_environment>\lib\site-packages\zipline\finance\constants.py if they are not defined.  Be sure to backup this file as it will be overwritten any time you update zipline.
+- Zipline assumes that there are bars for every day of trading.  If a security doesn't trade for a given day (e.g. it was halted/suspended, or simply nobody wanted to trade it), it will be padded with the previous close repeated in the OHLC fields, with volume set to zero.  Consider how this might affect your trading calculations.  
+- Index volumes cannot be accurately ingested due to Zipline trying to convert large volumes to UINTs which are out-of-bounds for UINT32.  Index volumes will be divided by 1000.
+- Any stock whose adjusted volume exceeds the upper bound of UINT32 will be set to the maximum UINT32 value (4294967295).  This only occurs for stocks with a lot of splis and/or very large special dsitributions.
+- Some stocks have adjusted volume values that fall below the boundaries used by winsorize_uint32 (e.g. volume of 8.225255e-05).  You'll see a warning when those stocks are ingested "UserWarning: Ignoring 12911 values because they are out of bounds for uint32".   These are  There's not much we can do here.  For now, just ignore those warnings.
+- Suprisingly, Zipline benchmarks do not work from securities ingested into your bundle.   Rather, the benchmark uses hardcoded logic that attempts to download the security SPY from an IEX API (which is now retired).  See the "Zipline 1.3.0 Benchmark patch" below to fix/bypass this issue.
+- Ingestion times could be improved significantly with multiprocessing (this requires Zipline enhancements)
+
+If you are brave you could try with the latest Zipline source code (make sure you install the release version first, to solve dependencies):
+```
+conda install -c quantopian/label/ci zipline
+```
+Note:  You'll need to re-ingest any previously ingested bundles, as the underlying database schema used in Zipline is different.
+
+
+# Zipline 1.3.0 Benchmark Patch to resolve backtest failure 
+
+Strangely, by default, Zipline attempts to obtain benchmark data for for the symbol SPY from IEX (even if you define another symbol as the benchmark).  The public IEX API was retired in June 2019 so this causes all backtests to fail.
+
+This will show this lovely error JSONDecodeError message similar to the following:
+```
+[2019-09-02 00:38:53.586933] INFO: Loader: Downloading benchmark data for 'SPY' from 1989-12-29 00:00:00+00:00 to 2019-08-30 00:00:00+00:00
+Traceback (most recent call last): 
+  File "C:\Users\pyuser\Anaconda3\envs\zip35\Scripts\zipline-script.py", line 11, in <module>
+    load_entry_point('zipline==1.3.0+383.g069e97b2', 'console_scripts', 'zipline')()
+  File "C:\Users\pyuser\Anaconda3\envs\zip35\lib\site-packages\click\core.py", line 722, in __call__
+    return self.main(*args, **kwargs)
+...
+  File "C:\Users\pyuser\Anaconda3\envs\zip35\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+```
+
+A workaround is to simply return a benchmark that shows no return.  To do this you'll need to edit your Zipline libraries as follows:
+
+* Firstly, navigate to the exact path of your Python environment installation (from the error message above, the environment path is C:\Users\pyuser\Anaconda3\envs\zip35 )
+* Then navigate to Lib\site-packages\zipline\data  (i.e. full path for an environment named zip35 would be "C:\Users\\<your username>\Anaconda3\envs\zip35\Lib\site-packages\zipline\data")
+* Edit the file benchmarks.py and replace all of the contents with the following:
+
+```py
+import pandas as pd
+from trading_calendars import get_calendar
+
+# Modified to avoid downloading data from obsolete IEX interface
+def get_benchmark_returns(symbol):
+    cal = get_calendar('NYSE')
+    first_date = pd.Timestamp('1896-01-01', tz='utc')
+    last_date = pd.Timestamp.today(tz='utc')
+    dates = cal.sessions_in_range(first_date, last_date)
+    data = pd.DataFrame(0.0, index=dates, columns=['close'])
+    data = data['close']
+    return data.sort_index().iloc[1:]
+
+```
+
+* Edit the file loader.py
+* search for the method ensure_benchmark_data, and comment out the following four lines as shown (around line 200):
+
+```py
+    #data = _load_cached_data(filename, first_date, last_date, now, 'benchmark',
+    #                         environ)
+    #if data is not None:
+    #    return data
+```
+
+Thanks to Andreas Clenow for this workaround, found here: https://github.com/quantopian/zipline/issues/2480
+
+
+
+
+
+# Jupyter reports no module named win32api
+
+Install/reinstall pywin32
+
+```
+conda install pywin32
+```
+
+
+
+# Jupyter reports no module named win32api
+
+Install/reinstall pywin32
+
+```
+conda install pywin32
+```
+
+
