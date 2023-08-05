@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "pdf2dataset"
+version = "0.5.1"
+readme = "README.md"
+description = "Easily convert a subdirectory with big volume of PDF documents into a dataset, supports extracting text and images"
+authors = ["Ícaro Pires <icaropsa@gmail.com>"]
+license = "Apache License 2.0"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+]
+repository = "https://github.com/icaropires/pdf2dataset"
+
+[tool.poetry.dependencies]
+dask = {extras = ["dataframe"], version = "2.23.0"}
+more-itertools = "^8.4.0"
+opencv-python = "4.4.0.42"
+packaging = "^20.4"
+pandas = "^0.25.0"
+pdf2image = "^1.13.1"
+pdftotext = "2.1.5"
+pyarrow = "1.0.0"
+pytesseract = "0.3.5"
+ray = "0.8.7"
+tqdm = "^4.41.0"
+
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]    
+pytest = "^5.2"
+flake8 = "3.8.3"
+pytest-cov = "2.10.1"
+
+[tool.poetry.scripts]
+pdf2dataset = "pdf2dataset.__main__:main"
+
+[build-system]
+requires = ["poetry>=1.0.10"]
+build-backend = "poetry.masonry.api"
