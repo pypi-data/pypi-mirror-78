@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: lyncs-utils
+Version: 0.0.1
+Summary: Collection of generic-purpose and stand-alone functions
+Home-page: https://lyncs-api.github.io
+Author: Simone Bacchio
+Author-email: s.bacchio@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/Lyncs-API/lyncs.utils.git
+Description: # Collection of generic-purpose and stand-alone functions
+        
+        [![python](https://img.shields.io/pypi/pyversions/lyncs_utils.svg?logo=python&logoColor=white)](https://pypi.org/project/lyncs_utils/)
+        [![pypi](https://img.shields.io/pypi/v/lyncs_utils.svg?logo=python&logoColor=white)](https://pypi.org/project/lyncs_utils/)
+        [![license](https://img.shields.io/github/license/Lyncs-API/lyncs.utils?logo=github&logoColor=white)](https://github.com/Lyncs-API/lyncs.utils/blob/master/LICENSE)
+        [![build & test](https://img.shields.io/github/workflow/status/Lyncs-API/lyncs.utils/build%20&%20test?logo=github&logoColor=white)](https://github.com/Lyncs-API/lyncs.utils/actions)
+        [![codecov](https://img.shields.io/codecov/c/github/Lyncs-API/lyncs.utils?logo=codecov&logoColor=white)](https://codecov.io/gh/Lyncs-API/lyncs.utils)
+        [![black](https://img.shields.io/badge/code%20style-black-000000.svg?logo=codefactor&logoColor=white)](https://github.com/ambv/black)
+        
+        This package provides a collection of generic-purpose and stand-alone functions that are used in multiple places of Lyncs.
+        
+        
+        ## Installation
+        
+        The package can be installed via `pip`:
+        
+        ```
+        pip install [--user] lyncs_utils
+        ```
+        
+        
+        ## Documentation
+        
+        Here the list of functions implemented with a short description. Use `help` for more details.
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: C
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Physics
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: all
