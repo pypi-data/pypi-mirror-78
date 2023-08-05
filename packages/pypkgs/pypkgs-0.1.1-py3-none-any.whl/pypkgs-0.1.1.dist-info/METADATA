@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: pypkgs
+Version: 0.1.1
+Summary: Python package that eases the pain of concatenating Pandas categoricals!
+Home-page: https://github.com/TomasBeuzen/pypkgs
+License: MIT
+Author: Tomas Beuzen
+Author-email: tomas.beuzen@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pandas (>=1.0.5,<2.0.0)
+Project-URL: Documentation, https://pybeach.readthedocs.io
+Project-URL: Repository, https://github.com/TomasBeuzen/pypkgs
+Description-Content-Type: text/markdown
+
+## pypkgs 
+
+![](https://github.com/TomasBeuzen/pypkgs/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/TomasBeuzen/pypkgs/branch/master/graph/badge.svg)](https://codecov.io/gh/TomasBeuzen/pypkgs) ![build](https://github.com/TomasBeuzen/pypkgs/workflows/build/badge.svg) [![Documentation Status](https://readthedocs.org/projects/pypkgs/badge/?version=latest)](https://pypkgs.readthedocs.io/en/latest/?badge=latest)
+
+Python package that eases the pain of concatenating Pandas categoricals!
+
+### Installation
+
+```
+pip install -i https://test.pypi.org/simple/ pypkgs
+```
+
+### Dependencies
+
+See [poetry.lock](poetry.lock) for a list of dependencies.
+
+### Usage
+
+```python
+>>> from pypkgs import pypkgs
+>>> import pandas as pd
+>>> a = pd.Categorical(["character", "hits", "your", "eyeballs"])
+>>> b = pd.Categorical(["but", "integer", "where it", "counts"])
+>>> pypkgs.catbind(a, b)
+[character, hits, your, eyeballs, but, integer, where it, counts]
+Categories (8, object): [but, character, counts,
+eyeballs, hits, integer, where it, your]
+```
+
+### Documentation
+The official documentation is hosted on Read the Docs: https://pypkgs.readthedocs.io/en/latest/
+
+### Credits
+This package was created with Cookiecutter and the UBC-MDS/cookiecutter-ubc-mds project template, modified from the [pyOpenSci/cookiecutter-pyopensci](https://github.com/pyOpenSci/cookiecutter-pyopensci) project template and the [audreyr/cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).
+
