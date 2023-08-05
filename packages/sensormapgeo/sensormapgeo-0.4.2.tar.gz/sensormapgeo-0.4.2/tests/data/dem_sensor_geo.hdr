@@ -1,0 +1,14 @@
+ENVI
+description = {
+/home/gfz-fe/scheffler/temp/enpt_testing/geoloc_arr_warping/DEM_UTM33_sensor_geo.bsq}
+samples = 1000
+lines   = 150
+bands   = 1
+header offset = 0
+file type = ENVI Standard
+data type = 2
+interleave = bsq
+byte order = 0
+map info = {Arbitrary, 1, 1, 0, 0, 1, 1, 0, North}
+band names = {
+Band 1}
