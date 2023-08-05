@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "crf_tagger"
+version = "0.3.0"
+description = "CRF tagger"
+authors = ["severinsimmler <s.simmler@snapaddy.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+tqdm = "*"
+python-crfsuite = "0.9.7"
+tabulate = "*"
+scikit-learn = "*"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+isort = "^5.4.2"
+
+[build-system]
+requires = ["poetry>=1.0.0"]
+build-backend = "poetry.masonry.api"
