@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: qiclib
+Version: 0.0.1
+Summary: Library to connect to Quantum Interface's QiController.
+Home-page: https://github.com/quantuminterface/qiclib
+Author: Quantum Interface
+Author-email: r.gebauer@kit.edu
+License: UNKNOWN
+Description: # qiclib Python package
+        
+        qiclib is Quantum Interface's official Python client for the QiController.
+        
+        ## License
+        
+        qiclib is released under the terms of the **GNU Lesser General Public License** as published by the Free Software Foundation, either version 3 of the License, or any later version.
+        
+        Please see the [COPYING](COPYING) and [COPYING.LESSER](COPYING.LESSER) files for details.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
