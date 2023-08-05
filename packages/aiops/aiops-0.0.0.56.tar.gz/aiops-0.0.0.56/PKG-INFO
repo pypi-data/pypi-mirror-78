@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: aiops
+Version: 0.0.0.56
+Summary: Basic Utilities for aiops implementations
+Home-page: https://github.com/amandeep1991/aiops
+Author: Amandeep
+Author-email: deep.aman91@gmail.com
+License: MIT
+Download-URL: https://github.com/amandeep1991/aiops/archive/0.0.0.56.tar.gz
+Description: <p align="center">
+            <img width="55%" src="https://github.com/amandeep1991/aiops/raw/master/resources/aiops.jpeg" />
+        </p>
+        
+        <div style="align-content: center">
+            <h3 align="center">Basic Utilities for aiops implementations</h3>
+        </div>
+        
+        * aiops is a library of basic utilities (including pretrained models/pipelines) for aiops implementations.
+        * `aiops` extends PyTorch to provide text data processing functions.
+        
+        ## Installation 
+        
+        Make sure you have Python 3.6+ and PyTorch 1.0+. You can then install `aiops` using
+        pip:
+        
+        ```python
+        pip install aiops
+        ```
+        
+        ## Authors
+        
+        - [Amandeep](https://github.com/amandeep1991) - Developer
+        
+        ## Citing
+        
+        If you find aiops useful for an academic publication, then please use the following BibTeX to cite it:
+        
+        ```
+        @misc{pytorch-nlp,
+          author = {Amandeep},
+          title = {aiops: Basic utilities for aiops implementations},
+          year = {2020},
+          publisher = {GitHub},
+          journal = {GitHub repository},
+          howpublished = {\url{https://github.com/amandeep1991/aiops}},
+        }
+        ```
+        
+Keywords: aiops,AI for Ops,AI for operations
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
