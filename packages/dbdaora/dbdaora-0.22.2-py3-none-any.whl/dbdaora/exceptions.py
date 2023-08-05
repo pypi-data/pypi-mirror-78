@@ -1,0 +1,46 @@
+class DBDaoraError(Exception):
+    ...
+
+
+class EntityNotFoundError(DBDaoraError):
+    ...
+
+
+class InvalidQueryError(DBDaoraError):
+    ...
+
+
+class InvalidHashAttribute(DBDaoraError):
+    ...
+
+
+class InvalidEntityAnnotationError(DBDaoraError):
+    ...
+
+
+class RequiredKeyAttributeError(DBDaoraError):
+    ...
+
+
+class InvalidKeyAttributeError(DBDaoraError):
+    ...
+
+
+class InvalidEntityTypeError(DBDaoraError):
+    ...
+
+
+class RequiredClassAttributeError(DBDaoraError):
+    ...
+
+
+class InvalidGeoSpatialDataError(DBDaoraError):
+    ...
+
+
+class CacheNotAvailableError(DBDaoraError):
+    ...
+
+
+class RepositoryDataTimeoutError(DBDaoraError, TimeoutError):
+    ...
