@@ -1,0 +1,39 @@
+[package]
+name = "pyruvate"
+version = "0.7.0"
+authors = ["tschorr <t_schorr@gmx.de>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "pyruvate"
+crate-type = ["cdylib"]
+
+[dependencies.cpython]
+version = "*"
+#features = []
+
+[dependencies]
+errno = "*"
+httparse = "*"
+libc = "*"
+log = "*"
+mio = { version="0.7.0", features=["os-poll", "tcp", "uds"] }
+nix = "*"
+python3-sys = "*"
+slog = "*"
+slog-async = "*"
+slog-envlogger = "*"
+slog-scope = "*"
+slog-stdlog = "*"
+slog-term = "*"
+spmc = "*"
+libsystemd = "*"
+threadpool = "*"
+urlencoding = "*"
+
+[dev-dependencies]
+env_logger = "*"
+tempfile = "*"
+slog = { version="*", features=["max_level_trace"] }
