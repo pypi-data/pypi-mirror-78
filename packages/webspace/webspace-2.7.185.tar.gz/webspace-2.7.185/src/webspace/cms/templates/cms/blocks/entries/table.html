@@ -1,0 +1,24 @@
+{% extends 'cms/blocks/_block.html' %}
+{% load wagtailcore_tags %}
+
+{% block block_content %}
+    <table>
+        <tbody>
+        {% for row in value.rows %}
+            <tr>
+                {% for cell in row.value %}
+                    <th>
+                        {% if cell.block_type == 'svg' %}
+                            {% include 'cms/blocks/common/svg.html' with value=cell.value block_num=block_num %}
+                        {% elif cell.block_type == 'image' %}
+                            {% include 'cms/blocks/common/picture.html' with img=cell.value.file block_num=block_num theme=value.theme %}
+                        {% else %}
+                            {% include_block cell with theme=value.theme %}
+                        {% endif %}
+                    </th>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

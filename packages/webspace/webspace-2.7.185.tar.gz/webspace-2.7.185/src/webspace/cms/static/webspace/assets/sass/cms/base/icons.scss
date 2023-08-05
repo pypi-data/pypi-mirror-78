@@ -1,0 +1,59 @@
+[class^="s-icon"].x0-5, [class*=" s-icon"].x0-5 {
+  width: 10px;
+  margin: 0 5px;
+}
+
+[class^="s-icon"].x1, [class*=" s-icon"].x1 {
+  width: 20px;
+  margin: 0 10px;
+}
+
+[class^="s-icon"].x1-5, [class*=" s-icon"].x1-5 {
+  width: 30px;
+  margin: 0 10px;
+}
+
+[class^="s-icon"].x2, [class*=" s-icon"].x2 {
+  width: 40px;
+  margin: 0 10px;
+}
+
+[class^="s-icon"].x3, [class*=" s-icon"].x3 {
+  width: 60px;
+  margin: 0 10px;
+}
+
+[class^="s-icon"].x6, [class*=" s-icon"].x6 {
+  width: 120px;
+  margin: 0 10px;
+}
+
+
+[class^="s-icon"], [class*="s-icon"] {
+  &.nopad {
+    margin: 0;
+  }
+
+  &.pad {
+    margin: 10px;
+  }
+}
+
+.s-icon.left, .s-icon.right {
+  cursor: pointer;
+  z-index: 10;
+}
+
+.s-icon.left {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+.s-icon.right {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}

@@ -1,0 +1,30 @@
+.card.custom {
+  display: inline-block;
+
+  a {
+    text-align: center;
+  }
+
+  .bg {
+    @include theme($themes) {
+      background: t('uks');
+    }
+  }
+}
+
+/* Icon Text */
+
+.icon-text {
+  display: flex;
+  align-items: baseline;
+}
+
+footer {
+  .card.custom {
+    width: unset;
+    height: 100%;
+    @include theme($themes) {
+      background: t('uks');
+    }
+  }
+}

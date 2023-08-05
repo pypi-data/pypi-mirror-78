@@ -1,0 +1,7 @@
+{% extends 'cms/blocks/common/nav/_nav.html' %}
+
+{% block extra_nav %}
+    {% if page.language_pages.all.count > 0 and settings.cms.WebspaceSettings.multi_footer %}
+        {% include 'cms/blocks/common/nav/languages_footer.html' %}
+    {% endif %}
+{% endblock %}

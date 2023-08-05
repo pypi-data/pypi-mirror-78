@@ -1,0 +1,8 @@
+<div class="tag-container">
+    {% for tag in tags|slice:":2" %}
+        <small class="tag">{{ tag.key }}</small>
+    {% endfor %}
+    {% if tags.count > 2 %}
+        <small class="tag">+{{ tags.count|add:"-2" }}</small>
+    {% endif %}
+</div>

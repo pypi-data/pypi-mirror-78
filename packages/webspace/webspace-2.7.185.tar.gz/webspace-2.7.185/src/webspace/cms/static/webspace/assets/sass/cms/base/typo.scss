@@ -1,0 +1,199 @@
+/* Typo */
+
+* {
+  font-family: 'Lato', sans-serif;
+  font-display: swap;
+}
+
+
+h1 {
+  font-size: 55px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0.7em 0;
+  @include theme($themes) {
+    color: t('colorH1');
+  }
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 42px;
+  @include theme($themes) {
+    color: t('colorH2');
+  }
+  padding: 0.5em 0;
+  margin: 0;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 27px;
+  margin: 0;
+  padding: 0.5em 0;
+  @include theme($themes) {
+    color: t('colorH3');
+  }
+}
+
+h4 {
+  font-size: 25px;
+  font-weight: lighter;
+  color: #2FB196;
+  margin: 0;
+  padding: 0.5em 0;
+  @include theme($themes) {
+    color: t('colorH4');
+  }
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2FB196;
+  margin: 0;
+  padding: 0.5em 0;
+  @include theme($themes) {
+    color: t('colorH5');
+  }
+}
+
+h6 {
+  font-size: 13px;
+  font-weight: 400;
+  color: #9A1F20;
+  margin: 0;
+  padding: 0.5em 0;
+  @include theme($themes) {
+    color: t('colorH6');
+  }
+}
+
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  @include theme($themes) {
+    color: t('colorP');
+  }
+  display: block;
+  padding: 0.5em 0;
+  margin: 0;
+}
+
+strong {
+}
+
+.rich-text {
+  a {
+    @include theme($themes) {
+      color: t('colorA');
+      cursor: pointer;
+
+      &:hover {
+        color: t('colorAHover');
+      }
+    }
+  }
+}
+
+hr {
+  height: 5px;
+  margin: 0.5em 0;
+  padding: 0;
+  border: 0;
+  width: 35px;
+  border-radius: 20px;
+  display: inline-block;
+
+  @include theme($themes) {
+    background-color: t('colorHr');
+  }
+}
+
+/* Forms */
+
+label {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  @include theme($themes) {
+    color: t('colorP');
+  }
+}
+
+small {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  @include theme($themes) {
+    color: t('colorP');
+  }
+}
+
+legend {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  @include theme($themes) {
+    color: t('colorP');
+  }
+}
+
+input[type="text"], textarea {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: normal !important;
+  @include theme($themes) {
+    color: t('colorP');
+  }
+}
+
+/* Circle Number */
+
+span.circle {
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+  border-radius: 50%;
+  padding: 5px;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+
+  @include theme($themes) {
+    background: t('colorCircleBg');
+    color: t('colorCircleText');
+  }
+
+  .circle-nb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+blockquote {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: $color-2;
+}
+
+pre.code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+  padding: 15px;
+  display: block;
+  line-height: 1.5;
+
+  @include theme($themes) {
+    background: t('kaks');
+    border-left: 3px solid $color-2;
+    color: t('colorP');
+  }
+}
