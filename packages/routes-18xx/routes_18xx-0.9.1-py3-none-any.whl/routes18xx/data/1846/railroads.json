@@ -1,0 +1,36 @@
+{
+    "Baltimore & Ohio": {
+        "nicknames": ["BO"],
+        "home": "G19",
+        "reserved": ["H12"]
+    },
+    "Illinois Central": {
+        "nicknames": ["IC"],
+        "home": "K3",
+        "reserved": ["I5"]
+    },
+    "New York Central": {
+        "nicknames": ["NYC"],
+        "home": "D20"
+    },
+    "Chesapeake & Ohio": {
+        "nicknames": ["CO"],
+        "home": "I15",
+        "is_removable": true
+    },
+    "Erie": {
+        "home": "E21",
+        "reserved": ["D20"],
+        "is_removable": true
+    },
+    "Grand Trunk": {
+        "nicknames": ["GT"],
+        "home": "B16"
+    },
+    "Pennsylvania": {
+        "nicknames": ["PRR"],
+        "home": "F20",
+        "reserved": ["E11"],
+        "is_removable": true
+    }
+}
