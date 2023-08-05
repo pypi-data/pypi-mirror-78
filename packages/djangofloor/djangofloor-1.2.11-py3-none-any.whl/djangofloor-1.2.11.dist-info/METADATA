@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: djangofloor
+Version: 1.2.11
+Summary: Simple configuration management and websockets with Django.
+Home-page: UNKNOWN
+Author: Matthieu Gallet
+Author-email: github@19pouces.net
+License: CeCILL-B
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django :: 1.11
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Classifier: Natural Language :: English
+Classifier: Natural Language :: French
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: BSD
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Unix
+Classifier: License :: OSI Approved :: CEA CNRS Inria Logiciel Libre License, version 2.1 (CeCILL-2.1)
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
+Requires-Dist: django-bootstrap3 (>=9.0.0)
+Requires-Dist: redis
+Requires-Dist: pip
+Requires-Dist: asyncio-redis
+Requires-Dist: gunicorn
+Requires-Dist: vine (<5.0.0a1,>=1.1.3)
+Requires-Dist: celery
+Requires-Dist: django (<3.2,>=1.11.15)
+Requires-Dist: aiohttp (<4.0,>=3.1.3)
+Requires-Dist: attrs (>=17.3.0)
+Requires-Dist: chardet (<4.0,>=2.0)
+Requires-Dist: multidict (<5.0,>=4.0)
+Requires-Dist: async-timeout (<4.0,>=1.2.0)
+Requires-Dist: yarl (<2.0,>=1.0)
+Requires-Dist: aiohttp-wsgi (<0.9.0,>=0.8.0)
+Provides-Extra: doc
+Requires-Dist: sphinx ; extra == 'doc'
+Requires-Dist: sphinx-rtd-theme ; extra == 'doc'
+Requires-Dist: sphinxcontrib-autoanysrc ; extra == 'doc'
+Provides-Extra: extra
+Requires-Dist: django-pipeline ; extra == 'extra'
+Requires-Dist: django-debug-toolbar ; extra == 'extra'
+Requires-Dist: django-redis-sessions ; extra == 'extra'
+Requires-Dist: django-redis ; extra == 'extra'
+Requires-Dist: psutil ; extra == 'extra'
+
+Djangofloor
+===========
+
+[![Build Status](https://travis-ci.org/d9pouces/django-floor.svg?branch=master)](https://travis-ci.org/d9pouces/django-floor)
+[![Documentation Status](https://readthedocs.org/projects/django-floor/badge/?version=latest)](https://django-floor.readthedocs.io/en/latest/?badge=latest)
+[![PyPI version](https://badge.fury.io/py/djangofloor.svg)](https://pypi.org/project/djangofloor/)
+
+Djangofloor helps you to quickly create Django applications that are also easy to deploy. To reach these goals, Djangofloor provides:
+
+  * an extension to the base Django's setting, allowing to split your configuration into several files (default values provided by Djangofloor, constants values for your project, deployement parameters, local values for development),
+  * an unified signal dispatcher, using bi-directionnal websockets through Celery and Redis. You can call Python and Javascript signals from the Python or the Javascript side,
+  * auto-configuration for a few widespread Django apps (Django-Debug-Toolbar, Django-Redis-Sessions, Django-Pipeline) if they are present,
+  * a base template using the well-known Bootstrap3 (but of course you can use any other templates),
+  * valid default Django settings (like logs),
+  * create new Django projects that are working and deployable out-of-the-box (even if you finally replace all default templates and views).
+
+Creating a new project
+----------------------
+
+Creating a working new project only requires a couple lines:
+
+    pip install djangofloor
+    djangofloor-createproject
+      Your new project name [MyProject] NewProject
+      Python package name [newproject]
+      Initial version [0.1]
+      Root project path [.] /tmp/newproject
+    cd /tmp/newproject
+    python setup.py install
+    newproject-ctl migrate
+    newproject-ctl runserver
+
+Online documentation
+--------------------
+
+[Read The doc](http://django-floor.readthedocs.io/en/latest/)
+
+
