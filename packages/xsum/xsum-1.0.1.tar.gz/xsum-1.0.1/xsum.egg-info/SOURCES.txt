@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+tests/__init__.py
+tests/__main__.py
+tests/test_xsum/__init__.py
+tests/test_xsum/__main__.py
+tests/test_xsum/test_xsum.py
+xsum/xsum.cpp
+xsum.egg-info/PKG-INFO
+xsum.egg-info/SOURCES.txt
+xsum.egg-info/dependency_links.txt
+xsum.egg-info/not-zip-safe
+xsum.egg-info/requires.txt
+xsum.egg-info/top_level.txt
