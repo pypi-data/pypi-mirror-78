@@ -1,0 +1,18 @@
+{% extends 'webspace/cms/blocks/_block.html' %}
+{% load wagtailcore_tags wagtailembeds_tags my_amp %}
+
+{% block block_content %}
+    <div class="embed-container">
+    {% autoescape off %}{{ value.link|amp_embed }}{% endautoescape %}
+    </div>
+
+    {% comment %}<amp-iframe
+            width="200"
+            height="100"
+            sandbox="allow-scripts allow-same-origin"
+            layout="responsive"
+            frameborder="0"
+            src="{{ value.link|get_embed }}"
+    >
+    </amp-iframe>{% endcomment %}
+{% endblock %}

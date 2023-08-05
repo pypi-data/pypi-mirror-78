@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: webspace
+Version: 2.7.181
+Summary: Utils for web
+Home-page: https://github.com/Aleksi44/webspace
+Author: Alexis Le Baron
+Author-email: alexis@stationspatiale.com
+License: BSD
+Keywords: web
+Platform: linux
+Requires-Dist: django (==3.0.9)
+Requires-Dist: wagtail (==2.10.1)
+Requires-Dist: django-storages (==1.9.1)
+Requires-Dist: django-user-agents (==0.3.2)
+Requires-Dist: psycopg2-binary
+Requires-Dist: lxml (==4.2.1)
+Requires-Dist: readtime (==1.1.1)
+Requires-Dist: fs (==2.4.11)
+Requires-Dist: django-social-share (==1.4.0)
+Requires-Dist: django-environ (==0.4.5)
+Requires-Dist: boto3 (==1.6.19)
+Requires-Dist: uwsgi (==2.0.18)
+Requires-Dist: django-wagtail-feeds (==0.1.0)
+Requires-Dist: ipython (==5.3.0)
+Requires-Dist: django-rosetta (==0.9.4)
+Requires-Dist: sentry-sdk (==0.16.5)
+Requires-Dist: celery (==4.4.6)
+Requires-Dist: redis (==3.5.3)
+Requires-Dist: django-csp (==3.6)
+Requires-Dist: wagtailyoast (==0.0.2)
+
+# Webspace
+
+

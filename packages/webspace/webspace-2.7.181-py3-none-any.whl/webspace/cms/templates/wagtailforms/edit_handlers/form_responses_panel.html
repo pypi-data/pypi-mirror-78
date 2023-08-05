@@ -1,0 +1,50 @@
+<fieldset>
+    <legend>{{ self.heading }}</legend>
+    <ul class="fields">
+        <li class="full">
+            <div class="field">
+                <label class="label">Total submissions</label>
+                <div class="field-content">
+                    <div class="input">
+                       {{ submission_count }}
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="full">
+            <div class="field">
+                <label class="label">Dernière submission</label>
+                <div class="field-content">
+                    <p>
+                        {{ last_submit_time }}
+                    </p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</fieldset>
+
+<fieldset>
+    <h3>10 Derniers</h3>
+    <div class="overflow">
+        <table class="listing">
+            <col/>
+            <col/>
+            <col/>
+            <thead>
+            <tr>
+                <td>Date</td>
+                <th>Data</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in last_submissions %}
+                <tr>
+                    <td>{{ row.submit_time }}</td>
+                    <td>{{ row.form_data }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</fieldset>

@@ -1,0 +1,30 @@
+{% load wagtailimages_tags my my_amp %}
+<article class="padding">
+    <a href="{{ portfolio.url }}">
+        {% for media in portfolio.cover %}
+            {% if media.block_type == 'svg' %}
+                {% amp_img %}
+                    <img loading="lazy" data-layout="responsive" data-width="1920" data-height="1080"
+                         class="svg-img"
+                         data-src="{{ media.value.url }}"
+                         alt="{{ portfolio.title }}"
+                    />
+                {% endamp_img %}
+            {% elif media.block_type == 'image' %}
+                {% include 'cms/blocks/common/picture.html' with img=media.value block_num=2 theme=theme %}
+            {% endif %}
+        {% endfor %}
+    </a>
+    <div>
+        <a href="{{ portfolio.url }}">
+            <h3>{{ portfolio.intro_title }}</h3>
+            {% include 'cms/blocks/common/tags_blog.html' with root_page=portfolio.get_parent tags=portfolio.tags.all links=0 %}
+            <p>{{ portfolio.intro }}</p>
+            <div class="s-flex-align">
+                <div class="article-author">
+                    <small>{{ portfolio.date|date }}</small>
+                </div>
+            </div>
+        </a>
+    </div>
+</article>

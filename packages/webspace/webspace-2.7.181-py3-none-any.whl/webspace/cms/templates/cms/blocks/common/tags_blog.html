@@ -1,0 +1,9 @@
+{% if tags %}
+    <div class="tag-container">
+        {% for tag in tags %}
+            {% if links %}<a href="/{{ root_page.slug }}/tags/{{ tag.slug }}">{% endif %}
+                <small class="tag {% if tag == checked %}checked{% endif %}">{{ tag.name }}</small>
+            {% if links %}</a>{% endif %}
+        {% endfor %}
+    </div>
+{% endif %}

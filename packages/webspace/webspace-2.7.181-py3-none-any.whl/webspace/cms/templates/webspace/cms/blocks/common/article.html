@@ -1,0 +1,31 @@
+{% load my my_amp %}
+<article class="padding">
+    <a href="{{ blog.url }}">
+        {% amp_img 'responsive' '300x140' %}
+            <img class="lazy svg-img"
+                 data-src="{{ blog.svg_cover.url }}"
+                 alt="{{ blog.title }}"
+            />
+        {% endamp_img %}
+    </a>
+    <div>
+        <a href="{{ blog.url }}">
+            <h3>{{ blog.title }}</h3>
+            {% include 'webspace/cms/blocks/common/tags_blog.html' with tags=blog.tags.all links=0 %}
+            <p>{{ blog.intro }}</p>
+            <div class="s-flex-align">
+                <div class="article-author-img">
+                    {% amp_img %}
+                        <img class="s-icon x2 nopad"
+                             src="{{ icons.astro_level_3|ico:'space' }}"
+                             alt="Astronaute"/>
+                    {% endamp_img %}
+                </div>
+                <div class="article-author">
+                    <p>{{ blog.author.get_complete_name }}</p>
+                    <small>{{ blog.date|date }} • {{ blog.read_time }}</small>
+                </div>
+            </div>
+        </a>
+    </div>
+</article>

@@ -1,0 +1,15 @@
+{% load wagtailcore_tags %}
+
+<div class="btn-container {% if align %}align-text-{{ align }}{% endif %}">
+    {% for button in value %}
+        {% if align == 'center' %}
+            {% include_block button with space='c' %}
+        {% elif align == 'right' %}
+            {% include_block button with space='l' %}
+        {% elif align == 'left' %}
+            {% include_block button with space='r' %}
+        {% else %}
+            {% include_block button with space='r' %}
+        {% endif %}
+    {% endfor %}
+</div>

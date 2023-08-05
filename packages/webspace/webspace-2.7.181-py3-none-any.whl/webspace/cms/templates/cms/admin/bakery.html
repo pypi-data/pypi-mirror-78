@@ -1,0 +1,76 @@
+{% extends "wagtailadmin/base.html" %}
+
+{% block titletag %}Build pages{% endblock %}
+{% block content %}
+    {% include "wagtailadmin/shared/header.html" with title="Bakery" icon=cache_icon %}
+
+    {% if builds %}
+        <div class="nice-padding">
+            <div id="snippet-results" class="snippets">
+                <table class="listing">
+                    <thead>
+                    <tr class="table-headers">
+                        <th>Name of Build</th>
+                        <th>Finish</th>
+                        <th>Date start</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for build in builds %}
+                        <tr id="snippet-row-{{ forloop.counter }}">
+                            <td class="title">
+                                <div class="title-wrapper">{{ build.task_id }}</div>
+                            </td>
+                            <td class="title">
+                                <div class="title-wrapper">{{ build.ready }}</div>
+                            </td>
+                            <td class="title">
+                                <div class="title-wrapper">{{ build.date_start }}</div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="nice-padding">
+        <p>Bakery permet de générer des pages HTML pour augmenter la vitesse de chargement.</p>
+        <p>Pour construire ces pages, cliquez sur <code>BUILD</code></p>
+        <p>
+            <a href="{% url 'bakery:build' %}"
+               class="button button-longrunning"
+               id="wagtailcache-clearcache"
+               data-clicked-text="Generating…">
+                BUILD
+            </a>
+            <script>
+                $(document).on('click', 'a#wagtailcache-clearcache', function (event) {
+                    event.preventDefault();
+                    $el = $(this);
+                    // show spinner
+                    $el.addClass('icon icon-spinner');
+                    oldtext = $el.html();
+                    $el.html($el.data("clicked-text"));
+                    // make ajax call
+                    $.ajax({
+                        url: $el.attr('href')
+                    })
+                        .done(function (data) {
+                            $el.after("<p><div>" + data + "</div></p>");
+                        })
+                        .fail(function (jqXHR, textStatus, errorThrown) {
+                            $el.after("<div>" + errorThrown + "</div>");
+                        })
+                        .always(function (msg) {
+                            $el.removeClass('icon icon-spinner');
+                            $el.html(oldtext);
+                        });
+                });
+            </script>
+        </p>
+    </div>
+{% endblock %}

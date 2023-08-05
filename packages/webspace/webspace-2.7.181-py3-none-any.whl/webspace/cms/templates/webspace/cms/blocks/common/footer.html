@@ -1,0 +1,39 @@
+{% load static %}
+{% load wagtailsettings_tags my my_amp %}
+
+<div class="theme-{{ page.theme }}">
+    <footer>
+        <div id="block-footer" class="footer-links">
+            <div class="container regular">
+                <div>
+                    {% include 'webspace/cms/blocks/common/nav.html' with menus=page.footer %}
+                </div>
+            </div>
+        </div>
+        <div id="block-footer-socials" class="footer-socials">
+            <div class="container full nopad">
+                {% get_settings %}
+                <a target="_blank" href="{{ settings.cms.SocialMediaSettings.linkedin }}">
+                    {% amp_img %}
+                        <img class="s-icon x1" src="{{ icons.linkedin|ico:page.theme }}"
+                             alt="Linkedin Station Spatiale"/>
+                    {% endamp_img %}
+                </a>
+
+                <a target="_blank" href="{{ settings.cms.SocialMediaSettings.facebook }}">
+                    {% amp_img %}
+                        <img class="s-icon x1" src="{{ icons.facebook|ico:page.theme }}"
+                             alt="Facebook Station Spatiale"/>
+                    {% endamp_img %}
+                </a>
+
+                <a target="_blank" href="{{ settings.cms.SocialMediaSettings.instagram }}">
+                    {% amp_img %}
+                        <img class="s-icon x1" src="{{ icons.instagram|ico:page.theme }}"
+                             alt="Instagram Station Spatiale"/>
+                    {% endamp_img %}
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>

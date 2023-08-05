@@ -1,0 +1,18 @@
+{% load wagtailimages_tags %}
+{% image settings.cms.WebspaceSettings.favicon fill-16x16 format-png as img %}
+<link rel="icon" type="image/png" sizes="16x16" href="{{ img.url }}">
+{% image settings.cms.WebspaceSettings.favicon fill-32x32 format-png as img %}
+<link rel="icon" type="image/png" sizes="32x32" href="{{ img.url }}">
+{% image settings.cms.WebspaceSettings.favicon fill-128x128 format-png as img %}
+<link rel="icon" type="image/png" sizes="128x128" href="{{ img.url }}">
+{% image settings.cms.WebspaceSettings.favicon fill-167x167 format-png as img %}
+<link rel="icon" type="image/png" sizes="167x167" href="{{ img.url }}">
+
+{% image settings.cms.WebspaceSettings.favicon fill-180x180 format-png as img %}
+<link rel="icon" type="image/png" sizes="180x180" href="{{ img.url }}">
+<link rel="apple-touch-icon" href="{{ img.url }}">
+
+{% image settings.cms.WebspaceSettings.favicon fill-192x192 format-png as img %}
+<link rel="icon" type="image/png" sizes="192x192" href="{{ img.url }}">
+{% image settings.cms.WebspaceSettings.favicon fill-196x196 format-png as img %}
+<link rel="icon" type="image/png" sizes="196x196" href="{{ img.url }}">

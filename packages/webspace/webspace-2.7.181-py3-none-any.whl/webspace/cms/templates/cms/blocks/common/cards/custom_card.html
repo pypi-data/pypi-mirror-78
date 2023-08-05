@@ -1,0 +1,29 @@
+{% extends 'cms/blocks/_card.html' %}
+{% load wagtailcore_tags %}
+{% load static %}
+
+{% block card_entity %}custom{% endblock %}
+
+{% block card_icon %}
+    {% if value.icon.file %}
+        <div class="card-icon bg">
+            {% include_block value.icon with block_num=block_num %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block card_content %}
+    <div class="align-text-center">
+        {% for media in value.media %}
+            {% include_block media with block_num=block_num %}
+        {% endfor %}
+        {% if value.text %}
+            {% include_block value.text %}
+        {% endif %}
+        {% if value.button.text %}
+            <div class="btn-container">
+                {% include_block value.button %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

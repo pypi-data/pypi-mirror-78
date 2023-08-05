@@ -1,0 +1,26 @@
+{% extends 'cms/_base_amp.html' %}
+{% load wagtailcore_tags %}
+
+{% block extra_head %}
+    {% if page.get_breadcrumbs %}
+        {% include 'cms/blocks/schemas/generated/breadcrumb.html' %}
+    {% endif %}
+    {% include 'cms/blocks/schemas/generated/webpage.html' %}
+{% endblock %}
+
+{% block content %}
+    {% block header %}
+        {% include 'cms/blocks/common/header.html' %}
+        {% include 'cms/blocks/common/aside-mobile.html' %}
+    {% endblock %}
+
+    {% block content_body %}
+        {% for block in page.body %}
+            {% include_block block with block_num=forloop.counter %}
+        {% endfor %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'cms/blocks/common/footer.html' %}
+    {% endblock %}
+{% endblock %}

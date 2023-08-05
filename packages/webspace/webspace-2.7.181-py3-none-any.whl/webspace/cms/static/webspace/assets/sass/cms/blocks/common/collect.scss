@@ -1,0 +1,23 @@
+.collect {
+  display: none;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  @include theme($themes) {
+    background: t('kaks');
+  }
+  background-color: rgb(42, 44, 49);
+  z-index: 9999;
+  padding: 1rem;
+
+  @include xssm() {
+    display: block;
+  }
+
+
+  .collect-btn {
+    margin-right: 5%;
+  }
+}
