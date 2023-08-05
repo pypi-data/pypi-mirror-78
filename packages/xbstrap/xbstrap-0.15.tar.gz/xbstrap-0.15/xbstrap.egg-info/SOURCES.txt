@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+extrafiles/completion.sh
+scripts/xbstrap
+scripts/xbstrap-pipeline
+xbstrap/__init__.py
+xbstrap/base.py
+xbstrap/cli_utils.py
+xbstrap/schema.yml
+xbstrap.egg-info/PKG-INFO
+xbstrap.egg-info/SOURCES.txt
+xbstrap.egg-info/dependency_links.txt
+xbstrap.egg-info/requires.txt
+xbstrap.egg-info/top_level.txt
