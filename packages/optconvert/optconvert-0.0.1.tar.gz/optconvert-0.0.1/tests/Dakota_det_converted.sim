@@ -1,0 +1,57 @@
+!   
+!   Dakota_det_converted.sim
+!   
+!   Generated with the MPL Modeling System
+!   Copyright (c) 1988-2018  Maximal Software
+!   
+!   Date:               August 31, 2020
+!   Time:               01:09
+!   
+!   Constraints:        6
+!   Variables:          10
+!   Integers:           7
+!   Nonzeros:           15
+!   Density:            25 %
+!   
+
+TITLE "Dakota_det_converted.lp" ;
+
+MODEL
+
+  MAX  Profit = 
+     BinVecDes + BinVecTab + BinVecCha - 2 PurchaseLum - 4 PurchaseFin
+     - 5.2 PurchaseCar + 60 ProductionDes + 40 ProductionTab
+     + 10 ProductionCha + BinaryVar ;
+
+SUBJECT TO
+
+  ResourceConstLum: 8 ProductionDes + 6 ProductionTab + ProductionCha
+      <=  PurchaseLum ;
+  c2: 4 ProductionDes + 2 ProductionTab + 1.5 ProductionCha  <= 
+     PurchaseFin ;
+  ResourceConstCar: 2 ProductionDes + 1.5 ProductionTab
+     + 0.5 ProductionCha  <=  PurchaseCar ;
+  DemandConstraDes: ProductionDes  <=  150 ;
+  DemandConstraTab: ProductionTab  <=  125 ;
+  DemandConstraCha: ProductionCha  <=  300 ;
+
+BOUNDS
+    0 <= ProductionDes <= 160 ;
+    ProductionTab <= 130 ;
+
+INTEGER
+    ProductionDes
+    ProductionTab
+    ProductionCha
+
+BINARY
+    BinVecDes
+    BinVecTab
+    BinVecCha
+    BinaryVar
+
+FREE
+    PurchaseLum
+
+END
+
