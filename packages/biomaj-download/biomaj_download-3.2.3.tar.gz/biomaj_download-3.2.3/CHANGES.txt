@@ -1,0 +1,120 @@
+3.2.3:
+  #30: raise errors when something in list() fail
+  DirectHTTP(s)/DirectFTP(s): do not raise error on list step as HEAD may not be supported
+  #35: allow redirections (closes #33)
+
+3.2.2:
+  #31 fix URL with multiple slashes
+  Update demo password for ftps web site tests
+  Remove python2 support
+
+3.2.1:
+  #26 Accept new keys for SFTP servers  (Closes #25)
+  Strip extra slash characters in remote file list (due to regexp parsing)
+  #20 Add a configurable mechanism to retry download when it fails
+  #24 Speed up IRODDownload
+  Introduce a method to perform configuration before network methods. Adapt implementation of generic methods and subclasses.
+  Resolve bug when the parser analyse also the Message Of The Day when it wants only list of file. (#23)
+
+3.1.2:
+  #18 Add a protocol option to set CURLOPT_FTP_FILEMETHOD
+  #19 Rename protocol options to options
+  Fix copy of production files instead of download when files are in subdirectories
+
+3.1.1:
+  #17 Support MDTM command in directftp
+
+3.1.0:
+  #16 Don't change name after download in DirectHTTPDownloader
+  PR #7 Refactor downloaders (*WARNING* breaks API)
+
+3.0.27:
+  Fix previous release broken with a bug in direct protocols
+
+3.0.26:
+  Change default download timeout to 1h
+  #12 Allow FTPS protocol
+  #14 Add mechanism for protocol specific options
+
+3.0.25:
+  Allow to use hardlinks in LocalDownload
+
+3.0.24:
+  Remove debug logs
+
+3.0.23:
+  Support spaces in remote file names
+
+3.0.22:
+  Fix **/* remote.files parsing
+
+3.0.21:
+  Fix traefik labels
+
+3.0.20:
+  Update pika dependency release
+  Add tags for traefik support
+
+3.0.19:
+  Check archives after download
+  Fix python regexps syntax (deprecation)
+
+3.0.18:
+  Rename protobuf and use specific package to avoid conflicts
+
+3.0.17:
+  Regenerate protobuf message desc, failing on python3
+
+3.0.16:
+  Add missing req in setup.py
+
+3.0.15:
+  Fix progress download control where could have infinite loop
+  Add irods download
+
+3.0.14:
+  Allow setup of local_endpoint per service, else use default local_endpoint
+
+3.0.13:
+  In rate limiting, add progress vs total of download
+  Fix rate limiting submission
+
+3.0.12:
+  Add retry in case of session creation failure
+  disable web thread logging
+
+3.0.11:
+  Display progress of download by percent of downloads
+  In case of contact error in downloadclient, retry connection
+
+3.0.10:
+  Feature #3: Add rate limiting option to limit number of parallel downloads for a client
+
+3.0.9:
+  Add host in prometheus stats
+  Fix #2: allow setting http.group.file.size or http.group.file.date to -1 if not avalaible in http(s) page for regexp
+
+3.0.8:
+  Fix prometheus stats
+  Add consul supervision
+
+3.0.7:
+  Change size type to int64
+
+3.0.6:
+  Fix download_or_copy to avoid downloading a file  existing in a previous production directory
+
+3.0.4:
+  Fixes on messages
+
+3.0.3:
+  Fix management of timeout leading to a crash when using biomaj.download parameter.
+
+3.0.2:
+  set rabbitmq parameter optional
+
+3.0.1:
+  add missing README etc.. in package
+
+3.0.0:
+  move download management out of biomaj main package
