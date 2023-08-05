@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: blusky
+Version: 0.0.2
+Summary: Scattering Transform Library
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Requires-Dist: numpy
+Requires-Dist: traits
+Requires-Dist: flake8
+Requires-Dist: pillow
+Requires-Dist: tensorflow (<2.3.0)
+Requires-Dist: keras (>=2.3.1)
+Requires-Dist: matplotlib
+Provides-Extra: dev
+Requires-Dist: check-manifest ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: coverage ; extra == 'test'
+
+UNKNOWN
+
+
