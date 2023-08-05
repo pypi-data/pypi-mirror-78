@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: py-ztj-redis-instance
+Version: 0.0.3
+Summary: python redis instance package
+Home-page: http://github.com/ztj1993/PythonPackages/blob/master/py_redis_instance
+Author: ZhangTianJie
+Author-email: ztj1993@gmail.com
+License: MIT License
+Description: # Redis
+        
+        ## 说明
+        这是一个 Redis 实例模块。
+        
+        ### 链接
+        - [GitHub](https://github.com/ztj-package/py-redis-instance)
+        - [PyPI](https://pypi.org/project/py-ztj-redis-instance)
+        
+        ## 安装
+        ```
+        pip install py-ztj-redis
+        ```
+        
+        ## 依赖
+        ```
+        pip install redis>=3.2.1
+        pip install py-ztj-registry>=0.0.1
+        ```
+        
+        ## 使用
+        ```
+        from redis_instance import Redis
+        
+        redis_instance = Redis()
+        print(redis_instance.ping())
+        ```
+        
+Keywords: redis
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
