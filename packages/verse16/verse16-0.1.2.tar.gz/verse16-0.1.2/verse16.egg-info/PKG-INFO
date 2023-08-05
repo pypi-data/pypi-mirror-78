@@ -1,0 +1,105 @@
+Metadata-Version: 2.1
+Name: verse16
+Version: 0.1.2
+Summary: nlp rap text-generation
+Home-page: https://github.com/pelgo14/verse16
+Author: pelgo14
+Author-email: pelgo14@protonmail.com
+License: BSD license
+Description: =======
+        verse16
+        =======
+        
+        
+        .. image:: https://img.shields.io/pypi/v/verse16.svg
+                :target: https://pypi.python.org/pypi/verse16
+        
+        .. image:: https://img.shields.io/travis/pelgo14/verse16.svg
+                :target: https://travis-ci.com/pelgo14/verse16
+        
+        .. image:: https://readthedocs.org/projects/verse16/badge/?version=latest
+                :target: https://verse16.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        nlp rap text-generation
+        
+        
+        * Free software: BSD license
+        * Documentation: https://verse16.readthedocs.io.
+        
+        
+        Features
+        --------
+        Usage:
+        
+        .. code-block::
+        
+          verse16 --help
+          verse16 --lines 4
+          verse16 --lines 16 --log_level DEBUG
+        
+        Import as a class:
+        
+        .. code-block:: python
+        
+          gen = Generator(log_level="INFO")
+          lines = gen.generate(16)
+        
+        GPU Support:
+        
+        1. create environment.yml:
+        
+        .. code-block::
+        
+          name: verse16
+          dependencies:
+              - python=3.7
+              - tensorflow-gpu=1.15
+          channels:
+              - anaconda
+        
+        2. ``conda env create -f environment.yml``
+        
+        3. ``conda activate verse16``
+        
+        4. ``pip install verse16``
+        
+        If you want to contribute
+        -------------------------
+        I am open to all ideas and contributions. contact me @ pelgo14@protonmail.com
+        
+        Feature Ideas:
+        
+        - implement for other languages (like german): https://huggingface.co/models?search=gpt2
+        
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2020-08-29)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: verse16 nlp rap text-generation
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5
+Description-Content-Type: text/x-rst
