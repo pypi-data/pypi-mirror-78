@@ -1,0 +1,475 @@
+[
+  {
+    "devtool": "inline-source-map",
+    "bail": true,
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "use": [
+            "style-loader",
+            "css-loader"
+          ]
+        },
+        {
+          "test": {},
+          "use": "raw-loader"
+        },
+        {
+          "test": {},
+          "use": "raw-loader"
+        },
+        {
+          "test": {},
+          "use": "file-loader"
+        },
+        {
+          "test": {},
+          "use": "file-loader"
+        },
+        {
+          "test": {},
+          "use": "url-loader?limit=10000&mimetype=application/font-woff"
+        },
+        {
+          "test": {},
+          "use": "url-loader?limit=10000&mimetype=application/font-woff"
+        },
+        {
+          "test": {},
+          "use": "url-loader?limit=10000&mimetype=application/octet-stream"
+        },
+        {
+          "test": {},
+          "use": "file-loader"
+        },
+        {
+          "test": {},
+          "issuer": {},
+          "use": {
+            "loader": "svg-url-loader",
+            "options": {
+              "encoding": "none",
+              "limit": 10000
+            }
+          }
+        },
+        {
+          "test": {},
+          "issuer": {},
+          "use": {
+            "loader": "raw-loader"
+          }
+        },
+        {
+          "test": {},
+          "include": [],
+          "use": [
+            "source-map-loader"
+          ],
+          "enforce": "pre"
+        }
+      ]
+    },
+    "resolve": {
+      "alias": {
+        "url": false,
+        "buffer": false,
+        "@phosphor/algorithm$": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/algorithm/dist/index.js",
+        "@phosphor/application$": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/application/dist/index.js",
+        "@phosphor/commands$": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/commands/dist/index.js",
+        "@phosphor/coreutils$": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/coreutils/dist/index.js",
+        "@phosphor/disposable$": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/disposable/dist/index.js",
+        "@phosphor/domutils$": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/domutils/dist/index.js",
+        "@phosphor/dragdrop$": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/dragdrop/dist/index.js",
+        "@phosphor/dragdrop/style": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/widgets/style",
+        "@phosphor/messaging$": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/messaging/dist/index.js",
+        "@phosphor/properties$": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/properties/dist/index.js",
+        "@phosphor/signaling": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/signaling/dist/index.js",
+        "@phosphor/widgets/style": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/widgets/style",
+        "@phosphor/virtualdom$": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/virtualdom/dist/index.js",
+        "@phosphor/widgets$": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/@lumino/widgets/dist/index.js"
+      }
+    },
+    "watchOptions": {
+      "poll": 500,
+      "aggregateTimeout": 1000
+    },
+    "plugins": [
+      {
+        "definitions": {
+          "process.env": "{}",
+          "process": {}
+        }
+      },
+      {
+        "options": {
+          "verbose": true,
+          "showHelp": true,
+          "emitError": false,
+          "strict": true
+        }
+      },
+      {
+        "options": {
+          "template": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/templates/template.html",
+          "templateContent": false,
+          "filename": "index.html",
+          "hash": false,
+          "inject": "body",
+          "scriptLoading": "blocking",
+          "compile": true,
+          "favicon": false,
+          "minify": "auto",
+          "cache": true,
+          "showErrors": true,
+          "chunks": "all",
+          "excludeChunks": [],
+          "chunksSortMode": "none",
+          "meta": {},
+          "base": false,
+          "title": "JupyterLab",
+          "xhtml": false
+        },
+        "version": 4
+      },
+      {},
+      {
+        "buildDir": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/build",
+        "staticDir": "../static",
+        "_first": true
+      },
+      {
+        "_options": {
+          "library": {
+            "type": "var",
+            "name": [
+              "_JUPYTERLAB",
+              "CORE_LIBRARY_FEDERATION"
+            ]
+          },
+          "name": "CORE_FEDERATION",
+          "shared": {
+            "@jupyterlab/application": {
+              "singleton": true
+            },
+            "@jupyterlab/application-extension": "~3.0.0-beta.1",
+            "@jupyterlab/apputils": {
+              "singleton": true
+            },
+            "@jupyterlab/apputils-extension": "~3.0.0-beta.1",
+            "@jupyterlab/attachments": "~3.0.0-beta.1",
+            "@jupyterlab/cells": "~3.0.0-beta.1",
+            "@jupyterlab/celltags": "~3.0.0-beta.1",
+            "@jupyterlab/celltags-extension": "~3.0.0-beta.1",
+            "@jupyterlab/codeeditor": {
+              "singleton": true
+            },
+            "@jupyterlab/codemirror": "~3.0.0-beta.1",
+            "@jupyterlab/codemirror-extension": "~3.0.0-beta.1",
+            "@jupyterlab/completer": {
+              "singleton": true
+            },
+            "@jupyterlab/completer-extension": "~3.0.0-beta.1",
+            "@jupyterlab/console": {
+              "singleton": true
+            },
+            "@jupyterlab/console-extension": "~3.0.0-beta.1",
+            "@jupyterlab/coreutils": {
+              "singleton": true
+            },
+            "@jupyterlab/csvviewer": "~3.0.0-beta.1",
+            "@jupyterlab/csvviewer-extension": "~3.0.0-beta.1",
+            "@jupyterlab/debugger": {
+              "singleton": true
+            },
+            "@jupyterlab/debugger-extension": "~3.0.0-beta.1",
+            "@jupyterlab/docmanager": {
+              "singleton": true
+            },
+            "@jupyterlab/docmanager-extension": "~3.0.0-beta.1",
+            "@jupyterlab/docregistry": "~3.0.0-beta.1",
+            "@jupyterlab/documentsearch": {
+              "singleton": true
+            },
+            "@jupyterlab/documentsearch-extension": "~3.0.0-beta.1",
+            "@jupyterlab/extensionmanager": {
+              "singleton": true
+            },
+            "@jupyterlab/extensionmanager-extension": "~3.0.0-beta.1",
+            "@jupyterlab/filebrowser": {
+              "singleton": true
+            },
+            "@jupyterlab/filebrowser-extension": "~3.0.0-beta.1",
+            "@jupyterlab/fileeditor": {
+              "singleton": true
+            },
+            "@jupyterlab/fileeditor-extension": "~3.0.0-beta.1",
+            "@jupyterlab/help-extension": "~3.0.0-beta.1",
+            "@jupyterlab/htmlviewer": "~3.0.0-beta.1",
+            "@jupyterlab/htmlviewer-extension": "~3.0.0-beta.1",
+            "@jupyterlab/hub-extension": "~3.0.0-beta.1",
+            "@jupyterlab/imageviewer": {
+              "singleton": true
+            },
+            "@jupyterlab/imageviewer-extension": "~3.0.0-beta.1",
+            "@jupyterlab/inspector": {
+              "singleton": true
+            },
+            "@jupyterlab/inspector-extension": "~3.0.0-beta.1",
+            "@jupyterlab/javascript-extension": "~3.0.0-beta.1",
+            "@jupyterlab/json-extension": "~3.0.0-beta.1",
+            "@jupyterlab/launcher": {
+              "singleton": true
+            },
+            "@jupyterlab/launcher-extension": "~3.0.0-beta.1",
+            "@jupyterlab/logconsole": {
+              "singleton": true
+            },
+            "@jupyterlab/logconsole-extension": "~3.0.0-beta.1",
+            "@jupyterlab/mainmenu": {
+              "singleton": true
+            },
+            "@jupyterlab/mainmenu-extension": "~3.0.0-beta.1",
+            "@jupyterlab/markdownviewer": {
+              "singleton": true
+            },
+            "@jupyterlab/markdownviewer-extension": "~3.0.0-beta.1",
+            "@jupyterlab/mathjax2": "~3.0.0-beta.1",
+            "@jupyterlab/mathjax2-extension": "~3.0.0-beta.1",
+            "@jupyterlab/metapackage": "~3.0.0-beta.1",
+            "@jupyterlab/nbconvert-css": "~3.0.0-beta.1",
+            "@jupyterlab/nbformat": "~3.0.0-beta.1",
+            "@jupyterlab/notebook": {
+              "singleton": true
+            },
+            "@jupyterlab/notebook-extension": "~3.0.0-beta.1",
+            "@jupyterlab/observables": "~4.0.0-beta.1",
+            "@jupyterlab/outputarea": "~3.0.0-beta.1",
+            "@jupyterlab/pdf-extension": "~3.0.0-beta.1",
+            "@jupyterlab/property-inspector": "~3.0.0-beta.1",
+            "@jupyterlab/rendermime": {
+              "singleton": true
+            },
+            "@jupyterlab/rendermime-extension": "~3.0.0-beta.1",
+            "@jupyterlab/rendermime-interfaces": {
+              "singleton": true
+            },
+            "@jupyterlab/running": "~3.0.0-beta.1",
+            "@jupyterlab/running-extension": "~3.0.0-beta.1",
+            "@jupyterlab/services": {
+              "singleton": true
+            },
+            "@jupyterlab/settingeditor": {
+              "singleton": true
+            },
+            "@jupyterlab/settingeditor-extension": "~3.0.0-beta.1",
+            "@jupyterlab/settingregistry": {
+              "singleton": true
+            },
+            "@jupyterlab/shortcuts-extension": "~3.0.0-beta.1",
+            "@jupyterlab/statedb": {
+              "singleton": true
+            },
+            "@jupyterlab/statusbar": {
+              "singleton": true
+            },
+            "@jupyterlab/statusbar-extension": "~3.0.0-beta.1",
+            "@jupyterlab/tabmanager-extension": "~3.0.0-beta.1",
+            "@jupyterlab/terminal": {
+              "singleton": true
+            },
+            "@jupyterlab/terminal-extension": "~3.0.0-beta.1",
+            "@jupyterlab/theme-dark-extension": "~3.0.0-beta.1",
+            "@jupyterlab/theme-light-extension": "~3.0.0-beta.1",
+            "@jupyterlab/toc": "~5.0.0-beta.1",
+            "@jupyterlab/toc-extension": "~5.0.0-beta.1",
+            "@jupyterlab/tooltip": {
+              "singleton": true
+            },
+            "@jupyterlab/tooltip-extension": "~3.0.0-beta.1",
+            "@jupyterlab/translation": {
+              "singleton": true
+            },
+            "@jupyterlab/translation-extension": "~3.0.0-beta.1",
+            "@jupyterlab/ui-components": {
+              "singleton": true
+            },
+            "@jupyterlab/ui-components-extension": "~3.0.0-beta.1",
+            "@jupyterlab/vdom": "~3.0.0-beta.1",
+            "@jupyterlab/vdom-extension": "~3.0.0-beta.1",
+            "@jupyterlab/vega5-extension": "~3.0.0-beta.1",
+            "@lumino/algorithm": {
+              "singleton": true
+            },
+            "@lumino/application": {
+              "singleton": true
+            },
+            "@lumino/commands": {
+              "singleton": true
+            },
+            "@lumino/coreutils": {
+              "singleton": true
+            },
+            "@lumino/disposable": {
+              "singleton": true
+            },
+            "@lumino/domutils": {
+              "singleton": true
+            },
+            "@lumino/dragdrop": {
+              "singleton": true
+            },
+            "@lumino/messaging": {
+              "singleton": true
+            },
+            "@lumino/properties": {
+              "singleton": true
+            },
+            "@lumino/signaling": {
+              "singleton": true
+            },
+            "@lumino/virtualdom": {
+              "singleton": true
+            },
+            "@lumino/widgets": {
+              "singleton": true
+            },
+            "react": {
+              "singleton": true
+            },
+            "react-dom": {
+              "singleton": true
+            }
+          }
+        }
+      }
+    ],
+    "mode": "development",
+    "entry": {
+      "main": [
+        "./publicpath",
+        "whatwg-fetch",
+        "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/build/bootstrap.js"
+      ]
+    },
+    "output": {
+      "path": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/build",
+      "publicPath": "{{page_config.fullStaticUrl}}/",
+      "filename": "[name].[contenthash].js"
+    },
+    "optimization": {
+      "splitChunks": {
+        "chunks": "all"
+      }
+    },
+    "externals": [
+      "node-fetch",
+      "ws"
+    ]
+  },
+  {
+    "mode": "production",
+    "entry": {
+      "index": "@jupyterlab/theme-dark-extension/style/index.css"
+    },
+    "output": {
+      "path": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/themes/@jupyterlab/theme-dark-extension",
+      "filename": "[name].js"
+    },
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "use": [
+            "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/mini-css-extract-plugin/dist/loader.js",
+            "css-loader"
+          ]
+        },
+        {
+          "test": {},
+          "use": [
+            {
+              "loader": "svg-url-loader",
+              "options": {
+                "encoding": "none"
+              }
+            }
+          ]
+        },
+        {
+          "test": {},
+          "use": [
+            {
+              "loader": "url-loader",
+              "options": {
+                "limit": 10000
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "plugins": [
+      {
+        "options": {
+          "filename": "[name].css",
+          "ignoreOrder": false,
+          "chunkFilename": "[id].css"
+        }
+      }
+    ]
+  },
+  {
+    "mode": "production",
+    "entry": {
+      "index": "@jupyterlab/theme-light-extension/style/index.css"
+    },
+    "output": {
+      "path": "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/themes/@jupyterlab/theme-light-extension",
+      "filename": "[name].js"
+    },
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "use": [
+            "/private/var/folders/y9/qkx7wnj551q65cwhtwb4xrw9s6ybmz/T/jlabrelease_master.ettz4bGD/jupyterlab/jupyterlab/staging/node_modules/mini-css-extract-plugin/dist/loader.js",
+            "css-loader"
+          ]
+        },
+        {
+          "test": {},
+          "use": [
+            {
+              "loader": "svg-url-loader",
+              "options": {
+                "encoding": "none"
+              }
+            }
+          ]
+        },
+        {
+          "test": {},
+          "use": [
+            {
+              "loader": "url-loader",
+              "options": {
+                "limit": 10000
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "plugins": [
+      {
+        "options": {
+          "filename": "[name].css",
+          "ignoreOrder": false,
+          "chunkFilename": "[id].css"
+        }
+      }
+    ]
+  }
+]
