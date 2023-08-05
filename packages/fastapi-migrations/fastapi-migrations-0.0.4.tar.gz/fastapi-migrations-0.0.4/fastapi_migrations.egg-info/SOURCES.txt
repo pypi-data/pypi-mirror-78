@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+__version__
+setup.py
+fastapi_migrations/__init__.py
+fastapi_migrations/cli.py
+fastapi_migrations.egg-info/PKG-INFO
+fastapi_migrations.egg-info/SOURCES.txt
+fastapi_migrations.egg-info/dependency_links.txt
+fastapi_migrations.egg-info/not-zip-safe
+fastapi_migrations.egg-info/requires.txt
+fastapi_migrations.egg-info/top_level.txt
+fastapi_migrations/templates/default/README
+fastapi_migrations/templates/default/alembic.ini.mako
+fastapi_migrations/templates/default/env.py
+fastapi_migrations/templates/default/script.py.mako
