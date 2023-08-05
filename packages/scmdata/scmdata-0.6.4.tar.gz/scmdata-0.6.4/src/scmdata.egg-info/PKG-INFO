@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: scmdata
+Version: 0.6.4
+Summary: Data handling for simple climate model data
+Home-page: https://github.com/openscm/scmdata
+Author: Jared Lewis, Zeb Nicholls
+Author-email: jared.lewis@climate-energy-college.org, zebedee.nicholls@climate-energy-college.org
+License: 3-Clause BSD License
+Project-URL: Bug Reports, https://github.com/openscm/scmdata/issues
+Project-URL: Documentation, https://scmdata.readthedocs.io/en/latest
+Project-URL: Source, https://github.com/openscm/scmdata
+Description: scmdata
+        =======
+        
+        .. sec-begin-index
+        
+        **scmdata** provides some useful data handling routines for dealing with data related to simple climate models (SCMs aka reduced complexity climate models, RCMs).
+        In particular, it provides a high-performance way of handling and serialising (including to netCDF) timeseries data along with attached metadata.
+        **scmdata** was inspired by `pyam <https://github.com/IAMconsortium/pyam>`_ and was originally part of the `openscm <https://github.com/openscm/openscm>`_ package.
+        
+        .. sec-end-index
+        
+        .. sec-begin-license
+        
+        License
+        -------
+        
+        **scmdata** is free software under a BSD 3-Clause License, see `LICENSE <https://github.com/openscm/license/blob/master/LICENSE>`_.
+        
+        .. sec-end-license
+Keywords: data,simple climate model,climate,scm
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/x-rst
+Provides-Extra: notebooks
+Provides-Extra: optional
+Provides-Extra: plotting
+Provides-Extra: docs
+Provides-Extra: tests
+Provides-Extra: deploy
+Provides-Extra: dev
