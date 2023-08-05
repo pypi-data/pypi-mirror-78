@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: ev3sim
+Version: 1.2.0
+Summary: Simulate ev3dev programs in Python
+Home-page: https://github.com/MelbourneHighSchool/ev3sim
+Author: Jackson Goerner, James Bui, Richard Huang, Angus Trau, Peter Drew
+Author-email: jgoerner@outlook.com, jtbui20@gmail.com, me@huangrichard.com, contact@angus.ws, peter@pdrew.com
+License: BSD-3-Clause
+Description: # ev3sim
+        
+        ![Python package](https://github.com/MelbourneHighSchoolRobotics/ev3sim/workflows/Python%20package/badge.svg)
+        
+        ## Getting started
+        
+        To get up and running with the simulator, check the docs: https://ev3sim.mhscsr.club
+        
+        ## Problems
+        
+        Find any issues with the simulator? Feel free to make an issue here: https://github.com/MelbourneHighSchoolRobotics/ev3sim/issues
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: Robot Framework
+Classifier: Framework :: Robot Framework :: Tool
+Classifier: Topic :: Software Development :: Libraries :: pygame
+Classifier: Topic :: Software Development :: Testing :: Mocking
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
