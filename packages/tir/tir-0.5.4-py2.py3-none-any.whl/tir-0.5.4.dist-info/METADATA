@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: tir
+Version: 0.5.4
+Summary: Minimalist static site generator
+Home-page: https://ouafi.net/Tir.html
+Author: kvfi
+Author-email: mail@mail.net
+License: https://www.gnu.org/licenses/gpl-3.0.en.html
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: jinja2
+Requires-Dist: markdown
+Requires-Dist: pyyaml
+Requires-Dist: libsass
+Requires-Dist: csscompressor
+Requires-Dist: babel
+
+UNKNOWN
+
+
