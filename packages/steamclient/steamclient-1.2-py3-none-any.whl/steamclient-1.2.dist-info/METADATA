@@ -1,0 +1,114 @@
+Metadata-Version: 2.1
+Name: steamclient
+Version: 1.2
+Summary: Steam Client API
+Home-page: https://gitlab.com/avalonparton/steam-client
+Author: Avalon Parton
+Author-email: avalonlee@gmail.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+
+# Steam Client API
+
+A Python 3.8 library for Steam shortcuts. Get app IDs, manage custom artwork, and more!
+
+## Installation
+
+The package is available on [PyPi](https://pypi.org/project/steamclient/) and can be installed with pip.
+
+```bash
+pip install steamclient
+```
+
+## Usage
+
+[Documentation](DOCS.md) | [Example](https://gitlab.com/avalonparton/scummvmtosteam)
+
+```python
+>>> import steamclient
+
+>>> # Get a shortcut from the user that last logged in
+>>> users = steamclient.get_users()
+>>> shortcut = users[0].shortcuts[23]
+
+>>> # Print shortcut info
+>>> shortcut.info()
+
+Shortcut 23
+    id: 2361552855
+    name: The Outer Worlds
+    exe: "C:\\Games\\The Outer Worlds\\TheOuterWorlds.exe"
+    start_dir: "C:\\Games\\The Outer Worlds\\"
+    icon: ""
+    shortcut_path: ""
+    launch_options: ""
+    hidden: False
+    allow_desktop_config: True
+    allow_overlay: True
+    openvr: False
+    devkit: False
+    devkit_game_id:
+    last_play_time: b'\x02\x96\xbf]'
+    tags: []
+
+>>> # Get the paths to custom artwork
+>>> shortcut.logo
+'C:\\Program Files (x86)\\Steam\\userdata\\82279028\\config\\grid\\2361552855_logo.png'
+>>> shortcut.hero
+'C:\\Program Files (x86)\\Steam\\userdata\\82279028\\config\\grid\\2361552855_hero.png'
+>>> shortcut.grid
+'C:\\Program Files (x86)\\Steam\\userdata\\82279028\\config\\grid\\2361552855p.png'
+
+>>> # Set artwork for a game or shortcut with a file or a url
+>>> shortcut.set_logo(filepath='C:\\Games\\Steam Grid\\logo.png')
+>>> shortcut.set_grid(url='https://gitlab.com/avalonparton/grid-beautification/raw/master/Games/Untitled%20Goose%20Game/Lake.png')
+
+>>> # Get the paths to local Steam libraries
+>>> libraries = steamclient.get_libraries() 
+['C:\\Program Files (x86)\\Steam', 'D:\\Games\\Steam Library', 'G:\\Steam Library']
+
+>>> # Get all installed Steam Games in one library
+>>> user.games(libraries[:1])
+[<Game Brawlhalla (291550)>, <Game Castle Crashers (204360)>, <Game Destiny 2 (1085660)>, <Game Dota 2 (570)>, <Game Generation Zero (704270)>, <Game Rocket League (252950)>, <Game SteamVR (250820)>, <Game Steamworks Common Redistributables (228980)>, <Game Team Fortress 2 (440)>, <Game The Binding of Isaac (113200)>]
+
+
+>>> # Create a new shortcut
+>>> user.add_shortcut(name="Pistol Whip", exe="C:/Games/Pistol Whip.exe", openvr=True, tags=["VR"])
+```
+
+
+### Changelog
+
+
+#### 1.2
+* Fix user detection (ignore `ac` and `0` folders in `Steam/userdata/`)
+
+#### 0.9
+* Don't open binary files with utf-8 encoding
+
+#### 0.8
+* Broken! Don't use this version!
+* Open files with utf-8 encoding to try and fix a bug
+
+#### 0.7
+* Added User.owned_games(include_free=False) 
+  * Optional argument controls inclusion of played free games
+* Raises an exception if Game.set_logo() Game.set_hero() or Game.set_grid() is called without any parameters
+
+#### 0.4
+* Added User.comm_id for getting a user's STEAM64id
+* bugfix: Creates custom artwork folder if missing
+
+#### 0.3
+* Added create_shortcut_entry(shortcut) and add_shortcut_entry(entry) functions
+* Added attributes to Game and Shortcuts: .has_hero .has_logo .has_grid
+
+#### 0.2
+* Added set_logo(), set_hero(), and set_grid() functions to Games and Shortcuts
+
+#### 0.1
+* Initial release
+
+
