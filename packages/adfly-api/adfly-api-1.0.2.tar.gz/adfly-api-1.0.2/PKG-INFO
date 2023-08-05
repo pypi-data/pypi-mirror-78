@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: adfly-api
+Version: 1.0.2
+Summary: Unofficial Adfly API wrapper
+Home-page: https://github.com/modbender/adfly-api
+Author: Yashas H R
+Author-email: rameshmamathayashas@gmail.com
+License: UNKNOWN
+Description: # Adfly API
+        
+        Unofficial Adfly API Python Wrapper
+        
+        ## Installation
+        
+        `pip install adfly-api`
+        
+        ## Examples
+        ```python
+        #Import
+        from adfly import AdflyApi
+        
+        #Initialize
+        api = AdflyApi(
+              secret_key='xxxxxxxxxx',
+              public_key='xxxxxxxxxx',
+              user_id=12345678,
+        )
+        
+        # Url Groups examples.
+        api.get_groups()
+        
+        # Expand examples.
+        api.expand(
+            ['http://adf.ly/D', 'http://adf.ly/E', 'http://q.gs/4'],
+            [3, '1A', '1C'])
+        api.expand(None, '1F')
+        
+        # Shorten examples.
+        api.shorten([
+          'http://docs.python.org/library/json.html',
+          'https://github.com/benosteen'],
+        )
+        api.shorten('http://docs.python.org/library/json.html')
+        
+        # Urls examples.
+        api.get_urls()
+        api.get_urls(search_str='htmlbook')
+        api.update_url(136, advert_type='int', group_id=None)
+        api.update_url(136, title='一些中国', fb_description='fb о+писан  и+е', fb_image='123')
+        api.delete_url(136)
+        ```
+        
+        ## Credits
+        Originally developed by [Ben O'Steen](https://github.com/benosteen)
+        
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
