@@ -1,0 +1,61 @@
+# R-3PO -- Richard's Parallel Processing Pipeline
+
+## Introduction
+
+A library built on top of [Ray](https://github.com/ray-project/ray)
+to make embarassingly parallel problems embarassingly easy.
+
+Suppose you have lots of data files that
+need to be processed in the exact same way with the same function.
+And suppose you want to save the results of that processing into a CSV file.
+This is an _embarassingly parallel_ problem: it should be embarassingly easy.
+
+And that's what R3PO aims to deliver: R3PO lets you do it with a `config.yaml`
+file and three lines of code.
+
+`config.yaml`:
+
+```yaml
+job_name: count_produce
+output_path: /home/lieu/dev/r3po/sample/output_dir
+processes: 2
+source_file_part: .json
+source_path: /home/lieu/dev/r3po/sample/produce_log
+working_dir: /home/lieu/dev/r3po/sample/working_dir
+```
+
+`main.py`:
+
+```python
+from r3po import jobbuilder, jobrunner
+# Import the function that will be called by your processes
+from count_fruits import count_fruits
+
+CONFIG_YAML_FP = './config.yaml'
+
+# Build jobs
+jobbuilder.build_jobs(CONFIG_YAML_FP)
+
+# Run jobs
+jobrunner.run_jobs(CONFIG_YAML_FP, count_fruits)
+
+```
+
+This will run the function `count_fruits` on all the `.json` files
+in `source_path`, and save the results as CSVs in `output_path`
+(one row per JSON file).
+
+That's it! R3PO automatically
+handles the distribution of tasks to processes,
+saves your progress so you can stop and restart the job anytime,
+and logs all errors automatically.
+
+## Quickstart (worked example)
+
+[TODO] -- but check the sample directory
+
+## Installation
+
+```bash
+pip3 install r3po
+```
