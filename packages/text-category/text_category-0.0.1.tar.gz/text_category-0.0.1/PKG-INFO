@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: text_category
+Version: 0.0.1
+Summary: 文本分类
+Home-page: https://github.com/kunpeng199494/text_category
+Author: feiyang
+Author-email: duanqy1995@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/kunpeng199494/text_category
+Description: UNKNOWN
+Keywords: text_category
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6, <4
+Provides-Extra: test
+Provides-Extra: dev
