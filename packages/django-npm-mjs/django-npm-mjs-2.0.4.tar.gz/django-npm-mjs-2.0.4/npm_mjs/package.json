@@ -1,0 +1,15 @@
+// Django-npm-mjs will combine this file with package.json files in other installed
+// apps before executing npm commands. Different from a regular package.json, comments
+// are allowed in this file.
+{
+  "description": "Install dependencies for ES6 transpilation",
+  "private": true,
+  "dependencies": {
+    "@babel/preset-env": "7.6.x",
+    "@babel/core": "7.6.x",
+    "@babel/plugin-syntax-dynamic-import": "7.2.x",
+    "babel-loader": "8.0.x",
+    "webpack": "4.40.x",
+    "webpack-cli": "3.3.x"
+  }
+}
