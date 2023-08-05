@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: wheezy.caching
+Version: 0.1.133
+Summary: A lightweight caching library
+Home-page: https://github.com/akornatskyy/wheezy.caching
+Author: Andriy Kornatskyy
+Author-email: andriy.kornatskyy@live.com
+License: MIT
+Description: # wheezy.caching
+        
+        [![Build Status](https://travis-ci.org/akornatskyy/wheezy.caching.svg?branch=master)](https://travis-ci.org/akornatskyy/wheezy.caching)
+        [![Coverage Status](https://coveralls.io/repos/github/akornatskyy/wheezy.caching/badge.svg?branch=master)](https://coveralls.io/github/akornatskyy/wheezy.caching?branch=master)
+        [![Documentation Status](https://readthedocs.org/projects/wheezycaching/badge/?version=latest)](https://wheezycaching.readthedocs.io/en/latest/?badge=latest)
+        [![pypi version](https://badge.fury.io/py/wheezy.caching.svg)](https://badge.fury.io/py/wheezy.caching)
+        
+        [wheezy.caching](https://pypi.org/project/wheezy.caching/) is a
+        [python](http://www.python.org) package written in pure Python code. It
+        is a lightweight caching library that provides integration with:
+        
+        - [python-memcached](https://pypi.org/project/python-memcached/) -
+          Pure Python [memcached](http://memcached.org) client.
+        - [pylibmc](https://pypi.org/project/pylibmc/) - Quick and small
+          [memcached](http://memcached.org) client for Python written in C.
+        
+        It introduces idea of *cache dependency* (effectively invalidate
+        dependent cache items) and other cache related algorithms.
+        
+        It is optimized for performance, well tested and documented.
+        
+        Resources:
+        
+        - [source code](https://github.com/akornatskyy/wheezy.caching)
+          and [issues](https://github.com/akornatskyy/wheezy.caching/issues)
+          tracker are available on
+          [github](https://github.com/akornatskyy/wheezy.caching)
+        - [documentation](https://wheezycaching.readthedocs.io/en/latest/)
+        
+        ## Install
+        
+        [wheezy.caching](https://pypi.org/project/wheezy.caching/) requires
+        [python](http://www.python.org) version 2.4 to 2.7 or 3.2+. It is
+        independent of operating system. You can install it from
+        [pypi](https://pypi.org/project/wheezy.caching/) site:
+        
+        ```sh
+        pip install -U wheezy.caching
+        pip install -U wheezy.caching[pylibmc]
+        pip install -U wheezy.caching[python-memcached]
+        ```
+        
+        If you run into any issue or have comments, go ahead and add on
+        [github](https://github.com/akornatskyy/wheezy.caching).
+        
+Keywords: caching dependency memory null memcache memcached pylibmc
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.4
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Provides-Extra: pylibmc
+Provides-Extra: python-memcached
