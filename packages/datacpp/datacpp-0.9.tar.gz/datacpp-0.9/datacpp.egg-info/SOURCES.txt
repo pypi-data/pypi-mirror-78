@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+datacpp/__init__.py
+datacpp/dataloader.py
+datacpp/libdatacpp.so
+datacpp/pipeline.py
+datacpp/test_box.py
+datacpp.egg-info/PKG-INFO
+datacpp.egg-info/SOURCES.txt
+datacpp.egg-info/dependency_links.txt
+datacpp.egg-info/top_level.txt
