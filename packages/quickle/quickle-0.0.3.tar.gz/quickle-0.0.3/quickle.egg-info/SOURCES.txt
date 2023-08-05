@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.rst
+quickle.c
+setup.cfg
+setup.py
+quickle.egg-info/PKG-INFO
+quickle.egg-info/SOURCES.txt
+quickle.egg-info/dependency_links.txt
+quickle.egg-info/not-zip-safe
+quickle.egg-info/top_level.txt
+tests/__init__.py
+tests/test_quickle.py
+tests/test_struct.py
