@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+RELEASE_NOTES.md
+VERSION
+setup.py
+src/django_page_visibility/__init__.py
+src/django_page_visibility.egg-info/PKG-INFO
+src/django_page_visibility.egg-info/SOURCES.txt
+src/django_page_visibility.egg-info/dependency_links.txt
+src/django_page_visibility.egg-info/requires.txt
+src/django_page_visibility.egg-info/top_level.txt
+src/django_page_visibility/__pycache__/__init__.cpython-36.pyc
+src/django_page_visibility/templatetags/page_visibility.py
+src/django_page_visibility/templatetags/__pycache__/django_page_visibility.cpython-36.pyc
+src/django_page_visibility/templatetags/__pycache__/page_visibility.cpython-36.pyc
