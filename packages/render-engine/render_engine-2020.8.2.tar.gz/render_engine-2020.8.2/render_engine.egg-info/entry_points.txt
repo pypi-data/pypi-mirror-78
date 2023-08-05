@@ -1,0 +1,4 @@
+[console_scripts]
+render-engine = render_engine.__main__:main
+render-engine-quickstart = render_engine.quickstart:quickstart
+
