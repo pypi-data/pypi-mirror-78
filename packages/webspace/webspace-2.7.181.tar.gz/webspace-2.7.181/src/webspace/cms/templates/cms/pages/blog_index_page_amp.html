@@ -1,0 +1,36 @@
+{% extends 'cms/pages/_generic_amp.html' %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block extra_links %}
+    <link rel="alternate" type="application/rss+xml"
+          title="Articles de {{ settings.cms.WebspaceSettings.brand_name }}"
+          href="/{{ page.slug }}/rss/basic"/>
+    <link rel="alternate" type="application/rss+xml"
+          title="Articles et contenu de {{ settings.cms.WebspaceSettings.brand_name }}"
+          href="/{{ page.slug }}/rss/extended"/>
+{% endblock %}
+
+{% block extra_head %}
+    {% include 'cms/blocks/common/google-analytics.html' %}
+    {% include 'cms/blocks/schemas/generated/breadcrumb.html' %}
+    {% include 'cms/blocks/schemas/generated/blog_index_web_page.html' %}
+    {% include 'cms/blocks/schemas/generated/blog_index_how_to.html' %}
+{% endblock %}
+
+{% block content %}
+    {% block header %}
+        {% include 'cms/blocks/common/header.html' %}
+        {% include 'cms/blocks/common/aside-mobile.html' %}
+    {% endblock %}
+
+    {% block content_body %}
+        {% include 'cms/pages/blog_index_content.html' %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'cms/blocks/common/footer.html' %}
+    {% endblock %}
+
+    {% include 'cms/blocks/common/amp-analytics.html' %}
+
+{% endblock %}

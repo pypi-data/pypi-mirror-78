@@ -1,0 +1,29 @@
+{% load my %}
+
+<div id="block-{% block id %}{% endblock %}" class="theme-bg-space">
+    <div class="container content nopad theme-space full-centered {% block size %}vh100{% endblock %}">
+        <section class="card custom nopad s-alc">
+            <div class="card-icon bg">
+                <div class="sizer-xl">
+                    <div class="sizer-container">
+                        <img class="svg-img"
+                             src="{{ icons.info|ico:'space' }}"
+                             alt="Information">
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="align-text-center">
+                    <div class="rich-text-container ">
+                        {% block text %}
+                        {% endblock %}
+                    </div>
+                    <div class="btn-container s-center">
+                        {% block btn %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

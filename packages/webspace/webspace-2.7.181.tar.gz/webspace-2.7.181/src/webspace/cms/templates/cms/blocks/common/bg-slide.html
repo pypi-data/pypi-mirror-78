@@ -1,0 +1,14 @@
+{% load wagtailimages_tags wagtailcore_tags my my_amp %}
+
+<div id="slide-{{ block_num }}-{{ forloop.counter }}" {% if block_num >= 2 and forloop.counter0 == 0 %}loading="lazy" {% endif %} class="bg-container-item {% if pos %}bg-pos-{{ pos }}{% endif %}"
+        {% if media.block_type == 'svg' %}
+            data-src="{{ media.value.url }}"
+            {% if block_num == 1 and forloop.counter0 == 0 %}style="background: url({{ media.value.url }})"{% endif %}
+        {% elif media.block_type == 'image' %}
+            {% with img=media.value|myimg:rendition %}
+                data-src="{{ img.url }}"
+                {% if block_num == 1 and forloop.counter0 == 0 %}style="background: url({{ img.url }})"{% endif %}
+            {% endwith %}
+        {% endif %}
+>
+</div>

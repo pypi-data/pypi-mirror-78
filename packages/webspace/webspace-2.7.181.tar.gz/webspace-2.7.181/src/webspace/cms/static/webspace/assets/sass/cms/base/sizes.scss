@@ -1,0 +1,90 @@
+$sizes: (
+        xs: (
+                percent: 15%,
+        ),
+        s: (
+                percent: 30%,
+        ),
+        m: (
+                percent: 45%,
+        ),
+        l: (
+                percent: 60%,
+        ),
+        x: (
+                percent: 75%,
+        ),
+        xl: (
+                percent: 90%,
+        ),
+        full: (
+                percent: 100%,
+        )
+);
+
+@mixin size($sizes: $sizes) {
+  @each $size, $map in $sizes {
+    .sizer-#{$size} & {
+      $size-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($sizes, $size), '#{$key}');
+        $size-map: map-merge($size-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $size-map: null !global;
+    }
+  }
+}
+
+@function s($key) {
+  @return map-get($size-map, $key);
+}
+
+div[class*="sizer-"] {
+  width: 100%;
+  height: 100%;
+}
+
+.sizer-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+
+  picture {
+    @include size($sizes) {
+      width: s('percent');
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+
+  amp-img img {
+    object-fit: contain;
+  }
+
+  @include md() {
+    .svg-img {
+      @include size($sizes) {
+        width: s('percent');
+        height: 100%;
+      }
+    }
+    .embed-container, amp-img {
+      @include size($sizes) {
+        width: s('percent');
+      }
+    }
+  }
+
+  @include xssm() {
+    .embed-container, amp-img, img {
+      width: 100%;
+    }
+  }
+}
