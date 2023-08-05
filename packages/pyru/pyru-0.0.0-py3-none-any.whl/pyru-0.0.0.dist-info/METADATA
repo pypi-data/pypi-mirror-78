@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: pyru
+Version: 0.0.0
+Summary: Pyru is a python api wrapper for multiple boorus
+Home-page: https://github.com/Pyru-team/Pyru
+Author: Mattlau04, blakeando
+Author-email: None@mail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Pyru
+
+Pyru is a python api wrapper that allows you to interact with multiple boorus
+
+The currently supported boorus are:
+  - Danbooru
+
+### We're still working on it!
+
+We're working hard to add support for new boorus, here are the ones we plan to add in the near future
+  - Gelbooru
+  - Moebooru
+  - Hypnohub
+
+
+
+License
+----
+
+MIT
+
