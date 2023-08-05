@@ -1,0 +1,49 @@
+Metadata-Version: 1.2
+Name: norecon
+Version: 0.1
+Summary: auto recon tools for domain, whois, service scan and screenshot.
+Home-page: https://github.com/ntestoc3/norecon
+Author: ntestoc3
+Author-email: ntoooooon@outlook.com
+License: Expat
+Description: 
+        # 用途
+          子域名查找
+          
+        # 使用方法
+        
+        ## 安装依赖程序
+        
+        ### amass 
+           用于子域名查找
+        
+        ### nmap
+           用于服务扫描
+        
+        ### masscan
+           用于端口发现
+        
+        ### aquatone
+           用于屏幕快照
+        
+        ## 安装程序
+          
+          使用python3环境
+          ```shell
+          pip install norecon
+          ```
+          
+          然后使用norecon启动程序
+          
+          
+        
+Keywords: recon hacking domain scan whois
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6, <4
