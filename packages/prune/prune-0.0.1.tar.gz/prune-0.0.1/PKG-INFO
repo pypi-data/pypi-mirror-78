@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: prune
+Version: 0.0.1
+Summary: Trim Entries from a Python Dictionary
+Home-page: https://github.com/DanielJDufour/prune
+Author: Daniel J. Dufour
+Author-email: daniel.j.dufour@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/DanielJDufour/prune/tarball/download
+Description: # prune
+        -  Trim Entries from a Python Dictionary
+        
+        # install
+        `pipenv install prune` or `pip3 install prune`
+        
+        # usage
+        ```python
+        from prune import prune
+        
+        tree = { "ford": { "country": "USA", "year": "2005" }, "ferrari": { "country": "Italy", "year": "1995" }}
+        branches = ["ford.year", "ferrari.year"]
+        prune(tree, branches)
+        # tree is now { "ford": { "country": "USA" }, "ferrari": { "country": "Italy" }}
+        ```
+        
+        # support
+        Post an issue at https://github.com/DanielJDufour/prune/issues or email the package author at daniel.j.dufour@gmail.com
+        
+Keywords: branch,dictionary,entry,prune,python,string,unpick
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
