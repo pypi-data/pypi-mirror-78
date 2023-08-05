@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+
+import click
+import logging
+import os
+import sys
+
+from nearuplib.constants import LOGS_FOLDER
+from nearuplib.localnet import entry
+from nearuplib.nodelib import setup_and_run, stop_nearup, show_logs
+
+if not os.path.exists(LOGS_FOLDER):
+    os.makedirs(LOGS_FOLDER)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format=
+    '%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S',
+    handlers=[
+        logging.FileHandler(os.path.expanduser('~/.nearup/logs/nearup.log')),
+        logging.StreamHandler()
+    ],
+)
+
+
+@click.group()
+def cli():
+    pass
+
+
+@cli.command()
+@click.argument('network',
+                type=click.Choice({'mainnet', 'testnet', 'betanet',
+                                   'localnet'}))
+@click.option(
+    '--binary-path',
+    type=str,
+    default='',
+    help=
+    'Near binary path, use nearcore/target/debug or nearcore/target/release for local development'
+)
+@click.option(
+    '--home',
+    type=str,
+    help=
+    f'Home path for storing configs, keys and chain data (Default: ~/.near/testnet)'
+)
+@click.option('--account-id', type=str, help='Specify the node account ID')
+@click.option('--boot-nodes',
+              type=str,
+              help='Specify the nodes to boot from',
+              default='')
+@click.option('--verbose', is_flag=True, help='If set, prints verbose logs')
+@click.option('--num-nodes',
+              type=int,
+              help='Specifies the number of localnet nodes to create',
+              default=4)
+@click.option('--num-shards',
+              type=int,
+              help='Specifies the number of localnet shards to create',
+              default=1)
+@click.option('--override',
+              is_flag=True,
+              help='Override previous localnet node data if exists')
+def run(network, binary_path, home, account_id, boot_nodes, verbose, num_nodes,
+        num_shards, override):
+    if home:
+        home = os.path.abspath(home)
+    else:
+        home = os.path.expanduser(f'~/.near/{network}')
+
+    logging.info(f"Home directory is {home}...")
+
+    if network == 'localnet':
+        entry(binary_path, home, num_nodes, num_shards, override, verbose)
+    elif network == 'mainnet':
+        logging.error('Sorry mainnet is now internal nodes only!!!')
+        logging.error(
+            'Please use https://rpc.mainnet.near.org to reach mainnet rpc')
+    else:
+        init_flags = [f'--chain-id={network}']
+        if account_id:
+            init_flags.append(f'--account-id={account_id}')
+
+        setup_and_run(binary_path, home, init_flags, boot_nodes, verbose)
+
+
+@click.option('--keep-watcher', is_flag=True, help='Keep the watcher running.')
+@cli.command()
+def stop(keep_watcher):
+    stop_nearup(keep_watcher)
+
+
+@click.option('--follow', is_flag=True, help='Follow the logs.')
+@click.option('--lines', '-l', default=100, type=int)
+@cli.command()
+def logs(follow, lines):
+    show_logs(follow, lines)
+
+
+if __name__ == '__main__':
+    cli()
