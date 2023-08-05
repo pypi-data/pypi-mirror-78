@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: open-yolo
+Version: 0.1.4
+Summary: Open Yolo Toolkit
+Home-page: https://github.com/CachCheng/OpenYolos
+Author: CachCheng
+Author-email: tkggpdc2007@163.com
+License: Apache-2.0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: oss2
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: flask
+Requires-Dist: colour
+Requires-Dist: scikit-learn
+Requires-Dist: scenedetect
+Requires-Dist: moviepy
+Requires-Dist: Pillow
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: joblib
+Requires-Dist: tensorflow
+Requires-Dist: tensorflow-hub
+
+# OpenYolos
+Open Yolos Toolkit
+
+
