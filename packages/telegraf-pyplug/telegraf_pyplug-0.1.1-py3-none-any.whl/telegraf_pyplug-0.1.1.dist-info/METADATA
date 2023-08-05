@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: telegraf-pyplug
+Version: 0.1.1
+Summary: Telegraf_pyplug is a software library to simplify and standardize the development of python input plugins for the Telegraf
+Home-page: https://github.com/ToolSense/telegraf_pyplug
+Author: Andrey Okulov
+Author-email: okulov@ya.ru
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: System :: Monitoring
+Classifier: Environment :: Plugins
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Description-Content-Type: text/markdown
+Requires-Dist: PyMySQL (==0.10.0)
+Requires-Dist: pytz (==2020.1)
+Provides-Extra: devel
+Requires-Dist: mypy (>=0.782<1.0) ; extra == 'devel'
+Requires-Dist: pylint (>=2.5.3<3.0) ; extra == 'devel'
+Requires-Dist: twine (==3.2.0) ; extra == 'devel'
+
+# Telegraf_PyPlug
+
+Telegraf_pyplug is a free and open-source software library to simplify and standardize the development of python input plugins for the [Telegaf](https://github.com/influxdata/telegraf).
+
+## Installation
+Telegraf_pyplug can easily be installed with pip.
+### Mac/Linux
+
+```bash
+pip install --upgrade telegraf_pyplug
+```
+
+### Windows
+
+```shell
+python -m pip install --upgrade telegraf_pyplug
+```
+
+
