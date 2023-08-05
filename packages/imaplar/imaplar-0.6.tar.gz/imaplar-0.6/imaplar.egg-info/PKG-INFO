@@ -1,0 +1,22 @@
+Metadata-Version: 1.2
+Name: imaplar
+Version: 0.6
+Summary: IMAP mailbox monitor
+Home-page: https://github.com/MichaelPaddon/imaplar
+Author: Michael Paddon
+Author-email: michael@paddon.org
+License: GPLv3+
+Description: # Imaplar
+        Imaplar monitors mailboxes on IMAP servers for incoming messages.
+        When a message arrives, it is passed to a user defined policy
+        which decides how it should be handled.
+        
+        See [the manual](//imaplar.readthedocs.io/en/latest/) for more information.
+        
+Keywords: imap
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Topic :: Communications :: Email
+Requires-Python: >=3.7
