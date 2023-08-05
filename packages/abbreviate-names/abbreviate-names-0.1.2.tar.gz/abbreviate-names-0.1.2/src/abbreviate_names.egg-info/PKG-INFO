@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: abbreviate-names
+Version: 0.1.2
+Summary: Uniquely abbreviate a set of names in a language-appropriate way.
+Home-page: https://github.com/ConradHughes/abbreviate-names
+Author: Conrad Hughes
+Author-email: h_d24e0f27c082b3eb54c1@xrad.org
+License: AGPL-3.0+
+Description: # abbreviate-names
+        
+        Uniquely abbreviate a set of names in a language-appropriate way.
+        The original intent was to shorten a collection of Latin species names
+        such that they would fit more nicely into tables and graphs, but other
+        applications abound!
+        
+        This packages provides both
+        
+        * **a programmatic API**, `names.abbreviate.abbreviate()` and
+        * **a command line tool**, `abbreviate-names`.
+        
+        If installed with English or Latin options it also includes dependencies
+        on natural language modules which enable it to break names up at
+        syllable boundaries, which produces more readable results:
+        
+        ```shell
+            pip install 'abbreviate-names[Latin,English]'
+        ```
+        
+        # Example output
+        
+        Species | Abbreviation using Latin syllables | .. or by character
+        ------------ | ------------ | --
+        Agathidium laevigatum | Agat.lae. | A.l.
+        Agathidium nigrinum | Agat.nigrinum | A.nigrin.
+        Agathidium nigripenne | Agat.nigripen. | A.nigrip.
+        Agathidium seminulum | Agat.se. | A.s.
+        Agonum ericeti | Ago.e. | A.e.
+        Agonum fuliginosum | Ago.fu. | A.f.
+        Agonum gracile | Ago.gra. | A.g.
+        Lithocharis sp. | Lit.sp. | L.sp.
+        Xylocleptes bispinus | Xy.bis. | X.b.
+        Xylodromus concinnus | Xy.con. | X.c.
+        Xylodromus depressus | Xy.de. | X.d.
+        Xylostiba monilicornis | Xy.mo. | X.m.
+        Zeugophora subspinosa | Zeu.sub. | Z.s.
+        
+        Observe:
+        
+        * Several different words above are all shortened to “Xy.” or “X.” —
+        it's the whole abbreviation that's unique, not the individual words.
+        * The already-abbreviated “sp.” is untouched.
+        
+        # Online
+        
+        * **GitHub:** https://github.com/ConradHughes/abbreviate-names
+        * **PyPI:** https://pypi.org/project/abbreviate-names/
+        
+        # Changelog
+        All notable changes to this project will be documented in this file.
+        
+        The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+        and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+        
+        ## [Unreleased]
+        
+        ## [0.1.2] - 2020-08-31
+        ### Added
+        - Initial version by [@ConradHughes](https://github.com/ConradHughes), including
+          - library function,
+          - command line script,
+          - support for Latin and English.
+        
+Keywords: abbreviate,names,latin,english
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: english
+Provides-Extra: latin
