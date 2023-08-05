@@ -1,0 +1,112 @@
+CHANGES
+=======
+
+v0.3.1
+------
+
+* Use textwrap to shorten debug description
+* Cache dataset in-memory
+* Better message by using same traceback
+* Better exceptions for starmap with module logging
+* Wrap star function for better exception
+* Try-except for better exceptions
+* Conform group\_split to the name change Dataset.functions -> get\_item
+* Add Dataset.group\_split
+
+v0.3.0
+------
+
+* Add some examples in docstrings
+* Split map into map/starmap and compose functions without starcompose
+
+v0.2.8
+------
+
+* Zip dataframe
+* Fix space when publishing
+* Fixed missed self reference in RepeatSampler
+* Fix linting errors/warnings and remove unused imports
+* Make from\_subscritable work with lazy subscriptables
+
+v0.2.7
+------
+
+* Link to function in documentation
+* Show results for example
+* More anvanced examples in readme
+* Create split file directory and write with indent
+* Prefer nunique over len after unique
+* Change exception type in split
+* Rename typevar to more standard
+* Remove subset requirement from split
+* Add seed option to Dataset.split
+* Change frozen requirement to subset
+* Allow frozen splits
+* Replace json tool
+
+v0.2.6
+------
+
+* Make dataset combine/zip/concat use lazy dataframes
+* Fix split docstring formatting
+
+v0.2.5
+------
+
+* Many new degenerate tests
+* Test validation of proportions. Update split docstring with how saved splits work
+* Mention limitations of Dataset.from\_subscriptable in docstring
+* Fix stratification bug
+* Added Dataset.split. Fix incorrect version. Move tool functions to module
+* Minor documentation update
+
+v0.2.4
+------
+
+* Fix package in setup
+
+v0.2.3
+------
+
+* Run tests
+* First iteration of CI
+* Fix Dockerfile
+* Set dependencies
+
+v0.2.2
+------
+
+* Let subset take function
+* Add package to setup
+* Update project summary
+
+v0.2.1
+------
+
+* Fix README parse error on pypi
+* Add license from ml-workflow
+* Convert readme to rst
+
+v0.2.0
+------
+
+* Minor docstring fix
+* Read the docs config
+* Move out samplers from datastream module
+* Rename source now that it is always a dataframe
+* Subset only takes mask
+* Added generics. Attempt to fix version in docs. Documentation improvements
+* Documentation of methods and generating documentation using sphinx
+* Minimum pydantic implementation passes all tests
+* Datastream and two samplers using pydantic. Test for multi\_sample
+* Dataset using pydantic
+* Function showcase
+* Add tests for subscript and subset
+* More usage examples in readme
+* Fix representation of short dataset
+
+v0.1.0
+------
+
+* Allow execution of publish.sh
+* First commit. Split from ml-workflow
