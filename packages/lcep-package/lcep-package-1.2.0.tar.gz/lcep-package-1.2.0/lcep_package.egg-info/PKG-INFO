@@ -1,0 +1,128 @@
+Metadata-Version: 1.2
+Name: lcep-package
+Version: 1.2.0
+Summary: Python package for lcep.
+Home-page: https://github.com/mlf-core/lcep-package
+Author: Lukas Heumos
+Author-email: lukas.heumos@posteo.net
+License: MIT
+Description: ============
+        lcep-package
+        ============
+        
+        .. image:: https://github.com/mlf-core/lcep-package/workflows/Build%20lcep-package%20Package/badge.svg
+                :target: https://github.com/mlf-core/lcep-package/workflows/Build%20lcep-package%20Package/badge.svg
+                :alt: Github Workflow Build lcep-package Status
+        
+        .. image:: https://github.com/mlf-core/lcep-package/workflows/Run%20lcep-package%20Tox%20Test%20Suite/badge.svg
+                :target: https://github.com/mlf-core/lcep-package/workflows/Run%20lcep-package%20Tox%20Test%20Suite/badge.svg
+                :alt: Github Workflow Tests Status
+        
+        .. image:: https://img.shields.io/pypi/v/lcep-package.svg
+                :target: https://pypi.python.org/pypi/lcep-package
+                :alt: PyPI Status
+        
+        
+        .. image:: https://readthedocs.org/projects/lcep-package/badge/?version=latest
+                :target: https://lcep-package.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        .. image:: https://flat.badgen.net/dependabot/thepracticaldev/dev.to?icon=dependabot
+                :target: https://flat.badgen.net/dependabot/thepracticaldev/dev.to?icon=dependabot
+                :alt: Dependabot Enabled
+        
+        
+        Python package for lcep.
+        
+        
+        * Free software: MIT
+        * Documentation: https://lcep-package.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        -------
+        
+        This package was created with cookietemple_ using Cookiecutter_.
+        
+        .. _cookietemple: https://cookietemple.com
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        
+        
+        ==========
+        Changelog
+        ==========
+        
+        This project adheres to `Semantic Versioning <https://semver.org/>`_.
+        
+        1.2.0 (2020-08-28)
+        ------------------
+        
+        **Added**
+        
+        * Added flag --cuda and --no-cuda to enable and disable GPU prediction
+        
+        **Fixed**
+        
+        **Dependencies**
+        
+        **Deprecated**
+        
+        
+        1.1.0 (2020-08-28)
+        ------------------
+        
+        **Added**
+        
+        **Fixed**
+        
+        * help command message
+        
+        **Dependencies**
+        
+        **Deprecated**
+        
+        
+        1.0.0 (2020-08-28)
+        ------------------
+        
+        **Added**
+        
+        * Parsing of an appropriate data input file
+        * Loading an already trained model and performing predictions
+        * Writing the predictions to an output file
+        
+        **Fixed**
+        
+        **Dependencies**
+        
+        **Deprecated**
+        
+        
+        0.1.0 (2020-08-28)
+        ------------------
+        
+        **Added**
+        
+        * Created the project using cookietemple
+        
+        **Fixed**
+        
+        **Dependencies**
+        
+        **Deprecated**
+        
+Keywords: lcep-package
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
