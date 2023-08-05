@@ -1,0 +1,18 @@
+.row {
+  display: flex;
+  padding: $section-space 0 0 0;
+
+  @include xs() {
+    display: inline-block;
+  }
+
+  .flex-1 {
+    flex: 1;
+    padding: 0 $section-space;
+
+    @include xs() {
+      flex: unset;
+      padding: 0;
+    }
+  }
+}

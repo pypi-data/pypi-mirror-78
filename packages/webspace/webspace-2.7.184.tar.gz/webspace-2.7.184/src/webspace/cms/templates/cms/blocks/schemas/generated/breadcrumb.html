@@ -1,0 +1,19 @@
+{% extends 'cms/blocks/schemas/_schema.html' %}
+{% load wagtailcore_tags wagtailimages_tags my %}
+
+{% block json %}
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for list_item in page.get_breadcrumbs %}
+        {
+            "@type": "ListItem",
+            "position": {{ forloop.counter }},
+            "name": "{{ list_item.title|title }}",
+            "item": "https://{{ request.get_host }}{% pageurl list_item %}"
+        }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+    ]
+}
+{% endblock %}

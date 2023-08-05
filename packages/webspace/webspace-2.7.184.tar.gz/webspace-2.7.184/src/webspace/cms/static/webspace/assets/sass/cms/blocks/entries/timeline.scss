@@ -1,0 +1,112 @@
+$timeline-border-width: 5px;
+
+.timeline-container {
+
+  @include xs() {
+    margin-left: 5%;
+  }
+
+  .timeline-item {
+    width: 45%;
+    position: relative;
+
+    @include xs() {
+      width: 85%;
+      padding: 20px 0 20px 10% !important;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      @include theme($themes) {
+        background: t('kaks');
+      }
+
+      .s-icon, .market-dot {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+
+      .market-dot {
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        background: $color-2;
+      }
+    }
+
+    .timeline-content {
+      h3 {
+        color: $color-2;
+      }
+    }
+
+    &.left {
+      text-align: right;
+      padding-right: 5%;
+
+      @include smmd() {
+        ul li::before {
+          content: "";
+        }
+
+        ul li::after {
+          content: "•";
+          color: $color-2;
+          font-weight: bold;
+          display: inline-block;
+          width: 1em;
+        }
+      }
+
+      @include theme($themes) {
+        border-right: $timeline-border-width solid t('kaks');
+      }
+
+      @include xs() {
+        text-align: left;
+        padding-right: unset;
+        border-right: none !important;
+
+        @include theme($themes) {
+          border-left: $timeline-border-width solid t('kaks');
+        }
+      }
+
+      .timeline-marker {
+        right: $timeline-border-width / -2;
+        transform: translateX(50%);
+
+        @include xs() {
+          right: unset;
+          transform: translateX(-50%);
+          left: $timeline-border-width / -2;
+        }
+      }
+    }
+
+    &.right {
+      text-align: left;
+      margin-left: 50%;
+      padding-left: 5%;
+
+      @include theme($themes) {
+        border-left: $timeline-border-width solid t('kaks');
+      }
+
+      @include xs() {
+        margin-left: unset;
+      }
+
+      .timeline-marker {
+        left: $timeline-border-width / -2;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
