@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "solconfig"
+version = "0.1.0"
+description = ""
+authors = ["flyisland <flyisland@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "^7.1.2"
+requests = "^2.24.0"
+jinja2 = "^2.11.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.scripts]
+ solconfig = 'solconfig.cmd:cli'
+ 
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
