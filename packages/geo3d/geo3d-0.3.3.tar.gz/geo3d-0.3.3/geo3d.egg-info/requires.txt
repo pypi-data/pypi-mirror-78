@@ -1,0 +1,10 @@
+numpy>=1.13.3
+scipy>=1.2.1
+
+[dev]
+sphinx
+sphinx-autodoc-typehints
+sphinx_bootstrap_theme
+pytest
+setuptools_scm
+black
