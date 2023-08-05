@@ -1,0 +1,41 @@
+Changelog
+=========
+
+
+2.0.2 (2020-09-01)
+------------------
+
+- Fix sending actual emails with plone 5. [mathias.leimgruber]
+
+
+2.0.1 (2020-08-04)
+------------------
+
+- Add uninstall profile. [djowett-ftw]
+
+
+2.0.0 (2020-06-11)
+------------------
+
+- Add Plone 5 compatibility [Nachtalb]
+- Migrate config from annotation to registry storage [Nachtalb]
+
+
+1.1.2 (2017-11-15)
+------------------
+
+- Clarify and fix help texts in control panel. [jone]
+
+1.1.1 (2017-11-15)
+------------------
+
+- Add support for monitor failed exctractions. [jone]
+- Drop Plone 4.2 support. [jone]
+- Drop compatibility with Plone 4.1.
+  Add compatibility with Plone 4.3. [mbaechtold]
+
+
+1.0 (2011-01-19)
+----------------
+
+- Initial release
