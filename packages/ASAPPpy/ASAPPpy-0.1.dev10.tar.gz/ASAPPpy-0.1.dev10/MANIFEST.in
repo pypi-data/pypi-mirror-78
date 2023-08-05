@@ -1,0 +1,6 @@
+include ASAPPpy/classifiers/trained_models/*
+include ASAPPpy/classifiers/vectors/*
+include ASAPPpy/datasets AIA-BDE_v2.0
+include ASAPPpy/indexers/Whoosh/indexes/cobaia_chitchat_v1.5/*
+include ASAPPpy/indexers/Whoosh/indexes/FAQs_no_analyser_AIA-BDE_v2.0/*
+include ASAPPpy/semantic_relations/triplos_10recs *.txt
