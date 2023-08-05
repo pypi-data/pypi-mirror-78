@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: geoapps
+Version: 0.1.4
+Summary: Open-sourced Applications in Geoscience
+Home-page: https://mirageoscience-apps.readthedocs.io/en/latest/
+Author: Mira Geoscience
+Author-email: dominiquef@mirageoscience.com
+License: MIT License
+Download-URL: https://github.com/MiraGeoscience/mirageoscience-apps.git
+Keywords: earth sciences
+Platform: Windows
+Platform: Linux
+Platform: Solaris
+Platform: Mac OS-X
+Platform: Unix
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Natural Language :: English
+Requires-Dist: numpy
+Requires-Dist: h5py
+Requires-Dist: scipy
+Requires-Dist: geoh5py
+
+UNKNOWN
+
+
