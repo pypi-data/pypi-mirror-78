@@ -1,0 +1,13 @@
+pefile
+colorama
+python-magic
+simplejson
+requests==2.22.0
+validators
+geocoder
+polyswarm-api
+pathlib
+configparser
+
+[:platform_system == "Windows"]
+python-magic-bin
