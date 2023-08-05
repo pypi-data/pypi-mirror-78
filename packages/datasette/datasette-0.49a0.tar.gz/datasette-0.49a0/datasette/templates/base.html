@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ base_url }}-/static/app.css?{{ app_css_hash }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% for url in extra_css_urls %}
+    <link rel="stylesheet" href="{{ url.url }}"{% if url.sri %} integrity="{{ url.sri }}" crossorigin="anonymous"{% endif %}>
+{% endfor %}
+{% for url in extra_js_urls %}
+    <script src="{{ url.url }}"{% if url.sri %} integrity="{{ url.sri }}" crossorigin="anonymous"{% endif %}></script>
+{% endfor %}
+{% block extra_head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+<nav class="hd">{% block nav %}
+    {% if actor %}
+    <div class="logout">
+        <strong>{{ display_actor(actor) }}</strong>{% if show_logout %} &middot;
+        <form action="/-/logout" method="post">
+            <input type="hidden" name="csrftoken" value="{{ csrftoken() }}">
+            <button class="button-as-link">Log out</button>
+        </form>{% endif %}
+    </div>
+    {% endif %}
+{% endblock %}</nav>
+
+<div class="bd">
+{% block messages %}
+{% if show_messages %}
+    {% for message, message_type in show_messages() %}
+        <p class="message-{% if message_type == 1 %}info{% elif message_type == 2 %}warning{% elif message_type == 3 %}error{% endif %}">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+</div>
+
+<div class="ft">{% block footer %}{% include "_footer.html" %}{% endblock %}</div>
+
+{% for body_script in body_scripts %}
+    <script>{{ body_script }}</script>
+{% endfor %}
+
+{% if select_templates %}<!-- Templates considered: {{ select_templates|join(", ") }} -->{% endif %}
+</body>
+</html>
