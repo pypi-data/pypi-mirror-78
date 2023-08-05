@@ -1,0 +1,104 @@
+Metadata-Version: 2.1
+Name: plusminus
+Version: 0.4.0
+Summary: 
+        +/- plusminus is a module that builds on the pyparsing infixNotation helper method to build easy-to-code and
+        easy-to-use parsers for parsing and evaluating infix arithmetic expressions. plusminus's ArithmeticParser
+        class includes separate parse and evaluate methods, handling operator precedence, override with parentheses,
+        presence or absence of whitespace, built-in functions, and pre-defined and user-defined variables, functions,
+        and operators.    
+Home-page: https://github.com/pyparsing/plusminus
+Author: Paul McGuire
+Author-email: ptmcg@austin.rr.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/pyparsing/plusminus/issues
+Project-URL: Documentation, https://github.com/pyparsing/plusminus
+Project-URL: Source Code, https://github.com/pyparsing/plusminus
+Keywords: python infix notation arithmetic safe eval
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Utilities
+Requires-Python: >=3.5.2
+Description-Content-Type: text/markdown
+Requires-Dist: pyparsing (>=2.4.6)
+
+# plusminus
+
+The **plusminus** package provides a ready-to-run arithmetic parser and evaluator, based on [`pyparsing`](https://pyparsing-docs.readthedocs.io/en/latest/index.html)'s 
+[`infixNotation`](https://pyparsing-docs.readthedocs.io/en/latest/pyparsing.html#pyparsing.infixNotation) helper method.
+
+Strings containing 6-function arithmetic expressions can be parsed and evaluated using the [`BasicArithmeticParser`](https://github.com/pyparsing/plusminus/blob/master/doc/arithmetic_parser.md#the-core-basicarithmeticparser):
+
+```python
+from plusminus import BasicArithmeticParser
+
+parser = BasicArithmeticParser()
+print(parser.evaluate("2+3/10"))
+```
+
+The parser can also return an Abstract Syntax Tree of `ArithNode` objects:
+
+```python
+parsed_elements = parser.parse("2+3/10")
+```
+
+Arithmetic expressions are evaluated following standard rules for operator precedence, allowing for use of parentheses to override:
+
+    ()
+    ∩ (set intersection)
+    ∪ (set union)
+    -
+    **
+    * / // × ÷ mod
+    + -
+    < > <= >= == != ≠ ≤ ≥
+    in ∈ ∉
+    not
+    and ∧
+    or ∨
+    ? : (ternary)
+
+Functions can be called:
+
+      sgn    min  asin  rad    gcd
+      abs    max  acos  deg    lcm
+      round  str  atan  ln     gamma
+      trunc  sin  sinh  log    hypot
+      ceil   cos  cosh  log2   rnd
+      floor  tan  tanh  log10
+
+
+The Basic ArithmeticParser also supports assignment of variables:
+
+    r = 5
+    area = π × r²
+
+
+This last expression could be assigned using  `@=` formula assignment:
+
+    area @= π × r²
+
+
+As `r` is updated, evaluating `area` will be reevaluated using the new value.
+
+
+Custom expressions can be defined using a simple [`API`](https://github.com/pyparsing/plusminus/blob/master/doc/developer_api.md). Example parsers
+are included for dice rolling, combination/permutation expressions, and 
+common business calculations. These parsers can be incorporated into
+other applications to support the safe evaluation of user-defined 
+domain-specific expressions.
+
+
