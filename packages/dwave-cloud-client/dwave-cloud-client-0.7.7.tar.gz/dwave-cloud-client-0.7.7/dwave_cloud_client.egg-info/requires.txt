@@ -1,0 +1,15 @@
+requests[socks]>=2.18
+homebase>=1.0
+click>=7.0
+python-dateutil>=2.7
+plucky>=0.4.3
+
+[bqm]
+dimod>=0.8.15
+numpy>=1.16
+
+[test]
+requests_mock
+mock
+numpy
+coverage
