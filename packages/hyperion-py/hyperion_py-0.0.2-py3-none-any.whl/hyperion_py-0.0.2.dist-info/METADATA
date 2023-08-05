@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: hyperion-py
+Version: 0.0.2
+Summary: Hyperion Ambient Lighting Python Package
+Home-page: https://github.com/dermotduffy/hyperion-py
+Author: Dermot Duffy
+Author-email: dermot.duffy@gmail.com
+License: UNKNOWN
+Keywords: hyperion ambilight
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Home Automation
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Hyperion Library
+
+Python library for
+[Hyperion-NG](https://github.com/hyperion-project/hyperion.ng). See [JSON
+API](https://docs.hyperion-project.org/en/json/) for more details about the
+inputs and outputs of this library.
+
+
