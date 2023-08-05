@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: anipose
+Version: 0.9.0
+Summary: Framework for scalable DeepLabCut based analysis including 3D tracking
+Home-page: https://github.com/lambdaloop/anipose
+Author: Pierre Karashchuk
+Author-email: krchtchk@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Description-Content-Type: text/markdown
+Requires-Dist: aniposelib (>=0.4.0)
+Requires-Dist: click
+Requires-Dist: deeplabcut (>=2.0.4.1)
+Requires-Dist: numpy
+Requires-Dist: opencv-contrib-python (~=3.4)
+Requires-Dist: pandas
+Requires-Dist: scikit-video
+Requires-Dist: scipy
+Requires-Dist: toml
+Requires-Dist: tqdm
+Provides-Extra: viz
+Requires-Dist: mayavi ; extra == 'viz'
+
+# Anipose
+
+[![PyPI version](https://badge.fury.io/py/anipose.svg)](https://badge.fury.io/py/anipose)
+
+Anipose is an open-source toolkit for robust, markerless 3D pose estimation of animal behavior from multiple camera views. It leverages the machine learning toolbox [DeepLabCut](https://github.com/AlexEMG/DeepLabCut) to track keypoints in 2D, then triangulates across camera views to estimate 3D pose.
+
+Check out the [Anipose preprint](https://www.biorxiv.org/content/10.1101/2020.05.26.117325v1) for more information.
+
+The name Anipose comes from **Ani**mal **Pose**, but it also sounds like "any pose".
+
+## Documentation
+
+Up to date documentation may be found at [anipose.org](http://anipose.org) .
+
+## Demos
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/lambdaloop/anipose-docs/master/tracking_3cams_full_slower5.gif" width="70%" >
+</p>
+<p align="center">
+Videos of flies by Evyn Dickinson (slowed 5x), <a href=http://faculty.washington.edu/tuthill/>Tuthill Lab</a>
+</p>
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/lambdaloop/anipose-docs/master/hand-demo.gif" width="70%" >
+</p>
+<p align="center">
+Videos of hand by Katie Rupp
+</p>
+
+
+
+## References
+
+Here are some references for DeepLabCut and other things this project relies upon:
+- Mathis et al, 2018, "DeepLabCut: markerless pose estimation of user-defined body parts with deep learning"
+- Romero-Ramirez et al, 2018, "Speeded up detection of squared fiducial markers"
+
+
