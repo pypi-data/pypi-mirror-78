@@ -1,0 +1,56 @@
+import tempfile
+from contextlib import contextmanager
+from pathlib import Path
+from typing import Callable, ContextManager, Iterator, Tuple, Type, TypeVar
+
+import click
+import pytest
+from _pytest.monkeypatch import MonkeyPatch
+
+from sym.cli.commands import GlobalOptions
+from sym.cli.helpers.config import Config
+from sym.cli.saml_clients.saml_client import SAMLClient
+from sym.cli.sym import sym as click_command
+from sym.cli.tests.conftest import CustomOrgFixture
+from sym.cli.tests.helpers.capture import CaptureCommand
+from sym.cli.tests.helpers.sandbox import Sandbox
+
+P = TypeVar("P", bound=SAMLClient)
+TestContextFixture = Callable[..., ContextManager[P]]
+
+
+@pytest.fixture
+def test_context(
+    constructor: Type[P], sandbox: Sandbox, custom_org: CustomOrgFixture
+) -> TestContextFixture[P]:
+    @contextmanager
+    def context(*, debug: bool) -> Iterator[P]:
+        with sandbox.push_xdg_config_home(), custom_org("launch-darkly"):
+            sandbox.create_file(f"bin/{constructor.binary}", 0o755)
+            with sandbox.push_exec_path():
+                yield constructor("catfood", debug=debug)
+
+    return context
+
+
+def _subprocess_friendly_asserter(args: Tuple[Type[P], Sandbox]) -> None:
+    constructor, sandbox, expected_command = args
+    monkeypatch = MonkeyPatch()
+    capture_command = CaptureCommand(monkeypatch)
+
+    monkeypatch.setattr(SAMLClient, "check_is_setup", lambda self: ...)
+
+    with sandbox.push_xdg_config_home(), sandbox.push_exec_path(), capture_command():
+        Config.instance()["org"] = "sym"
+        with click.Context(click_command) as ctx:
+            ctx.ensure_object(GlobalOptions)
+            constructor("test", debug=False).exec("env")
+            capture_command.assert_command(*expected_command)
+
+
+@pytest.fixture
+def subprocess_friendly_asserter(constructor: Type[P]):
+    with tempfile.TemporaryDirectory() as tmpdirname:
+        sandbox = Sandbox(Path(tmpdirname))
+        sandbox.create_file(f"bin/{constructor.binary}", 0o755)
+        yield (_subprocess_friendly_asserter, constructor, sandbox)
