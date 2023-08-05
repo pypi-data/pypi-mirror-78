@@ -1,0 +1,25 @@
+<div class="nav2_contents">
+
+<!-- TODO:
+up/down for scene and track
+visual playing light for scene, clip, pattern
+-->
+
+<table>
+<tr>
+<td class="nav2_item"><span class="nav2_title">{{ title }}</span></td>
+</tr>
+{% for item in items %}
+<tr>
+<td class="nav2_item" id="nav2_item_{{ loop.index }}"">
+<a href="#" onclick="load_{{ category }}_item('{{ item.obj_id }}')">{{ item.name }}</a>
+</td>
+</tr>
+{% endfor %}
+{% if category != 'device' %}
+<tr>
+<td class="nav2_item" id="nav2_item_new"><a href="#" onclick="new_{{ category }}_item()"><i class="fas fa-plus" title="new"></i></a></td>
+</tr>
+{% endif %}
+</table>
+</div>
