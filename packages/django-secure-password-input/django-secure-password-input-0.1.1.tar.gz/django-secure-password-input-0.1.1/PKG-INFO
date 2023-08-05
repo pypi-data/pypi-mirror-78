@@ -1,0 +1,112 @@
+Metadata-Version: 2.1
+Name: django-secure-password-input
+Version: 0.1.1
+Summary: A simple django application provides function to encrypt password value with rsa public key before form submit and decrypt at the backend.
+Home-page: https://github.com/zencore-cn/zencore-issues
+Author: zencore
+Author-email: dobetter@zencore.cn
+License: MIT
+Description: # django-secure-password-input
+        
+        A simple django application provides function to encrypt password value with rsa public key before form submit and decrypt at the backend.
+        
+        ## Install
+        
+        ```shell
+        pip install django-secure-password-input
+        ```
+        
+        ## Usage
+        
+        **pro/settings.py**
+        
+        ```python
+        INSTALLED_APPS = [
+            ...
+            'django_static_jquery3',
+            'django_secure_password_input',
+            ...
+        ]
+        
+        DJANGO_SECURE_PASSWORD_INPUT_RSA_PRIVATE_KEY = """-----BEGIN RSA PRIVATE KEY-----
+        ......
+        -----END RSA PRIVATE KEY-----
+        """
+        
+        DJANGO_SECURE_PASSWORD_INPUT_ENCRYPTED_VALUE_PREFIX = "rsa-encrypted:"
+        ```
+        
+        **Note:**
+        
+        1. Add django_static_jquery3 and django_secure_password_input in INSTALLED_APPS.
+        1. Add your own DJANGO_SECURE_PASSWORD_INPUT_RSA_PRIVATE_KEY and keep it secret. You can generate rsa private key with rsa module in ipython. Copy all things between "BEGIN RSA PRIVATE KEY" and "END RSA PRIVATE KEY" and must include "BEGIN RSA PRIVATE KEY" and "END RSA PRIVATE KEY" lines. It will work if you not provide your own private key, it will use the django_secure_password_input's default private key, and it's not safe for you.
+        
+            ```python
+            In [3]: import rsa
+        
+            In [4]: pk, sk = rsa.newkeys(1024)
+        
+            In [5]: print(sk.save_pkcs1().decode())
+            -----BEGIN RSA PRIVATE KEY-----
+            MIICXwIBAAKBgQCluABEZpoy8lIL8oZNBB7xsc8sh5LOBrT1aLW0F1BpguimwUn4
+            K7XDgCP95WWzbp/cHDxl16bKlc15u7TZANOt7iCfdS7BsqXykIh7tts4bl2j95bD
+            bwTcpf5kTr0QuqCtPk//nlHWxexeXerSuFzgiYC8vlwrVX+AvuMBVcDqIQIDAQAB
+            AoGABcH32GiMMPr0WM/rVJ+xB4q6/PwU4K2g+enSblhlBdVzid+rV0EFhq5cEcU3
+            nF1aloYwnwU4GU/NHM6luOL0gbchyksyLKorkNkpElohi1Ek05CCvno7inZ2F4H4
+            iffnGp85TczkUa7NHcHPZwCSz/AWbyPYFtLJebjTorFDxRUCRQDm3kRetWgUYdyJ
+            bn8nwJhR2rg3Cqu/PbSlx7Q7NirYCwr8Zb8HnDEsRuC8ew7p1MEUYLiAAT6gP9yZ
+            b+08eY9AWIQsxwI9ALfCLWo/UbCVbmsFlZjay2Mva4A44ME5vBn4Zky7hR9FxZvC
+            zzdV2d5v+3iygQVfzr8hJQ9Xr96LfAE51wJFAKZ/ZY9oBMeuS/5RUiK5IyDlPDV1
+            3KbvOXjVrYWGax+j1yhvuHUkj9H+y9Uian74kMbBek3Wl/O6Gr4NmmoiwM0HCUvB
+            AjtkfcxYTkheSVoZLPSiowSXOVeQx4oiIXC8wxsu213xvDZU+DRaDpkXDCZ52ySz
+            y7FE1NtviISlL6KhCQJEYI1y9vkvSl+aSj+ayyg6cELqfa/m7XDqsxMId5RTdfcS
+            MIUYyH+SOGlp2QEpJqEWABa8aTw0PD68vftmdichTVQue9w=
+            -----END RSA PRIVATE KEY-----
+            ```
+        
+        **app/admin.py**
+        
+        ```python
+        from django.contrib import admin
+        from django import forms
+        from django_secure_password_input.fields import DjangoSecurePasswordInput
+        from .models import Account
+        
+        
+        class AccountForm(forms.ModelForm):
+            password = DjangoSecurePasswordInput()
+        
+            class Meta:
+                model = Account
+                exclude = []
+        
+        class AccountAdmin(admin.ModelAdmin):
+            form = AccountForm
+            list_display = ["username", "password"]
+        
+        admin.site.register(Account, AccountAdmin)
+        ```
+        
+        **Note:**
+        
+        1. Create a form, and override password field using type DjangoSecurePasswordInput.
+        
+        ## Release
+        
+        
+        ### v0.1.1 2020/09/01
+        
+        - No depends on django-static-jquery3.
+        
+        ### v0.1.0 2020/03/07
+        
+        - First release.
+Keywords: django admin extentions,django secure password input
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
