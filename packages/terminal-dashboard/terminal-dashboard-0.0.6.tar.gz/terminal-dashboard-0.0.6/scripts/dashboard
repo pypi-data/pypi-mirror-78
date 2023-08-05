@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+# code=UTF-8
+# Copyright 2020 James P Goodwin dashboard@jlgoodwin.com
+import locale
+locale.setlocale(locale.LC_ALL,"")
+import curses
+import sys
+import os
+import traceback
+from optparse import OptionParser
+from dashboard.version import __version__
+from dashboard_cli.config import load_config
+from dashboard_cli.server import server
+from data_sources.remote_data import shutdown_connection_manager
+
+def main(stdscr, options, args):
+    """ The main driver for the dashboard utility """
+    c = None
+    try:
+        c = load_config(stdscr,options)
+        ret = c["dashboard"].main()
+    finally:
+        if c and "tables" in c:
+            for d in c["tables"]:
+                d[1].stop_refresh()
+        shutdown_connection_manager()
+    return 0
+
+if __name__ == '__main__':
+    sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', buffering=1)
+    sys.stderr = os.fdopen(sys.stderr.fileno(), 'w', buffering=1)
+    sys.stdin = os.fdopen(sys.stdin.fileno(), 'r', buffering=1)
+
+    parser = OptionParser(usage="usage: %prog [options]", description="A dashboard to display pages of graphs of data from multiple sources and refresh them")
+    parser.add_option("-c","--config", dest="config", default="~/.dashboard/config", help="Path to dashboard config file, defaults to ~/.dashboard/config")
+    parser.add_option("-s","--server", dest="server", action="store_true", default=False, help="Start in server mode, read commands from stdin and write responses to stdout")
+    parser.add_option("-v","--verbose", dest="verbose", action="store_true", default=False, help="Log all activity to console")
+    parser.add_option("-V","--version", dest="version", action="store_true", default=False, help="Print the version of the script and exit")
+
+    (options,args) = parser.parse_args()
+
+    if options.version:
+        print("dashboard version %s"%__version__)
+        exit(0)
+
+    try:
+        if options.server:
+            ret = server(options,args)
+        else:
+            ret = curses.wrapper(main,options,args)
+    except:
+        tb = traceback.format_exc()
+        print(tb, file=sys.stderr)
+        sys.stderr.flush()
+        ret = 1
+
+    exit(ret)
