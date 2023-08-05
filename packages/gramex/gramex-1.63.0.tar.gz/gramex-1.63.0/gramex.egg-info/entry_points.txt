@@ -1,0 +1,7 @@
+[console_scripts]
+gramex = gramex:commandline
+slidesense = gramex.pptgen2:commandline
+
+[pytest11]
+gramextest = gramex.gramextest
+
