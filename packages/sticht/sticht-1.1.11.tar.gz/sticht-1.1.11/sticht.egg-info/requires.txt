@@ -1,0 +1,10 @@
+pytimeparse
+slackclient>=1.2.1
+transitions
+mypy_extensions
+signalfx
+typing-extensions
+
+[yelp_internal]
+yelp-clog>=2.12.1
+slo-transcoder>=3.2.3
