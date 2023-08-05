@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if search_enabled %}
+	<input type="text" id="searchBar">
+	<ul id="searchHits">
+{% endif %}
+	
+</ul>
+
+<a href="/bookmarks/new">New Bookmark</a>
+<a href="/notes/new">New Note</a>
+
+<p>
+    Sync with <a href="/pocket">Pocket</a>
+</p>
+{% set path = [] %}
+{% set i = namespace(value=0) %}
+{% macro draw_dir(dir, depth) -%}
+	{% set i.value = i.value + 1 %}
+	{% if depth %}
+		{% do path.append(dir.name) %}
+	{% endif %}
+	<div style="margin-left: 15px" id="cont-{{i.value}}" class="folder-cont">
+		<h2>
+			{{ dir.name }} 
+		</h2>
+		<button class="expand-btn" onclick="createInteractive(this, {{i.value}}, '{{"/".join(path)}}');">Expand</button>
+
+		<ul id="items-{{i.value}}">
+			{% for dataobj in dir.child_files %}
+				<li>
+					<a href="/dataobj/{{ dataobj["id"] }}">
+						{{ dataobj["title"] }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+		{% for child_dir in dir.child_dirs.values() %}
+			{{ draw_dir(child_dir, depth + 1) }}
+		{% endfor %}
+	</div>
+	{% if depth %}
+		{% do path.pop() %}
+	{% endif %}
+{%- endmacro %}
+
+{{ draw_dir(dataobjs, 0) }}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/11.0.0/markdown-it.min.js">
+</script>
+<script>
+	const SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+	let max_folder_id = {{ i.value }}; 
+	console.log(max_folder_id);
+	// search functionality
+	{% if search_enabled %}	
+		var md = window.markdownit();
+		function appendHit(hit, hidden, query) {
+			let hitsDiv = document.getElementById("searchHits");
+			let hitLi = document.createElement("li");
+			let p = document.createElement("p"), a = document.createElement("a"), hitText = '';
+			// match certain semantic elements
+			// refactor to instead ignore <img>
+			let paragraphs = md.render(hit['_source']['content']).replace(/(\r\n\t|\n|\r\t)/gm,"").match(/(<(p|li|blockquote|strong|b).*>.*<\/(p|li|blockquote|strong|b)>)/mg);
+			for(let i = 0; paragraphs && i < paragraphs.length; i++)
+			{
+				if (paragraphs[i].toUpperCase().includes(query.toUpperCase())) {
+					hitText += `${paragraphs[i]}`;
+				}
+			}
+			hitText = hitText.replace(query, "<span style='background-color: #f6efa6'>" + query + "</span>");
+			p.innerHTML = hitText, a.textContent = hit['_source']['title'], a.href = `/dataobj/${hit['_id']}`;
+			hitLi.append(a);
+			hitLi.append(p);
+			if (hidden)
+			{
+				hitLi.classList = "hidden";
+			}
+			hitsDiv.appendChild(hitLi);
+		}
+		let input = document.getElementById("searchBar");
+		input.addEventListener('input', async function(e) {
+			if (input.value !== "")
+			{
+				let searchQuery = await fetch(`${SCRIPT_ROOT}/search?query=${input.value}`, {
+					"method": "GET"
+				});
+				if (searchQuery.ok) {	
+					let data = await searchQuery.json(), i = 0;
+					console.log(data);
+					document.getElementById("searchHits").innerHTML = "";
+					data.forEach(function(hit)
+					{
+						let hidden = i > 4;
+						appendHit(hit, hidden, input.value);
+						i++;
+					})
+				}
+			}
+		});
+	{% endif %}
+	function createInteractive(prevElem, id, path) 
+	{
+		// expand
+		if (!document.getElementById("form-" + id)) {
+			// insert delete
+			// make sure root dir is not deleted in ui
+			if (id != 1) {
+				prevElem.insertAdjacentHTML("afterend",
+					`
+						<button id="delete-btn-${id}" class="delete-btn" onclick="deleteFolder('${path}', ${id})">
+							<img src="/static/delete.png" alt="delete icon">
+						</button>
+					`
+				)
+			}
+
+			prevElem.insertAdjacentHTML("afterend",
+				`
+					<p id="p-${id}">Create a new folder</p>
+					<form id="form-${id}" class="new-folder fadein">
+						<span id="form-path-${id}">${path}</span>
+						<input type="text" id="form-input-${id}" class="folder-inputs">
+						<input type="submit">
+					</form>
+				`
+			)
+			document.getElementById("form-" + id).addEventListener("submit", function (e) {
+				e.preventDefault();
+				createFolder(id);
+			})
+			let childNotes = document.getElementById("items-" + id);
+			if (childNotes) {
+				childNotes.style.display = "block";
+			}
+			prevElem.innerHTML = 'Collapse'
+		}
+		// collapse
+		else {
+			prevElem.innerHTML = 'Expand'
+			document.getElementById(`p-${id}`).remove()
+			document.getElementById("form-" + id).remove()
+			if(document.getElementById(`delete-btn-${id}`))
+				document.getElementById(`delete-btn-${id}`).remove()
+			document.getElementById("items-" + id).style.display = "none";
+		}
+
+	}
+	async function createFolder(id)
+	{
+		max_folder_id++;
+		let input = document.getElementById(`form-input-${id}`);
+		let basePath = document.getElementById(`form-path-${id}`).textContent; 
+		let totalPath = basePath === "" ? [] : basePath.split("/");
+		totalPath.push(input.value);
+		let result = await fetch(`${SCRIPT_ROOT}/folders/new`, {
+			method: "POST",
+			body: JSON.stringify({
+				"paths": totalPath
+			}),
+			headers: {"content-type": "application/json"}
+		})
+		input.value = "";
+		if (result.status === 401)
+		{
+			input.placeholder = "Directory already exists";
+		}
+		else {
+			totalPath = await result.text();
+			// get last element of totalPath
+			let sanitizedDirname = totalPath.split("/").slice(-1).pop();
+			let currentFolderDiv = document.getElementById("cont-" + id);
+			currentFolderDiv.insertAdjacentHTML("beforeend", 
+				`
+					<div style="margin-left: 15px" id="cont-${max_folder_id}" class="folder-cont">
+						<h2>
+							${sanitizedDirname}		
+						</h2>
+						<button class="expand-btn" onclick="createInteractive(this, ${max_folder_id}, '${totalPath}');">Expand</button>
+					</div>
+				`
+			)
+			document.getElementById("cont-" + max_folder_id).scrollIntoView();
+		}
+	}
+
+	function deleteFolder(path, id)
+	{	
+		fetch(`${SCRIPT_ROOT}/folders/delete`, {
+			method: "DELETE",
+			body: JSON.stringify({
+				"name": path
+			}),
+			headers: {"content-type": "application/json"}
+		})
+		document.getElementById(`cont-${id}`).classList.add("hidden");
+	}
+	// new folders with ajax
+	window.onload = function() {
+		let newFolderBtns = document.querySelectorAll(".folder-btns")
+		newFolderBtns.forEach(function(btn) {
+			btn.addEventListener("click", function(e) {
+				let btnId = btn.id.split("-")[2];
+				createFolder(btnId);
+			})
+		})
+		let deleteBtns = document.querySelectorAll(".delete-btn");
+		deleteBtns.forEach(function(btn) {
+			btn.addEventListener("click", function(e) {
+				let id = btn.id.split("-")[2];
+				deleteFolder(id);
+			})
+		})
+	}
+</script>
+{% endblock %}
