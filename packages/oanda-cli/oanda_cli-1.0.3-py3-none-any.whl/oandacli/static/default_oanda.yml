@@ -1,0 +1,14 @@
+---
+oanda:                    # required
+  environment: trade      # { trade, practice }
+  token: ''
+  account_id: ''
+redis:
+  host: 127.0.0.1
+  port: 6379
+  db: 0
+instruments:
+  - EUR_USD
+  - USD_JPY
+  - GBP_USD
+  - AUD_USD
