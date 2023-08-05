@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: rename_musicfiles
+Version: 0.1.2
+Summary: A very simple script that renames audio files based on their tags to a hardcoded pattern
+Home-page: https://github.com/The-Judge/rename_musicfiles
+License: UNKNOWN
+Author: Marc Richter
+Author-email: mail@marc-richter.info
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
+Classifier: Topic :: Multimedia :: Sound/Audio
+Requires-Dist: phrydy >=2.0.0
+
+# About
+
+`rename_musicfile` is a very (!) simple script to rename musicfiles
+by a hardcoded pattern from that file's Meta tags.  
+This pattern is `<artist>/(-<year>-) albumname/<zero-padded track-nr> - <artist> - <track-name>.<file-extension>`.
+
+This is how I need it for my personal preferences for years and it
+is most certainly not applicable for anybody else.  
+Do not install or use unless you share the same weird definition 
+of tidiness as I do.
