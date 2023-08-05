@@ -1,0 +1,12 @@
+{
+   "$schema":"http://json-schema.org/draft-04/schema#",
+   "title":"Test",
+   "description":"test",
+   "type":"object",
+  "additionalProperties": false,
+   "properties":{
+     "title": {
+         "$ref": "../oarepo_multilingual/jsonschemas/multilingual-v2.0.0.json#/definitions/multilingual"
+     }
+   }
+}

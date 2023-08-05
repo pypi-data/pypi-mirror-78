@@ -1,0 +1,15 @@
+{
+  "definitions": {
+    "multilingual": {
+      "$id": "#multilingual",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties":
+      {
+        "^[a-z][a-z]$" : {"type": "string"},
+        "^[a-z][a-z]-[a-z][a-z]$" : {"type": "string"}
+      }
+    }
+
+  }
+}

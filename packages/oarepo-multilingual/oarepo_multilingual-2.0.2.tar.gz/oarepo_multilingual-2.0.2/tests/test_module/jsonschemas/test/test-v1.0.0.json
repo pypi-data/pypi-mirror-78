@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "title": {
+            "$ref": "https://localhost:5000/schemas/multilingual-v2.0.0.json#/definitions/multilingual"
+      }
+  }
+}

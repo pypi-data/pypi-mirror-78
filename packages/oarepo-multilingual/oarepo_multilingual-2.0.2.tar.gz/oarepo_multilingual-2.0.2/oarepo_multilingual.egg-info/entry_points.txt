@@ -1,0 +1,6 @@
+[invenio_jsonschemas.schemas]
+oarepo_multilingual = oarepo_multilingual.jsonschemas
+
+[oarepo_mapping_handlers]
+multilingual = oarepo_multilingual.mapping.mapping_handler:handler
+
