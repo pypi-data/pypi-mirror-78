@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: pylint-import-requirements
+Version: 2.0.5
+Summary: A pylint plugin to check that all imports have matching requirements specified
+Home-page: http://github.com/WanzenBug/pylint-import-requirements
+Author: Moritz 'WanzenBug' Wanzenböck
+Author-email: moritz@wanzenbug.xyz
+License: GPL
+Keywords: pylint import requirements
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Debuggers
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Testing
+Description-Content-Type: text/markdown
+Requires-Dist: astroid
+Requires-Dist: importlib-metadata
+Requires-Dist: isort
+Requires-Dist: pylint
+Requires-Dist: setuptools
+
+# pylint_import_requirements
+
+[![Build Status](https://travis-ci.com/WanzenBug/pylint-import-requirements.svg?branch=master)](https://travis-ci.com/WanzenBug/pylint-import-requirements)
+[![PyPI Releases](https://img.shields.io/pypi/v/pylint-import-requirements.svg)](https://pypi.org/project/pylint-import-requirements/#history)
+[![Compatible Python Versions](https://img.shields.io/pypi/pyversions/pylint-import-requirements.svg)](https://pypi.org/project/pylint-import-requirements/)
+
+Pylint plugin that checks that all imports can be resolved from the package requirements
+
+## Install
+```
+pip install pylint-import-requirements
+```
+
+## Usage
+```
+pylint --load-plugins=pylint_import_requirements *.py
+```
+
+
