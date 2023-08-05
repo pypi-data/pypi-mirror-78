@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: SimpleCopy
+Version: 0.0.2
+Summary: library to make easier copy files and folders in python
+Home-page: https://github.com/Acuf5928/SimpleCopy
+Author: Acuf5928
+Author-email: alberto.cuffaro@hotmail.it
+License: UNKNOWN
+Description: SimpleCopy
+        ==============
+        
+        Wrapper for shutil
+        
+        Installation
+        ------------
+        
+        ``pip install SimpleCopy``
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
