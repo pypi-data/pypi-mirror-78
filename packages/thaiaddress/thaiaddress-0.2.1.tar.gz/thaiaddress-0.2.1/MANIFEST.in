@@ -1,0 +1,6 @@
+include LICENSE
+include README.md
+
+# Include the data files
+include thaiaddress/models/model.joblib
+include thaiaddress/data/thai_address_data.csv

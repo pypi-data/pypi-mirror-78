@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+thaiaddress/__init__.py
+thaiaddress/parser.py
+thaiaddress/train.py
+thaiaddress/utils.py
+thaiaddress.egg-info/PKG-INFO
+thaiaddress.egg-info/SOURCES.txt
+thaiaddress.egg-info/dependency_links.txt
+thaiaddress.egg-info/requires.txt
+thaiaddress.egg-info/top_level.txt
+thaiaddress/data/thai_address_data.csv
+thaiaddress/models/model.joblib
