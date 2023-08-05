@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: discord-error-handle
+Version: 0.0.1
+Summary: A package that converts all things in a list into either string or int
+Home-page: https://github.com/Ricardolcm888/discord_error_handle
+Author: Ricardolcm
+License: UNKNOWN
+Description: # convert int str in list
+         Simple Converter Convert All int and string in a list
+        
+        
+        This converter allows you to convert all string in a list into a list that contains everything you input except for the type of the thing inside it is int. This action can be reverse by converting all int to a string again.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
