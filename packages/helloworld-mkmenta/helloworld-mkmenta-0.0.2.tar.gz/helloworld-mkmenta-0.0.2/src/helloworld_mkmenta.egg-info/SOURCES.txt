@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+tox.ini
+.idea/runConfigurations/All_tests.xml
+.idea/runConfigurations/say_hello_example.xml
+.idea/runConfigurations/tox.xml
+examples/say_hello_example.py
+src/helloworld.py
+src/helloworld_mkmenta.egg-info/PKG-INFO
+src/helloworld_mkmenta.egg-info/SOURCES.txt
+src/helloworld_mkmenta.egg-info/dependency_links.txt
+src/helloworld_mkmenta.egg-info/requires.txt
+src/helloworld_mkmenta.egg-info/top_level.txt
+tests/test_helloworld.py
