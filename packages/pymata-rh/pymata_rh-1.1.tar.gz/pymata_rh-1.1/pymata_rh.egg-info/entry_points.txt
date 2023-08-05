@@ -1,0 +1,5 @@
+[console_scripts]
+rhdemo = pymata_rh.rhgui:rhgui
+rhgui = rh_tk_gui.pymata_rh:vp_start_gui
+rhgw = robohat_gateway.robohat_gateway:robo_hat_gateway
+
