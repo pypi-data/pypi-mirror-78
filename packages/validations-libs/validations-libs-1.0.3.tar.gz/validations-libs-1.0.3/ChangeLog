@@ -1,0 +1,83 @@
+CHANGES
+=======
+
+1.0.3
+-----
+
+* Add lower ansible-runner version as requirements for train
+* Add a way to override the default validation log path
+* Switch legacy Zuul jobs to native Zuul v3 jobs
+
+1.0.2
+-----
+
+* Show history by play and add get status action
+* Change zuul config for functional CI execution
+* Update openstackdocstheme
+* Remove playbook param from run\_validation
+* Add base\_dir param to override the constants value easily
+* Filter get\_all\_log\_file by extension
+* Catch value error when extract log info from log name
+* Switch to newer openstackdocstheme and reno versions
+* Handle multiple validation logs results
+* Add API Documentation structure
+* Avoid None value when missing data in ansible log
+* Fix title
+* Raise exception if no validation is found
+* Update the minversion parameter
+* Add asynchronous option to validation libs
+* Move unit tests execution to stestr
+* Bump default tox env from py37 to py38
+* Add py38 package metadata
+* Add Python3 victoria unit tests
+
+1.0.0
+-----
+
+* Format output in json or yaml for validations show param
+* Use validation\_path attribut instead of variables
+* Declare playbooks for groups execution
+* Expose limit hosts option to the validation run actions
+* Ensure we get a sorted list for validation groups
+* Add unit tests coverage for validation, group and logs classes
+* Make mock import python 2.7 compatible
+* Add backward compatibility for old ansible\_runner releases
+* Update to hacking 3.0
+* Update hacking for Python3
+* Fix behavior for Show command to stick to tripleoclient
+* Add get validation playbook function and cleanup
+* Implement validation show history command
+* Add validation log object representation
+* Add TripleO Jobs back
+* Use Zuul template for lower-constraints
+* Implement Validation Show Parameters
+* Add validation\_actions class and group info implementation
+* Move validation data as object
+* Fix typo in unit test fakes data
+* Remove unused classes for PushD and Tempdir
+* Add validations show functions
+* Remove mock as a test requirement and add PyYAML as requirement
+* Change ansible artifacts dir to /var/log
+* Improve the way we log on the file system
+* Handle playbook as a list or simple str
+* Make playbooks as a list by default
+* remove untested get\_result functions from this PR
+* Fix pep8 lint for unit tests
+* Add unit tests for ansible runner library
+* Remove zuul.d temporarily
+* Add unit tests for validations\_run class
+* add validations logs path cache
+* fix import issue and add config opt to the run object
+* fix nits
+* Improve testing infrastructure
+* Remove extra-vars logic from run.py
+* fix pep8 lint
+* Add run and ansible\_runner execution
+* fix pep8 lint
+* Add run and ansible\_runner execution
+* fix module import
+* Add utils functions and validations List object
+* Add missing stuffs for pytesting with tox
+* Adding the foundation files
+* Init python project structure
+* Initial commit

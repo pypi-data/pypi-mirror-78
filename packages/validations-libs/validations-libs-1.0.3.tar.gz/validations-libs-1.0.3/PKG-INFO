@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: validations-libs
+Version: 1.0.3
+Summary: A common library for the validations framework
+Home-page: https://docs.openstack.org/tripleo-validations/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: # validations-libs
+        
+        A collection of python libraries for the Validation Framework
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
