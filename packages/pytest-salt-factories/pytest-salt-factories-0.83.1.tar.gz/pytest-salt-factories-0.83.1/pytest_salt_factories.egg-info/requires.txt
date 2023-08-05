@@ -1,0 +1,16 @@
+pytest-tempdir>=2019.9.16
+psutil
+pyzmq
+msgpack!=0.5.5,>=0.5
+
+[:python_version < "3.0"]
+pytest<4.7,>=4.6.6
+
+[:python_version > "3.0"]
+pytest>=4.6.6
+
+[docker]
+docker
+
+[salt]
+salt>=3000.1
