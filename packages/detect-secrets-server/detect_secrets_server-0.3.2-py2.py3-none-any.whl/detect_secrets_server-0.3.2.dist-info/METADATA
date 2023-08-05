@@ -1,0 +1,29 @@
+Metadata-Version: 2.0
+Name: detect-secrets-server
+Version: 0.3.2
+Summary: Tool for setting up a detect-secrets server
+Home-page: https://github.com/Yelp/detect-secrets-server
+Author: Aaron Loo
+Author-email: aaronloo@yelp.com
+License: Copyright Yelp, Inc. 2018
+Download-URL: https://github.com/Yelp/detect-secrets-server/archive/0.3.2.tar.gz
+Keywords: secret-management,pre-commit,security,entropy-checks
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Provides-Extra: cron
+Requires-Dist: detect-secrets (>=0.13.0)
+Requires-Dist: pyyaml
+Requires-Dist: unidiff
+Provides-Extra: cron
+Requires-Dist: python-crontab; extra == 'cron'
+
+Check out detect-secrets-server on `GitHub <https://github.com/Yelp/detect-secrets-server>`_!
+
+
