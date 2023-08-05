@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "synecure"
+version = "0.1.6"
+description = "File sync utility"
+authors = ["Olivier Breuleux <breuleux@gmail.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+homepage = "https://github.com/breuleux/synecure"
+repository = "https://github.com/breuleux/synecure"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+coleo = "^0.1.5"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+isort = "^4.3.21"
+flake8 = "^3.8.2"
+
+[tool.poetry.scripts]
+sy = "synecure.cli:entry_sy"
+sy-config = "synecure.cli:entry_sy_config"
+bsync = "synecure.cli:entry_bsync"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
