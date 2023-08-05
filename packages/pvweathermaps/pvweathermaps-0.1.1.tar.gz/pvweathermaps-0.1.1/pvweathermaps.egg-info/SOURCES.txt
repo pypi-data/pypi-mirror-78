@@ -1,0 +1,15 @@
+.gitignore
+CHANGELOG.md
+MANIFEST.in
+README.md
+__init__.py
+api.py
+requirements.txt
+setup.py
+.vscode/settings.json
+notebooks/example_get_KGPV.ipynb
+pvweathermaps.egg-info/PKG-INFO
+pvweathermaps.egg-info/SOURCES.txt
+pvweathermaps.egg-info/dependency_links.txt
+pvweathermaps.egg-info/requires.txt
+pvweathermaps.egg-info/top_level.txt
