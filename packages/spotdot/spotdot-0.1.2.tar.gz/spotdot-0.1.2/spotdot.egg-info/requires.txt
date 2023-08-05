@@ -1,0 +1,14 @@
+astropy
+matplotlib
+pymc3
+corner
+lightkurve
+
+[docs]
+sphinx-astropy
+exoplanet
+
+[test]
+pytest-astropy
+exoplanet
+fleck
