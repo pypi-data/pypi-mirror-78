@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pydestiny
+Version: 0.1.0
+Summary: A python wrapper for the rust crate destiny. A library for rolling dice and calculating dice distributions.
+Author: Marc Chesebro <marc.chesebro@gmail.com>
+Author-Email: Marc Chesebro <marc.chesebro@gmail.com>
+License: MIT
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# pydestiny
+
+A python wrapper for the rust crate [destiny](https://crates.io/crates/destiny).
+
+currently only has the parse dice string functionality.
