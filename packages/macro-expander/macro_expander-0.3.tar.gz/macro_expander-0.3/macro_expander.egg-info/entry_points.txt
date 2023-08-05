@@ -1,0 +1,4 @@
+
+    [console_scripts]
+    expand-macros.py=macro_expander.scripts.expand_macros:main
+    
