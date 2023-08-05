@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: Mopidy-Muse
+Version: 0.0.18
+Summary: Mopidy interface with snapcast support
+Home-page: https://github.com/cristianpb/muse
+Author: Cristian Brokate
+License: Apache License, Version 2.0
+Platform: UNKNOWN
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Multimedia :: Sound/Audio :: Players
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: Mopidy (>=3.0.0)
+Requires-Dist: Pykka (>=2.0.1)
+Requires-Dist: setuptools
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: check-manifest ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: flake8-bugbear ; extra == 'dev'
+Requires-Dist: flake8-import-order ; extra == 'dev'
+Requires-Dist: isort[pyproject] ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Provides-Extra: lint
+Requires-Dist: black ; extra == 'lint'
+Requires-Dist: check-manifest ; extra == 'lint'
+Requires-Dist: flake8 ; extra == 'lint'
+Requires-Dist: flake8-bugbear ; extra == 'lint'
+Requires-Dist: flake8-import-order ; extra == 'lint'
+Requires-Dist: isort[pyproject] ; extra == 'lint'
+Provides-Extra: release
+Requires-Dist: twine ; extra == 'release'
+Requires-Dist: wheel ; extra == 'release'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+# Muse <img src="https://cristianpb.github.io/muse/icon.png" align="right" width="200" />
+
+![PyPI](https://img.shields.io/pypi/v/Mopidy-Muse) ![PyPI - Downloads](https://img.shields.io/pypi/dm/Mopidy-Muse?label=PyPi%20downloads) [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fcristianpb%2Fmuse%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/cristianpb/muse/goto?ref=master)
+
+A mopidy player with snapcast support
+
+## Features
+
+* Support for snapcast volume control
+* Responsive design based in bulma framework
+* Modify tracklists using drag and drop motions
+* Create and modify playlists
+* Reactive search for tracklists in different sources
+* No user tracking (No Google Analytics)
+* Created using state of the art web technologies:
+  * Svelte framework for small package size
+  * Sapper for multiple pages and server side rendering
+  * Github Actions CI/CD workflow for build and publish
+
+Checkout a detailled description at [this blog post](https://cristianpb.github.io/blog/mopidy-muse)
+
+<p align="center">
+  <img width="901" height="450" src="https://cristianpb.github.io/assets/img/mopidy-muse/main.png" alt="Mopidy-Muse homepage">
+</p>
+
+## Installation
+
+Install by running:
+
+```bash
+python3 -m pip install Mopidy-Muse
+```
+
+Before starting Mopidy, you must add configuration for Mopidy-Muse to your Mopidy configuration file:
+
+```conf
+[muse]
+enabled = true
+```
+
+## Project resources
+
+* [Source code](https://github.com/cristianpb/muse)
+* [Issue tracker](https://github.com/cristianpb/muse/issues)
+
+
