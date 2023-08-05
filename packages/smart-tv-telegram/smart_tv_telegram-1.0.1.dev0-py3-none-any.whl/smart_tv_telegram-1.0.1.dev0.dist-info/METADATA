@@ -1,0 +1,142 @@
+Metadata-Version: 2.1
+Name: smart-tv-telegram
+Version: 1.0.1.dev0
+Summary: A Telegram Bot to stream content on your smart TV
+Home-page: https://github.com/andrew-ld/smart-tv-telegram
+Author: andrew-ld
+Author-email: andrew-ld@protonmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp (==3.6.2)
+Requires-Dist: async-generator (==1.10)
+Requires-Dist: async-lru (==1.0.2)
+Requires-Dist: async-timeout (==3.0.1)
+Requires-Dist: async-upnp-client (==0.14.14)
+Requires-Dist: attrs (==20.1.0)
+Requires-Dist: casttube (==0.2.1)
+Requires-Dist: certifi (==2020.6.20)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: defusedxml (==0.6.0)
+Requires-Dist: idna (==2.10)
+Requires-Dist: ifaddr (==0.1.7)
+Requires-Dist: multidict (==4.7.6)
+Requires-Dist: protobuf (==3.13.0)
+Requires-Dist: pyaes (==1.6.1)
+Requires-Dist: PyChromecast (==7.2.1)
+Requires-Dist: Pyrogram (==1.0.3)
+Requires-Dist: PySocks (==1.7.1)
+Requires-Dist: python-didl-lite (==1.2.4)
+Requires-Dist: requests (==2.24.0)
+Requires-Dist: six (==1.15.0)
+Requires-Dist: TgCrypto (==1.2.0)
+Requires-Dist: typing-extensions (==3.7.4.3)
+Requires-Dist: urllib3 (==1.25.10)
+Requires-Dist: voluptuous (==0.11.7)
+Requires-Dist: yarl (==1.5.1)
+Requires-Dist: zeroconf (==0.28.2)
+
+# smart-tv-telegram
+A Telegram Bot to stream content on your smart TV (also Chromecast, FireTV and other UPnP device)
+
+### Demonstration video
+[![poc](https://i.ibb.co/ct8Qb3z/Screenshot-20200827-200637.png)](https://player.vimeo.com/video/452289383)
+
+
+## Feature
+- Streaming, the bot will not have to download the entire file before playing it on your device
+- You can play anything if your device has the right codec
+- You can streaming on any device that supports UPnP (AVTransport)
+- Chromecast, Vlc (telnet api) and Kodi (xbmc http api) support
+- Streaming over HTTP
+
+Note: Chromecast (1st, 2nd and 3rd Gen.) [only supports H.264 and VP8 video codecs](https://developers.google.com/cast/docs/media#video_codecs)
+
+Note: Most LG TVs with WebOS have an incorrect UPnP implementation, throw it in the trash and buy a new TV
+
+## How-to setup
+Make sure you have an updated version of python, only the latest version will be supported
+
+(currently it also works on Python 3.6)
+
+- Download the repository
+- Install python dependencies from requirements.txt
+- Copy config.ini.example to config.ini
+- Edit config.ini
+
+```bash
+git clone https://github.com/andrew-ld/smart-tv-telegram
+cd smart-tv-telegram
+python3 setup.py sdist bdist_wheel
+python3 -m pip install dist/*.whl
+cp config.ini.example config.ini
+nano config.ini
+smart_tv_telegram -c config.ini -v 1
+```
+
+## How-to setup (Docker)
+- Copy config.ini.example to config.ini
+- Edit config.ini
+- Build Docker
+- Start Docker
+
+```bash
+cp config.ini.example config.ini
+nano config.ini
+docker image build -t smart-tv-telegram:latest .
+docker run --network host -v "$(pwd)/config.ini:/app/config.ini:ro" -d smart-tv-telegram:latest
+```
+
+## Troubleshooting
+
+**Q:** My Firewall block upnp and broadcasting, how can use kodi without it
+
+**A:** Set `xbmc_enabled` to `1` and add your kodi device to `xbmc_devices` list
+
+##
+**Q:** What is the format of `xbmc_devices`
+
+**A:** A List of Python Dict with `host`, `port`, (and optional: `username` and `password`)
+
+**example:** `[{"host": "192.168.1.2", "port": 8080, "username": "pippo", "password": "pluto"}]`
+
+##
+**Q:** How-To control vlc from this bot
+
+**A:** set `vlc_enabled` to `1` and add your vlc device to `vlc_devices` list
+
+##
+**Q:** What is the format of `vlc_devices`
+
+**A:** A List of Python Dict with `host`, `port`, (and optional: `password`)
+
+**example:** `[{"host": "127.0.0.1", "port": 4212, "password": "123"}]`
+
+
+##
+**Q:** How-To enable upnp on my device that use kodi
+
+**A:** follow [this guide](https://kodi.wiki/view/Settings/Services/UPnP_DLNA) (you should enable remote control)
+
+##
+**Q:** How do I get a token?
+
+**A:** From [@BotFather](https://telegram.me/BotFather)
+##
+**Q:** How do I set up admins?
+
+**A:** You have to enter your user_id, there are many ways to get it, the easiest is to use [@getuseridbot](https://telegram.me/getuseridbot)
+##
+**Q:** How do I get an app_id and app_hash?
+
+**A:** https://core.telegram.org/api/obtaining_api_id#obtaining-api-id
+##
+**Q:** The video keeps freezing
+
+**A:** Check the video bitrate, this bot supports maximum ~4.5Mb/s
+
+
