@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: hachiko-bapu
+Version: 0.1.8
+Summary: Simple pygame GUI tool for creating pitch timeline
+Home-page: https://github.com/duangsuse-valid-projects/Hachiko
+Author: duangsuse
+Author-email: fedora-opensuse@outlook.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Multimedia
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: Topic :: Utilities
+Requires-Python: >=3.5
+Requires-Dist: pygame (>=1.8)
+Requires-Dist: sf2utils (>=0.9)
+Requires-Dist: srt (>=3.0)
+Requires-Dist: mido (>=1.2)
+Provides-Extra: funutils_codegen
+Requires-Dist: pyparsing (>=2.4) ; extra == 'funutils_codegen'
+Provides-Extra: synthesize_buffer
+Requires-Dist: numpy (>=1.0) ; extra == 'synthesize_buffer'
+
+
+Simple tool for creating pitch timeline, this program divides midi creation into pitches and timeline part.
+
+When creating timeline, press A to give position/duration information, and use S to split different notes directly when holding A.
+
+This program requires system FluidSynth library to run, this package also provides command utility srt2mid and lrc_merge.
+
+

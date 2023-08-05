@@ -1,0 +1,5 @@
+[console_scripts]
+hachiko = hachiko_bapu.hachi:main
+lrc_merge = hachiko_bapu.cli_tools.lrc_merge:main
+srt2mid = hachiko_bapu.cli_tools.srt2mid:main
+
