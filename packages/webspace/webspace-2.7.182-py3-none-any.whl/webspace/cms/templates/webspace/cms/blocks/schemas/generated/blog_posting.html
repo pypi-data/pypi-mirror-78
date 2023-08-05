@@ -1,0 +1,32 @@
+{% extends 'webspace/cms/blocks/schemas/_schema.html' %}
+{% load wagtailcore_tags wagtailimages_tags my %}
+
+{% block json %}
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://{{ request.get_host }}{{ request.get_full_path|cut:"?build=true" }}"
+  },
+  "headline": "{{ page.h1 }}",
+  "description": "{{ page.intro }}",
+  "image": "{% image page.feed_image fill-500x500 as img %}{{ img.url }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author.get_complete_name }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Station Spatiale",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{% image settings.cms.DataTypesSettings.logo fill-50x50 as img %}{{ img.url }}",
+      "width": 50,
+      "height": 50
+    }
+  },
+  "datePublished": "{{ page.first_published_at|date:"c" }}",
+  "dateModified": "{{ page.last_published_at|date:"c" }}"
+}
+{% endblock %}

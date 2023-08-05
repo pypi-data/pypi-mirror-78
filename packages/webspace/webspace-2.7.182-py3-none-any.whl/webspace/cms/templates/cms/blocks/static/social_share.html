@@ -1,0 +1,13 @@
+{% extends 'cms/blocks/static/_social.html' %}
+{% load social_share wagtailcore_tags %}
+
+{% block social_head_text %}
+    {{ settings.cms.WebspaceSettings.social_share_text|richtext }}
+{% endblock %}
+
+{% block social_action %}
+    {% post_to_facebook page %}
+    {% post_to_twitter "{{page.title}} : " page %}
+    {% post_to_linkedin page.title page %}
+    {% send_email page.title "{{page.title}} : " page %}
+{% endblock %}

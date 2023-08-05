@@ -1,0 +1,7 @@
+{% comment %}Choose between wagtail block or Form snippet{% endcomment %}
+
+{% if value.form %}
+    {% include 'cms/blocks/common/form_content.html' with form=value.form theme=theme %}
+{% else %}
+    {% include 'cms/blocks/common/form_content.html' with form=form theme=theme align=align %}
+{% endif %}

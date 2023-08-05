@@ -1,0 +1,32 @@
+{% extends 'cms/blocks/schemas/_schema.html' %}
+{% load wagtailcore_tags wagtailimages_tags my %}
+
+{% block json %}
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://{{ request.get_host }}{{ request.get_full_path|cut:"?build=true" }}"
+  },
+  "headline": "{{ page.h1 }}",
+  "description": "{{ page.intro }}",
+  "image": "{% image page.feed_image width-500 as img %}{{ img.url }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author.full_name }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ settings.cms.WebspaceSettings.brand_name }}"{% if settings.cms.WebspaceSettings.logo_schema %},
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{% image settings.cms.WebspaceSettings.logo_schema width-500 as img %}{{ img.url }}",
+      "width": 500,
+      "height": {{ img.height }}
+    }{% endif %}
+  },
+  "datePublished": "{{ page.first_published_at|date:"c" }}",
+  "dateModified": "{{ page.last_published_at|date:"c" }}"
+}
+{% endblock %}

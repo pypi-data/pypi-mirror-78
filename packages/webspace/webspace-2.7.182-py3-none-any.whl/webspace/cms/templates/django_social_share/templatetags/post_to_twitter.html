@@ -1,0 +1,8 @@
+{% load my my_amp %}
+
+<a rel="noreferrer" target="_blank" href="{{ tweet_url }}">
+    {% amp_img %}
+        <img loading="lazy" class="s-icon x2" data-src="{{ icons.twitter|ico:page.theme }}"
+             alt="Icon Twitter"/>
+    {% endamp_img %}
+</a>

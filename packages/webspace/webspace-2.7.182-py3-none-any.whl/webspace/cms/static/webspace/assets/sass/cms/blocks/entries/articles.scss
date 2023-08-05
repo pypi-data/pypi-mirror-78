@@ -1,0 +1,47 @@
+.articles-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+
+  article {
+    flex: 1 1 301px;
+    flex-direction: column;
+    width: 300px;
+    margin: $margin-card;
+    padding: 20px;
+
+    a {
+      text-decoration: none;
+    }
+
+    img, amp-img {
+      width: 100%;
+      /*border-radius: $border-radius-card;*/
+    }
+
+    @include xs() {
+      margin: $margin-card-xs;
+    }
+  }
+}
+
+.article-author-img {
+  margin-right: 5px;
+}
+
+.article-author {
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    padding: 0;
+    font-weight: bold;
+  }
+}
+
+#block-blog-intro, article {
+  .tag-container {
+    justify-content: left;
+  }
+}
