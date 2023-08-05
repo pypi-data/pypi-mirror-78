@@ -1,0 +1,40 @@
+id: anatomical_entity_to_anatomical_entity_ontogenic_association
+schema_generating: true
+description: A relationship between two anatomical entities where the relationship
+  is ontogenic, i.e the two entities are related by development. A number of different
+  relationship types can be used to specify the precise nature of the relationship
+display_name: anatomical entity to anatomical entity ontogenic association
+document_category: anatomical entity to anatomical entity ontogenic association
+weight: 20
+fields:
+- id: id
+  description: A unique identifier for an association
+  display_name: association_id
+- id: negated
+  description: if set to true, then the association is negated i.e. is not true
+  display_name: negated
+- id: association_type
+  description: connects an association to the type of association (e.g. gene to phenotype)
+  display_name: association type
+- id: qualifiers
+  description: connects an association to qualifiers that modify or qualify the meaning
+    of that association
+  display_name: qualifiers
+  cardinality: multi
+- id: publications
+  description: connects an association to publications supporting the association
+  display_name: publications
+  cardinality: multi
+- id: provided_by
+  description: connects an association to the agent (person, organization or group)
+    that provided it
+  display_name: provided by
+  cardinality: multi
+- id: subject
+  description: the structure at a later time
+  display_name: anatomical entity to anatomical entity ontogenic association_subject
+- id: object
+  description: the structure at an earlier time
+  display_name: anatomical entity to anatomical entity ontogenic association_object
+- id: relation
+  display_name: anatomical entity to anatomical entity ontogenic association_relation

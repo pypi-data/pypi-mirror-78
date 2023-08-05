@@ -1,0 +1,30 @@
+id: gene_or_gene_product
+schema_generating: true
+description: a union of genes or gene products. Frequently an identifier for one will
+  be used as proxy for another
+display_name: gene or gene product
+document_category: gene or gene product
+weight: 20
+fields:
+- id: id
+  description: A unique identifier for a thing. Must be either a CURIE shorthand for
+    a URI or a complete URI
+  display_name: id
+- id: category
+  description: Name of the high level ontology class in which this entity is categorized.
+    Corresponds to the label for the biolink entity type class. In a neo4j database
+    this MAY correspond to the neo4j label tag
+  display_name: category
+  cardinality: multi
+- id: in_taxon
+  description: connects a thing to a class representing a taxon
+  display_name: in taxon
+  cardinality: multi
+- id: has_biological_sequence
+  description: connects a genomic feature to its sequence
+  display_name: has biological sequence
+- id: name
+  description: genes are typically designated by a short symbol and a full name. We
+    map the symbol to the default display name and use an additional slot for full
+    name
+  display_name: macromolecular machine_name

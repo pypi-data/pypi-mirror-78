@@ -1,0 +1,78 @@
+
+Classes: 15
+	Referenced by: 8 classes, 103 slots, 0 types 
+	Root: 8
+	Leaf: 12
+	Standalone: 14
+	Declared mixin: 2
+	Undeclared mixin: 0
+	Abstract: 2
+
+Slots: 111
+	Referenced by: 15 classes, 14 slots, 0 types 
+	Root: 97
+	Leaf: 104
+	Standalone: 112
+	Declared mixin: 0
+	Undeclared mixin: 0
+	Abstract: 1
+	Not in domain: 5
+		slot.name: slot.domain
+		---------  -----------
+		"created_by": "element"
+		"created_on": "element"
+		"last_updated_on": "element"
+		"modified_by": "element"
+		"status": "element"
+	Domain unspecified: 8
+	Ranges:
+		Type:
+			boolean: 13
+			datetime: 4
+			integer: 3
+			ncname: 6
+			string: 30
+			uri: 3
+			uriorcurie: 20
+		Class:
+			alt_description: 1
+			annotation: 1
+			class_definition: 7
+			definition: 4
+			element: 1
+			example: 1
+			extension: 1
+			local_name: 1
+			prefix: 1
+			slot_definition: 9
+			subset_definition: 2
+			type_definition: 3
+
+Types: 13
+	Referenced by: 0 classes, 79 slots, 0 types 
+	Bases:
+		Bool:
+			boolean
+		ElementIdentifier:
+			objectidentifier
+		NCName:
+			ncname
+		NodeIdentifier:
+			nodeidentifier
+		URI:
+			uri
+		URIorCURIE:
+			uriorcurie
+		XSDDate:
+			date
+		XSDDateTime:
+			datetime
+		XSDTime:
+			time
+		float:
+			double
+			float
+		int:
+			integer
+		str:
+			string

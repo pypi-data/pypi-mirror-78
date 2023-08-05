@@ -1,0 +1,42 @@
+id: material_sample_derivation_association
+schema_generating: true
+description: An association between a material sample and the material entity it is
+  derived from
+display_name: material sample derivation association
+document_category: material sample derivation association
+weight: 20
+fields:
+- id: id
+  description: A unique identifier for an association
+  display_name: association_id
+- id: negated
+  description: if set to true, then the association is negated i.e. is not true
+  display_name: negated
+- id: association_type
+  description: connects an association to the type of association (e.g. gene to phenotype)
+  display_name: association type
+- id: qualifiers
+  description: connects an association to qualifiers that modify or qualify the meaning
+    of that association
+  display_name: qualifiers
+  cardinality: multi
+- id: publications
+  description: connects an association to publications supporting the association
+  display_name: publications
+  cardinality: multi
+- id: provided_by
+  description: connects an association to the agent (person, organization or group)
+    that provided it
+  display_name: provided by
+  cardinality: multi
+- id: subject
+  description: the material sample being described
+  display_name: material sample derivation association_subject
+- id: object
+  description: the material entity the sample was derived from. This may be another
+    material sample, or any other material entity, including for example an organism,
+    a geographic feature, or some environmental material.
+  display_name: material sample derivation association_object
+- id: relation
+  description: derivation relationship
+  display_name: material sample derivation association_relation

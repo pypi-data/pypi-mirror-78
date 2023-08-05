@@ -1,0 +1,23 @@
+id: publication
+schema_generating: true
+description: Any published piece of information. Can refer to a whole publication,
+  or to a part of it (e.g. a figure, figure legend, or section highlighted by NLP).
+  The scope is intended to be general and include information published on the web
+  as well as journals.
+display_name: publication
+document_category: publication
+weight: 20
+fields:
+- id: id
+  description: A unique identifier for a thing. Must be either a CURIE shorthand for
+    a URI or a complete URI
+  display_name: id
+- id: name
+  description: A human-readable name for a thing
+  display_name: name
+- id: category
+  description: Name of the high level ontology class in which this entity is categorized.
+    Corresponds to the label for the biolink entity type class. In a neo4j database
+    this MAY correspond to the neo4j label tag
+  display_name: category
+  cardinality: multi
