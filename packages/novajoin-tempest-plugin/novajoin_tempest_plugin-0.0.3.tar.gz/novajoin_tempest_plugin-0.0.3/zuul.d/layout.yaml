@@ -1,0 +1,5 @@
+---
+- project:
+    templates:
+      - check-requirements
+      - publish-to-pypi

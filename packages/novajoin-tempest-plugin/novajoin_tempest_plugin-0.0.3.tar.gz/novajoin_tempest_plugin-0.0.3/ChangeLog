@@ -1,0 +1,61 @@
+CHANGES
+=======
+
+0.0.3
+-----
+
+* Add job to publish to pypi and create tarballs
+
+0.0.2
+-----
+
+* Add config option to skip cert tag verification
+* Fix multiple issues for pre-provioned nodes
+* Added tripleo\_undercloud\_user to novajoin conf
+* Add fix for mysql and add a retry
+* Add option to set connect\_retries
+* Fix issues with tests
+* Fix running mysql client on containerized deployment
+* Fix index errors
+* Fix Python 3 bug in test code
+* Removing decode(UTF-8) to make python compatible
+* OpenDev Migration Patch
+* Default to user home directory to read krb5.keytab
+* Fix managed service tests
+* Fix issues with novajoin functional test
+* Remove unnecessary services dir from tempest plugin
+* changes to fix tripleo tests
+* Update for new IPAClient
+* Remove volume v1 API service client usage
+* Move build location for sphinx builds
+* Add documentation
+* Remove unneeded dependency
+* Add .gitreview file
+* Add mysql ssl tests
+* Add mysql test
+* Remove -quiet from s\_client invocation
+* Remove unicode references for py3 compliance
+* Add compute node tests
+* Modify haproxy function to account for containers
+* Fix TLS tests and read haproxy.cfg from controller
+* Add tls tests for tripleo
+* Add novajoin server test
+* Fix tripleo test - use append correctly
+* Reduce number of hardcoded parameters in the tripleo test case
+* Add code to dynamically get the IP from nova in tripleo test
+* Refactor to not require passing in domain and realm
+* Refactor verify\_services to allow for non-cert verification
+* Move service verification to the common module
+* Changes to tripleo tests
+* Remove old test method for services
+* Modified tripleo tests to use data from nova metadata instead
+* Fix ipa tests for tripleo deployment
+* Add IPA tests for tripleo deployment
+* More changes to get ipa tests working
+* Fix IPA client and creds problem
+* Change to use IPA client instead of cmd line invocations
+* Added config options for username and password
+* Fix PEP8 issues
+* Added ipa tests
+* Fix PEP8 issues
+* Initial commit

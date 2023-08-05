@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+novajoin_tests = novajoin_tempest_plugin.plugin:NovajoinTempestPlugin
+

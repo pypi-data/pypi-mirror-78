@@ -1,0 +1,72 @@
+# Copyright 2016 Red Hat
+# All Rights Reserved.
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
+import os
+
+from oslo_config import cfg
+
+service_option = cfg.BoolOpt("novajoin",
+                             default=True,
+                             help="Whether or not novajoin is expected to be "
+                                  "available")
+
+novajoin_group = cfg.OptGroup(
+    name="novajoin",
+    title="Novajoin test plugin settings")
+
+NovajoinGroup = [
+    cfg.IntOpt('connect_retries',
+               default=5,
+               help='Number of connection attempts to IPA'),
+    cfg.BoolOpt('enrollment',
+                default='True',
+                help='Run enrollment tests'),
+    cfg.StrOpt('flavor_tag',
+               default='vm',
+               help='Flavor tag to use in novajoin enrollment tests'),
+    cfg.StrOpt('keytab',
+               default=os.path.expanduser('~/novajoin.keytab'),
+               help='Keytab to connect to IPA as the novajoin user'),
+    cfg.BoolOpt('tripleo',
+                default='True',
+                help='Run triple-O config tests'),
+    cfg.StrOpt('tripleo_controller_file',
+               help='File for group vars for controllers'),
+    cfg.StrOpt('tripleo_compute_file',
+               help='File for group vars for computes'),
+    cfg.ListOpt('tripleo_controllers',
+                default=['overcloud-controller-0'],
+                help='List of overcloud controller short host names'),
+    cfg.ListOpt('tripleo_computes',
+                default=['overcloud-novacompute-0'],
+                help='List of overcloud compute short host names'),
+    cfg.ListOpt('tripleo_exclude_cert_tags',
+                default=[],
+                help='List of tags to exclude from certmonger checks'),
+    cfg.StrOpt('tripleo_undercloud',
+               default='undercloud',
+               help='Undercloud short host name'),
+    cfg.StrOpt('tripleo_undercloud_user',
+               default='stack',
+               help='Undercloud deployment user name'),
+    cfg.StrOpt('container_cli_exec',
+               default="sudo podman exec ",
+               help='container exec command'),
+    cfg.StrOpt('mysql_container_find_command',
+               default=("sudo podman ps |"
+                        "grep galera-bundle-podman|"
+                        "awk '{print \$NF}'"),
+               help='mysql container find command')
+]
