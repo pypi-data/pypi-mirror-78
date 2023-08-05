@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: pyramid-basemodel
+Version: 0.3.7
+Summary: Global base classes for Pyramid SQLAlchemy applications.
+Home-page: http://github.com/thruflo/pyramid_basemodel
+Author: James Arthur
+Maintainer: Grzegorz Śliwiński
+Maintainer-email: fizyk+pypi@fizyk.net.pl
+License: This is free and unencumbered software released into the public domain.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: Public Domain
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Framework :: Pylons
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: SQLAlchemy
+Requires-Dist: pyramid
+Requires-Dist: pyramid-tm
+Requires-Dist: requests
+Requires-Dist: slugify
+Requires-Dist: zope.interface
+Requires-Dist: zope.sqlalchemy
+
+UNKNOWN
+
+
