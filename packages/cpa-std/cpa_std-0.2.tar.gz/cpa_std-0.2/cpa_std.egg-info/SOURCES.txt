@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+cpa_std/__init__.py
+cpa_std.egg-info/PKG-INFO
+cpa_std.egg-info/SOURCES.txt
+cpa_std.egg-info/dependency_links.txt
+cpa_std.egg-info/top_level.txt
+cpa_std/dicBySimilarity/__init__.py
+cpa_std/dicBySimilarity/dicBySimilarity.py
+cpa_std/ledger/__init__.py
+cpa_std/ledger/account_name.py
+cpa_std/ledger/account_std.xlsx
+cpa_std/ledger/tools.py
