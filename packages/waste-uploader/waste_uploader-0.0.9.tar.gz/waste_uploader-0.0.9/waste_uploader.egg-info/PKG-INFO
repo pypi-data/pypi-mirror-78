@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: waste-uploader
+Version: 0.0.9
+Summary: Upload script
+Home-page: https://github.com/pypa/sampleproject
+Author: Roman Dymov
+Author-email: r.dymov@mpgames.rocks
+License: UNKNOWN
+Description: This is a python utility that uploads ipa/apk binary to s3 storage using API gateway.
+        
+        After installation just run in terminal:
+        
+        **waste-uploader**
+        
+        and it shows you variables that you need to define.
+        
+        Otherwise, there is a list:
+        
+        - AWS_ACCESS_KEY_ID
+        - AWS_SECRET_ACCESS_KEY
+        - PROJECT
+        - STAGE
+        - PLATFORM (ios/android)
+        - VERSION
+        - BUILD_NUM
+        - RELEASE_NOTES
+        - FILE_PATH
+        - BUNDLE_ID
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
