@@ -1,0 +1,6 @@
+[stow_managers]
+aws = stow.managers:Amazon
+fs = stow.managers:FS
+lfs = stow.managers:FS
+s3 = stow.managers:Amazon
+
