@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: bin-optimize
+Version: 0.0.9
+Summary: An algorithm to optimize already arrnaged bins into n-1 bins
+Home-page: https://github.com/saripirala/bin-optimize
+Author: Sairam Aripirala
+Author-email: sairam.aripirala@gmail.com
+License: BSD 3-Clause License
+Project-URL: Bug Tracker, https://github.com/saripirala/bin-optimize/issues
+Project-URL: Documentation, https://bin-optimize.readthedocs.io
+Project-URL: Source Code, https://github.com/saripirala/bin-optimize
+Description: UNKNOWN
+Keywords: bin-packing bin optimization
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development
+Classifier: Typing :: Typed
+Description-Content-Type: text/x-rst; charset=UTF-8
+Provides-Extra: testing
