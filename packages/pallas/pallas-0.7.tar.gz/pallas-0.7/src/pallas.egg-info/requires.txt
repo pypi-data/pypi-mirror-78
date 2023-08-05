@@ -1,0 +1,9 @@
+boto3
+
+[dev]
+flake8
+pytest
+mypy
+
+[pandas]
+pandas>=1.0.0
