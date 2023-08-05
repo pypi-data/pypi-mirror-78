@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: wf-gqlpycgen
+Version: 0.7.0
+Summary: GraphQL Python CLient Generator
+Home-page: https://github.com/Wildflowerschools/graphql-python-client-generator
+Author: optimuspaul
+Author-email: paul.decoursey@wildflowerschools.org
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: Jinja2 (>=2.10)
+Requires-Dist: click (>=6.7)
+Requires-Dist: requests (>=2.21.0)
+Requires-Dist: tenacity (>=5.1.1)
+Provides-Extra: test
+Requires-Dist: coverage ; extra == 'test'
+Requires-Dist: mock ; extra == 'test'
+Requires-Dist: nose ; extra == 'test'
+Requires-Dist: rednose ; extra == 'test'
+
+Reads a GQL schema and turns it into a python library.
+
+
