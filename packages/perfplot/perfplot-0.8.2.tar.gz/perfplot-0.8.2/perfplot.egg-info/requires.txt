@@ -1,0 +1,8 @@
+dufte
+matplotlib
+numpy
+tqdm
+termtables
+
+[:python_version < "3.8"]
+importlib_metadata
