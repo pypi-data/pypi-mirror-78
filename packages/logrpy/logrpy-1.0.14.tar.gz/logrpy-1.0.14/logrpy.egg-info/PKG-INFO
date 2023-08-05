@@ -1,0 +1,64 @@
+Metadata-Version: 1.0
+Name: logrpy
+Version: 1.0.14
+Summary: Logr client library for Python.
+Home-page: https://github.com/504dev/logr-python-client
+Author: Kozhurkin Dima
+Author-email: kozhurkin.dima@gmail.com
+License: UNKNOWN
+Description: 
+        logr-python-client
+        ==================
+        
+        `Logr <https://github.com/504dev/logr>`_ client library for Python.
+        
+        .. code-block::
+        
+           pip install logrpy
+        
+        
+        Available ``logger`` methods
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        
+        
+        * ``logger.emerg``
+        * ``logger.alert``
+        * ``logger.crit``
+        * ``logger.error``
+        * ``logger.warn``
+        * ``logger.notice``
+        * ``logger.info``
+        * ``logger.debug``
+        
+        Available ``counter`` methods
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        
+        
+        * ``counter.inc``
+        * ``counter.avg``
+        * ``counter.max``
+        * ``counter.min``
+        * ``counter.per``
+        * ``counter.time``
+        * ``counter.snippet`` bonus method!
+        
+        Example
+        ^^^^^^^
+        
+        .. code-block:: python
+        
+           from logrpy import Logr
+        
+           conf = Logr(
+               ('127.0.0.1', 7776),
+               'MCAwDQYJKoZIhvcNAQEBBQADDwAwDAIFAMg7IrMCAwEAAQ==',
+               'MC0CAQACBQDIOyKzAgMBAAECBQCHaZwRAgMA0nkCAwDziwIDAL+xAgJMKwICGq0=',
+           )
+        
+           logger = conf.getlogger('hello.log')
+        
+           # Send log
+           logger.info('Hello, Logr!')
+           logger.debug('It`s cool!')
+        
+Platform: UNKNOWN
