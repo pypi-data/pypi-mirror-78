@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: dsatools
+Version: 0.1.2
+Summary:  The library with a most popular Digital Signal Analysis (DSA) tools 
+Home-page: https://github.com/MVRonkin/dsatools
+Author: Mikhail Ronkin
+Author-email: mvRonkin@gmail.com
+License: MIT
+Download-URL: https://github.com/MVRonkin/dsatools.git
+Description: 
+        Digital Signal Analysis (DSA) library for python.
+        The library includes such methods of signal analysis and
+        signal parameter estimation as arma-based techniques; 
+        subspace-based techniques; matrix-pencil-based methods; 
+        singular-spectrum analysis (SSA); dynamic-mode decomposition (DMD); 
+        empirical mode decomposition; variational mode decomposition; 
+        empirical wavelet transform; Hilbert vibration decomposition 
+        and many others.
+        
+Keywords: Digital Signal Analysis,Signal Processing,Digital Signal Processing,Digital Spectrum Processing,Digital Spectrum Analysis
+Platform: UNKNOWN
