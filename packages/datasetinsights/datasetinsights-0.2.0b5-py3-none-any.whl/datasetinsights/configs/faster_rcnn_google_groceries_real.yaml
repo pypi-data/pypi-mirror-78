@@ -1,0 +1,42 @@
+estimator: FasterRCNN
+backbone: resnet50
+num_classes: 65
+task: object_detection
+train:
+  epochs: 50
+  batch_size: 8
+  accumulation_steps: 8
+  log_frequency: 30
+  dataset:
+    name: GoogleGroceriesReal
+    args:
+      split: train
+val:
+  batch_size: 8
+  dataset:
+    name: GoogleGroceriesReal
+    args:
+      split: test
+test:
+  batch_size: 8
+  dataset:
+    name: GoogleGroceriesReal
+    args:
+      split: test
+metrics:
+  mAP:
+    name: MeanAveragePrecisionAverageOverIOU
+  mAPIOU50:
+    name: MeanAveragePrecisionIOU50
+  mAR:
+    name: MeanAverageRecallAverageOverIOU
+  APIOU50:
+    name: AveragePrecisionIOU50
+optimizer:
+  name: Adam
+  args:
+    lr: 2.0e-4
+pretrained: False
+pretrained_backbone: True
+synchronize_metrics: True
+val_interval: 1
