@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: pyvklogin
+Version: 0.1.3
+Summary: An easy login form for vk.com for python.
+Home-page: https://github.com/complynx/pyvklogin
+Author: complynx
+Author-email: complynx@yandex.ru
+License: UNKNOWN
+Keywords: vk vkontakte login authentication
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: pyvk
+Provides-Extra: dev
+Requires-Dist: check-manifest ; extra == 'dev'
+Provides-Extra: gui
+Requires-Dist: PyQt5 ; extra == 'gui'
+Requires-Dist: PyQtWebEngine ; extra == 'gui'
+Provides-Extra: test
+Requires-Dist: coverage ; extra == 'test'
+
+PyVKLogin -- VK.com log-in and autorization app for PyVK
+========================================================
+
+TODO
+
+
