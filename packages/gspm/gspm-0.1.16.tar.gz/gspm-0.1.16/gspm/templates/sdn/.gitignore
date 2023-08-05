@@ -1,0 +1,16 @@
+# gspm stuff
+*.log 
+.repo
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# Mono-specific ignores
+.mono/
+
+# Godot-Stuff
+gs_logger
+gs_core
+gs_ecs

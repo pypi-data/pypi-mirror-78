@@ -1,0 +1,42 @@
+# gspm project.yml <https://gitlab.com/godot-stuff/gs-project-manager/wikis/schema>
+name: {{cookiecutter.project_name}}
+path: .
+version: 0.0.0
+default_type: git
+author: {{cookiecutter.general_author}}
+email: {{cookiecutter.general_email}}
+twitter: {{cookiecutter.general_twitter}}
+copyright: {{cookiecutter.general_copyright}}
+license: {{cookiecutter.general_license}}
+godot:
+  version: {{cookiecutter.godot_version}}
+  arch: {{cookiecutter.godot_arch}}
+  mono: {{cookiecutter.godot_mono}}
+
+project:
+  url: none
+  
+assets:
+      
+  gs-core:
+    location: https://gitlab.com/godot-stuff/gs-core.git
+    includes:
+      - dir: gs_core
+      
+  gs-logger:
+    location: https://gitlab.com/godot-stuff/gs-logger.git
+    includes:
+      - dir: gs_logger
+      
+  gs-ecs:
+    location: https://gitlab.com/godot-stuff/gs-ecs.git
+    includes:
+      - dir: gs_ecs
+      
+pre_install:
+
+post_install:
+
+pre_build:
+
+post_build:
