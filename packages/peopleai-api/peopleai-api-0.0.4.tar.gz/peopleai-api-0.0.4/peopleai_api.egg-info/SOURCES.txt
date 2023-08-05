@@ -1,0 +1,16 @@
+.coveragerc
+.gitignore
+LICENSE
+README.rst
+requirements.txt
+setup.py
+tox.ini
+.github/workflows/python.yml
+docs/CHANGELOG.rst
+peopleai_api/__init__.py
+peopleai_api.egg-info/PKG-INFO
+peopleai_api.egg-info/SOURCES.txt
+peopleai_api.egg-info/dependency_links.txt
+peopleai_api.egg-info/requires.txt
+peopleai_api.egg-info/top_level.txt
+tests/test_peopleai_api.py
