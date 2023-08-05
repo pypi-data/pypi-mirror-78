@@ -1,0 +1,4 @@
+include LICENSE
+recursive-include tagulous/static *
+recursive-include tagulous/templates *
+recursive-include tagulous/templatetags *
