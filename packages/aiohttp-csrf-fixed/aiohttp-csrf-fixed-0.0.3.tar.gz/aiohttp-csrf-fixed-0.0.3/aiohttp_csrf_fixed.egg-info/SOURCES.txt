@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+aiohttp_csrf/__init__.py
+aiohttp_csrf/policy.py
+aiohttp_csrf/storage.py
+aiohttp_csrf/token_generator.py
+aiohttp_csrf_fixed.egg-info/PKG-INFO
+aiohttp_csrf_fixed.egg-info/SOURCES.txt
+aiohttp_csrf_fixed.egg-info/dependency_links.txt
+aiohttp_csrf_fixed.egg-info/not-zip-safe
+aiohttp_csrf_fixed.egg-info/requires.txt
+aiohttp_csrf_fixed.egg-info/top_level.txt
