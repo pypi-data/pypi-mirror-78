@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Digger</title>
+    <style>
+        form {
+            display: flex;
+            align-items: center;
+        }
+
+        form > *:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        textarea {
+            min-width: 50%;
+            height: 5em;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .count {
+            color: #999;
+            font-size: .5em;
+            margin-left: 10px;
+        }
+
+        #error {
+            color: #ff3344;
+            font-size: .7em;
+        }
+    </style>
+    <script src="https://cdn.staticfile.org/jquery/1.10.0/jquery.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<form>
+    <label for="urls">请输入URL:</label>
+    <textarea id="urls" class="input" placeholder="多个URL请换行"></textarea>
+    <input id="submit" type="button" value="提交">
+</form>
+<div id="error"></div>
+
+<p id="loading" style="display: none">正在用力爬取网页...</p>
+<p id="content"></p>
+
+<script>
+    $('#submit').on('click', clickHandler);
+
+    function clickHandler() {
+        const urls = $('#urls').val().split('\n').map(i => i.trim()).filter(i => i);
+        const elLoading = $("#loading");
+        const elContent = $("#content");
+        const elError = $("#error");
+        elError.empty();
+        elContent.empty();
+        elLoading.show();
+
+        const formData = new URLSearchParams();
+        urls.forEach(i => formData.append('url', i));
+
+        $.post('/api/result', formData.toString())
+            .done(function (data) {
+                const errors = data['errors'];
+                errors.length && elError.text(`有 ${errors.length} 个URL发生错误`);
+
+                const items = data["items"];
+                items.sort(function (a, b) {
+                    return a.count < b.count ? 1 : -1;
+                });
+                const els = items.map(i => `<li>${`"${i['word']}"` + `<span class="count">${i['count']}</span>`}</li>`);
+                elContent.html(`<ul>${els.join("")}</ul>`);
+            })
+            .always(function () {
+                elLoading.hide();
+            })
+    }
+</script>
+</body>
+</html>
