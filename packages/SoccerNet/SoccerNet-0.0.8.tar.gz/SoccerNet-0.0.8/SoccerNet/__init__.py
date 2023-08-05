@@ -1,0 +1,1 @@
+from SoccerNet.downloader import SoccerNetDownloader
