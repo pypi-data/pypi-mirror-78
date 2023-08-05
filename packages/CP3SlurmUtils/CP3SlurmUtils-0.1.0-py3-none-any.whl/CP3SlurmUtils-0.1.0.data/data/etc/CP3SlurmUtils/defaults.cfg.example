@@ -1,0 +1,76 @@
+[USER_CONFIG_DEFAULTS]
+# This section defines default values for some options
+# in the user configuration. Leaving an option empty
+# implies no default value.
+
+# Default value for the sbatch_partition option
+# in the user configuration.
+#
+# default: cp3
+sbatch_partition =
+
+# Default value for the sbatch_qos option
+# in the user configuration.
+#
+# default: cp3
+sbatch_qos =
+
+# Default value for the sbatch_time option
+# in the user configuration.
+#
+# default: 0-04:00
+#sbatch_time =
+
+# Default value for the sbatch_memPerCPU option
+# in the user configuration.
+#
+# default: 2048
+#sbatch_memPerCPU =
+
+# Default value for the scratchDir option
+# in the user configuration.
+#
+# default: ${LOCALSCRATCH}
+#scratchDir =
+
+[USER_CONFIG_VALID_VALUES]
+# This section defines allowed values (comma-separated
+# list) for some options in the user configuration.
+# Leaving an option empty implies no check for allowed
+# values will be made.
+
+# Allowed values for the sbatch_partition option
+# in the user configuration.
+#
+# default: Def,cp3,cp3-fast,cp3-gpu
+sbatch_partition =
+
+# Allowed values for the sbatch_qos option
+# in the user configuration.
+#
+# default: normal,cp3
+sbatch_qos =
+
+# Allowed values for the environmentType option
+# in the user configuration.
+#
+# default: cms
+environmentType =
+
+[USER_CONFIG_PARTITIONS_FOR_QOS]
+# This section defines which partitions (comma-separated
+# list) accept a given QOS.
+#
+# Syntax:
+# qos_<qos> = <partition1,..,partitionN>
+#
+# default: qos_cp3 = cp3
+
+# Alternative QOS to be suggested if the sbatch_partition
+# option in the user configuration includes a partition
+# that doesn't accept the QOS defined by the sbatch_qos
+# option in the user configuration. Leaving this option
+# empty implies no alternative QOS will be suggested.
+#
+# default: normal
+alternative_qos =
