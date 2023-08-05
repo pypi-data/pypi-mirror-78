@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: netflix-update-notify
+Version: 0.2.2
+Summary: Introduction
+Home-page: https://stash.corp.netflix.com/projects/~DAVIDB/repos/netflix_update_notify/browse
+Author: TSC
+Author-email: davidb@netflix.com
+License: UNKNOWN
+Keywords: netflix_update_notify
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: pkg-info
+Requires-Dist: semver
+Requires-Dist: importlib-metadata ; python_version < "3.8"
+Provides-Extra: test
+Requires-Dist: tox ; extra == 'test'
+
+## Introduction
+
+This is to simplify the work of notifying 
+partners that their packages for nts-cli are 
+more than a patch version behind.
+
+This started with an external package, 
+but after having to put in a lot of work to make it 
+usable, I decided it was no longer directly related.
+
