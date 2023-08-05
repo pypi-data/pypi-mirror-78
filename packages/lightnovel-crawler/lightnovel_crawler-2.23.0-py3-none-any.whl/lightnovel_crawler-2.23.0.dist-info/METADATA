@@ -1,0 +1,131 @@
+Metadata-Version: 2.1
+Name: lightnovel-crawler
+Version: 2.23.0
+Summary: An app to download novels from online sources and generate e-books.
+Home-page: https://github.com/dipu-bd/lightnovel-crawler
+Author: Sudipto Chandra
+Author-email: dipu.sudipta@gmail.com
+License: Apache 2.0
+Project-URL: Source Code, https://github.com/dipu-bd/lightnovel-crawler
+Project-URL: Issue tracker, https://github.com/dipu-bd/lightnovel-crawler/issues
+Project-URL: Documentation, https://github.com/dipu-bd/lightnovel-crawler/blob/master/README.md
+Project-URL: Say Thanks!, https://saythanks.io/to/dipu-bd
+Keywords: lightnovel,crawler,lncrawl,ebook,novel,pdf,epub,mobi,scraper,web-scraper
+Platform: Linux
+Platform: macOS
+Platform: Windows
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Printing
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: ascii (==3.6)
+Requires-Dist: win-unicode-console (==0.5)
+Requires-Dist: python-dotenv (==0.13.0)
+Requires-Dist: beautifulsoup4 (==4.9.1)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: python-slugify (==4.0.0)
+Requires-Dist: cssutils (==1.0.2)
+Requires-Dist: PyInquirer (==1.0.3)
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: progress (==1.5)
+Requires-Dist: Js2Py (==0.70)
+Requires-Dist: EbookLib (==0.17.1)
+Requires-Dist: pillow (==7.2.0)
+Requires-Dist: cloudscraper (>=1.2.46)
+Requires-Dist: lxml (==4.5.1)
+Requires-Dist: discord.py (>=1.3.4)
+Requires-Dist: python-telegram-bot (>=12.8)
+
+Lightnovel Crawler
+-----------------------
+
+Download lightnovels from various online sources and generate output in different formats, e.g. epub, mobi, json, html, text, docx and pdf.
+
+Supported sources:
+- http://boxnovel.org
+- http://liberspark.com
+- http://novelfull.com
+- http://tiknovel.com
+- http://www.machinenoveltranslation.
+- http://www.tiknovel.com
+- http://zenithnovels.com
+- https://4scanlation.xyz
+- https://9kqw.com
+- https://anythingnovel.com
+- https://babelnovel.com
+- https://bestlightnovel.com
+- https://book.qidian.com
+- https://boxnovel.com
+- https://creativenovels.com
+- https://crescentmoon.blog
+- https://es.mtlnovel.com
+- https://fr.mtlnovel.com
+- https://id.mtlnovel.com
+- https://kiss-novel.com
+- https://kisslightnovels.info
+- https://light-novel.online
+- https://listnovel.com
+- https://litnet.com
+- https://lnmtl.com
+- https://m.chinesefantasynovels.com
+- https://m.novelspread.com
+- https://m.romanticlovebooks.com
+- https://m.wuxiaworld.co
+- https://meionovel.com
+- https://myoniyonitranslations.com
+- https://novelfull.com
+- https://novelonlinefull.com
+- https://novelraw.blogspot.com
+- https://novelsrock.com
+- https://ranobelib.me
+- https://rewayat.club
+- https://tomotranslations.com
+- https://volarenovels.com
+- https://webnovel.online
+- https://webnovelindonesia.com
+- https://webnovelonline.com
+- https://wordexcerpt.com
+- https://woopread.com
+- https://wuxiaworld.online
+- https://www.aixdzs.com
+- https://www.asianhobbyist.com
+- https://www.idqidian.us
+- https://www.machine-translation.org
+- https://www.mtlnovel.com
+- https://www.novelall.com
+- https://www.novelringan.com
+- https://www.novelspread.com
+- https://www.qidian.com
+- https://www.readlightnovel.org
+- https://www.readnovelfull.com
+- https://www.romanticlovebooks.com
+- https://www.royalroad.com
+- https://www.scribblehub.com
+- https://www.shinsori.com
+- https://www.tapread.com
+- https://www.translateindo.com
+- https://www.wattpad.com
+- https://www.webnovel.com
+- https://www.worldnovel.online
+- https://www.wuxialeague.com
+- https://www.wuxiaworld.co
+- https://www.wuxiaworld.com
+- https://www.wuxiaworld.site
+
+Visit https://github.com/dipu-bd/lightnovel-crawler for more details.
+
+
