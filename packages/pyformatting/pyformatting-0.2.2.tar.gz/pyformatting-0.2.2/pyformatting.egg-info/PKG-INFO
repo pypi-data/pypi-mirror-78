@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: pyformatting
+Version: 0.2.2
+Summary: Pyformatting is a collection of useful formatting features.
+Home-page: https://github.com/0dminnimda/pyformatting
+Author: 0dminnimda
+Author-email: 0dminnimda@gmail.com
+License: MIT
+Project-URL: Documentation, https://pyformatting.readthedocs.io/en/latest/
+Project-URL: Say Thanks!, https://saythanks.io/to/0dminnimda%40gmail.com
+Project-URL: Bug tracker, https://github.com/0dminnimda/pyformatting/issues
+Project-URL: Code examples, https://github.com/0dminnimda/pyformatting/tree/master/examples
+Description: # pyformatting
+        
+        **Pyformatting** is a collection of useful formatting features.
+        
+        ```python
+        >>> from pyformatting import optional_format, defaultformatter
+        >>> optional_format('{number:.3f}{other}', number=.12345)
+        '0.123{other}'
+        >>> optional_format('{0.imag}{1}{2}{0.real}', 1+3j)
+        '3.0{1}{2}1.0'
+        >>> optional_format('{first}{string!r}{42}', string='cool')
+        "{first}'cool'{42}"
+        >>> default_format = defaultformatter(int)
+        >>> default_format('{zero}{data}{zero_again}', data={1: 2})
+        '0{1: 2}0'
+        ```
+        
+        python >= 3.4:
+        
+        ```python
+        >>> from pyformatting import optional_format
+        >>> optional_format('{}{other}{some}', some=[1, 2])
+        '{}{other}[1, 2]'
+        ```
+        
+        ## Installing Pyformatting and Supported Versions
+        
+        Pyformatting is available on PyPI:
+        
+        ```console
+        python -m pip install -U pyformatting
+        ```
+        
+        Pyformatting supports Python 3.0+.
+        
+Keywords: format, formatting, formatter,python format, python formatting, python formatter,optional format, optional formatting, optional formatter,default format, default formatting, default formatter
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: ~=3.0
+Description-Content-Type: text/markdown
