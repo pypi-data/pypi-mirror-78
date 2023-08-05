@@ -1,0 +1,17 @@
+.gitignore
+.travis.yml
+LICENSE
+Makefile
+README.md
+setup.py
+pandas_appender/__init__.py
+pandas_appender/appender.py
+pandas_appender/hints.py
+pandas_appender.egg-info/PKG-INFO
+pandas_appender.egg-info/SOURCES.txt
+pandas_appender.egg-info/dependency_links.txt
+pandas_appender.egg-info/requires.txt
+pandas_appender.egg-info/top_level.txt
+scripts/tuner.py
+test/test_appender.py
+test/test_hints.py

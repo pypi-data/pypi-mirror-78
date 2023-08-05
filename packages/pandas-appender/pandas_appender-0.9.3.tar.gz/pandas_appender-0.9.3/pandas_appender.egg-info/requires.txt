@@ -1,0 +1,9 @@
+pandas
+
+[test]
+pytest>=4.6
+coverage
+pytest-cov
+pytest-sugar
+coveralls
+numpy
