@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: sos-sas
+Version: 0.19.1
+Summary: SoS Notebook extension for SAS
+Home-page: https://github.com/vatlab/sos-sas
+Author: Bo Peng
+Author-email: Bo.Peng@bcm.edu
+Maintainer: Bo Peng
+Maintainer-email: Bo.Peng@bcm.edu
+License: 3-clause BSD
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Dist: sos (>=0.21.5)
+Requires-Dist: sos-notebook (>=0.21.7)
+Requires-Dist: saspy (==3.3.5)
+Requires-Dist: sas-kernel (==2.2.0)
+Requires-Dist: sas7bdat
+
+UNKNOWN
+
+
