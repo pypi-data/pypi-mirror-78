@@ -1,0 +1,25 @@
+usage
+
+---
+
+	-h --help		show this help message and exit
+
+**example**
+	ezLncPred lgc -h
+	ezLncPred -i example.fa -o results lgc
+
+example output
+
+---
+
+# Sequence Name: name of transcript
+# ORF Length: length of the longest ORF
+# GC Content: GC content of the longest ORF
+# Coding Potential Score: coding potential score for a transcript, which is protein-coding RNA if greater than 0 or ncRNA if smaller than 0. '0' indicates that mRNA probability equals lncRNA probability. Also, if the ORF length is shorter than 100nt, '0' is output.
+# pc: ORF probability for coding sequence
+# pnc: ORF probability for non-coding sequence
+# fc: Stop-codon probability for coding sequence
+# fnc: Stop-codon probability for non-coding sequence
+# Coding Label: 'Coding' represents mRNA and 'Non-coding' represents ncRNA
+
+Wang, G., et al. (2019). "Characterization and identification of long noncoding RNAs based on feature relationship." Bioinformatics 35(17): 2949-2956.

@@ -1,0 +1,42 @@
+#CNCI
+## About CNCI
+It is a challenge to classify protein-coding or non-coding transcripts, especially those re-constructed from high-throughput sequencing data of poorly annotated species. We developed and evaluated a powerful signature tool, Coding-Non-Coding Index (CNCI), by profiling adjoining nucleotide triplets to effectively distinguish protein-coding and non-coding sequences independent of known annotations. CNCI is effective for classifying incomplete transcripts and sense-antisense pairs. The implementation of CNCI offered highly accurate classification of transcripts assembled from whole-transcriptome sequencing data in a cross-species manner, that demonstrated gene evolutionary divergence between vertebrates, and invertebrates, or between plants, and provided a long non-coding RNA catalog of orangutan.
+
+![CNCI](http://nar.oxfordjournals.org/content/early/2013/08/06/nar.gkt646/F1.medium.gif)
+
+## Current Version
+Release : CNCI version 2 Feb 28, 2014
+
+## HELP for CNCI
+
+Usage: ezLncPred -i example.fa -o results CNCI [--parallel] [-p] [-h]
+
+Parameters:
+
+	-i --input		fasta format input files
+	
+	-o --output		the output directory to store the identification results
+	
+	-m --model		one out of nine LncRNA identification models to choose, 
+					careful not to make case error or spelling error
+					
+	-h --help		show this help message and exit
+	
+	--parallel		assign the running CUP numbers
+	
+	-p {ve,pl},--species {ve,pl}
+					assign the classification models ("ve" for 
+					vertebrate species, "pl" for plat species)
+					
+## EXAMPLE
+
+	ezLncPred CNCI -h
+	ezLncPred -i example.fa -o results CNCI
+	ezLncPred -i example.fa -o results CNCI --parallel
+	ezLncPred -i example.fa -o results CNCI -p ve
+
+## Citation
++ [Liang Sun, Haitao Luo, Dechao Bu, Guoguang Zhao, Kuntao Yu, Changhai Zhang, Yuanning Liu, RunSheng Chen and Yi Zhao* Utilizing sequence intrinsic composition to classify protein-coding and long non-coding transcripts. Nucleic Acids Research (2013), doi: 10.1093/nar/gkt646](http://nar.oxfordjournals.org/content/early/2013/08/06/nar.gkt646.long)
+
+## Contact
++ Yi Zhao : biozy@ict.ac.cn

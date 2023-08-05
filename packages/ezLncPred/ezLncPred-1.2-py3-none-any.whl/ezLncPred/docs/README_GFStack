@@ -1,0 +1,16 @@
+# PredLnc-GFStack
+Liu, S., et al. (2019). "PredLnc-GFStack: A Global Sequence Feature Based on a Stacked Ensemble Learning Method for Predicting lncRNAs from Transcripts." Genes (Basel) 10(9).
+
+
+## Usage :
+
+
+	-h --help		show this help message and exit
+	
+	-p --species		{human,mouse}
+				choose a species type from Human and Mouse
+
+**example**
+	ezLncPred GFStack -h
+	ezLncPred -i example.fa -o results GFStack
+	ezLncPred -i example.fa -o results GFStack -p human
