@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: lib-curso-python-pro-avellar
+Version: 0.2
+Summary: Módulo para exemplificar construção de projetos Python no
+                 curso PyTools
+Home-page: https://github.com/avellar1975/libpythonpro
+Author: Evandro Avellar
+Author-email: evandro.avellar@gmail.com
+License: GNU Affero General Public License v3 or later (AGPLv3+)
+Description: # libpythonpro
+        
+        
+        Módulo para exemplificar construção de projetos Python no curso PyTools
+        
+        Nesse curso é ensinado como contribuir com projetos de código aberto
+        
+        Link para o curso [Python Pro](https://www.python.pro.br/)
+        
+        [![Build Status](https://travis-ci.org/avellar1975/libpythonpro.svg?branch=master)](https://travis-ci.org/avellar1975/libpythonpro)
+        [![Updates](https://pyup.io/repos/github/pythonprobr/libpythonpro/shield.svg)](https://pyup.io/repos/github/pythonprobr/libpythonpro/)
+        [![Python 3](https://pyup.io/repos/github/pythonprobr/libpythonpro/python-3-shield.svg)](https://pyup.io/repos/github/pythonprobr/libpythonpro/)
+        [![codecov](https://codecov.io/gh/pythonprobr/libpythonpro/branch/master/graph/badge.svg)](https://codecov.io/gh/pythonprobr/libpythonpro)
+        
+        Suportada versão 3 de Python
+        
+        Para instalar:
+        
+        ```console
+        pip install pipenv
+        pipenv install --dev
+        ```
+        
+        Para conferir qualidade de código:
+        
+        ```console
+        pipenv run flake8
+        ```
+        
+        Tópicos a serem abordados:
+         1. Git
+         2. Virtualenv
+         3. Pip
+         4. Mock
+         5. Pipenv
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Pytest
+Description-Content-Type: text/markdown
