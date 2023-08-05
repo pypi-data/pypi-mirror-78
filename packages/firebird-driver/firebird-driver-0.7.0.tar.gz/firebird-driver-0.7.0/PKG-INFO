@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: firebird-driver
+Version: 0.7.0
+Summary: Firebird driver
+Home-page: https://github.com/FirebirdSQL/python3-driver
+Author: Pavel Císař
+Author-email: pcisar@users.sourceforge.net
+License: MIT
+Project-URL: Documentation, https://firebird-driver.rtfd.io
+Project-URL: Bug Reports, https://github.com/FirebirdSQL/python3-driver/issues
+Project-URL: Funding, https://www.firebirdsql.org/en/donate/
+Project-URL: Source, https://github.com/FirebirdSQL/python3-driver
+Description: ==========================
+        Firebird driver for Python
+        ==========================
+        
+        This package contains driver that uses new Firebird API introduced in Firebird 3.
+        It also works ONLY with Python 3.8+.
+        
+        
+Keywords: Firebird RDBMS driver
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Topic :: Software Development
+Classifier: Topic :: Database
+Requires-Python: <4,>=3.8
+Description-Content-Type: text/x-rst; charset=UTF-8
