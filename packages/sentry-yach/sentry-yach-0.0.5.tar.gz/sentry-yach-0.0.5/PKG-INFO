@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: sentry-yach
+Version: 0.0.5
+Summary: A Sentry extension which send errors stats to yach
+Home-page: https://github.com/qingchunyibeifangzongle/sentry-yach
+Author: yp
+Author-email: xiaoyueueyue0612@gmail.com
+License: MIT
+Description: # Sentry-Yach
+        
+        `Sentry` 的 `Yach` 通知插件
+        
+        ## 安装
+        
+        ```bash
+        pip install sentry-yach
+        ```
+        
+        ## 使用
+        
+        在 `当前项目` 的所有集成页面找到 `Yach` 插件，启用，并设置 `URL` 和 `Secret Key`
+        
+        ![plugin](https://raw.githubusercontent.com/qingchunyibeifangzongle/sentry-yach/master/docs/images/options.png)
+        
+        在插件上使用`Test Plugin`进行测试，当配置好相关参数后，在群内会得到如下通知
+        
+        ![plugin](https://raw.githubusercontent.com/qingchunyibeifangzongle/sentry-yach/master/docs/images/yach.png)
+        
+        
+        点击`detail`按钮，打开异常详情页面。
+        
+Keywords: sentry yach
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
