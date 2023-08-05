@@ -1,0 +1,693 @@
+[
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getReservePrecision",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "BUCKET_X2",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "connector",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "BUCKET_C0",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getDayPrecision",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getMocPrecision",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reserveTotal",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reservePrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "RiskProMint",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "riskProTecPrice",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "riskProDiscountPrice",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "RiskProWithDiscountMint",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reserveTotal",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reservePrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "RiskProRedeem",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reserveTotal",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reservePrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "StableTokenMint",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reserveTotal",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reservePrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "StableTokenRedeem",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reserveTotal",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "interests",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reservePrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "FreeStableTokenRedeem",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "bucket",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reserveTotal",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "interests",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "leverage",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reservePrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "RiskProxMint",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "bucket",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reserveTotal",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "interests",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "leverage",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reservePrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "RiskProxRedeem",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "connectorAddress",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "name": "riskProAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "redeemRiskPro",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "name": "stableTokenAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "redeemFreeStableToken",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "name": "resTokensToMint",
+          "type": "uint256"
+        }
+      ],
+      "name": "mintStableToken",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "userAddress",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "reservePrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "redeemStableTokenWithPrice",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "origin",
+          "type": "address"
+        },
+        {
+          "name": "destination",
+          "type": "address"
+        }
+      ],
+      "name": "redeemAllStableToken",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "name": "reserveTokenAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "mintRiskPro",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "name": "riskProAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "resTokenValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "mintRiskPro",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "name": "bucket",
+          "type": "bytes32"
+        },
+        {
+          "name": "resTokensToMint",
+          "type": "uint256"
+        }
+      ],
+      "name": "mintRiskProx",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "name": "bucket",
+          "type": "bytes32"
+        },
+        {
+          "name": "riskProxAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "redeemRiskProx",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "bucket",
+          "type": "bytes32"
+        },
+        {
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "name": "riskProxAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "riskProxPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "forceRedeemRiskProx",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "bucket",
+          "type": "bytes32"
+        },
+        {
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "name": "riskProxAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "riskProxPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "burnRiskProxFor",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
