@@ -1,0 +1,8 @@
+langdetect
+langid
+sentencepiece
+nltk
+
+[translation]
+fairseq==0.8.0
+torch==1.1.0
