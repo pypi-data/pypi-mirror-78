@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: samoyed
+Version: 0.1.0.dev1
+Summary: Idiomatic AWS lambda utility specialized for SAM
+Home-page: https://github.com/NovemberOscar/SAMoyed
+License: MIT
+Keywords: aws,serverless,lambda
+Author: Seonghyeon Kim
+Author-email: self@seonghyeon.dev
+Requires-Python: >=3.7,<4.0
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: ujson (>=3.1.0,<4.0.0)
+Project-URL: Repository, https://github.com/NovemberOscar/SAMoyed
+Description-Content-Type: text/markdown
+
+# SAMoyed
+Idiomatic AWS lambda utility specialized for SAM
+
+![](https://www.purina.com.au/-/media/Project/Purina/Main/Breeds/Dog/Dog_Samoyed_Desktop.jpg?h=475&la=en&w=825&hash=141A7757B0B0C4925227669C085DDA69)
+
