@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: sgext
+Version: 0.9.12
+Summary: SGEXT is an open-source toolkit for skeletonization and graph analysis
+Home-page: https://github.com/phcerdan/SGEXT
+Author: Pablo Hernandez-Cerdan
+Author-email: pablo.hernandez.cerdan@outlook.com
+License: MPL2
+Download-URL: https://github.com/phcerdan/SGEXT
+Keywords: SGEXT thinning skeletonization graph complex-networks imaging
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: C++
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Operating System :: Android
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+
+SGEXT is an open-source, cross-platform library for skeletonization of vascular/filaments images and tools for the posterior graph analysis, using a spatial graph as an encriched graph with geometric information.
+
+
