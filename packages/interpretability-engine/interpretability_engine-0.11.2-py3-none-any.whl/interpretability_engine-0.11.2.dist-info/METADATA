@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: interpretability-engine
+Version: 0.11.2
+Summary: Interpret Machine Learning black-box models deployed on Serving Engine
+Home-page: https://github.com/ovh/interpretability-engine
+Author: Parmentier Laurent
+Author-email: laurent.parmentier@corp.ovh.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Requires-Dist: scikit-learn (>=0.22.1)
+Requires-Dist: requests (>=2.22.0)
+Requires-Dist: matplotlib (>=3.1.3)
+Requires-Dist: pandas (>=1.0.1)
+Requires-Dist: python-swiftclient (>=3.8.1)
+Requires-Dist: python-keystoneclient (>=3.22.0)
+
+UNKNOWN
+
+
