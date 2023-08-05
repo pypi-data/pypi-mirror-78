@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: redtrio
+Version: 0.4.0
+Summary: An async (Trio) client for Redis 6+
+Home-page: https://github.com/Harrison88/redtrio
+License: BSD-3-Clause
+Keywords: async,trio,redis,resp3
+Author: Harrison Morgan
+Author-email: harrison.morgan@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: Trio
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: respy3 (>=0,<1)
+Requires-Dist: trio (>=0.16,<1.0)
+Project-URL: Documentation, https://redtrio.readthedocs.io/en/latest/
+Project-URL: Repository, https://github.com/Harrison88/redtrio
+Description-Content-Type: text/markdown
+
+![Tests](https://github.com/Harrison88/redtrio/workflows/Tests/badge.svg)
+[![codecov](https://codecov.io/gh/Harrison88/redtrio/branch/master/graph/badge.svg)](https://codecov.io/gh/Harrison88/redtrio)
+[![PyPI](https://img.shields.io/pypi/v/redtrio.svg)](https://pypi.org/project/redtrio/)
+[![Documentation Status](https://readthedocs.org/projects/redtrio/badge/?version=latest)](https://redtrio.readthedocs.io/en/latest/?badge=latest)
+
+Redtrio is a modern async client for Redis, supporting the new RESP3 protocol.
+
