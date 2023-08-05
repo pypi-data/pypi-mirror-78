@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: bacchus
+Version: 1.0.2
+Summary: Home Server solution based on docker
+License: MIT
+Author: David Francos
+Author-email: opensource@davidfrancos.net
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: cleo (>=0.7.6,<0.8.0)
+Requires-Dist: dns-lexicon (>=3.3.17,<4.0.0)
+Requires-Dist: docker (>=4.1,<5.0)
+Requires-Dist: netifaces (>=0.10.9,<0.11.0)
+Requires-Dist: requests (>=2.22.0,<3.0.0)
