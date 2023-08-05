@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "standard_header": {
+            "$ref": "headers.json#/definitions/standard_header"
+        },
+        "input_data": {
+			"type": "array",
+			"items": {
+				"$ref": "headers.json#/definitions/dataset_details_input_component"
+			}
+		},
+        "dataset_output_details": {
+            "$ref": "headers.json#/definitions/dataset_details_output_component"
+        },
+        "service_catalogue_uuid": {
+            "type": "string",
+            "description": "The uuid of the requested service"
+        },
+        "permissible_service_provider_uuid": {
+            "type": "string",
+            "description": "A list of vendor uuids permitted to provide an offer for this request"
+        }
+    }
+}

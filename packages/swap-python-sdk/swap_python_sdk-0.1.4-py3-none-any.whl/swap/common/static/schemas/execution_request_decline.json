@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "standard_header": {
+            "$ref": "headers.json#/definitions/standard_header"
+        },
+        "service_provider_header": {
+            "$ref": "headers.json#/definitions/service_provider_header"
+        },
+        "execution_details": {
+            "$ref": "headers.json#/definitions/execution_details_component"
+        },
+        "decline_reason_text": {
+            "type": "string",
+            "description": "A user-friendly description of why a request to execute a service offering has been declined"
+        },
+        "exec_decline_timestamp": {
+            "type": "string",
+            "description": "The start time of the execution process"
+        }
+    }
+}
