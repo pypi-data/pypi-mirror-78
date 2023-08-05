@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: bfsccylinder-models
+Version: 0.1.2
+Summary: Models using the BFSCCylinder finite element
+Home-page: https://github.com/saullocastro/bfsccylinder_models
+Author: Saullo G. P. Castro
+Author-email: S.G.P.Castro@tudelft.nl
+License: 2-Clause BSD
+Keywords: finite elements shell structural analysis buckling vibration dynamics
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Education
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Requires-Dist: bfsccylinder
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: composites
+
+Models using the BFSCCylinder element
+
+Travis-CI status:
+
+[![Build Status](https://travis-ci.com/saullocastro/bfsccylinder_models.svg?token=42zpXqXADpxR3nr2TD7y&branch=master)](https://travis-ci.com/saullocastro/bfsccylinder_models)
+
+Github Actions status:
+
+[![Actions Status](https://github.com/saullocastro/bfsccylinder_models/workflows/pytest/badge.svg)](https://github.com/saullocastro/bfsccylinder_models/actions)
+
+Coverage status:
+
+[![Coverage Status](https://coveralls.io/repos/github/saullocastro/bfsccylinder_models/badge.svg?branch=master)](https://coveralls.io/github/saullocastro/bfsccylinder_models?branch=master)
+
+
+License
+-------
+Distrubuted in the 2-Clause BSD license (https://raw.github.com/saullocastro/bfsccylinder_models/master/LICENSE).
+
+Contact: S.G.P.Castro@tudelft.nl
+
+
+
