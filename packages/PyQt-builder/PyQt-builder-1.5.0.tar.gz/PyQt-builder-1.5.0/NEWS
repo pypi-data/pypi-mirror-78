@@ -1,0 +1,38 @@
+v1.5.0 29th August 2020
+  - Added the 'android-abis' project option and corresponding '--android-abi'
+    command line option to sip-build, sip-install and sip-wheel.
+  - Added 'PYQTBUILD_VERSION' and 'PYQTBUILD_VERSION_STR' to the 'pyqtbuild'
+    module API.
+  - Added support for bundling QtTextToSpeech.
+
+v1.4.0 1st June 2020
+  - Added the '--ignore-missing' command line option to pyqt-bundle.  This will
+    ignore any files missing from the Qt installation.  This allows the
+    bundling of an unsupported or non-standard Qt installation but may result
+    in a non-working wheel.
+  - The minimum macOS version specified in a wheel name is now dependent on the
+    version of Qt.
+  - Added support for bundling Qt v5.15.
+  - Updated the redistributables to MSVC 2019.
+
+v1.3.2 20th April 2020
+  - A bug fix release.
+
+v1.3.1 10th April 2020
+  - A bug fix release.
+
+v1.3.0 3rd April 2020
+  - Added the '--exclude' command line option to pyqt-bundle.
+
+v1.2.0 6th January 2020
+  - Added the 'target-qt-dir' project option and corresponding
+    '--target-qt-dir' command line option to sip-wheel.
+
+v1.1.0 18th December 2019
+  - Added support for bundling Qt v5.14.
+
+v1.0.1 3rd November 2019
+  - A bug fix release.
+
+v1.0.0 4th October 2019
+  - The release of PyQt-builder v1.
