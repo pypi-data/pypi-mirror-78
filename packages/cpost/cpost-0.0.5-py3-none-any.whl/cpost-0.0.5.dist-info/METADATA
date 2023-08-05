@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: cpost
+Version: 0.0.5
+Summary: API/Python lib for Czech addresses.
+Home-page: https://github.com/martinbenes1996/cpost
+Author: Martin Beneš
+Author-email: martinbenes1996@gmail.com
+License: MIT
+Download-URL: https://github.com/martinbenes1996/cpost/archive/0.0.5.tar.gz
+Keywords: 2019-nCov,poland,coronavirus,covid-19,covid-data,covid19-data
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Other Audience
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+
+# cpost
+
+[![](https://github.com/martinbenes1996/cpost/workflows/utests_on_commit/badge.svg)](https://github.com/martinbenes1996/cpost)
+
+API/Python lib for Czech addresses
+
+
