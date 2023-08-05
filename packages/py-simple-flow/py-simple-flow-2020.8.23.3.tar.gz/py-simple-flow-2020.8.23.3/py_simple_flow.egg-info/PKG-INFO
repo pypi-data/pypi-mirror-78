@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: py-simple-flow
+Version: 2020.8.23.3
+Summary: Simple data processing (ETL) library with support for multi-processing
+Home-page: UNKNOWN
+Author: Nikhil K Madhusudhan (nikhilkmdev)
+Author-email: nikhilkmdev@gmail.com
+Maintainer: Nikhil K Madhusudhan (nikhilkmdev)
+Maintainer-email: nikhilkmdev@gmail.com
+License: MIT
+Description: ### Python Simple Flow 
+            - Simple framework with a defined structure for data processing with support for multi-process
+            - Data processing flow is split into four phases:
+                - Source: Fetch the data from a source 
+                - Ingress: Register the data received, log or in DB for trace-ability
+                - Transform: Business logic of transforming the data to your business needs
+                - Egress: Push the data to downstream or your storage
+            - Processing can be done in one process, like running it in-process or in multi processing mode
+            - Mode to be chosen depends on the task you are doing
+            - Easy setting up logger even in multi processing mode
+            
+Keywords: etl,multi processing,data,processing,data processing,data flow,python3
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
