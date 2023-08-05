@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: RackioAdmin
+Version: 0.4
+Summary: A Rackio extension to add a Web Admin Interface
+Home-page: https://github.com/rack-io/rackio-admin
+Author: Nelson Carrasquel
+Author-email: rackio.framework@outlook.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# rackio-admin
+A Rackio extension to add a Web Admin Interface 
+
+## Installation
+
+```
+pip install RackioAdmin
+```
+
+## Usage
+
+```python
+from rackio import Rackio
+from rackio_admin import RackioAdmin
+
+app = Rackio()
+
+RackioAdmin(app)
+
+app.run(8028)
+```
+
+## Admin UI
+
+After running your application you will find the Admin UI in the following address.
+
+```
+http://localhost:8028/admin
+```
+
+
