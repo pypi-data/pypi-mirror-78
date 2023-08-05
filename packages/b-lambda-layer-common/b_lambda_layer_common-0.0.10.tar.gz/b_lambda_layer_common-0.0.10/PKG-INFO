@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: b_lambda_layer_common
+Version: 0.0.10
+Summary: AWS CDK based lambda layer including useful utilities.
+Home-page: https://github.com/biomapas/B.LambdaLayerCommon.git
+Author: Laimonas Sutkus
+Author-email: laimonas.sutkus@biomapas.com
+License: Apache License 2.0
+Description: # TODO
+        
+        # Release history
+        
+        ### 0.0.10
+        Implement exceptions.
+        
+        ### 0.0.9
+        Fix api gateway url.
+        
+        ### 0.0.8
+        Add xml to dict converter utility. No dependencies.
+        
+        ### 0.0.7
+        Fix imports.
+        
+        ### 0.0.6
+        Add ability to check whether singleton was initialized.
+        
+        ### 0.0.5
+        Remove description.
+        
+        ### 0.0.4
+        Do not create an extra stack.
+        
+        ### 0.0.3
+        Add safe initialization.
+        
+        ### 0.0.2
+        Add Layer class and Singleton.
+        
+        ### 0.0.1
+        Initial build.
+Keywords: AWS CDK Lambda Layer
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
