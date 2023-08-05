@@ -1,0 +1,691 @@
+2020-08-31 09:31:28,973 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 20, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:31:33,843 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 20, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:32:22,333 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 20, in _hyx_main_XUffffX2
+    (if (= "r" (nth arags 1))
+NameError: name 'arags' is not defined
+2020-08-31 09:32:49,135 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 22, in _hyx_main_XUffffX2
+    (print "ok")
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 41, in write
+    self.__convertor.write(text)
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 162, in write
+    self.write_and_convert(text)
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 190, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 196, in write_plain_text
+    self.wrapped.flush()
+BrokenPipeError: [Errno 32] Broken pipe
+2020-08-31 09:33:08,006 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:34:02,094 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:34:07,405 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:34:12,326 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:34:36,287 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 22, in _hyx_main_XUffffX2
+    (print "ok")
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 41, in write
+    self.__convertor.write(text)
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 162, in write
+    self.write_and_convert(text)
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 190, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 196, in write_plain_text
+    self.wrapped.flush()
+BrokenPipeError: [Errno 32] Broken pipe
+2020-08-31 09:35:28,498 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 22, in _hyx_main_XUffffX2
+    (print "ok")
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 41, in write
+    self.__convertor.write(text)
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 162, in write
+    self.write_and_convert(text)
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 190, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 196, in write_plain_text
+    self.wrapped.flush()
+BrokenPipeError: [Errno 32] Broken pipe
+2020-08-31 09:35:39,139 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 22, in _hyx_main_XUffffX2
+    (print "ok")
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 41, in write
+    self.__convertor.write(text)
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 162, in write
+    self.write_and_convert(text)
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 190, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 196, in write_plain_text
+    self.wrapped.flush()
+BrokenPipeError: [Errno 32] Broken pipe
+2020-08-31 09:40:21,777 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 22, in _hyx_main_XUffffX2
+    (print "ok")
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 41, in write
+    self.__convertor.write(text)
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 162, in write
+    self.write_and_convert(text)
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 190, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/colorama/ansitowin32.py", line 196, in write_plain_text
+    self.wrapped.flush()
+BrokenPipeError: [Errno 32] Broken pipe
+2020-08-31 09:40:24,799 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 22, in _hyx_main_XUffffX2
+    (print "ok")
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 41, in write
+    self.__convertor.write(text)
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 162, in write
+    self.write_and_convert(text)
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 190, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 196, in write_plain_text
+    self.wrapped.flush()
+BrokenPipeError: [Errno 32] Broken pipe
+2020-08-31 09:40:27,362 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 22, in _hyx_main_XUffffX2
+    (print "ok")
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 41, in write
+    self.__convertor.write(text)
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 162, in write
+    self.write_and_convert(text)
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 190, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 196, in write_plain_text
+    self.wrapped.flush()
+BrokenPipeError: [Errno 32] Broken pipe
+2020-08-31 09:40:38,168 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 22, in _hyx_main_XUffffX2
+    (print "ok")
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 41, in write
+    self.__convertor.write(text)
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 162, in write
+    self.write_and_convert(text)
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 190, in write_and_convert
+    self.write_plain_text(text, cursor, len(text))
+  File "/usr/lib/python3.8/site-packages/colorama/ansitowin32.py", line 196, in write_plain_text
+    self.wrapped.flush()
+BrokenPipeError: [Errno 32] Broken pipe
+2020-08-31 09:40:42,630 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:44,079 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:44,541 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:44,988 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:45,501 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:46,061 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:46,462 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:54,675 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:56,071 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:56,618 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:57,327 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:57,998 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:40:59,068 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:41:00,496 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:42:10,663 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:42:11,829 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:42:12,462 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:42:12,860 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:42:13,219 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:43:26,641 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:43:28,473 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:43:28,884 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:43:29,322 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:43:29,820 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:43:30,300 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:43:31,261 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:43:32,052 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:43:32,807 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:45:41,392 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:45:44,610 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:45:45,457 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:45:46,342 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:45:47,280 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:45:48,266 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:45:49,353 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:46:11,181 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:54:44,529 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:54:47,401 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:54:50,830 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:54:52,379 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:55:09,326 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:55:14,366 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:55:18,805 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:55:21,863 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:55:23,213 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:55:26,986 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:55:28,072 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 09:55:28,933 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:00:19,757 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:00:26,353 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:00:27,474 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:00:36,010 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:02:45,609 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:02:47,474 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:02:48,266 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:02:49,071 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:02:49,830 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:02:54,170 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:07:20,237 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:07:22,941 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:07:39,528 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 10:07:44,754 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 21, in _hyx_main_XUffffX2
+    (raise (FileNotFoundError "nofile"))
+FileNotFoundError: nofile
+2020-08-31 15:37:01,265 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 126, in _hyx_main_XUffffX7
+    (send-msgs :token token
+NameError: name 'send_msgs' is not defined
+2020-08-31 15:37:53,571 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 127, in _hyx_main_XUffffX7
+    (send-message :token token
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 77, in send_message
+    "contentType" (-> (of ContentType content-type)
+  File "/usr/lib/python3.8/enum.py", line 344, in __getitem__
+    return cls._member_map_[name]
+KeyError: 30
+2020-08-31 15:39:25,318 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 128, in _hyx_main_XUffffX7
+    (send-message :token token
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 77, in send_message
+    "contentType" (-> (of ContentType content-type)
+  File "/usr/lib/python3.8/enum.py", line 344, in __getitem__
+    return cls._member_map_[name]
+KeyError: 30
+2020-08-31 15:40:58,490 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 129, in _hyx_main_XUffffX7
+    (send-message :token token
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 77, in send_message
+    "contentType" (-> (of ContentType content-type)
+  File "/usr/lib/python3.8/enum.py", line 344, in __getitem__
+    return cls._member_map_[name]
+KeyError: 30
+2020-08-31 15:41:07,704 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 128, in _hyx_main_XUffffX7
+    (send-message :token token
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 77, in send_message
+    "contentType" (-> (of ContentType content-type)
+  File "/usr/lib/python3.8/enum.py", line 344, in __getitem__
+    return cls._member_map_[name]
+KeyError: 30
+2020-08-31 15:44:00,687 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 88, in _hyx_main_XUffffX7
+    (setv opts (parse-args [["--reset"
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/.venv/lib/python3.8/site-packages/hy/core/language.hy", line 414, in parse_args
+    (parser.add-argument #* positional-arguments #** (dict keyword-arguments)))
+  File "/usr/lib/python3.8/argparse.py", line 1368, in add_argument
+    action = action_class(**kwargs)
+  File "/usr/lib/python3.8/argparse.py", line 867, in __init__
+    raise ValueError('nargs must be %r to supply const' % OPTIONAL)
+ValueError: nargs must be '?' to supply const
+2020-08-31 15:44:23,664 [INFO] nowx.hy(_hyx_main_XUffffX7)[134] over!
+2020-08-31 15:47:06,639 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 127, in _hyx_main_XUffffX7
+    (print (make-qrcode token)))
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 48, in make_qrcode
+    (get "data" "url")))
+TypeError: 'NoneType' object is not subscriptable
+2020-08-31 15:54:54,143 [ERROR] nowx.hy(get_all_user)[58] get all user response:{'code': 1001, 'msg': 'appToken错误或者应用不存在', 'data': None, 'success': False} error:'NoneType' object is not subscriptable
+2020-08-31 15:54:54,487 [ERROR] nowx.hy(main)[1] main
+Traceback (most recent call last):
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 1, in main
+    #!/usr/bin/env hy
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 133, in _hyx_main_XUffffX7
+    (print (make-qrcode token)))
+  File "/mnt/data/OCaml64/home/netstoc3/code/sub-domains/norecon/nowx.hy", line 48, in make_qrcode
+    (get "data" "url")))
+TypeError: 'NoneType' object is not subscriptable
+2020-08-31 15:55:55,344 [ERROR] nowx.hy(get_all_user)[58] get all user response:{'code': 1001, 'msg': 'appToken错误或者应用不存在', 'data': None, 'success': False} error:'NoneType' object is not subscriptable
+2020-08-31 15:56:04,145 [ERROR] nowx.hy(get_all_user)[58] get all user response:{'code': 1001, 'msg': 'appToken错误或者应用不存在', 'data': None, 'success': False} error:'NoneType' object is not subscriptable
+2020-08-31 15:57:13,675 [INFO] nowx.hy(send_message)[83] send messges [] result: {'code': 1000, 'msg': '处理成功', 'data': [{'uid': 'UID_M6tAOv0XI8iB84zNpxkeYSypt2yU', 'topicId': None, 'messageId': 33759195, 'code': 1000, 'status': '创建发送任务成功'}], 'success': True}
+2020-08-31 15:57:13,675 [INFO] nowx.hy(_hyx_main_XUffffX7)[144] over!
