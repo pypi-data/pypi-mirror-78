@@ -1,0 +1,15 @@
+
+[dev]
+sphinx
+pytest
+pytest-cov
+pytest-mock
+pre-commit
+
+[docs]
+sphinx
+
+[tests]
+pytest
+pytest-cov
+pytest-mock

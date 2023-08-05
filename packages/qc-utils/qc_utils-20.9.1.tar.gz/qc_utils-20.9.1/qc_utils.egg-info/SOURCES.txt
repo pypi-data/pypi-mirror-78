@@ -1,0 +1,14 @@
+README.rst
+pyproject.toml
+setup.py
+qc_utils/__init__.py
+qc_utils/parsers.py
+qc_utils/qcmetric.py
+qc_utils.egg-info/PKG-INFO
+qc_utils.egg-info/SOURCES.txt
+qc_utils.egg-info/dependency_links.txt
+qc_utils.egg-info/requires.txt
+qc_utils.egg-info/top_level.txt
+qc_utils/test/__init__.py
+qc_utils/test/test_parsers.py
+qc_utils/test/test_qcmetric.py
