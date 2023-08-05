@@ -1,0 +1,176 @@
+Metadata-Version: 2.1
+Name: subaligner
+Version: 0.0.10
+Summary: Automatically aligns an out-of-sync subtitle file to its companion video/audio using Deep Neural Network and Forced Alignment.
+Home-page: https://subaligner.readthedocs.io/en/latest/
+Author: Xi Bai
+Author-email: xi.bai.ed@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: aeneas (==1.7.3.0)
+Requires-Dist: zipp (==0.6.0)
+Requires-Dist: zict (==0.1.3)
+Requires-Dist: Werkzeug (>=0.15.3)
+Requires-Dist: urllib3 (==1.25.7)
+Requires-Dist: tornado (==5.0.2)
+Requires-Dist: toolz (==0.9.0)
+Requires-Dist: toml (==0.10.0)
+Requires-Dist: termcolor (==1.1.0)
+Requires-Dist: tensorflow (<2.3,>=1.12)
+Requires-Dist: tblib (==1.3.2)
+Requires-Dist: scikit-learn (>=0.19.1)
+Requires-Dist: scipy (==1.4.1)
+Requires-Dist: rsa (==4.0)
+Requires-Dist: requests-oauthlib (==1.3.0)
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: PyYAML (>=4.2b1)
+Requires-Dist: pytz (==2018.4)
+Requires-Dist: python-dateutil (==2.7.2)
+Requires-Dist: pystack-debugger (==0.8.0)
+Requires-Dist: pysrt (==1.1.1)
+Requires-Dist: pyprof2calltree (==1.4.3)
+Requires-Dist: pyparsing (==2.2.0)
+Requires-Dist: pylint (==1.8.4)
+Requires-Dist: pydotplus (==2.0.2)
+Requires-Dist: pydot-ng (==1.0.0)
+Requires-Dist: pydot (==1.2.4)
+Requires-Dist: pyasn1-modules (==0.2.7)
+Requires-Dist: pyasn1 (==0.4.8)
+Requires-Dist: py (==1.8.0)
+Requires-Dist: psutil (==5.6.6)
+Requires-Dist: pluggy (==0.13.1)
+Requires-Dist: pbr (==4.0.2)
+Requires-Dist: oauthlib (==3.1.0)
+Requires-Dist: numpy (<1.18.0,>=1.14.1)
+Requires-Dist: numba (>=0.50.0)
+Requires-Dist: msgpack-python (==0.5.6)
+Requires-Dist: mccabe (==0.6.1)
+Requires-Dist: Markdown (==2.6.11)
+Requires-Dist: locket (==0.2.0)
+Requires-Dist: librosa (>=0.8.0)
+Requires-Dist: le-pycaption (==2.2.0a1)
+Requires-Dist: lazy-object-proxy (==1.3.1)
+Requires-Dist: kiwisolver (==1.0.1)
+Requires-Dist: Keras-Preprocessing (>=1.0.9)
+Requires-Dist: Keras-Applications (>=1.0.8)
+Requires-Dist: isort (==4.3.4)
+Requires-Dist: importlib-metadata (==1.2.0)
+Requires-Dist: idna (==2.8)
+Requires-Dist: hyperopt (==0.2.4)
+Requires-Dist: html5lib (==0.9999999)
+Requires-Dist: HeapDict (==1.0.0)
+Requires-Dist: graphviz (==0.8.3)
+Requires-Dist: google-pasta (==0.1.8)
+Requires-Dist: google-auth-oauthlib (==0.4.1)
+Requires-Dist: google-auth (==1.8.1)
+Requires-Dist: filelock (==3.0.12)
+Requires-Dist: distributed (==1.13.0)
+Requires-Dist: decorator (==4.3.0)
+Requires-Dist: dask (==0.15.0)
+Requires-Dist: Cython (==0.28.2)
+Requires-Dist: cycler (==0.10.0)
+Requires-Dist: cloudpickle (==0.5.3)
+Requires-Dist: click (==5.1)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: certifi (==2019.11.28)
+Requires-Dist: cachetools (==3.1.1)
+Requires-Dist: bleach (==3.1.4)
+Requires-Dist: beautifulsoup4 (<4.9.0)
+Requires-Dist: audioread (==2.1.5)
+Requires-Dist: astroid (==1.6.3)
+Requires-Dist: astor (==0.7.1)
+Requires-Dist: absl-py (==0.7.0)
+
+[![Build Status](https://travis-ci.com/baxtree/subaligner.svg?branch=master)](https://travis-ci.com/baxtree/subaligner) ![Codecov](https://img.shields.io/codecov/c/github/baxtree/subaligner)
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/) [![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/) [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Documentation Status](https://readthedocs.org/projects/subaligner/badge/?version=latest)](https://subaligner.readthedocs.io/en/latest/?badge=latest)
+[![GitHub license](https://img.shields.io/github/license/baxtree/subaligner)](https://github.com/baxtree/subaligner/blob/master/LICENSE)
+[![PyPI](https://badge.fury.io/py/subaligner.svg)](https://badge.fury.io/py/subaligner)
+[![Docker Hub](https://img.shields.io/docker/cloud/automated/baxtree/subaligner)](https://hub.docker.com/r/baxtree/subaligner)
+
+## Dependencies
+[FFmpeg](https://www.ffmpeg.org/) and [eSpeak](http://espeak.sourceforge.net/index.html)
+```
+apt-get install ffmpeg espeak libespeak1 libespeak-dev espeak-data
+```
+or
+```
+brew install ffmpeg espeak
+```
+
+## Installation
+```
+# Install from PyPI (pre-emptive NumPy)
+pip install numpy 
+pip install subaligner
+```
+or
+```
+# Install from GitHub via Pipenv
+...
+[packages]
+numpy = "*"
+subaligner = {git = "ssh://git@github.com/baxtree/subaligner.git", ref = "<TAG>"}
+...
+```
+or
+```
+# Install from source
+
+git clone git@github.com:baxtree/subaligner.git
+cd subaligner
+make install && source .venv/bin/activate
+```
+or
+```
+# Use dockerised installation
+
+docker run -v `pwd`:`pwd` -w `pwd` -it baxtree/subaligner bash
+```
+
+## Usage
+```
+# Single-stage alignment (high-level shift with lower latency)
+
+$ subaligner_1pass -v video.mp4 -s subtitle.srt
+```
+
+```
+# Dual-stage alignment (low-level shift with higher latency)
+
+$ subaligner_2pass -v video.mp4 -s subtitle.srt
+```
+
+```
+# Run alignments with the docker image
+
+docker pull baxtree/subaligner
+docker run -v `pwd`:`pwd` -w `pwd` -it baxtree/subaligner subaligner_1pass -v video.mp4 -s subtitle.srt
+docker run -v `pwd`:`pwd` -w `pwd` -it baxtree/subaligner subaligner_2pass -v video.mp4 -s subtitle.srt
+```
+The aligned subtitle will be saved at `subtitle_aligned.srt`. For details on CLI, run `subaligner_1pass --help` or `subaligner_2pass --help`.
+
+## Supported Formats
+Subtitle: SubRip, TTML and WebVTT
+
+Video: MP4, WebM, Ogg, 3GP, FLV and MOV 
+
+## Anatomy
+Subtitles can be out of sync with their companion audiovisual media files for a variety of causes including latency introduced by Speech-To-Text on live streams or calibration and rectification involving human intervention during post-production.
+
+A model has been trained with synchronised video and subtitle pairs and later used for predicating shifting offsets and directions under the guidance of a two-stage aligning approach. 
+
+First Stage (Global Alignment):
+![](figures/1st_stage.png)
+
+Second Stage (Parallelised Individual Alignment):
+![](figures/2nd_stage.png)
+
+
+
