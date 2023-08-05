@@ -1,0 +1,1312 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-15 13:38+0000\n"
+"PO-Revision-Date: 2020-06-26 22:21+0300\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n" 
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Last-Translator: Bashar <poedit@bashar.com>\n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: build/lib/knpay_plugin/admin.py:20 knpay_plugin/admin.py:20
+msgid "Dates"
+msgstr "التواريخ"
+
+#: build/lib/knpay_plugin/admin.py:23 knpay_plugin/admin.py:23
+msgid "Conf"
+msgstr ""
+
+#: build/lib/knpay_plugin/admin.py:30 knpay_plugin/admin.py:30
+msgid "Customer information"
+msgstr "معلومات  العميل"
+
+#: build/lib/knpay_plugin/admin.py:45 knpay_plugin/admin.py:45
+msgid "Custom data"
+msgstr "البيانات الخاصة"
+
+#: build/lib/knpay_plugin/admin.py:51 build/lib/knpay_plugin/models.py:87
+#: knpay_plugin/admin.py:51 knpay_plugin/models.py:87
+msgid "KNPay response"
+msgstr "معالجة KNPay"
+
+#: build/lib/knpay_plugin/apps.py:10 knpay_plugin/apps.py:10
+msgid "Payment"
+msgstr "الدفع"
+
+#: build/lib/knpay_plugin/conf.py:17 build/lib/knpay_plugin/conf.py:81
+#: knpay_plugin/conf.py:17 knpay_plugin/conf.py:81 knpayplugin/settings.py:133
+msgid "Knet"
+msgstr "كي نت"
+
+#: build/lib/knpay_plugin/conf.py:18 build/lib/knpay_plugin/conf.py:19
+#: build/lib/knpay_plugin/conf.py:21 knpay_plugin/conf.py:18
+#: knpay_plugin/conf.py:19 knpay_plugin/conf.py:21 knpayplugin/settings.py:134
+#: knpayplugin/settings.py:135 knpayplugin/settings.py:137
+msgid "Credit Card"
+msgstr "بطاقة ائتمانية"
+
+#: build/lib/knpay_plugin/conf.py:20 knpay_plugin/conf.py:20
+#: knpayplugin/settings.py:136
+msgid "Paypal"
+msgstr "باي بال"
+
+#: build/lib/knpay_plugin/conf.py:61 knpay_plugin/conf.py:61
+msgid "Result"
+msgstr "حالة العملية"
+
+#: build/lib/knpay_plugin/conf.py:62 knpay_plugin/conf.py:62
+msgid "Track ID"
+msgstr "رقم المتابعة"
+
+#: build/lib/knpay_plugin/conf.py:63 knpay_plugin/conf.py:63
+msgid "Post Date"
+msgstr "تاريخ الدفعة"
+
+#: build/lib/knpay_plugin/conf.py:64 build/lib/knpay_plugin/conf.py:71
+#: knpay_plugin/conf.py:64 knpay_plugin/conf.py:71
+msgid "Transaction ID"
+msgstr "رقم العملية"
+
+#: build/lib/knpay_plugin/conf.py:65 knpay_plugin/conf.py:65
+msgid "Payment ID"
+msgstr "رقم الدفعة"
+
+#: build/lib/knpay_plugin/conf.py:66 knpay_plugin/conf.py:66
+msgid "Auth ID"
+msgstr "رقم التفويض"
+
+#: build/lib/knpay_plugin/conf.py:67 knpay_plugin/conf.py:67
+msgid "Reference ID"
+msgstr "الرقم المرجعي"
+
+#: build/lib/knpay_plugin/conf.py:70 knpay_plugin/conf.py:70
+msgid "Decision"
+msgstr "القرار"
+
+#: build/lib/knpay_plugin/conf.py:74 knpay_plugin/conf.py:74
+msgid "Message"
+msgstr "الرسالة"
+
+#: build/lib/knpay_plugin/conf.py:75 knpay_plugin/conf.py:75
+msgid "Receipt No"
+msgstr "رقم الإيصال"
+
+#: build/lib/knpay_plugin/conf.py:76 knpay_plugin/conf.py:76
+msgid "Transaction No"
+msgstr "رقم العملية التجارية"
+
+#: build/lib/knpay_plugin/conf.py:80 knpay_plugin/conf.py:80
+msgid "MiGS"
+msgstr "MiGS"
+
+#: build/lib/knpay_plugin/conf.py:82 knpay_plugin/conf.py:82
+msgid "MPGS"
+msgstr "MPGS"
+
+#: build/lib/knpay_plugin/conf.py:83 knpay_plugin/conf.py:83
+msgid "PayPal"
+msgstr "PayPal"
+
+#: build/lib/knpay_plugin/conf.py:84 knpay_plugin/conf.py:84
+msgid "CyberSource"
+msgstr "CyberSource"
+
+#: build/lib/knpay_plugin/data.py:12 knpay_plugin/data.py:12
+msgid "Afghanistan"
+msgstr "أفغانستان"
+
+#: build/lib/knpay_plugin/data.py:13 knpay_plugin/data.py:13
+msgid "Åland Islands"
+msgstr "جزر آلاند"
+
+#: build/lib/knpay_plugin/data.py:14 knpay_plugin/data.py:14
+msgid "Albania"
+msgstr "ألبانيا"
+
+#: build/lib/knpay_plugin/data.py:15 knpay_plugin/data.py:15
+msgid "Algeria"
+msgstr "الجزائر"
+
+#: build/lib/knpay_plugin/data.py:16 knpay_plugin/data.py:16
+msgid "American Samoa"
+msgstr "ساموا الأمريكية"
+
+#: build/lib/knpay_plugin/data.py:17 knpay_plugin/data.py:17
+msgid "Andorra"
+msgstr "أندورا"
+
+#: build/lib/knpay_plugin/data.py:18 knpay_plugin/data.py:18
+msgid "Angola"
+msgstr "أنجولا"
+
+#: build/lib/knpay_plugin/data.py:19 knpay_plugin/data.py:19
+msgid "Anguilla"
+msgstr "أنجويلا"
+
+#: build/lib/knpay_plugin/data.py:20 knpay_plugin/data.py:20
+msgid "Antarctica"
+msgstr "القطب الجنوبي"
+
+#: build/lib/knpay_plugin/data.py:21 knpay_plugin/data.py:21
+msgid "Antigua and Barbuda"
+msgstr "أنتيجوا وبربودا"
+
+#: build/lib/knpay_plugin/data.py:22 knpay_plugin/data.py:22
+msgid "Argentina"
+msgstr "الأرجنتين"
+
+#: build/lib/knpay_plugin/data.py:23 knpay_plugin/data.py:23
+msgid "Armenia"
+msgstr "أرمينيا"
+
+#: build/lib/knpay_plugin/data.py:24 knpay_plugin/data.py:24
+msgid "Aruba"
+msgstr "آروبا"
+
+#: build/lib/knpay_plugin/data.py:25 knpay_plugin/data.py:25
+msgid "Australia"
+msgstr "أستراليا"
+
+#: build/lib/knpay_plugin/data.py:26 knpay_plugin/data.py:26
+msgid "Austria"
+msgstr "النمسا"
+
+#: build/lib/knpay_plugin/data.py:27 knpay_plugin/data.py:27
+msgid "Azerbaijan"
+msgstr "أذربيجان"
+
+#: build/lib/knpay_plugin/data.py:28 knpay_plugin/data.py:28
+msgid "Bahamas"
+msgstr "الباهاما"
+
+#: build/lib/knpay_plugin/data.py:29 knpay_plugin/data.py:29
+msgid "Bahrain"
+msgstr "البحرين"
+
+#: build/lib/knpay_plugin/data.py:30 knpay_plugin/data.py:30
+msgid "Bangladesh"
+msgstr "بنجلاديش"
+
+#: build/lib/knpay_plugin/data.py:31 knpay_plugin/data.py:31
+msgid "Barbados"
+msgstr "بربادوس"
+
+#: build/lib/knpay_plugin/data.py:32 knpay_plugin/data.py:32
+msgid "Belarus"
+msgstr "روسيا البيضاء"
+
+#: build/lib/knpay_plugin/data.py:33 knpay_plugin/data.py:33
+msgid "Belgium"
+msgstr "بلجيكا"
+
+#: build/lib/knpay_plugin/data.py:34 knpay_plugin/data.py:34
+msgid "Belize"
+msgstr "بليز"
+
+#: build/lib/knpay_plugin/data.py:35 knpay_plugin/data.py:35
+msgid "Benin"
+msgstr "بنين"
+
+#: build/lib/knpay_plugin/data.py:36 knpay_plugin/data.py:36
+msgid "Bermuda"
+msgstr "برمودا"
+
+#: build/lib/knpay_plugin/data.py:37 knpay_plugin/data.py:37
+msgid "Bhutan"
+msgstr "بوتان"
+
+#: build/lib/knpay_plugin/data.py:38 knpay_plugin/data.py:38
+msgid "Bolivia (Plurinational State of)"
+msgstr "بوليفيا (الدولة المتعددة القوميات)"
+
+#: build/lib/knpay_plugin/data.py:39 knpay_plugin/data.py:39
+msgid "Bonaire, Sint Eustatius and Saba"
+msgstr "الجزر الكاريبية الهولندية"
+
+#: build/lib/knpay_plugin/data.py:40 knpay_plugin/data.py:40
+msgid "Bosnia and Herzegovina"
+msgstr "البوسنة والهرسك"
+
+#: build/lib/knpay_plugin/data.py:41 knpay_plugin/data.py:41
+msgid "Botswana"
+msgstr "بتسوانا"
+
+#: build/lib/knpay_plugin/data.py:42 knpay_plugin/data.py:42
+msgid "Bouvet Island"
+msgstr "جزيرة بوفيه"
+
+#: build/lib/knpay_plugin/data.py:43 knpay_plugin/data.py:43
+msgid "Brazil"
+msgstr "البرازيل"
+
+#: build/lib/knpay_plugin/data.py:44 knpay_plugin/data.py:44
+msgid "British Indian Ocean Territory"
+msgstr "المحيط الهندي البريطاني"
+
+#: build/lib/knpay_plugin/data.py:45 knpay_plugin/data.py:45
+msgid "Brunei Darussalam"
+msgstr "بروناي"
+
+#: build/lib/knpay_plugin/data.py:46 knpay_plugin/data.py:46
+msgid "Bulgaria"
+msgstr "بلغاريا"
+
+#: build/lib/knpay_plugin/data.py:47 knpay_plugin/data.py:47
+msgid "Burkina Faso"
+msgstr "بوركينا فاسو"
+
+#: build/lib/knpay_plugin/data.py:48 knpay_plugin/data.py:48
+msgid "Burundi"
+msgstr "بوروندي"
+
+#: build/lib/knpay_plugin/data.py:49 knpay_plugin/data.py:49
+msgid "Cabo Verde"
+msgstr "كابو فيردي"
+
+#: build/lib/knpay_plugin/data.py:50 knpay_plugin/data.py:50
+msgid "Cambodia"
+msgstr "كمبوديا"
+
+#: build/lib/knpay_plugin/data.py:51 knpay_plugin/data.py:51
+msgid "Cameroon"
+msgstr "الكاميرون"
+
+#: build/lib/knpay_plugin/data.py:52 knpay_plugin/data.py:52
+msgid "Canada"
+msgstr "كندا"
+
+#: build/lib/knpay_plugin/data.py:53 knpay_plugin/data.py:53
+msgid "Cayman Islands"
+msgstr "جزر الكايمن"
+
+#: build/lib/knpay_plugin/data.py:54 knpay_plugin/data.py:54
+msgid "Central African Republic"
+msgstr "جمهورية افريقيا الوسطى"
+
+#: build/lib/knpay_plugin/data.py:55 knpay_plugin/data.py:55
+msgid "Chad"
+msgstr "تشاد"
+
+#: build/lib/knpay_plugin/data.py:56 knpay_plugin/data.py:56
+msgid "Chile"
+msgstr "شيلي"
+
+#: build/lib/knpay_plugin/data.py:57 knpay_plugin/data.py:57
+msgid "China"
+msgstr "الصين"
+
+#: build/lib/knpay_plugin/data.py:58 knpay_plugin/data.py:58
+msgid "Christmas Island"
+msgstr "جزيرة الكريسماس"
+
+#: build/lib/knpay_plugin/data.py:59 knpay_plugin/data.py:59
+msgid "Cocos (Keeling) Islands"
+msgstr "جزر كوكس"
+
+#: build/lib/knpay_plugin/data.py:60 knpay_plugin/data.py:60
+msgid "Colombia"
+msgstr "كولومبيا"
+
+#: build/lib/knpay_plugin/data.py:61 knpay_plugin/data.py:61
+msgid "Comoros"
+msgstr "جزر القمر"
+
+#: build/lib/knpay_plugin/data.py:62 knpay_plugin/data.py:62
+msgid "Congo (the Democratic Republic of the)"
+msgstr "جمهورية الكونغو الديمقراطية"
+
+#: build/lib/knpay_plugin/data.py:63 knpay_plugin/data.py:63
+msgid "Congo"
+msgstr "الكونغو"
+
+#: build/lib/knpay_plugin/data.py:64 knpay_plugin/data.py:64
+msgid "Cook Islands"
+msgstr "جزر كوك"
+
+#: build/lib/knpay_plugin/data.py:65 knpay_plugin/data.py:65
+msgid "Costa Rica"
+msgstr "كوستاريكا"
+
+#: build/lib/knpay_plugin/data.py:66 knpay_plugin/data.py:66
+msgid "Côte d'Ivoire"
+msgstr "ساحل العاج"
+
+#: build/lib/knpay_plugin/data.py:67 knpay_plugin/data.py:67
+msgid "Croatia"
+msgstr "كرواتيا"
+
+#: build/lib/knpay_plugin/data.py:68 knpay_plugin/data.py:68
+msgid "Cuba"
+msgstr "كوبا"
+
+#: build/lib/knpay_plugin/data.py:69 knpay_plugin/data.py:69
+msgid "Curaçao"
+msgstr "كوراساو"
+
+#: build/lib/knpay_plugin/data.py:70 knpay_plugin/data.py:70
+msgid "Cyprus"
+msgstr "قبرص"
+
+#: build/lib/knpay_plugin/data.py:71 knpay_plugin/data.py:71
+msgid "Czechia"
+msgstr ""
+
+#: build/lib/knpay_plugin/data.py:72 knpay_plugin/data.py:72
+msgid "Denmark"
+msgstr "الدنمارك"
+
+#: build/lib/knpay_plugin/data.py:73 knpay_plugin/data.py:73
+msgid "Djibouti"
+msgstr "جيبوتي"
+
+#: build/lib/knpay_plugin/data.py:74 knpay_plugin/data.py:74
+msgid "Dominica"
+msgstr "دومينيكا"
+
+#: build/lib/knpay_plugin/data.py:75 knpay_plugin/data.py:75
+msgid "Dominican Republic"
+msgstr "جمهورية الدومينيك"
+
+#: build/lib/knpay_plugin/data.py:76 knpay_plugin/data.py:76
+msgid "Ecuador"
+msgstr "الاكوادور"
+
+#: build/lib/knpay_plugin/data.py:77 knpay_plugin/data.py:77
+msgid "Egypt"
+msgstr "مصر"
+
+#: build/lib/knpay_plugin/data.py:78 knpay_plugin/data.py:78
+msgid "El Salvador"
+msgstr "السلفادور"
+
+#: build/lib/knpay_plugin/data.py:79 knpay_plugin/data.py:79
+msgid "Equatorial Guinea"
+msgstr "غينيا الاستوائية"
+
+#: build/lib/knpay_plugin/data.py:80 knpay_plugin/data.py:80
+msgid "Eritrea"
+msgstr "إريتريا"
+
+#: build/lib/knpay_plugin/data.py:81 knpay_plugin/data.py:81
+msgid "Estonia"
+msgstr "استونيا"
+
+#: build/lib/knpay_plugin/data.py:82 knpay_plugin/data.py:82
+msgid "Ethiopia"
+msgstr "اثيوبيا"
+
+#: build/lib/knpay_plugin/data.py:83 knpay_plugin/data.py:83
+msgid "Falkland Islands  [Malvinas]"
+msgstr "جزر فوكلاند [مالفيناس]"
+
+#: build/lib/knpay_plugin/data.py:84 knpay_plugin/data.py:84
+msgid "Faroe Islands"
+msgstr "جزر فارو"
+
+#: build/lib/knpay_plugin/data.py:85 knpay_plugin/data.py:85
+msgid "Fiji"
+msgstr "فيجي"
+
+#: build/lib/knpay_plugin/data.py:86 knpay_plugin/data.py:86
+msgid "Finland"
+msgstr "فنلندا"
+
+#: build/lib/knpay_plugin/data.py:87 knpay_plugin/data.py:87
+msgid "France"
+msgstr "فرنسا"
+
+#: build/lib/knpay_plugin/data.py:88 knpay_plugin/data.py:88
+msgid "French Guiana"
+msgstr "غويانا"
+
+#: build/lib/knpay_plugin/data.py:89 knpay_plugin/data.py:89
+msgid "French Polynesia"
+msgstr "بولينيزيا الفرنسية"
+
+#: build/lib/knpay_plugin/data.py:90 knpay_plugin/data.py:90
+msgid "French Southern Territories"
+msgstr "المقاطعات الجنوبية الفرنسية"
+
+#: build/lib/knpay_plugin/data.py:91 knpay_plugin/data.py:91
+msgid "Gabon"
+msgstr "الجابون"
+
+#: build/lib/knpay_plugin/data.py:92 knpay_plugin/data.py:92
+msgid "Gambia"
+msgstr "غامبيا"
+
+#: build/lib/knpay_plugin/data.py:93 knpay_plugin/data.py:93
+msgid "Georgia"
+msgstr "جورجيا"
+
+#: build/lib/knpay_plugin/data.py:94 knpay_plugin/data.py:94
+msgid "Germany"
+msgstr "ألمانيا"
+
+#: build/lib/knpay_plugin/data.py:95 knpay_plugin/data.py:95
+msgid "Ghana"
+msgstr "غانا"
+
+#: build/lib/knpay_plugin/data.py:96 knpay_plugin/data.py:96
+msgid "Gibraltar"
+msgstr "جبل طارق"
+
+#: build/lib/knpay_plugin/data.py:97 knpay_plugin/data.py:97
+msgid "Greece"
+msgstr "اليونان"
+
+#: build/lib/knpay_plugin/data.py:98 knpay_plugin/data.py:98
+msgid "Greenland"
+msgstr "جرينلاند"
+
+#: build/lib/knpay_plugin/data.py:99 knpay_plugin/data.py:99
+msgid "Grenada"
+msgstr "جرينادا"
+
+#: build/lib/knpay_plugin/data.py:100 knpay_plugin/data.py:100
+msgid "Guadeloupe"
+msgstr "جوادلوب"
+
+#: build/lib/knpay_plugin/data.py:101 knpay_plugin/data.py:101
+msgid "Guam"
+msgstr "جوام"
+
+#: build/lib/knpay_plugin/data.py:102 knpay_plugin/data.py:102
+msgid "Guatemala"
+msgstr "جواتيمالا"
+
+#: build/lib/knpay_plugin/data.py:103 knpay_plugin/data.py:103
+msgid "Guernsey"
+msgstr "جيرنزي"
+
+#: build/lib/knpay_plugin/data.py:104 knpay_plugin/data.py:104
+msgid "Guinea"
+msgstr "غينيا"
+
+#: build/lib/knpay_plugin/data.py:105 knpay_plugin/data.py:105
+msgid "Guinea-Bissau"
+msgstr "غينيا بيساو"
+
+#: build/lib/knpay_plugin/data.py:106 knpay_plugin/data.py:106
+msgid "Guyana"
+msgstr "غيانا"
+
+#: build/lib/knpay_plugin/data.py:107 knpay_plugin/data.py:107
+msgid "Haiti"
+msgstr "هايتي"
+
+#: build/lib/knpay_plugin/data.py:108 knpay_plugin/data.py:108
+msgid "Heard Island and McDonald Islands"
+msgstr "جزيرة هيرد وماكدونالد"
+
+#: build/lib/knpay_plugin/data.py:109 knpay_plugin/data.py:109
+msgid "Holy See"
+msgstr "الكرسي الرسولي"
+
+#: build/lib/knpay_plugin/data.py:110 knpay_plugin/data.py:110
+msgid "Honduras"
+msgstr "هندوراس"
+
+#: build/lib/knpay_plugin/data.py:111 knpay_plugin/data.py:111
+msgid "Hong Kong"
+msgstr "هونج كونج الصينية"
+
+#: build/lib/knpay_plugin/data.py:112 knpay_plugin/data.py:112
+msgid "Hungary"
+msgstr "المجر"
+
+#: build/lib/knpay_plugin/data.py:113 knpay_plugin/data.py:113
+msgid "Iceland"
+msgstr "أيسلندا"
+
+#: build/lib/knpay_plugin/data.py:114 knpay_plugin/data.py:114
+msgid "India"
+msgstr "الهند"
+
+#: build/lib/knpay_plugin/data.py:115 knpay_plugin/data.py:115
+msgid "Indonesia"
+msgstr "اندونيسيا"
+
+#: build/lib/knpay_plugin/data.py:116 knpay_plugin/data.py:116
+msgid "Iran (Islamic Republic of)"
+msgstr "إيران (الجمهورية الإسلامية)"
+
+#: build/lib/knpay_plugin/data.py:117 knpay_plugin/data.py:117
+msgid "Iraq"
+msgstr "العراق"
+
+#: build/lib/knpay_plugin/data.py:118 knpay_plugin/data.py:118
+msgid "Ireland"
+msgstr "أيرلندا"
+
+#: build/lib/knpay_plugin/data.py:119 knpay_plugin/data.py:119
+msgid "Isle of Man"
+msgstr "جزيرة مان"
+
+#: build/lib/knpay_plugin/data.py:120 knpay_plugin/data.py:120
+msgid "Israel"
+msgstr "إسرائيل"
+
+#: build/lib/knpay_plugin/data.py:121 knpay_plugin/data.py:121
+msgid "Italy"
+msgstr "إيطاليا"
+
+#: build/lib/knpay_plugin/data.py:122 knpay_plugin/data.py:122
+msgid "Jamaica"
+msgstr "جامايكا"
+
+#: build/lib/knpay_plugin/data.py:123 knpay_plugin/data.py:123
+msgid "Japan"
+msgstr "اليابان"
+
+#: build/lib/knpay_plugin/data.py:124 knpay_plugin/data.py:124
+msgid "Jersey"
+msgstr "جيرسي"
+
+#: build/lib/knpay_plugin/data.py:125 knpay_plugin/data.py:125
+msgid "Jordan"
+msgstr "الأردن"
+
+#: build/lib/knpay_plugin/data.py:126 knpay_plugin/data.py:126
+msgid "Kazakhstan"
+msgstr "كازاخستان"
+
+#: build/lib/knpay_plugin/data.py:127 knpay_plugin/data.py:127
+msgid "Kenya"
+msgstr "كينيا"
+
+#: build/lib/knpay_plugin/data.py:128 knpay_plugin/data.py:128
+msgid "Kiribati"
+msgstr "كيريباتي"
+
+#: build/lib/knpay_plugin/data.py:129 knpay_plugin/data.py:129
+msgid "Korea (the Democratic People's Republic of)"
+msgstr "كوريا (الجمهورية الديمقراطية الشعبية)"
+
+#: build/lib/knpay_plugin/data.py:130 knpay_plugin/data.py:130
+msgid "Korea (the Republic of)"
+msgstr "كوريا (الجمهورية)"
+
+#: build/lib/knpay_plugin/data.py:131 knpay_plugin/data.py:131
+msgid "Kuwait"
+msgstr "الكويت"
+
+#: build/lib/knpay_plugin/data.py:132 knpay_plugin/data.py:132
+msgid "Kyrgyzstan"
+msgstr "قرغيزستان"
+
+#: build/lib/knpay_plugin/data.py:133 knpay_plugin/data.py:133
+msgid "Lao People's Democratic Republic"
+msgstr "جمهورية لاو الديمقراطية الشعبية"
+
+#: build/lib/knpay_plugin/data.py:134 knpay_plugin/data.py:134
+msgid "Latvia"
+msgstr "لاتفيا"
+
+#: build/lib/knpay_plugin/data.py:135 knpay_plugin/data.py:135
+msgid "Lebanon"
+msgstr "لبنان"
+
+#: build/lib/knpay_plugin/data.py:136 knpay_plugin/data.py:136
+msgid "Lesotho"
+msgstr "ليسوتو"
+
+#: build/lib/knpay_plugin/data.py:137 knpay_plugin/data.py:137
+msgid "Liberia"
+msgstr "ليبيريا"
+
+#: build/lib/knpay_plugin/data.py:138 knpay_plugin/data.py:138
+msgid "Libya"
+msgstr "ليبيا"
+
+#: build/lib/knpay_plugin/data.py:139 knpay_plugin/data.py:139
+msgid "Liechtenstein"
+msgstr "ليختنشتاين"
+
+#: build/lib/knpay_plugin/data.py:140 knpay_plugin/data.py:140
+msgid "Lithuania"
+msgstr "ليتوانيا"
+
+#: build/lib/knpay_plugin/data.py:141 knpay_plugin/data.py:141
+msgid "Luxembourg"
+msgstr "لوكسمبورج"
+
+#: build/lib/knpay_plugin/data.py:142 knpay_plugin/data.py:142
+msgid "Macao"
+msgstr "ماكاو"
+
+#: build/lib/knpay_plugin/data.py:143 knpay_plugin/data.py:143
+msgid "Macedonia (the former Yugoslav Republic of)"
+msgstr "مقدونيا (جمهورية مقدونيا اليوغسلافية سابقاً)"
+
+#: build/lib/knpay_plugin/data.py:144 knpay_plugin/data.py:144
+msgid "Madagascar"
+msgstr "مدغشقر"
+
+#: build/lib/knpay_plugin/data.py:145 knpay_plugin/data.py:145
+msgid "Malawi"
+msgstr "ملاوي"
+
+#: build/lib/knpay_plugin/data.py:146 knpay_plugin/data.py:146
+msgid "Malaysia"
+msgstr "ماليزيا"
+
+#: build/lib/knpay_plugin/data.py:147 knpay_plugin/data.py:147
+msgid "Maldives"
+msgstr "جزر الملديف"
+
+#: build/lib/knpay_plugin/data.py:148 knpay_plugin/data.py:148
+msgid "Mali"
+msgstr "مالي"
+
+#: build/lib/knpay_plugin/data.py:149 knpay_plugin/data.py:149
+msgid "Malta"
+msgstr "مالطا"
+
+#: build/lib/knpay_plugin/data.py:150 knpay_plugin/data.py:150
+msgid "Marshall Islands"
+msgstr "جزر المارشال"
+
+#: build/lib/knpay_plugin/data.py:151 knpay_plugin/data.py:151
+msgid "Martinique"
+msgstr "مارتينيك"
+
+#: build/lib/knpay_plugin/data.py:152 knpay_plugin/data.py:152
+msgid "Mauritania"
+msgstr "موريتانيا"
+
+#: build/lib/knpay_plugin/data.py:153 knpay_plugin/data.py:153
+msgid "Mauritius"
+msgstr "موريشيوس"
+
+#: build/lib/knpay_plugin/data.py:154 knpay_plugin/data.py:154
+msgid "Mayotte"
+msgstr "مايوت"
+
+#: build/lib/knpay_plugin/data.py:155 knpay_plugin/data.py:155
+msgid "Mexico"
+msgstr "المكسيك"
+
+#: build/lib/knpay_plugin/data.py:156 knpay_plugin/data.py:156
+msgid "Micronesia (Federated States of)"
+msgstr "ميكرونيسيا (الولايات المتحدة)"
+
+#: build/lib/knpay_plugin/data.py:157 knpay_plugin/data.py:157
+msgid "Moldova (the Republic of)"
+msgstr "مولدوفا (جمهورية)"
+
+#: build/lib/knpay_plugin/data.py:158 knpay_plugin/data.py:158
+msgid "Monaco"
+msgstr "موناكو"
+
+#: build/lib/knpay_plugin/data.py:159 knpay_plugin/data.py:159
+msgid "Mongolia"
+msgstr "منغوليا"
+
+#: build/lib/knpay_plugin/data.py:160 knpay_plugin/data.py:160
+msgid "Montenegro"
+msgstr "الجبل الأسود"
+
+#: build/lib/knpay_plugin/data.py:161 knpay_plugin/data.py:161
+msgid "Montserrat"
+msgstr "مونتسرات"
+
+#: build/lib/knpay_plugin/data.py:162 knpay_plugin/data.py:162
+msgid "Morocco"
+msgstr "المغرب"
+
+#: build/lib/knpay_plugin/data.py:163 knpay_plugin/data.py:163
+msgid "Mozambique"
+msgstr "موزمبيق"
+
+#: build/lib/knpay_plugin/data.py:164 knpay_plugin/data.py:164
+msgid "Myanmar"
+msgstr "ميانمار"
+
+#: build/lib/knpay_plugin/data.py:165 knpay_plugin/data.py:165
+msgid "Namibia"
+msgstr "ناميبيا"
+
+#: build/lib/knpay_plugin/data.py:166 knpay_plugin/data.py:166
+msgid "Nauru"
+msgstr "نورو"
+
+#: build/lib/knpay_plugin/data.py:167 knpay_plugin/data.py:167
+msgid "Nepal"
+msgstr "نيبال"
+
+#: build/lib/knpay_plugin/data.py:168 knpay_plugin/data.py:168
+msgid "Netherlands"
+msgstr "هولندا"
+
+#: build/lib/knpay_plugin/data.py:169 knpay_plugin/data.py:169
+msgid "New Caledonia"
+msgstr "كاليدونيا الجديدة"
+
+#: build/lib/knpay_plugin/data.py:170 knpay_plugin/data.py:170
+msgid "New Zealand"
+msgstr "نيوزيلاندا"
+
+#: build/lib/knpay_plugin/data.py:171 knpay_plugin/data.py:171
+msgid "Nicaragua"
+msgstr "نيكاراجوا"
+
+#: build/lib/knpay_plugin/data.py:172 knpay_plugin/data.py:172
+msgid "Niger"
+msgstr "النيجر"
+
+#: build/lib/knpay_plugin/data.py:173 knpay_plugin/data.py:173
+msgid "Nigeria"
+msgstr "نيجيريا"
+
+#: build/lib/knpay_plugin/data.py:174 knpay_plugin/data.py:174
+msgid "Niue"
+msgstr "نيوي"
+
+#: build/lib/knpay_plugin/data.py:175 knpay_plugin/data.py:175
+msgid "Norfolk Island"
+msgstr "جزيرة نورفوك"
+
+#: build/lib/knpay_plugin/data.py:176 knpay_plugin/data.py:176
+msgid "Northern Mariana Islands"
+msgstr "جزر ماريانا الشمالية"
+
+#: build/lib/knpay_plugin/data.py:177 knpay_plugin/data.py:177
+msgid "Norway"
+msgstr "النرويج"
+
+#: build/lib/knpay_plugin/data.py:178 knpay_plugin/data.py:178
+msgid "Oman"
+msgstr "عُمان"
+
+#: build/lib/knpay_plugin/data.py:179 knpay_plugin/data.py:179
+msgid "Pakistan"
+msgstr "باكستان"
+
+#: build/lib/knpay_plugin/data.py:180 knpay_plugin/data.py:180
+msgid "Palau"
+msgstr "بالاو"
+
+#: build/lib/knpay_plugin/data.py:181 knpay_plugin/data.py:181
+msgid "Palestine, State of"
+msgstr "فلسطين"
+
+#: build/lib/knpay_plugin/data.py:182 knpay_plugin/data.py:182
+msgid "Panama"
+msgstr "بنما"
+
+#: build/lib/knpay_plugin/data.py:183 knpay_plugin/data.py:183
+msgid "Papua New Guinea"
+msgstr "بابوا غينيا الجديدة"
+
+#: build/lib/knpay_plugin/data.py:184 knpay_plugin/data.py:184
+msgid "Paraguay"
+msgstr "باراجواي"
+
+#: build/lib/knpay_plugin/data.py:185 knpay_plugin/data.py:185
+msgid "Peru"
+msgstr "بيرو"
+
+#: build/lib/knpay_plugin/data.py:186 knpay_plugin/data.py:186
+msgid "Philippines"
+msgstr "الفيلبين"
+
+#: build/lib/knpay_plugin/data.py:187 knpay_plugin/data.py:187
+msgid "Pitcairn"
+msgstr "بتكايرن"
+
+#: build/lib/knpay_plugin/data.py:188 knpay_plugin/data.py:188
+msgid "Poland"
+msgstr "بولندا"
+
+#: build/lib/knpay_plugin/data.py:189 knpay_plugin/data.py:189
+msgid "Portugal"
+msgstr "البرتغال"
+
+#: build/lib/knpay_plugin/data.py:190 knpay_plugin/data.py:190
+msgid "Puerto Rico"
+msgstr "بورتوريكو"
+
+#: build/lib/knpay_plugin/data.py:191 knpay_plugin/data.py:191
+msgid "Qatar"
+msgstr "قطر"
+
+#: build/lib/knpay_plugin/data.py:192 knpay_plugin/data.py:192
+msgid "Réunion"
+msgstr "روينيون"
+
+#: build/lib/knpay_plugin/data.py:193 knpay_plugin/data.py:193
+msgid "Romania"
+msgstr "رومانيا"
+
+#: build/lib/knpay_plugin/data.py:194 knpay_plugin/data.py:194
+msgid "Russian Federation"
+msgstr "روسيا"
+
+#: build/lib/knpay_plugin/data.py:195 knpay_plugin/data.py:195
+msgid "Rwanda"
+msgstr "رواندا"
+
+#: build/lib/knpay_plugin/data.py:196 knpay_plugin/data.py:196
+msgid "Saint Barthélemy"
+msgstr "سانت بارتيليمي"
+
+#: build/lib/knpay_plugin/data.py:197 knpay_plugin/data.py:197
+msgid "Saint Helena, Ascension and Tristan da Cunha"
+msgstr "سانت هيلنا"
+
+#: build/lib/knpay_plugin/data.py:198 knpay_plugin/data.py:198
+msgid "Saint Kitts and Nevis"
+msgstr "سانت كيتس ونيفيس"
+
+#: build/lib/knpay_plugin/data.py:199 knpay_plugin/data.py:199
+msgid "Saint Lucia"
+msgstr "سانت لوسيا"
+
+#: build/lib/knpay_plugin/data.py:200 knpay_plugin/data.py:200
+msgid "Saint Martin (French part)"
+msgstr "سانت مارتن (الجزء الفرنسي)"
+
+#: build/lib/knpay_plugin/data.py:201 knpay_plugin/data.py:201
+msgid "Saint Pierre and Miquelon"
+msgstr "سانت بيير وميكولون"
+
+#: build/lib/knpay_plugin/data.py:202 knpay_plugin/data.py:202
+msgid "Saint Vincent and the Grenadines"
+msgstr "سانت فنسنت وغرنادين"
+
+#: build/lib/knpay_plugin/data.py:203 knpay_plugin/data.py:203
+msgid "Samoa"
+msgstr "ساموا"
+
+#: build/lib/knpay_plugin/data.py:204 knpay_plugin/data.py:204
+msgid "San Marino"
+msgstr "سان مارينو"
+
+#: build/lib/knpay_plugin/data.py:205 knpay_plugin/data.py:205
+msgid "Sao Tome and Principe"
+msgstr "ساو تومي وبرينسيبي"
+
+#: build/lib/knpay_plugin/data.py:206 knpay_plugin/data.py:206
+msgid "Saudi Arabia"
+msgstr "السعودية (المملكة العربية)"
+
+#: build/lib/knpay_plugin/data.py:207 knpay_plugin/data.py:207
+msgid "Senegal"
+msgstr "السنغال"
+
+#: build/lib/knpay_plugin/data.py:208 knpay_plugin/data.py:208
+msgid "Serbia"
+msgstr "صربيا"
+
+#: build/lib/knpay_plugin/data.py:209 knpay_plugin/data.py:209
+msgid "Seychelles"
+msgstr "سيشل"
+
+#: build/lib/knpay_plugin/data.py:210 knpay_plugin/data.py:210
+msgid "Sierra Leone"
+msgstr "سيراليون"
+
+#: build/lib/knpay_plugin/data.py:211 knpay_plugin/data.py:211
+msgid "Singapore"
+msgstr "سنغافورة"
+
+#: build/lib/knpay_plugin/data.py:212 knpay_plugin/data.py:212
+msgid "Sint Maarten (Dutch part)"
+msgstr "سانت مارتن (الجزء الهولندي)"
+
+#: build/lib/knpay_plugin/data.py:213 knpay_plugin/data.py:213
+msgid "Slovakia"
+msgstr "سلوفاكيا"
+
+#: build/lib/knpay_plugin/data.py:214 knpay_plugin/data.py:214
+msgid "Slovenia"
+msgstr "سلوفينيا"
+
+#: build/lib/knpay_plugin/data.py:215 knpay_plugin/data.py:215
+msgid "Solomon Islands"
+msgstr "جزر سليمان"
+
+#: build/lib/knpay_plugin/data.py:216 knpay_plugin/data.py:216
+msgid "Somalia"
+msgstr "الصومال"
+
+#: build/lib/knpay_plugin/data.py:217 knpay_plugin/data.py:217
+msgid "South Africa"
+msgstr "جنوب افريقيا (الجمهورية)"
+
+#: build/lib/knpay_plugin/data.py:218 knpay_plugin/data.py:218
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "جورجيا الجنوبية وجزر ساندويتش الجنوبية"
+
+#: build/lib/knpay_plugin/data.py:219 knpay_plugin/data.py:219
+msgid "South Sudan"
+msgstr "جنوب السودان"
+
+#: build/lib/knpay_plugin/data.py:220 knpay_plugin/data.py:220
+msgid "Spain"
+msgstr "أسبانيا"
+
+#: build/lib/knpay_plugin/data.py:221 knpay_plugin/data.py:221
+msgid "Sri Lanka"
+msgstr "سريلانكا"
+
+#: build/lib/knpay_plugin/data.py:222 knpay_plugin/data.py:222
+msgid "Sudan"
+msgstr "السودان"
+
+#: build/lib/knpay_plugin/data.py:223 knpay_plugin/data.py:223
+msgid "Suriname"
+msgstr "سورينام"
+
+#: build/lib/knpay_plugin/data.py:224 knpay_plugin/data.py:224
+msgid "Svalbard and Jan Mayen"
+msgstr "سفالبارد وجان مايان"
+
+#: build/lib/knpay_plugin/data.py:225 knpay_plugin/data.py:225
+msgid "Swaziland"
+msgstr "سوازيلاند"
+
+#: build/lib/knpay_plugin/data.py:226 knpay_plugin/data.py:226
+msgid "Sweden"
+msgstr "السويد"
+
+#: build/lib/knpay_plugin/data.py:227 knpay_plugin/data.py:227
+msgid "Switzerland"
+msgstr "سويسرا"
+
+#: build/lib/knpay_plugin/data.py:228 knpay_plugin/data.py:228
+msgid "Syrian Arab Republic"
+msgstr "سورية (الجمهورية العربية)"
+
+#: build/lib/knpay_plugin/data.py:229 knpay_plugin/data.py:229
+msgid "Taiwan (Province of China)"
+msgstr "تايوان (مقاطعة الصين)"
+
+#: build/lib/knpay_plugin/data.py:230 knpay_plugin/data.py:230
+msgid "Tajikistan"
+msgstr "طاجكستان"
+
+#: build/lib/knpay_plugin/data.py:231 knpay_plugin/data.py:231
+msgid "Tanzania, United Republic of"
+msgstr "جمهورية تنزانيا المتحدة"
+
+#: build/lib/knpay_plugin/data.py:232 knpay_plugin/data.py:232
+msgid "Thailand"
+msgstr "تايلند"
+
+#: build/lib/knpay_plugin/data.py:233 knpay_plugin/data.py:233
+msgid "Timor-Leste"
+msgstr "تيمور الشرقية"
+
+#: build/lib/knpay_plugin/data.py:234 knpay_plugin/data.py:234
+msgid "Togo"
+msgstr "توجو"
+
+#: build/lib/knpay_plugin/data.py:235 knpay_plugin/data.py:235
+msgid "Tokelau"
+msgstr "توكيلو"
+
+#: build/lib/knpay_plugin/data.py:236 knpay_plugin/data.py:236
+msgid "Tonga"
+msgstr "تونجا"
+
+#: build/lib/knpay_plugin/data.py:237 knpay_plugin/data.py:237
+msgid "Trinidad and Tobago"
+msgstr "ترينيداد وتوباغو"
+
+#: build/lib/knpay_plugin/data.py:238 knpay_plugin/data.py:238
+msgid "Tunisia"
+msgstr "تونس"
+
+#: build/lib/knpay_plugin/data.py:239 knpay_plugin/data.py:239
+msgid "Turkey"
+msgstr "تركيا"
+
+#: build/lib/knpay_plugin/data.py:240 knpay_plugin/data.py:240
+msgid "Turkmenistan"
+msgstr "تركمانستان"
+
+#: build/lib/knpay_plugin/data.py:241 knpay_plugin/data.py:241
+msgid "Turks and Caicos Islands"
+msgstr "جزر الترك وجايكوس"
+
+#: build/lib/knpay_plugin/data.py:242 knpay_plugin/data.py:242
+msgid "Tuvalu"
+msgstr "توفالو"
+
+#: build/lib/knpay_plugin/data.py:243 knpay_plugin/data.py:243
+msgid "Uganda"
+msgstr "أوغندا"
+
+#: build/lib/knpay_plugin/data.py:244 knpay_plugin/data.py:244
+msgid "Ukraine"
+msgstr "أوكرانيا"
+
+#: build/lib/knpay_plugin/data.py:245 knpay_plugin/data.py:245
+msgid "United Arab Emirates"
+msgstr "الإمارات العربية المتحدة"
+
+#: build/lib/knpay_plugin/data.py:246 knpay_plugin/data.py:246
+msgid "United Kingdom of Great Britain and Northern Ireland"
+msgstr "المملكة المتحدة لبريطانيا العظمى وإيرلندا الشمالية"
+
+#: build/lib/knpay_plugin/data.py:247 knpay_plugin/data.py:247
+msgid "United States Minor Outlying Islands"
+msgstr "جزر الولايات المتحدة البعيدة الصغيرة"
+
+#: build/lib/knpay_plugin/data.py:248 knpay_plugin/data.py:248
+msgid "United States of America"
+msgstr "الولايات المتحدة الأمريكية"
+
+#: build/lib/knpay_plugin/data.py:249 knpay_plugin/data.py:249
+msgid "Uruguay"
+msgstr "أورجواي"
+
+#: build/lib/knpay_plugin/data.py:250 knpay_plugin/data.py:250
+msgid "Uzbekistan"
+msgstr "أوزبكستان"
+
+#: build/lib/knpay_plugin/data.py:251 knpay_plugin/data.py:251
+msgid "Vanuatu"
+msgstr "فانواتو"
+
+#: build/lib/knpay_plugin/data.py:252 knpay_plugin/data.py:252
+msgid "Venezuela (Bolivarian Republic of)"
+msgstr "فنزويلا (الجمهورية البولفارية)"
+
+#: build/lib/knpay_plugin/data.py:253 knpay_plugin/data.py:253
+msgid "Viet Nam"
+msgstr "فيتنام"
+
+#: build/lib/knpay_plugin/data.py:254 knpay_plugin/data.py:254
+msgid "Virgin Islands (British)"
+msgstr "جزر العذراء (البريطانية)"
+
+#: build/lib/knpay_plugin/data.py:255 knpay_plugin/data.py:255
+msgid "Virgin Islands (U.S.)"
+msgstr "جزر العذراء (الولايات المتحدة)"
+
+#: build/lib/knpay_plugin/data.py:256 knpay_plugin/data.py:256
+msgid "Wallis and Futuna"
+msgstr "جزر والس وفوتونا"
+
+#: build/lib/knpay_plugin/data.py:257 knpay_plugin/data.py:257
+msgid "Western Sahara"
+msgstr "الصحراء الغربية"
+
+#: build/lib/knpay_plugin/data.py:258 knpay_plugin/data.py:258
+msgid "Yemen"
+msgstr "اليمن"
+
+#: build/lib/knpay_plugin/data.py:259 knpay_plugin/data.py:259
+msgid "Zambia"
+msgstr "زامبيا"
+
+#: build/lib/knpay_plugin/data.py:260 knpay_plugin/data.py:260
+msgid "Zimbabwe"
+msgstr "زيمبابوي"
+
+#: build/lib/knpay_plugin/forms.py:38
+#: build/lib/knpay_plugin/templatetags/knpay_tags.py:24 knpay_plugin/api.py:53
+#: knpay_plugin/forms.py:38 knpay_plugin/templatetags/knpay_tags.py:24
+msgid "Gateway"
+msgstr "بوابة الدفع"
+
+#: build/lib/knpay_plugin/forms.py:43 build/lib/knpay_plugin/models.py:44
+#: build/lib/knpay_plugin/templatetags/knpay_tags.py:20 knpay_plugin/api.py:49
+#: knpay_plugin/forms.py:43 knpay_plugin/models.py:44
+#: knpay_plugin/templatetags/knpay_tags.py:20
+msgid "Amount"
+msgstr "المبلغ"
+
+#: build/lib/knpay_plugin/forms.py:44 build/lib/knpay_plugin/models.py:46
+#: knpay_plugin/forms.py:44 knpay_plugin/models.py:46
+msgid "Language"
+msgstr "اللغة"
+
+#: build/lib/knpay_plugin/forms.py:45 build/lib/knpay_plugin/models.py:49
+#: knpay_plugin/forms.py:45 knpay_plugin/models.py:49
+msgid "Currency code"
+msgstr "رمز العملة"
+
+#: build/lib/knpay_plugin/forms.py:46 knpay_plugin/forms.py:46
+msgid "First name"
+msgstr "الاسم الاول"
+
+#: build/lib/knpay_plugin/forms.py:47 knpay_plugin/forms.py:47
+msgid "Last name"
+msgstr "الاسم الاخير"
+
+#: build/lib/knpay_plugin/forms.py:48 knpay_plugin/forms.py:48
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+#: build/lib/knpay_plugin/forms.py:49 knpay_plugin/forms.py:49
+msgid "Phone"
+msgstr "الهاتف"
+
+#: build/lib/knpay_plugin/forms.py:50 build/lib/knpay_plugin/forms.py:51
+#: knpay_plugin/forms.py:50 knpay_plugin/forms.py:51
+msgid "Address line 1"
+msgstr "العنوان الاول"
+
+#: build/lib/knpay_plugin/forms.py:52 knpay_plugin/forms.py:52
+msgid "City"
+msgstr "المدينة"
+
+#: build/lib/knpay_plugin/forms.py:53 knpay_plugin/forms.py:53
+msgid "State"
+msgstr "المحافظة"
+
+#: build/lib/knpay_plugin/forms.py:54 knpay_plugin/forms.py:54
+msgid "Country"
+msgstr "الدولة"
+
+#: build/lib/knpay_plugin/forms.py:55 knpay_plugin/forms.py:55
+msgid "Postal code"
+msgstr "الرمز البريدي"
+
+#: build/lib/knpay_plugin/models.py:26 knpay_plugin/models.py:26
+msgid "English"
+msgstr "English"
+
+#: build/lib/knpay_plugin/models.py:27 knpay_plugin/models.py:27
+msgid "Arabic"
+msgstr "العربية"
+
+#: build/lib/knpay_plugin/models.py:31 build/lib/knpay_plugin/models.py:38
+#: knpay_plugin/models.py:31 knpay_plugin/models.py:38
+msgid "Created"
+msgstr "تاريخ الانشاء"
+
+#: build/lib/knpay_plugin/models.py:32 knpay_plugin/models.py:32
+msgid "Canceled"
+msgstr "عملية ملغية"
+
+#: build/lib/knpay_plugin/models.py:33 knpay_plugin/models.py:33
+msgid "Paid"
+msgstr "عملية ناجحة"
+
+#: build/lib/knpay_plugin/models.py:34 knpay_plugin/models.py:34
+msgid "Failed"
+msgstr "عملية مرفوضة"
+
+#: build/lib/knpay_plugin/models.py:35 knpay_plugin/models.py:35
+msgid "Error"
+msgstr "خطأ"
+
+#: build/lib/knpay_plugin/models.py:39
+#: build/lib/knpay_plugin/templates/knpay_plugin/payment_details.html:6
+#: build/lib/knpay_plugin/templatetags/knpay_tags.py:23
+#: demo/templates/demo/payment_details.html:6
+#: demo/templates/demo/payment_details.html:18 knpay_plugin/api.py:52
+#: knpay_plugin/models.py:39
+#: knpay_plugin/templates/knpay_plugin/payment_details.html:6
+#: knpay_plugin/templatetags/knpay_tags.py:23
+msgid "Status"
+msgstr "الوضعية"
+
+#: build/lib/knpay_plugin/models.py:42 knpay_plugin/models.py:42
+msgid "Gateway code"
+msgstr "رمز بوابة الدفع"
+
+#: build/lib/knpay_plugin/models.py:51 knpay_plugin/models.py:51
+msgid "Order no"
+msgstr "رقم الطلب"
+
+#: build/lib/knpay_plugin/models.py:54 knpay_plugin/models.py:54
+msgid "Customer first name"
+msgstr "اسم العميل الأول"
+
+#: build/lib/knpay_plugin/models.py:57 knpay_plugin/models.py:57
+msgid "Customer last name"
+msgstr "اسم العميل الاخير"
+
+#: build/lib/knpay_plugin/models.py:60 knpay_plugin/models.py:60
+msgid "Customer email"
+msgstr "البريد الالكتروني للعميل"
+
+#: build/lib/knpay_plugin/models.py:63 knpay_plugin/models.py:63
+msgid "Customer phone"
+msgstr "هاتف العميل"
+
+#: build/lib/knpay_plugin/models.py:66 knpay_plugin/models.py:66
+msgid "Customer address line 1"
+msgstr "العنوان الاول للعميل"
+
+#: build/lib/knpay_plugin/models.py:69 knpay_plugin/models.py:69
+msgid "Customer address line 2"
+msgstr "العنوان الثاني للعميل"
+
+#: build/lib/knpay_plugin/models.py:72 knpay_plugin/models.py:72
+msgid "Customer address city"
+msgstr "مدينة العميل"
+
+#: build/lib/knpay_plugin/models.py:75 knpay_plugin/models.py:75
+msgid "Customer address state"
+msgstr "محافظة العميل"
+
+#: build/lib/knpay_plugin/models.py:78 knpay_plugin/models.py:78
+msgid "Customer address country"
+msgstr "دولة العميل"
+
+#: build/lib/knpay_plugin/models.py:82 knpay_plugin/models.py:82
+msgid "Customer address postal code"
+msgstr "الرمز البريدي للعميل"
+
+#: build/lib/knpay_plugin/models.py:84 knpay_plugin/models.py:84
+msgid "Extra"
+msgstr "إضافي"
+
+#: build/lib/knpay_plugin/models.py:85 knpay_plugin/models.py:85
+msgid "Payment URL"
+msgstr "رابط الدفع"
+
+#: build/lib/knpay_plugin/models.py:97 knpay_plugin/models.py:97
+msgid "Is consumed?"
+msgstr "تم إستهلاكه؟"
+
+#: build/lib/knpay_plugin/models.py:98 knpay_plugin/models.py:98
+msgid "Designates if knpay response was processed or not"
+msgstr "يحدد إذا تمت معالجة استجابة knpay أم لا"
+
+#: build/lib/knpay_plugin/models.py:106 knpay_plugin/models.py:106
+msgid "Payment Transaction"
+msgstr "رقم معاملة الدفع"
+
+#: build/lib/knpay_plugin/models.py:107 knpay_plugin/models.py:107
+msgid "Payment Transactions"
+msgstr "عمليات الدفع"
+
+#: build/lib/knpay_plugin/templatetags/knpay_tags.py:21 knpay_plugin/api.py:50
+#: knpay_plugin/templatetags/knpay_tags.py:21
+msgid "Order No"
+msgstr "رقم الطلب"
+
+#: build/lib/knpay_plugin/templatetags/knpay_tags.py:22 knpay_plugin/api.py:51
+#: knpay_plugin/templatetags/knpay_tags.py:22
+msgid "Reference No"
+msgstr "الرقم المرجعي"
+
+#: build/lib/knpay_plugin/views.py:55 knpay_plugin/views.py:55
+msgid "Redirecting to payment page..."
+msgstr "اعادة التوجية الي صفحة الدفع"
+
+#: build/lib/knpay_plugin/views.py:58 knpay_plugin/views.py:58
+msgid ""
+"There was an error while redirecting you to payment page. Refresh and try "
+"again."
+msgstr ""
+"حدث خطا اثناء اعادة التوجية الي صفحة الدفع. الرجاء اعادة تحميل الصفحة."
