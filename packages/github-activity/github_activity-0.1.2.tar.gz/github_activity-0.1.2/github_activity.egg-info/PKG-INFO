@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: github-activity
+Version: 0.1.2
+Summary: Grab recent issue/PR activity from a GitHub repository and render it as markdown.
+Home-page: https://jupyter.org/
+Author: Chris Holdgraf
+Author-email: choldgraf@berkeley.edu
+License: BSD
+Description: # github-activity
+        
+        Generate simple markdown changelogs for GitHub repositories written in Python.
+        
+        This package does two things:
+        
+        1. Given a GitHub org, repository, an initial git reference or date, use the
+           [GitHub GraphQL API](https://developer.github.com/v4/) to return a DataFrame
+           of all issue and PR activity for this time period.
+        2. A CLI to render this activity as markdown, suitable for generating changelogs or
+           community updates.
+        
+        *Note: This is a really young tool so it might change a bit over time.*
+        
+        ## Installation
+        
+        The easiest way to install this package is to do so directly from GitHub with `pip`:
+        
+        ```
+        pip install git+https://github.com/choldgraf/github-activity
+        ```
+        
+        ## Usage
+        
+        The easiest way to use `github-activity` to generate activity markdown is to use
+        the command-line interface. It takes the following form:
+        
+        ```
+        github-activity <org>/<repo> --since <date or ref> --until <date or ref>
+        ```
+        
+        See [the github-activity documentation](https://github-activity.readthedocs.io)
+        for more information.
+        
+Keywords: development changelog
+Platform: UNKNOWN
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+Provides-Extra: testing
+Provides-Extra: sphinx

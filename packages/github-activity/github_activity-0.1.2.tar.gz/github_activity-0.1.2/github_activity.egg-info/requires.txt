@@ -1,0 +1,16 @@
+pandas
+requests
+numpy
+python-dateutil
+IPython
+ipywidgets
+markdown
+
+[sphinx]
+sphinx
+myst_parser
+sphinx_book_theme
+
+[testing]
+pytest
+pytest-regressions
