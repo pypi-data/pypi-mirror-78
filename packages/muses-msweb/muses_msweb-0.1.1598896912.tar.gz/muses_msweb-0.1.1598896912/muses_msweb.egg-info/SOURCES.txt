@@ -1,0 +1,15 @@
+MANIFEST.in
+setup.cfg
+setup.py
+msweb/__init__.py
+msweb/admin.py
+msweb/apps.py
+msweb/models.py
+msweb/tests.py
+msweb/views.py
+msweb/migrations/__init__.py
+muses_msweb.egg-info/PKG-INFO
+muses_msweb.egg-info/SOURCES.txt
+muses_msweb.egg-info/dependency_links.txt
+muses_msweb.egg-info/requires.txt
+muses_msweb.egg-info/top_level.txt
