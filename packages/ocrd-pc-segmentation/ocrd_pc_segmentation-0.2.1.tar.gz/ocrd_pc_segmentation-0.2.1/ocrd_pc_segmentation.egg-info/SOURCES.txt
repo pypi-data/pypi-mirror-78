@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+ocrd_pc_segmentation/__init__.py
+ocrd_pc_segmentation/cli.py
+ocrd_pc_segmentation/ocrd_segmentation.py
+ocrd_pc_segmentation.egg-info/PKG-INFO
+ocrd_pc_segmentation.egg-info/SOURCES.txt
+ocrd_pc_segmentation.egg-info/dependency_links.txt
+ocrd_pc_segmentation.egg-info/entry_points.txt
+ocrd_pc_segmentation.egg-info/requires.txt
+ocrd_pc_segmentation.egg-info/top_level.txt
+ocrd_pc_segmentation/dta2-model/model.h5
+ocrd_pc_segmentation/lgt-model/model.h5

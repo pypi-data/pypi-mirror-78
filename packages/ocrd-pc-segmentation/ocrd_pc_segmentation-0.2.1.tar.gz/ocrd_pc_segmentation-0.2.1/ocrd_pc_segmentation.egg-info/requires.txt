@@ -1,0 +1,9 @@
+ocrd>=2.0.0a1
+ocr4all-pixel-classifier~=0.4
+numpy
+
+[tf_cpu]
+ocr4all_pixel_classifier[tf_cpu]~=0.4.0
+
+[tf_gpu]
+ocr4all_pixel_classifier[tf_gpu]~=0.4.0
