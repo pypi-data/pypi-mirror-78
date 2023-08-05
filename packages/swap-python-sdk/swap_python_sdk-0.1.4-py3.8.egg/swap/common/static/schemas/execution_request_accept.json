@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "standard_header": {
+            "$ref": "headers.json#/definitions/standard_header"
+        },
+        "service_provider_header": {
+            "$ref": "headers.json#/definitions/service_provider_header"
+        },
+        "execution_details": {
+            "$ref": "headers.json#/definitions/execution_details_component"
+        },
+        "exec_start_timestamp": {
+            "type": "string",
+            "description": "The start time of the execution process"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "standard_header": {
+            "$ref": "headers.json#/definitions/standard_header"
+        },
+        "service_provider_header": {
+            "$ref": "headers.json#/definitions/service_provider_header"
+        },
+        "offer_execution_request_to_cancel": {
+            "type": "string",
+            "description": "The pub/sub messageId of the request to be cancelled"
+        }
+    }
+}
