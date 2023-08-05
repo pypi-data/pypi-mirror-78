@@ -1,0 +1,34 @@
+---
+cfgs:
+  beaker:
+    __url__: url
+
+simple:
+  topology:
+    topology_name: simple
+    resource_groups:
+      - resource_group_name: simple
+        resource_group_type: beaker
+        resource_definitions:
+          - role: bkr_server
+            recipesets:
+              - distro: {{ distro | default('RHEL-6.5') }}
+                arch: {{ arch | default('x86_64') }}
+                count: 1
+                name: {{ name | default('rhel65') }}
+  layout:
+    inventory_layout:
+      vars:
+        hostname: __IP__
+        url: __url__
+      hosts:
+        example-node:
+          count: 1
+          host_groups:
+            - example
+  hooks:
+    preup:
+      - name: res_check
+    postup:
+      - name: beaker_log
+

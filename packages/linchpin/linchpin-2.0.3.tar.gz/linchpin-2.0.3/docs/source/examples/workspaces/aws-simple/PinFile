@@ -1,0 +1,37 @@
+---
+cfgs:
+  aws:
+    __id__: id
+
+simple:
+  topology:
+    topology_name: simple
+    resource_groups:
+      - resource_group_name: aws
+        resource_group_type: aws
+        resource_definitions:
+          - name: simple
+            flavor: {{ flavor | default('t2.micro') }}
+            role: aws_ec2
+            region: {{ region | default('ca-central-1') }}
+            image: {{ image | default('ami-05927168596f8f271') }}
+            security_group:
+              - default
+            count: 1
+            keypair: {{ keypair | default('ci-ops-central') }}
+  layout:
+    inventory_layout:
+      vars:
+        hostname: __IP__
+        id: __id__
+        ansible_ssh_private_key_file: {{ keypath | default('~/.ssh/id_rsa') }}
+      hosts:
+        example-node:
+          count: 1
+          host_groups:
+            - example
+  hooks:
+    preup:
+      - name: res_check
+    postup:
+      - name: ec2_boot_log

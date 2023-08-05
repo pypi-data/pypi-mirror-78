@@ -1,0 +1,171 @@
+- set_fact:
+      res_count: '{{ (res_count | default([])) + [item | int] }}'
+  with_sequence: "start=0 end={{ res_def['count'] | int - 1 }}"
+
+- name: Designed for carbon destruction with count 1
+  block:
+  - name: "halt node"
+    virt:
+      name: "{{ libvirt_resource_name }}"
+      state: destroyed
+      uri: "{{ instance[1]['uri'] | default('qemu:///system') }}"
+    with_nested:
+      - ["{{ res_def }}"]
+      - "{{ res_count }}"
+      - ["{{ res_def['name_separator'] | default('_')  }}"]
+    loop_control:
+      loop_var: instance
+    register: res_def_output
+    ignore_errors: yes
+    delegate_to: "{{ uri_hostname }}"
+    when: not _async
+
+  - name: "get XML definition of vm"
+    command: "virsh -c {{ instance[1]  }} dumpxml {{ instance[0] }}"
+    with_nested:
+      - ["{{  libvirt_resource_name }}"]
+      - ["{{ res_def['uri'] | default('qemu:///system') }}"]
+    loop_control:
+      loop_var: instance
+    when: not _async
+    register: vm_xml_dump
+    ignore_errors: yes
+
+  - name: "undefine node"
+    virt:
+      name: "{{ libvirt_resource_name }}"
+      command: undefine
+      uri: "{{ instance[0]['uri'] | default('qemu:///system') }}"
+    with_nested:
+      - ["{{ res_def }}"]
+    loop_control:
+      loop_var: instance
+    register: res_def_output
+    when: not _async
+    ignore_errors: yes
+
+  when: res_count|length|int == 1
+
+
+- name: "halt node"
+  virt:
+    name: "{{ libvirt_resource_name }}{{ instance[2] }}{{ instance[1] }}"
+    state: destroyed
+    uri: "{{ instance[0]['uri'] }}"
+  with_nested:
+    - ["{{ res_def }}"]
+    - "{{ res_count }}"
+    - ["{{ res_def['name_separator'] }}"]
+  loop_control:
+    loop_var: instance
+  register: res_def_output
+  ignore_errors: yes
+  delegate_to: "{{ uri_hostname }}"
+  when: not _async
+
+- name: "GXMLDOV: get XML definition of vm"
+  command: "virsh -c {{ instance[1]  }} dumpxml {{ instance[0] }}{{ instance[3] }}{{ instance[2] }}"
+  with_nested:
+    - ["{{  libvirt_resource_name }}"]
+    - ["{{ res_def['uri'] }}"]
+    - "{{ res_count }}"
+    - ["{{ res_def['name_separator'] }}"]
+  loop_control:
+    loop_var: instance
+  when: not _async
+  register: vm_xml_dump
+  ignore_errors: yes
+
+- name: "undefine node"
+  virt:
+    name: "{{ libvirt_resource_name }}{{ instance[2] }}{{ instance[1] }}"
+    command: undefine
+    uri: "{{ instance[0]['uri'] }}"
+  with_nested:
+    - ["{{ res_def }}"]
+    - "{{ res_count }}"
+    - ["{{ res_def['name_separator'] }}"]
+  loop_control:
+    loop_var: instance
+  register: res_def_output
+  when: not _async
+  ignore_errors: yes
+
+- name: "Delete associated image files"
+  file:
+    state: absent
+    path: "{{ inst }}"
+  with_items: "{{ vm_xml_dump | get_libvirt_files }}"
+  loop_control:
+    loop_var: inst
+  ignore_errors: yes
+  become: "{{ libvirt_become }}"
+  delegate_to: "{{ uri_hostname }}"
+  when: not _async
+
+- name: "Cleanup directories on remote_host"
+  become: "{{ libvirt_become }}"
+  file:
+    path: "/tmp/vm-{{ definition[0] }}{{ definition[2] }}{{ definition[1] }}"
+    state: absent
+  with_nested:
+    - ["{{ libvirt_resource_name }}"]
+    - "{{ res_count }}"
+    - ["{{ res_def['name_separator'] }}"]
+  loop_control:
+    loop_var: definition
+  remote_user: "{{ res_def['remote_user'] }}"
+  delegate_to: "{{ uri_hostname }}"
+  when: uri_hostname != 'localhost'
+
+- name: "Cleanup directories on localhost"
+  become: "{{ libvirt_become }}"
+  file:
+    path: "/tmp/vm-{{ definition[0] }}{{ definition[2] }}{{ definition[1] }}"
+    state: absent
+  with_nested:
+    - ["{{ libvirt_resource_name }}"]
+    - "{{ res_count }}"
+    - ["{{ res_def['name_separator'] }}"]
+  loop_control:
+    loop_var: definition
+  when: uri_hostname == 'localhost'
+
+- name: "localhost: cleanup ci data cd image"
+  become: "{{ libvirt_become }}"
+  file:
+    path: /tmp/vm-{{ definition[0] }}{{ definition[2] }}{{ definition[1] }}.iso
+    state: absent
+  with_nested:
+    - ["{{ libvirt_resource_name }}"]
+    - "{{ res_count }}"
+    - ["{{ res_def['name_separator'] }}"]
+  loop_control:
+    loop_var: definition
+  when: uri_hostname == 'localhost'
+
+- name: "remote_host: cleanup ci data cd image"
+  become: "{{ libvirt_become }}"
+  file:
+    path: /tmp/vm-{{ definition[0] }}{{ definition[2] }}{{ definition[1] }}.iso
+    state: absent
+  with_nested:
+    - ["{{ libvirt_resource_name }}"]
+    - "{{ res_count }}"
+    - ["{{ res_def['name_separator'] }}"]
+  loop_control:
+    loop_var: definition
+  remote_user: "{{ res_def['remote_user'] }}"
+  delegate_to: "{{ uri_hostname }}"
+  when: uri_hostname != 'localhost'
+
+- name: remove template dir
+  become: "{{ libvirt_become }}"
+  file:
+    dest: "/tmp/{{ libvirt_resource_name }}{{ res_def['name_separator'] }}"
+    state: absent
+  loop_control:
+    loop_var: definition
+  when:
+    - libvirt_resource_name is defined
+    - res_def is defined and res_def['name_separator'] is defined

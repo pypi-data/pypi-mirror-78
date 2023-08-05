@@ -1,0 +1,161 @@
+topo_data:
+  topology_name: "azure-test"
+  resource_groups:
+    - resource_group_name: "azure_storage_account"
+      resource_group_type: "azure"
+      resource_definitions:
+        - role: "azure_storage_account"
+          resource_group: "ccit"
+          name: "storageaccount"
+          account_type: Standard_LRS
+    - resource_group_name: "azure_vm"
+      resource_group_type: "azure"
+      resource_definitions:
+        - vm_name: "TEST-Azure"
+          role: azure_vm
+          resource_group: ccit
+          vm_size: "Standard_DS1_v2"
+          public_image:
+            offer: CentOS
+            publisher: OpenLogic
+            sku: '7.1'
+            version: latest
+          vm_username: linchpin
+          vm_password: IloveLinchpin!
+          deepclean: True
+    - resource_group_name: "azure_resource_group"
+      resource_group_type: "azure"
+      resource_definitions:
+        - role: azure_resource_group
+          resource_group_name: "LinchpinCreatedGroup"
+          location: centralus
+    - resource_group_name: "azure_network_interface"
+      resource_group_type: "azure"
+      resource_definitions:
+        - virtual_network_name: "forLinchpinautomation"
+          role: azure_network_interface
+          resource_group: ccit
+          subnet_name: "linchpincreated"
+          network_interface_name: "forLinchpinautomation"
+    - resource_group_name: "azure_virtual_subnet"
+      resource_group_type: "azure"
+      resource_definitions:
+        - virtual_network_name: "forLinchpinautomation"
+          subnet_name: "linchpincreated"
+          role: azure_virtual_subnet
+          address_prefix: '10.1.0.0/24'
+          resource_group: ccit
+    - resource_group_name: "azure_vm_0"
+      resource_group_type: "azure_vm"
+      resource_definitions:
+        - vm_name: "TestAzureAuto"
+          resource_group: ccit
+          role: azure_vm
+# This part below is not required, but you can still specify it
+          vm_size: "Standard_DS1_v2"
+          #availability_set: 'LinchpinCreatedAVSet'
+          private_image: "TestingImageAzure"
+          # If you have both private and public images
+          # Linchpin will take the private one
+          public_image:
+            offer: CentOS
+            publisher: OpenLogic
+            sku: '7.1'
+            version: latest
+            # If you don't specify the username and password
+            # The default is as below
+            # vm_username: linchpin&&&vm_password: IloveLinchpin!
+          vm_username: linchpin 
+          vm_password: IloveLinchpin!
+          #you can also use public-key-authentication by below
+          #public_key: "Your key goes here"
+          deepclean: True
+          #With deepclean you can clean the disk attached on the vm if you use private image
+          delete_all_attached: all_autocreated
+          #could be all or all_autocreated
+          #( all: delete all resources attached to the vm, 
+          #all_autocreated just delete everything but virtual network) 
+# This part above is now required, but you can still specify it
+    - resource_group_name: "azure_multiple"
+      resource_group_type: "azure"
+      resource_definitions:
+        - vm_name: "TestMultiVm"
+          count: 3
+          role: azure_vm
+          resource_group: ccit
+          deepclean: True
+    - resource_group_name: "azure_availabilityset"
+      resource_group_type: "azure"
+      resource_definitions:
+        - name: "Test_AV"
+          role: azure_availabilityset
+          resource_group: ccit
+          sku: "Classic"
+          platform_update_domain_count: 3
+          platform_fault_domain_count: 3
+    - resource_group_name: "azure_vm_av"
+      resource_group_type: "azure"
+      resource_definitions:
+        - vm_name: "TEST-AV-vm"
+          role: azure_vm
+          count: 1
+          resource_group: ccit
+          availability_set: "Test_AV"
+    - resource_group_name: "azure_publicipaddress"
+      resource_group_type: "azure"
+      resource_definitions:
+        - name: "Test-Ip-Auto"
+          role: azure_publicipaddress
+          resource_group: ccit
+          allocation_method: dynamic  
+          sku: Basic
+    - resource_group_name: "azure_loadbalancer"
+      resource_group_type: "azure"
+      resource_definitions:
+        - role: azure_loadbalancer
+          sku: Basic
+          name: "LB-Auto"
+          resource_group: ccit
+          frontend_ip_configurations:
+            name: "AzureAutoLB"
+            public_ip_address: "Test-Ip-Auto"
+          backend_address_pools:
+            name: "Backend-Pool-Auto"
+          probes:
+            name: "Probe-Auto"
+            port: 80
+          inbound_nat_pools:
+            name: "inbound_nat_pools_Auto"
+            frontend_ip_configuration_name: "AzureAutoLB"
+            protocol: Tcp
+            frontend_port_range_start: 80
+            frontend_port_range_end: 81
+            backend_port: 8080
+          load_balancing_rules:
+            name: "load_balancing_rules_Auto"
+            frontend_ip_configuration: "AzureAutoLB"
+            backend_address_pool: "Backend-Pool-Auto"
+            frontend_port: 80
+            backend_port: 80
+            probe: "Probe-Auto"
+# inbound_nat_pools and inbound_nat_rules can't appear at the same time
+#            inbound_nat_rules:
+#              name: "inbound_nat_rules_Auto"
+#              backend_port: 8080
+#              protocol: Tcp
+#              frontend_port: 8080
+#              frontend_ip_configuration: "AzureAutoLB"
+    - resource_group_name: "azure_nsg"
+      resource_group_type: "azure"
+      resource_definitions:
+        - name: "Test-NSG-AUTO"
+          role: azure_nsg
+          resource_group: ccit
+          purge_rules: True
+          rules:
+              name: DenySSH
+              protocol: Tcp
+              destination_port_range: 22
+              access: Deny
+              priority: 100
+              direction: Inbound

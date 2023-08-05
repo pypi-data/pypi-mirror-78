@@ -1,0 +1,20 @@
+# This playbook will provision beaker resources.
+- name: "allocate beaker outputs"
+  set_fact:
+    topology_outputs_beaker_server: []
+
+- name: "Initiating Provision of beaker resource group"
+  include_tasks: provision_resource_group.yml
+  vars:
+    res_defs: "{{ item }}"
+  with_items:
+    - "{{ resources }}"
+  when: state == "present"
+
+- name: "Initiating Teardown of beaker resource group"
+  include_tasks: teardown_resource_group.yml
+  vars:
+    res_defs: "{{ item }}"
+  with_items:
+    - "{{ resources }}"
+  when: state == "absent"

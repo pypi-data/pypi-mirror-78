@@ -1,0 +1,15 @@
+---
+- name: "Gather facts"
+  setup:
+    filter: ansible_*
+
+- name: "declaring output vars"
+  set_fact:
+    topology_outputs_libvirt_nodes: []
+    current_provider: "libvirt"
+
+- name: "Initiating libvirt resource group"
+  include: provision_resource_group.yml res_grp={{ item }}
+  with_items:
+    - "{{ resources }}"
+  register: resource_grps_output
