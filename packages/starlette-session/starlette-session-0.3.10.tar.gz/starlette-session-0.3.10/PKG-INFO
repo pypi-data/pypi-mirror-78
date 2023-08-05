@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: starlette-session
+Version: 0.3.10
+Summary: A library for backend side session with starlette
+Home-page: https://github.com/auredentan/starlette-sessionhttps://github.com/auredentan/starlette-session
+License: MIT
+Author: Aurélien Dentan
+Author-email: aurelien.dentan@gmail.com
+Maintainer: Aurélien Dentan
+Maintainer-email: aurelien.dentan@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: aioredis (>=1.3.1,<2.0.0)
+Requires-Dist: itsdangerous (>=1.1.0,<2.0.0)
+Requires-Dist: pymemcache (>=3.3.0,<4.0.0)
+Requires-Dist: redis (>=3.5.3,<4.0.0)
+Requires-Dist: starlette (>=0.13.8,<0.14.0)
+Project-URL: Repository, https://github.com/auredentan/starlette-sessionhttps://github.com/auredentan/starlette-session
+Description-Content-Type: text/markdown
+
+<p align="center">
+
+<a href="https://github.com/auredentan/starlette-session/actions?query=workflow%3ATest" target="_blank">
+  <img src="https://github.com/auredentan/starlette-session/workflows/Test/badge.svg?branch=master" alt="Test"/>
+</a>
+
+<a href="https://pypi.org/project/starlette-session" target="_blank">
+  <img src="https://img.shields.io/pypi/v/starlette-session?color=%2334D058&label=pypi%20package" alt="Package version"/>
+</a>
+
+<a href="https://codecov.io/gh/auredentan/starlette-session" target="_blank">
+  <img src="https://codecov.io/gh/auredentan/starlette-session/branch/master/graph/badge.svg" alt="Code coverage"/>
+</a>
+
+</p>
+
+---
+
+**Documentation:** [https://auredentan.github.io/starlette-session/](https://auredentan.github.io/starlette-session/)
+
+---
+
+# Starlette Session
+
+Starlette session is a simple session middleware for [starlette](https://github.com/encode/starlette/). It gives you the possibility of backend session with a predefined backend or a custom one.
+
+## Requirements
+
+Python 3.6+
+
+## Installation
+
+```bash
+pip install starlette-session
+```
+
