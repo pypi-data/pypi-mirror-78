@@ -1,0 +1,11 @@
+<select id='{{ field }}' class="js-select js-states form-control" name="{{ field }}{% if multiple %}[]{% endif %}"{% if multiple %} multiple='multiple'{% endif %}">
+{% if nullable and not multiple %}
+<option>-</option>
+{% endif %}
+{% for choice in choices %}
+  {% if (not multiple and choice == value) or (value and multiple and choice in value) %}
+      <option class="warp_option" value="{{ choice }}" selected>{{ choice }}</option>
+  {% else %}
+      <option class="warp_option" value="{{ choice }}">{{ choice }}</option>
+  {% endif %}
+{% endfor %}
