@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+from setuptools import setup
+
+packages = \
+['simplelogging']
+
+package_data = \
+{'': ['*']}
+
+install_requires = \
+['colorlog>=4.1.0,<5.0.0']
+
+setup_kwargs = {
+    'name': 'simplelogging',
+    'version': '0.11.0',
+    'description': 'Logging made simple, no excuse for any debug print call.',
+    'long_description': '# Simple Logging\n\n[![PyPI](https://img.shields.io/pypi/v/simplelogging.svg)](https://pypi.python.org/pypi/simplelogging)\n[![PyPI](https://img.shields.io/pypi/l/simplelogging.svg)](https://github.com/vpoulailleau/simplelogging/blob/master/LICENSE)\n[![Travis](https://img.shields.io/travis/vpoulailleau/simplelogging.svg)](https://travis-ci.org/vpoulailleau/simplelogging)\n[![ReadTheDocs](https://readthedocs.org/projects/simplelogging/badge/?version=latest)](https://simplelogging.readthedocs.io/en/latest/?badge=latest)\n[![Code style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)\n[![Downloads](https://pepy.tech/badge/simplelogging)](https://pepy.tech/project/simplelogging)\n[![Test Coverage](https://api.codeclimate.com/v1/badges/4ad8f1bef2c011e8a5ac/test_coverage)](https://codeclimate.com/github/vpoulailleau/simplelogging/test_coverage)\n[![Maintainability](https://api.codeclimate.com/v1/badges/4ad8f1bef2c011e8a5ac/maintainability)](https://codeclimate.com/github/vpoulailleau/simplelogging/maintainability)\n\nLogging made simple, no excuse for any debug print call.\n\n* Free software: BSD 3-Clause license\n* Documentation: https://simplelogging.readthedocs.io.\n\n\n## Features\n\n* Logging management (debug, information or error messages)\n* Simple logging setup\n* Based on Python `logging` module of the standard library\n* Based on [colorlog](https://github.com/borntyping/python-colorlog) for colored log on console\n\nFor advanced users:\n\n* The provided logger is one of those from `logging`, this means it can be configured so that log messages are sent by email, HTTP, or any of the options available in https://docs.python.org/3/library/logging.handlers.html.\n* The StreamHandler and the associated Formatter are those provided by `colorlog`.\n\n## Example\n\n### Basic usage\n\n```python\nimport simplelogging\n\n# log = simplelogging.get_logger(console_level=simplelogging.DEBUG)\n# log = simplelogging.get_logger(file_name="log.txt")\nlog = simplelogging.get_logger()\n\na_string_variable = "hello"\nan_integer_variable = 42\na_floating_point_variable = 3.14\n\nlog.debug("some debug")\nlog.info("some info")\nlog.info(\n    "some variables: %s, %d, %f",\n    a_string_variable,\n    an_integer_variable,\n    a_floating_point_variable,\n)\nlog.warning("some warning")\nlog.error("some error")\nlog.critical("some critical error")\n\ntry:\n    x = 1 / 0\nexcept ZeroDivisionError as error:\n    log.exception(error)\n```\n\n![quickstart result](quickstart.png)\n\nKeep in mind that you shouldn\'t do string formatting yourself. Delegate formatting to `simplelogging` (i.e. `logging` in this case), the formatting will be done only if necessary, that is if the message is going to be displayed. See above examples of how to display variables.\n\n### Usage with modules\n\n#### example_module.py\n\n```python\nimport simplelogging\n\nlog = simplelogging.get_logger()\n\n\ndef log_some_messages():\n    log.debug("## some debug ##")\n    log.info("## some info ##")\n    log.warning("## some warning ##")\n    log.error("## some error ##")\n```\n\n#### main.py\n\n```python\nimport example_module\nimport simplelogging\n\n# log = simplelogging.get_logger(console_level=simplelogging.DEBUG)\n# log = simplelogging.get_logger(file_name="log.txt")\nlog = simplelogging.get_logger()\n\na_variable = "a nice variable"\nanother_variable = 42\n\nlog.error("---- normal logging ----")\nlog.debug("a debug message")\nlog.info("an info")\nlog.warning("a warning")\nlog.error("%s and %d", a_variable, another_variable)\n\nlog.error("---- example_module writes to the log ----")\nexample_module.log_some_messages()\n\nlog.error("---- reduced logging (bye debug and info messages) ----")\nlog.reduced_logging()\nlog.debug("a debug message")\nlog.info("an info")\nlog.warning("a warning")\nlog.error("an error")\n\nlog.error("---- full logging (welcome back debug and info messages) ----")\nlog.full_logging()\nlog.debug("a debug message")\nlog.info("an info")\nlog.warning("a warning")\nlog.error("an error")\n```\n\n#### Result in the console\n\n\n![quickstart with modules result](with_modules.png)\n\nMore examples are provided in the documentation: https://simplelogging.readthedocs.io.\n\n## TODO\n\n* add tests\n* add type annotations\n* add docstring\n* commit hooks\n* describe pros/cons and alternatives\n* release 1.0!\n\n## Credits\n\nThis package is an extension of the [logging](https://docs.python.org/3/howto/logging-cookbook.html) package in the Python standard library. Coloring of the console relies on [colorlog](https://github.com/borntyping/python-colorlog).\n\n## Changelog\n\n### 0.11.0 (2020-08-31)\n\n* Use poetry\n\n### 0.10.0 (2019-09-16)\n\n* setup.py: require pytest-runner only when necessary\n* Remove Python 3.4 support\n\n### 0.9.0 (2018-12-14)\n\n* Improve documentation\n* Add tests\n* Change API for easy logging level change\n\n### 0.8.0 (2018-12-09)\n\n* Improve documentation\n* Change default format: enlarge level size for critical errors\n\n### 0.7.0 (2018-12-08)\n\n* Fix logging to file\n\n### 0.6.0 (2018-12-07)\n\n* Colored output on console\n* Improved documentation\n\n### 0.5.0 (2018-12-02)\n\n* Fix README rendering in PyPI\n\n### 0.4.0 (2018-12-02)\n\n* Fix bump config\n\n### 0.3.0 (2018-12-02)\n\n* First release on PyPI.\n',
+    'author': 'Vincent Poulailleau',
+    'author_email': 'vpoulailleau@gmail.com',
+    'maintainer': None,
+    'maintainer_email': None,
+    'url': 'https://github.com/vpoulailleau/simplelogging',
+    'packages': packages,
+    'package_data': package_data,
+    'install_requires': install_requires,
+    'python_requires': '>=3.5,<4.0',
+}
+
+
+setup(**setup_kwargs)
