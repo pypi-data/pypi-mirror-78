@@ -1,0 +1,16 @@
+[run]
+branch = true
+source =
+    nifi.flowfile
+
+[paths]
+source =
+    src
+    **/site-packages
+
+[report]
+omit =
+    setup.py
+    src/nifi/flowfile/__main__.py
+    src/nifi/flowfile/_version.py
+    tests/*
