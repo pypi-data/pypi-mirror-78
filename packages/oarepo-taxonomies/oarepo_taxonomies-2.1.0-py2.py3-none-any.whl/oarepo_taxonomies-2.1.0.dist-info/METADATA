@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: oarepo-taxonomies
+Version: 2.1.0
+Summary: Wrapper that connect flask-taxonomies with Invenio
+Home-page: https://github.com/oarepo/oarepo-taxonomies
+Author: Daniel Kopecký
+Author-email: Daniel.Kopecky@techlib.cz
+License: MIT
+Keywords: oarepo taxonomies
+Platform: any
+Requires-Dist: flask-taxonomies (>=7.0.0a16)
+Requires-Dist: flatten-json (<1.0.0,>=0.1.7)
+Requires-Dist: oarepo-mapping-includes (<2.0.0,>=1.1.0)
+Requires-Dist: oarepo-references[validate] (<2.0.0,>=1.8.3)
+Requires-Dist: openpyxl (<4.0.0,>=3.0.4)
+Provides-Extra: tests
+Requires-Dist: oarepo[deploy-es7] (<3.3.0.0,>=3.2.1.2) ; extra == 'tests'
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+
+UNKNOWN
+
+
