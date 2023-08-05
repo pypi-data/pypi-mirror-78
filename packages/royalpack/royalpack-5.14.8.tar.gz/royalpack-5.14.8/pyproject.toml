@@ -1,0 +1,55 @@
+# Remember to run `poetry update` after you edit this file!
+
+[tool.poetry]
+    name = "royalpack"
+    version = "5.14.8"
+    description = "A Royalnet command pack for the Royal Games community"
+    authors = ["Stefano Pigozzi <ste.pigozzi@gmail.com>"]
+    license = "AGPL-3.0+"
+    readme = "README.md"
+    homepage = "https://github.com/Steffo99/royalpack"
+    documentation = "https://gh.steffo.eu/royalpack/"
+    classifiers = [
+        "Development Status :: 3 - Alpha",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3.8",
+        "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)"
+    ]
+
+# Library dependencies
+[tool.poetry.dependencies]
+    python = "^3.8"
+
+    riotwatcher = "^3.0.0"
+    royalspells = "^3.2"
+    steam = "*"
+    sqlalchemy = "^1.3.18"
+    bcrypt = "^3.1.7"
+    itsdangerous = "^1.1.0"
+
+    [tool.poetry.dependencies.royalnet]
+        version = "~5.11.4"
+        # Maybe... there is a way to make these selectable?
+        extras = [
+            "telegram",
+            "discord",
+            "alchemy_easy",
+            "constellation",
+            "sentry",
+            "herald",
+            "coloredlogs",
+        ]
+
+# Development dependencies
+[tool.poetry.dev-dependencies]
+
+
+
+# Optional dependencies
+[tool.poetry.extras]
+
+
+
+[build-system]
+    requires = ["poetry>=0.12"]
+    build-backend = "poetry.masonry.api"
