@@ -1,0 +1,232 @@
+Metadata-Version: 1.1
+Name: explorepy
+Version: 1.1.0
+Summary: Python API for Mentalab biosignal aquisition devices
+Home-page: https://github.com/Mentalab-hub/explorepy
+Author: Mentalab GmbH.
+Author-email: mohamad.atayi@mentalab.com
+License: MIT license
+Description: .. image:: logo.png
+           :scale: 100 %
+           :align: center
+        
+        
+        
+        
+        
+        ==================
+        Explorepy overview
+        ==================
+        
+        Explorepy is Mentalab's open-source Python-based biosignal acquisition API for working with Mentalab Explore device. Amongst many things, it provides the following features:
+        
+        * Real-time streaming of ExG, orientation and environmental data
+        * Real-time visualization
+        * Data recording in CSV and BDF+ formats
+        * LSL integration
+        * Impedance measurement
+        * Explore device configuration
+        
+        
+        Quick installation
+        ==================
+        
+        Requirements
+        ------------
+        
+        * Python 3.5 or newer version
+        * Visual Studio 2015 community edition (only Windows)
+        * Bluetooth header files (only Linux -> use this command: ``sudo apt-get install libbluetooth-dev``)
+        
+        
+        Please check out the  `installation page <https://explorepy.readthedocs.io/en/latest/installation.html>`_ for more detailed instructions.
+        
+        To install ``explorepy`` from PyPI run:
+        ::
+        
+            pip install explorepy
+        
+        
+        To install the latest development version (git must be installed before running this command):
+        ::
+        
+            pip install git+https://github.com/Mentalab-hub/explorepy
+        
+        
+        Get started
+        ===========
+        
+        CLI command
+        -----------
+        For a simple, quick start of Explorepy,  run:
+        
+        ``explorepy acquire -n Explore_XXXX``
+        
+        Enter ``explorepy -h`` for help.
+        
+        
+        Python code
+        -----------
+        
+        When working in Python, the following connects to the Explore device and prints the data.
+        
+        ::
+        
+            import explorepy
+            explorer = explorepy.Explore()
+            explorer.connect(device_name="Explore_XXXX")  # Put your device Bluetooth name
+            explorer.acquire()
+        
+        You can also visualize the data in real-time.
+        
+        ::
+        
+            import explorepy
+            explorer = explorepy.Explore()
+            explorer.connect(device_name="Explore_XXXX")  # Put your device Bluetooth name
+            explorer.visualize(bp_freq=(.5, 30), notch_freq=50)
+        
+        EEG:
+        
+        .. image:: /images/Dashboard_EEG.jpg
+          :width: 800
+          :alt: EEG Dashboard
+        
+        ECG with heart beat detection:
+        
+        .. image:: /images/Dashboard_ECG.jpg
+          :width: 800
+          :alt: ECG Dashboard
+        
+        Documentation
+        =============
+        
+        For the full documentation of the API, visit: https://explorepy.readthedocs.io/
+        
+        
+        Authors
+        =======
+        - `Mohamad Atayi`_
+        - `Salman Rahman`_
+        - `Andreas Gutsche`_
+        - `Masooma Fazelian`_
+        - `Philipp Jakovleski`_
+        - `Sebastian Herberger`_
+        
+        
+        .. _Mohamad Atayi: https://github.com/bmeatayi
+        .. _Salman Rahman: https://github.com/salman2135
+        .. _Andreas Gutsche: https://github.com/andyman410
+        .. _Masooma Fazelian: https://github.com/fazelian
+        .. _Philipp Jakovleski: https://github.com/philippjak
+        .. _Sebastian Herberger: https://github.com/SHerberger
+        
+        License
+        =======
+        This project is licensed under the `MIT <https://github.com/Mentalab-hub/explorepy/blob/master/LICENSE>`_ license. You can reach us at contact@mentalab.com.
+        
+        
+        
+        
+        
+        
+        Changelog
+        =========
+        
+        1.1.0 (27-08-2020)
+        ------------------
+        * MacOS support
+        * Fix bugs
+        * Add module disable/enable feature
+        * Enhanced user interface
+        * Add unique lsl stream names
+        
+        
+        1.0.0 (22-05-2020)
+        ------------------
+        * Add ExploreSDK as the Bluetooth interface
+        * New dark theme
+        * Record module in dashboard
+        * Improvement in visualization perfrmance
+        * CLI migration to Click
+        
+        
+        0.6.0 (17-02-2020)
+        ------------------
+        * EDF (BDF+) file writer
+        * Channel disable/enable feature
+        * Calibration of movement sensors
+        * Extraction of physical orientation (angle and rotation)
+        * Soft marker event
+        * Visualization performance enhancement
+        * Automatic number of channel and sampling rate detection
+        * Exception handling improvement
+        * Command for soft reset of Explore
+        * Marker visualization
+        
+        
+        0.5.0 (25-11-2019)
+        ------------------
+        * Impedance measurement
+        * Send commands to device
+        * Configuring device settings
+        * Update push to lsl feature
+        
+        0.4.0 (09-09-2019)
+        ------------------
+        * Added marker feature
+        * Timer based recording
+        * Fixed a bug in csv file writer
+        * Fixed a bug in device reconnect
+        * Improved performance of dashboard visualization
+        
+        
+        0.3.1 (28-05-2019)
+        ------------------
+        * Fixed a bug in 8-channel ExG packet conversion
+        * Fixed a minor bug in the record function
+        * Updated the documentation
+        
+        
+        0.3.0 (10-05-2019)
+        ------------------
+        * Explore dashboard
+        * Real-time visualization of ExG and orientation signal
+        * Device information in Dashboard
+        * Environmental data (battery, temperature and light)
+        * Real-time bandpass filter
+        * New packet structures (ADS1294R & ADS1298R)
+        * Heart rate estimation and R-peaks detector in dashboard
+        
+        
+        0.2.0 (2019-03-08)
+        ------------------
+        
+        * Added real-time recording feature
+        * Added Command Line Interface
+        * Added lsl integration
+        * Added new packet classes
+        * Fixed reconnect issues
+        * Removed input requests inside functions
+        
+        
+        0.1.0 (2019-01-18)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: Mentalab,Explorepy,EEG signal
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Topic :: Scientific/Engineering :: Visualization
