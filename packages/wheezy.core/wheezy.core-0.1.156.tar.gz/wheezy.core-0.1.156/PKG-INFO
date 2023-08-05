@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: wheezy.core
+Version: 0.1.156
+Summary: A lightweight core library
+Home-page: https://github.com/akornatskyy/wheezy.core
+Author: Andriy Kornatskyy
+Author-email: andriy.kornatskyy@live.com
+License: MIT
+Description: # wheezy.core
+        
+        [![Build Status](https://travis-ci.org/akornatskyy/wheezy.core.svg?branch=master)](https://travis-ci.org/akornatskyy/wheezy.core)
+        [![Coverage Status](https://coveralls.io/repos/github/akornatskyy/wheezy.core/badge.svg?branch=master)](https://coveralls.io/github/akornatskyy/wheezy.core?branch=master)
+        [![Documentation Status](https://readthedocs.org/projects/wheezycore/badge/?version=latest)](https://wheezycore.readthedocs.io/en/latest/?badge=latest)
+        [![pypi version](https://badge.fury.io/py/wheezy.core.svg)](https://badge.fury.io/py/wheezy.core)
+        
+        [wheezy.core](https://pypi.org/project/wheezy.core) is a
+        [python](http://www.python.org) package written in pure Python code. It
+        provides core features.
+        
+        It is optimized for performance, well tested and documented.
+        
+        Resources:
+        
+        - [source code](https://github.com/akornatskyy/wheezy.core),
+          [examples](https://github.com/akornatskyy/wheezy.core/tree/master/demos)
+          and [issues](https://github.com/akornatskyy/wheezy.core/issues)
+          tracker are available on
+          [github](https://github.com/akornatskyy/wheezy.core)
+        - [documentation](https://wheezycore.readthedocs.io/en/latest/)
+        
+        ## Install
+        
+        [wheezy.core](https://pypi.org/project/wheezy.core) requires
+        [python](http://www.python.org) version 2.4 to 2.7 or 3.2+. It is
+        independent of operating system. You can install it from
+        [pypi](https://pypi.org/project/wheezy.core) site:
+        
+        ```sh
+        pip install -U wheezy.core
+        ```
+        
+        If you run into any issue or have comments, go ahead and add on
+        [github](https://github.com/akornatskyy/wheezy.core).
+        
+Keywords: core benchmark collections config datetime db descriptor feistel i18n introspection json luhn mail pooling url uuid
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.4
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Internationalization
+Classifier: Topic :: Software Development :: Localization
+Classifier: Topic :: System :: Benchmark
+Description-Content-Type: text/markdown
