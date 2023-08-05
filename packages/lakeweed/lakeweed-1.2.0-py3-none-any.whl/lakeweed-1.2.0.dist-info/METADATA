@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: lakeweed
+Version: 1.2.0
+Summary: Elastic parser for data-like string, JSON, JSON Lines, and CSV to RDB record
+Home-page: https://github.com/tac0x2a/lake_weed
+Author: TAC
+Author-email: tac@tac42.net
+License: MIT
+Keywords: json jsonline csv rabbitmq amqp clickhouse
+Platform: UNKNOWN
+Requires-Dist: pytest
+Requires-Dist: python-dateutil
+Requires-Dist: pandas (==1.0.5)
+Requires-Dist: pytz (==2020.1)
+
+UNKNOWN
+
+
