@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: junky
+Version: 0.2.40
+Summary: Layers, datasets and utilities for PyTorch
+Home-page: https://github.com/fostroll/junky
+Author: Sergei Ternovykh, Anastasiya Nikiforova
+Author-email: fostroll@gmail.com, steysie@gmail.com
+License: BSD
+Description: <h2 align="center">junky lib: Layers, datasets and utilities for PyTorch</h2>
+        
+        [![PyPI Version](https://img.shields.io/pypi/v/junky?color=blue)](https://pypi.org/project/junky/)
+        [![Python Version](https://img.shields.io/pypi/pyversions/junky?color=blue)](https://www.python.org/)
+        [![License: BSD-3](https://img.shields.io/badge/License-BSD-brightgreen.svg)](https://opensource.org/licenses/BSD-3-Clause)
+        
+        Provides a bunch of tools and utilities to use with PyTorch.
+        
+        ## Content
+        
+        [Autotrain](https://github.com/fostroll/junky/blob/master/doc/README_AUTOTRAIN.md)
+        
+        [Layers](https://github.com/fostroll/junky/blob/master/doc/README_LAYERS.md)
+        
+        [Datasets](https://github.com/fostroll/junky/blob/master/doc/README_DATASETS.md)
+        
+        [Utilities](https://github.com/fostroll/junky/blob/master/doc/README_UTILITIES.md)
+        
+        [Plotter](https://github.com/fostroll/junky/blob/master/doc/README_PLOTTER.md)
+        
+        ## Installation
+        
+        ### pip
+        
+        ***junky*** supports *Python 3.5* or later. To install it via *pip*, run:
+        ```sh
+        $ pip install junky
+        ```
+        
+        If you currently have a previous version of ***junky*** installed, use:
+        ```sh
+        $ pip install junky -U
+        ```
+        
+        ### From Source
+        
+        Alternatively, you can also install ***junky*** from source of this *git
+        repository*:
+        ```sh
+        $ git clone https://github.com/fostroll/junky.git
+        $ cd junky
+        $ pip install -e .
+        ```
+        
+        ## License
+        
+        ***junky*** is released under the BSD License. See the
+        [LICENSE](https://github.com/fostroll/junky/blob/master/LICENSE) file for more
+        details.
+        
+Keywords: pytorch autotrain
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
