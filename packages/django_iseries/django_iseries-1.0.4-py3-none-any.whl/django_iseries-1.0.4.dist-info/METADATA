@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: django_iseries
+Version: 1.0.4
+Summary: Db2 for iSeries support for Django framework.
+Home-page: UNKNOWN
+License: UNKNOWN
+Author: Steven James
+Author-email: steven@waitforitjames.com
+Requires-Python: >=3.6
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Microsoft :: Windows :: Windows NT/2000
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Topic :: Database :: Front-Ends
+Requires-Dist: pyodbc>=4.0.27
+Requires-Dist: django>=2.2.0
+Requires-Dist: pytz
+Requires-Dist: sqlparse
