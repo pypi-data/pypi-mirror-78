@@ -1,0 +1,9 @@
+pyyaml
+requests
+flask
+werkzeug
+jsonschema
+dataset
+
+[:sys_platform != "win32"]
+gunicorn
