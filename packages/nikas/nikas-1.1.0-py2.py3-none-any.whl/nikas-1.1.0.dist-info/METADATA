@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: nikas
+Version: 1.1.0
+Summary: The first persian comment system 
+Home-page: https://github.com/Nikas-Project/Server
+Author: Arash Hatami
+Author-email: hatamiarash7@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Internet
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: Flask-Caching (==1.9.0)
+Requires-Dist: Flask (==1.1.2)
+Requires-Dist: Jinja2 (==2.11.2)
+Requires-Dist: MarkupSafe (==1.1.1)
+Requires-Dist: Werkzeug (==1.0.1)
+Requires-Dist: bleach (==3.1.5)
+Requires-Dist: cffi (==1.14.0)
+Requires-Dist: click (==7.1.2)
+Requires-Dist: gevent (==20.6.2)
+Requires-Dist: gunicorn (==20.0.4)
+Requires-Dist: html5lib (==1.1)
+Requires-Dist: itsdangerous (==1.1.0)
+Requires-Dist: misaka (==2.1.1)
+Requires-Dist: packaging (==20.4)
+Requires-Dist: pycparser (==2.20)
+Requires-Dist: pyparsing (==2.4.7)
+Requires-Dist: six (==1.15.0)
+Requires-Dist: webencodings (==0.5.1)
+
+# Nikas - Beta version
+
+The first persian comment system
+
+[![pipeline status](https://gitlab.com/nikas-project/Server/badges/master/pipeline.svg)](https://gitlab.com/nikas-project/Server/-/commits/master)
+
+
