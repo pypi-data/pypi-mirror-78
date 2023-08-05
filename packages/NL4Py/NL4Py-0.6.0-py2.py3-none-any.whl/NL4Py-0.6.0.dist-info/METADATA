@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: NL4Py
+Version: 0.6.0
+Summary: A NetLogo connector for Python.
+Home-page: https://github.com/chathika/NL4Py
+Author: Chathika Gunaratne
+Author-email: chathikagunaratne@gmail.com
+License: GPL
+Project-URL: Source, https://github.com/chathika/NL4Py
+Project-URL: Thanks!, http://complexity.cecs.ucf.edu/
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib (>=2.0.2)
+Requires-Dist: py4j (>=0.10.6)
+Requires-Dist: psutil (>=5.4.3)
+Requires-Dist: pandas (>=0.20.1)
+Requires-Dist: numpy (>=1.13.3)
+
+https://github.com/chathika/NL4Py
+
+
