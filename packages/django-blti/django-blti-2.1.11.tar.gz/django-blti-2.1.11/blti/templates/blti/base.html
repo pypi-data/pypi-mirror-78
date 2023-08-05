@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <title>{% block title %}{{ page_title }}{% endblock %}</title>
+	<meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="cleartype" content="on">
+
+    {% load staticfiles %}
+
+    <!-- add web fonts if needed -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- mobile first styles -->
+    {% block mobile_css %}{% endblock %}
+
+    {% block desktop_css %}{% endblock %}
+
+    <style>
+        body { font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 13px; color: #333; }
+        table { border-collapse: collapse; }
+        td { padding: 5px; }
+        table, td { border: 1px solid #666; }
+    </style>
+</head>
+<body>
+    <div id="wrapper" class="container" style="position:relative;">
+
+        <div id="main-wrapper">
+        	<div id="main" role="main">
+        	   <div class="inner">{% block content %}{% endblock %}</div>
+        	</div><!--end #main-->
+        </div>
+
+        <div id="meta-wrapper">
+        	<footer id="footer">
+                <div class="inner"></div>
+        	</footer><!--end #footer-->
+        </div>
+    </div>
+
+    {% block javascript %}{% endblock %}
+
+</body>
+</html>
