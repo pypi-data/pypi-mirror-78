@@ -1,0 +1,8 @@
+include __pkginfo__.py
+include LICENSE
+include requirements.txt
+prune **/__pycache__
+recursive-include domdf_sphinx_theme *.*
+recursive-exclude domdf_sphinx_theme .*.swp
+recursive-include domdf_sphinx_theme *.pyi
+include domdf_sphinx_theme/py.typed
