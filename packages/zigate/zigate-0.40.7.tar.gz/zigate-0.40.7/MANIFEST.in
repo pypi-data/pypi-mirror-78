@@ -1,0 +1,11 @@
+# Include docs
+include *.md
+include LICENSE
+recursive-include zigate *.json
+recursive-include zigate *.py
+recursive-include zigate *.tpl
+exclude .editorconfig
+exclude *.rb
+exclude build_upload.sh
+prune tests
+exclude zigate2zigpy.py
