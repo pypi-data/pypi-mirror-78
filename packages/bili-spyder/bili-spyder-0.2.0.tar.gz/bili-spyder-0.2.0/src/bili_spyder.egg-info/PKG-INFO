@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: bili-spyder
+Version: 0.2.0
+Summary: Calculating the signature of the Bilibili's heartbeat requests
+Home-page: https://github.com/acgnhiki/bili-spyder
+Author: acgnhiki
+Author-email: acgnhiki@outlook.com
+License: UNKNOWN
+Project-URL: Source Code, https://github.com/acgnhiki/bili-spyder/
+Project-URL: Bug Tracker, https://github.com/acgnhiki/bili-spyder/issues
+Description: # bili-spyder
+        
+        Calculating the signature of the Bilibili's heartbeat requests
+        
+        ## Installation
+        
+        `pip install bili-spyder`
+        
+        ## Usage
+        
+        ```python
+        from bili_spyder import calc_sign, calc_sign_async
+        
+        data = {
+            'id': '[1, 33, 1, 23058]',
+            'device': '["AUTO8115983198593723", "2ddca4d0-2e72-427e-9b97-55ee70536381"]',
+            'ets': 1598401991,
+            'benchmark': 'seacasdgyijfhofiuxoannn',
+            'time': 300,
+            'ts': 1598402290937,
+        }
+        
+        secret_rule = [2, 5, 1, 4]
+        
+        sign = calc_sign(data, secret_rule)
+        sign = await calc_sign_async(data, secret_rule)
+        ```
+        
+        See also: <https://github.com/acgnhiki/bili-spyder-example>
+        
+        ## About the wasm file
+        
+        the wasm file is downloaded from <https://i0.hdslb.com/bfs/live/e791556706f88d88b4846a61a583b31db007f83d.wasm> and the file name is its `sha1`.
+        
+        ## Special Thanks
+        
+        This project is inspired by and got much help from the project <https://github.com/lkeme/bilibili-pcheartbeat>
+        
+Keywords: bilibili,live,heartbeat,sign,spyder
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
