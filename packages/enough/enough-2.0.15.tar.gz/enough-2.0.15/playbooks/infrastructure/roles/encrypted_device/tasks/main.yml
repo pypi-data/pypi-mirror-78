@@ -1,0 +1,12 @@
+---
+- name: list the attached disk
+  shell: |
+    for d in /dev/vda /dev/sdb ; do
+       if test -e $d ; then
+         echo Found $d
+       fi
+    done
+  register: list_attached_disks
+
+- import_tasks: encrypted_device.yml
+  when: (encrypted_device_mount_point is defined) and ("Found" in list_attached_disks.stdout)

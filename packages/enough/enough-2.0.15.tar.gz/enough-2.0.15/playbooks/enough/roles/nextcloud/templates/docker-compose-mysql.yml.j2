@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=
+      # must be the same as db.env DB_USER
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD={{ enough_nextcloud_db_password | default('82v8ggh3', true) }}
+
+  app:
+    image: nextcloud:{{ enough_nextcloud_version }}-apache-cron
+    restart: always
+    volumes:
+      - nextcloud:/var/www/html
+      - ./mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf
+{% if  certificate_authority != 'letsencrypt' %}
+      - /etc/ssl/certs:/etc/ssl/certs:ro
+      - /usr/local/share/ca-certificates/infrastructure:/usr/local/share/ca-certificates/infrastructure:ro
+{% endif %}
+    ports:
+      - {{ enough_nextcloud_port }}:80
+    environment:
+      - DB_PASSWORD={{ enough_nextcloud_db_password | default('82v8ggh3', true) }}
+      - VIRTUAL_HOST={{ vhost_fqdn }}
+    env_file:
+      - db.env
+    depends_on:
+      - db
+
+volumes:
+  db:
+  nextcloud:

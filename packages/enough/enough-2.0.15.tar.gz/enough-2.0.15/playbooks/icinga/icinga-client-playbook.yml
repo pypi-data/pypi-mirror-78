@@ -1,0 +1,18 @@
+---
+- name: install icinga clients
+  hosts: icinga-client-group:!icinga-service-group
+  become: true
+
+  roles:
+    - role: icinga2_client
+      when:
+        - not_monitored is undefined
+
+- name: install icinga monitoring capabilities
+  hosts: all-hosts
+  become: true
+
+  roles:
+    - role: icinga2_common
+      when:
+        - not_monitored is undefined
