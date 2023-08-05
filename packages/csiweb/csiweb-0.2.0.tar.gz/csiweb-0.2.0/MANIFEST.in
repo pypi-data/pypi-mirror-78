@@ -1,0 +1,3 @@
+include LICENSE
+recursive-include csiweb/client/fake *.json *.html *.dat *.xml *.txt
+recursive-include systemd *.service
