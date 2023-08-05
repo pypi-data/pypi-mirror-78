@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: mripy
+Version: 0.6.11
+Summary: High resolution fMRI data analysis in Python, based on AFNI, FreeSurfer, ANTs, and many other tools.
+Home-page: https://github.com/herrlich10/mripy
+Author: herrlich10
+Author-email: herrlich10@gmail.com
+License: UNKNOWN
+Description: Introduction
+        ============
+        
+        This is collection of handy small tools for analyzing neural imaging  (esp. 
+        high resolution fMRI) data, which can be used both as a Python package and 
+        a set of command line tools. It is a useful augmentation to the AFNI tool chain.
+        
+        Installation (in linux/mac)
+        ===========================
+        
+        Coming soon...
+        
+        .. code-block:: shell
+        
+            $ pip install mripy
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
