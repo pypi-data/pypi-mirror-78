@@ -1,0 +1,4 @@
+[console_scripts]
+flowapp = flowserv.cli.app:cli
+flowserv = flowserv.cli.admin:cli
+
