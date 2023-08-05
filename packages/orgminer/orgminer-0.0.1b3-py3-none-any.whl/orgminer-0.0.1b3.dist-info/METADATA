@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: orgminer
+Version: 0.0.1b3
+Summary: Python tookit for Process Mining on the organizational perspective
+Home-page: https://github.com/roy-jingyang/OrgMiner
+Author: Jing Yang (Roy)
+Author-email: roy.j.yang@qut.edu.au
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: numpy (>=1.17.2)
+Requires-Dist: scipy (>=1.3.1)
+Requires-Dist: scikit-learn (>=0.21.3)
+Requires-Dist: scikit-fuzzy (>=0.4.1)
+Requires-Dist: pandas (>=0.25.3)
+Requires-Dist: python-igraph (>=0.8.0)
+Requires-Dist: networkx (>=2.4)
+Requires-Dist: pm4py (>=1.2.4)
+Requires-Dist: Deprecated (>=1.2.6)
+Provides-Extra: arya
+Requires-Dist: Flask ; extra == 'arya'
+Requires-Dist: flask-cors ; extra == 'arya'
+Requires-Dist: flask-bootstrap ; extra == 'arya'
+Requires-Dist: flask-wtf ; extra == 'arya'
+Requires-Dist: flask-session ; extra == 'arya'
+
+UNKNOWN
+
+
