@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: ods
+Version: 0.0.1
+Summary: Python client library for Staroid cloud platform
+Home-page: https://github.com/open-datastudio/opends
+Author: Open Data Studio
+Author-email: moon@staroid.com
+License: MIT
+Description: <br />
+        <center>
+          <img src="https://github.com/open-datastudio/datastudio/raw/master/docs/_static/open-datastudio-logo.png" width="250px"/>
+        </center>
+        <br />
+        
+        # Open data studio python library
+        
+        
+        ## Install
+        
+        ```
+        pip install ods
+        ```
+        
+        
+        ## Usage
+        
+        ### Initialization
+        
+        ```python
+        import ods
+        
+        # in cluster initialization. (or from ~/.ods/config)
+        ods.init()
+        
+        # initialization with staroid access token
+        ods.init(staroid_access_token="", staroid_org_name="", staroid_cluster_name="", )
+        ```
+        
+        ### Get Spark cluster
+        
+        ```python
+        from pyspark.sql import SparkSession
+        import pyspark
+        
+        spark_conf = pyspark.SparkConf()
+        spark = ods.spark(
+            cluster_name="",
+            worker_instance_type="standard-4",
+            worker_num="2:2:10", # initial:min:max
+            spark_conf=spark_conf # optional spark conf
+        )
+        ```
+        
+        ### Get Dask cluster (planned)
+        
+        ```python
+        cluster = ods.dask(
+            cluster_name="",
+            worker_num=10
+        )
+        
+        from dask.distributed import Client
+        client = Client(cluster)
+        ```
+        
+        ### Get Ray cluster (planned)
+        
+        ```python
+        ods.ray(
+            cluster_name=""
+        )
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
