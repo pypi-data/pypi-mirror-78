@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+pyplater/__init__.py
+pyplater/tag.py
+pyplater/utils.py
+pyplater.egg-info/PKG-INFO
+pyplater.egg-info/SOURCES.txt
+pyplater.egg-info/dependency_links.txt
+pyplater.egg-info/top_level.txt
+pyplater.egg-info/zip-safe
+tests/__init__.py
+tests/test_main.py
+tests/test_utils.py
