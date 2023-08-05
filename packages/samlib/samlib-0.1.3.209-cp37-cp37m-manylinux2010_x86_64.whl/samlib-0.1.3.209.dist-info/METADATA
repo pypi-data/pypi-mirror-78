@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: samlib
+Version: 0.1.3.209
+Summary: High-level library for using NREL's SAM Simulation Core (SSC)
+Home-page: https://bitbucket.org/8minutenergy/samlib
+Author: Brandon Carpenter
+Author-email: brandon@8minute.com
+License: BSD
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering
+Classifier: Typing :: Typed
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: cffi (<2,>=1.12)
+Requires-Dist: mypy-extensions
+Requires-Dist: typing-extensions
+
+# samlib
+
+Samlib is a high-level Python wrapper to the [SAM SSC library](https://github.com/NREL/ssc/)
+from the [SAM SDK](https://sam.nrel.gov/sdk).
+
+## Overview
+
+Samlib uses [cffi](https://pypi.org/project/cffi/) to build Pythonic library
+bindings to the SAM SSC library. It includes mypy stubs for static type analysis
+and code completion.
+
+## Example
+
+```python
+import samlib
+from samlib.modules import pvsamv1
+
+wfd = samlib.Data()  # weather forecast data
+wfd.lat = 38.743212
+wfd.lon = -117.431238
+...
+
+data = pvsamv1.Data()
+data.solar_resource_data = wfd
+data.use_wf_albedo = 0
+...
+
+module = pvsamv1.Module()
+module.exec(data)
+
+# Use results in data
+```
+
+## License
+
+[BSD 3-Clause license](LICENSE)
+
+The SAM SDK, portions of which are found in the sam-sdk folder, is also
+licensed under a [BSD 3-clause license](sam-sdk/LICENSE).
+
+
