@@ -1,0 +1,1558 @@
+[
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newStopper",
+          "type": "address"
+        }
+      ],
+      "name": "setStopper",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "governor",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "commissionManager",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "PRECISION_SMOOTHING_FACTOR",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenPairAddresses",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "maxOrderLifespan",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "_smoothingFactor",
+          "type": "uint256"
+        }
+      ],
+      "name": "setTokenPairSmoothingFactor",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_expectedOrdersForTick",
+          "type": "uint64"
+        }
+      ],
+      "name": "setExpectedOrdersForTick",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "tokenPairCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "unpause",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "name": "_price",
+          "type": "uint256"
+        },
+        {
+          "name": "_lifespan",
+          "type": "uint64"
+        },
+        {
+          "name": "_previousOrderIdHint",
+          "type": "uint256"
+        }
+      ],
+      "name": "insertBuyOrderAfter",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "buyOrdersLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "minOrderAmount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_stopper",
+          "type": "address"
+        },
+        {
+          "name": "_governor",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_maxBlocksForTick",
+          "type": "uint64"
+        }
+      ],
+      "name": "setMaxBlocksForTick",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "name": "withdrawCommissions",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "makeUnstoppable",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "_price",
+          "type": "uint256"
+        }
+      ],
+      "name": "setLastClosingPrice",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "pendingSellOrdersLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_commonBaseTokenAddress",
+          "type": "address"
+        },
+        {
+          "name": "_commissionManager",
+          "type": "address"
+        },
+        {
+          "name": "_expectedOrdersForTick",
+          "type": "uint64"
+        },
+        {
+          "name": "_maxBlocksForTick",
+          "type": "uint64"
+        },
+        {
+          "name": "_minBlocksForTick",
+          "type": "uint64"
+        },
+        {
+          "name": "_minOrderAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "_maxOrderLifespan",
+          "type": "uint64"
+        },
+        {
+          "name": "_governor",
+          "type": "address"
+        },
+        {
+          "name": "_stopper",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "makeStoppable",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "name": "_price",
+          "type": "uint256"
+        },
+        {
+          "name": "_lifespan",
+          "type": "uint64"
+        },
+        {
+          "name": "_previousOrderIdHint",
+          "type": "uint256"
+        }
+      ],
+      "name": "insertSellOrderAfter",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_maxOrderLifespan",
+          "type": "uint64"
+        }
+      ],
+      "name": "setMaxOrderLifespan",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "tickConfig",
+      "outputs": [
+        {
+          "name": "expectedOrdersForTick",
+          "type": "uint256"
+        },
+        {
+          "name": "maxBlocksForTick",
+          "type": "uint256"
+        },
+        {
+          "name": "minBlocksForTick",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "_EMAPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "setTokenPairEMAPrice",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "sellOrdersLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_minOrderAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMinOrderAmount",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "SMOOTHING_FACTOR",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newIGovernor",
+          "type": "address"
+        }
+      ],
+      "name": "changeIGovernor",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "stoppable",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "getNextTick",
+      "outputs": [
+        {
+          "name": "tickNumber",
+          "type": "uint64"
+        },
+        {
+          "name": "nextTickBlock",
+          "type": "uint256"
+        },
+        {
+          "name": "lastTickBlock",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_governor",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "stopper",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "name": "_price",
+          "type": "uint256"
+        },
+        {
+          "name": "_lifespan",
+          "type": "uint64"
+        }
+      ],
+      "name": "insertBuyOrder",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_tokenAddress",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "name": "_baseAddress",
+          "type": "address"
+        }
+      ],
+      "name": "convertTokenToCommonBase",
+      "outputs": [
+        {
+          "name": "convertedAmount",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getTokenPairs",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address[2][]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_minBlocksForTick",
+          "type": "uint64"
+        }
+      ],
+      "name": "setMinBlocksForTick",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_stopper",
+          "type": "address"
+        },
+        {
+          "name": "_governor",
+          "type": "address"
+        },
+        {
+          "name": "_stoppable",
+          "type": "bool"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "hashAddresses",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "pendingBuyOrdersLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "name": "_price",
+          "type": "uint256"
+        },
+        {
+          "name": "_lifespan",
+          "type": "uint64"
+        }
+      ],
+      "name": "insertSellOrder",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "baseToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "TokenPairDisabled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "baseToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "TokenPairEnabled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "baseTokenAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "secondaryTokenAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "exchangeableAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "reservedCommission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "expiresInTick",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "name": "isBuy",
+          "type": "bool"
+        }
+      ],
+      "name": "NewOrderInserted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "returnedAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "returnedCommission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "isBuy",
+          "type": "bool"
+        }
+      ],
+      "name": "OrderCancelled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "commissionBeneficiary",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "withdrawnAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "CommissionWithdrawn",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_tokenAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "_isRevert",
+          "type": "bool"
+        }
+      ],
+      "name": "TransferFailed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "notIndexedArgumentSoTheThingDoesntBreak",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewOrderAddedToPendingQueue",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "orderId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "amountSent",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "change",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "received",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "remainingAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "matchPrice",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "tickNumber",
+          "type": "uint64"
+        }
+      ],
+      "name": "BuyerMatch",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "orderId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "amountSent",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "received",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "surplus",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "remainingAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "matchPrice",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "tickNumber",
+          "type": "uint64"
+        }
+      ],
+      "name": "SellerMatch",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "orderId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "returnedAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "commission",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "returnedCommission",
+          "type": "uint256"
+        }
+      ],
+      "name": "ExpiredOrderProcessed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "baseTokenAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "secondaryTokenAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "number",
+          "type": "uint64"
+        }
+      ],
+      "name": "TickStart",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "baseTokenAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "secondaryTokenAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "number",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "name": "nextTickBlock",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "closingPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "TickEnd",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "steps",
+          "type": "uint256"
+        }
+      ],
+      "name": "matchOrders",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "steps",
+          "type": "uint256"
+        },
+        {
+          "name": "hintIds",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "matchOrdersWithHints",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "_isBuy",
+          "type": "bool"
+        },
+        {
+          "name": "_orderId",
+          "type": "uint256"
+        },
+        {
+          "name": "_previousOrderIdHint",
+          "type": "uint256"
+        },
+        {
+          "name": "_steps",
+          "type": "uint256"
+        }
+      ],
+      "name": "processExpired",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "getTokenPairStatus",
+      "outputs": [
+        {
+          "name": "emergentPrice",
+          "type": "uint256"
+        },
+        {
+          "name": "lastBuyMatchId",
+          "type": "uint256"
+        },
+        {
+          "name": "lastBuyMatchAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "lastSellMatchId",
+          "type": "uint256"
+        },
+        {
+          "name": "tickNumber",
+          "type": "uint64"
+        },
+        {
+          "name": "nextTickBlock",
+          "type": "uint256"
+        },
+        {
+          "name": "lastTickBlock",
+          "type": "uint256"
+        },
+        {
+          "name": "lastClosingPrice",
+          "type": "uint256"
+        },
+        {
+          "name": "disabled",
+          "type": "bool"
+        },
+        {
+          "name": "EMAPrice",
+          "type": "uint256"
+        },
+        {
+          "name": "smoothingFactor",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "_orderId",
+          "type": "uint256"
+        },
+        {
+          "name": "_previousOrderIdHint",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelBuyOrder",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "_orderId",
+          "type": "uint256"
+        },
+        {
+          "name": "_previousOrderIdHint",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelSellOrder",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "disableTokenPair",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "enableTokenPair",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "tickIsRunning",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "getEmergentPrice",
+      "outputs": [
+        {
+          "name": "emergentPrice",
+          "type": "uint256"
+        },
+        {
+          "name": "lastBuyMatchId",
+          "type": "uint256"
+        },
+        {
+          "name": "lastBuyMatchAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "lastSellMatchId",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        }
+      ],
+      "name": "getTickStage",
+      "outputs": [
+        {
+          "name": "stage",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_baseToken",
+          "type": "address"
+        },
+        {
+          "name": "_secondaryToken",
+          "type": "address"
+        },
+        {
+          "name": "_priceComparisonPrecision",
+          "type": "uint256"
+        },
+        {
+          "name": "_initialPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "addTokenPair",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
