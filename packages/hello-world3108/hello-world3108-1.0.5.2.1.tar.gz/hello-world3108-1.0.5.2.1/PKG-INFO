@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: hello-world3108
+Version: 1.0.5.2.1
+Summary: Python API for Automated ML
+Home-page: http://autoneuro.ml
+Author: iNeuron
+Author-email: 
+Maintainer: iNeuron
+Maintainer-email: support@iNeuron.com
+License: MIT
+Project-URL: Documentation, https://github.com/nabeelfahmi12/AutoNeuro-Documentation
+Project-URL: Source Code, https://github.com/viratsagar/Autoneuro
+Description: # Hello to World by sandhya
+        
+        A Python package to say hello to everyone
+        You can read **[Detailed Documentation](https://github.com/sandmadh/projectWork)** here.
+        
+         please visit our website for more details
+        This program is simple to use
+        
+        am trying to add new version here to check the commands
+        
+        ## Usage
+        
+        say_hello(name)
+        
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers 
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development 
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: examples
+Provides-Extra: examples_unix
