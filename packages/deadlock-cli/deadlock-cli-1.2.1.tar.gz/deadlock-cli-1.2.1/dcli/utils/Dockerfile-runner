@@ -1,0 +1,6 @@
+FROM registry.e-biz.fr/apuret/deadlock-public/runner:1.0-SNAPSHOT
+
+COPY run.sh .
+RUN chmod u+x run.sh
+
+ENTRYPOINT ["/bin/sh", "-c", "./run.sh \"$@\"", "--"]

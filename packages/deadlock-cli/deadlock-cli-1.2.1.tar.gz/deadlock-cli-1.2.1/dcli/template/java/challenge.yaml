@@ -1,0 +1,14 @@
+version: 1.0
+name: {{ name }}
+label: {{ label }}
+description: {{ description }}
+level: {{ level }}
+type: CODING
+xp:
+  java: 1
+  programming: 1
+coding:
+  templateDirectory: src/main/java/template
+  successDirectory: src/main/java/success
+  target: {{ targetFile }}.java
+  editorMode: java
