@@ -1,0 +1,28 @@
+.slider,
+.slider-inset,
+.slider-overlay {
+    stroke-linecap: round;
+}
+
+.ticks {
+    pointer-events: none;
+}
+
+.slider {
+    stroke-width: 10px;
+}
+
+.slider-inset {
+    stroke: #d5eaf4;
+    opacity: 0.8;
+    stroke-width: 20px;
+}
+
+.slider-overlay {
+    pointer-events: stroke;
+    cursor: pointer;
+}
+
+.handle {
+    fill: #243746;
+}

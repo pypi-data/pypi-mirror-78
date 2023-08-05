@@ -1,0 +1,105 @@
+name: webviz-subsurface-components
+
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+  release:
+    types:
+      - published
+  schedule:
+    # Run CI daily and check that tests are working with latest dependencies
+    - cron:  '0 0 * * *'
+
+jobs:
+  webviz-subsurface-components:
+    # Run on all events defined above, except pushes which are neither to master nor with a substring [deploy test] in commit message
+    if: github.event_name != 'push' || github.ref == 'refs/heads/master' || contains(github.event.head_commit.message, '[deploy test]')
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.6', '3.7', '3.8']
+
+    steps:
+      - name: 📖 Checkout commit locally
+        uses: actions/checkout@v2
+
+      - name: 🐍 Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: 📦 Install build dependencies
+        run: |
+          npm ci --ignore-scripts
+          npm run postinstall
+          pip install .[dependencies]
+          pip install dash[dev]
+  
+      - name: 🏗️ Build JavaScript part
+        run: |
+          npm run build
+
+      - name: 📦 Install webviz-subsurface-components with dependencies
+        run: |
+          pip install --upgrade pip
+          pip install .
+
+      - name: 📦 Install test dependencies
+        run: |
+          pip install .[tests]
+          pip install dash[testing]
+          wget https://chromedriver.storage.googleapis.com/$(wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE -q -O -)/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+  
+      - name: 🧾 List all installed packages
+        run: pip freeze
+
+      - name: 🕵️ Check code style & linting
+        run: |
+          npm run linting
+          black --check webviz_subsurface_components tests setup.py
+          bandit -r -c ./bandit.yml webviz_subsurface_components tests setup.py
+
+      - name: 🤖 Run tests
+        run: |
+          npm run test
+          pytest ./tests --headless
+        
+      - name: 🚢 Build and deploy Python package
+        if: github.event_name == 'release' && matrix.python-version == '3.6'
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.pypi_webviz_token }}
+        run: |
+          export SETUPTOOLS_SCM_PRETEND_VERSION=${GITHUB_REF//refs\/tags\//}
+          python -m pip install --upgrade setuptools wheel twine
+          python setup.py sdist bdist_wheel
+          twine upload dist/*
+
+      - name: 📚 Build demo application
+        run: npm run build:js-demo
+
+      - name: 📚 Update GitHub demo application
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || contains(github.event.head_commit.message, '[deploy test]')) && matrix.python-version == '3.6'
+        run: |
+          cp ./{index.html,output.css,output.js} ..
+
+          git config --local user.email "webviz-github-action"
+          git config --local user.name "webviz-github-action"
+          git fetch origin gh-pages
+          git checkout --track origin/gh-pages
+          git clean -f -f -d -x
+          git rm -r --ignore-unmatch *
+
+          mv ../{index.html,output.css,output.js} .
+
+          git add .
+
+          if git diff-index --quiet HEAD; then
+            echo "No changes in documentation. Skip documentation deploy."
+          else
+            git commit -m "Update Github Pages"
+            git push "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
+          fi
