@@ -1,0 +1,14 @@
+# vi: ft=dosini
+log_file = log
+log_level = info
+use_keyring = True
+pretty_print = True
+history_max = 10000
+auto_save_session = True
+auto_load_session = False
+kibana_dir =
+load_api_specs = True
+load_extension = True
+extension_path =
+
+swap_colour = False
