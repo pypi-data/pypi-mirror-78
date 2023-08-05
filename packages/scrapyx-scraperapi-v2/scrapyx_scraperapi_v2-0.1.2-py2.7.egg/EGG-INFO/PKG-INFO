@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: scrapyx-scraperapi-v2
+Version: 0.1.2
+Summary: Scrapy scraperapi Proxy: scraperapi interfacing middleware for Scrapy
+Home-page: https://github.com/tubndgit/scrapyx-scraperapi-v2
+Author: Henry B.
+Author-email: tubnd.younet@gmail.com
+License: MIT
+Download-URL: https://github.com/tubndgit/scrapyx-scraperapi-v2/archive/master.zip
+Description: # scrapyx-scraperapi-proxy
+        
+        Scraper API middleware for Scrapy (http://scrapy.org/)
+        =======================================================
+        
+        Processes Scrapy requests a man in the middle proxy service using https://www.scraperapi.com
+        
+        
+        Required
+        --------
+        
+            python version >= 2.7
+        
+        
+        Install
+        --------
+        
+        Checkout the source and run
+        
+            python setup.py install
+        
+        Or
+        
+            pip install scrapyx-scraperapi-v2
+            
+        
+        settings.py
+        -----------
+        
+            # Activate the middleware
+            SCRAPERAPI_ENABLED = True
+            
+            # The API key 
+            SCRAPERAPI_KEY='your API key'
+        
+            # JS Redering 
+            SCRAPERAPI_RENDER = False
+        
+            # Premium account
+            SCRAPERAPI_PREMIUM = False
+        
+            # Geographic Location
+            # 'US', 'UK', ...
+            SCRAPERAPI_COUNTRY_CODE = ''
+        
+            DOWNLOADER_MIDDLEWARES = {
+                'scrapyx_scraperapi_v2.ScraperApiV2ProxyMiddleware': 610,
+            }
+        
+        
+        
+Platform: UNKNOWN
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
