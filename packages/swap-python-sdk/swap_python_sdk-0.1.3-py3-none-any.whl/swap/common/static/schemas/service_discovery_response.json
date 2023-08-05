@@ -1,0 +1,105 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "description": "Main data container",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "dataset": {
+                        "type": "object",
+                        "description": "Supported input and output data types",
+                        "properties": {
+                            "input": {
+                                "type": "string",
+                                "description": "Supported input data type"
+                            },
+                            "output": {
+                                "type": "string",
+                                "description": "Supported output data type"
+                            }
+                        }
+                    },
+                    "icon": {
+                        "type": "object",
+                        "description": "Icon details for the service",
+                        "properties": {
+                            "base64": {
+                                "type": "string",
+                                "description": "Base64 encoded string of the icon"
+                            },
+                            "url": {
+                                "type": "string",
+                                "description": "URL of icon"
+                            }
+                        }
+                    },
+                    "service": {
+                        "type": "object",
+                        "description": "Service details",
+                        "properties": {
+                            "catalogue_uuid": {
+                                "type": "string",
+                                "description": "A UUID for the offered service. Provided by vendors"
+                            },
+                            "service_description": {
+                                "type": "string",
+                                "description": "A user-friendly description of the offered service. Provided by vendors"
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "A user-friendly specific name of the offered service. Provided by vendors"
+                            },
+                            "parameters": {
+                                "type": "object",
+                                "description": "Parameters that can be passed to the service",
+                                "properties": {
+                                    "properties": {
+                                        "type": "object",
+                                        "patternProperties": {
+                                            "^.*$": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "options": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "title": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                }
+                            },
+                            "service_description": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "vendor": {
+                        "service_provider_name": {
+                            "type": "string"
+                        },
+                        "service_provider_signature": {
+                            "type": "string"
+                        },
+                        "service_provider_uuid": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": ["data"]
+}
