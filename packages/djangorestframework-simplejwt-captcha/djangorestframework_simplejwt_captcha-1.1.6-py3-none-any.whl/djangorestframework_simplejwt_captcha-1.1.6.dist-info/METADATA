@@ -1,0 +1,130 @@
+Metadata-Version: 2.1
+Name: djangorestframework-simplejwt-captcha
+Version: 1.1.6
+Summary: A minimal JSON Web Token
+Home-page: https://github.com/SimpleJWT/django-rest-framework-simplejwt
+Author: juks9527
+Author-email: 15507925675xiao@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Django
+Requires-Dist: captcha
+Requires-Dist: djangorestframework
+Requires-Dist: pyjwt
+Requires-Dist: Pillow
+Provides-Extra: dev
+Requires-Dist: bumpversion (<1,>=0.5.3) ; extra == 'dev'
+Requires-Dist: pytest-watch ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: ipython ; extra == 'dev'
+Requires-Dist: cryptography ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-django ; extra == 'dev'
+Requires-Dist: pytest-xdist ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: tox ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: pep8 ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: Sphinx (<2,>=1.6.5) ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme (>=0.1.9) ; extra == 'dev'
+Requires-Dist: python-jose (==3.0.0) ; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: Sphinx (<2,>=1.6.5) ; extra == 'doc'
+Requires-Dist: sphinx-rtd-theme (>=0.1.9) ; extra == 'doc'
+Provides-Extra: lint
+Requires-Dist: flake8 ; extra == 'lint'
+Requires-Dist: pep8 ; extra == 'lint'
+Requires-Dist: isort ; extra == 'lint'
+Provides-Extra: python-jose
+Requires-Dist: python-jose (==3.0.0) ; extra == 'python-jose'
+Provides-Extra: test
+Requires-Dist: cryptography ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-django ; extra == 'test'
+Requires-Dist: pytest-xdist ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: tox ; extra == 'test'
+
+# Simple JWT
+
+![License](https://img.shields.io/badge/license-Apache%202-blue)
+
+
+## Abstract
+
+
+Simple JWT is a JSON Web Token authentication plugin for the Django REST
+
+Framework ![http://www.django-rest-framework.org/]()
+
+For full documentation, visit django-rest-framework-simplejwt.readthedocs.io
+![https://django-rest-framework-simplejwt.readthedocs.io/en/latest/]()
+
+
+二次开发的Simple JWT
+## Installation
+
+You can use this command to install this package:
+
+
+```markdown
+pip3 install djangorestframework_simplejwt_captcha
+```
+
+
+
+## Usage
+
+
+```markdown
+from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView,ImageInfo
+
+urlpatterns = [
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/images_captcha/',ImageInfo.as_view(), name='images_captcha'),
+
+]
+```
+
+- api/images_captcha 是获取图片base64和uuid
+- api/token/是登录获取jwt
+
+```markdown
+传入4个参数
+- username
+- password
+- uuid          # 获取上一个api 的uuid
+- captcha       # 图片验证码
+```
+
+- api/token/refresh     刷新token
+
+
+
+
+## For more information, see here
+### 验证码有效期是120秒
+
+![https://github.com/SimpleJWT/django-rest-framework-simplejwt/issues/207]()
+
+
+
+
+
