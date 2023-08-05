@@ -1,0 +1,457 @@
+{
+    "channels": [
+        {
+            "streams": [
+                "http://live.alsace20.fr/live/alsace20/ngrp:alsace20_all/playlist.m3u8"
+            ],
+            "name": "alsace 20",
+            "aliases": [
+                "alsace 20"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://bfmbusisecure-i.akamaihd.net/hls/live/265375/876450612001/BFMBusinessS/video_1/video_1.m3u8"
+            ],
+            "name": "bfm business",
+            "aliases": [
+                "bfm business"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://bfmparishdslive-lh.akamaihd.net/i/BFMPARIS_KB@429747/master.m3u8"
+            ],
+            "name": "bfm paris",
+            "aliases": [
+                "bfm paris"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://biptv.tv/live/biptvstream_orig/index.m3u8"
+            ],
+            "name": "biptv",
+            "aliases": [
+                "biptv"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://live.creacast.com/d5tv/smil:d5tv.smil/playlist.m3u8"
+            ],
+            "name": "d5 tv",
+            "aliases": [
+                "d5 tv"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://dbmtv.vedge.infomaniak.com/livecast/smil:dbmtv.smil/manifest.m3u8"
+            ],
+            "name": "dbm",
+            "aliases": [
+                "dbm"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://fash1043.cloudycdn.services/slive/_definst_/ftv_ftv_pg16_d9y_27042_ftv_pg16_194_hls.smil/chunklist.m3u8",
+                "https://a.jsrdn.com/broadcast/ftv2_2/-0800/c.m3u8",
+                "http://fash1043.cloudycdn.services/slive/_definst_/ftv_ftv_pg16_d9y_27042_ftv_pg16_194_hls.smil/chunklist.m3u8",
+                "https://a.jsrdn.com/broadcast/ftv2_1/-0800/c.m3u8"
+            ],
+            "name": "fashion tv l'original",
+            "aliases": [
+                "fashion tv l'original"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://fash1043.cloudycdn.services/slive/_definst_/ftv_midnite_secrets_adaptive.smil/playlist.m3u8",
+                "https://fash1043.cloudycdn.services/slive/_definst_/ftv_ftv_midnite_k1y_27049_midnite_secr_108_hls.smil/chunklist.m3u8"
+            ],
+            "name": "fashion tv midnite secrets",
+            "aliases": [
+                "fashion tv midnite secrets"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://fash1043.cloudycdn.services/slive/_definst_/ftv_ftv_paris_pg_4dg_27027_paris_pg18_188_hls.smil/playlist.m3u8",
+                "https://fash1043.cloudycdn.services/slive/_definst_/ftv_paris_adaptive.smil/playlist.m3u8"
+            ],
+            "name": "fashion tv paris",
+            "aliases": [
+                "fashion tv paris"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://fash1043.cloudycdn.services/slive/_definst_/ftv_ftv_pg13_zw9_27065_ftv_pg13_196_hls.smil/playlist.m3u8"
+            ],
+            "name": "fashion tv pg13",
+            "aliases": [
+                "fashion tv pg13"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://fash1043.cloudycdn.services/slive/_definst_/ftv_pg16_adaptive.smil/media.m3u8",
+                "https://fash1043.cloudycdn.services/slive/ftv_pg16_adaptive.smil/playlist.m3u8",
+                "https://fash1043.cloudycdn.services/slive/_definst_/ftv_ftv_pg16_d9y_27042_ftv_pg16_194_hls.smil/playlist.m3u8",
+                "http://fash1043.cloudycdn.services/slive/_definst_/ftv_pg16_adaptive.smil/media.m3u8",
+                "https://dstroscal1.s.llnwi.net/ftv/ftv_pg16_adaptive_v3.smil/playlist.m3u8"
+            ],
+            "name": "fashion tv pg16",
+            "aliases": [
+                "fashion tv pg16"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://static.france24.com/live/F24_AR_LO_HLS/live_web.m3u8",
+                "https://static.france24.com/live/F24_AR_HI_HLS/live_tv.m3u8"
+            ],
+            "name": "france 24 arabic",
+            "aliases": [
+                "france 24 arabic"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://f24hls-i.akamaihd.net/hls/live/221147/F24_EN_HI_HLS/master.m3u8",
+                "https://static.france24.com/live/F24_EN_HI_HLS/live_web.m3u8",
+                "https://static.france24.com/live/F24_EN_LO_HLS/live_web.m3u8"
+            ],
+            "name": "france 24 english",
+            "aliases": [
+                "france 24 english"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://static.france24.com/live/F24_FR_HI_HLS/live_tv.m3u8"
+            ],
+            "name": "france 24 french",
+            "aliases": [
+                "france 24 french"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://mv2.tvfrancophonie.org/live/Stream1/media_b776739_w671289549.m3u8"
+            ],
+            "name": "francophonie",
+            "aliases": [
+                "francophonie"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://ott-cdn.ucom.am/s30/index.m3u8"
+            ],
+            "name": "ftv",
+            "aliases": [
+                "ftv"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://live.creacast.com/grandlilletv/smil:grandlilletv.smil/chunklist.m3u8"
+            ],
+            "name": "grand lille tv",
+            "aliases": [
+                "grand lille tv"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://dcunilive47-lh.akamaihd.net/i/dclive_1@739146/master.m3u8"
+            ],
+            "name": "holygod tv europe & middle east",
+            "aliases": [
+                "holygod tv europe & middle east"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://str81.creacast.com/iltv/high/playlist.m3u8"
+            ],
+            "name": "iltv",
+            "aliases": [
+                "iltv"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://livehdkto-lh.akamaihd.net/i/LiveStream_1@178944/master.m3u8"
+            ],
+            "name": "kto",
+            "aliases": [
+                "kto"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://live.lachainenormande.fr/live/lcn/livestream/playlist.m3u8",
+                "http://live.lachainenormande.fr:80/live/lcn/livestream/playlist.m3u8"
+            ],
+            "name": "la chaine normande tv",
+            "aliases": [
+                "la chaine normande tv"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://livetvsteam.com:1935/leeeko/leeeko/playlist.m3u8"
+            ],
+            "name": "lèeekô tv",
+            "aliases": [
+                "lèeekô tv"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://ott-cdn.ucom.am/s49/index.m3u8"
+            ],
+            "name": "mcm top",
+            "aliases": [
+                "mcm top"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://ott-cdn.ucom.am/s35/index.m3u8"
+            ],
+            "name": "mezzo",
+            "aliases": [
+                "mezzo"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://live.creacast.com/mycomedy/smil:mycomedy.smil/playlist.m3u8"
+            ],
+            "name": "mycomedy",
+            "aliases": [
+                "mycomedy"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://51.15.193.156/hls/stream.m3u8"
+            ],
+            "name": "persiana 2 cinema",
+            "aliases": [
+                "persiana 2 cinema"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://51.158.74.129/hls/stream.m3u8"
+            ],
+            "name": "persiana 3 junior",
+            "aliases": [
+                "persiana 3 junior"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://51.158.97.214/hls/stream.m3u8"
+            ],
+            "name": "persiana 4 iranian",
+            "aliases": [
+                "persiana 4 iranian"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://163.172.174.60/hls/stream.m3u8"
+            ],
+            "name": "persiana 5 documentary",
+            "aliases": [
+                "persiana 5 documentary"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://163.172.147.113/hls/stream.m3u8"
+            ],
+            "name": "persiana 6 music",
+            "aliases": [
+                "persiana 6 music"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://51.15.193.127/hls/stream.m3u8"
+            ],
+            "name": "poker tv arabia",
+            "aliases": [
+                "poker tv arabia"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://51.15.254.60/hls/stream.m3u8"
+            ],
+            "name": "poker tv france",
+            "aliases": [
+                "poker tv france"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://contact-lh.akamaihd.net/i/CONTACT_1@321283/master.m3u8"
+            ],
+            "name": "radio contact",
+            "aliases": [
+                "radio contact"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://rmc2hdslive-lh.akamaihd.net/i/DVMR_RMC@167269/master.m3u8"
+            ],
+            "name": "rmc",
+            "aliases": [
+                "rmc"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://rt-france.secure.footprint.net/1107.m3u8?streamType=live"
+            ],
+            "name": "rt france",
+            "aliases": [
+                "rt france"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://51.158.116.146/hls/stream.m3u8"
+            ],
+            "name": "salamat tube tv",
+            "aliases": [
+                "salamat tube tv"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://tv5styleen-i.akamaihd.net/hls/live/631650/tv5styleen/index.m3u8"
+            ],
+            "name": "tv5 style",
+            "aliases": [
+                "tv5 style"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://v3plusinfo247hls-i.akamaihd.net/hls/live/218877/v3plusinfo247hls/index.m3u8"
+            ],
+            "name": "tv5monde info",
+            "aliases": [
+                "tv5monde info"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "https://tv5pacifiqueen-i.akamaihd.net/hls/live/630175-b/tv5pacifiqueen/master.m3u8"
+            ],
+            "name": "tv5monde pacifique",
+            "aliases": [
+                "tv5monde pacifique"
+            ],
+            "country": "france",
+            "lang": "fr"
+        },
+        {
+            "streams": [
+                "http://streamcast.oc3n.net:1935/TVPI/myStream700.sdp/live.m3u8"
+            ],
+            "name": "tvpi",
+            "aliases": [
+                "tvpi"
+            ],
+            "country": "france",
+            "lang": "fr"
+        }
+    ]
+}
