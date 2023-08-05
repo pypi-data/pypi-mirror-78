@@ -1,0 +1,22 @@
+1.1.0
+------------------
+- Add 'get_url_download' method
+- Remove calls to deprecated methods
+- Remove 'coverage' usage during tests
+
+1.0.3
+------------------
+- Trigger native 'input' and 'change' events when programatically setting value
+- Remove leftover print() statement
+
+1.0.2
+------------------
+- Support for Django 3.0
+
+1.0.1
+------------------
+- Incoperate django_force_login method from django-selenium-login 
+
+1.0.0
+------------------
+- Complete clean rebranding
