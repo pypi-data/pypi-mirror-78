@@ -1,0 +1,10 @@
+---
+- include_tasks: 'default.yml'
+- name: Install RPM teleport
+  become: yes
+  yum:
+    name: https://get.gravitational.com/teleport-4.3.5-1.x86_64.rpm
+    state: present
+  when: "'teleport' not in ansible_facts.packages"
+- name: Add /usr/local/bin to secure_path for sudo command
+  shell: echo "Defaults secure_path += /usr/local/bin:/bin" > /etc/sudoers.d/teleport_path

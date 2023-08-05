@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+    - name: "Make sure we have a '{{user_name}}' group"
+      group:
+        name: "{{user_name}}"
+        state: present
+    - name: Allow '{{user_name}}' group to have sudo
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: '^%{{user_name}}'
+        line: '%{{user_name}} ALL=(ALL) NOPASSWD:ALL'
+        validate: 'visudo -cf %s'
+    - name: "Add sudoers users to {{user_name}} group"
+      user: "name={{user_name}} groups={{user_name}} append=yes state=present createhome=yes"

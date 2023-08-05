@@ -1,0 +1,14 @@
+---
+- name: Install required packages
+  package:
+    name:
+      - git
+      - sudo
+      - vim
+    state: present
+- name: get the package facts
+  package_facts:
+    manager: "auto"
+- name: Set locale
+  shell: localectl set-locale LANG=fr_FR.UTF-8
+  ignore_errors: True # Because it does not work on docker
