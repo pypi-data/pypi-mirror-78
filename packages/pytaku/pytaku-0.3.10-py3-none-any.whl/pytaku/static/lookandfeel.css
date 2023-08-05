@@ -1,0 +1,128 @@
+:root {
+  --btn-red: #ef4f39;
+  --btn-red-bottom: #b94434;
+  --btn-green: #3ba60a;
+  --btn-green-bottom: #338a0d;
+  --btn-blue: #009ee8;
+  --btn-blue-bottom: #26789f;
+  --btn-gray: #444;
+  --btn-gray-bottom: #555;
+  --bg-black: #231f20;
+  --border-radius: 3px;
+  --body-padding: 0.5rem;
+
+  font-size: 100%;
+  font-family: "Ubuntu", sans-serif;
+  overflow-y: scroll;
+  line-height: 1.2rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+table {
+  border-collapse: collapse;
+}
+td,
+th {
+  border: 1px solid black;
+  padding: 0.5em;
+}
+tr:nth-child(even) {
+  background-color: #eee;
+}
+th {
+  background-color: #777;
+  color: white;
+}
+
+input {
+  padding: 0.3rem;
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+button,
+a.touch-friendly {
+  user-select: none;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: bottom;
+  cursor: pointer;
+  border: 0;
+  padding: 0.5rem 1rem 0.3rem 1rem;
+  border-radius: var(--border-radius);
+}
+button {
+  color: white;
+  background-color: var(--btn-gray);
+  border-bottom: 4px solid var(--btn-gray-bottom);
+}
+button > *,
+a.touch-friendly > * {
+  margin-right: 0.3rem;
+}
+button > *:last-child,
+a.touch-friendly > *:last-child {
+  margin-right: 0;
+}
+button:hover {
+  filter: brightness(110%);
+}
+button:active {
+  filter: brightness(90%);
+}
+button:focus {
+  box-shadow: 0 0 2px black;
+}
+button.red {
+  background-color: var(--btn-red);
+  border-bottom: 4px solid var(--btn-red-bottom);
+}
+button.green {
+  background-color: var(--btn-green);
+  border-bottom: 4px solid var(--btn-green-bottom);
+}
+button.blue {
+  background-color: var(--btn-blue);
+  border-bottom: 4px solid var(--btn-blue-bottom);
+}
+button[disabled],
+button[disabled]:hover,
+button[disabled]:active {
+  background-color: #aaa;
+  border-bottom: 4px solid #aaa;
+  filter: none;
+  cursor: default;
+  opacity: 0.5;
+  color: #222;
+}
+a.touch-friendly {
+  background-color: white;
+  color: black;
+  border: 1px solid #aaa;
+  text-decoration: none;
+  border-bottom: 4px solid grey;
+}
+a.touch-friendly:hover {
+  background-color: #eee;
+}
