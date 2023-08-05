@@ -1,0 +1,11 @@
+[run]
+branch = True
+omit =
+	setup.py
+
+[report]
+exclude_lines =
+	assert
+	pragma: no cover
+	pragma: postgres
+	pragma: django < 3.1
