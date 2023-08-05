@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: scmdata
+Version: 0.6.4
+Summary: Data handling for simple climate model data
+Home-page: https://github.com/openscm/scmdata
+Author: Jared Lewis, Zeb Nicholls
+Author-email: jared.lewis@climate-energy-college.org, zebedee.nicholls@climate-energy-college.org
+License: 3-Clause BSD License
+Project-URL: Bug Reports, https://github.com/openscm/scmdata/issues
+Project-URL: Documentation, https://scmdata.readthedocs.io/en/latest
+Project-URL: Source, https://github.com/openscm/scmdata
+Keywords: data,simple climate model,climate,scm
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/x-rst
+Requires-Dist: cftime
+Requires-Dist: numpy
+Requires-Dist: openscm-units
+Requires-Dist: pandas (>=1.0.4)
+Requires-Dist: pint-pandas (==0.1.0)
+Requires-Dist: python-dateutil
+Requires-Dist: xarray
+Provides-Extra: deploy
+Requires-Dist: twine (>=1.11.0) ; extra == 'deploy'
+Requires-Dist: setuptools (>=41.2) ; extra == 'deploy'
+Requires-Dist: wheel (>=0.31.0) ; extra == 'deploy'
+Provides-Extra: dev
+Requires-Dist: bandit ; extra == 'dev'
+Requires-Dist: black (==19.10b0) ; extra == 'dev'
+Requires-Dist: black-nb ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: isort (>=5) ; extra == 'dev'
+Requires-Dist: nbdime ; extra == 'dev'
+Requires-Dist: notebook ; extra == 'dev'
+Requires-Dist: pydocstyle ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: scipy ; extra == 'dev'
+Requires-Dist: netCDF4 ; extra == 'dev'
+Requires-Dist: xlrd ; extra == 'dev'
+Requires-Dist: seaborn ; extra == 'dev'
+Requires-Dist: codecov ; extra == 'dev'
+Requires-Dist: nbval ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest (<6,>=5.0.0) ; extra == 'dev'
+Requires-Dist: sphinx (>2.1) ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Requires-Dist: twine (>=1.11.0) ; extra == 'dev'
+Requires-Dist: setuptools (>=41.2) ; extra == 'dev'
+Requires-Dist: wheel (>=0.31.0) ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx (>2.1) ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Provides-Extra: notebooks
+Requires-Dist: notebook ; extra == 'notebooks'
+Requires-Dist: seaborn ; extra == 'notebooks'
+Requires-Dist: netCDF4 ; extra == 'notebooks'
+Requires-Dist: xlrd ; extra == 'notebooks'
+Provides-Extra: optional
+Requires-Dist: netCDF4 ; extra == 'optional'
+Requires-Dist: xlrd ; extra == 'optional'
+Provides-Extra: plotting
+Requires-Dist: seaborn ; extra == 'plotting'
+Provides-Extra: tests
+Requires-Dist: codecov ; extra == 'tests'
+Requires-Dist: nbval ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+Requires-Dist: pytest (<6,>=5.0.0) ; extra == 'tests'
+Requires-Dist: seaborn ; extra == 'tests'
+Requires-Dist: netCDF4 ; extra == 'tests'
+Requires-Dist: xlrd ; extra == 'tests'
+
+scmdata
+=======
+
+.. sec-begin-index
+
+**scmdata** provides some useful data handling routines for dealing with data related to simple climate models (SCMs aka reduced complexity climate models, RCMs).
+In particular, it provides a high-performance way of handling and serialising (including to netCDF) timeseries data along with attached metadata.
+**scmdata** was inspired by `pyam <https://github.com/IAMconsortium/pyam>`_ and was originally part of the `openscm <https://github.com/openscm/openscm>`_ package.
+
+.. sec-end-index
+
+.. sec-begin-license
+
+License
+-------
+
+**scmdata** is free software under a BSD 3-Clause License, see `LICENSE <https://github.com/openscm/license/blob/master/LICENSE>`_.
+
+.. sec-end-license
+
