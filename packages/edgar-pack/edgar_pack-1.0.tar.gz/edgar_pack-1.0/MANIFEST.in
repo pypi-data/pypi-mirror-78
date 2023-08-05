@@ -1,0 +1,3 @@
+graft edgar_pack
+global-exclude *.py[cod] __pycache__ *.so *.ipynb
+recursive-exclude  edgar_pack/jupy *
