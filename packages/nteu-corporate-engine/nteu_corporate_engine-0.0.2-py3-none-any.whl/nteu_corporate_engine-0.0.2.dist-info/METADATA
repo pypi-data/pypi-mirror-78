@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: nteu-corporate-engine
+Version: 0.0.2
+Summary: NTEU corporate translation engine
+Home-page: https://github.com/Pangeamt/nteu-corporate-engine
+Author: PangeaMT
+Author-email: a.cerda@pangeanic.es
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: aiohttp (==3.6.2)
+Requires-Dist: click
+Requires-Dist: pangeamt-nlp
+Requires-Dist: PyYAML
+Requires-Dist: uvloop
+
+UNKNOWN
+
+
