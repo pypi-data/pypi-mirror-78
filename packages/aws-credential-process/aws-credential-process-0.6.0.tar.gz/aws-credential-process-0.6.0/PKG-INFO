@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: aws-credential-process
+Version: 0.6.0
+Summary: AWS Credential Process
+Home-page: https://github.com/meeuw/aws-credential-process
+Keywords: AWS,MFA,keyring,keychain,yubikey
+Author: Dick Marinus
+Author-email: dick@mrns.nl
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: boto3 (>=1.11,<2.0)
+Requires-Dist: click (>=7.1,<8.0)
+Requires-Dist: keyring (>=21.3,<22.0)
+Requires-Dist: pynentry (>=0.1.3,<0.2.0)
+Requires-Dist: yubikey-manager (==3.1.1)
+Project-URL: Repository, https://github.com/meeuw/aws-credential-process
+Description-Content-Type: text/markdown
+
+# Description
+Script to use as `credential_process` for the AWS CLI (including boto3), it caches your MFA session in a keyring and can use a Yubi key to authenticate.
+
+# Installing
+You can install aws-credential-process using pip:
+```bash
+pip install aws_credential_process
+```
+
+I recommend to install aws-credential-process in a virtualenv:
+```bash
+virtualenv ~/venv/aws_credential_process
+~/venv/aws_credential_process/bin/pip install aws_credential_process
+```
+
+After the above commands you should be able to run `~/venv/aws_credential_process/bin/aws-credential-process`
+
+# Usage
+
+You can use the following arguments to start aws-credential-process:
+```
+Usage: aws-credential-process [OPTIONS]
+
+  Get output suitable for aws credential process
+
+Options:
+  --access-key-id TEXT
+  --secret-access-key TEXT
+  --mfa-oath-slot TEXT
+  --mfa-serial-number TEXT        [required]
+  --mfa-session-duration INTEGER
+  --assume-session-duration INTEGER
+  --assume-role-arn TEXT
+  --force-renew
+  --credentials-section TEXT
+  --help                          Show this message and exit.
+```
+
+aws-credential-process is meant to be used as `credential_process` in your `.aws/config` file. For example:
+```
+[profile yourprofile]
+credential_process = /home/user/venv/aws_credential_process/bin/aws-credential-process --oath-slot "Amazon Web Services:test@example.com" --serial-number arn:aws:iam::123456789012:mfa/john.doe --role-arn arn:aws:iam::123456789012:role/YourRole
+```
+
+If you've supplied the secret-access-key once you can omit it with the next call, it will be cached in your keyring.
+
+When you don't supply the access-key-id it will be loaded from `~/.aws/credentials`. You can use another section than "default" by using the credentials-section argument.
+
