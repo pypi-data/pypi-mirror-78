@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: pulumi-aws-lambdaedge
+Version: 0.1.0
+Summary: Pulumi ComponentResource for create Lambda@Edge
+Home-page: https://github.com/jetbrains-infra/pulumi-aws-lambdaedge
+Author: Vadim Reyder
+Author-email: vadim.reyder@gmail.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pulumi (<3.0.0,>=2.0.0)
+Requires-Dist: pulumi-aws (<3.0.0,>=2.0.0)
+
+# pulumi-aws-lambdaedge
+Pulumi ComponentResource for create Lambda@Edge
+
+# How to install
+```bash
+pip install --upgrade pip
+pip install wheel
+pip install pulumi-aws-lambdaedge
+# or
+pip install git+git://github.com/jetbrains-infra/pulumi-aws-lambdaedge@<tag or branch>
+``` 
+
+# How to use
+```python
+import pulumi
+from pulumi_aws import Provider
+from pulumi_aws_lambdaedge import LambdaEdge
+
+us_provider = Provider('us-east-1-provider', region='us-east-1')
+
+l = LambdaEdge('my-lambda',
+               stack=pulumi.get_stack(),
+               issue='sre-123',
+               runtime='nodejs12.x',
+               handler='index.handler',
+               lambda_archive=pulumi.asset.FileArchive('./lambda'),
+               memory_size_mb=128,
+               timeout=5,
+               opts=pulumi.ResourceOptions(provider=us_provider))
+
+pulumi.export('lambda-arn', l.lambda_edge.arn)
+```
+
