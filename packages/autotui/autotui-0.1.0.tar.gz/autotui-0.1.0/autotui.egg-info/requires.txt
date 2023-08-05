@@ -1,0 +1,9 @@
+simplejson>=3.17
+prompt_toolkit>=3.0
+
+[optional]
+dateparser
+
+[testing]
+pytest
+mypy
