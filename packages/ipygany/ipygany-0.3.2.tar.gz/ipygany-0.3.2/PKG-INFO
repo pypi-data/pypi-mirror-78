@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: ipygany
+Version: 0.3.2
+Summary: Scientific Visualization in Jupyter
+Home-page: https://github.com/martinRenou/ipygany
+Author: Martin Renou
+Author-email: martin.renou@gmail.com
+License: BSD
+Description: UNKNOWN
+Keywords: Jupyter,Widgets,IPython
+Platform: Linux
+Platform: Mac OS X
+Platform: Windows
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Framework :: Jupyter
+Provides-Extra: test
+Provides-Extra: examples
+Provides-Extra: docs
