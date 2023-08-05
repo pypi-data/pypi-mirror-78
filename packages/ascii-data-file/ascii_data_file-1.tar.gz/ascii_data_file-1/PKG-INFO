@@ -1,0 +1,103 @@
+Metadata-Version: 2.1
+Name: ascii_data_file
+Version: 1
+Summary: Python commented file reader
+Home-page: https://gitlab.in2p3.fr/gregoire.henning/ascii_data_file
+Author: Greg Henning
+Author-email: ghenning@iphc.cnrs.fr
+License: UNKNOWN
+Description: **A module to access data in text formatted file**
+        
+        In data analysis, data is often stored in text formatted files, where values are written in columns on a text line.
+        
+        The file may containt comments, usually starting with `#`, unused or uniteresting columns or multiple files can contain data of intereste.
+        
+        Consequently, it maybe useful to be have a python shortcut to:
+        - read one or several files one after the other
+        - or put some files side by side (i.e. append the columns together)
+        - filter out commented or empty lines.
+        
+        This module provides one function that wraps around a file iterator, allowing the file(s) to be read as following :
+        
+        ```python
+        for one_line in data_file('myfile.txt', comment_prefix='#'):
+            print(one_line)
+        ```
+        
+        
+        ## Getting Started
+        
+        The following instructions will get you a copy of the project up and running on your local machine.
+        
+        ### Installing
+        
+        The module comes with no external dependency, and can easily be installed with the `distutils` tools of Python.
+        
+        Get the [`ascii_data_file.tar.gz`](dist/ascii_data_file-001.tar.gz) file. Then `cd` to the directory where the file was download and execute the following commands: 
+        
+        ```shell
+        tar xvvzf `ascii_data_file-001.tar.gz 
+        cd `ascii_data_file-001
+        python3 setup.py install
+        ```
+        
+        This will unpack, build, install and test the module.
+        
+        ## Testing
+        
+        You can test the library online with `pytest` 
+        
+        ## Dependencies
+        
+        The module is built with no dependencies.
+        
+        # Usage
+        
+        The `data_file` function is defined as follow:
+        
+        ```python
+        data_file(file_path: Union[str, Sequence[str]],
+                  returned_columns: Union[str, slice, Sequence[int]] = '*',
+                  comment_prefix: str = "#",
+                  separator: Union[None, str] = None,
+                  returned_type: type = float,
+                  multi_files_behavior: str = 'append',
+                  skip_empty_lines: bool = True,
+                  skip_error_lines: bool = True,
+                  error_line_warning: bool = True,
+                  error_line_error: bool = False) -> Generator
+        ```
+        It returns a generator filtering out commented lines
+        
+        The parameters are:
+        - `file_path` (str or list of str), required: the path to the file or files to open
+        - `returned columns` (`'*'` or slice or list of int), default = '`'*'`: select the columns to return. 
+                either `'*'` for all, a list of indices, or a slice.
+        - `comment_prefix` (str), default = "#": the characters to look for at the start of a commented line.
+        - `returned_type` (type), default = `float`: the type of data to return.
+        - `multi_files_behavior` (str), default = 'append': what to do when multiple files are given in input. 
+            either `append` or `side_by_side`
+        - `skip_empty_lines` (bool), default = True: wether to skip empty lines
+        - `skip_error_lines` (bool), default = True: wether to skip files with errorin the processing
+        - `error_line_warning` (bool), default = True: if error lines are not skipped, wether to issue a warning
+        - `error_line_error` (bool), default = True: if error lines are not skipped, wether to raise a RuntimeError when there is a problem reading the line.
+        
+        For example of usage, go see the [test_ascii_data_file.py](test_ascii_data_file.py) file in the repository.
+        
+        ## Authors
+        
+        * **Greg Henning** - ghenning&#8203;*.at.*&#8203;iphc&#x2024;cnrs&#x2024;fr
+        
+        
+        ## License
+        
+        This project is licensed under the CeCILL FREE SOFTWARE LICENSE AGREEMENT. 
+        
+        See [LICENSE](LICENSE) for more.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: CEA CNRS Inria Logiciel Libre License, version 2.1 (CeCILL-2.1)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
