@@ -1,0 +1,155 @@
+# pulse-data-extractor
+
+An ``easy``-button to take data out of Pulse. Downloads Pulse documents from
+Elasticsearch, and saves them to `.jsonl`, `.json`, `.pickle`, or `.csv` format.
+
+## Installation
+To install in an existing environment, run this command
+```
+pip install ist-pulse-data-extractor
+```
+
+To define as a project requirement, add the following line to `requirements.txt`:
+```
+ist-pulse-data-extractor
+```
+
+
+## Usage
+
+### `download`
+Performs a multi-process sliced query for documents in a Pulse Elasticsearch index.
+Saves the result to format specified by filename extension. Optional flattening of
+documents is available (use with caution).
+```
+from pulse.downloader import download
+```
+
+**Required Parameters**
+- **index**: Elasticsearch index
+- **query**: Elasticsearch query
+- **filepath**: Output filepath. File extension should match the desired output
+    format. Supported formats include:
+    - **.jsonl**: Fastest to download, suited for large datasets. Lowest
+                 memory overhead in downstream processes.
+    - **.json**: Standard, faster to load than .jsonl, but not suitable
+                for datasets that must be loaded into memory at once
+    - **.pkl**: Fastest to load if using result in Python script
+    - **.csv**: When consuming data with Excel or Pandas. Fields are
+                automatically flattened. Recommended to create a
+                separate post-processing script if some fields contain
+                data that can't be flattened automatically.
+- **es_hosts**: Not required if using `ES_URL` environment variable. 
+    A list of Elasticsearch hosts. Each item should be a fully-qualified URL 
+    with authentication if applicable. This overrides values that may exist in 
+    configuration. Example:  
+ 
+        https://elastic:password@node1.host.com:9200,https://elastic:password@node2.host.com:9200
+           
+**Options**  
+
+- **sample_size**: Maximum number of results to return (default=20000).
+- **fields**: A list of fields to return from Elasticsearch. Limiting the
+    amount of fields reduces download time.
+- **flatten_doc**: Flatten documents. Useful when working with data frames,
+    but has nuances. Use with caution.
+- **delimiter**: Delimiter to use when flattening fields
+- **include_meta_attribs**: Only applicable when flattening. When false,
+    all meta.*.attribs fields are discarded.
+- **no_flatten**: A list of fields that should not be flattened
+- **query_slice_size**: Maximum number of documents per slice (worker)
+- **query_concurrency**: Maximum number of queries to run concurrently
+- **auto_mkdir**: Automatically create output directory if it doesn't exist
+
+**Example**  
+
+```python
+from pulse.downloader import download
+
+download(
+        filepath="data/rohingya.jsonl",
+        sample_size=10000,
+        query={
+            "query": {
+                "bool": {
+                    "filter": [{
+                        "match_phrase": {
+                            "norm.body": "Rohingya"
+                        }
+                    }]
+                }
+            }
+        },
+        index='pulse-*',
+        es_hosts=[
+            "https://user:password@dag1.istresearch.com:9200",
+            "https://user:password@dag2.istresearch.com:9200",
+        ]
+    )
+```
+
+### `build_query`
+Builds an Elasticsearch query
+```
+from pulse.downloader import build_query
+```
+**Options**:
+
+- **start_date**: Date range start (eg. `2020-06-14` or `2020-06-14T12:00**:00.000Z`)
+- **end_date**: Date range end
+- **project_id**: Project ID
+- **campaign_id**: Campaign ID
+- **where_exists**: A list or tuple containing fields that should exist in 
+    each document
+- **where_not_exists**: A list or tuple containing fields that should not 
+    exist in each document
+- **include_match**: A mapping of fields to match queries. Returns documents 
+    that match a provided text, number, date or boolean value. The provided text 
+    is analyzed before matching. The match query is the standard query for 
+    performing a full-text search, including options for fuzzy matching.
+- **exclude_match**: A mapping of fields to match queries. Filters documents 
+    that match a provided text, number, date or boolean value.
+- **include_terms**: A mapping of fields to term queries. Returns documents 
+    that contain an exact term in a provided field.
+- **exclude_terms**: A mapping of fields to term queries. Filters documents 
+    that contain an exact term in a provided field.
+- **include_phrase**: A mapping of fields to match_phrase queries.The 
+    match_phrase query analyzes the text and creates a phrase query out of 
+    the analyzed text.
+- **exclude_phrase**: A mapping of fields to match_phrase queries. Excludes 
+    matching documents.
+- **doc_type**: Pulse document type
+- **timestamp_field**: Timestamp field to use for start_date and end_date
+- **query_string**: A prepared query string
+
+**Example**
+```python
+from pulse.downloader import build_query, download
+
+query = build_query(
+    include_phrase={
+       "norm.body": "Rohingya"
+    },
+)
+download(
+        filepath="data/rohingya.jsonl",
+        sample_size=10000,
+        query=query,
+        index='pulse-*',
+        es_hosts=[
+            "https://user:password@dag1.istresearch.com:9200",
+            "https://user:password@dag2.istresearch.com:9200",
+        ]
+    )
+```
+
+## Development
+
+To deploy a new version, follow the instructions in `deploy.sh`. Requires access
+to deployment credentials in Lastpass.
+
+
+
+
+
+

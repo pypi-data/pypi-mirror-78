@@ -1,0 +1,29 @@
+graft pulse
+
+include setup.py
+include LICENSE.txt
+include README.md
+include requirements.txt
+
+prune .git
+prune .circleci
+prune .pytest_cache
+prune build
+prune dist
+prune tmp
+prune venv
+prune node_modules
+prune test
+prune data
+prune scripts
+
+global-exclude *.sh
+global-exclude *.pypirc
+global-exclude *.pyc
+global-exclude *.env
+global-exclude *.json
+global-exclude *.csv
+global-exclude *.jsonl
+global-exclude *.pkl
+global-exclude *.pickle
+global-exclude .DS_Store
