@@ -1,0 +1,59 @@
+[build-system]
+requires = ["poetry>=1.0.0"]
+build-backend = "poetry.masonry.api"
+
+[tool.black]
+target-version = ["py36", "py37", "py38"]
+
+[tool.isort]
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+known_tests = "tests"
+sections = ["STDLIB", "THIRDPARTY", "FIRSTPARTY", "TESTS"]
+
+[tool.poetry]
+name = "teritorio"
+version = "1.1.0"
+description = "A library for country and currency ISO codes"
+authors = [
+    "Stephanos Kuma <spapanik21@gmail.com>",
+]
+
+license = "LGPL-3.0+"
+readme = "README.md"
+include = ["CHANGELOG.md"]
+
+repository = "https://github.com/spapanik/teritorio"
+
+keywords = ["iso", "currency", "country"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Financial and Insurance Industry",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6.0"
+
+dataclasses = { version = "^0.7.0", python = "~3.6" }
+
+[tool.poetry.dev-dependencies]
+black = {version = "*", allow-prereleases = true}
+isort = "^5.4.0"
+
+pytest = "^6.0.0"
+pytest-cov = "^2.10.0"
+coveralls = "^2.1.0"
+
+ipython = "^7.16.0"
+ipdb = "^0.13.0"
+
+flake8 = "^3.8.0"
+flake8-bugbear = "^20.1.0"
+flake8-builtins = "^1.5.0"
+flake8-comprehensions = "^3.2.0"
+flake8-eradicate = "^0.4.0"
+flake8-executable = "^2.0.0"
+flake8-mutable = "^1.2.0"
+flake8-tidy-imports = "^4.1.0"
