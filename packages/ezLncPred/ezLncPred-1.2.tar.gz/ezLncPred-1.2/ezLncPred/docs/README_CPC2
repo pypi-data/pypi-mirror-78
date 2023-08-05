@@ -1,0 +1,26 @@
+* 2017-03-6 21:00, Yu-jian Kang
+
+1) Run the predict
+
+	-h --help		show this help message and exit
+	
+	-r REVERSE,--reverse 
+					REVERSE also check the reverse strand
+
+**example**
+	ezLncPred CPC2 -h
+	ezLncPred -i example.fa -o results CPC2
+	ezLncPred -i example.fa -o results CPC2 -r REVERSE
+
+2) Output result
+
+Result in table format (delimited by tab):
+#ID	peptide_length	Fickett_score	isoelectric_point	ORF_integrity	coding_probability	coding_label
+
+	See the website for tutorial and more details. (http://cpc2.cbi.pku.edu.cn)
+
+	This is a beta version of CPC2, if have any questions please report to us.
+
+	Contact: cpc@mail.cbi.pku.edu.cn
+
+Kang, J., et al. (2017). "CPC2: a fast and accurate coding potential calculator based on sequence intrinsic features." Nucleic Acids Res 45(W1): W12-W16.

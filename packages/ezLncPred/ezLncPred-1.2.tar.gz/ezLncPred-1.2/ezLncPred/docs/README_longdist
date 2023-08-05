@@ -1,0 +1,22 @@
+# longdist
+
+## Usage
+	-h --help		show this help message and exit
+	
+	-z <200>, --size <200>
+					Minimun sequence size to consider. Default is 200.
+
+	-p --species	{Human,Mouse}
+					the model of the species to choose (human,mouse).
+
+
+**example**
+	ezLncPred longdist -h
+	ezLncPred -i example.fa -o results longdist
+	ezLncPred -i example.fa -o results longdist -z 150
+	ezLncPred -i example.fa -o results longdist -p Human
+
+## Copyright
+The work herein is Copyright 2013--2017 Hugo Wruck Schneider and Universidade de Brasília (UnB). **No rights are given to reproduce or modify this work**.
+
+W.Schneider, H., et al. (2017). "A Support Vector Machine based method to distinguish long non-coding RNAs from protein coding transcripts." BMC Genomics 18: 804.

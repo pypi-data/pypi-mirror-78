@@ -1,0 +1,7 @@
+recursive-include ezLncPred *
+include ezLncPred.py
+prune ezLncPred.egg-info/
+prune MANIFEST.in
+prune PKG-INFO
+prune setup.*
+

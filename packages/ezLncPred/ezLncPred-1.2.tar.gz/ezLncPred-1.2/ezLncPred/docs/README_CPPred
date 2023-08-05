@@ -1,0 +1,31 @@
+
+  +---------------------------------------------------------------------+
+  | CPPred:coding potential prediction                                  |
+  |                                                                     |
+  |                 http://rnabinding.com/CPPred                        | 
+  +---------------------------------------------------------------------+
+
+
+1) Introduction
+
+CPPred is a coding potential prediction tool, which is based on SVM to distinguish
+ncRNAs from coding RNAs using sequence features, such as ORF length, ORF coverage, 
+ORF integrity, Fickett score, Hexamer score, PI, Gravy, Instability index and 
+CTD-encoded features.
+
+2) Usage
+	-h --help		show this help message and exit
+	
+	-p --species	{Human,Integrated}
+					the model of the species to choose (Human,Integrated).
+	
+**example**
+	ezLncPred CPPred -h
+	ezLncPred -i example.fa -o results CPPred
+	ezLncPred -i example.fa -o results CPPred -p Integrated
+
+Tong, X., et al. (2019). "CPPred: coding potential prediction based on the global description of RNA sequence." Nucleic Acids Res 47(8): e43.
+
+Contact: liushiyong@gmail.com 
+
+Date: 2018-05-17
