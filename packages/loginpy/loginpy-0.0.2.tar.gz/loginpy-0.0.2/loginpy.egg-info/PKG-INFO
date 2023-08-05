@@ -1,0 +1,99 @@
+Metadata-Version: 2.1
+Name: loginpy
+Version: 0.0.2
+Summary: A simple Flask library to make login management easier.
+Home-page: https://gitea.com/chopin42/login.py
+Author: SnowCode
+License: UNKNOWN
+Description: # Login.py
+        
+        Login.py is a simple library for Flask that makes you able to handle login easily without getting plenty of useless lines of code.
+        
+        ## Installation
+        
+        ```bash
+        pip3 install git+https://gitea.com/chopin42/login.py
+        ```
+        
+        ## Usage
+        
+        You can find the full demo of login.py [here](./login-ex.py). You can also find the source code of login.py [here](./login.py/login.py).
+        
+        ### initLogin(app, db)
+        
+        This function is used to create the `User` class. Having this function is necessary for the rest of the program. Without this, the Users cannot get stored into the database.
+        
+        ```python
+        from flask import Flask, request
+        from flask_login import UserMixin
+        from flask_sqlalchemy import SQLAlchemy
+        from login import *
+        
+        # Create the "app" and "db" variables
+        app = Flask(__name__)
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+        app.config['SECRET_KEY'] = 'aghzi vnguierhtrutizo hard to guess indeeed'
+        db = SQLAlchemy(app)
+        
+        # Create the User class and add it to the database
+        User = initLogin(app, db)
+        db.create_all()
+        ```
+        
+        ### createUser(username, password, db, User)
+        
+        This function is used to sign up a new user into the database. This is an example of usage:
+        
+        ```python
+        @app.route('/register/post', methods=['POST'])
+        def register():
+            try:
+                createUser(request.form['username'], request.form['password'], db, User)
+                return "New user created you are now logged in as " + current_user.username
+            except: 
+            		return "This username is already taken"
+        ```
+        
+        ### loginUser(username, password, User)
+        
+        This function is used to login a user, that means that the user must already be in the database.
+        
+        ```python
+        @app.route('/login/post', methods=['POST'])
+        def login():
+            try:
+                loginUser(request.form['username'], request.form['password'], User)
+                return "You are now logged in as " + current_user.username
+            except: 
+            		return "Invalid username or password"
+        ```
+        
+        
+        ### logout_user()
+        
+        This is not a function from login.py, but a function from flask_login. The usage of this function is very simple:
+        
+        ```python
+        @app.route('/logout')
+        def logout(): 
+            logout_user()
+            return "You are now logged out."
+        ```
+        
+        ### \@login_required
+        
+        When you add this line under a url route, it locks the page to the logged in users. The users that are not logged will have a `Unauthorized` error showing up.
+        
+        ```python
+        
+        @app.route('/locked')
+        @login_required # Using login_required to make a page private
+        def locked(): 
+        	return "Hello " + current_user.username + " welcome to your private page."
+        ```
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
