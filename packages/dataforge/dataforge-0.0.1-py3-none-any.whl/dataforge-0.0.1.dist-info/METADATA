@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: dataforge
+Version: 0.0.1
+Summary: Tools for creating and packaging data products
+Home-page: https://gitlab.com/phs-rcg/data-forge
+Author: Phil Schumm
+Author-email: pschumm@uchicago.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/x-rst
+Requires-Dist: click (>=7.1.2)
+Requires-Dist: pandas (>=1.0.4)
+Requires-Dist: keyring (>=21.2.1)
+Requires-Dist: xmarshal (>=0.0.1b1)
+
+==========
+Data Forge
+==========
+
+.. note:: Tested with Python 3.7.
+
+Data forge is a Python package containing tools for creating and packaging
+data products.
+
+
+Installation
+============
+
+Installation in a virtual environment of the type created by the
+`venv module <https://docs.python.org/3/library/venv.html>`_ or
+`virtualenv <https://virtualenv.pypa.io/en/latest/>`_ is highly recommended.
+
+To install::
+
+    pip install --install-option="--with-openssl" --install-option="--openssl-dir=/usr/local/opt/openssl" pycurl
+    pip install --editable .
+
+Windows
+-------
+
+Windows C++ build tools for Visual Studio
+
+
+REDCap
+======
+
+Management of API Tokens
+------------------------
+
+To access a REDCap project via the API, you will need to obtain a REDCap API
+token. To avoid having to enter the token each time you export data, it is
+convenient to add the token to your system keyring. You may do this with the
+following command::
+
+    keyring set <redcap_hostname> [<project_name>]
+
+where ``<redcap_hostname>`` is the hostname of your REDCap server (e.g.,
+``redcap.uchicago.edu``) and ``<project_name>`` is an abbreviated (no spaces)
+name of the REDCap project (e.g., ``MyREDCapProject``). Although specifying a
+project name is not required, doing so will allow you to store API tokens for
+multiple projects. When you are asked to enter a password, enter the API token
+you obtained for your project.
+
+.. warning:: Do not store your API token in a plaintext or otherwise
+             unencrypted file, and do not write it down on a piece of paper.
+             If another person were to obtain your API token, he or she would
+             have the same access to your REDCap project as you do. If there
+             is ever a possibility that your token has been compromised, you
+             should immediately regenerate your token.
+
+SSL/TLS Certificate Chain
+-------------------------
+
+If ``pycurl`` is reporting certificate problems when using the
+``redcap_export`` command, then you may have to supply a different certificate
+chain.  For example, at the moment https://redcap.uchicago.edu/
+has a certificate chain containing an expired certificate; although this will
+work with modern web browsers, it fails with OpenSSL 1.0.x. See the following
+links for more information:
+
+- https://stackoverflow.com/questions/62107431/curl-error-60-ssl-certificate-problem-certificate-has-expired
+- https://whatsmychaincert.com
+
+In particular, the second link will permit you to download a chain without the
+expired certificate.
+
+
