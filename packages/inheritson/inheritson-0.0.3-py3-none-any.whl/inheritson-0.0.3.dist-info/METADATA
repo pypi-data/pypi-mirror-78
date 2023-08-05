@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: inheritson
+Version: 0.0.3
+Summary: Fill in missing data that is inherited by a reference field in a flat list of dictionaries without inheritance depth limit.
+Home-page: https://gitlab.com/int-ua/inheritson
+Author: Serhiy Zahoriya
+Author-email: serhiy.int@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# InheritsON
+
+Fill in missing data that is inherited by a reference field in a flat list of dictionaries without inheritance depth limit.
+
+Name is a portmanteau of Inheritance and JSON.
+
+# Usage
+
+```py
+>>> from inheritson import fill
+>>> fill([{"id": "parent", "common": "value"}, {"id": "child", "parent_id": "parent"}, {"id": "grandchild", "parent_id": "child"}])
+[{'id': 'parent', 'common': 'value'}, {'id': 'child', 'common': 'value', 'parent_id': 'parent'}, {'id': 'grandchild', 'common': 'value', 'parent_id': 'child'}]
+```
+
