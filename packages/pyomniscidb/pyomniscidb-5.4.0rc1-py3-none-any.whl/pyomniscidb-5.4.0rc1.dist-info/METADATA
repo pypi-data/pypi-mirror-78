@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: pyomniscidb
+Version: 5.4.0rc1
+Summary: A DB API 2 compatible client for OmniSci (formerly MapD).
+Home-page: https://github.com/omnisci/omniscidb
+Author: OmniSci
+Author-email: community@omnisci.com
+License: Apache Software License
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Requires-Dist: thrift (==0.13.0)
+Requires-Dist: numpy
+Requires-Dist: sqlalchemy (>=1.3)
+Requires-Dist: packaging (>=20.0)
+Requires-Dist: requests (>=2.23.0)
+Requires-Dist: rbc-project (==0.2.2)
+Provides-Extra: complete
+Requires-Dist: sphinx ; extra == 'complete'
+Requires-Dist: numpydoc ; extra == 'complete'
+Requires-Dist: sphinx-rtd-theme ; extra == 'complete'
+Requires-Dist: coverage ; extra == 'complete'
+Requires-Dist: pytest ; extra == 'complete'
+Requires-Dist: pytest-mock ; extra == 'complete'
+Requires-Dist: pre-commit ; extra == 'complete'
+Provides-Extra: dev
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: numpydoc ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-mock ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: numpydoc ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: coverage ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-mock ; extra == 'test'
+
+===========
+pyomniscidb
+===========
+
+A python `DB API`_ compliant interface for `OmniSci`_ (formerly MapD). 
+
+.. _DB API: https://www.python.org/dev/peps/pep-0249/
+.. _OmniSci: https://www.omnisci.com/
+
+
