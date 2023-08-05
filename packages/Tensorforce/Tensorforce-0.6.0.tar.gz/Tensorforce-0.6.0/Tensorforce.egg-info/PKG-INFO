@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: Tensorforce
+Version: 0.6.0
+Summary: Tensorforce: a TensorFlow library for applied reinforcement learning
+Home-page: http://github.com/tensorforce/tensorforce
+Author: Alexander Kuhnle
+Author-email: tensorforce.team@gmail.com
+License: Apache 2.0
+Download-URL: https://github.com/tensorforce/tensorforce/archive/0.6.0.tar.gz
+Description: # Tensorforce: a TensorFlow library for applied reinforcement learning
+        Tensorforce is an open-source deep reinforcement learning framework, with an emphasis on modularized flexible library design and straightforward usability for applications in research and practice. Tensorforce is built on top of [Google's TensorFlow framework](https://www.tensorflow.org/) and requires Python 3.
+        
+        Tensorforce follows a set of high-level design choices which differentiate it from other similar libraries:
+        
+        - **Modular component-based design**: Feature implementations, above all, strive to be as generally applicable and configurable as possible, potentially at some cost of faithfully resembling details of the introducing paper.
+        - **Separation of RL algorithm and application**: Algorithms are agnostic to the type and structure of inputs (states/observations) and outputs (actions/decisions), as well as the interaction with the application environment.
+        - **Full-on TensorFlow models**: The entire reinforcement learning logic, including control flow, is implemented in TensorFlow, to enable portable computation graphs independent of application programming language, and to facilitate the deployment of models.
+        
+        For more information, see the [GitHub project page](https://github.com/tensorforce/tensorforce) and [ReadTheDocs documentation](https://tensorforce.readthedocs.io/en/latest/).
+        
+Platform: UNKNOWN
+Classifier: Natural Language :: English
+Classifier: Topic :: Scientific/Engineering
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Provides-Extra: tfa
+Provides-Extra: tune
+Provides-Extra: envs
+Provides-Extra: ale
+Provides-Extra: gym
+Provides-Extra: retro
+Provides-Extra: vizdoom
+Provides-Extra: carla
+Provides-Extra: docs
