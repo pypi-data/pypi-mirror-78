@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: logtron-aws
+Version: 0.1.2
+Summary: AWS CloudWatch logging and context auto-discovery for logtron
+Home-page: https://github.com/ilija1/logtron-aws/
+License: Apache-2.0
+Keywords: Logging,JSON,AWS,CloudWatch
+Author: Ilija Stevcev
+Author-email: ilija1@gmail.com
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: boto3 (>=1.14.51,<2.0.0)
+Requires-Dist: importlib_metadata (>=1.7.0,<2.0.0)
+Requires-Dist: logtron (>=0.1.2,<0.2.0)
+Project-URL: Repository, https://github.com/ilija1/logtron-aws/
+Description-Content-Type: text/markdown
+
+# logtron-aws
+
