@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: taichi-three
+Version: 0.0.4
+Summary: A Taichi extension library helps you rendering 3D scenes
+Home-page: UNKNOWN
+Author: 彭于斌
+Author-email: 1931127624@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Games/Entertainment :: Simulation
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+
+
+Taichi THREE
+============
+
+Taichi THREE is an extension library of the `Taichi Programming Language <https://github.com/taichi-dev/taichi>`_, that helps rendering your 3D scenes into nice-looking 2D images to display in GUI.
+
+
