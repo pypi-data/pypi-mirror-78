@@ -1,0 +1,8 @@
+django>=1.8
+django-cas-ng>=3.6
+ldap3
+
+[test]
+pytest
+pytest-django
+pytest-cov
