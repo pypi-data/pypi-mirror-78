@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: url-into-images
+Version: 0.0.3
+Summary: provide image download link through csv file and it will download all the images. also you can chose different extension.
+Home-page: https://github.com/sujitmandal/url-into-images
+Author: Sujit Mandal
+Author-email: mandals974@gmail.com
+License: MIT
+Description: ## Package Installation : 
+        ```
+        pip install url-into-images
+        ```
+        ## Scrape Search Engine :
+        provide image download link through csv file and it will download all the images. also you can chose different extension.
+        ```
+         • jpg
+        
+         • jpeg
+        
+         • png
+        
+         • bmp
+        
+         • gif
+        ```
+        
+        ## Required package’s:
+        ```
+        • pip install pandas
+        
+        ```
+        ## License:
+        MIT Licensed
+        
+        ## Author:
+        Sujit Mandal
+        
+        [GitHub](https://github.com/sujitmandal)
+        
+        [LinkedIn](https://www.linkedin.com/in/sujit-mandal-91215013a/)
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
