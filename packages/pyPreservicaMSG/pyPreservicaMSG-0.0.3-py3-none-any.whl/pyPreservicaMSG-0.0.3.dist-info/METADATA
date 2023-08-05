@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pyPreservicaMSG
+Version: 0.0.3
+Summary: Simple MSG SIP Builder
+Home-page: UNKNOWN
+Author: James Carr
+Author-email: james.carr@preservica.com
+License: Apache License 2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: System :: Archiving
+Description-Content-Type: text/markdown
+Requires-Dist: boto3
+Requires-Dist: botocore
+Requires-Dist: compoundfiles
+Requires-Dist: compressed-rtf
+Requires-Dist: requests
+Requires-Dist: certifi
+Requires-Dist: pyPreservica (>=0.7.3)
+Requires-Dist: PySide2 (==5.15.0)
+Requires-Dist: shiboken2 (==5.15.0)
+
+# pyPreservicaMSG
+
+A desktop application to create and upload SIPs from MS Outlook MSG emails
+
+
+
