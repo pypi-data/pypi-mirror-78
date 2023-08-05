@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: Tensorforce
+Version: 0.6.0
+Summary: Tensorforce: a TensorFlow library for applied reinforcement learning
+Home-page: http://github.com/tensorforce/tensorforce
+Author: Alexander Kuhnle
+Author-email: tensorforce.team@gmail.com
+License: Apache 2.0
+Download-URL: https://github.com/tensorforce/tensorforce/archive/0.6.0.tar.gz
+Platform: UNKNOWN
+Classifier: Natural Language :: English
+Classifier: Topic :: Scientific/Engineering
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: pip (>=20.2.2)
+Requires-Dist: setuptools (>=49.6.0)
+Requires-Dist: gym (>=0.17.2)
+Requires-Dist: h5py (>=2.10.0)
+Requires-Dist: matplotlib (>=3.3.1)
+Requires-Dist: msgpack (>=1.0.0)
+Requires-Dist: msgpack-numpy (>=0.4.6.1)
+Requires-Dist: numpy (==1.18.5)
+Requires-Dist: tensorflow (==2.3.0)
+Requires-Dist: tqdm (>=4.48.2)
+Provides-Extra: ale
+Requires-Dist: ale-py ; extra == 'ale'
+Provides-Extra: carla
+Requires-Dist: pygame ; extra == 'carla'
+Requires-Dist: opencv-python ; extra == 'carla'
+Provides-Extra: docs
+Requires-Dist: m2r (>=0.2.1) ; extra == 'docs'
+Requires-Dist: recommonmark (>=0.6.0) ; extra == 'docs'
+Requires-Dist: sphinx (>=3.2.1) ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme (>=0.5.0) ; extra == 'docs'
+Provides-Extra: envs
+Requires-Dist: ale-py ; extra == 'envs'
+Requires-Dist: gym[atari,box2d,classic_control] (>=0.17.2) ; extra == 'envs'
+Requires-Dist: box2d (>=2.3.10) ; extra == 'envs'
+Requires-Dist: gym-retro (>=0.8.0) ; extra == 'envs'
+Requires-Dist: vizdoom (>=1.1.7) ; extra == 'envs'
+Provides-Extra: gym
+Requires-Dist: gym[atari,box2d,classic_control] (>=0.17.2) ; extra == 'gym'
+Requires-Dist: box2d (>=2.3.10) ; extra == 'gym'
+Provides-Extra: retro
+Requires-Dist: gym-retro (>=0.8.0) ; extra == 'retro'
+Provides-Extra: tfa
+Requires-Dist: tensorflow-addons (>=0.11.1) ; extra == 'tfa'
+Provides-Extra: tune
+Requires-Dist: hpbandster (>=0.7.4) ; extra == 'tune'
+Provides-Extra: vizdoom
+Requires-Dist: vizdoom (>=1.1.7) ; extra == 'vizdoom'
+
+# Tensorforce: a TensorFlow library for applied reinforcement learning
+Tensorforce is an open-source deep reinforcement learning framework, with an emphasis on modularized flexible library design and straightforward usability for applications in research and practice. Tensorforce is built on top of [Google's TensorFlow framework](https://www.tensorflow.org/) and requires Python 3.
+
+Tensorforce follows a set of high-level design choices which differentiate it from other similar libraries:
+
+- **Modular component-based design**: Feature implementations, above all, strive to be as generally applicable and configurable as possible, potentially at some cost of faithfully resembling details of the introducing paper.
+- **Separation of RL algorithm and application**: Algorithms are agnostic to the type and structure of inputs (states/observations) and outputs (actions/decisions), as well as the interaction with the application environment.
+- **Full-on TensorFlow models**: The entire reinforcement learning logic, including control flow, is implemented in TensorFlow, to enable portable computation graphs independent of application programming language, and to facilitate the deployment of models.
+
+For more information, see the [GitHub project page](https://github.com/tensorforce/tensorforce) and [ReadTheDocs documentation](https://tensorforce.readthedocs.io/en/latest/).
+
+
