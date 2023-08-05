@@ -1,0 +1,5 @@
+include green/*
+include permutationTestCuda.cpp
+include libgreen.a
+include green.o 
+include temp.o
