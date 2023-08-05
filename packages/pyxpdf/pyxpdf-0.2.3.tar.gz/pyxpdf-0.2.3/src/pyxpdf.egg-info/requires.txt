@@ -1,0 +1,12 @@
+
+[dev]
+cython
+
+[encoding]
+pyxpdf_data
+
+[imaging]
+Pillow
+
+[source]
+Cython>=0.29.7
