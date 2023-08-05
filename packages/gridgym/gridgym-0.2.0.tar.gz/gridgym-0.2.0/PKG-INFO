@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: gridgym
+Version: 0.2.0
+Summary: An OpenAI Gym environment for resource and job management systems.
+Home-page: https://github.com/lccasagrande/gridgym
+Author: lccasagrande
+Author-email: lcamelocasagrande@gmail.com
+License: MIT
+Download-URL: https://github.com/lccasagrande/gridgym/archive/v0.2.0.tar.gz
+Description: GridGym
+        ========
+        
+        An `OpenAI Gym <https://github.com/openai/gym>`_ environment for resource and job management problems.
+        
+        Installation
+        ------------
+        
+        
+        1. Make sure you have Batsim v3.1.0 installed and working. Otherwise, you must follow `Batsim installation <https://batsim.readthedocs.io/en/latest/installation.html>`_ instructions. Check the version of Batsim with:
+        
+        .. code-block:: bash
+        
+            batsim --version
+        
+        
+        2. Install GridGym:
+        
+        .. code-block:: bash
+        
+            pip install gridgym
+        
+        
+Keywords: Reinforcement Learning,Scheduler,Resource and Job Management,Cluster
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: System :: Clustering
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
