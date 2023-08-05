@@ -1,0 +1,138 @@
+Metadata-Version: 2.1
+Name: django-db-lock
+Version: 0.3.1
+Summary: Lock something and keep status in database.
+Home-page: https://github.com/zencore-cn/zencore-issues
+Author: zencore
+Author-email: dobetter@zencore.cn
+License: MIT
+Description: # django-db-lock
+        
+        Lock something and keep status in database.
+        
+        ## Install
+        
+        ```shell
+        pip install django-db-lock
+        ```
+        
+        ## Usage
+        
+        **pro/settings.py**
+        
+        ```
+        INSTALLED_APPS = [
+            ...
+            'django_db_lock',
+            'django.contrib.humanize',
+            ...
+        ]
+        
+        DJANGO_DB_LOCK_AUTO_REGISTER_ADMIN = True
+        DJANGO_DB_LOCK_APP_LABEL = django_db_lock
+        ```
+        
+        - Required.
+        - Insert `django_db_lock` into INSTALLED_APPS.
+        - Insert `django.contrib.humanize` into INSTALLED_APPS to enable the i18n translation.
+        - DJANGO_DB_LOCK_AUTO_REGISTER_ADMIN default to True, so that the Lock model's admin site is auto registered.
+        - DJANGO_DB_LOCK_APP_LABEL default to django_db_lock, so that the Lock model is registered under django_db_lock. You can change it to any exists app.
+        
+        **pro/urls.py**
+        
+        ```
+        ...
+        from django.urls import path
+        from django.urls import include
+        
+        urlpatterns = [
+            ...
+            path('system/dblock/', include("django_db_lock.urls")),
+            ...
+        ]
+        ```
+        
+        - Optional.
+        - Export db-lock services only if you have client programs.
+        
+        **app/views.py**
+        
+        ```
+        import uuid
+        from django_db_lock.services import acquire_lock
+        from django_db_lock.services import release_lock
+        
+        def view01(request):
+            lock_name = "view01lock"
+            worker_name = "view01worker"
+            timeout = 10
+            locked = acquire_lock(lock_name, worker_name, timeout)
+            if locked:
+                try:
+                    ....
+                finally:
+                    release_lock(lock_name, worker_name)
+            ...
+        ```
+        
+        **Use it in app without django_db_lock**
+        
+        ```
+        import requests
+        
+        def view02(request):
+            lock_name = "view02lock"
+            worker_name = "view02worker"
+            timeout = 10
+            response = requests.get("http://api.server/system/dblock/acquireLock", params={"lockName": lock_name, "workerName": worker_name, "timeout": timeout})
+            response_data = json.loads(response.content)
+            if response_data["result"] == True:
+                try:
+                    ....
+                finally:
+                    requests.get("http://api.server/system/dblock/acquireLock", params={"lockName": lock_name, "workerName": worker_name})
+            ...
+        ```
+        
+        
+        ## Releases
+        
+        ### v0.3.1 2020/09/01
+        
+        - Rename zh_hans to zh_Hans.
+        - Fix setup descriptions.
+        
+        ### v0.3.0 2020/09/01
+        
+        - Add django_db_lock.client.DjangoDbLock.
+        
+        ### v0.2.1 2020/08/29
+        
+        - Fix setup description.
+        
+        ### v0.2.0 2020/08/29
+        
+        - Reconstituted.
+        - Allow register the Lock model into another app, use setting DJANGO_DB_LOCK_APP_LABEL.
+        - Use django-apiview to provides restful API.
+        - Use camelStyle parameter format.
+        - Add i18n for zh-hans.
+        - Incompatible with old releases.
+        
+        ### v0.1.1 2018/5/11
+        
+        - Fix.
+        
+        ### v0.1.0 2018/5/10
+        
+        - First release.
+        
+Keywords: django admin extentions,django db lock
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
