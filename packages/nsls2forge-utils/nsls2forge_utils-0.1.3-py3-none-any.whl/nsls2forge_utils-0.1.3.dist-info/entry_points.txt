@@ -1,0 +1,8 @@
+[console_scripts]
+all-feedstocks = nsls2forge_utils.cli:all_feedstocks
+auto-tick = nsls2forge_utils.cli:auto_tick
+check-results = nsls2forge_utils.cli:check_results
+dashboard = nsls2forge_utils.cli:dashboard
+graph-utils = nsls2forge_utils.cli:graph_utils
+meta-utils = nsls2forge_utils.cli:meta_utils
+

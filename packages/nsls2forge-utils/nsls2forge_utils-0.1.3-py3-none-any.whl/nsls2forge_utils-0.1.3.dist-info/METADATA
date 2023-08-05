@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: nsls2forge-utils
+Version: 0.1.3
+Summary: nsls2forge utilities for packaging
+Home-page: https://github.com/nsls-ii-forge/nsls2forge-utils
+Author: NSLS-II Forge
+Author-email: dama@bnl.gov
+License: BSD-3-Clause
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Requires-Dist: beautifulsoup4
+Requires-Dist: doctr
+Requires-Dist: github3.py
+Requires-Dist: gitpython
+Requires-Dist: markdown
+Requires-Dist: networkx
+Requires-Dist: pandas
+Requires-Dist: PyGithub
+Requires-Dist: requests
+Requires-Dist: tabulate
+Requires-Dist: xonsh
+
+================
+nsls2forge-utils
+================
+
+.. image:: https://img.shields.io/travis/nsls-ii-forge/nsls2forge-utils.svg
+        :target: https://travis-ci.org/nsls-ii-forge/nsls2forge-utils
+
+.. image:: https://img.shields.io/pypi/v/nsls2forge-utils.svg
+        :target: https://pypi.python.org/pypi/nsls2forge-utils
+
+
+nsls2forge utilities for packaging
+
+* Free software: 3-clause BSD license
+* Documentation: https://nsls-ii-forge.github.io/docs/utils.html
+
+Features
+--------
+
+* TODO
+
+
