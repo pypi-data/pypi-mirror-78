@@ -1,0 +1,19 @@
+/* Table */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th {
+  @include theme($themes) {
+    border: 1px solid t('colorP');
+  }
+}
+
+@include xs() {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+}

@@ -1,0 +1,53 @@
+{% load wagtailimages_tags my_image_color my %}
+
+{% with theme|theme_settings:settings.cms.WebspaceSettings as THEME %}
+
+    {% if not amp %}
+        <picture>
+
+
+            {% image img width-375 format-webp as sm_image_webp %}
+            <source media="(max-width: 375px)" srcset="{{ sm_image_webp.url }}" type="image/webp">
+
+            {% image_color img THEME.bg_color width-375 format-jpeg as sm_image_jpeg %}
+            <source media="(max-width: 375px)" srcset="{{ sm_image_jpeg.url }}" type="image/jpeg">
+
+            {% image img width-768 format-webp as md_image_webp %}
+            <source media="(min-width: 376px)" srcset="{{ md_image_webp.url }}" type="image/webp">
+
+            {% image_color img THEME.bg_color width-768 format-jpeg as md_image_jpeg %}
+            <source media="(min-width: 376px)" srcset="{{ md_image_jpeg.url }}" type="image/jpeg">
+
+            <img {% if block_num >= 2 %}loading="lazy" data-src{% else %}src{% endif %}="{{ md_image_jpeg.url }}"
+                 alt="{{ img.title }}"
+            />
+        </picture>
+        {% if block_num >= 2 %}
+            <noscript>
+                <img src="{{ md_image_jpeg.url }}" alt="{{ value.file.title }}"/>
+            </noscript>
+        {% endif %}
+    {% else %}
+        {% image img width-375 format-webp as sm_image_webp %}
+        {% image img width-768 format-webp as md_image_webp %}
+        <amp-img alt="{{ img.title }}"
+                 width="{{ md_image_webp.width }}"
+                 height="{{ md_image_webp.height }}"
+                 layout="responsive"
+                 src="{{ md_image_webp.url }}"
+                 srcset="{{ md_image_webp.url }} 768w, {{ sm_image_webp.url }} 375w"
+        >
+            {% image img width-768 format-jpeg as md_image_jpeg %}
+            {% image img width-375 format-jpeg as sm_image_jpeg %}
+            <amp-img alt="{{ img.title }}"
+                     width="{{ md_image_webp.width }}"
+                     height="{{ md_image_webp.height }}"
+                     layout="fill"
+                     src="{{ md_image_jpeg.url }}"
+                     srcset="{{ md_image_jpeg.url }} 768w, {{ sm_image_jpeg.url }} 375w"
+            >
+            </amp-img>
+        </amp-img>
+    {% endif %}
+
+{% endwith %}

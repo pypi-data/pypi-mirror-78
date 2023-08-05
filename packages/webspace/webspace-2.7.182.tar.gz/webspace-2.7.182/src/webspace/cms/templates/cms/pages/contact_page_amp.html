@@ -1,0 +1,29 @@
+{% extends 'cms/pages/_generic_amp.html' %}
+{% load wagtailcore_tags my my_amp %}
+
+{% block extra_head %}
+    {% include 'cms/blocks/common/google-analytics.html' %}
+    {% include 'cms/blocks/schemas/generated/breadcrumb.html' %}
+{% endblock %}
+
+{% block content %}
+
+    {% block header %}
+        {{ block.super }}
+    {% endblock %}
+
+    {% block content_body %}
+
+        {% for block in page.body %}
+            {% include_block block with block_num=forloop.counter %}
+        {% endfor %}
+
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'cms/blocks/common/footer.html' %}
+    {% endblock %}
+    
+    {% include 'cms/blocks/common/amp-analytics.html' %}
+
+{% endblock %}

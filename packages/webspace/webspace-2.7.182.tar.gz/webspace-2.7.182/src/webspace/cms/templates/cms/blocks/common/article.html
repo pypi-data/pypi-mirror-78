@@ -1,0 +1,67 @@
+{% load wagtailimages_tags my my_amp %}
+<article class="padding">
+    <a href="{{ blog.url }}">
+        {% for media in blog.cover %}
+            {% if media.block_type == 'svg' %}
+                {% amp_img %}
+                    <img loading="lazy" data-layout="responsive" data-width="1920" data-height="1080"
+                         class="svg-img"
+                         data-src="{{ media.value.url }}"
+                         alt="{{ blog.title }}"
+                    />
+                {% endamp_img %}
+            {% elif media.block_type == 'image' %}
+                {% include 'cms/blocks/common/picture.html' with img=media.value block_num=2 theme=theme %}
+            {% endif %}
+        {% endfor %}
+    </a>
+    <div>
+        <a href="{{ blog.url }}">
+            <h3>{{ blog.h1 }}</h3>
+            {% include 'cms/blocks/common/tags_blog.html' with root_page=blog.get_parent tags=blog.tags.all links=0 %}
+            <p>{{ blog.intro }}</p>
+            <div class="s-flex-align">
+                <div class="article-author-img">
+                    {% if not amp %}
+                        <picture>
+
+                            {% image blog.author.image_presentation fill-40x40 format-webp as md_image_webp %}
+                            <source media="(min-width: 1px)" srcset="{{ md_image_webp.url }}" type="image/webp">
+
+                            {% image blog.author.image_presentation fill-40x40 format-jpeg as md_image_jpeg %}
+                            <source media="(min-width: 1px)" srcset="{{ md_image_jpeg.url }}" type="image/jpeg">
+
+                            <img loading="lazy" data-src="{{ md_image_jpeg.url }}"
+                                 class="s-icon x2 nopad"
+                                 alt="{{ img.title }}"
+                            />
+                        </picture>
+                    {% else %}
+                        {% image blog.author.image_presentation fill-40x40 format-webp as md_image_webp %}
+                        <amp-img alt="{{ img.title }}"
+                                 width="40"
+                                 height="40"
+                                 layout="responsive"
+                                 src="{{ md_image_webp.url }}"
+                                 class="s-icon x2 nopad"
+                        >
+                            {% image blog.author.image_presentation fill-40x40 format-jpeg as md_image_jpeg %}
+                            <amp-img alt="{{ img.title }}"
+                                     width="40"
+                                     height="40"
+                                     layout="fill"
+                                     src="{{ md_image_jpeg.url }}"
+                                     class="s-icon x2 nopad"
+                            >
+                            </amp-img>
+                        </amp-img>
+                    {% endif %}
+                </div>
+                <div class="article-author">
+                    <p>{{ blog.author.first_name }} {{ blog.author.last_name }}</p>
+                    <small>{{ blog.date|date }} • {{ blog.read_time }}</small>
+                </div>
+            </div>
+        </a>
+    </div>
+</article>

@@ -1,0 +1,30 @@
+{% extends 'cms/_base_amp.html' %}
+{% load wagtailcore_tags my %}
+
+{% block extra_head %}
+    {% include 'cms/blocks/common/google-analytics.html' %}
+    {% if page.get_breadcrumbs %}
+        {% include 'cms/blocks/schemas/generated/breadcrumb.html' %}
+    {% endif %}
+    {% include 'cms/blocks/schemas/generated/blog_web_page.html' %}
+    {% include 'cms/blocks/schemas/generated/blog_posting.html' %}
+{% endblock %}
+
+{% block content %}
+
+    {% block header %}
+        {% include 'cms/blocks/common/header.html' %}
+        {% include 'cms/blocks/common/aside-mobile.html' %}
+    {% endblock %}
+
+    {% block content_body %}
+        {% include 'cms/pages/blog_page_content.html' %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'cms/blocks/common/footer.html' %}
+    {% endblock %}
+
+    {% include 'cms/blocks/common/amp-analytics.html' %}
+
+{% endblock %}
