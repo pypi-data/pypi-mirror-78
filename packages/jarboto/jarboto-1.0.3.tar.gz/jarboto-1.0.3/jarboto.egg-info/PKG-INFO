@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: jarboto
+Version: 1.0.3
+Summary: JARVICE container environment config wrapper for boto3
+Home-page: https://github.com/nimbix/jarboto
+Author: Nimbix, Inc.
+Author-email: noreply@nimbix.net
+License: LICENSE.txt
+Download-URL: https://github.com/nimbix/jarboto/archive/v1.0.3.tar.gz
+Description: # jarboto
+        JARVICE container environment config wrapper for boto3
+        
+        # Environment configuration
+        The following values are mandatory:
+        * `JARVICE_S3_ACCESSKEY`
+        * `JARVICE_S3_SECRETKEY`
+        * `JARVICE_S3_BUCKET`
+        
+        Note that the `jarboto.S3` constructor throws `jarboto.ConfigError` if one of these values is not set
+        
+        The following values are optional:
+        * `JARVICE_S3_ENDPOINTURL` (defaults to AWS)
+        * `JARVICE_S3_PREFIX` (defaults to `output/`)
+        * `JARVICE_S3_REGION` (defaults to None)
+        
+        # Usage
+        Typical usage pattern when looking to conditionally fetch objects either from S3 or from another source:
+        
+        ```python
+        import jarboto
+        
+        try:
+            buf = jarboto.S3().get(name)
+        except jarboto.ConfigError:
+        
+            # alternate method to fetch object follows
+            # ...
+        
+        except jarboto.S3Error as e:
+        
+            # actually failed to fetch object
+            print(e)
+        ```
+        
+        Notes:
+        * Keep `S3` object if you intend to perform multiple operations in that context.
+        * Run `pydoc jarboto.S3` for additional help on method use.
+        
+        
+Keywords: s3,boto3,JARVICE
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
