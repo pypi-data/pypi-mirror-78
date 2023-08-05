@@ -1,0 +1,10 @@
+{% load static %}
+<!-- Start Moment.js from aa-gdpr -->
+{% if locale and LANGUAGE_CODE != 'en' %}
+    <!-- Moment.JS Localisation  -->
+    <script type="application/javascript" src="{% static 'aagdpr/js/moment.js/2.27.0/locale/{{ LANGUAGE_CODE }}.js' %}"></script>
+{% else %}
+    <!-- Moment.JS EN-en  -->
+    <script type="application/javascript" src="{% static 'aagdpr/js/moment.js/2.27.0/moment.min.js' %}"></script>
+{% endif %}
+<!-- End Moment.js from aa-gdpr -->
