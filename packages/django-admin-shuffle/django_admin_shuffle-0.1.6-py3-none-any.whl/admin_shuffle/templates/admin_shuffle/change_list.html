@@ -1,0 +1,9 @@
+{% extends super_change_list_template %}
+{% load i18n static admin_modify %}
+
+{% block object-tools-items %}
+    <li>
+        <a href={{ shuffle_qs }} title={{ shuffle_label }}>{{ shuffle_label }}</a>
+    </li>
+    {{ block.super }}
+{% endblock object-tools-items %}
