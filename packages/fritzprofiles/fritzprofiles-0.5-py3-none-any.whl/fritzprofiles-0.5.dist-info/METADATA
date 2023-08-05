@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: fritzprofiles
+Version: 0.5
+Summary: A tool to switch the online time of profiles in the AVM Fritz!Box
+Home-page: https://github.com/AaronDavidSchneider/fritzprofiles
+Author: Aaron David Schneider
+Author-email: aaron.david.schneider@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: lxml
+
+# fritzprofiles
+A tool to switch the online time of profiles in the AVM Fritz!Box
+
+Example usage:
+```bash
+python fritzprofiles.py --user <user> --password <password> --url 192.168.178.1 --get_state --profile Gesperrt --set_state unlimited
+```
+
+Modified from https://github.com/flopp/fritz-switch-profiles
+
+
