@@ -1,0 +1,80 @@
+Metadata-Version: 1.2
+Name: bfast
+Version: 0.5
+Summary: A Python library for Breaks For Additive Season and Trend (BFAST) that resorts to parallel computing for accelerating the computations.
+Home-page: http://www.bfast.pydata.org
+Maintainer: Fabian Gieseke
+Maintainer-email: fabian.gieseke@di.ku.dk
+License: GNU GENERAL PUBLIC LICENSE
+Download-URL: https://github.com/gieseke/bfast
+Description: =====
+        bfast
+        =====
+        
+        The bfast package provides a highly-efficient parallel implementation for the `Breaks For Additive Season and Trend (BFASTmonitor) <http://bfast.r-forge.r-project.org>`_ proposed by Verbesselt et al. The implementation is based on `OpenCL <https://www.khronos.org/opencl>`_. 
+        
+        =============
+        Documentation
+        =============
+        
+        See the `documentation <http://bfast.readthedocs.org>`_ for details and examples.
+        
+        ============
+        Dependencies
+        ============
+        
+        The bfast package has been tested under Python 3.*. The required Python dependencies are:
+        
+        - numpy==1.16.3
+        - pandas==0.24.2
+        - pyopencl==2018.2.5
+        - scikit-learn==0.20.3
+        - scipy==1.2.1
+        - matplotlib==2.2.2
+        - wget==3.2
+        - Sphinx==2.2.0
+        - sphinx-bootstrap-theme==0.7.1
+        
+        Further, `OpenCL <https://www.khronos.org/opencl>`_ needs to be available.
+        
+        ==========
+        Quickstart
+        ==========
+        
+        The package can easily be installed via pip via::
+        
+          pip install bfast
+        
+        To install the package from the sources, first get the current stable release via::
+        
+          git clone https://github.com/gieseke/bfast.git
+        
+        Afterwards, on Linux systems, you can install the package locally for the current user via::
+        
+          python setup.py install --user
+        
+        ==========
+        Disclaimer
+        ==========
+        
+        The source code is published under the GNU General Public License (GPLv3). The authors are not responsible for any implications that stem from the use of this software.
+        
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
