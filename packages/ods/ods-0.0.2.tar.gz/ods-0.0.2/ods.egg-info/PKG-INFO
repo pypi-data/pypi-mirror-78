@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: ods
+Version: 0.0.2
+Summary: Python client library for Staroid cloud platform
+Home-page: https://github.com/open-datastudio/ods
+Author: Open Data Studio
+Author-email: moon@staroid.com
+License: MIT
+Description: <br />
+        <center>
+          <img src="https://github.com/open-datastudio/datastudio/raw/master/docs/_static/open-datastudio-logo.png" width="250px"/>
+        </center>
+        <br />
+        
+        # Open data studio python library
+        
+        
+        ## Install
+        
+        ```
+        pip install ods
+        ```
+        
+        
+        ## Quick start
+        
+        ### Configuration
+        
+        1. [Configure staroid](https://github.com/staroids/staroid-python#configuration)
+        2. Login staroid.com and create a SKE (Star Kubernetes engine) cluster.
+        
+        ```python
+        import ods
+        ods.init(ske="kube-cluster-1") # ske is a name of kubernetes cluster
+        ```
+        
+        ### Get Spark cluster
+        
+        ```python
+        spark = ods.spark("spark-1", worker_num=3).session() # create spark session with 3 initial worker nodes
+        
+        df = spark.createDataFrame(....)
+        ```
+        
+        ### Get Dask cluster (Coming soon)
+        
+        ```python
+        cluster = ods.dask("dask-1", worker_num=10)
+        
+        from dask.distributed import Client
+        client = Client(cluster)
+        ```
+        
+        ### Get Ray cluster (Coming soon)
+        
+        ```python
+        ods.ray(cluster_name="")
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
