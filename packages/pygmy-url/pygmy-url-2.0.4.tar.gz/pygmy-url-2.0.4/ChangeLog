@@ -1,0 +1,124 @@
+CHANGES
+=======
+
+v2.0.4
+------
+
+* more testing that doesn't work yet
+* moved versions back to pbr, added pytest unittest (that isn't working)
+* forgot pbr was actually required to figure out the version info
+* Added requirements.txt back, and split off a dev\_requirements for building
+* Added setup/pypi stuff
+* Updated to pull app from module for run to work and moved sqldir to config
+* Updated help docs to match screenshots and added url formats
+* Removed errent pull-left that was in for trying something and ultimately messing up layout.oops
+* Reworked namespace dropdown using bootstrap-select plugin to enable icons
+
+v2.0.3
+------
+
+* Version 2.0.3
+* fixed global link building bug introduced by db icon move
+* Moved namespace icon to db and set default values in create statements
+* Updated Readme, fixed minor url typo in default namespace description
+
+v2.0.2
+------
+
+* Bump for minor formatting and renaming changes, forcing version number because I don't know how to make pbr do it correctly
+* renamed variables to be more friendly
+
+v2.0.1
+------
+
+* Updated changelog
+* fixed a bug to force namespace to user/2 if there is no keyword given
+* fixed custom namespace link creation
+* fixed missed hitcount on user shortcut
+* Added links for the keywords with namespace
+* Use the realm\_name configured for the logout action
+* import cleanups, and more pep8
+* pep8 cleanup to enforce 79 char line limit (mostly)
+* Added yaml config file support
+* Updated everything to work with MySQL, and determine which queries to use for create based on engine
+* Added mysql varients of create statements...I think I'm doing this wrong :/
+
+v2.0.0
+------
+
+* Updated readme to reflect namespaces addition
+* Fixed hardcoded namespace that broke hit\_count update on a custom namespace URL
+* fixed file permissions, moved wsgi.py
+* Added namespace to help, reformatted containers to match across the site
+* fixed namespace logic for hit increase with keyword and the totally broken shortlinks
+* fixed hit count logic error with namespaces, added default namespace permission for user
+* Display namespace on links page
+* added namespace URL redirect logic
+* Added namespace logic for creating keywords in different namespaces based on user permissions
+* fixed logic error with default permissions. Added default namespaces
+* Rewrote all SQL to use pugsql and reworked DB for namespaces
+
+v1.0.2
+------
+
+* Added wsgi file from prod to repo
+* Git missed the mv of files
+* Reworked directory structure again
+* Reworked directory structure for setuptools distribution
+* Updated 1.0.1
+* Removed the 3.8 import for metadata
+
+v1.0.1
+------
+
+* Fix version from pbr compat issue with python 3.6
+* WORKAROUND: hardcoded object filter.  Renamed to shorty.py
+* Moved to pbr-based changelog
+* reworked for pbr/setuptools
+* Added admin template stub
+* Ignore eggs
+
+v1.0.0
+------
+
+* Added version info and offically tagging v1.0.0
+* Added help topics for edit and keyword, fixed ID decode for edit
+* Added edit template
+* Added rudimentary/messy edit functionality
+* cleanup pointless multiline strings
+* Workaround for permissions that are called for anonymous pages
+* Fixed spelling error on function name
+* Added descritive variable name for uri\_validator
+* PEP8 cleanup for variable names
+* prefix app urls with underscore, closes #4
+* Added rudimentary permissioning and converted all SQL to f-strings
+* added error detailed URL
+* Standardized camelCased db column names, added permission table
+* Fixed drop-down arrow color
+* Theming fix
+* Reworked menu into drop-down
+* added error handling
+* Added logout handling
+* Renamed virtualenv to match prod
+* Added args to filters for future options
+* Auto-add LDAP environment variables
+* Added links display and filtering to format dates
+* Added character validation for keyword and updated templates
+* Added host value for app.run
+* Pull ALL ldap values from environment
+* Reworked the theme for a navbar and moved to a base templated version
+* Fix annoying favicon error
+* Added 'unique' contraint to keyword
+* Fixed formatting
+* Doc update for features and requirements update
+* Added link validation and ldap auth
+* Removed host var and use requests.\* values instead.  Closes #1
+* Added initial readme
+* PEP8 Cleanup
+* Added requirements
+* Added requirements
+* Added help text
+* Added hitcount updater and keyword logic
+* Added dotfiles
+* Initial checkin
+* Initial commit

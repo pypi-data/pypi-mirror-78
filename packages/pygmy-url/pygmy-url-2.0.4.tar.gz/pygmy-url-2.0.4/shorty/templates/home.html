@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Franklin URL Shortening{% endblock %}
+{% block body %}
+<div class="jumbotron">
+    <div class="container-fluid">
+        <br />
+        {% if not short_url %}
+            {% if errors|length > 0 %}
+                <div class="alert alert-warning" role="alert">
+                    <i class="nav-item fas fa-exclamation-triangle"></i>
+                {% for error in errors %}
+                    {{ error }}<br />
+                {% endfor %}
+                </div>
+            {% endif %}
+            <form method="post" class="navbar-form navbar-right" action="">
+                <div class="form-group container-lg">
+                    <div class="container-lg bg-light border">
+                        &nbsp;
+                        <input type="text" id="url" name="url" class="form-control input-lg chat-input" placeholder="URL to shorten" />
+                        <small id="urlhelp" class="form-text text-dark">
+                            Enter the destination URL.
+                        </small>
+                        {% if ('admin' in permissions or 'keyword' in permissions) %}
+                    </div>
+                    <div class="container-lg bg-dark text-white border">
+                    {% if ns_permissions|length > 1 %}
+                        <select class="selectpicker show-tick" data-header="Namespace Selection" name="namespace" id="namespace" data-selected-text-format="count>1">
+                            {% for row in ns_permissions %}
+                            <option
+                            data-icon="fas {{ row['icon'] }}"
+                                    data-subtext="{{ row['description'] }}"
+                                    value="{{ row['id'] }}"
+                                    {% if (row['namespace'] == 'user') %}Selected{% endif %}>
+                                {{ row['namespace'].title() }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        {% endif %}
+                    &nbsp;
+                        <input type="text" id="keyword" name="keyword" class="form-control input-lg chat-input" placeholder="Keyword (optional)" />
+                        <small id="keyhelp" class="form-text text-light">
+                            To make a URL like {{ url_base }}/keyword
+                        </small>
+                    </div>
+                    {% endif %}
+                    <br/>
+                    <button type="submit" class="btn btn-lg btn-info">Submit</button>
+                </div>
+            </form>
+    {% else %}
+            <div>
+                <p>
+                    Your shortened URL is: <a href="/{{ short_url }}"> {{ url_base }}/{{short_url}}</a>
+                </p>
+            </div>
+                {% if keyword %}
+                    <div>
+                        <p>
+                            You may also use your selected keyword: <a href="{{ keyword_url }}">{{ keyword_url }}</a>
+                        </p>
+                    </div>
+                {% endif %}
+
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
