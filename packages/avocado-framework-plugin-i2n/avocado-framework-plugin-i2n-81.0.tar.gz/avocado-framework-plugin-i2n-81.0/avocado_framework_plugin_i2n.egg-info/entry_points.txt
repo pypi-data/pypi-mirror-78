@@ -1,0 +1,12 @@
+[avocado.plugins.cli]
+auto = avocado_i2n.plugins.auto:Auto
+
+[avocado.plugins.cli.cmd]
+manu = avocado_i2n.plugins.manu:Manu
+
+[avocado.plugins.runner]
+traverser = avocado_i2n.runner:CartesianRunner
+
+[avocado.plugins.settings]
+i2n-settings = avocado_i2n.plugins.i2n_settings:I2NSettings
+
