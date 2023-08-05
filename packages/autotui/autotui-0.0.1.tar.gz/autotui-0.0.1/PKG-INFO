@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: autotui
+Version: 0.0.1
+Summary: helpers for creating TUIs with persistent data
+Home-page: https://github.com/seanbreckenridge/autotui
+Author: Sean Breckenridge
+Author-email: seanbrecke@gmail.com
+License: MIT
+Description: AutoTUI
+        ======
+        
+        helpers for creating TUIs with persistent data
+        
+        TODO
+        
+        
+        ## Installation
+        
+        #### Requires:
+        
+        This requires `python3.8+`, specifically for modern [`typing`](https://docs.python.org/3/library/typing.html) support.
+        
+        To install with pip, run:
+        
+            pip3 install autotui
+        
+        ## Run
+        
+        ```
+        TODO: Fill this out
+        
+        Usage: ...
+        ```
+        
+        # Tests
+        
+            pip install pytest
+            pytest  # in the root directory
+        
+Keywords: data prompt namedtuple
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: testing
+Provides-Extra: optional
