@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pyxas
+Version: 1.0
+Summary: A python package for 2D/3D xanes analysis
+Home-page: https://github.com/gmysage/pyxas
+Author: Mingyuan Ge
+Author-email: gmysage@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: setuptools
+Requires-Dist: numpy (>=1.18)
+Requires-Dist: h5py (>=2.9.0)
+Requires-Dist: pystackreg
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: scikit-image
+Requires-Dist: matplotlib
+
+UNKNOWN
+
+
