@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+kq/__init__.py
+kq/job.py
+kq/message.py
+kq/queue.py
+kq/utils.py
+kq/version.py
+kq/worker.py
+kq.egg-info/PKG-INFO
+kq.egg-info/SOURCES.txt
+kq.egg-info/dependency_links.txt
+kq.egg-info/requires.txt
+kq.egg-info/top_level.txt
