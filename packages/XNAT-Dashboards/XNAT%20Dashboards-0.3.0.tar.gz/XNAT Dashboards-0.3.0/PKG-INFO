@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: XNAT Dashboards
+Version: 0.3.0
+Summary: XNAT data visualization using Flask and Pyxnat
+Home-page: https://pypi.org/project/xnat-dashboards/
+Author: Mohammad Asif Hashmi
+Author-email: hashmi.masif@gmail.com
+License: MIT
+Description: This project is a responsive dashboard framework for extensive exploration, monitoring, and reviewing large neurological imaging datasets present on the XNAT server instance. This dashboard fetches data from any XNAT instance servers and generates highly-visualized, summarized representations of complex scientific data present on the servers and facilitate user navigation through large cohorts. This dashboard is a light-weight, flexibleand modular framework
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Utilities
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Programming Language :: Python :: 3.6
