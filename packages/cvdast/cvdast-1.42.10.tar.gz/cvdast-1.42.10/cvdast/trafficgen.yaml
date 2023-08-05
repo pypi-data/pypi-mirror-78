@@ -1,0 +1,42 @@
+execution:
+  - scenario: default-scenario
+    hold-for: 10m
+    ramp-up: 10m
+    concurrency: 20
+    locations:
+      us-east4-a: 20
+    steps: 0
+scenarios:
+  default-scenario:
+    requests:
+      - url: 'http://3.236.52.85:30447/app-demo/api/v1/user_details'
+        method: POST
+        label: Userdetails
+        body: '{"mobile_number":"195310","nm":"John Carter","addr":"134141","dob":"2020-05-03T18:30:00.000Z","taxid":"234143144","user_id":"2"}'
+        headers:
+          Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkZW1vYXBwLWFwaSIsImlhdCI6MTU5MTc4MDA3NCwidGkiOiJjYmJmNjVjMi1jYTI4LTQ3YmYtOTZhMC0zNzZkOWZlOWMwMWEiLCJ1c2VyIjp7ImlkIjoyLCJlbWFpbCI6ImpvaG5AZGVtb2FwcC5jb20ifX0.FsASuxsnvPrkrT3IDeBpgn0GMVzk3u_PWofvcg-u28EqWbFo5YFH-k5u1KoyFlIeuDROjR6cEHLySXb0I9iBWQ
+          Content-Type: application/json
+      - url: 'http://3.236.52.85:30447/app-demo/api/v1/transactions?user_id=2&account_id=1'
+        method: GET
+        label: transactions
+      - method: POST
+        label: deposits
+        body: '{"amount":41209,"description":"33744abc","user_id":"2","account_id":1}'
+        headers:
+          Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkZW1vYXBwLWFwaSIsImlhdCI6MTU5MTc4MDA3NCwidGkiOiJjYmJmNjVjMi1jYTI4LTQ3YmYtOTZhMC0zNzZkOWZlOWMwMWEiLCJ1c2VyIjp7ImlkIjoyLCJlbWFpbCI6ImpvaG5AZGVtb2FwcC5jb20ifX0.FsASuxsnvPrkrT3IDeBpgn0GMVzk3u_PWofvcg-u28EqWbFo5YFH-k5u1KoyFlIeuDROjR6cEHLySXb0I9iBWQ
+          Content-Type: application/json
+        url: 'http://3.236.52.85:30447/app-demo/api/v1/deposits'
+      - method: POST
+        label: transfers
+        body: '{"beneficiary_id":1,"amount":"5087","description":"transferring_49361","user_id":"2","account_id":1}'
+        url: 'http://http://3.236.52.85:30447/app-demo/api/v1/transfers'
+        headers:
+          Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkZW1vYXBwLWFwaSIsImlhdCI6MTU5MTc4MDA3NCwidGkiOiJjYmJmNjVjMi1jYTI4LTQ3YmYtOTZhMC0zNzZkOWZlOWMwMWEiLCJ1c2VyIjp7ImlkIjoyLCJlbWFpbCI6ImpvaG5AZGVtb2FwcC5jb20ifX0.FsASuxsnvPrkrT3IDeBpgn0GMVzk3u_PWofvcg-u28EqWbFo5YFH-k5u1KoyFlIeuDROjR6cEHLySXb0I9iBWQ
+          Content-Type: application/json
+      - url: 'http://3.236.52.85:30447/assets/images/visa.svg'
+        method: GET
+        label: visacard-web
+      - url: 'http://3.236.52.85:30447/assets/images/onlinebankAd.svg'
+        method: GET
+        label: ad-web
+    retrieve-resources: false
