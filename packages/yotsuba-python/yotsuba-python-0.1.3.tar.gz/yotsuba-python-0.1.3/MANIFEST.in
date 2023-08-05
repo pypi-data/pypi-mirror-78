@@ -1,0 +1,6 @@
+include .flake8
+include Cargo.toml
+include mypy.ini
+include requirements-dev.txt
+recursive-include src *
+recursive-include tests *
