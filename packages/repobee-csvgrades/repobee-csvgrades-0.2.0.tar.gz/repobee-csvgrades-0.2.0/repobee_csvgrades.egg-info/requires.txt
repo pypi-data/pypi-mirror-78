@@ -1,0 +1,7 @@
+repobee>=3.0.0
+
+[TEST]
+pytest
+pytest-cov
+pytest-mock
+tox
