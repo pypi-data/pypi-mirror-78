@@ -1,0 +1,5 @@
+
+            [console_scripts]
+            psimulate=vivarium_cluster_tools.psimulate.cli:psimulate
+            vparse=vivarium_cluster_tools.vparse.cli:vparse
+        
