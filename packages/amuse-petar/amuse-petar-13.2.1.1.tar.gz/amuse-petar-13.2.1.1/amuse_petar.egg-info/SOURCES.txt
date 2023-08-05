@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+amuse_petar.egg-info/PKG-INFO
+amuse_petar.egg-info/SOURCES.txt
+amuse_petar.egg-info/dependency_links.txt
+amuse_petar.egg-info/requires.txt
+amuse_petar.egg-info/top_level.txt
+src/amuse/community/petar/.Makefile.swp
+src/amuse/community/petar/Makefile
+src/amuse/community/petar/__init__.py
+src/amuse/community/petar/download.py
+support/__init__.py
+support/classifiers.py
+support/setup_codes.py
+support/version.py
