@@ -1,0 +1,14 @@
+setup.cfg
+setup.py
+csv_dataset/__init__.py
+csv_dataset/common.py
+csv_dataset/dataset.py
+csv_dataset/normalizer.py
+csv_dataset/reader.py
+csv_dataset.egg-info/PKG-INFO
+csv_dataset.egg-info/SOURCES.txt
+csv_dataset.egg-info/dependency_links.txt
+csv_dataset.egg-info/requires.txt
+csv_dataset.egg-info/top_level.txt
+test/test_csv_dataset.py
+test/test_rolling_window.py
