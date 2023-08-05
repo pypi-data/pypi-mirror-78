@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: crawler4py
+Version: 0.5
+Summary: A distributed crawler framework based on Python
+Home-page: https://github.com/winner-hue/crawler4py
+Author: winner-hub
+Author-email: 1344246287@qq.com
+License: Apache 2.0
+Keywords: crawler4py crawler spider pyspider
+Platform: UNKNOWN
+Requires-Dist: DBUtils (>=1.3)
+Requires-Dist: Faker (>=4.1.1)
+Requires-Dist: PyMySQL (>=0.9.3)
+Requires-Dist: PyYAML (>=5.3.1)
+Requires-Dist: beautifulsoup4 (>=4.9.1)
+Requires-Dist: bs4 (>=0.0.1)
+Requires-Dist: certifi (>=2020.6.20)
+Requires-Dist: chardet (>=3.0.4)
+Requires-Dist: gne (>=0.2.1)
+Requires-Dist: idna (>=2.10)
+Requires-Dist: loguru (>=0.5.0)
+Requires-Dist: lxml (>=4.5.2)
+Requires-Dist: numpy (>=1.19.0)
+Requires-Dist: pika (>=1.1.0)
+Requires-Dist: psutil (>=5.7.0)
+Requires-Dist: pymongo (>=3.10.1)
+Requires-Dist: python-dateutil (>=2.8.1)
+Requires-Dist: redis (>=3.5.3)
+Requires-Dist: requests-file (>=1.5.1)
+Requires-Dist: requests (>=2.24.0)
+Requires-Dist: six (>=1.15.0)
+Requires-Dist: soupsieve (>=2.0.1)
+Requires-Dist: text-unidecode (>=1.3)
+Requires-Dist: tldextract (>=2.2.2)
+Requires-Dist: urllib3 (>=1.25.9)
+
+A distributed crawler framework based on Python
+
+
