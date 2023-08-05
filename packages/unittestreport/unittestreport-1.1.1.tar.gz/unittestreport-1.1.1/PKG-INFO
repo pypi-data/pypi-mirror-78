@@ -1,0 +1,110 @@
+Metadata-Version: 2.1
+Name: unittestreport
+Version: 1.1.1
+Summary: UNKNOWN
+Home-page: https://github.com/musen123/UnitTestReport
+Author: MuSen
+Author-email: musen_nmb@qq.com
+License: UNKNOWN
+Description: # unittestreport—V1.1.1版本使用详细文档
+        
+        ### 前言
+        
+        关于unittestreport最初在开发的时候，最初只是计划开发一个unittest生成html测试报告的模块，所以起名叫做unittestreport。在开发的过程中结合使用的小伙伴的一些反馈，所以慢慢的扩展了更多的功能进去。之前在写unittestreport的时候，也陆续写了几遍关于unittestreport相关功能的使用，每次都是一个特定的功能，这边给出一遍系统的使用文档来给大家介绍一下unittestreport的功能。
+        
+        - #### 关于unittestreport是什么？
+        
+            - unittestreport是基于unittest开发的的一个功能扩展库，为unittest提供了一些常用的扩展功能：
+        
+                - HTML测试报告生成
+                - 测试用例失败重运行
+                - 发送测试结果及报告到邮箱
+                - unittest数据驱动
+        
+        - #### 安装命令：
+        
+            cmd命令行下输入下面的命令进行安装
+        
+            ```
+            pip install unittestreport
+            ```
+        
+        - #### 备注：
+        
+            - ##### 开发者：柠檬班—木森
+        
+            - ##### E-mail:musen_nmb@qq.com
+        
+            - ##### 大家在使用过程中发现bug,可以联系我，以便优化解决！
+        
+        ### 一、HTML测试报告生成
+        
+        unittestteport中封装了一个TestRunner类，可以用来代替unittest中的TextTestRunner来执行测试用例，执行完测试用例之后会自动生成测试报告。并且有多种报告风格可选
+        
+        - #### 模块导入
+        
+        ```python
+        from unittestteport import TestRunner
+        ```
+        
+        - #### 使用案例
+        
+        ```python
+        runner = TestRunner(test_suite)
+        runner.run()
+        ```
+        
+        - #### 关于TestRunner初始化参数
+        
+            - ######  suites: 测试套件（必传）
+        
+            - ######  filename: 指定报告文件名
+        
+            - ######  report_dir:指定存放报告路径
+        
+            - ######  title:指定测试报告的标题
+        
+            - ######  templates: 可以指定1，2，3三个风格的模板
+        
+            - ######  tester:测试人员名称
+        
+        - #### 报告样式展示：
+        
+            ![1598866900740](C:\课件\images\1598866900740-4967c8ad-1598940106149.png )
+        
+        - #### 更多详细功能的使用，请查看项目github中的使用文档
+        _ #### github地址：https://github.com/musen123/UnitTestReport
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
