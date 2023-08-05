@@ -1,0 +1,12 @@
+[console_scripts]
+shore = shore.__main__:_entry_point
+shore-conda-forge = shore.tools.conda_forge:main
+shut = shut.commands:shut
+
+[shore.core.plugins]
+core = shore.plugins.core:CorePlugin
+install-script = shore.plugins.install_script:InstallScriptRenderer
+pypi = shore.plugins.pypi:PypiPublisher
+requirements-file = shore.plugins.requirements_file:RequirementsFileRenderer
+setuptools = shore.plugins.setuptools:SetuptoolsRenderer
+
