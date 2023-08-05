@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: scml-agents
+Version: 0.1.2
+Summary: Agents submitted to the SCML competition or contributed by the community
+Home-page: https://github.com/yasserfarouk/scml-agents
+Author: Yasser Mohammad
+Author-email: yasserfarouk@gmail.com
+License: UNKNOWN
+Project-URL: homepage, https://github.com/yasserfarouk/negmas
+Keywords: negotiation mas multi-agent simulation AI
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Requires-Dist: Click (>=6.0)
+Requires-Dist: torch
+Requires-Dist: tensorflow-cpu
+Requires-Dist: scml
+Requires-Dist: dataclasses ; python_version < "3.7"
+
+Agents qualified for the SCML 2020 competition
+
+Agents accepted for the SCML 2020 qualifications
+=================================================
+
+ ============= ============= ======================= 
+  Team          Identifier    Agent/Class name       
+ ============= ============= ======================= 
+  a-sengupta    a-sengupta    Merchant               
+ ------------- ------------- ----------------------- 
+  Past Frauds   past_frauds   MhiranoAgent           
+ ------------- ------------- ----------------------- 
+  Team 15       team_15       SteadyMgr              
+ ------------- ------------- ----------------------- 
+  Team 17       team_17       WhAgent                 
+ ------------- ------------- ----------------------- 
+  Team 18       team_18       Mercu                  
+ ------------- ------------- ----------------------- 
+  Team 19       team_19       Ashgent                
+ ------------- ------------- ----------------------- 
+  Team 20       team_20       CrescentAgent          
+ ------------- ------------- ----------------------- 
+  Team 22       team_22       SavingAgent            
+ ------------- ------------- ----------------------- 
+  ThreadField   threadfield   GreedyFactoryManager2 
+ ------------- ------------- -----------------------
+  Team May      team_may      MMM                   
+ ------------- ------------- -----------------------
+  Team 10       team_10       UnicornAgent          
+ ------------- ------------- -----------------------
+  BARgent       bargent       BARGentCovid19        
+ ------------- ------------- -----------------------
+  BIU-TH        biu_th        THBiu                 
+ ------------- ------------- -----------------------
+  agent0x111    agent0x111    ASMASH                
+ ------------- ------------- -----------------------
+  Team 25       team_25       Agent30               
+ ------------- ------------- -----------------------
+  Team 29       team_29       BIUDODY               
+ ------------- ------------- -----------------------
+  Team 32       team_32       BeerAgent             
+ ------------- ------------- -----------------------
+  Team 27       team_27       AgentProjectGC        
+ ------------- ------------- -----------------------
+  MontyHall     montyhall     MontyHall             
+ ============= ============= =======================
+
+
+
