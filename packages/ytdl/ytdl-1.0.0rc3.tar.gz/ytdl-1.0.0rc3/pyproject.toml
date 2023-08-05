@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "ytdl"
+version = "1.0.0rc3"
+description = ""
+authors = ["Dong Nguyen <ndaidong@gmail.com>"]
+maintainers = ["Dong Nguyen <ndaidong@gmail.com>"]
+homepage = "https://pypi.org/project/ytdl"
+repository = "https://github.com/ndaidong/ytdl"
+license = "MIT"
+readme = "README.md"
+
+keywords = [
+  "YouTube",
+  "Downloader",
+  "Utility"
+]
+
+packages = [
+  {include = "ytdl_entrypoint.py"},
+  {include = "ytdl"},
+]
+
+[tool.poetry.scripts]
+ytdl = "ytdl_entrypoint:init"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+python-youtube = "^0.6.0"
+pytube3 = "^9.6.4"
+bella = "^2.1.3"
+fire = "^0.3.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0.1"
+coveralls = "^2.1.2"
+flake8 = "^3.8.3"
+pytest-cov = "^2.10.1"
+safety = "^1.9.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
