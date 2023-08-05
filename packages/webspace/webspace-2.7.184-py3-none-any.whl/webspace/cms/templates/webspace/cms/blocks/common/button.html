@@ -1,0 +1,17 @@
+{% load wagtailcore_tags %}
+{% if value.text %}
+    <a class="btn {{ value.type }} {% if space %}space-{{ space }}{% endif %}"
+            {% if value.page %}
+       href="{% pageurl value.page %}"
+            {% elif value.link %}
+       href="{{ value.link }}"
+            {% else %}
+       href="#"
+            {% endif %}
+            {% if value.open_new_tab %}
+       target="_blank"
+            {% endif %}
+    >
+        {{ value.text }}
+    </a>
+{% endif %}

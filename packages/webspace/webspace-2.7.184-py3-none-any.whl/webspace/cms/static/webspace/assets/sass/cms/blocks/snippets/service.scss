@@ -1,0 +1,69 @@
+.service {
+  .bg {
+    background: $color-4;
+  }
+
+  .entity {
+    color: $color-4;
+  }
+}
+
+.feature {
+  .bg {
+    background: $color-2;
+  }
+
+  .entity {
+    color: $color-2;
+  }
+}
+
+.folder {
+  .bg {
+    @include theme($themes) {
+      background: t('colorP');
+    }
+  }
+
+  .entity {
+    color: $color-2;
+  }
+}
+
+.back, .add {
+  @include theme($themes) {
+    background: t('uks');
+    border: 1px solid t('kaks');
+  }
+
+  .bg {
+    @include theme($themes) {
+      background: t('kaks');
+    }
+  }
+}
+
+
+.feature, .service {
+  text-align: center;
+
+  .service-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+  }
+
+  .service-description {
+    min-height: 75px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    p {
+      padding: 0;
+    }
+  }
+}

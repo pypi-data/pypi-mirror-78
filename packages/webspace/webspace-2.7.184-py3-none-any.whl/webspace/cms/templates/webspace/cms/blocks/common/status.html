@@ -1,0 +1,11 @@
+{% load my %}
+
+{% if ok %}
+    <img class="s-icon x0-5"
+         src="{{ icons.tick|ico:'space' }}"
+         alt="Tick">
+{% else %}
+    <img class="s-icon x0-5"
+         src="{{ icons.cross_red|ico:'space' }}"
+         alt="Cross">
+{% endif %}

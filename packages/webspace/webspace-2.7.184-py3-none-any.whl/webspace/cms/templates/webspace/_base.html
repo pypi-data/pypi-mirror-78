@@ -1,0 +1,137 @@
+{% load static wagtailcore_tags wagtailuserbar wagtailimages_tags my_amp %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="fr">
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block page_title %}{{ page.seo_title }}{% endblock %}</title>
+    <meta name="description" content="{% block page_description %}{{ page.search_description }}{% endblock %}"/>
+    <meta content="Station Spatiale" name="author"/>
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="content-language" content="fr">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block og_title %}{{ page.seo_title }}{% endblock %}">
+    <meta property="og:description" content="{% block og_desc %}{{ page.search_description }}{% endblock %}">
+    {% if page.feed_image %}
+        <meta property="og:image"
+              content="{% image page.feed_image fill-500x500 as img %}{{ img.url }}">
+        <meta property="og:image:width" content="500">
+        <meta property="og:image:height" content="500">
+    {% endif %}
+    <meta property="og:url" content="https://{{ request.get_host }}{{ request.path|cut:"?build=true" }}">
+    <meta name="twitter:title" content="{% block twitter_title %}{{ page.seo_title }}{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_desc %}{{ page.search_description }}{% endblock %}">
+    {% if page.feed_image %}
+        <meta name="twitter:image"
+              content="{% image page.feed_image fill-500x500 as img %}{{ img.url }}">
+        <meta name="twitter:card" content="summary_large_image">
+    {% endif %}
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'assets/img/favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'assets/img/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <link rel="canonical" href="https://{{ request.get_host }}{{ request.path|cut:"?build=true" }}"/>
+    {% if page %}
+        {% amp_canonical %}
+    {% endif %}
+    <style>
+        html, body {
+            background: #171721
+        }
+
+        #loader {
+            z-index: 10000000000000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            -webkit-transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease
+        }
+
+        #loader img {
+            width: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%)
+        }
+
+        * ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px
+        }
+
+        * ::-webkit-scrollbar-track {
+            background: #171721
+        }
+
+        * ::-webkit-scrollbar-thumb {
+            background: #F7F7F7
+        }
+
+        * ::-webkit-scrollbar-thumb:hover {
+            background: #F7F7F7
+        }
+
+        #loader ~ div {
+            display: none
+        }
+    </style>
+    {% comment %}
+        <link href="/static/dist/css/cmsload{{ request.version_webspace }}.css" rel="stylesheet" type="text/css"/>
+    {% endcomment %}
+
+    {% block extra_head %}
+    {% endblock %}
+    {% if page.schemas %}
+        {% for schema in page.schemas %}
+            {% include_block schema %}
+        {% endfor %}
+    {% endif %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+{% csrf_token %}
+<div id="loader" class="theme-bg-{% if page.theme %}{{ page.theme }}{% else %}space{% endif %}" role="banner">
+    <img src="{% static 'webspace/img/svg/loader.svg' %}" alt="Loader">
+</div>
+
+{% if not env == 'prod' %}
+    {% wagtailuserbar %}
+{% endif %}
+
+{% block content %}{% endblock %}
+
+{% block font %}
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+{% endblock %}
+{% block css %}
+    <link href="/static/webspace/dist/css/cms{{ request.version_webspace }}.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block js %}
+    <script async src="/static/webspace/dist/js/smc{{ request.version_webspace }}.js"></script>
+{% endblock %}
+
+<script>
+    {% autoescape off %}
+        (function () {
+            {% block onbodyload %}
+            {% endblock %}
+            const loader = document.getElementById('loader');
+            loader.style.opacity = "0";
+            loader.style.zIndex = "-1";
+        })();
+    {% endautoescape %}
+</script>
+</body>
+</html>

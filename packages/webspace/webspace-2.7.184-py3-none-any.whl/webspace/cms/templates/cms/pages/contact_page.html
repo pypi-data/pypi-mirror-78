@@ -1,0 +1,28 @@
+{% extends 'cms/pages/_generic.html' %}
+{% load wagtailcore_tags my %}
+
+{% block extra_head %}
+    {% include 'cms/blocks/schemas/generated/breadcrumb.html' %}
+{% endblock %}
+
+{% block content %}
+    {% block header %}
+        {{ block.super }}
+    {% endblock %}
+
+    {% block content_body %}
+
+        {{ form.as_p }}
+
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'cms/blocks/common/footer.html' %}
+    {% endblock %}
+
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    {% include 'cms/blocks/common/google-analytics.html' %}
+{% endblock %}

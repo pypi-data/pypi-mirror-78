@@ -1,0 +1,9 @@
+{% load static %}
+<section class="card {% block card_entity %}{% endblock %}">
+    {% block card_icon %}
+    {% endblock %}
+    <div class="card-content">
+        {% block card_content %}
+        {% endblock %}
+    </div>
+</section>

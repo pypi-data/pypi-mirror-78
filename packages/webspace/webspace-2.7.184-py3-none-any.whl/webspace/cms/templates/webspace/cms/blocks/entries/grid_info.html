@@ -1,0 +1,20 @@
+{% extends 'webspace/cms/blocks/_block.html' %}
+{% load wagtailcore_tags %}
+
+{% block block_content %}
+    <div class="grid-info-container">
+        {% for info in value.infos %}
+            <div class="grid-info">
+                <div class="grid-media">
+                    {% if info.block_type == 'svg_info' %}
+                        {% include 'webspace/cms/blocks/common/svg.html' with value=info.value block_num=block_num %}
+                    {% elif info.block_type == 'image_info' %}
+                        {% include 'webspace/cms/blocks/common/image.html' with value=info.value block_num=block_num %}
+                    {% endif %}
+                </div>
+                <h3 class="grid-title">{{ info.value.title }}</h3>
+                {% include_block info.value.text_hover with theme=value.theme %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+.first_content {
+
+  @include md() {
+    [class*="align-"] {
+      width: 50%;
+    }
+
+    .align-text-center {
+      margin: auto;
+    }
+
+    .align-text-right {
+      margin-left: auto;
+    }
+  }
+}

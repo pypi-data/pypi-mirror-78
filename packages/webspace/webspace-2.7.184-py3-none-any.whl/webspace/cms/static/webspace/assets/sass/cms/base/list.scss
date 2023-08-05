@@ -1,0 +1,45 @@
+/* List */
+
+ul, ol {
+  @include theme($themes) {
+    /*color: t('colorListDecoration');*/
+    color: t('colorP');
+  }
+}
+
+.rich-text {
+  ul, ol {
+    line-height: 1.6em;
+    padding: 0;
+  }
+
+  ol {
+    counter-reset: item;
+  }
+
+  ol li {
+    display: block;
+  }
+
+  ol li:before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    color: $color-2;
+  }
+
+  ul {
+    list-style: none;
+
+    a {
+      vertical-align: middle;
+    }
+  }
+
+  ul li::before {
+    content: "•";
+    color: $color-2;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+  }
+}

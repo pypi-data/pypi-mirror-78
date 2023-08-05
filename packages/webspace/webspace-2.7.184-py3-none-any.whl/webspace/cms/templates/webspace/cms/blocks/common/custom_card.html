@@ -1,0 +1,24 @@
+{% extends 'webspace/cms/blocks/_card.html' %}
+{% load wagtailcore_tags %}
+{% load static %}
+
+{% block card_entity %}custom{% endblock %}
+
+{% block card_icon %}
+    {% if value.svg.file %}
+        <div class="card-icon bg">
+            {% include_block value.svg with block_num=block_num %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block card_content %}
+    <div class="align-text-center">
+        {% include_block value.text %}
+        {% if value.button.text %}
+            <div class="btn-container">
+                {% include_block value.button %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

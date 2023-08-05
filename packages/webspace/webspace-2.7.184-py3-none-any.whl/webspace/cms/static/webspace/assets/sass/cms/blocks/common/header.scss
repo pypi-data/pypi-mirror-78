@@ -1,0 +1,178 @@
+.header {
+  height: $header-height;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+
+  @include theme($themes) {
+    background: t('uks');
+    box-shadow: 0 0 2px t('kaks');
+  }
+
+  &.kaks {
+    @include theme($themes) {
+      background: t('kaks');
+      border: 1px solid t('uks');
+    }
+  }
+
+  section, .header-container {
+    max-height: $header-height;
+  }
+
+  .header-container {
+    display: flex;
+    height: $header-height;
+
+    @include xs() {
+      justify-content: space-between;
+    }
+
+    .header-logo {
+      margin-left: $header-margin-ext;
+      position: relative;
+      margin-top: 5px;
+      width: 200px;
+
+      img {
+        height: calc(100% - 10px);
+      }
+
+      @include xs() {
+        margin-left: 20px;
+      }
+    }
+
+    .header-nav {
+      flex: 1;
+      text-align: right;
+    }
+
+    .header-buttons {
+      text-align: right;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .header-aside-mobile {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+    }
+
+    nav {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      hr {
+        display: none;
+      }
+
+      a {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+      }
+
+      .even {
+        @include theme($themes) {
+          background: t('uks');
+          border: 1px solid t('kaks');
+
+          &:hover {
+            background: lighten(t('uks'), $header-lighten);
+          }
+        }
+      }
+
+      .odd {
+        @include theme($themes) {
+          background: t('kaks');
+          border: 1px solid t('kaks');
+
+          &:hover {
+            background: lighten(t('kaks'), $header-lighten);
+          }
+        }
+      }
+
+      .even, .odd {
+        /*min-width: 123px;*/
+        padding: 5px;
+      }
+
+      li {
+        margin: 0;
+        padding: $header-padding-li;
+
+        &.nopad {
+          padding: 0;
+        }
+      }
+
+      ul li ul {
+        text-align: center;
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 13%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+        li {
+          display: inline-block;
+          width: 100%;
+
+          a {
+            text-decoration: none;
+
+          }
+        }
+
+        @include xs() {
+          right: 100%;
+        }
+      }
+
+      ul {
+        list-style: none;
+        cursor: pointer;
+        display: table;
+        height: 100%;
+        position: relative;
+        padding: 0 5px;
+        margin: 0;
+
+        &.nopad {
+          padding: 0;
+        }
+
+
+        li {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+
+.header-padding {
+  padding-top: $header-height;
+}
+
+li.link {
+  background: unset;
+
+  a {
+    text-decoration: unset;
+    @include theme($themes) {
+      color: t('colorP');
+    }
+  }
+}
