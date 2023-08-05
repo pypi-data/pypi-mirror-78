@@ -1,0 +1,13 @@
+lxml>=4.5.0
+requests>=2.0.0
+networkx>=2.4
+
+[:python_version < "3.7"]
+dataclasses
+
+[development]
+pre-commit
+
+[test]
+pytest
+pandas>=1.0.0
