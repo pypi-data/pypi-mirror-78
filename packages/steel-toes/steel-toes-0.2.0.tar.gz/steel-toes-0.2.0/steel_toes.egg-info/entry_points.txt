@@ -1,0 +1,6 @@
+[console_scripts]
+steel-toes = steel_toes:cli
+
+[kedro.global_commands]
+steel-toes = steel_toes:cli
+
