@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+admin_action_buttons/__init__.py
+admin_action_buttons/admin.py
+admin_action_buttons/apps.py
+admin_action_buttons/context_processors.py
+admin_action_buttons/static/admin_action_buttons/admin_action_buttons.css
+admin_action_buttons/static/admin_action_buttons/admin_action_buttons.js
+django_admin_action_buttons.egg-info/PKG-INFO
+django_admin_action_buttons.egg-info/SOURCES.txt
+django_admin_action_buttons.egg-info/dependency_links.txt
+django_admin_action_buttons.egg-info/top_level.txt
