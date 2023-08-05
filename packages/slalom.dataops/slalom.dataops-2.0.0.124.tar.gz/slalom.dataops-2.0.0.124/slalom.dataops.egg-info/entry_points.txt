@@ -1,0 +1,5 @@
+[console_scripts]
+s-anon = slalom.dataops.anon:main
+s-infra = slalom.dataops.infra:main
+s-spark = slalom.dataops.sparkutils:main
+
