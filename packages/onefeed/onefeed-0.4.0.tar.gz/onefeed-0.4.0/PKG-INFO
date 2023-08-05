@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: onefeed
+Version: 0.4.0
+Summary: Info feed only for yourself
+Home-page: https://github.com/dadaers/OneFeed
+Author: anorakj
+Author-email: nicholasjcc@gmail.com
+License: Apache 2.0
+Description: # OneFeed
+        
+        OneFeed is a customizable feed engine that subscribes to multiple info sources via crawler. You can use it just like your favorite info websites except that it is all in one. It will also support AI based feed recommendation system in the future, however, controlled only by yourself.
+        
+        ## Install
+        ```shell script
+        pip install onefeed
+        ```  
+        
+        ## Usage
+        ```shell script
+        onefeed fetch # crawl the info, or you can just skip this since the servier will fetch automatically
+        onefeed start # start the server
+        ```
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
