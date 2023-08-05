@@ -1,0 +1,15 @@
+<meta charset="UTF-8"/>
+<meta name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+{% if mode == "dark" %}
+  <link rel="stylesheet" href="/static/bootstrap-darkly.min.css" />
+  <link rel="stylesheet" href="/static/style-dark.css?s={{ START }}" />
+{% else %}
+  <link rel="stylesheet" href="/static/bootstrap-flatly.min.css" />
+  <link rel="stylesheet" href="/static/style-light.css?s={{ START }}" />
+{% endif %}
+<link rel="stylesheet" href="/static/style.css?s={{ START }}" />
+<script src="/static/jquery-3.5.1.slim.min.js"></script>
+<script src="/static/popper-1.16.0.min.js"></script>
+<script src="/static/bootstrap.min.js"></script>
+<script src="/static/script.js?s={{ START }}"></script>

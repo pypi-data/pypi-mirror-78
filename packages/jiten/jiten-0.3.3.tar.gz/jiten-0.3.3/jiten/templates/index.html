@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <!--
+
+    File        : templates/index.html
+    Maintainer  : Felix C. Stegerman <flx@obfusk.net>
+    Date        : 2020-08-05
+
+    Copyright   : Copyright (C) 2020  Felix C. Stegerman
+    Version     : v0.2.0
+    License     : AGPLv3+
+
+  -->
+  <head>
+    {% include "_meta.html" %}
+    <title>jiten</title>
+  </head>
+  <body>
+    {% from "_search.html" import jmdict, kanji, stroke, sentences with context %}
+    {% include "_nav.html" %}
+    <div class="container">
+      {{ jmdict(langs) }}
+      <br/>
+      {{ kanji(af = False) }}
+      <br/>
+      {{ sentences(af = False) }}
+      <br/>
+      {{ stroke(af = False) }}
+    </div>
+    {% include "_footer.html" %}
+  </body>
+</html>

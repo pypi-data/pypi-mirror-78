@@ -1,0 +1,343 @@
+{# <!--
+
+  File        : templates/_nav.html
+  Maintainer  : Felix C. Stegerman <flx@obfusk.net>
+  Date        : 2020-08-31
+
+  Copyright   : Copyright (C) 2020  Felix C. Stegerman
+  Version     : v0.3.2
+  License     : AGPLv3+
+
+--> #}
+{% from "_macros.html" import input with context %}
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+  <a class="jap navbar-brand" href="/">辞典</a>
+  <button class="navbar-toggler" type="button"
+      data-toggle="collapse" data-target="#nav"
+      aria-controls="nav" aria-expanded="false"
+      aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="nav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item {{ "active" if page == "index" else "" }}">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item {{ "active" if page == "jmdict" else "" }}">
+        <a class="nav-link" href="/jmdict"><strong>JMDict</strong></a>
+      </li>
+      <li class="nav-item {{ "active" if page == "kanji" else "" }}">
+        <a class="nav-link" href="/kanji"><strong>Kanji</strong></a>
+      </li>
+      <li class="nav-item {{ "active" if page == "sentences" else "" }}">
+        <a class="nav-link" href="/sentences"><strong>Sentences</strong></a>
+      </li>
+      <li class="nav-item {{ "active" if page == "stroke" else "" }}">
+        <a class="nav-link" href="/stroke"><strong>Stroke Order</strong></a>
+      </li>
+      <li class="nav-item {{ "active" if page == "kanji/by-freq" else "" }}">
+        <a class="nav-link" href="/kanji/by-freq">Kanji by Freq.</a>
+      </li>
+      <li class="nav-item {{ "active" if page == "kanji/by-level" else "" }}">
+        <a class="nav-link" href="/kanji/by-level">Kanji by Level</a>
+      </li>
+      <li class="nav-item {{ "active" if page == "kanji/by-jlpt" else "" }}">
+        <a class="nav-link" href="/kanji/by-jlpt">Kanji by JLPT</a>
+      </li>
+      <li class="nav-item {{ "active" if page == "jmdict/by-freq" else "" }}">
+        <a class="nav-link" href="/jmdict/by-freq">JMDict by Freq.</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/obfusk/jiten"
+          target="_blank" rel="noopener" aria-label="GitHub">
+          <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg"
+              viewbox="0 0 512 499.36" focusable="false">
+            <title>GitHub</title>
+            <path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"/>
+          </svg>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"
+          href="https://en.wikipedia.org/wiki/Kodansha_Kanji_Learner%27s_Dictionary#SKIP"
+          target="_blank" rel="noopener">SKIP Codes</a>
+      </li>
+    </ul>
+    <button type="button" data-toggle="modal" data-target="#regex-modal"
+      class="btn btn-light btn-sm my-2 my-lg-0 ml-md-2">Regex Help</button>
+    <button type="button" data-toggle="modal" data-target="#romaji-modal"
+      class="jap btn btn-light btn-sm my-2 my-lg-0 ml-2"
+      title="romaji" style="white-space: nowrap;">a→あ</button>
+    <button type="button" data-toggle="modal" data-target="#radical-modal"
+      class="jap btn btn-light btn-sm my-2 my-lg-0 ml-2"
+      title="radicals">部</button>
+    <button type="button" data-toggle="modal" data-target="#history-modal"
+      class="jap btn btn-light btn-sm my-2 my-lg-0 ml-2"
+      title="search history">履歴</button>
+    <a class="btn btn-light btn-sm my-2 my-lg-0 ml-2" href="{{ toggle }}"
+      >{{ "Light" if mode == "dark" else "Dark" }} Mode</a>
+  </div>
+</nav>
+<div class="modal" tabindex="-1" role="dialog" id="romaji-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="jap modal-title">konnnichiha → こんにちは</h5>
+        <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="javascript:void(0);"
+          class="modal-body form-inline justify-content-end">
+        <label class="sr-only" for="romaji">Romaji</label>
+        {{ input("romaji", "_", "", "", False, True, "2 mb-lg-0") }}
+        <button id="romaji-convert" class="btn btn-primary">Convert</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="radical-modal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">部 Radicals</h5>
+        <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Click on a radical to add it to the kanji query input field.
+        </p>
+        <div>
+          {% set c = dict(rad = "primary", alt = "info", var = "secondary") %}
+          {% for g in K.RADTABLE %}
+            <span class="active notbtn btn btn-warning px-0 py-1 mb-1">
+              <span class="tworem">{{ loop.index }}</span>
+            </span>
+            {% for r, x in g %}
+              <button class="radical jap selbtn btn btn-{{ c[x] }} px-0 py-1 mb-1">
+                <span class="tworem">{{ r }}</span>
+              </button>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="history-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="jap modal-title">検索履歴 Search History</h5>
+        <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group" id="history"></ul>
+        <br/>
+        <div class="d-flex justify-content-end">
+          <button id="history-clear" class="btn btn-danger">
+            Clear History
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="confirm-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">[...]</h5>
+        <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body d-flex justify-content-end">
+        <button class="btn btn-secondary mr-1"
+          data-dismiss="modal">Cancel</button>
+        <button id="confirm" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="regex-modal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Regex Help</h5>
+        <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        For beginners:
+        <a href="https://docs.python.org/3/howto/regex.html#regex-howto"
+          target="_blank" rel="noopener">Python Regex HOWTO</a>
+        &amp;
+        <a href="https://docs.python.org/3/library/re.html#regular-expression-syntax"
+          target="_blank" rel="noopener">Python Regex Syntax</a>.
+        <br/>
+        For when the details matter:
+        <a href="https://www.pcre.org/original/doc/html/pcresyntax.html"
+          target="_blank" rel="noopener">PCRE Syntax</a>
+        (what jiten actually uses).
+        <hr/>
+        <h6>Prefix "Commands"</h6>
+        Queries support prefix "commands" (unrelated to regex syntax):
+        e.g. <code>+w foo</code> (word) should give the same results
+        as <code>\bfoo\b</code>, <code>+1 foo</code> (1st word) as
+        <code>^foo\b</code>, and <code>+= foo</code> (exact) as
+        <code>^foo$</code>.  (The <code>+</code> prefix was chosen
+        because no valid regex can start with it.)
+        <hr/>
+        <h6>Quick Reference</h6>
+        <ul class="pl-4 mb-2"><li>
+          Most letters and characters will simply match themselves;
+          e.g. <code>foo</code> matches "foo".
+        </li><li>
+          The metacharacters <code>. ^ $ * + ? { } [ ] \ | ( )</code>
+          allow matching using sophisticated patterns and rules; they
+          are escaped by preceding them with a backslash; e.g.
+          <code>\\</code> matches an actual backslash.
+        </li></ul>
+        <ul class="pl-4 mb-2"><li>
+          <code>.</code> matches any character (except newline); e.g.
+          <code>ba.</code> matches "bar", "baz", etc.
+        </li></ul>
+        <ul class="pl-4 mb-2"><li>
+          <code>^</code> matches at the start of a line; e.g.
+          <code>^foo</code> matches "foo" at the start of a line.
+        </li><li>
+          <code>$</code> matches at the end of a line; e.g.
+          <code>foo$</code> matches "foo" at the end of a line.
+        </li><li>
+          <code>\b</code> matches at a "word boundary" (the start or
+          end of a "word"); e.g. <code>\bbar\b</code> matches "bar" in
+          "foo bar baz", but not in "foobarbaz"; <code>\B</code> is
+          its complement.
+        </li></ul>
+        <ul class="pl-4 mb-2"><li>
+          <code>*</code> matches the preceding thing zero or more
+          times; e.g. <code>fo*</code> matches "f", "fo", "foo", etc.
+        </li><li>
+          <code>+</code> matches the preceding thing one or more
+          times; e.g. <code>fo+</code> matches "fo", "foo", etc.
+        </li><li>
+          <code>?</code> matches the preceding thing optionally; e.g.
+          <code>fo?</code> matches "f" or "fo".
+        </li><li>
+          <code>{m,n}</code> (or just <code>{m}</code> instead of
+          <code>{m,m}</code>) matches the preceding thing
+          <code>m</code> to <code>n</code> times; e.g.
+          <code>fo{2,4}</code> matches "foo", "fooo", or "foooo".
+        </li></ul>
+        <ul class="pl-4 mb-2"><li>
+          <code>[...]</code> is a character class; e.g.
+          <code>[a-z]</code> matches "a" through "z";
+          <code>[あいうえお]</code> matches "あ", "い", "う", "え", or
+          "お".
+        </li><li>
+          <code>[^...]</code> is a complementing character class; e.g.
+          <code>[^a-z]</code> matches anything but "a" through "z".
+        </li></ul>
+        <ul class="pl-4 mb-2"><li>
+          <code>\d</code> matches any decimal digit (equivalent to
+          <code>[0-9]</code>); <code>\D</code> is its complement
+          (equivalent to <code>[^0-9]</code>).
+        </li><li>
+          <code>\s</code> matches any whitespace character;
+          <code>\S</code> is its complement.
+        </li><li>
+          <code>\w</code> matches any alphanumeric (i.e. "word" or
+          "letter") character; <code>\W</code> is its complement.
+        </li></ul>
+        <ul class="pl-4 mb-2"><li>
+          <code>|</code> is alternation; e.g. <code>foo|bar|baz</code>
+          matches "foo", "bar", or "baz".
+        </li><li>
+          <code>(...)</code> is grouping; e.g. <code>ab*</code>
+          matches "a", "ab", "abb", etc. whereas <code>(ab)*</code>
+          matches "", "ab", "abab", etc.; <code>^foo|bar$</code>
+          matches "foo" at the beginning of a line or "bar" at the
+          end, whereas <code>^(foo|bar)$</code> matches either "foo"
+          or "bar" as a whole line; a backslash followed by the number
+          of the group (starting from 1) can be used later in the
+          pattern to refer back to what it (actually) matched; e.g.
+          <code>[a-z]{2}</code> matches "aa", "ab", "za", etc. whereas
+          <code>([a-z])\1</code> matches "aa", "bb", etc. (but not
+          "ab" or "za").
+        </li></ul>
+        <ul class="pl-4 mb-2"><li>
+          <code>\p{...}</code> matches a unicode property; e.g.
+          <code>\p{Han}</code> matches kanji,
+          <code>\p{Hiragana}</code> matches hiragana, and
+          <code>\p{Katakana}</code> matches katakana;
+          <code>\P{...}</code> is its complement.
+        </li><li>
+          For easy matching of Japanese, jiten supports these
+          non-standard aliases: <code>\pK</code> for
+          <code>\p{Han}</code>, <code>\ph</code> for
+          <code>\p{Hiragana}</code>, and <code>\pk</code> for
+          <code>\p{Katakana}</code>.
+        </li></ul>
+        <hr/>
+        <h6>Examples</h6>
+        <ul class="pl-4 mb-2"><li>
+          <code>+w cat</code> (<code>\bcat\b</code>) matches "cat" in
+          "the cat" (but not in e.g. "indicates").
+        </li><li>
+          <code>+1 cat</code> (<code>^cat\b</code>) matches "cat" in
+          "cat" or "cat (esp. the domestic cat, Felis catus)" (but not
+          in e.g. "category").
+        </li><li>
+          <code>+= cat</code> (<code>^cat$</code>) matches "cat"
+          exactly.
+        </li></ul>
+        <ul class="pl-4 mb-2"><li>
+          <code>+= 猫\pK</code> (<code>^猫\pK$</code>) matches "猫"
+          followed by exactly one other kanji.
+        </li><li>
+          <code>+= (\pK)\1</code> (<code>^(\pK)\1$</code>) matches
+          e.g. "人人".
+        </li></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="licenses-modal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Open Source Licenses</h5>
+        <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% for k, v in DEPS|dictsort %}
+          {% set name = v.get("name", k) %}
+          <h6>
+            <a href="{{ v.url }}" target="_blank" rel="noopener">
+              {{ name }}
+            </a>
+          </h6>
+          <iframe class="w-100" src="/static/licenses/{{ name }}.txt">
+          </iframe>
+          {% if not loop.last %}<br/><br/>{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

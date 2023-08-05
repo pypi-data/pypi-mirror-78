@@ -1,0 +1,108 @@
+{# <!--
+
+  File        : templates/_macros.html
+  Maintainer  : Felix C. Stegerman <flx@obfusk.net>
+  Date        : 2020-08-31
+
+  Copyright   : Copyright (C) 2020  Felix C. Stegerman
+  Version     : v0.3.2
+  License     : AGPLv3+
+
+--> #}
+{% macro input(id, name, value, ph, af = True, copy = False, mb = 2) %}
+  <div class="input-group mr-sm-2 mb-{{ mb }} flex-grow-1">
+    <div class="input-group-prepend">
+      <button type="button" title="あ↔ア"
+          class="jap convert-kana input-group-text btn btn-dark"
+        >あ</button>
+    </div>
+    <input type="text" class="jap form-control"
+      id="{{ id }}" name="{{ name }}" value="{{ value }}" required
+      placeholder="{{ ph }}" {% if af %}autofocus{% endif %} />
+    <div class="input-group-append">
+      {% if copy %}
+        <button type="button" style="display: none;"
+            class="copy-input input-group-text btn btn-dark">
+          <!-- https://www.flaticon.com/free-icon/copy-content_60990 -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon"
+              viewbox="0 0 561 561" focusable="false">
+            <title>copy</title>
+            <path
+              d="M395.25,0h-306c-28.05,0-51,22.95-51,51v357h51V51h306V0z M471.75,102h-280.5c-28.05,0-51,22.95-51,51v357 c0,28.05,22.95,51,51,51h280.5c28.05,0,51-22.95,51-51V153C522.75,124.95,499.8,102,471.75,102z M471.75,510h-280.5V153h280.5V510 z"
+              fill="currentColor" />
+          </svg>
+        </button>
+      {% endif %}
+      <button type="button"
+          class="clear-input input-group-text btn btn-dark">
+        <!-- https://www.flaticon.com/free-icon/close-button_61155 -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon"
+            viewbox="0 0 357 357" focusable="false">
+          <title>clear</title>
+          <polygon
+            points="357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3 214.2,178.5"
+            fill="currentColor" />
+        </svg>
+      </button>
+    </div>
+  </div>
+{% endmacro %}
+{% macro search(action, label, go, id, name, value, ph, af = True, btn = "primary") %}
+  <div class="card">
+    <form class="card-body" action="{{ action }}">
+      <div class="form-group form-inline justify-content-end mb-0">
+        <label class="sr-only" for="{{ id }}">{{ label }}</label>
+        {{ input(id, name, value, ph, af) }}
+        <button class="btn btn-{{ btn }} mb-2">{{ go }}</button>
+      </div>
+      {{ caller() }}
+    </form>
+  </div>
+{% endmacro %}
+{% macro topbtn() %}
+  <a href="#" class="btn btn-sm btn-outline-primary">
+    <!-- https://www.flaticon.com/free-icon/top_565737 -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon"
+        viewbox="0 0 384 384" focusable="false">
+      <title>go to top</title>
+      <g fill="currentColor">
+        <rect x="21.333" y="0" width="341.333" height="42.667"/>
+        <polygon points="106.667,170.667 170.667,170.667 170.667,384 213.333,384 213.333,170.667 277.333,170.667 192,85.333"/>
+      </g>
+    </svg>
+  </a>
+{% endmacro %}
+{% macro collapseopen() %}
+  <!-- https://www.flaticon.com/free-icon/expand-button_60781 -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon collapse-open"
+      viewbox="0 0 306 306" focusable="false">
+    <title>expand</title>
+    <polygon points="270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35" fill="currentColor"/>
+  </svg>
+{% endmacro %}
+{% macro collapseclose() %}
+  <!-- https://www.flaticon.com/free-icon/expand-arrow_60799 -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon collapse-close"
+      viewbox="0 0 306 306" focusable="false">
+    <title>collapse</title>
+    <polygon points="153,58.65 0,211.65 35.7,247.35 153,130.05 270.3,247.35 306,211.65" fill="currentColor"/>
+  </svg>
+{% endmacro %}
+{% macro collapsebtn(target) %}
+  <a class="btn btn-sm btn-outline-primary" href="#{{target }}"
+      data-toggle="collapse" data-target="#{{ target }}"
+      aria-expanded="true" aria-controls="{{ target }}">
+    {{ collapseopen() }}
+    {{ collapseclose() }}
+  </a>
+{% endmacro %}
+{% macro collapseallbtn() %}
+  <div class="text-right pt-2 pb-3">
+    <a class="btn btn-sm btn-outline-primary" href="#" id="expand-all">
+      {{ collapseopen() }} Expand All
+    </a>
+    <a class="btn btn-sm btn-outline-primary" href="#" id="collapse-all">
+      {{ collapseclose() }} Collapse All
+    </a>
+  </div>
+{% endmacro %}
