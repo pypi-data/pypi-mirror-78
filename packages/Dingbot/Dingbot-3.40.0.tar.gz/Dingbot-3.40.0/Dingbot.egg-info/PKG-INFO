@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: Dingbot
+Version: 3.40.0
+Summary: a Dingtalk group robot's API by python
+Home-page: https://github.com/WuJunkai2004/Dingbot
+Author: Wu Junkai
+Author-email: wujunkai20041123@outlook.com
+License: BSD License
+Description: 这是钉钉机器人 api ，在 python 2.17.7 的环境下编写而成。同时可在 python 3.x 的环境下运行。 
+         
+        本 api 与钉钉支持文档的用法完全相同，开发者可以根据钉钉支持文档自由编写。  
+        
+        由吴君凯(wujunkai20041123@outlook.com)建立框架，并由吴君明(2706914036@qq.com)负责漏洞修复。
+        
+        https://github.com/WuJunkai2004/Dingbot/blob/master/README.md
+Platform: all
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
