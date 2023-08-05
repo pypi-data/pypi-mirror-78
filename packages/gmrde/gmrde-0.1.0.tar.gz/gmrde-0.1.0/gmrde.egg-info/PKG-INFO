@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: gmrde
+Version: 0.1.0
+Summary: Analysieren und Umformen deutscher Wörter und Sätze
+Home-page: https://github.com/jarinox/python-grammar-de
+Author: Jakob Stolze
+Author-email: jarinox@wolke7.de
+License: LGPLv2.1
+Description: Diese Bibliothek ermöglicht das Analysieren und Umformen deutscher Wörter und Sätze.  
+        
+        ## Features
+        - Importieren von CSV Wörterbuchdatein
+        - Durchsuchen von Wörterbüchern
+        - Konjugieren von Verben
+        - Umstellen einer Frage zu einer Antwort (z.B. "Wer bist du" zu "Ich weiß nicht, wer ich bin")  
+        
+        Den Quellcode auf [Github](https://github.com/jarinox/python-grammar-de) ansehen.
+        
+        ## Beispiel
+        ```python
+        import gmrde
+        w = gmrde.Woerterbuch()
+        
+        frage = "Wer bin ich"
+        antwort = gmrde.umformen.frageZuAntwort(w, frage, case=False)
+        print(antwort) # "Ich weiß nicht, wer du bist."
+        
+        verb = w.konjugiere("sein", "SIN:1", "PRÄ") # 1. Person Singular Präsens
+        print(verb) # "bin"
+        
+        verb = w.konjugiere("können", "PLU:2", "PRT") # 2. Person Plural Präteritum
+        print(verb) # "konntet"
+        
+        ```
+        
+        ## Lizenzen
+        Dieses Paket enthält den Datensatz `gmrde/data/german.csv` sowie Programmcode. Der Datensatz ist mit Creative Commons Attribution-ShareAlike 4.0 International lizenziert. Die genauen Lizenzbedingungen zum Datensatz befinden sich in `gmrde/data/LICENSE`. Der Programmcode steht unter der GNU Lesser General Public Licence Version 2.1, die genauen Lizenzbedingungen des Codes befinden sich in `gmrde/LICENSE`.
+Platform: UNKNOWN
+Classifier: Natural Language :: German
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
