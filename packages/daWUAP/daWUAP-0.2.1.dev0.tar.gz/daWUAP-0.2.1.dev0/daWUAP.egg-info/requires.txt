@@ -1,0 +1,15 @@
+matplotlib
+numpy
+rasterio
+rasterstats
+fiona
+shapely
+tqdm
+scipy
+pandas
+tables
+fire
+
+[test]
+nose
+mock
