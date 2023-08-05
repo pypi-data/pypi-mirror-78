@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: ngsci
+Version: 0.0.1
+Summary: The Next Generation Sequencing Complexity Index
+Home-page: https://github.com/MatthewRalston/ngs-ci
+Author: Matthew Ralston
+Author-email: mrals89@gmail.com
+License: GPLv3+
+Description: See README.md for details
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+Provides-Extra: development
