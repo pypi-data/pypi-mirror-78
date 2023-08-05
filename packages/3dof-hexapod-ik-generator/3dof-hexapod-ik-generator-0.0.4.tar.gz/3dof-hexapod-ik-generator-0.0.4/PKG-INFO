@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: 3dof-hexapod-ik-generator
+Version: 0.0.4
+Summary: This is a module which calculates IK angles for leaning and shifting a 3dof hexapod's body.
+Home-page: https://github.com/macaquedev
+Author: Alex Pylypenko (macaquedev)
+Author-email: macaquedev@gmail.com
+License: MIT
+Description: This is a simple Python package for hexapod IK calculations.
+        
+        Commands:
+        
+        To be imported as ikengine
+        
+        class IKEngine # initialises the class object. Takes 4 arguments in mm - coxaLength, femurLength, tibiaLength and bodySideLength
+        
+        reverse_servos(servos being reversed) # reverses the motion of the particular servo. This command should be run before doing any calculations unless none of the servos need to be reversed
+        
+        shift_lean(posX, posY, posZ, rotX, rotY, rotZ) # returns an array of 18 servo angles that are calculated using IK from the given variables that correspond to the translation and tilt of the body of the hexapod. The order goes from tibia to coxa, from left to right and then from front to back
+        
+        cartesian_to_servo(leg, x, y, z) # returns an array of 3 servo angles (in the order: tibia, femur, coxa that will move the end of the leg to that position on the XYZ axes with an origin of the center of the coxa servo.
+        
+        
+        Any questions or suggestions? Please feel free to contact me at macaquedev@gmail.com
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
