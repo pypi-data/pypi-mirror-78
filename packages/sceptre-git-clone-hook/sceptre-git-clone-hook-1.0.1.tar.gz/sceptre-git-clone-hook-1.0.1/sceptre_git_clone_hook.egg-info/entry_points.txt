@@ -1,0 +1,3 @@
+[sceptre.hooks]
+git_clone = hook.git_clone:GitClone
+
