@@ -1,0 +1,59 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.behavior.gallery">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="collective.behavior.gallery.interfaces.ICollectiveBehaviorGalleryLayer"
+      />
+
+  <!-- Publish static files -->
+  <plone:static
+      name="collective.behavior.gallery"
+      type="plone"
+      directory="static"
+      />
+
+  <browser:viewlet
+      for="..behaviors.folderish_gallery.IFolderishGallery"
+      name="collective.behavior.gallery.gallery"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      class=".viewlet.GalleryViewlet"
+      permission="zope.Public"
+      layer="..interfaces.ICollectiveBehaviorGalleryLayer"
+      />
+
+  <browser:viewlet
+      for="..behaviors.folderish_gallery.IFolderishGallery"
+      name="collective.behavior.gallery.files"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      class=".viewlet.FilesViewlet"
+      permission="zope.Public"
+      layer="..interfaces.ICollectiveBehaviorGalleryLayer"
+      />
+
+  <!-- view for folders -->
+  <browser:page
+      name="listing_view"
+      for="..behaviors.folderish_gallery.IFolderishGallery"
+      layer="..interfaces.ICollectiveBehaviorGalleryLayer"
+      class=".folder_view.PicturelessFolderView"
+      template="folder_view.pt"
+      permission="zope2.View"
+      />
+
+  <!-- view for custom content types (shows custom fields) -->
+  <browser:page
+      name="view"
+      for="..behaviors.folderish_gallery.IFolderishGallery"
+      layer="..interfaces.ICollectiveBehaviorGalleryLayer"
+      class="plone.dexterity.browser.view.DefaultView"
+      template="custom_view.pt"
+      permission="zope2.View"
+      />
+
+</configure>

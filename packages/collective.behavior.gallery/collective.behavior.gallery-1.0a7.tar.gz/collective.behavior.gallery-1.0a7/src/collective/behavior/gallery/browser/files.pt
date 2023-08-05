@@ -1,0 +1,12 @@
+<div id="files-viewlet"
+     i18n:domain="plone">
+
+  <tal:block define="view nocall:context/listing_view"
+              tal:condition="view/batch">
+       <legend i18n:translate="">Content</legend>
+      <tal:macro define="listing_macro view/macros/listing|view/index/macros/listing">
+          <metal:use_macro use-macro="listing_macro" />
+      </tal:macro>
+  </tal:block>
+
+</div>

@@ -1,0 +1,146 @@
+Metadata-Version: 2.1
+Name: collective.behavior.gallery
+Version: 1.0a7
+Summary: Add a gallery of images to Folderish content types
+Home-page: https://pypi.python.org/pypi/collective.behavior.gallery
+Author: Nicolas Demonte
+Author-email: support@lists.affinitic.be
+License: GPL version 2
+Description: .. This README is meant for consumption by humans and pypi. Pypi can render rst files so please do not use Sphinx features.
+           If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
+           This text does not appear on pypi or github. It is a comment.
+        
+        ===========================
+        collective.behavior.gallery
+        ===========================
+        
+        This product allows you to display a gallery viewlet with all the images
+        of a folderish content type.
+        
+        
+        Features
+        --------
+        
+        - The behavior can be defined on any folderish content type
+        - The thumbs shown in gallery don't show in folder content anymore to avoid duplicates
+        - Content files (other than pictures) are displayed in a specific viewlet, making it movable
+        - Gallery images open in overlay with previous / next navigation
+        
+        
+        Translations
+        ------------
+        
+        This product has been translated into
+        
+        - French
+        
+        
+        Installation
+        ------------
+        
+        Install collective.behavior.gallery by adding it to your buildout::
+        
+            [buildout]
+        
+            ...
+        
+            eggs =
+                collective.behavior.gallery
+        
+        
+        and then running ``bin/buildout``.
+        
+        You can then install the package in ``plone_control_panel`` and activate the
+        ``FolderishGallery`` behavior on the Dexterity folderish content types you
+        want.
+        
+        
+        Contribute
+        ----------
+        
+        - Issue Tracker: https://github.com/IMIO/collective.behavior.gallery/issues
+        - Source Code: https://github.com/IMIO/collective.behavior.gallery
+        
+        
+        License
+        -------
+        
+        The project is licensed under the GPLv2.
+        
+        
+        Contributors
+        ============
+        
+        - Nicolas Demonte, nicolas@affinitic.be, Original Author [Affinitic]
+        - Laurent Lasudry, laurent.lasudry@affinitic.be [Affinitic]
+        
+        
+        Changelog
+        =========
+        
+        
+        1.0a7 (2020-09-01)
+        ------------------
+        
+        - Avoid page refresh after gallery modal close
+          [laulaz]
+        
+        
+        1.0a6 (2018-09-28)
+        ------------------
+        
+        - Hide Files widget when object has none
+          [daggelpop]
+        
+        
+        1.0a5 (2018-08-09)
+        ------------------
+        
+        - Sort images with position in parent
+          [vpiret]
+        
+        - Fix viewlet overflows
+          [daggelpop]
+        
+        - Add a viewlet for non-picture content
+          [daggelpop]
+        
+        
+        1.0a4 (2018-07-17)
+        ------------------
+        
+        - List non-picture content
+          [daggelpop]
+        
+        
+        1.0a3 (2018-07-16)
+        ------------------
+        
+        - Adapt view for custom content types
+          [daggelpop]
+        
+        
+        1.0a2 (2018-07-16)
+        ------------------
+        
+        - Simplify listing view to show thumbnails only once
+          [daggelpop]
+        
+        
+        1.0a1 (2018-07-10)
+        ------------------
+        
+        - Initial release.
+          [daggelpop]
+        
+Keywords: Python Plone
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 5.0
+Classifier: Framework :: Plone :: 5.1
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Provides-Extra: test

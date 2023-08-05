@@ -1,0 +1,17 @@
+#gallery-photos:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.gallery-photo a {
+    float: left;
+    margin: 1em;
+}
+
+.gallery-photo a img {
+    object-fit: cover;
+    object-position: center;
+    height: 10em;
+    width: 10em;
+}
