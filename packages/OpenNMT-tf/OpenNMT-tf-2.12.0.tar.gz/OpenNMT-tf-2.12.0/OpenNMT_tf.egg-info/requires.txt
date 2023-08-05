@@ -1,0 +1,15 @@
+pyyaml<5.4,>=5.3
+rouge<2,>=1.0
+sacrebleu<2,>=1.4.13
+tensorflow<3,>=2.3
+tensorflow-addons<0.12,>=0.11
+pyter3==0.3
+
+[:platform_system == "Linux"]
+ctranslate2<2,>=1.7
+pyonmttok<2,>=1.18.1
+
+[tests]
+pylint==2.4.*
+parameterized
+nose2
