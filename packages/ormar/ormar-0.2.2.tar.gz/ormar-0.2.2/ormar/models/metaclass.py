@@ -1,0 +1,199 @@
+from typing import Any, Dict, List, Optional, TYPE_CHECKING, Tuple, Type, Union
+
+import databases
+import pydantic
+import sqlalchemy
+from pydantic import BaseConfig
+from pydantic.fields import FieldInfo
+
+from ormar import ForeignKey, ModelDefinitionError  # noqa I100
+from ormar.fields import BaseField
+from ormar.fields.foreign_key import ForeignKeyField
+from ormar.queryset import QuerySet
+from ormar.relations import AliasManager
+
+if TYPE_CHECKING:  # pragma no cover
+    from ormar import Model
+
+alias_manager = AliasManager()
+
+
+class ModelMeta:
+    tablename: str
+    table: sqlalchemy.Table
+    metadata: sqlalchemy.MetaData
+    database: databases.Database
+    columns: List[sqlalchemy.Column]
+    pkname: str
+    model_fields: Dict[str, Union[BaseField, ForeignKey]]
+    alias_manager: AliasManager
+
+
+def register_relation_on_build(table_name: str, field: ForeignKey) -> None:
+    alias_manager.add_relation_type(field, table_name)
+
+
+def reverse_field_not_already_registered(
+    child: Type["Model"], child_model_name: str, parent_model: Type["Model"]
+) -> bool:
+    return (
+        child_model_name not in parent_model.__fields__
+        and child.get_name() not in parent_model.__fields__
+    )
+
+
+def expand_reverse_relationships(model: Type["Model"]) -> None:
+    for model_field in model.Meta.model_fields.values():
+        if issubclass(model_field, ForeignKeyField):
+            child_model_name = model_field.related_name or model.get_name() + "s"
+            parent_model = model_field.to
+            child = model
+            if reverse_field_not_already_registered(
+                child, child_model_name, parent_model
+            ):
+                register_reverse_model_fields(parent_model, child, child_model_name)
+
+
+def register_reverse_model_fields(
+    model: Type["Model"], child: Type["Model"], child_model_name: str
+) -> None:
+    model.Meta.model_fields[child_model_name] = ForeignKey(
+        child, name=child_model_name, virtual=True
+    )
+
+
+def check_pk_column_validity(
+    field_name: str, field: BaseField, pkname: str
+) -> Optional[str]:
+    if pkname is not None:
+        raise ModelDefinitionError("Only one primary key column is allowed.")
+    if field.pydantic_only:
+        raise ModelDefinitionError("Primary key column cannot be pydantic only")
+    return field_name
+
+
+def sqlalchemy_columns_from_model_fields(
+    model_fields: Dict, table_name: str
+) -> Tuple[Optional[str], List[sqlalchemy.Column]]:
+    columns = []
+    pkname = None
+    for field_name, field in model_fields.items():
+        if field.primary_key:
+            pkname = check_pk_column_validity(field_name, field, pkname)
+        if not field.pydantic_only:
+            columns.append(field.get_column(field_name))
+        if issubclass(field, ForeignKeyField):
+            register_relation_on_build(table_name, field)
+
+    return pkname, columns
+
+
+def populate_default_pydantic_field_value(
+    type_: Type[BaseField], field: str, attrs: dict
+) -> dict:
+    def_value = type_.default_value()
+    curr_def_value = attrs.get(field, "NONE")
+    if curr_def_value == "NONE" and isinstance(def_value, FieldInfo):
+        attrs[field] = def_value
+    elif curr_def_value == "NONE" and type_.nullable:
+        attrs[field] = FieldInfo(default=None)
+    return attrs
+
+
+def populate_pydantic_default_values(attrs: Dict) -> Dict:
+    for field, type_ in attrs["__annotations__"].items():
+        if issubclass(type_, BaseField):
+            if type_.name is None:
+                type_.name = field
+            attrs = populate_default_pydantic_field_value(type_, field, attrs)
+    return attrs
+
+
+def extract_annotations_and_module(
+    attrs: dict, new_model: "ModelMetaclass", bases: Tuple
+) -> dict:
+    annotations = attrs.get("__annotations__") or new_model.__annotations__
+    attrs["__annotations__"] = annotations
+    attrs = populate_pydantic_default_values(attrs)
+
+    attrs["__module__"] = attrs["__module__"] or bases[0].__module__
+    attrs["__annotations__"] = attrs["__annotations__"] or bases[0].__annotations__
+    return attrs
+
+
+def populate_meta_orm_model_fields(
+    attrs: dict, new_model: Type["Model"]
+) -> Type["Model"]:
+    model_fields = {
+        field_name: field
+        for field_name, field in attrs["__annotations__"].items()
+        if issubclass(field, BaseField)
+    }
+    new_model.Meta.model_fields = model_fields
+    return new_model
+
+
+def populate_meta_tablename_columns_and_pk(
+    name: str, new_model: Type["Model"]
+) -> Type["Model"]:
+    tablename = name.lower() + "s"
+    new_model.Meta.tablename = new_model.Meta.tablename or tablename
+
+    if hasattr(new_model.Meta, "columns"):
+        columns = new_model.Meta.table.columns
+        pkname = new_model.Meta.pkname
+    else:
+        pkname, columns = sqlalchemy_columns_from_model_fields(
+            new_model.Meta.model_fields, new_model.Meta.tablename
+        )
+    new_model.Meta.columns = columns
+    new_model.Meta.pkname = pkname
+
+    if not new_model.Meta.pkname:
+        raise ModelDefinitionError("Table has to have a primary key.")
+
+    return new_model
+
+
+def populate_meta_sqlalchemy_table_if_required(
+    new_model: Type["Model"],
+) -> Type["Model"]:
+    if not hasattr(new_model.Meta, "table"):
+        new_model.Meta.table = sqlalchemy.Table(
+            new_model.Meta.tablename, new_model.Meta.metadata, *new_model.Meta.columns
+        )
+    return new_model
+
+
+def get_pydantic_base_orm_config() -> Type[BaseConfig]:
+    class Config(BaseConfig):
+        orm_mode = True
+        arbitrary_types_allowed = True
+
+    return Config
+
+
+class ModelMetaclass(pydantic.main.ModelMetaclass):
+    def __new__(mcs: type, name: str, bases: Any, attrs: dict) -> type:
+
+        attrs["Config"] = get_pydantic_base_orm_config()
+        new_model = super().__new__(  # type: ignore
+            mcs, name, bases, attrs
+        )
+
+        if hasattr(new_model, "Meta"):
+
+            attrs = extract_annotations_and_module(attrs, new_model, bases)
+            new_model = populate_meta_orm_model_fields(attrs, new_model)
+            new_model = populate_meta_tablename_columns_and_pk(name, new_model)
+            new_model = populate_meta_sqlalchemy_table_if_required(new_model)
+            expand_reverse_relationships(new_model)
+
+            new_model = super().__new__(  # type: ignore
+                mcs, name, bases, attrs
+            )
+
+            new_model.Meta.alias_manager = alias_manager
+            new_model.objects = QuerySet(new_model)
+
+        return new_model
