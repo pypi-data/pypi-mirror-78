@@ -1,0 +1,55 @@
+{% load my my_amp %}
+
+{% if settings.cms.WebspaceSettings.linkedin %}
+    <a rel="noreferrer" target="_blank" href="{{ settings.cms.WebspaceSettings.linkedin }}">
+        {% amp_img %}
+            <img loading="lazy" class="s-icon x{{ size }}" data-src="{{ icons.linkedin|ico:page.theme }}"
+                 alt="Linkedin"/>
+        {% endamp_img %}
+    </a>
+{% endif %}
+
+{% if settings.cms.WebspaceSettings.facebook %}
+    <a rel="noreferrer" target="_blank" href="{{ settings.cms.WebspaceSettings.facebook }}">
+        {% amp_img %}
+            <img loading="lazy" class="s-icon x{{ size }}" data-src="{{ icons.facebook|ico:page.theme }}"
+                 alt="Facebook"/>
+        {% endamp_img %}
+    </a>
+{% endif %}
+
+{% if settings.cms.WebspaceSettings.instagram %}
+    <a rel="noreferrer" target="_blank" href="{{ settings.cms.WebspaceSettings.instagram }}">
+        {% amp_img %}
+            <img loading="lazy" class="s-icon x{{ size }}" data-src="{{ icons.instagram|ico:page.theme }}"
+                 alt="Instagram"/>
+        {% endamp_img %}
+    </a>
+{% endif %}
+
+{% if settings.cms.WebspaceSettings.twitter %}
+    <a rel="noreferrer" target="_blank" href="{{ settings.cms.WebspaceSettings.twitter }}">
+        {% amp_img %}
+            <img loading="lazy" class="s-icon x{{ size }}" data-src="{{ icons.twitter|ico:page.theme }}"
+                 alt="Twitter"/>
+        {% endamp_img %}
+    </a>
+{% endif %}
+
+{% if settings.cms.WebspaceSettings.youtube %}
+    <a rel="noreferrer" target="_blank" href="{{ settings.cms.WebspaceSettings.youtube }}">
+        {% amp_img %}
+            <img loading="lazy" class="s-icon x{{ size }}" data-src="{{ icons.youtube|ico:page.theme }}"
+                 alt="Youtube"/>
+        {% endamp_img %}
+    </a>
+{% endif %}
+
+{% if settings.cms.WebspaceSettings.pinterest %}
+    <a rel="noreferrer" target="_blank" href="{{ settings.cms.WebspaceSettings.pinterest }}">
+        {% amp_img %}
+            <img loading="lazy" class="s-icon x{{ size }}" data-src="{{ icons.pinterest|ico:page.theme }}"
+                 alt="Pinterest"/>
+        {% endamp_img %}
+    </a>
+{% endif %}

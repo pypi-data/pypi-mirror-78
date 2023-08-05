@@ -1,0 +1,137 @@
+/* Button */
+
+$border-light: 2px;
+$button-lighten: 15%;
+$padding-light: 11px 28px;
+$button-container-margin: 30px 0 0 0;
+
+.btn {
+  padding: 13px 30px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+  background: none;
+  font-weight: bold;
+  max-width: 20em;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  /*margin: 0 15px;*/
+  transition: color 0.2s linear, border 0.2s linear, background-color 0.2s linear;
+  outline: none;
+
+  &.primary {
+    &-full {
+      color: $color-1;
+      background-color: $color-2;
+
+      &:hover {
+        background-color: lighten($color-2, $button-lighten);
+        color: lighten($color-1, $button-lighten);
+      }
+    }
+
+    &-light {
+      color: $color-2;
+      border: $border-light solid $color-2;
+      padding: $padding-light;
+
+      &:hover {
+        border: $border-light solid lighten($color-2, $button-lighten);
+        color: lighten($color-2, $button-lighten);
+      }
+    }
+  }
+
+  &.secondary {
+    &-full {
+      @include theme($themes) {
+        color: t('btnWhiteFullColor');
+        background-color: t('btnWhiteFullBgColor');
+      }
+
+      &:hover {
+        @include theme($themes) {
+          color: lighten(t('btnWhiteFullColor'), $button-lighten);
+          background-color: lighten(t('btnWhiteFullBgColor'), $button-lighten);
+        }
+      }
+    }
+
+
+    &-light {
+      @include theme($themes) {
+        color: t('btnWhiteLight');
+        border: $border-light solid t('btnWhiteLight');
+      }
+      padding: $padding-light;
+
+      &:hover {
+        @include theme($themes) {
+          color: t('btnWhiteLightHover');
+          border: $border-light solid t('btnWhiteLightHover');
+        }
+      }
+    }
+  }
+
+  &.tertiary {
+    &-full {
+      color: $color-1;
+      background-color: $color-4;
+
+      &:hover {
+        background-color: lighten($color-4, $button-lighten);
+        color: lighten($color-1, $button-lighten);
+      }
+    }
+
+    &-light {
+      @include theme($themes) {
+        color: t('btnBlueLight');
+        border: $border-light solid t('btnBlueLight');
+      }
+      padding: $padding-light;
+
+      &:hover {
+        @include theme($themes) {
+          color: lighten(t('btnBlueLight'), $button-lighten);
+          border: $border-light solid lighten(t('btnBlueLight'), $button-lighten);
+        }
+      }
+    }
+  }
+
+  &:disabled {
+    cursor: unset;
+    opacity: 0.5;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+  }
+
+  &.space-r {
+    margin-right: 15px;
+  }
+
+  &.space-l {
+    margin-left: 15px;
+  }
+
+  &.space-c {
+    margin: 15px 7.5px;
+  }
+}
+
+.btn-container {
+  padding: $button-container-margin;
+
+  a {
+    display: inline-table;
+  }
+
+  a, button {
+    margin-top: 15px;
+  }
+}

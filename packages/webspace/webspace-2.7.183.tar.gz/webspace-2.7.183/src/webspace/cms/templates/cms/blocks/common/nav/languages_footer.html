@@ -1,0 +1,32 @@
+{% extends 'cms/blocks/common/nav/menu.html' %}
+{% load static wagtailcore_tags my my_amp %}
+
+{% block menu_head %}
+    <p class="ul-title">Langages</p>
+{% endblock %}
+
+{% block menu_for %}
+    <li class="even">
+        <a href="{% pageurl page %}">
+            {% amp_img %}
+                <img loading="lazy" class="s-icon x1 pad"
+                     alt="{{ settings.cms.WebspaceSettings.language }}"
+                     data-src="{{ icons|ico_get:settings.cms.WebspaceSettings.language|ico:page.theme }}"
+                />
+            {% endamp_img %}
+        </a>
+    </li>
+
+    {% for hmi in page.language_pages.all %}
+        <li class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+            <a href="{% pageurl hmi.page %}">
+                {% amp_img %}
+                    <img loading="lazy" class="s-icon x1 pad"
+                         alt="{{ hmi.language }}"
+                         data-src="{{ icons|ico_get:hmi.language|ico:page.theme }}"
+                    />
+                {% endamp_img %}
+            </a>
+        </li>
+    {% endfor %}
+{% endblock %}

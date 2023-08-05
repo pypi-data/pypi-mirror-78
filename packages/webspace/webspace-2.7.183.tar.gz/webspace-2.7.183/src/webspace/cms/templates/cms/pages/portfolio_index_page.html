@@ -1,0 +1,27 @@
+{% extends 'cms/pages/_generic.html' %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block extra_head %}
+    {% include 'cms/blocks/schemas/generated/breadcrumb.html' %}
+{% endblock %}
+
+{% block content %}
+    {% block header %}
+        {% include 'cms/blocks/common/header.html' %}
+        {% include 'cms/blocks/common/aside-mobile.html' %}
+    {% endblock %}
+
+    {% block content_body %}
+        {% include 'cms/pages/portfolio_index_content.html' %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'cms/blocks/common/footer.html' %}
+    {% endblock %}
+{% endblock %}
+
+
+{% block js %}
+    {{ block.super }}
+    {% include 'cms/blocks/common/google-analytics.html' %}
+{% endblock %}

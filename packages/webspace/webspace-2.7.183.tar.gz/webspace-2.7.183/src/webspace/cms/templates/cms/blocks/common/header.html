@@ -1,0 +1,66 @@
+{% load wagtailimages_tags wagtailcore_tags my my_amp %}
+<div class="theme-{{ page.theme }}">
+    <header class="header {{ bg }}">
+        <div id="block-header">
+            <div class="header-container container full nopad">
+
+                <div class="header-logo">
+                    <a href="{% url 'wagtail_serve' '' %}">
+                        {% if page.theme == 'light' %}
+                            {% amp_img %}
+                                <img data-layout="responsive" width="200" height="55" data-width="200" data-height="55"
+                                     src="
+                                {% for media in settings.cms.WebspaceSettings.logo_header_secondary %}
+                                    {% if media.block_type == 'svg' %}
+                                        {{ media.value.url }}
+                                    {% elif media.block_type == 'image' %}
+                                        {% image media.value fill-200x55 as img %}
+                                        {{ img.url }}
+                                    {% endif %}
+                                {% endfor %}" alt="Logo Secondary"/>
+                            {% endamp_img %}
+                        {% else %}
+                            {% amp_img %}
+                                <img data-layout="responsive" width="200" height="55" data-width="200" data-height="55"
+                                     src="
+                                {% for media in settings.cms.WebspaceSettings.logo_header_primary %}
+                                    {% if media.block_type == 'svg' %}
+                                        {{ media.value.url }}
+                                    {% elif media.block_type == 'image' %}
+                                        {% image media.value fill-200x55 as img %}
+                                        {{ img.url }}
+                                    {% endif %}
+                                {% endfor %}" alt="Logo Primary"/>
+                            {% endamp_img %}
+                        {% endif %}
+                    </a>
+                </div>
+
+                {% if request.user_agent.is_mobile %}
+                    <div {% if amp %}tabindex="0" role="menu" on="tap:sidebar1"{% endif %} id="aside-mobile-open"
+                         class="header-aside-mobile s-cursor">
+                        {% amp_img %}
+                            <img class="s-icon x1-5 nopad"
+                                 src="{{ icons.accordion|ico:page.theme }}"
+                                 alt="Accordion"/>
+                        {% endamp_img %}
+                    </div>
+                {% endif %}
+
+                {% if not request.user_agent.is_mobile %}
+                    {% if not amp %}
+                        <div class="header-nav">
+                            {% include 'cms/blocks/common/nav/nav_header.html' with menus=page.navigation.header_menus click=1 %}
+                        </div>
+                    {% endif %}
+
+                    <div class="header-buttons">
+                        {% for button in page.navigation.header_buttons %}
+                            {% include_block button with space='r' %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+</div>
