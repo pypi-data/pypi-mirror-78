@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: CADETMatch
+Version: 0.6.8
+Summary: CADETMatch is a parameter estimation and error modeling library for CADET
+Home-page: https://github.com/modsim/CADET-Match
+Author: William Heymann
+Author-email: w.heymann@fz-juelich.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: joblib (>=0.15.1)
+Requires-Dist: addict (>=2.2.1)
+Requires-Dist: emcee (>=3.0.2)
+Requires-Dist: SAlib
+Requires-Dist: corner (>=2.0.1)
+Requires-Dist: deap (>=1.3.1)
+Requires-Dist: psutil (>=5.7.0)
+Requires-Dist: openpyxl (>=3.0.3)
+Requires-Dist: numpy (>=1.18.5)
+Requires-Dist: scipy (>=1.5.0)
+Requires-Dist: matplotlib (>=3.2.1)
+Requires-Dist: pandas (>=1.0.5)
+Requires-Dist: h5py (>=2.10.0)
+Requires-Dist: CADET (>=0.6)
+Requires-Dist: seaborn (>=0.10.1)
+Requires-Dist: sklearn
+Requires-Dist: scikit-learn (>=0.23.1)
+Requires-Dist: importlib-metadata (>=1.7.0)
+Requires-Dist: jstyleson (>=0.0.2)
+
+# CADET-Match
+CADET Parameter estimation engine
+
+This software is a work in progress. The file formats will break as changes as made.
+
+This software is designed to do parameter estimation for CADET. The required libraries are in the README.txt file
+in the CADETMatch directory.
+
+The documentation is also a work in progress.
+
+If you use this software in your research please give credit.
+
+
