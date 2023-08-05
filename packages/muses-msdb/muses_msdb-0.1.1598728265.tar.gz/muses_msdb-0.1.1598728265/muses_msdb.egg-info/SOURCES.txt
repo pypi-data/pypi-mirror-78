@@ -1,0 +1,15 @@
+MANIFEST.in
+setup.cfg
+setup.py
+msdb/__init__.py
+msdb/admin.py
+msdb/apps.py
+msdb/models.py
+msdb/tests.py
+msdb/views.py
+msdb/migrations/__init__.py
+muses_msdb.egg-info/PKG-INFO
+muses_msdb.egg-info/SOURCES.txt
+muses_msdb.egg-info/dependency_links.txt
+muses_msdb.egg-info/requires.txt
+muses_msdb.egg-info/top_level.txt
