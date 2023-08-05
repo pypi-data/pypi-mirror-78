@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: chancepy
+Version: 0.1.1
+Summary: Random generator helper for Python
+Author: Nuni
+Author-email: nuni@kovrr.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pytz (>=2020.1,<2021.0)
