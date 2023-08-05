@@ -1,0 +1,91 @@
+# -*- coding: utf-8 -*-
+from setuptools import setup
+
+packages = \
+['botkit',
+ 'botkit.botkit_modules',
+ 'botkit.botkit_modules.module_manager',
+ 'botkit.botkit_modules.system',
+ 'botkit.botkit_services',
+ 'botkit.botkit_services.bettermarkdown',
+ 'botkit.botkit_services.botautomation',
+ 'botkit.botkit_services.eventing',
+ 'botkit.botkit_services.nlu',
+ 'botkit.botkit_services.options',
+ 'botkit.botkit_services.sr',
+ 'botkit.builders',
+ 'botkit.builders.text',
+ 'botkit.clients',
+ 'botkit.commands',
+ 'botkit.components',
+ 'botkit.core',
+ 'botkit.core.modules',
+ 'botkit.core.services',
+ 'botkit.dispatching',
+ 'botkit.dispatching.callbackqueries',
+ 'botkit.future_tgtypes',
+ 'botkit.future_tgtypes.persistence',
+ 'botkit.inlinequeries',
+ 'botkit.libraries',
+ 'botkit.libraries.pyro_types',
+ 'botkit.persistence',
+ 'botkit.persistence.callback_manager',
+ 'botkit.routing',
+ 'botkit.routing.pipelines',
+ 'botkit.routing.pipelines.factories',
+ 'botkit.routing.pipelines.factories.steps',
+ 'botkit.routing.pipelines.factories.updates',
+ 'botkit.routing.route_builder',
+ 'botkit.routing.route_builder.expressions',
+ 'botkit.routing.update_types',
+ 'botkit.services',
+ 'botkit.testing',
+ 'botkit.tghelpers',
+ 'botkit.tghelpers.emoji_utils',
+ 'botkit.tghelpers.entities',
+ 'botkit.types',
+ 'botkit.unstable_experiments',
+ 'botkit.unstable_experiments.declarative_definitions',
+ 'botkit.unstable_experiments.html_views',
+ 'botkit.utils',
+ 'botkit.views']
+
+package_data = \
+{'': ['*']}
+
+install_requires = \
+['boltons>=20.1.0,<21.0.0',
+ 'buslane>=0.0.u,<0.1',
+ 'cached_property>=1.5.1,<2.0.0',
+ 'decorators>=0.1.1,<0.2.0',
+ 'haps>=1.1.2,<2.0.0',
+ 'logzero',
+ 'more-itertools>=8.2.0,<9.0.0',
+ 'ordered_set>=3.1.1,<4.0.0',
+ 'pydantic[dotenv]>=1.4,<2.0',
+ 'pyhumps>=1.3.1,<2.0.0',
+ 'python-decouple==3.3',
+ 'pytz==2020.1',
+ 'redis-collections>=0.8.1,<0.9.0',
+ 'tgcrypto>=1.2.0,<2.0.0',
+ 'typing-inspect>=0.5.0,<0.6.0',
+ 'unsync>=1.2.1,<2.0.0']
+
+setup_kwargs = {
+    'name': 'autogram-botkit',
+    'version': '0.2.0',
+    'description': '',
+    'long_description': None,
+    'author': 'JosXa',
+    'author_email': None,
+    'maintainer': None,
+    'maintainer_email': None,
+    'url': None,
+    'packages': packages,
+    'package_data': package_data,
+    'install_requires': install_requires,
+    'python_requires': '>=3.8,<4.0',
+}
+
+
+setup(**setup_kwargs)
