@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: ngsci
+Version: 0.0.1
+Summary: The Next Generation Sequencing Complexity Index
+Home-page: https://github.com/MatthewRalston/ngs-ci
+Author: Matthew Ralston
+Author-email: mrals89@gmail.com
+License: GPLv3+
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+Requires-Dist: biopython (==1.74)
+Requires-Dist: numpy (==1.19.1)
+Requires-Dist: pysam (==0.16.0.1)
+Requires-Dist: PyYAML (==5.1.2)
+Provides-Extra: development
+Requires-Dist: coverage (==4.5.4) ; extra == 'development'
+Requires-Dist: coveralls (==2.1.2) ; extra == 'development'
+Requires-Dist: expects (==0.9.0) ; extra == 'development'
+Requires-Dist: ipykernel (==5.1.4) ; extra == 'development'
+Requires-Dist: ipython (==7.12.0) ; extra == 'development'
+Requires-Dist: ipython-genutils (==0.2.0) ; extra == 'development'
+Requires-Dist: ipywidgets (==7.5.1) ; extra == 'development'
+Requires-Dist: jedi (==0.16.0) ; extra == 'development'
+Requires-Dist: jupyter (==1.0.0) ; extra == 'development'
+Requires-Dist: jupyter-client (==6.0.0) ; extra == 'development'
+Requires-Dist: jupyter-console (==6.1.0) ; extra == 'development'
+Requires-Dist: jupyter-core (==4.6.3) ; extra == 'development'
+Requires-Dist: mamba (==0.10) ; extra == 'development'
+Requires-Dist: memory-profiler (==0.57.0) ; extra == 'development'
+Requires-Dist: pytest (==5.3.5) ; extra == 'development'
+Requires-Dist: pytest-cov (==2.10.1) ; extra == 'development'
+Requires-Dist: Sphinx (==3.2.1) ; extra == 'development'
+Requires-Dist: sphinx-rtd-theme (==0.5.0) ; extra == 'development'
+
+See README.md for details
+
+
