@@ -1,0 +1,70 @@
+# BasicAlgo
+
+## 1. Objective
+
+The objective of this project is to be familiar with python language and data structures and algorithms.
+
+## 2. Scope
+
+The scope of this project is basic data structures and algorithms used in day-to-day life. 
+
+## 3. Introduction to library
+
+This library is intended to the users who want to use basic algorithms in python. The basic algorithms includes:
+1. Kadane's Algorithm
+2. Next permutation
+3. Longest consecutive sequence
+4. Fractional knapsack
+5. N-Queens
+6. Sudoku solving
+7. M colouring problem
+8. Print all permutations of a string
+9. Word break
+10. Palindrome partitioning
+11. Subset sum
+12. Kth permutation sequence
+13. Check for balanced parentheses
+14. Next greater element
+15. Largest rectangle in histogram
+16. Reverse words in string
+17. Longest Common prefix
+18. Rabin Karp
+19. Prefix function / Z-function
+20. KMP Algorithm
+21. Binary tree, traversals and views
+22. Height of binary tree
+23. LCA in binary tree
+24. Maximum sum path
+25. Binary tree from inorder and preorder
+26. Binary tree from inorder and postorder
+27. MST using Prim's Algorithm
+28. MST using Kruskal's Algorithm
+29. Max product subarray
+30. Longest increasing subsequence
+31. Longest common subsequence
+32. 0/1 Knapsack Problem
+33. Coin Change
+34. Subset sum
+35. Egg dropping
+36. Palindrome partitioning
+
+## 2. Usage of library
+
+```
+import Stack
+from Stack import CheckForBalancedParentheses as cfbp
+
+
+obj = cfbp.CheckForBalancedParentheses()
+if obj.CheckForBalancedParentheses("((()))"):
+    print("Yes")
+else:
+    print("No")
+```
+
+## 3. Contact for updates
+
+```
+Harsh Chaplot: 17bit026@nirmauni.ac.in
+Kandarp Kakkad: 17bit034@nirmauni.ac.in
+```
