@@ -1,0 +1,127 @@
+Metadata-Version: 2.1
+Name: guardata
+Version: 0.0.4
+Summary: Desktop client for a modern and trustless data cloud storage service
+Home-page: https://guardata.app
+Author: BitLogiK
+Author-email: contact@bitlogik.fr
+License: AGPLv3
+Keywords: cloud data storage sharing cryptography
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: Microsoft :: Windows :: Windows 8
+Classifier: Operating System :: Microsoft :: Windows :: Windows 8.1
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Communications :: File Sharing
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Security :: Cryptography
+Classifier: Topic :: System :: Archiving :: Backup
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Requires-Dist: attrs (==19.2.0)
+Requires-Dist: click (==7.0)
+Requires-Dist: msgpack (==0.6.0)
+Requires-Dist: wsproto (==0.15.0)
+Requires-Dist: toastedmarshmallow (==0.2.6)
+Requires-Dist: pendulum (==1.3.1)
+Requires-Dist: PyNaCl (==1.4.0)
+Requires-Dist: trio (==0.13.0)
+Requires-Dist: python-interface (==1.4.0)
+Requires-Dist: async-generator (>=1.9)
+Requires-Dist: structlog (==19.2.0)
+Requires-Dist: importlib-resources (==1.0.2)
+Requires-Dist: colorama (==0.4.0)
+Requires-Dist: async-exit-stack (==1.0.1)
+Requires-Dist: outcome (==1.0.0)
+Requires-Dist: packaging (==20.4)
+Requires-Dist: PyQt5 (==5.14.2)
+Requires-Dist: pyqt5-sip (==12.8.0)
+Requires-Dist: Babel (==2.6.0)
+Requires-Dist: zxcvbn (==4.4.27)
+Requires-Dist: psutil (==5.6.3)
+Requires-Dist: fusepy (==3.0.1) ; platform_system == "Linux"
+Requires-Dist: winfspy (==0.8.0) ; platform_system == "Windows"
+Requires-Dist: contextvars (==2.1) ; python_version < "3.7"
+Provides-Extra: all
+Requires-Dist: jinja2 (==2.11.2) ; extra == 'all'
+Requires-Dist: pytest (==5.4.3) ; extra == 'all'
+Requires-Dist: pytest-cov (==2.10.0) ; extra == 'all'
+Requires-Dist: pytest-xdist (==1.32.0) ; extra == 'all'
+Requires-Dist: pytest-trio (==0.5.2) ; extra == 'all'
+Requires-Dist: pytest-qt (==3.3.0) ; extra == 'all'
+Requires-Dist: pytest-rerunfailures (==9.0) ; extra == 'all'
+Requires-Dist: hypothesis (==5.3.0) ; extra == 'all'
+Requires-Dist: hypothesis-trio (==0.5.0) ; extra == 'all'
+Requires-Dist: trustme (==0.6.0) ; extra == 'all'
+Requires-Dist: pbr (==4.0.2) ; extra == 'all'
+Requires-Dist: python-http-client (>=3.2.1) ; extra == 'all'
+Requires-Dist: starkbank-ecdsa (>=1.0.0) ; extra == 'all'
+Requires-Dist: triopg (==0.3.0) ; extra == 'all'
+Requires-Dist: trio-asyncio (==0.11.0) ; extra == 'all'
+Requires-Dist: pywin32 (==227) ; (platform_system == "Windows") and extra == 'all'
+Provides-Extra: dev
+Requires-Dist: jinja2 (==2.11.2) ; extra == 'dev'
+Requires-Dist: pytest (==5.4.3) ; extra == 'dev'
+Requires-Dist: pytest-cov (==2.10.0) ; extra == 'dev'
+Requires-Dist: pytest-xdist (==1.32.0) ; extra == 'dev'
+Requires-Dist: pytest-trio (==0.5.2) ; extra == 'dev'
+Requires-Dist: pytest-qt (==3.3.0) ; extra == 'dev'
+Requires-Dist: pytest-rerunfailures (==9.0) ; extra == 'dev'
+Requires-Dist: hypothesis (==5.3.0) ; extra == 'dev'
+Requires-Dist: hypothesis-trio (==0.5.0) ; extra == 'dev'
+Requires-Dist: trustme (==0.6.0) ; extra == 'dev'
+Requires-Dist: pbr (==4.0.2) ; extra == 'dev'
+Requires-Dist: python-http-client (>=3.2.1) ; extra == 'dev'
+Requires-Dist: starkbank-ecdsa (>=1.0.0) ; extra == 'dev'
+Requires-Dist: triopg (==0.3.0) ; extra == 'dev'
+Requires-Dist: trio-asyncio (==0.11.0) ; extra == 'dev'
+Requires-Dist: pywin32 (==227) ; (platform_system == "Windows") and extra == 'dev'
+
+
+.. image:: https://raw.githubusercontent.com/bitlogik/guardata/master/guardata/client/gui/rc/images/logos/guardata_vert.png
+    :align: center
+
+guardata is a secure and trustless cloud storage service, to share and sync your files with on-premise modern encryption.
+
+Homepage: https://guardata.app
+
+Key features :
+
+- Cloud storage
+- Virtual drive
+- Time machine
+- Local encryption, Trust no one
+- Share & sync securely
+- Access control and logging
+- open source
+
+guardata is based on the `Parsec technology <https://www.youtube.com/watch?v=Ds89nhbO0yk>`_ developed by Scille. The code base is a fork from `parsec-cloud <https://github.com/Scille/parsec-cloud>`_. The cryptographic routines are provided by the `lisodium library <https://doc.libsodium.org/>`_.
+
+
+Differences with the Parsec reference implementation :
+
+- The encryption stream cipher algorithm is updated from Salsa20 to Chacha20. guardata is using XChaCha20-Poly1305 which has an `IETF draft standard <https://tools.ietf.org/html/draft-irtf-cfrg-xchacha-03>`_, and is `used by NordPass <https://nordpass.com/features/xchacha20-encryption/>`_ and by `CloudFlare <https://blog.cloudflare.com/do-the-chacha-better-mobile-performance-with-cryptography/>`_.
+- The password key derivation algorithm is setup to be 6 times stronger
+- Password strength required in the GUI is much higher
+- The debug monitoring telemetry is fully removed, for a full hassle-free privacy
+- Files blocks cut size is bigger, optimised for internet synchronization
+- SHA2 hash is replaced everywhere by Blake2b
+- More secure short codes for 2-way auth : from 40 bits with hmac-sha2 to 50 bits with argon2id
+- UX improved
+
+
+Install
+-------
+
+| Get the guardata client software on
+| https://guardata.app/get
+|
+
+
+More info to come
+
+
+
