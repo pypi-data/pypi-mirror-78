@@ -1,0 +1,11 @@
+Sphinx>=3.0.0
+Unidecode>=1.0.0
+black>=19.3b0
+sphinx-rtd-theme>=0.4.0
+
+[test]
+flake8
+isort
+mypy>=0.660
+pytest>=4.1.0
+pytest-cov>=2.6.0
