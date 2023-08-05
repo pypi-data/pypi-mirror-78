@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: Flask-Multipass-CERN
+Version: 1.0.dev4
+Summary: CERN-specific Flask-Multipass providers
+Home-page: https://github.com/indico/flask-multipass-cern
+Author: Indico Team
+Author-email: indico-team@cern.ch
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown; charset=UTF-8; variant=CommonMark
+Requires-Dist: flask-multipass[authlib] (>=0.3.dev5)
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: flake8-colors ; extra == 'dev'
+Requires-Dist: flake8-quotes ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+
+# Flask-Multipass-CERN
+
+This package provides the ``cern`` auth and identity providers for [Flask-Multipass][multipass].
+
+These providers are only useful if you are at CERN and intend to use Flask-Multipass
+with the new Keycloak-based CERN authentication infrastructure.
+
+## Note
+
+In applying the MIT license, CERN does not waive the privileges and immunities granted to it
+by virtue of its status as an Intergovernmental Organization or submit itself to any jurisdiction.
+
+
+[multipass]: https://github.com/indico/flask-multipass
+
+
