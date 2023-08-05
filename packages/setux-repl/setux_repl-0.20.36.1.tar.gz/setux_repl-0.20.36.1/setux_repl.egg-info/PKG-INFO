@@ -1,0 +1,49 @@
+Metadata-Version: 1.2
+Name: setux-repl
+Version: 0.20.36.1
+Summary: System deployment
+Home-page: https://framagit.org/louis-riviere-xyz/setux_repl
+Author: Louis RIVIERE
+Author-email: louis@riviere.xyz
+License: MIT
+Description: ###########
+         setux repl
+        ###########
+        
+        **Setux REPL**
+        
+        ========
+        Abstract
+        ========
+        
+        Rudimentary REPL for Setux
+        
+        =====
+        Usage
+        =====
+        
+        .. code-block:: shell
+        
+            setux
+        
+        
+        ============
+        Installation
+        ============
+        
+        see the Setux package.
+        
+Keywords: utility
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Requires-Python: >3.6
