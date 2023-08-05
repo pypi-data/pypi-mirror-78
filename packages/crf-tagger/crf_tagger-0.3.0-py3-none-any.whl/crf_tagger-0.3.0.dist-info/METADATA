@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: crf-tagger
+Version: 0.3.0
+Summary: CRF tagger
+Author: severinsimmler
+Author-email: s.simmler@snapaddy.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: python-crfsuite (==0.9.7)
+Requires-Dist: scikit-learn
+Requires-Dist: tabulate
+Requires-Dist: tqdm
