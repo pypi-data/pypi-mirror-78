@@ -1,0 +1,14 @@
+nbformat>=4.0.0
+pyyaml
+toml
+
+[:python_version < "3"]
+mock
+
+[:python_version >= "3.6"]
+markdown-it-py~=0.5.2
+
+[myst]
+
+[toml]
+toml
