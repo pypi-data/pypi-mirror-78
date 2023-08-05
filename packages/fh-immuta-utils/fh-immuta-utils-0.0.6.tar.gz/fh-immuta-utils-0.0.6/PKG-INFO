@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: fh-immuta-utils
+Version: 0.0.6
+Summary: Flatiron Immuta API
+Home-page: https://github.com/flatironhealth/fh-immuta-utils
+Author-email: data-tooling@flatiron.com
+License: UNKNOWN
+Description: fh-immuta-utils
+        ============
+        
+        This repository contains a Python wrapper around [Immuta's](https://www.immuta.com) API.
+        The supported operations include:
+        
+        * Dis/enrolling data sources
+        * Creating/managing tags
+        * Creating/managing policies
+        
+        Documentation:
+        
+        * [Getting started](doc/getting_started.md)
+        * [Configuration](doc/managing_configs.md)
+        * [Managing data sources](doc/managing_data_sources.md)
+        * [Managing policies](doc/managing_policies.md)
+        * [Contributing](CONTRIBUTING.md)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
