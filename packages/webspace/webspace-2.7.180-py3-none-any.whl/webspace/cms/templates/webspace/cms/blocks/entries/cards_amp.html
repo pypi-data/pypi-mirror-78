@@ -1,0 +1,12 @@
+{% extends 'webspace/cms/blocks/_block.html' %}
+{% load wagtailcore_tags %}
+
+{% block block_content %}
+    <div class="cards-container {% if value.carousel %}amp-carousel{% else %}nocarousel{% endif %}">
+        {% if value.carousel %}<amp-carousel layout="fixed-height" height="500" type="carousel">{% endif %}
+            {% for card in value.cards %}
+                {% include_block card with theme=value.theme block_num=block_num carousel=value.carousel carousel_cta=value.carousel_cta %}
+            {% endfor %}
+        {% if value.carousel %}</amp-carousel>{% endif %}
+    </div>
+{% endblock %}

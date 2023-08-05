@@ -1,0 +1,35 @@
+{% extends 'cms/_base.html' %}
+{% load wagtailcore_tags my %}
+
+{% block extra_head %}
+    {% if page.get_breadcrumbs %}
+        {% include 'cms/blocks/schemas/generated/breadcrumb.html' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    {% block header %}
+        {% include 'cms/blocks/common/header.html' %}
+        {% include 'cms/blocks/common/aside-mobile.html' %}
+    {% endblock %}
+
+    {% block content_body %}
+        {% include 'cms/pages/portfolio_page_content.html' %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'cms/blocks/common/footer.html' %}
+    {% endblock %}
+
+{% endblock %}
+
+{% block js %}
+    {% autoescape off %}
+        <script>
+            const Icons = {{ icons }};
+        </script>
+    {% endautoescape %}
+    {{ block.super }}
+    {% include 'cms/blocks/common/google-analytics.html' %}
+{% endblock %}

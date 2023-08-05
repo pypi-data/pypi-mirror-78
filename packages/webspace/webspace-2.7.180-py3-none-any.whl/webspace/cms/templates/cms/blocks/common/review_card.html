@@ -1,0 +1,34 @@
+{% extends 'cms/blocks/_card.html' %}
+{% load wagtailcore_tags my my_amp %}
+{% load static %}
+
+{% block card_entity %}custom{% endblock %}
+
+{% block card_icon %}
+{% endblock %}
+
+{% block card_content %}
+    <div class="align-text-center">
+        {% for media in value.media %}
+            {% include_block media with block_num=block_num %}
+        {% endfor %}
+        {% if value.text %}
+            {% include_block value.text %}
+        {% endif %}
+        {% for useless in 'xxxxx' %}
+            {% if value.score > forloop.counter0 %}
+                {% amp_img %}
+                    <img class="s-icon x1 nopad review-star"
+                         src="{{ icons.star_enable|ico:page.theme }}"
+                         alt="Star enable"/>
+                {% endamp_img %}
+            {% else %}
+                {% amp_img %}
+                    <img class="s-icon x1 nopad review-star"
+                         src="{{ icons.star_disable|ico:page.theme }}"
+                         alt="Star disable"/>
+                {% endamp_img %}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

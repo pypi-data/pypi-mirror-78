@@ -1,0 +1,81 @@
+$accordion-padding: 15px 40px 15px 20px;
+
+.accordion-container {
+  padding: 30px 0;
+}
+
+.ac {
+  margin-top: 10px;
+  z-index: 1;
+  position: relative;
+  border-radius: unset;
+
+  .ac-q, .ac-a {
+    outline: unset;
+  }
+
+  // Question class
+  > .ac-q {
+    padding: $accordion-padding;
+    margin: 0;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    background: unset;
+
+    .rich-text {
+      position: relative;
+      z-index: -1;
+    }
+
+    &::after {
+      content: '+';
+      @include theme($themes) {
+        color: t('colorP');
+      }
+      text-align: center;
+      width: 15px;
+      right: 15px;
+      top: 50%;
+      transform: translate(0, -50%);
+      position: absolute;
+      font-size: 23px;
+    }
+  }
+
+  // Answer class
+  > .ac-a {
+    overflow: hidden;
+    transition-property: all;
+    transition-timing-function: ease;
+
+    .rich-text {
+      padding: $accordion-padding;
+    }
+
+    @include theme($themes) {
+      background: t('kolme');
+    }
+  }
+
+  // Hide content when Javascript is enabled
+  /*&.js-enabled {
+    > .ac-a {
+      visibility: hidden;
+    }
+  }*/
+
+  // Active class
+  &.is-active {
+    > .ac-a {
+      visibility: visible;
+    }
+
+    > .ac-q {
+      &::after {
+        content: '\2013';
+      }
+    }
+  }
+}

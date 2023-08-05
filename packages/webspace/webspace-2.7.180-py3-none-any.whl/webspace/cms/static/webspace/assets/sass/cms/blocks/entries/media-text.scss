@@ -1,0 +1,37 @@
+.media_text {
+  .media-text-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    /*@include xssm() {
+      .media-container {
+        height: 200px;
+      }
+    }*/
+
+    .media-container, .text-container {
+      flex: 100%;
+
+      @include md() {
+        flex: 1;
+      }
+    }
+
+    @include xssm() {
+      .sizer-container {
+        justify-content: flex-start;
+      }
+    }
+
+    .text-container.reverse {
+      order: -1;
+      text-align: right;
+
+      @include xssm() {
+        .sizer-container {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}

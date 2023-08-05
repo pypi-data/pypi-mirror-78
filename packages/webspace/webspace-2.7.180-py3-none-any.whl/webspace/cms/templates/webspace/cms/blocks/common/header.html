@@ -1,0 +1,121 @@
+{% load wagtailcore_tags my my_amp %}
+<div class="theme-{{ page.theme }}">
+    <header class="{{ bg }}">
+        <div id="block-header">
+            <div class="header-container container full nopad">
+                {% if request.user_agent.is_mobile %}
+                    <div {% if amp %}tabindex="0" role="menu" on="tap:sidebar1"{% endif %} id="accordion-open"
+                         class="header-accordion s-cursor">
+                        {% amp_img %}
+                            <img class="s-icon x1-5 nopad"
+                                 src="{{ icons.accordion|ico:page.theme }}"
+                                 alt="Accordion"/>
+                        {% endamp_img %}
+                    </div>
+                {% endif %}
+
+                <div class="header-logo">
+                    <a href="{% url 'wagtail_serve' '' %}">
+                        <!--ADD LOGO HERE-->
+                    </a>
+                </div>
+                {% if not request.user_agent.is_mobile %}
+                    {% if not amp %}
+                        <div class="header-nav">
+                            {% include 'webspace/cms/blocks/common/nav.html' with menus=page.header_menus click=1 %}
+                        </div>
+                    {% endif %}
+                    {% if not request.user.is_authenticated %}
+                        <div class="header-buttons">
+                            {% for button in page.header_buttons %}
+                                {% include_block button with space='r' %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endif %}
+                {% if project %}
+                    {% if not request.user_agent.is_mobile %}
+                        <div id="project" data-component="project"></div>
+                    {% endif %}
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                    <div class="header-freelance">
+                        <nav>
+                            <ul data-clicker>
+                                <li>
+                                    <div class="s-flex-align">
+                                        {% with freelance=request.user.ctr %}
+                                            <div class="freelance-pic">
+                                                {% amp_img %}
+                                                    <img class="s-icon x2 nopad"
+                                                         src="{{ icons|ico_astro:freelance.get_level|ico:page.theme }}"
+                                                         alt="Astronaute"/>
+                                                {% endamp_img %}
+                                                {% if freelance.enable_mission %}
+                                                    {% amp_img %}
+                                                        <img class="freelance-available s-icon x0-5 nopad"
+                                                             src="{{ icons.circle_green|ico:page.theme }}"
+                                                             alt="Cercle Freelance Disponible"/>
+                                                    {% endamp_img %}
+                                                {% else %}
+                                                    {% amp_img %}
+                                                        <img class="freelance-available s-icon x0-5 nopad"
+                                                             src="{{ icons.circle_red|ico:page.theme }}"
+                                                             alt="Cercle Freelance Indisponible"/>
+                                                    {% endamp_img %}
+                                                {% endif %}
+                                            </div>
+                                        {% endwith %}
+                                        {% amp_img %}
+                                            <img class="s-icon x0-5"
+                                                 src="{{ icons.angle|ico:page.theme }}"
+                                                 alt="Angle"
+                                            />
+                                        {% endamp_img %}
+                                    </div>
+                                    <ul data-clicker-child>
+                                        <li class="odd">
+                                            <a href="/freelance/dashboard">
+                                                <p>Dashboard</p>
+                                            </a>
+                                        </li>
+                                        <li class="even">
+                                            <a href="/freelance/dashboard/compte/informations/">
+                                                <p>Information</p>
+                                            </a>
+                                        </li>
+                                        <li class="odd">
+                                            <a href="/freelance/dashboard/compte/preferences/">
+                                                <p>Préférences</p>
+                                            </a>
+                                        </li>
+                                        <li class="even">
+                                            <a href="/freelance/dashboard/services/catalogue/">
+                                                <p>Services</p>
+                                            </a>
+                                        </li>
+                                        <li class="odd">
+                                            <a href="/freelance/dashboard/profil-public/introduction/">
+                                                <p>Profil Public</p>
+                                            </a>
+                                        </li>
+                                        <li class="even">
+                                            <a href="/freelance/dashboard/profil-public/experience/">
+                                                <p>Expériences</p>
+                                            </a>
+                                        </li>
+                                        <li class="odd">
+                                            <a href="{% url 'www:logout' %}">
+                                                <p>Quitter</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+</div>
