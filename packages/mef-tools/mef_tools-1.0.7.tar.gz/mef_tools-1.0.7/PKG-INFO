@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: mef_tools
+Version: 1.0.7
+Summary: Advanced tools for handling MEF file format using pymef - python wrapper.
+Home-page: https://github.com/xmival00/MEF_Tools
+Author: Filip Mivalt
+Author-email: mivalt.filip@mayo.edu
+License: Apache
+Description: Advanced tools for handling MEF file format using pymef - python wrapper. MefWriter and MefReader are high-level API tools containing all headers required for writing a mef file.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Requires-Python: >=3.6
