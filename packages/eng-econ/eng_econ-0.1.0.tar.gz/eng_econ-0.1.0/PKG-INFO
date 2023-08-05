@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: eng-econ
+Version: 0.1.0
+Summary: This package provides some of the basic functions of engineering economics
+Home-page: https://songyu-wang.github.io/engineering-economics-basics/
+License: MIT
+Keywords: engineering,economics,economy
+Author: Songyu-Wang
+Author-email: wangsongyuf@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pdoc3 (>=0.9.1,<0.10.0)
+Project-URL: Repository, https://github.com/Songyu-Wang/engineering-economics-basics
+Description-Content-Type: text/markdown
+
+
+# engineering-economics-basics
+
+## Overview
+
+This package provides some of the basic functions of engineering economics
+
+## Documents
+
+See https://songyu-wang.github.io/engineering-economics-basics/docs/eng_econ/index.html
+
+## Test Coverage
+
+see  https://songyu-wang.github.io/engineering-economics-basics/htmlcov/index.html
+
+### Reference
+
+National Council of Examiners for Engineering and Surveying(NCEES). FE Reference Handbook, 9.5 Edition, (ISBN 978-1-932613-67-4).
+
