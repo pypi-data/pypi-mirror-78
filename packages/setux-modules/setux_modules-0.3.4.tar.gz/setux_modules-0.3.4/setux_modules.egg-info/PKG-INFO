@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: setux-modules
+Version: 0.3.4
+Summary: System deployment
+Home-page: https://gitlab.com/dugres/setux_modules
+Author: Louis RIVIERE
+Author-email: louis@riviere.xyz
+License: MIT
+Description: ########
+         setux
+        ########
+        
+        **Setux Modules**
+        
+        ============
+        Installation
+        ============
+        
+        .. code-block:: shell 
+        
+            $ pip install setux_modules
+        
+Keywords: utility
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
