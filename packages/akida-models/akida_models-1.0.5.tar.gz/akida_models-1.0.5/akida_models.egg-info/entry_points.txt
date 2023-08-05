@@ -1,0 +1,4 @@
+[console_scripts]
+akida_models = akida_models.cli:main
+cifar10_train = akida_models.cifar10.cifar10_train:main
+
