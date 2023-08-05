@@ -1,0 +1,2 @@
+import steammanager
+steammanager.main()
