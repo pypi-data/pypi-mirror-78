@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: mixpresplit
+Version: 0.1.1
+Summary: CLI Utility that allows splitting mixpre polywav files
+Author: David Huss
+Author-email: dh@atoav.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: wavinfo (>=1.6,<2.0)
