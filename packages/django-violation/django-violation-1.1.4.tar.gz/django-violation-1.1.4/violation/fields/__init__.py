@@ -1,0 +1,1 @@
+from violation.fields.rule import RulesModelMultipleChoiceField as M2MRulesField
