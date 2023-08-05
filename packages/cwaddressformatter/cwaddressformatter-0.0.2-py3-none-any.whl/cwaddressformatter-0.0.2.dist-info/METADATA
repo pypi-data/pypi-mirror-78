@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: cwaddressformatter
+Version: 0.0.2
+Summary: Format address using universal pattern
+Home-page: https://github.com/Shihyen/address-formatter
+Author: Shihyen Chen
+Author-email: sun1229@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+
+# 地址格式規則
+
+## Release Note
+
+### 20200831: 修正一些錯誤
+1. 村、鄰的數字改為alpha字母
+2. 增加例外判斷，凡是路名分析出來，小於2, 大於7 地址皆不做轉換
+3. 增加郵政信箱判斷
+
+
+### 地址格式規則
+1. 路名包含數字時,十以下已國字表示.例如：工業十路、三多三路；十以上以數字表
+示，EX：工業13路
+2. 但路名像是十三北路、四維路、八德路、六張犁路、二十張路則不在上述規則中
+3. X段中的X請一律用國字表示，如忠孝東路三段
+4. 巷、弄、號、樓一律以阿拉伯數字表示，樓不可打F，”之”請以”-“示。
+EX：3樓-2
+5. 地址內僅允許存在3種符號：括號 ( )、-、空格，星號、斜線、加號都不行哦！
+6. 國外地址要加國名，避免郵局退件。
+EX：(1)中國上海市….、(2)12520 12TH AVE NE SEATTLE WA 98125 USA
+7. 主檔的地址請建在地址1的欄位中即可(不要使用地址2)
+8. 主檔中的台除發票抬頭(ex:臺灣大學)外，統統以“台”表示。	
+
+9. 工業區的話要保留。
+10. 沒有路名的話，要保留里
+11. 樓層後面 建議不處理，或是手動更新後重新處理 
+
+訂單到ERP後，客服檢查發現地址錯誤  更正地址、找回正確的customerNo，
+
+提供API 更新訂單中的receiver.member <=> Customer 對應資料
+
+### 套件更新
+
+
+
+參考：https://medium.com/kenny-chang/python-%E7%99%BC%E5%B8%83%E7%AC%AC%E4%B8%80%E5%80%8Bpython%E5%A5%97%E4%BB%B6-gaql-tool-c6c7c357f623
+
+
