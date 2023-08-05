@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pytaku
+Version: 0.3.15
+Summary: Self-hostable web-based manga reader
+License: AGPL-3.0-only
+Author: Bùi Thành Nhân
+Author-email: hi@imnhan.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: argon2-cffi (>=20.1.0,<21.0.0)
+Requires-Dist: flask (>=1.1.2,<2.0.0)
+Requires-Dist: goodconf (>=1.0.0,<2.0.0)
+Requires-Dist: gunicorn (>=20.0.4,<21.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
