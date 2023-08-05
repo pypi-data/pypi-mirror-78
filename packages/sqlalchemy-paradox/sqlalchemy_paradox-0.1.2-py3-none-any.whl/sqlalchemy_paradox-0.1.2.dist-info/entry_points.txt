@@ -1,0 +1,4 @@
+[sqlalchemy.dialects]
+paradox=sqlalchemy_paradox.pyodbc:ParadoxDialect_pyodbc
+paradox.pyodbc=sqlalchemy_paradox.pyodbc:ParadoxDialect_pyodbc
+
