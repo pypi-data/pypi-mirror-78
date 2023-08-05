@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: solconfig
+Version: 0.1.0
+Summary: 
+Author: flyisland
+Author-email: flyisland@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: jinja2 (>=2.11.2,<3.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
