@@ -1,0 +1,5 @@
+include HISTORY.rst
+include LICENSE
+include optimalflow/parameters.json
+include optimalflow/reset_parameters.json
+recursive-exclude * __pycache__
