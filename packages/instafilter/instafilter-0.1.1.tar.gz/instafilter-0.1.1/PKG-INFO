@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: instafilter
+Version: 0.1.1
+Summary: Images filters learned from Instagram. Implemented in pytorch.
+Home-page: https://github.com/thoppe/instafilter
+Author: Travis Hoppe
+Author-email: travis.hoppe+{package_name}@gmail.com
+License: CC-SA
+Description: # instafilter
+        Instagram-like filters with deep learning
+        
+            pip install instafilter
+        
+        
+        ``` python
+        from instafilter import Instafilter
+        
+        model = Instafilter("Lo-fi")
+        new_image = model("myimage.jpg")
+        ```
+        
+        **Ludwig**
+        [![Example image: Ludwig](examples/Ludwig.jpg)](examples/Ludwig.jpg)
+        
+        **Stinson**
+        [![Example image: Stinson](examples/Stinson.jpg)](examples/Stinson.jpg)
+        
+        **Moon**
+        [![Example image: Moon](examples/Moon.jpg)](examples/Moon.jpg)
+        
+        
+        See the code in [`train`](`train') to train a new model.
+        
+        ## Roadmap
+        
+        + Publish on pypi
+        + Medium post
+        
+Keywords: art
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: GPU
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Artistic Software
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
