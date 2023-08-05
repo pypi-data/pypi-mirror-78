@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: biotext
+Version: 2.3.0.0
+Summary: The biotext library offers resources to support text mining strategy using bioinformatics tool
+Home-page: UNKNOWN
+Author: Diogo de J. S. Machado
+Author-email: diogomachado.bioinfo@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: unidecode
+Requires-Dist: biopython
+Requires-Dist: sweep
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+
+Biotext
+=======
+The biotext library offers resources to support text mining strategy using bioinformatics tool.
+
+Stand alone tools based on library are available at link <https://sourceforge.net/projects/biotext-tools/>.
+
+Installation
+------------
+To install aminocode through `pip`::
+
+      pip install biotext
+
+
+Tested Platforms
+----------------
+- Python:
+
+ - 3.7.4
+
+- Windows (64bits):
+
+ - 10
+
+- Ubuntu (64bits)
+
+ - 18.04.1 LTS
+
+Required external libraries
+---------------------------
+- numpy
+- pandas
+- scipy
+- scikit-learn
+- matplotlib
+- unidecode
+- biopython
+- sweep
+
+Functions
+---------------
+.. csv-table::
+   :header: Function Name, Description, Input, Output
+   :widths: auto
+   :stub-columns: 1
+   :delim: -
+
+   biotext.aminocode.encodeText  biotext.aminocode.encodetext  biotext.aminocode.et-Encodes a string with AMINOcode.-text: natural language text string to be encoded;  detailing: details in coding. 'd' for details in digits. 'p' for details on the punctuation. 'dp' or 'pd' for both.-encode text in string format.
+   biotext.aminocode.decodeText  biotext.aminocode.decodetext  biotext.aminocode.dt-Decodes a string with reverse AMINOcode.-text: text string encoded using the encodefile function to be decode;  detailing: details used in the text to be decoded. 'd' for details in digits. 'p' for details on the punctuation. 'dp' or 'pd' for both.-decode text in string format.
+   biotext.aminocode.encodeFile  biotext.aminocode.encodefile  biotext.aminocode.ef-Encodes a text file or a list of strings with AMINOcode.-input_file_name: text file name or list of string. It can also be used in a list of SeqRecord, in which case the function will automatically extract the headers to do the encoding;  output_file_name: the name for the output file. If not defined, the result will only be returned as a variable;  detailing: same as in the encodetext function;  header_format: format for the headers of the generated FASTA. It can be 'number+originaltext', 'number' or 'originaltext'. 'number' is a count of the lines in the input file. Blank lines are considered in the count, but are not added to the FASTA file. 'originaltext' is the input text itself;  verbose: if True displays progress.-list of SeqRecord*;  If defined output_file_name a file will be saved.
+   biotext.aminocode.decodeFile  biotext.aminocode.decodefile  biotext.aminocode.df-Decodes a fasta file or a list of SeqRecord with the reverse amino acid.-input_file_name: file name or list of SeqRecord;  output_file_name: the name for the output file. If not defined, the result will only be returned as a variable;  detailing: same as in the decodetext function;  verbose: if True displays progress;  output: string list. If defined output_file_name a file will be saved.-string list;  if defined output_file_name a file will be saved.
+   biotext. dnabits.encodeText   biotext.dnabits.encodetext  biotext. dnabits.et-Encodes a string with DNAbits.-text: natural language text string to be encoded.-encode text in string format.
+   biotext.dnabits.decodeText  biotext.dnabits.decodetext  biotext.dnabits.dt-Decodes a string with reverse DNAbits.-text: text string encoded using the encodefile function to be decode.-decode text in string format.
+   biotext.dnabits.encodeFile   biotext.dnabits.encodefile  biotext.dnabits.ef-Encodes a text file or a list of strings with DNAbits.-input_file_name: text file name or list of string. It can also be used in a list of SeqRecord, in which case the function will automatically extract the headers to do the encoding;  output_file_name: the name for the output file. If not defined, the result will only be returned as a variable;  header_format: format for the headers of the generated FASTA. It can be 'number+originaltext', 'number' or 'originaltext'. 'number' is a count of the lines in the input file. Blank lines are considered in the count, but are not added to the FASTA file. 'originaltext' is the input text itself;  verbose: if True displays progress.-list of SeqRecord.  if defined output_file_name a file will be saved.
+   biotext.dnabits.decodeFile  biotext.dnabits.decodefile  biotext.dnabits.df-Decodes a text file or a list of SeqRecord with reverse DNAbits.-input_file_name: file name or list of SeqRecord;  output_file_name: the name for the output file. If not defined, the result will only be returned as a variable;  verbose: if True displays progress.-string list;  if defined output_file_name a file will be saved.
+   biotext.fastatools.list2SeqRecord  biotext.fastatools.list2seqrecord  biotext.fastatools.list2bioSeqRecord  biotext.fastatools.list2bioseqrecord  biotext.fastatools.list2fasta-Converts a list of strings to a list of SeqRecord, a biopython object that holds Biological sequences and information about it.-seq: list of biological sequences in string format;  header: list of headers in string format, if set to "None" the headers will be automatically defined with an increasing number.-list of SeqRecord.
+   biotext.fastatools.fastaRead  biotext.fastatools.fastaread-Uses biopython to import a FASTA file.-input_file_name: input fasta file name.-list of SeqRecord.
+   biotext.fastatools.fastaWrite  biotext.fastatools.fastawrite-Create a file using a list of SeqRecord.-records: list of SeqRecord;  output_file_name: output fasta file name.-a file is saved with the defined name.
+   biotext.fastatools.getHeader  biotext.fastatools.getheader-Extracts the header from a list of SeqRecord.-records: list of SeqRecord.-list with headers.
+   biotext.fastatools.getSeq  biotext.fastatools.getseq-Extracts the string from a list of SeqRecord.-records: list of SeqRecord.-list with sequences.
+   biotext.fastatools.removePattern  biotext.fastatools.removepattern-Removes patterns from a SeqRecord range based on regular expression.-records: list of SeqRecord;  rex: regular expression.-list of SeqRecord with removal applied.
+   biotext.fastatools.clustalOmega  biotext.fastatools.clustalomega  biotext.fastatools.clustalo-Uses the Clustal Omega to align the strings in a FASTA file.-input_file_name: input FASTA file name.-list with strings aligned in string format.
+   biotext.fastatools.getCons  biotext.fastatools.getcons-Save a temporary file with the sequences from the list of SeqRecord, apply the clustalo function and obtain alignment consensus.-records: SeqRecord.list.-consensus for alignment in string format.
+
+\*SeqRecord: Biopython object to store biological sequences and its information, as described in <https://biopython.org/DIST/docs/api/Bio.SeqRecord.SeqRecord-class.html>
+
+
