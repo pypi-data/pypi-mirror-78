@@ -1,0 +1,137 @@
+Metadata-Version: 2.1
+Name: flask-easyapi
+Version: 0.1.0
+Summary: Rest API on Flask made a little too easy.
+Home-page: https://github.com/hXtreme/flask-easyapi
+Author: Harsh Parekh
+Author-email: harsh_parekh@outlook.com
+License: MIT license
+Keywords: flask_easyapi
+Platform: UNKNOWN
+Classifier: Framework :: Flask
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Requires-Dist: Flask (==1.1.2)
+
+=============
+Flask-EasyAPI
+=============
+
+
+.. image:: https://img.shields.io/pypi/v/flask-easyapi.svg
+        :target: https://pypi.python.org/pypi/flask-easyapi
+        :alt: Package version`
+
+.. image:: https://img.shields.io/pypi/pyversions/flask-easyapi.svg
+        :target: https://pypi.python.org/pypi/flask-easyapi
+        :alt: Supported python versions
+
+.. image:: https://img.shields.io/travis/com/hXtreme/flask-easyapi.svg
+        :target: https://travis-ci.com/hXtreme/flask-easyapi
+        :alt: Bulid status
+
+.. image:: https://img.shields.io/github/license/hXtreme/flask-easyapi.svg
+        :target: https://github.com/hXtreme/flask-easyapi/blob/master/LICENSE
+        :alt: LICENSE
+
+.. image:: https://readthedocs.org/projects/flask-easyapi/badge/?version=latest
+        :target: https://flask-easyapi.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+.. image:: https://pyup.io/repos/github/hXtreme/flask-easyapi/shield.svg
+        :target: https://pyup.io/repos/github/hXtreme/flask-easyapi/
+        :alt: Updates
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+        :target: https://github.com/psf/black
+        :alt: Code Style - Black
+
+
+
+Rest API on Flask made a little too easy.
+
+
+* Documentation: https://flask-easyapi.readthedocs.io.
+
+
+Features
+--------
+
+Planned
+^^^^^^^
+
+* One to one mapping from functions to api endpoints via decorators
+* Use type annotations to automatically add type-checks to parameters recieved in the requests to the api.
+* Return HTTP error codes and error messages by raising exceptions.
+
+
+=======
+History
+=======
+
+0.1.0 (2020-08-28)
+------------------
+
+* Add EasyAPI class that functions as a Blueprint
+  for a set of api call routes.
+
+   * Implement EasyAPI.route(.) decorator.
+
+* Add a example/test Flask hello world greeting app.
+
+   * Add tests for EasyAPI using the greet app.
+
+* Add and update documentation.
+* Refactoring and linting changes.
+* Fix typos.
+
+0.0.6 (2020-08-21)
+------------------
+
+* Fix project url in setup.py
+
+0.0.5 (2020-08-20)
+------------------
+
+* Improve CD process.
+
+0.0.4 (2020-08-19)
+------------------
+
+* Improve CD process.
+
+0.0.3 (2020-08-19)
+------------------
+
+* Various changes to CI configuration.
+* Update dependencies.
+* Edit README.rst to add badges and alt-text.
+
+0.0.2 (2020-08-19)
+------------------
+
+* Fix badges in readme
+* Add pyup configuration
+
+0.0.1 (2020-08-19)
+------------------
+
+* Fix minor issues and typos to make tests pass.
+
+0.0.0 (2020-08-19)
+------------------
+
+* First release on PyPI. [Falied]
+
+
