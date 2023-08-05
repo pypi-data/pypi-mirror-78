@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: instascraper
+Version: 2.0.3.post1
+Summary: A fast and lightweight Instagram media downloader.
+Home-page: https://github.com/tnychn/instascrape
+Author: tnychn
+Author-email: tonychan2342@gmail.com
+License: MIT
+Keywords: instagram,scraper,downloader,media,api,cli
+Platform: UNKNOWN
+Requires-Python: >=3.5.0
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: tqdm
+Requires-Dist: colorama
+
+**Instascrape** is a fast and lightweight utility and Python library for downloading a massive amount of media (photos and videos) from Instagram, without using the official Instagram Public API.
+## Features
+* 🔌 Powerful & simple-to-use library interface
+  * ⛓ calls methods in a chain (fluent interface)
+  * 🔩 provides hooks/callbacks in download methods* 🚸 User-friendly commad-line interface
+* 💨 High efficiency
+  * 🧵 uses multithreading to fetch data
+  * ⚡️ uses generators to yield results
+* 🔎 Provides a *filter* option to avoid downloading media that you don't want
+* 📑 Download media along with their metadata
+* ⚠️ Good exceptions handling
+* 🍪 Manages multiple cookies for you
+* 🔑 Peforms authentication effectively
+  * 🔐 supports 2FA
+  * 🖇 solves checkpoint challenge
+* 🕶 Can be used in anonymous mode
+
