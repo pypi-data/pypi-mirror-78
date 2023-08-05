@@ -1,0 +1,43 @@
+<dialog id="members-old">
+    <header>
+        <h1>{{strings.dialogTitleFormerMembers}}</h1>
+        <a data-role="close" href="#">{{strings.dialogButtonClose}}</a>
+    </header>
+    <div class="inner">
+        <table width="100%">
+            <thead>
+                <th>{{strings.dialogTableHeaderNameTag}}</th>
+                <th>{{strings.dialogTableHeaderEvents}}</th>
+                <th>{{strings.dialogTitleFormerLinks}}</th>
+            </thead>
+            <tbody>
+            {% for member in former_members %}
+                <tr class="member-start" data-blacklist="{{ 'true' if member.blacklist else 'false' }}">
+                    <td rowspan="{{member.events|length}}">
+                        <strong>{{member.name}}</strong>
+                        {% if member.blacklist %}
+                        &mdash; blacklisted
+                        {% endif %}
+                        <br/>
+                        {{member.tag}}
+                    </td>
+                    <td>{{member.events[0].date}} &ndash; {{member.events[0].message}}</td>
+                    <td rowspan="{{member.events|length}}" class="buttons">
+                        <a href="https://royaleapi.com/player/{{member.tag | replace('#', '')}}" rel="external" target="_blank" class="button royaleapi" title="{{config.strings.dialogMemberRoyaleApi}}"><span></span></a>
+                    </td>
+                </tr>
+                {% for event in member.events[1:] %}
+                <tr data-blacklist="{{ 'true' if member.blacklist else 'false' }}">
+                    <td>{{event.date}} &ndash; {{event.message}}</td>
+                </tr>
+                {% endfor %}
+                {% if member.notes %}
+                <tr data-blacklist="{{ 'true' if member.blacklist else 'false' }}">
+                    <td colspan="3"><strong>{{member.reason}} because:</strong> {{member.notes}}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</dialog>
