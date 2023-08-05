@@ -1,0 +1,44 @@
+- name: "Get topology output data"
+  rundb:
+    conn_str: "{{ rundb_conn }}"
+    operation: get
+    table: "{{ target }}"
+    key: "outputs"
+    run_id: "{{ orig_run_id }}"
+    db_schema: "{{ rundb_schema }}"
+  register: topo_output
+
+- name: "convert set topo_output_resources from rundb"
+  set_fact:
+    topo_output_json: "{{ topo_output_rundb.output | convert_to_json }}"
+  when: not generate_resources
+
+- name: "set topo_output_resources fact rundb"
+  set_fact:
+    topo_output_resources: "{{ topo_output_json[0]['resources'] }}"
+  when: not generate_resources
+
+- name: "debug res_grp"
+  debug:
+    var: res_grp
+
+- name: "Set cred filename"
+  set_fact:
+    credentials: "{{ res_grp['credentials'] | default('') }}"
+  when: res_grp['credentials'] is defined
+
+- name: "debug topo_output"
+  debug:
+    var: topo_output_resources
+
+- name: "Build duffy teardown list"
+  set_fact:
+    duffy_output_resources: "{{ topo_output_resources |
+                                get_provider_resources('duffy') }}"
+
+
+- name: "Teardown resource definitions of current group"
+  include_tasks: teardown_res_defs.yml
+  vars:
+    ssid: "{{ item['ssid'] }}"
+  with_items: "{{ duffy_output_resources }}"

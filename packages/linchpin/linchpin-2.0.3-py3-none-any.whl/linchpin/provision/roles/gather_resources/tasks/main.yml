@@ -1,0 +1,83 @@
+---
+- name: "wait and update outputs using jobids"
+  include: update_async_outputs.yml
+  when: _async
+
+# NOTE: If there's async or not, lets just use topology_outputs_<resource> values
+# and do the updating after all data collection is complete.
+# ^^ I don't know what this comment means because it seems like the updating is done first
+- name: "Aggregate topology outputs"
+  set_fact:
+    topology_outputs: "{{ topology_outputs }} + {{ lookup('vars', item) }}"
+  loop: "{{ lookup('varnames', '^topology_outputs_').split(',') }}"
+  when: item|length > 0
+
+- name: "set value"
+  set_fact:
+    value: "[{{ {'resources': topology_outputs } }}]"
+
+# this task only records the outputs necessary.
+# No more will the outputter record a record for every
+# possible provider. This is done with the with_dict/when item.value test
+- name: "Add topology_outputs to the rundb"
+  rundb:
+    conn_str: "{{ rundb_conn }}"
+    operation: update
+    table: "{{ target }}"
+    key: "outputs"
+    value: "{{ value }}"
+    run_id: "{{ rundb_id }}"
+    db_type: "{{ rundb_type }}"
+    db_schema: "{{ rundb_schema }}"
+
+- name: "Create resources directory (v1.0.x compatibility)"
+  file:
+    state: directory
+    path: "{{ default_resources_path + '/' }}"
+  when: generate_resources
+  ignore_errors: yes
+
+- name: "set topology_name"
+  set_fact:
+    topology_name: "{{ topo_data['topology_name'] }}"
+
+- name: "Generate resources file (v1.0.x compatibility)"
+  debug:
+    msg: "{{ topology_outputs | write_to_file(default_resources_path+'/', topology_name) }}"
+  when: generate_resources and state == "present"
+
+- name: "set topology_name"
+  set_fact:
+    topology_name: "{{ topo_data['topology_name'] }}"
+
+- name: "get inventory file name from layout"
+  set_fact:
+    inventory_path: "{{ layout_data['inventory_layout']['inventory_file'] | default(omit) }}"
+  when: layout_data is defined
+
+- name: "Updating uhash-based inventory_path with the absolute path"
+  set_fact:
+    inventory_path: "{{ inventory_path | default( workspace +'/'+inventories_folder+'/'+
+    topology_name.replace(' ', '_').lower() + '-' + uhash + '.inventory')}}"
+  when: use_uhash
+
+- name: "Updating inventory_path with the absolute path"
+  set_fact:
+    inventory_path: "{{ inventory_path | default( workspace +'/'+inventories_folder+'/'+
+    topology_name.replace(' ', '_').lower() ) }}.inventory"
+  when: not use_uhash
+
+- name: "Info"
+  debug:
+    msg: "{{ inventory_path }}"
+
+- name: "Add inventory_path to outputs"
+  rundb:
+    conn_str: "{{ rundb_conn }}"
+    operation: update
+    table: "{{ target }}"
+    key: "outputs"
+    value: "[{{ {'inventory_path': [inventory_path]} }}]"
+    run_id: "{{ rundb_id }}"
+    db_type: "{{ rundb_type }}"
+    db_schema: "{{ rundb_schema }}"

@@ -1,0 +1,46 @@
+- name: "Get topology output data from resources file"
+  output_parser:
+    output_file: "{{ default_resources_path + '/' +
+                     topo_data['topology_name'].replace(' ', '_').lower() +
+                     '.output' }}"
+  register: topo_output
+  when: generate_resources
+
+- name: "set topo_output_resources fact"
+  set_fact:
+    topo_output_resources: "{{ topo_output.output['content'] }}"
+  when: generate_resources
+
+- name: "Get topology output data from RunDB"
+  rundb:
+    conn_str: "{{ rundb_conn }}"
+    operation: get
+    table: "{{ target }}"
+    key: "outputs"
+    run_id: "{{ orig_run_id }}"
+    db_schema: "{{ rundb_schema }}"
+  register: topo_output
+  when: not generate_resources
+
+
+- name: "convert set topo_output_resources from rundb"
+  set_fact:
+    topo_output_json: "{{ topo_output.output | convert_to_json }}"
+  when: not generate_resources
+
+- name: Filter list for resources
+  set_fact:
+    topo_output_resources: "{{ topo_output_json |
+                               filter_list_by_attr('resources') }}"
+  when: not generate_resources
+
+- name: "set topo_output_resources fact"
+  set_fact:
+    topo_output_resources: "{{ topo_output_resources[0]['resources'] }}"
+  when: not generate_resources
+
+- name: "Deprovision resources"
+  bkr_server:
+    recipesets: "{{ topo_output_resources | fetch_beaker_job_ids }}"
+    state: absent
+    cancel_message: "cancelled provisioning on teardown request"

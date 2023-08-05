@@ -1,0 +1,148 @@
+Metadata-Version: 2.1
+Name: linchpin
+Version: 2.0.3
+Summary: Ansible-based multi-cloud provisioner
+Home-page: http://linchpin.readthedocs.io/
+Author: samvaran kashyap rallabandi
+Author-email: linchpin@redhat.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: setuptools (>=40.8.0)
+Requires-Dist: pyopenssl (>=17.5.0)
+Requires-Dist: boto (>=2.49.0)
+Requires-Dist: boto3 (>=1.9.96)
+Requires-Dist: apache-libcloud (>=0.20.1)
+Requires-Dist: click (>=7.0)
+Requires-Dist: yamlordereddictloader (>=0.4.0)
+Requires-Dist: ansible (>=2.7.1)
+Requires-Dist: six (>=1.10.0)
+Requires-Dist: shade (>=1.30.0)
+Requires-Dist: naked (>=0.1.31)
+Requires-Dist: Cerberus (>=1.2)
+Requires-Dist: tinydb (>=3.12.2)
+Requires-Dist: requests (>=2.21.0)
+Requires-Dist: ipaddress (>=1.0.17)
+Requires-Dist: urllib3 (<1.25,>=1.23)
+Requires-Dist: PyYAML (>=5.1)
+Requires-Dist: jinja2 (>=2.10)
+Requires-Dist: configparser (>=3.5.0)
+Requires-Dist: pyasn1 (>=0.1.9)
+Requires-Dist: GitPython (<3.1.0,>=2.1.15)
+Requires-Dist: gitdb (>=0.6.4)
+Requires-Dist: future
+Requires-Dist: openstacksdk (>=0.37)
+Requires-Dist: tqdm (==4.36.1)
+Requires-Dist: pyzmq (==18.1.1)
+Requires-Dist: mock
+Requires-Dist: google-auth
+Provides-Extra: azure
+Requires-Dist: azure-cli-core (==2.0.35) ; extra == 'azure'
+Requires-Dist: azure-cli-nspkg (==3.0.2) ; extra == 'azure'
+Requires-Dist: azure-common (==1.1.11) ; extra == 'azure'
+Requires-Dist: azure-graphrbac (==0.40.0) ; extra == 'azure'
+Requires-Dist: azure-keyvault (==1.0.0a1) ; extra == 'azure'
+Requires-Dist: azure-mgmt-authorization (==0.51.1) ; extra == 'azure'
+Requires-Dist: azure-mgmt-automation (==0.1.1) ; extra == 'azure'
+Requires-Dist: azure-mgmt-batch (==5.0.1) ; extra == 'azure'
+Requires-Dist: azure-mgmt-cdn (==3.0.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-compute (==4.4.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-containerinstance (==1.4.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-containerregistry (==2.0.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-containerservice (==4.4.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-cosmosdb (==0.5.2) ; extra == 'azure'
+Requires-Dist: azure-mgmt-devtestlabs (==3.0.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-dns (==2.1.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-hdinsight (==0.1.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-iothub (==0.7.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-keyvault (==1.1.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-loganalytics (==0.2.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-marketplaceordering (==0.1.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-monitor (==0.5.2) ; extra == 'azure'
+Requires-Dist: azure-mgmt-network (==2.3.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-nspkg (==2.0.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-rdbms (==1.4.1) ; extra == 'azure'
+Requires-Dist: azure-mgmt-redis (==5.0.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-resource (==2.1.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-servicebus (==0.5.3) ; extra == 'azure'
+Requires-Dist: azure-mgmt-sql (==0.10.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-storage (==3.1.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-trafficmanager (==0.50.0) ; extra == 'azure'
+Requires-Dist: azure-mgmt-web (==0.41.0) ; extra == 'azure'
+Requires-Dist: azure-nspkg (==2.0.0) ; extra == 'azure'
+Requires-Dist: azure-storage (==0.35.1) ; extra == 'azure'
+Requires-Dist: msrest (==0.6.1) ; extra == 'azure'
+Requires-Dist: msrestazure (==0.5.0) ; extra == 'azure'
+Requires-Dist: packaging ; extra == 'azure'
+Requires-Dist: requests[security] ; extra == 'azure'
+Requires-Dist: xmltodict ; extra == 'azure'
+Provides-Extra: beaker
+Requires-Dist: beaker-client (>=27.0) ; extra == 'beaker'
+Requires-Dist: bottle ; extra == 'beaker'
+Requires-Dist: gssapi ; extra == 'beaker'
+Provides-Extra: docker
+Requires-Dist: docker-py (>=1.7.0) ; extra == 'docker'
+Provides-Extra: docs
+Requires-Dist: docutils ; extra == 'docs'
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: sphinx-automodapi ; extra == 'docs'
+Provides-Extra: krbv
+Requires-Dist: python-krbV ; extra == 'krbv'
+Provides-Extra: libvirt
+Requires-Dist: libvirt-python (>=3.0.0) ; extra == 'libvirt'
+Requires-Dist: lxml ; extra == 'libvirt'
+Provides-Extra: openshift
+Requires-Dist: openshift (<0.8.8,>=0.8.6) ; extra == 'openshift'
+Requires-Dist: kubernetes-validate ; extra == 'openshift'
+Provides-Extra: tests
+Requires-Dist: nose ; extra == 'tests'
+Requires-Dist: mock ; extra == 'tests'
+Requires-Dist: coverage ; extra == 'tests'
+Requires-Dist: flake8 ; extra == 'tests'
+Requires-Dist: pytest (<=4.4.0) ; extra == 'tests'
+Requires-Dist: pytest-runner ; extra == 'tests'
+Requires-Dist: molecule (<=2.22) ; extra == 'tests'
+Requires-Dist: molecule[docker] ; extra == 'tests'
+Requires-Dist: radon ; extra == 'tests'
+Provides-Extra: vmware
+Requires-Dist: PyVmomi (>=6.7.1) ; extra == 'vmware'
+
+LinchPin
+--------
+
+LinchPin provides a command-line interface and Python API for provisioning and
+managing resources across multiple infrastructures. Where multiple
+infrastructure resource types can be defined with a single topology file.
+
+LinchPin can also generate inventory files for use with additional Ansible
+playbooks. These are applied using an inventory layout file.
+
+Contributing and Community Participation
+++++++++++++++++++++++++++++++++++++++++
+
+Developers are encouraged to contribute to the LinchPin project. Please visit
+`Contributing <http://github.com/CentOS-PaaS-SIG/linchpin/tree/develop/CONTRIBUTING.rst>`_
+for details.
+
+* Subscribe and participate on the `LinchPin Mailing List <https://www.redhat.com/mailman/listinfo/linchpin>`_
+* Join the `#linchpin` IRC chat channel on `freenode <https://webchat.freenode.net/?channels=#linchpin>`_
+
+Installation
+++++++++++++
+
+`Installation documentation <http://linchpin.readthedocs.io/en/develop/installation.html>`_
+
+QuickStart
+++++++++++
+
+The `Getting Started Guide <http://linchpin.readthedocs.io/en/develop/getting_started.html>`_ is a quick guide for LinchPin from the Command-Line.
+
+Using LinchPin
++++++++++++++++
+
+Check out the `Getting Started Guide <http://linchpin.readthedocs.io/en/develop/getting_started.html>`_ for a quick guide on how to use LinchPin from the Command-Line.
+
+For API documentation, check out the `Python API Reference <http://linchpin.readthedocs.io/en/develop/libdocs.html>`_.
+
+
+

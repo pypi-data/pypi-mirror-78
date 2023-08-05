@@ -1,0 +1,29 @@
+- block:
+  - name: Get current user
+    set_fact:
+     current_user: "{{ lookup('env','USER') }}"
+
+  - name: The geerlingguy.role is present
+    shell: "{{ ansible_python_interpreter | dirname }}/ansible-galaxy install geerlingguy.docker"
+    when: use_venv
+
+  - name: The geerlingguy.role is present
+    shell: "ansible-galaxy install geerlingguy.docker"
+    when: not use_venv
+
+  - name: Setup selinux
+    include_tasks: setup_selinux_deps.yml
+
+  - name: Docker is present
+    include_role:
+      name: geerlingguy.docker
+    vars:
+      docker_edition: "ce"
+      docker_package: "docker-{{ docker_edition }}"
+      docker_package_state: present
+      docker_users: "{{ (current_user != '') | ternary([current_user], []) }}"
+
+  - name: Docker python library is present
+    pip:
+      name: docker-py
+      state: present

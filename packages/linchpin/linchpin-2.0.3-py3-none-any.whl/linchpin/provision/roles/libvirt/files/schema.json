@@ -1,0 +1,214 @@
+{
+    "res_defs": {
+        "type": "list",
+        "schema": {
+            "anyof": [{
+                "type": "dict",
+                "schema": {
+                    "role": {
+                        "type": "string",
+                        "required": true,
+                        "allowed": ["libvirt_node"]
+                    },
+                    "name": { "type": "string", "required": true },
+                    "name_separator": { "type": "string", "required": false },
+                    "vcpus": { "type": "integer", "required": true },
+                    "cpu_mode": { "type": "string", "required": false },
+                    "memory": { "type": "integer", "required": true },
+                    "count": { "type": "integer", "required": false },
+                    "uri": { "type": "string", "required": false },
+                    "remote_python_interpretor": { "type": "string", "required": false },
+                    "driver": {
+                        "type": "string",
+                        "allowed": ["kvm", "qemu"],
+                        "required": false },
+                    "image_src": { "type": "string", "required": true },
+                    "arch": { "type": "string", "required": false },
+                    "remote_user": { "type": "string", "required": false },
+                    "boot_dev": { "type": "string", "required": false },
+                    "additional_storage": { "type": "string", "required": false },
+                    "disk_cache": { "type": "string", "required": false },
+                    "disk_type": { "type": "string", "required": false },
+                    "network_bridge": { "type": "string", "required": false },
+                    "ssh_key": { "type": "string", "required": false },
+                    "xml": { "type": "string", "required": false },
+                    "domain": { "type": "string", "required": false },
+                    "cloud_config": {
+                        "type": "dict",
+                        "required": false,
+                        "schema": {
+                           "virt_type": { "type": "string", "required": false },
+                           "run_script": { "type": "string", "required": false },
+                           "run_commands": { "type": "list", "required": false },
+                           "users": {
+                                "type": "list",
+                                "required": false,
+                                "schema": {
+                                    "type": "dict",
+                                    "required": false,
+                                    "schema": {
+                                        "name": { "type": "string", "required": true },
+                                        "gecos": { "type": "string", "required": false },
+                                        "primary_group": { "type": "string", "required": false },
+                                        "groups": { "type": "string", "required": false },
+                                        "sudo": { "type": "string", "required": false },
+                                        "passwd": { "type": "string", "required": false },
+                                        "lock_passwd": { "type": "boolean", "required": false },
+                                        "ssh_import_id": { "type": "string", "required": false },
+                                        "ssh_authorized_keys": { "type": "list", "required": false },
+                                        "inject_ssh_keys": { "type": "string", "required": false }
+                                    }
+                                }
+                            },
+                            "root_password": { "type": "string", "required": false },
+                            "packages": { "type": "list", "required": false }
+                        }
+                    },
+                    "networks": {
+                        "type": "list",
+                        "required": false,
+                        "schema": {
+                            "type": "dict",
+                            "schema": {
+                                "name": { "type": "string", "required": true },
+                                "ip": { "type": "string", "required": false },
+                                "dhcp": { "type": "boolean", "required": false },
+                                "static_ip_reserved": {"type": "boolean","required": false },
+                                "mac": { "type": "string", "required": false }
+                            }
+                        }
+                    },
+                    "storage": {
+                        "type": "list",
+                        "required": false,
+                        "schema": {
+                            "type": "dict",
+                            "required": true,
+                            "schema": {
+                                "name": { "type": "string", "required": true },
+                                "size": { "type": "integer", "required": true },
+                                "units": { "type": "string", "required": false },
+                                "disk_type": { "type": "string", "required": false,
+                                    "allowed": ["virtio_blk", "virtio_scsi"] },
+                                "cache": { "type": "string", "required": false },
+                                "format": { "type": "string", "required": false },
+                                "shareable": { "type": "boolean", "required": false },
+                                "device": { "type": "string", "required": false },
+                                "source": {
+                                    "type": "dict",
+                                    "required": false,
+                                    "schema": {
+                                        "file": { "type": "string", "required": false },
+                                        "block": { "type": "string", "required": false },
+                                        "dir": { "type": "string", "required": false },
+                                        "network_protocol": { "type": "string", "required": false,
+                                            "allowed": ["nbd", "isci", "rbd", "sheepdog", "gluster", "vxhs"]},
+                                        "network_name": { "type": "string", "required": false },
+                                        "volume": { "type": "string", "required": false },
+                                        "pool": { "type": "string", "required": false }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "type": "dict",
+                "schema": {
+                    "role": {
+                        "type": "string",
+                        "required": true,
+                        "allowed": ["libvirt_network"] },
+                    "name": { "type": "string", "required": true },
+                    "uri": { "type": "string", "required": false },
+                    "remote_python_interpreter": { "type": "string", "required": false },
+                    "ip": { "type": "string", "required": false },
+                    "prefix": { "type": "integer", "required": false },
+                    "family": { "type": "string", "required": false },
+                    "dhcp_start": { "type": "string", "required": false, "dependencies": ["dhcp_end"] },
+                    "dhcp_end": { "type": "string", "required": false, "dependencies": ["dhcp_start"] },
+                    "bridge": { "type": "string", "required": false },
+                    "domain": { "type": "string", "required": false },
+                    "forward_mode": { "type": "string", "required": false },
+                    "netmask": { "type": "string", "required": false },
+                    "forward_dev": { "type": "string", "required": false },
+                    "dnsmasq_options": { "type": "list", "required": false },
+                    "delete_on_destroy": { "type": "boolean", "required": false },
+                    "dns": {
+		        "type": "dict",
+		       	"required": false,
+			"schema": {
+		            "texts": {
+                                "type": "list",
+                                "required": false,
+                                "schema": {
+                                    "type": "dict",
+                                    "schema": {
+                                        "name": { "type": "string", "required": true },
+                                        "value": { "type": "string", "required": true }
+                                    }
+                                }
+                            },
+			    "forwarders": {
+                                "type": "list",
+                                "required": false,
+                                "schema": {
+                                    "type": "dict",
+                                    "schema": {
+                                        "domain": { "type": "string", "required": false },
+                                        "addr": { "type": "string", "required": false }
+                                    }
+                                }
+                            },
+			    "services": {
+                                "type": "list",
+                                "required": false,
+                                "schema": {
+                                    "type": "dict",
+                                    "schema": {
+                                        "name": { "type": "string", "required": false },
+                                        "protocol": { "type": "string", "required": false },
+                                        "domain": { "type": "string", "required": false },
+                                        "target": { "type": "string", "required": false },
+                                        "port": { "type": "number", "required": false },
+                                        "priority": { "type": "number", "required": false },
+                                        "weight": { "type": "number", "required": false }
+                                    }
+                                }
+                            },
+			    "hosts": {
+                                "type": "list",
+                                "required": false,
+                                "schema": {
+                                    "type": "dict",
+                                    "schema": {
+                                        "ip": { "type": "string", "required": false },
+                                        "hostnames": {
+					    "type": "list",
+					    "required": true
+					}
+                                    }
+                                }
+                            }
+			}
+		    }
+                }
+            },
+            {
+                "type": "dict",
+                "schema": {
+                    "role": {
+                        "type": "string",
+                        "required": true,
+                        "allowed": ["libvirt_storage"] },
+                    "name": { "type": "string", "required": true },
+                    "uri": { "type": "string", "required": false },
+                    "remote_python_interpreter": { "type": "string", "required": false },
+                    "size": { "type": "integer", "required": true },
+                    "path": { "type": "integer", "required": true }
+                }
+            }]
+        }
+    }
+}

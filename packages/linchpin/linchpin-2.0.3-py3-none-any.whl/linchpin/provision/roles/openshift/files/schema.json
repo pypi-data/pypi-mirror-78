@@ -1,0 +1,25 @@
+{
+    "res_defs": {
+        "type": "list",
+        "schema": {
+            "type": "dict",
+            "schema": {
+                "role": {
+                    "type": "string",
+                    "required": true,
+                    "allowed": ["openshift_inline", "openshift_external", "openshift"]
+                },
+                "name": { "type": "string", "required": true },
+                "force": {"type": "boolean", "required": false },
+                "validate": {"type": "boolean", "required": false },
+                "strict": {"type": "boolean", "required": false },
+                "kind": {"type": "string", "required": false },
+                "namespace": {"type": "string", "required": false },
+                "definition": {"type": "dict", "required": false },
+		"src": {"type": "string", "required": false },
+		"timeout": {"type": "integer", "required": false }
+            }
+        }
+    }
+}
+
