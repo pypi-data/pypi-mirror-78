@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: qc-utils
+Version: 20.8.3
+Summary: Tool for representing ENCODE QC metrics
+Home-page: https://github.com/ENCODE-DCC/qc-utils
+Author: Otto Jolanki
+Author-email: ojolanki@stanford.edu
+License: MIT
+Project-URL: Documentation, https://qc-utils.readthedocs.io/en/latest/
+Project-URL: Source Code, https://github.com/ENCODE-DCC/qc-utils
+Project-URL: Issue Tracker, https://github.com/ENCODE-DCC/qc-utils/issues
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.5
+Description-Content-Type: text/x-rst
+Provides-Extra: dev
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-mock ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+Requires-Dist: pytest-mock ; extra == 'tests'
+
+==============================================
+``qc-utils``: Utility for ENCODE pipeline QC
+==============================================
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/ambv/black
+    :alt: Code Style: Black
+
+.. image:: https://img.shields.io/badge/License-MIT-blue.svg
+   :target: https://lbesson.mit-license.org/
+   :alt: License: MIT
+
+.. image:: https://circleci.com/gh/ENCODE-DCC/qc-utils.svg?style=svg
+    :target: https://circleci.com/gh/ENCODE-DCC/qc-utils
+    :alt: CircleCI status
+
+.. short-intro-begin
+
+``qc-utils`` is a python package that provides ``QCMetric`` and ``QCMetricRecord`` classes that can be used for representing ENCODE pipeline quality control metrics.
+
+.. short-intro-end
+
+Installation
+==============
+
+.. code-block:: console
+
+    $ pip install qc-utils
+
+
+Project Information
+====================
+
+``qc-utils`` is released under the `MIT <https://choosealicense.com/licenses/mit/>`_ license, documentation lives in `readthedocs <https://qc-utils.readthedocs.io/en/latest/>`_, code is hosted on `github <https://github.com/ENCODE-DCC/qc-utils>`_ and the releases on `PyPI <https://pypi.org/project/qc-utils/>`_.
+
+
