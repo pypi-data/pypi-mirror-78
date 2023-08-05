@@ -1,0 +1,288 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:monkey="http://namespaces.plone.org/monkey"
+    i18n_domain="collective.conferences">
+    
+    
+    <i18n:registerTranslations directory="locales" />
+
+    <!-- Include configuration for dependencies listed in setup.py -->
+    <includeDependencies package="." />
+    <include package=".browser" />
+    <include file="permissions.zcml" />
+    <include file="upgrades.zcml" />
+    
+    
+    <genericsetup:registerProfile
+        name="default"
+        title="collective.conferences"
+        directory="profiles/default"
+        description="Installs the collective.conferences add-on."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        post_handler=".setuphandlers.post_install"
+        />
+
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="collective.conferences (uninstall)"
+        directory="profiles/uninstall"
+        description="Uninstalls the collective.conferences add-on."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        post_handler=".setuphandlers.uninstall"
+        />
+      
+  
+    <utility
+        factory=".setuphandlers.HiddenProfiles"
+        name="collective.conferences-hiddenprofiles"
+        />
+    
+
+    <!-- -*- extra stuff goes here -*- -->
+    
+    
+    <browser:resourceDirectory
+        name="collective.conferences"
+        directory="resources" />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.conference.IConference"
+        class="collective.conferences.conference.ConferenceView"
+        template="conference_templates/view.pt"
+        permission="zope2.View"
+        />
+
+
+    <browser:page
+        name="view"
+        for="collective.conferences.speakerfolder.ISpeakerfolder"
+        class="collective.conferences.speakerfolder.SpeakerfolderView"
+        template="speakerfolder_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.conferencespeaker.IConferenceSpeaker"
+        class="collective.conferences.conferencespeaker.ConferenceSpeakerView"
+        template="conferencespeaker_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.roomfolder.IRoomfolder"
+        class="collective.conferences.roomfolder.RoomfolderView"
+        template="roomfolder_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.room.IRoom"
+        class="collective.conferences.room.RoomView"
+        template="room_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.track.ITrack"
+        class="collective.conferences.track.TrackView"
+        template="track_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.attendeefolder.IAttendeefolder"
+        class="collective.conferences.attendeefolder.AttendeefolderView"
+        template="attendeefolder_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.attendee.IAttendee"
+        class="collective.conferences.attendee.AttendeeView"
+        template="attendee_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.conferencebreakfolder.IConferencebreakFolder"
+        class="collective.conferences.conferencebreakfolder.ConferencebreakFolderView"
+        template="conferencebreakfolder_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <adapter
+        for="Products.CMFCore.interfaces.IFolderish
+            collective.conferences.interfaces.ICollectiveConferencesLayer
+            plone.dexterity.interfaces.IDexterityFTI"
+        provides="zope.publisher.interfaces.browser.IBrowserPage"
+        factory=".attendee.AttendeeAddView"
+        name="collective.conferences.attendee"
+    />
+
+    <class class=".attendee.AttendeeAddView">
+        <require
+            permission="cmf.AddPortalContent"
+            interface="zope.publisher.interfaces.browser.IBrowserPage"
+        />
+    </class>
+
+
+    <browser:page
+        name="edit"
+        for="collective.conferences.attendee.IAttendee"
+        class="collective.conferences.attendee.AttendeeEditForm"
+        permission="cmf.ModifyPortalContent"
+    />
+
+
+    <browser:page
+        name="view"
+        for="collective.conferences.program.IProgram"
+        class="collective.conferences.program.ProgramView"
+        template="program_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="programfullview"
+        for="collective.conferences.program.IProgram"
+        class="collective.conferences.program.FullprogramView"
+        template="program_templates/programfullview.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.callforpaper.ICallforpaper"
+        class="collective.conferences.callforpaper.CallforpaperView"
+        template="callforpaper_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.conferencebreak.IConferencebreak"
+        class="collective.conferences.conferencebreak.ConferencebreakView"
+        template="conferencebreak_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.workshop.IWorkshop"
+        class="collective.conferences.workshop.WorkshopView"
+        template="workshop_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.talk.ITalk"
+        class="collective.conferences.talk.TalkView"
+        template="talk_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="view"
+        for="collective.conferences.twfolder.ITWFolder"
+        class="collective.conferences.twfolder.TWFolderView"
+        template="twfolder_templates/view.pt"
+        permission="zope2.View"
+        />
+
+    <adapter
+        factory="collective.conferences.talk.ValidateTalkUniqueness"
+    />
+
+    <adapter
+        factory="collective.conferences.workshop.ValidateWorkshopUniqueness"
+    />
+
+    <adapter for="collective.conferences.conferencespeaker.IConferenceSpeaker"
+      factory="collective.conferences.customspeakerurl.CustomSpeakerURL"
+      provides="collective.conferences.customspeakerurl.ICustomSpeakerURL"
+      />
+
+    <adapter name="presenters" factory=".indexers.presenternames" />
+
+    <adapter name="workshopleader" factory=".indexers.workshopleadernames" />
+
+    <adapter name="programtrack" factory=".indexers.conferencebreaktrackname" />
+
+    <adapter name="programtrack" factory=".indexers.workshoptrackname" />
+
+    <adapter name="programtrack" factory=".indexers.talktrackname" />
+
+    <adapter name="programstart" factory=".indexers.programStartIndexer" />
+
+    <adapter name="programend" factory=".indexers.programEndIndexer" />
+
+
+    <subscriber
+        for=".conferencespeaker.IConferenceSpeaker
+               zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".conferencespeaker.notifyUser"
+        />
+
+    <subscriber
+        for="collective.conferences.talk.ITalk
+               zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler="collective.conferences.talk.newtalkadded"
+        />
+
+
+    <subscriber
+        for="collective.conferences.workshop.IWorkshop
+               zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler="collective.conferences.workshop.newworkshopadded"
+        />
+
+    <utility
+        name="BreakLength"
+        component=".vocabularies.BreakLengthVocabularyFactory" />
+
+    <utility
+        name="TalkLength"
+        component=".vocabularies.TalkLengthVocabularyFactory" />
+
+    <utility
+        name="WorkshopLength"
+        component=".vocabularies.WorkshopLengthVocabularyFactory" />
+
+    <utility
+        name="ContentLicense"
+        component=".vocabularies.LicenseVocabularyFactory" />
+
+    <utility
+        name="ConferenceSpeaker"
+        component=".vocabularies.ConferenceSpeakerVocabularyFactory" />
+
+    <utility
+        name="ConferenceRoom"
+        component=".vocabularies.ConferenceRoomVocabularyFactory" />
+
+    <utility
+        name="ConferenceTrack"
+        component=".vocabularies.ConferenceTrackVocabularyFactory" />
+
+    <monkey:patch
+        description="Fix circular reference when field is RelationValue"
+        class="plone.app.content.utils"
+        original="custom_json_handler"
+        replacement=".monkey_patches.conf_utils_custom_json_handler"
+        />
+
+</configure>
