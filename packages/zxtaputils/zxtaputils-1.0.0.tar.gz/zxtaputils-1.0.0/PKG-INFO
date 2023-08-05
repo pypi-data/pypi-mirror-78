@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: zxtaputils
+Version: 1.0.0
+Summary: TAP file related utilities for Sinclair ZX Spectrum
+Home-page: https://github.com/weiju/zxtaputils
+Author: Wei-ju Wu
+Author-email: weiju.wu@gmail.com
+License: UNKNOWN
+Description-Content-Type: text/markdown
+Description: # zxtaputils - Utilities for handling TAP files on the ZX Spectrum (Next)
+        
+        ## Description
+        
+        This is a collection of small utilities to work with
+        TAP files
+        
+        This suite consists of the tools:
+        
+          - bas2tap: turns BASIC code into a TAP file containing tokenized code
+          - tap2bas: view/save BASIC code contained in a TAP file
+          - tapextract: extract and save data from a TAP block
+          - tapify: store any files inside a TAP file as a container
+          - tapinfo: view information about a TAP file
+          - tapsplit: save a TAP file's blocks as individual files
+        
+        
+Keywords: sinclair,zx,spectrum,tap,development
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Education
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
