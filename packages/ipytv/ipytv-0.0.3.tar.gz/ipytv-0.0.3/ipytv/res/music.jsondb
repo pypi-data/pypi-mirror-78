@@ -1,0 +1,161 @@
+{
+    "channels": [
+        {
+            "name": "california music channel",
+            "aliases": [
+                "cmc",
+                "cmc tv",
+                "california music channel tv",
+                "california music channel"
+            ],
+            "streams": [
+                "https://cmctv.ios.internapcdn.net/cmctv_vitalstream_com/live_1/CMC-TV/playlist.m3u8"
+            ],
+            "lang": "en",
+            "logo": "cmc.png",
+            "tags": [
+                "music",
+                "california",
+                "america"
+            ],
+            "region": [
+                "california",
+                "america"
+            ]
+        },
+        {
+            "name": "country music channel",
+            "aliases": [
+                "cmc country",
+                "cmc 92",
+                "country music channel tv",
+                "country music channel"
+            ],
+            "streams": [
+                "https://cmctv.ios.internapcdn.net/cmctv_vitalstream_com/live_1/CMCU-92/playlist.m3u8"
+            ],
+            "lang": "en",
+            "logo": "cmc.png",
+            "tags": [
+                "music",
+                "california",
+                "america"
+            ],
+            "region": [
+                "california",
+                "america"
+            ]
+        },
+        {
+            "name": "colosal tv",
+            "aliases": [
+                "colosal tv"
+            ],
+            "streams": [
+                "http://tv.ticosmedia.com:1935/COLOSAL/COLOSAL/playlist.m3u8"
+            ],
+            "lang": "es",
+            "logo": "colosal-tv.png",
+            "tags": [
+                "music",
+                "costa rica"
+            ],
+            "region": [
+                "costa rica"
+            ]
+        },
+        {
+            "name": "deejay tv",
+            "aliases": [
+                "deejay tv"
+            ],
+            "streams": [
+                "https://deejay_tv-lh.akamaihd.net/i/DeejayTv_1@129866/master.m3u8"
+            ],
+            "lang": "it",
+            "logo": "deejay-tv.png",
+            "tags": [
+                "music",
+                "italy"
+            ],
+            "region": [
+                "italy"
+            ]
+        },
+        {
+            "name": "fm italia tv",
+            "aliases": [
+                "fm italia tv"
+            ],
+            "streams": [
+                "https://stream2.xdevel.com/fmitalia/fmitalia/playlist.m3u8"
+            ],
+            "lang": "it",
+            "logo": "fm-italia-tv.png",
+            "tags": [
+                "music",
+                "italy"
+            ],
+            "region": [
+                "italy"
+            ]
+        },
+        {
+            "name": "sexy kpop tv",
+            "aliases": [
+                "sexy kpop tv"
+            ],
+            "streams": [
+                "https://59f2354c05961.streamlock.net:1443/canaisforadoar/_definst_/canaisforadoar/chunklist.m3u8"
+            ],
+            "lang": "ko",
+            "logo": "sexy-kpop-tv.png",
+            "tags": [
+                "music",
+                "korean"
+            ],
+            "region": [
+                "korean"
+            ]
+        },
+        {
+            "name": "1hd music",
+            "aliases": [
+                "1hd music"
+            ],
+            "streams": [
+                "http://1hdru-hls-otcnet.cdnvideo.ru/onehdmusic/mono.m3u8"
+            ],
+            "lang": "ru",
+            "logo": "1hd.png",
+            "tags": [
+                "music",
+                "russia"
+            ],
+            "region": [
+                "russia"
+            ]
+        },
+        {
+            "name": "nrg-91-tv",
+            "aliases": [
+                "next radio generation",
+                "next radio generation tv",
+                "next radio generation 91",
+                "nrg-91-tv"
+            ],
+            "streams": [
+                "http://tv.nrg91.gr:1935/onweb/live/playlist.m3u8"
+            ],
+            "lang": "ru",
+            "logo": "nrg-91-tv.png",
+            "tags": [
+                "music",
+                "russia"
+            ],
+            "region": [
+                "russia"
+            ]
+        }
+    ]
+}

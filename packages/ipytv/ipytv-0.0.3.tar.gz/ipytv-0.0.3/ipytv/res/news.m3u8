@@ -1,0 +1,29 @@
+#EXTM3U ipytv
+#PLAYLIST: news.jsondb
+#EXTINF:-1 group-title="news" tvg-id="france_24_en" name="france 24 en" aliases="france 24" streams="http://static.france24.com/live/F24_EN_HI_HLS/live_tv.m3u8" lang="en" logo="france24.png" tags="news | english | europe | european union | france" region="europe | european union | france" country="france", france 24 en
+http://static.france24.com/live/F24_EN_HI_HLS/live_tv.m3u8
+#EXTINF:-1 group-title="news" tvg-id="nhk_world_en" name="nhk world en" aliases="nhk world" streams="http://nhkworld.webcdn.stream.ne.jp/www11/nhkworld-tv/global/2003458/live.m3u8" lang="en" logo="nhkw.png" tags="news | english | japan" region="japan" country="japan", nhk world en
+http://nhkworld.webcdn.stream.ne.jp/www11/nhkworld-tv/global/2003458/live.m3u8
+#EXTINF:-1 group-title="news" tvg-id="russia_today_en" name="russia today en" aliases="russia today" streams="http://rt-news.secure.footprint.net/1103.m3u8 | https://rt-news.secure.footprint.net/1103_2500Kb.m3u8" lang="en" logo="rt.png" tags="news | english | russia" region="russia" country="russia", russia today en
+http://rt-news.secure.footprint.net/1103.m3u8
+#EXTINF:-1 group-title="news" tvg-id="deutsche_welle_en" name="deutsche welle en" aliases="deutsche welle | dw | d w | english deutsche welle | english dw | english d w | deutsche welle english | dw english | d w english | deutsche_welle | deutsche welle" streams="http://dwstream4-lh.akamaihd.net/i/dwstream4_live@131329/master.m3u8 | http://dwstream4-lh.akamaihd.net/i/dwstream4_live@131329/index_1_av-b.m3u8" lang="en" logo="dw.png" tags="news | english | europe | european union | germany" region="europe | european union | germany" country="germany", deutsche welle en
+http://dwstream4-lh.akamaihd.net/i/dwstream4_live@131329/master.m3u8
+#EXTINF:-1 group-title="news" tvg-id="sic_noticias_pt-pt" name="sic noticias pt-pt" aliases="sic_noticias | sic noticias" streams="http://live.impresa.pt/live/sicnot/sicnot.m3u8 | https://live.impresa.pt/live/sicnot/sicnot540p.m3u8" lang="pt-pt" logo="sicn.png" tags="news | europe | european union | portugal" region="europe | european union | portugal" country="portugal", sic noticias pt-pt
+http://live.impresa.pt/live/sicnot/sicnot.m3u8
+#EXTINF:-1 group-title="news" tvg-id="cgtn_en" name="cgtn en" aliases="cgtn" streams="https://live.cgtn.com/1000/prog_index.m3u8 | http://news.cgtn.com/resource/live/english/cgtn-news.m3u8" lang="en" logo="cgtn.png" tags="news | english | china" region="china" country="china", cgtn en
+https://live.cgtn.com/1000/prog_index.m3u8
+#EXTINF:-1 group-title="news" tvg-id="al_jazeera_en" name="al jazeera en" aliases="al jazeera" streams="http://live-hls-web-aje.getaj.net/AJE/index.m3u8" lang="en" logo="alza.png" tags="news | english", al jazeera en
+http://live-hls-web-aje.getaj.net/AJE/index.m3u8
+#EXTINF:-1 group-title="news" tvg-id="france_24_fr" name="france 24 fr" aliases="france 24" streams="http://static.france24.com/live/F24_FR_HI_HLS/live_tv.m3u8" lang="fr" logo="fr24f.png" tags="news | french | europe | european union | france" region="europe | european union | france" country="france", france 24 fr
+http://static.france24.com/live/F24_FR_HI_HLS/live_tv.m3u8
+#EXTINF:-1 group-title="news" tvg-id="deutsche_welle_es" name="deutsche welle es" aliases="deutsche welle | dw | d w | deutsche welle es | dw es | d w es | spanish deutsche welle | spanish dw | spanish d w | deutsche welle spanish | dw spanish | d w spanish | deutsche_welle | deutsche welle" streams="http://dwstream3-lh.akamaihd.net/i/dwstream3_live@124409/index_1_av-p.m3u8" lang="es" logo="dw.png" tags="news | spanish | europe | european union | germany" region="europe | european union | germany" country="germany", deutsche welle es
+http://dwstream3-lh.akamaihd.net/i/dwstream3_live@124409/index_1_av-p.m3u8
+#EXTINF:-1 group-title="news" tvg-id="deutsche_welle_de" name="deutsche welle de" aliases="deutsche welle | dw | d w | spanish deutsche welle | german dw | german d w | deutsche welle german | dw german | d w german | deutsche_welle | deutsche welle" streams="http://dwstream6-lh.akamaihd.net/i/dwstream6_live@123962/index_1_av-p.m3u8" lang="de" logo="dw.png" tags="news | german | europe | european union | german | germany" region="europe | european union | german | germany" country="germany", deutsche welle de
+http://dwstream6-lh.akamaihd.net/i/dwstream6_live@123962/index_1_av-p.m3u8
+#EXTINF:-1 group-title="news" tvg-id="rainews_it" name="rainews it" aliases="rainews | rai news" streams="http://rainews1-live.akamaized.net/hls/live/598326/rainews1/rainews1/playlist.m3u8" lang="it" logo="rainews.png" tags="news | italian | europe | european union | italy" region="europe | european union | italy", rainews it
+http://rainews1-live.akamaized.net/hls/live/598326/rainews1/rainews1/playlist.m3u8
+#EXTINF:-1 group-title="news" tvg-id="bloomberg_en" name="bloomberg en" aliases="bloomberg" streams="http://cdn-videos.akamaized.net/btv/desktop/akamai/europe/live/primary.m3u8" lang="en" logo="bloom.png" tags="news | english", bloomberg en
+http://cdn-videos.akamaized.net/btv/desktop/akamai/europe/live/primary.m3u8
+#EXTINF:-1 group-title="news" tvg-id="sky_news_en" name="sky news en" aliases="sky news | skynews | sky_news" streams="http://skynews-go-hls.ak-cdn.skydvn.com/skynews/1404/latest.m3u8" lang="en" logo="skyn.png" tags="news | english", sky news en
+http://skynews-go-hls.ak-cdn.skydvn.com/skynews/1404/latest.m3u8
+#EXT-X-ENDLIST
