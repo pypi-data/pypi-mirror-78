@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "chess-stats"
+version = "0.1.1"
+description = "A simple command-line tool that graphs Chess.com game stats"
+authors = ["julianmclain <julianrmclain@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "^2.24.0"
+click = "^7.1.2"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+flake8 = "^3.8.3"
+flake8-black = "^0.2.0"
+pytest = "^6.0.1"
+requests_mock = "^1.8.0"
+
+[tool.poetry.scripts]
+chess-stats = "chess_stats.console:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
