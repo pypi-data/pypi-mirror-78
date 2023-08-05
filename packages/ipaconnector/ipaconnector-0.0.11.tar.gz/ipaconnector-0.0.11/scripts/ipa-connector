@@ -1,0 +1,43 @@
+#!python
+
+import argparse
+import json
+import logging
+from ipaconnector.connector import IpaConnector
+
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+desc = """
+IPA Connector made for user management. Provide path to JSON file produced by BYTEL.
+"""
+
+FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+logging.basicConfig(format=FORMAT)
+
+parser = argparse.ArgumentParser(description=desc)
+parser.add_argument('host', help="Hostname of IPA Server")
+parser.add_argument('path', help="Path to JSON file provided by Bytel.")
+parser.add_argument('--loglevel', default=2, help="(1-5) where 1 - DEBUG | 5 - NO LOG")
+parser.add_argument('--dry-run', dest='dryrun', help="Don't apply changes, show what script would do", default=False, action='store_true')
+parser.add_argument('--kerberos', '-k', dest='kerberos', help="Authenticate via kerberos. Default: FALSE", default=False, action='store_true')
+parser.add_argument('--user', '-u', dest='user', help="Specify user if different than current", default=None)
+#parser.add_argument('--keytab-host', '-o', dest='kthost', help="Specify where to put keytab files: Default: elara-edgeg-u2-n01", default="elara-edgeg-u2-n01")
+args = parser.parse_args()
+
+ipalog = logging.getLogger('ipa-connector')
+ipalog.setLevel(level=int(args.loglevel)*10)
+ipalog.debug("Args: {}".format(args))
+ipalog.info("Starting IPA Connector")
+
+user = args.user
+password = None
+connector = IpaConnector(args.host)
+
+if not args.kerberos:
+	import getpass
+	user = getpass.getuser()
+	password = getpass.getpass()
+
+connector.connect(user, password, args.kerberos)
+connector.run(args.path)
