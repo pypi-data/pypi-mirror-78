@@ -1,0 +1,65 @@
+[
+    {
+        "model": "coopstarter_data.field",
+        "pk": 1,
+        "fields": {
+            "name": "General"
+        }
+    },
+    {
+        "model": "coopstarter_data.field",
+        "pk": 2,
+        "fields": {
+            "name": "Agriculture"
+        }
+    },
+    {
+        "model": "coopstarter_data.field",
+        "pk": 3,
+        "fields": {
+            "name": "Banking – credit"
+        }
+    },
+    {
+        "model": "coopstarter_data.field",
+        "pk": 4,
+        "fields": {
+            "name": "Pharmacy"
+        }
+    },
+    {
+        "model": "coopstarter_data.field",
+        "pk": 5,
+        "fields": {
+            "name": "Housing"
+        }
+    },
+    {
+        "model": "coopstarter_data.field",
+        "pk": 6,
+        "fields": {
+            "name": "Energy"
+        }
+    },
+    {
+        "model": "coopstarter_data.field",
+        "pk": 7,
+        "fields": {
+            "name": "Information technology (IT)"
+        }
+    },
+    {
+        "model": "coopstarter_data.field",
+        "pk": 8,
+        "fields": {
+            "name": "Retail"
+        }
+    },
+    {
+        "model": "coopstarter_data.field",
+        "pk": 9,
+        "fields": {
+            "name": "Social"
+        }
+    }
+]
