@@ -1,0 +1,11 @@
+{% extends 'cms/pages/_generic_amp.html' %}
+
+{% block extra_head %}
+    {{ block.super }}
+    {% include 'cms/blocks/common/google-analytics.html' %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    {% include 'cms/blocks/common/amp-analytics.html' %}
+{% endblock %}

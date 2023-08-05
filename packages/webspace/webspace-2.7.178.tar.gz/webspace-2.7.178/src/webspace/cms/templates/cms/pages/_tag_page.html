@@ -1,0 +1,31 @@
+{% load wagtailimages_tags wagtailcore_tags %}
+
+<div id="block-tag-index" class="header-padding stream_content theme-bg-space">
+
+    {% include 'cms/blocks/common/bg.html' with theme='space' block_num=1 bg_desktop=page.bg_desktop bg_mobile=page.bg_mobile pos="center" layer=1 rendition_mobile='width-600' rendition_desktop='width-1920' %}
+
+    <div class="container regular theme-space">
+        <div class="stream-content-container center">
+            <div class="align-text-center">
+                {% block first_content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="block-tag-search" class="theme-bg-light">
+    <div class="container content nopadbottom theme-light">
+        <div class="align-text-center">
+            {{ settings.cms.WebspaceSettings.search_text|richtext }}
+            {% include 'cms/blocks/common/tags_blog.html' with root_page=page checked=current_tag tags=tags links=1 %}
+        </div>
+    </div>
+</div>
+
+<div id="block-main-container" class="theme-bg-light">
+    <div class="container regular theme-light">
+        {% block main_container %}
+        {% endblock %}
+    </div>
+</div>

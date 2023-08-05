@@ -1,0 +1,56 @@
+{% load wagtailimages_tags wagtailcore_tags my my_amp %}
+
+{% if request.user_agent.is_pc and bg_desktop %}
+
+    <div class="bg-container theme-{{ theme }} {% if slider %}slider{% endif %}">
+        {% if amp and bg_desktop.0 %}
+            {% include 'cms/blocks/common/bg-slide.html' with media=bg_desktop.0 rendition=rendition_desktop %}
+        {% else %}
+            {% for media in bg_desktop %}
+                {% include 'cms/blocks/common/bg-slide.html' with rendition=rendition_desktop %}
+            {% endfor %}
+            {% if slider %}
+                {% amp_img %}
+                    <img loading="lazy" class="s-icon x2 left"
+                         alt="Left"
+                         data-src="{{ icons.left|ico:page.theme }}"
+                    />
+                {% endamp_img %}
+                {% amp_img %}
+                    <img loading="lazy" class="s-icon x2 right"
+                         alt="Right"
+                         data-src="{{ icons.right|ico:page.theme }}"
+                    />
+                {% endamp_img %}
+            {% endif %}
+        {% endif %}
+        {% if layer %}
+            <div class="bg-container-item-layer"></div>
+        {% endif %}
+    </div>
+
+{% endif %}
+
+{% if not request.user_agent.is_pc and bg_mobile %}
+
+    <div class="bg-container theme-{{ theme }} {% if slider %}slider{% endif %}">
+        {% for media in bg_mobile %}
+            {% include 'cms/blocks/common/bg-slide.html' with rendition=rendition_mobile %}
+        {% endfor %}
+        {% if slider %}
+            {% amp_img %}
+                <img class="s-icon x2 left"
+                     alt="Left"
+                     src="{{ icons.left|ico:page.theme }}"
+                />
+            {% endamp_img %}
+            {% amp_img %}
+                <img class="s-icon x2 right"
+                     alt="Right"
+                     src="{{ icons.right|ico:page.theme }}"
+                />
+            {% endamp_img %}
+        {% endif %}
+    </div>
+
+{% endif %}

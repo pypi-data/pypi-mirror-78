@@ -1,0 +1,17 @@
+{% if amp and not debug %}
+    <amp-analytics type="gtag" data-credentials="include">
+        <script type="application/json">
+        {
+          "vars" : {
+            "gtag_id": "{% if not debug %}{{ settings.cms.WebspaceSettings.ga_code }}{% else %}UA-126298837-2{% endif %}",
+            "config" : {
+              "{% if not debug %}{{ settings.cms.WebspaceSettings.ga_code }}{% else %}UA-126298837-2{% endif %}": {
+                "groups": "default",
+                "site_speed_sample_rate": 100
+                }
+            }
+          }
+        }
+        </script>
+    </amp-analytics>
+{% endif %}

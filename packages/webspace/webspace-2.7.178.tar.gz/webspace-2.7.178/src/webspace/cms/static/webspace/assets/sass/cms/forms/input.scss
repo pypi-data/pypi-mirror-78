@@ -1,0 +1,76 @@
+$input-padding-left: 15px;
+
+input[type='text'], input[type='email'], input[type='number'], input[type='url'] {
+  display: flex;
+  align-items: center;
+  border-radius: $input-border-radius;
+  height: 30px;
+  padding: 7px $input-padding-left;
+  width: calc(100% - #{$input-padding-left * 2});
+
+  @include theme($themes) {
+    background: t('uks');
+  }
+}
+
+textarea {
+  border-radius: 5px;
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Reset */
+
+input[type='text'], input[type='email'], input[type='number'], input[type='url'], textarea {
+  -webkit-appearance: none !important;
+  -moz-appearance: none;
+  border: 0;
+  outline: none;
+
+  @include theme($themes) {
+    color: t('colorP');
+    background: t('uks');
+
+    &.inverse {
+      background: t('kaks');
+    }
+
+    &::-webkit-input-placeholder {
+      color: t('colorPlaceholder');
+    }
+    &:-moz-placeholder {
+      color: t('colorPlaceholder');
+      opacity: 1;
+    }
+    &::-moz-placeholder {
+      color: t('colorPlaceholder');
+      opacity: 1;
+    }
+    &:-ms-input-placeholder {
+      color: t('colorPlaceholder');
+    }
+    &::-ms-input-placeholder {
+      color: t('colorPlaceholder');
+    }
+
+    &::placeholder {
+      color: t('colorPlaceholder');
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff !important;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}

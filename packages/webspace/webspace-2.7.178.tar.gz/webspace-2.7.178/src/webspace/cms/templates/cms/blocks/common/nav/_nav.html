@@ -1,0 +1,22 @@
+{% load static wagtailcore_tags my my_amp %}
+<nav>
+    {% for item in menus %}
+        {% if item.block_type == 'menu' %}
+            {% include 'cms/blocks/common/nav/menu.html' with menu=item %}
+        {% elif item.block_type == 'link' %}
+            <ul>
+                <li class="link">
+                    <div class="s-flex-align">
+                        {% include 'cms/blocks/common/link.html' with value=item.value %}
+                    </div>
+                </li>
+            </ul>
+        {% elif item.block_type == 'stream_card' %}
+            {% include 'cms/blocks/common/cards/stream_card.html' with value=item.value footer=1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% block extra_nav %}
+    {% endblock %}
+
+</nav>

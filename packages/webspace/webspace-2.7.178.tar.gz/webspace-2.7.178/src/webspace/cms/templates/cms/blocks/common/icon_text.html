@@ -1,0 +1,13 @@
+{% load wagtailcore_tags my my_amp %}
+<div class="icon-text s-flex-align {% if not footer %}s-flex-jc{% endif %}">
+    {% if value.icon %}
+        {% amp_img %}
+            <img loading="lazy" class="s-icon x1"
+                 data-src="{{ value.icon|ico_snippet:page.theme }}"
+                 alt="Icon {{ item.value.icon.key }}"/>
+        {% endamp_img %}
+    {% endif %}
+    {% if value.text %}
+        {% include_block value.text %}
+    {% endif %}
+</div>

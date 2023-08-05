@@ -1,0 +1,8 @@
+{% extends 'cms/blocks/_block.html' %}
+
+{% block block_content %}
+    <div class="calendly-inline-widget"
+         data-url="{{ value.link }}"
+         style="min-width:320px;height:750px;overflow-y:unset !important;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+{% endblock %}

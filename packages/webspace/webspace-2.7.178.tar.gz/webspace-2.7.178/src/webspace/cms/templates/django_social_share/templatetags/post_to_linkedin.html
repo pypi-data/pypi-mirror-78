@@ -1,0 +1,8 @@
+{% load my my_amp %}
+
+<a rel="noreferrer" target="_blank" href="{{ linkedin_url }}">
+    {% amp_img %}
+        <img loading="lazy" class="s-icon x2" data-src="{{ icons.linkedin|ico:page.theme }}"
+             alt="Icon Linkedin"/>
+    {% endamp_img %}
+</a>

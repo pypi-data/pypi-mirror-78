@@ -1,0 +1,18 @@
+#block-search {
+  form {
+    display: flex;
+    align-items: center;
+
+    @include xs() {
+      display: block;
+    }
+
+    .input-img {
+      padding: 10px;
+      width: 350px;
+      @include xs() {
+        width: unset;
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{% extends 'cms/blocks/_sizer.html' %}
+{% load wagtailimages_tags %}
+
+{% block sizer_content %}
+    {% include 'cms/blocks/common/picture.html' with img=value.file %}
+{% endblock %}
