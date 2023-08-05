@@ -1,0 +1,32 @@
+{% extends 'webspace/_base.html' %}
+{% load wagtailcore_tags my %}
+
+{% block extra_head %}
+    {% if page.get_breadcrumbs %}
+        {% include 'webspace/cms/blocks/schemas/generated/breadcrumb.html' %}
+    {% endif %}
+    {% include 'webspace/cms/blocks/schemas/generated/blog_web_page.html' %}
+    {% include 'webspace/cms/blocks/schemas/generated/blog_posting.html' %}
+{% endblock %}
+
+{% block content %}
+
+    {% block header %}
+        {% include 'webspace/cms/blocks/common/header.html' %}
+        {% include 'webspace/cms/blocks/common/accordion.html' %}
+    {% endblock %}
+
+    {% block content_body %}
+        {% include 'cms/pages/blog_page_content.html' %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'webspace/cms/blocks/common/footer.html' %}
+    {% endblock %}
+
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    {% include 'webspace/cms/blocks/common/google-analytics.html' %}
+{% endblock %}

@@ -1,0 +1,20 @@
+.numbers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .number {
+    flex-direction: column;
+    width: 200px;
+    margin: 30px 10px;
+    padding: 20px;
+    text-align: center;
+
+    .number-nb {
+      font-size: 3.5em;
+      @include theme($themes) {
+        color: t('colorP');
+      }
+    }
+  }
+}

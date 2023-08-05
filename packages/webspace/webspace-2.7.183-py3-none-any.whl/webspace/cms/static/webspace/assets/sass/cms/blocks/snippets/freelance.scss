@@ -1,0 +1,68 @@
+.freelance {
+
+  .freelance-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .freelance-full-name {
+    margin-left: 15px;
+  }
+
+  .freelance-full-name, .freelance-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+  }
+
+  .freelance-title {
+    text-align: center;
+  }
+
+  .freelance-services {
+    margin-top: 20px;
+  }
+
+  .freelance-status {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+
+    &-item {
+      margin: 0 5px;
+      padding: 10px 5px;
+      border-radius: 10px;
+      width: 50px;
+      height: 40px;
+      text-align: center;
+
+      @include theme($themes) {
+        background: t('kolme');
+      }
+
+      small {
+        width: 100%;
+        display: inline-block;
+      }
+
+      img {
+        display: unset;
+      }
+    }
+  }
+}
+
+.freelance-pic {
+  position: relative;
+  display: inline-block;
+
+  .freelance-available {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

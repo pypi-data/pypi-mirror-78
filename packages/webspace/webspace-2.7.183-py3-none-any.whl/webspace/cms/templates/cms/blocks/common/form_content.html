@@ -1,0 +1,43 @@
+{% load wagtailcore_tags my my_amp %}
+<form method="post" action{% if amp %}-xhr{% endif %}="{% pageurl page %}" class="padding
+    {% if form.inline and not request.user_agent.is_mobile %}inline{% else %}regular {% endif %}
+    {% if form.animation and not amp %} animation fade-up{% endif %}
+    {% if not align %} auto{% endif %}">
+    <div class="rich-text-container align-text-{{ form.text_align }}">
+        {{ form.text|richtext }}
+    </div>
+
+    {% csrf_token %}
+    <input type="hidden" name="form_id" value="{{ form.id }}">
+    <div class="fields">
+        {% for field in form|cached_form:request %}
+            {% with widget_class=field.field.widget|klass %}
+                <div class="form-group {{ widget_class }}">
+                    <div class="form-group-label">
+                        {% with form_icon=icons|ico_get:widget_class|ico:theme %}
+                            {% if form_icon %}
+                                {% amp_img %}
+                                    <img loading="lazy" class="s-icon x1 nopad"
+                                         data-src="{{ form_icon }}"
+                                         alt="Icon {{ widget_class }}"/>
+                                {% endamp_img %}
+                            {% endif %}
+                        {% endwith %}
+                        {{ field.label_tag }}
+                        {% if field.field.widget.attrs.required %}<span class="error">*</span>{% endif %}
+                    </div>
+                    {{ field }}
+                    <div class="management">
+                        {{ field.errors }}
+                        {% if field.help_text %}
+                            <small>{{ field.help_text|safe }}</small>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endwith %}
+        {% endfor %}
+        <div class="form-submit center">
+            <button type="submit" class="btn {{ form.button_theme }}">{{ form.button_text }}</button>
+        </div>
+    </div>
+</form>

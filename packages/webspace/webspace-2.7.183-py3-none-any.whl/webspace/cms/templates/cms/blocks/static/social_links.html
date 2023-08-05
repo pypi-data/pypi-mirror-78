@@ -1,0 +1,11 @@
+{% extends 'cms/blocks/static/_social.html' %}
+
+{% load wagtailcore_tags %}
+
+{% block social_head_text %}
+    {{ settings.cms.WebspaceSettings.social_links_text|richtext }}
+{% endblock %}
+
+{% block social_action %}
+    {% include 'cms/blocks/common/social_links.html' with size=2 %}
+{% endblock %}

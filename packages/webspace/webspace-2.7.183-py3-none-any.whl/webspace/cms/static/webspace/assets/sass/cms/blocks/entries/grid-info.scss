@@ -1,0 +1,60 @@
+.grid-info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .grid-info, .rich-text-container {
+    @include theme($themes) {
+      background: t('kaks');
+    }
+    border-radius: $border-radius-card;
+  }
+
+  .grid-info {
+    width: 250px;
+    height: 250px;
+    margin: 25px;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+
+    .grid-media {
+      width: 50%;
+      margin: 30px auto 5px;
+      height: 100px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .grid-title {
+      text-align: center;
+      margin: 0 25px;
+    }
+
+    &:hover > .rich-text-container {
+      opacity: 1;
+    }
+
+    .rich-text-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      transition-property: opacity;
+      transition-duration: 0.5s;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      padding: 0;
+
+      .rich-text {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 15px;
+      }
+    }
+  }
+}

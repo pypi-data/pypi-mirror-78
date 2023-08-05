@@ -1,0 +1,39 @@
+{% load static wagtailcore_tags wagtailuserbar wagtailimages_tags my_amp %}
+
+<!doctype html>
+<html amp lang="fr">
+<head>
+    <meta charset="utf-8"/>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>{% block page_title %}{{ page.seo_title }}{% endblock %}</title>
+    {% include 'cms/blocks/common/meta.html' %}
+    {% include 'cms/blocks/common/favicon.html' %}
+    <link rel="canonical" href="https://{{ request.get_host }}/{{ request.path|cut:"?build=true"|cut:"/amp/" }}"/>
+    {% block extra_links %}
+    {% endblock %}
+    {% block font %}
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    {% endblock font %}
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    {% block css %}
+        {% amp_styles %}
+            <link href="/static/webspace/dist/css/cmsamp{{ request.version_webspace }}.css" rel="stylesheet" type="text/css"/>
+        {% endamp_styles %}
+    {% endblock %}
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    {% amp_scripts %}
+    {% block js %}{% endblock %}
+    {% block extra_head %}
+    {% endblock %}
+    {% if page.schemas %}
+        {% for schema in page.schemas %}
+            {% include_block schema %}
+        {% endfor %}
+    {% endif %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+{% block content %}{% endblock %}
+
+</body>
+</html>

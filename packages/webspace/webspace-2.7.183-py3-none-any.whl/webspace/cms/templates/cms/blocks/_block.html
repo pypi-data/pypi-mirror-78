@@ -1,0 +1,11 @@
+{% load wagtailimages_tags wagtailcore_tags my %}
+
+<div id="block-{{ block_num }}" class="{% if block_num == 1 %}header-padding {% endif %}{{ block.block_type }} {% block block_theme_bg %}{% if value.theme %}theme-bg-{{ value.theme }}{% endif %}{% endblock block_theme_bg %}"
+>
+    {% include 'cms/blocks/common/bg.html' with bg_desktop=value.bg_desktop bg_mobile=value.bg_mobile theme=value.theme pos=value.svg_bg_position layer=value.bg_layer rendition_mobile='width-600' rendition_desktop='width-1920' %}
+
+    <div class="container {{ value.container }} {% if not value.padding_top %}nopadtop{% endif %} {% if not value.padding_bottom %}nopadbottom{% endif %} {% block theme %}theme-{{ value.theme }}{% endblock %}">
+        {% block block_content %}
+        {% endblock %}
+    </div>
+</div>

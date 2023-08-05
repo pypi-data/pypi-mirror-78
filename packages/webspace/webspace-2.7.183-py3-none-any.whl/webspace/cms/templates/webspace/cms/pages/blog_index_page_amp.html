@@ -1,0 +1,27 @@
+{% extends 'webspace/cms/pages/_generic_amp.html' %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block extra_head %}
+    {% include 'webspace/cms/blocks/common/google-analytics.html' %}
+    {% include 'webspace/cms/blocks/schemas/generated/breadcrumb.html' %}
+    {% include 'webspace/cms/blocks/schemas/generated/blog_index_web_page.html' %}
+    {% include 'webspace/cms/blocks/schemas/generated/blog_index_how_to.html' %}
+{% endblock %}
+
+{% block content %}
+    {% block header %}
+        {% include 'webspace/cms/blocks/common/header.html' %}
+        {% include 'webspace/cms/blocks/common/accordion.html' %}
+    {% endblock %}
+
+    {% block content_body %}
+        {% include 'cms/pages/blog_index_content.html' %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'webspace/cms/blocks/common/footer.html' %}
+    {% endblock %}
+
+    {% include 'webspace/cms/blocks/common/amp-analytics.html' %}
+
+{% endblock %}

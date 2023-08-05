@@ -1,0 +1,111 @@
+{% extends 'cms/blocks/_card.html' %}
+{% load wagtailcore_tags my my_amp %}
+{% load static %}
+
+{% block card_entity %}person{% endblock %}
+
+{% block card_icon %}
+    {% if value.person.icon.file %}
+        <div class="card-icon bg">
+            {% include_block value.icon with block_num=block_num %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block card_content %}
+    <div class="align-text-center">
+
+        {% if value.person.image_presentation %}
+            <div class="person-profil">
+                {% include 'cms/blocks/common/picture.html' with block_num=block_num img=value.person.image_presentation %}
+            </div>
+        {% endif %}
+
+        <h3 class="person-name">{{ value.person.full_name }}</h3>
+        {% if value.person.title %}
+            <p>{{ value.person.title }}</p>
+        {% endif %}
+        <hr/>
+
+        {% if value.person.description %}
+            {% include_block value.person.description %}
+        {% endif %}
+
+        <div class="social-share">
+            <div class="socials">
+                {% if value.person.linkedin %}
+                    <a rel="noreferrer" target="_blank" href="{{ value.person.linkedin }}">
+                        {% amp_img %}
+                            <img class="s-icon x1" src="{{ icons.linkedin|ico:page.theme }}"
+                                 alt="Linkedin"/>
+                        {% endamp_img %}
+                    </a>
+                {% endif %}
+
+                {% if value.person.facebook %}
+                    <a rel="noreferrer" target="_blank" href="{{ value.person.facebook }}">
+                        {% amp_img %}
+                            <img class="s-icon x1" src="{{ icons.facebook|ico:page.theme }}"
+                                 alt="Facebook"/>
+                        {% endamp_img %}
+                    </a>
+                {% endif %}
+
+                {% if value.person.instagram %}
+                    <a rel="noreferrer" target="_blank" href="{{ value.person.instagram }}">
+                        {% amp_img %}
+                            <img class="s-icon x1" src="{{ icons.instagram|ico:page.theme }}"
+                                 alt="Instagram"/>
+                        {% endamp_img %}
+                    </a>
+                {% endif %}
+
+                {% if value.person.twitter %}
+                    <a rel="noreferrer" target="_blank" href="{{ value.person.twitter }}">
+                        {% amp_img %}
+                            <img class="s-icon x1" src="{{ icons.twitter|ico:page.theme }}"
+                                 alt="Twitter"/>
+                        {% endamp_img %}
+                    </a>
+                {% endif %}
+
+                {% if value.person.youtube %}
+                    <a rel="noreferrer" target="_blank" href="{{ value.person.youtube }}">
+                        {% amp_img %}
+                            <img class="s-icon x1" src="{{ icons.youtube|ico:page.theme }}"
+                                 alt="Youtube"/>
+                        {% endamp_img %}
+                    </a>
+                {% endif %}
+
+                {% if value.person.pinterest %}
+                    <a rel="noreferrer" target="_blank" href="{{ value.person.pinterest }}">
+                        {% amp_img %}
+                            <img class="s-icon x1" src="{{ icons.pinterest|ico:page.theme }}"
+                                 alt="Pinterest"/>
+                        {% endamp_img %}
+                    </a>
+                {% endif %}
+
+                {% if value.person.email_contact %}
+                    <a rel="noreferrer nofollow" href="mailto:{{ value.person.email_contact }}">
+                        {% amp_img %}
+                            <img class="s-icon x1" src="{{ icons.email|ico:page.theme }}"
+                                 alt="Icon Email"/>
+                        {% endamp_img %}
+                    </a>
+                {% endif %}
+
+            </div>
+        </div>
+
+        {% if value.person.calendly %}
+            <div class="btn-container">
+                <a class="btn primary-full" rel="noreferrer nofollow" target="_blank"
+                   href="{{ value.person.calendly }}">
+                    Prendre rendez-vous
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
