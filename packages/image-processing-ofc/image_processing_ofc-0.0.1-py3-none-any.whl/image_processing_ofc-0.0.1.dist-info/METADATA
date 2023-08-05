@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: image-processing-ofc
+Version: 0.0.1
+Summary: Test version - Image processing
+Home-page: https://github.com/RenoirSampaio/Pacotes_Processamento_Imagens_Python
+Author: Renoir Sampaio
+Author-email: renoir@alu.ufc.br
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# Image Processing Package
+## Renoir Sampaio
+### Digital Innovation One
+#### CriaÃ§Ã£o de pacotes de processamento de imagens em Python
+##### 28/08/2020
+
+Description. 
+
+The package image_processing_ofc is used to:
+
+- Processing:
+	- Histogram matching;
+	- Structural similarity;
+	- Resize image;
+- Utils:
+	- Read image;
+	- Save image;
+	- Plot image;
+	- Plot result;
+	- Plot histogram;
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install image_processing_ofc
+
+```bash
+pip install image_processing_ofc
+```
+
+## Usage
+
+```python
+from image_processing_ofc.module1_name import file1_name
+file1_name.my_function()
+```
+
+## Author
+Renoir Sampaio
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
