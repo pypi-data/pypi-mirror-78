@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: fakenamegeneratorAPI
+Version: 0.0.6
+Summary: my version of fakenamegenerator API
+Home-page: https://github.com/catarium/fakenamegenerator_API
+Author: Catarium
+License: Apache-2.0 License
+Description: # fakenamegenerator_API
+        My version of fakenamegenerator API
+        
+        #   Usage
+            from  fakenamegeneratorAPI import create_person
+            person = create_person(<gender>, <name_set>, <country>) # returns dataclass
+            print(person)
+            print(person.name)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
