@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: django-stagedoor
+Version: 0.0.3
+Summary: A Django app for passwordless login with SMS and Email
+Home-page: https://github.com/galaxybrainco/django-stagedoor
+Author: Philip James
+Author-email: phildini@phildini.net
+License: Apache License
+Description: # django-stagedoor
+        Simpler auth for Django
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
