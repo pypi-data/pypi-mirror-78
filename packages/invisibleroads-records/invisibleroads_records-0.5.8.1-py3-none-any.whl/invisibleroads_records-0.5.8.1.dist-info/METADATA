@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: invisibleroads-records
+Version: 0.5.8.1
+Summary: Web application database defaults
+Home-page: https://github.com/invisibleroads/invisibleroads-records
+Author: Roy Hyunjin Han
+Author-email: rhh@crosscompute.com
+License: UNKNOWN
+Keywords: web wsgi bfg pylons pyramid invisibleroads
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Pyramid
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+Requires-Dist: invisibleroads (>=0.3.1)
+Requires-Dist: invisibleroads-posts (>=0.7.13)
+Requires-Dist: pyramid
+Requires-Dist: pyramid-retry
+Requires-Dist: pyramid-tm
+Requires-Dist: sqlalchemy
+Requires-Dist: transaction
+Requires-Dist: zope.sqlalchemy
+Requires-Dist: pytest
+Requires-Dist: invisibleroads-macros-configuration (>=1.0.6)
+Requires-Dist: invisibleroads-macros-log (>=1.0.3)
+Requires-Dist: invisibleroads-macros-security (>=1.0.1)
+Provides-Extra: test
+Requires-Dist: pytest-cov ; extra == 'test'
+
+# InvisibleRoads Records
+
+Records add database functionality.
+
+## Use
+
+Install dependencies.
+
+    pip install -U cookiecutter
+
+Initialize project.
+
+    cookiecutter https://github.com/invisibleroads/invisibleroads-cookiecutter
+
+Follow the instructions in the generated README.
+
+## Test
+
+    git clone https://github.com/invisibleroads/invisibleroads-records
+    cd invisibleroads-records
+    pip install -e .[test]
+    pytest --cov=invisibleroads_records --cov-report term-missing tests
+
+# 0.5
+- Remove sqlalchemy cache
+- Support database extensions
+
+# 0.2
+- Use server_cache.sqlalchemy setting prefix
+
+# 0.1
+- Add initialize script
+
