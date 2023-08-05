@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: cloudshell-cli
+Version: 4.0.3
+Summary: QualiSystems CloudShell CLI support package
+Home-page: http://www.qualisystems.com/
+Author: QualiSystems
+Author-email: info@qualisystems.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, !=3.6.*, <4
+Requires-Dist: bcrypt (<3.2,>=3.1.3)
+Requires-Dist: paramiko (<2.7,>=2.6)
+Requires-Dist: scp (<1,>=0.13)
+Requires-Dist: functools32 ; python_version <= "2.7"
+
+UNKNOWN
+
+
