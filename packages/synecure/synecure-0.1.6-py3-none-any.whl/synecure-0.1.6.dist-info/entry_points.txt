@@ -1,0 +1,5 @@
+[console_scripts]
+bsync=synecure.cli:entry_bsync
+sy=synecure.cli:entry_sy
+sy-config=synecure.cli:entry_sy_config
+
