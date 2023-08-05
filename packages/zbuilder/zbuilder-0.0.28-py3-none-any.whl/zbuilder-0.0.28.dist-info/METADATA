@@ -1,0 +1,114 @@
+Metadata-Version: 2.1
+Name: zbuilder
+Version: 0.0.28
+Summary: Create VMs
+Home-page: https://github.com/hasiotis/zbuilder
+Author: Chasiotis Nikos
+Author-email: hasiotis@gmail.com
+License: GPLv3+
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: adal (==1.2.3)
+Requires-Dist: arrow (==0.15.6)
+Requires-Dist: azure-common (==1.1.25)
+Requires-Dist: azure-mgmt-compute (==12.0.0)
+Requires-Dist: azure-mgmt-dns (==3.0.0)
+Requires-Dist: azure-mgmt-network (==10.2.0)
+Requires-Dist: azure-mgmt-resource (==9.0.0)
+Requires-Dist: boto3 (==1.13.19)
+Requires-Dist: botocore (==1.16.19)
+Requires-Dist: cachetools (==4.1.0)
+Requires-Dist: certifi (==2020.4.5.1)
+Requires-Dist: cffi (==1.14.0)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: click (==7.1.2)
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: cryptography (==2.9.2)
+Requires-Dist: delegator.py (==0.1.1)
+Requires-Dist: dnspython (==1.16.0)
+Requires-Dist: docutils (==0.15.2)
+Requires-Dist: dpath (==2.0.1)
+Requires-Dist: google-api-core (==1.17.0)
+Requires-Dist: google-api-python-client (==1.8.4)
+Requires-Dist: google-auth-httplib2 (==0.0.3)
+Requires-Dist: google-auth-oauthlib (==0.4.1)
+Requires-Dist: google-auth (==1.16.0)
+Requires-Dist: google-cloud-core (==1.3.0)
+Requires-Dist: google-cloud-dns (==0.32.0)
+Requires-Dist: googleapis-common-protos (==1.51.0)
+Requires-Dist: haikunator (==2.1.0)
+Requires-Dist: httplib2 (==0.18.1)
+Requires-Dist: idna (==2.9)
+Requires-Dist: importlib-metadata (==1.6.0)
+Requires-Dist: isodate (==0.6.0)
+Requires-Dist: jinja2 (==2.11.2)
+Requires-Dist: jmespath (==0.10.0)
+Requires-Dist: jsonpickle (==1.4.1)
+Requires-Dist: markupsafe (==1.1.1)
+Requires-Dist: massedit (==0.68.6)
+Requires-Dist: msrest (==0.6.14)
+Requires-Dist: msrestazure (==0.6.3)
+Requires-Dist: oauthlib (==3.1.0)
+Requires-Dist: pexpect (==4.8.0)
+Requires-Dist: protobuf (==3.12.2)
+Requires-Dist: proxmoxer (==1.1.0)
+Requires-Dist: ptyprocess (==0.6.0)
+Requires-Dist: pyasn1-modules (==0.2.8)
+Requires-Dist: pyasn1 (==0.4.8)
+Requires-Dist: pycparser (==2.20)
+Requires-Dist: pyjwt (==1.7.1)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: python-digitalocean (==1.15.0)
+Requires-Dist: pytz (==2020.1)
+Requires-Dist: pyvmomi (==7.0)
+Requires-Dist: pyyaml (==5.3.1)
+Requires-Dist: requests-oauthlib (==1.3.0)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: retrying (==1.3.3)
+Requires-Dist: rsa (==4.0)
+Requires-Dist: ruamel.yaml (==0.16.10)
+Requires-Dist: s3transfer (==0.3.3)
+Requires-Dist: six (==1.15.0)
+Requires-Dist: tabulate (==0.8.7)
+Requires-Dist: uritemplate (==3.0.1)
+Requires-Dist: zipp (==3.1.0)
+Requires-Dist: ruamel.yaml.clib (==0.2.0) ; platform_python_implementation == "CPython" and python_version < "3.9"
+Requires-Dist: urllib3 (==1.25.9) ; python_version != "3.4"
+
+# Zbuilder: Building VMs and applying ansible playbooks
+
+[![PyPi version](https://pypip.in/v/zbuilder/badge.png)](https://pypi.org/project/zbuilder/)
+[![PyPi downloads](https://pypip.in/d/zbuilder/badge.png)](https://pypistats.org/packages/zbuilder)
+[![Build status](https://github.com/hasiotis/zbuilder/workflows/Build%20status/badge.svg)](https://github.com/hasiotis/zbuilder/actions?query=workflow%3A%22Build+status%22)
+[![Documentation Status](https://readthedocs.org/projects/zbuilder/badge/?version=stable)](https://zbuilder.readthedocs.io/en/develop/?badge=develop)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/hasiotis/zbuilder/blob/master/LICENSE)
+
+ZBuilder is a tool to help you build VMs ready to be transfered to ansible.
+By using ansible as a library, it has access to all ansible variables. This
+way it achieves high integration with ansible.
+
+## Installation
+
+Install and update using:
+```
+pip3 install --user --upgrade zbuilder
+```
+
+## Links
+
+* [Documentation](https://zbuilder.readthedocs.io/en/stable/?badge=stable)
+* [Releases](https://pypi.org/project/zbuilder/)
+* [Code](https://github.com/hasiotis/zbuilder)
+
+
