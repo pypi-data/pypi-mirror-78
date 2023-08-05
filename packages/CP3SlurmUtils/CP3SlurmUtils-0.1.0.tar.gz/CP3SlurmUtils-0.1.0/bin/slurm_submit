@@ -1,0 +1,176 @@
+#!/usr/bin/env python
+"""
+Copyright (C) 2019  Universite catholique de Louvain, Belgium.
+
+This file is part of CP3SlurmUtils.
+
+CP3SlurmUtils is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+CP3SlurmUtils is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with CP3SlurmUtils.  If not, see <http://www.gnu.org/licenses/>.
+"""
+
+import os
+import shutil
+import signal
+import sys
+
+from optparse import OptionParser
+
+from CP3SlurmUtils import __version__ as version
+from CP3SlurmUtils.Exceptions import CP3SlurmUtilsException
+from CP3SlurmUtils.InteractiveQuestion import interactiveYesNoQuestion
+from CP3SlurmUtils.InteractiveQuestion import questionTimeoutHandler
+from CP3SlurmUtils.InteractiveQuestion import TimeoutException
+from CP3SlurmUtils.SubmitWorker import SubmitWorker
+
+
+#================================================================================
+# Handler for uncaught exceptions (this should go into a base module)
+#================================================================================
+
+import logging
+logging.basicConfig(format="%(message)s")
+
+def handleException(exc_type, exc_value, exc_traceback):
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc_value, exc_traceback)
+        return
+    logging.error("ERROR: Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
+
+sys.excepthook = handleException
+
+#================================================================================
+# Define/read command line options and arguments
+#================================================================================
+
+parser = OptionParser(
+    description="""Script to submit jobs to a SLURM cluster.
+The script generates a self-contained (bash) batch script which can be submitted
+later via the SLURM command 'sbatch' or can be submitted on the go if the option
+--submit (-s) is specified.""",
+    usage="Usage: %prog [options] [args]",
+    version="%prog {}".format(version),
+    add_help_option=True
+)
+
+parser.add_option("-d", "--debug",
+                  action = "store_true",
+                  dest = "debug",
+                  default = False,
+                  help = "print all messages, be verbose")
+
+parser.add_option("-q", "--quiet",
+                  action = "store_true",
+                  dest = "quiet",
+                  default = False,
+                  help = "print only most relevant messages")
+
+parser.add_option("-s", "--submit",
+                  action = "store_true",
+                  dest = "submit",
+                  default = False,
+                  help = "submit the jobs")
+
+parser.add_option("-y", "--yes",
+                  action = "store_true",
+                  dest = "yes",
+                  default = False,
+                  help = "skip all interactive questions positively")
+
+parser.add_option("--get-config-template",
+                  action = "store_true",
+                  dest = "getConfigTemplate",
+                  default = False,
+                  help = "retrieve the template configuration file")
+
+parser.add_option("--get-config-example",
+                  action = "store_true",
+                  dest = "getConfigExample",
+                  default = False,
+                  help = "retrieve the example configuration file")
+
+parser.add_option("--summary-jobs",
+                  type = "string",
+                  dest = "summaryJobs",
+                  default = "",
+                  help = "comma separated list of job numbers to show in the summary")
+
+(opts, args) = parser.parse_args()
+
+if opts.debug and opts.quiet:
+    parser.error("options --debug (-d) and --quiet (-q) are mutually exclusive")
+    sys.exit(1)
+
+if (opts.getConfigTemplate or opts.getConfigExample) and args:
+    if not opts.quiet:
+        print("At least one of the options --get-config-template and/or --get-config-example was specified. Ignoring arguments %s." % (args))
+
+# If specified, retrieve the template and/or the example configuration file(s) and exit.
+for cf in ['template', 'example']:
+    if (cf == 'template' and not opts.getConfigTemplate) or (cf == 'example' and not opts.getConfigExample):
+        continue
+    if not opts.quiet:
+        print("Retrieving %s configuration file into the current directory." % (cf))
+    srcFile = os.path.join(os.path.dirname(__import__('CP3SlurmUtils.ConfigurationUtils').__file__), 'examples', 'config_%s.py' % (cf))
+    dstFile = 'config_%s_v%s.py' % (cf, version.replace('.','_'))
+    dstFile = os.path.abspath(dstFile)
+    if os.path.exists(dstFile):
+        if os.path.isdir(dstFile):
+            print("ERROR: Destination %s already exists and is a directory." % (dstFile))
+            sys.exit(1)
+        if not opts.yes:
+            print("WARNING: File %s already exists." % (dstFile))
+            timeout = 1
+            question = "Do you want to override it ? (you have %d minute to answer)" % (timeout)
+            signal.signal(signal.SIGALRM, questionTimeoutHandler)
+            signal.alarm(timeout*60)
+            try:
+                answer = interactiveYesNoQuestion(question, default='no')
+            except TimeoutException as ex:
+                print(ex)
+                answer = False
+            signal.alarm(0)
+            if not answer:
+                print("Will not retrieve the file.")
+                sys.exit(0)
+    try:
+        shutil.copy(srcFile, dstFile)
+    except IOError as ex:
+        msg = "ERROR: Failed to copy %s configuration file." %(cf)
+        msg += "\nError follows:"
+        msg += "\n%s" % (str(ex))
+        print(msg)
+        sys.exit(1)
+    if not opts.quiet:
+        print("File retrieved successfully.")
+
+if opts.getConfigTemplate or opts.getConfigExample:
+    sys.exit(0)
+
+if len(args) != 1:
+    parser.error("incorrect number of arguments")
+
+cfgFilename = os.path.abspath(args[0])
+
+#================================================================================
+# Use the class that does all the work.
+#================================================================================
+
+rc = 1
+try:
+    submitWorker = SubmitWorker(config=cfgFilename, submit=opts.submit, yes=opts.yes, summaryJobs=opts.summaryJobs, debug=opts.debug, quiet=opts.quiet, calledFromScript=True)
+    submitWorker()
+    rc = 0
+except CP3SlurmUtilsException as ex:
+    print(str(ex))
+
+sys.exit(rc)
