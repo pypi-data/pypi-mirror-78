@@ -1,0 +1,11 @@
+
+[application]
+
+config/name="{{cookiecutter.project_name}}"
+config/description="{{cookiecutter.project_description}}"
+config/version="0.0.0"
+
+[autoload]
+
+Logger="*res://gs_logger/logger.gd"
+ECS="*res://gs_ecs/ecs.gd"

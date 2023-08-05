@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: gspm
+Version: 0.1.17
+Summary: A Command Line Utility to Assist in Managing your GODOT projects.
+Home-page: https://gitlab.com/godot-stuff/gs-project-manager.git
+Author: Paul Hocker
+Author-email: paul@spocker.net
+License: MIT
+Description: A tool to assist you in managing your Godot projects.
+        
+        ## How To Install
+        Please see the [Installation Guide](https://gs-project-manager-docs.readthedocs.io/en/latest/install.html) guide in the [Documentation](https://gs-project-manager-docs.readthedocs.io/en/latest/index.html).
+        
+        ## How To Use
+        There is an example project [here](https://gs-project-manager-docs.readthedocs.io/en/latest/tappy.html) to get you started.
+        
+        Below is an example that will create a new Godot project and show you how to use some basic commands.
+        ```bash
+        # create a new project
+        > gspm new test-project
+        Project test-project has been created
+        
+        # install assets
+        > cd test-project 
+        > gspm install
+        
+        # edit your project
+        > gspm edit 
+        ```
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Utilities
+Classifier: Topic :: Games/Entertainment
+Classifier: Environment :: Console
+Description-Content-Type: text/markdown
