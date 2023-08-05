@@ -1,0 +1,7 @@
+pyxdg
+python-bitcoinlib
+toml
+requests
+
+[:python_version < "3.8"]
+typing-extensions
