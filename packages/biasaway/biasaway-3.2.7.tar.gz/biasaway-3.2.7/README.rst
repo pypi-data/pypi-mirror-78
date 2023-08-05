@@ -1,0 +1,120 @@
+BiasAway
+--------
+
+	a tool to generate composition-matched background sequence sets
+
+.. image:: https://travis-ci.org/asntech/biasaway.svg?branch=master
+    :target: https://travis-ci.org/asntech/biasaway
+
+.. image:: https://img.shields.io/pypi/pyversions/biasaway.svg
+    :target: https://www.python.org
+
+.. image:: https://img.shields.io/pypi/v/biasaway.svg
+    :target: https://pypi.python.org/pypi/biasaway
+
+.. image:: https://anaconda.org/bioconda/biasaway/badges/version.svg
+	:target: https://anaconda.org/bioconda/biasaway
+
+.. image:: https://anaconda.org/bioconda/biasaway/badges/downloads.svg
+    :target: https://bioconda.github.io/recipes/biasaway/README.html
+
+.. image:: https://anaconda.org/bioconda/biasaway/badges/installer/conda.svg
+	:target: https://conda.anaconda.org/bioconda
+
+.. image:: https://img.shields.io/github/issues/asntech/biasaway.svg
+	:target: https://github.com/asntech/biasaway/issues
+
+
+Documentation
+=============
+
+**A detailed documentation is available in different formats:**  `HTML <http://biasaway.readthedocs.org>`_ | `PDF <http://readthedocs.org/projects/biasaway/downloads/pdf/latest/>`_ | `ePUB <http://readthedocs.org/projects/biasaway/downloads/epub/latest/>`_
+
+
+Installation
+============
+
+Quick installation using `conda`
+--------------------------------
+BiasAway is available on `Bioconda <https://anaconda.org/bioconda/biasaway>`_ for installation via ``conda``.
+
+.. code-block:: bash
+
+	conda install -c bioconda biasaway
+
+
+Install using `pip`
+-------------------
+BiasAway is also available on `PyPi <https://pypi.org/project/biasaway/>`_ for installation via ``pip``.
+
+.. code-block:: bash
+
+	pip install biasaway
+	
+
+BiasAway is developed in Python and Python packages ``biopython`` and ``numpy``. Both ``pip`` and ``conda`` will install these dependencies and you are ready to use BiasAway. It is tested with Python versions ``3.4``, ``3.5``, ``3.6``, and ``3.7``.
+
+Install BiasAway from source
+============================
+You can install a development version by using ``git`` from `bitbucket <https://bitbucket.org/CBGR/biasaway/>`_.
+
+
+Install development version from `Bitbucket`
+--------------------------------------------
+
+If you have `git` installed, use this:
+
+.. code-block:: bash
+
+    git clone https://bitbucket.org/CBGR/biasaway.git
+    cd biasaway
+    python setup.py sdist install
+
+How to use BiasAway
+===================
+Once you have installed biasaway, you can type:
+
+.. code-block:: bash
+
+	biasaway --help
+
+This will show the main help, which lists the four subcommands/modules: ``k``, ``w``, ``g``, and ``c``.
+
+.. code-block:: bash
+
+	usage: biasaway <subcommand> [options]
+
+		positional arguments <subcommand>: {k,w,g,c}
+
+		List of subcommands
+		k 	k-mer shuffling generator
+		w 	k-mer shuffling within a sliding window generator
+		g 	%GC distribution-based background chooser
+		c 	GC distribution and %GC composition within a sliding window background chooser
+
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  -v, --version         show program's version number and exit
+
+
+And to view the help for the six subcommands ``k``, ``w``, ``g``, and ``c`` type:
+
+.. code-block:: bash
+	
+	biasaway k --help
+
+	biasaway w --help
+
+	biasaway g --help
+
+	biasaway c --help
+
+
+Interactive web-server
+======================
+BiasAway web-server is freely available at: http://biasaway.uio.no
+
+
+Support
+=======
+If you have questions, or found any bug in the program, please write to us at ``azizk[at]uio.no`` or ``anthony.mathelier[at]ncmm.uio.no``
