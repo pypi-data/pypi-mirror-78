@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: spectralLib
+Version: 0.0.1
+Summary: A python library for analyzing multi and hyper spectral images.
+Home-page: https://gitlab.com/TomAmpiath/spectralLib
+Author: Tom George Ampiath
+Author-email: itomgeorgeampiath@gmail.com
+License: UNKNOWN
+Keywords: spectralUI hyperspectral multispectral PySide2 Qt spectralLib
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Topic :: Scientific/Engineering
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+
+# spectralLib
+
+A python library for analyzing multi and hyper spectral images.
+For GUI tool, go to [spectralUI](https://gitlab.com/TomAmpiath/spectralUI)
+
+## Installation
+```bash
+pip install spectralLib
+```
+
+## Usage
+See [Documentation](https://gitlab.com/TomAmpiath/spectralLib/Doc/documentation.pdf).
+
+## Change Log
+
+**Version :** 0.0.1
+<br>
+**Date :** 31-August-2020
+- Added support for mat files
+- Error handling implemented
+- Can retrieve metadata from input file
+- Display spectral image and spectral signature for input file
+
