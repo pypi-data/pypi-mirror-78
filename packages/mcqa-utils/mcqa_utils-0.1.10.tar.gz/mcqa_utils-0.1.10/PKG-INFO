@@ -1,0 +1,65 @@
+Metadata-Version: 1.2
+Name: mcqa_utils
+Version: 0.1.10
+Summary: Multiple Choice Evaluation utilities
+Home-page: https://github.com/geblanco/mcqa_utils
+Author: Guillermo E. Blanco
+Author-email: geblanco@lsi.uned.es
+License: MIT license
+Description: ==========
+        mcqa_utils
+        ==========
+        
+        
+        .. image:: https://img.shields.io/pypi/v/mcqa_utils.svg
+                :target: https://pypi.python.org/pypi/mcqa_utils
+        
+        .. image:: https://img.shields.io/travis/geblanco/mcqa_utils.svg
+                :target: https://travis-ci.org/geblanco/mcqa_utils
+        
+        .. image:: https://readthedocs.org/projects/mcqa-utils/badge/?version=latest
+                :target: https://mcqa-utils.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        
+        
+        Utilities to handle evaluation of Multiple Choice Question Answering systems and tasks.
+        
+        
+        * Free software: MIT license
+        * Documentation: https://mcqa-utils.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * Evaluate results from RACE-like predictions
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2020-07-23)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: mcqa_utils
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
