@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: tcid50-calculator
+Version: 0.2
+Summary: A quick calculator to calculate TCID50 based on different dilution infected and uninfected counts, provided in a csv (comma delimited) format.
+Home-page: https://github.com/TurboGob/TCID50_Calculator
+Author: Jacob Carpenter
+Author-email: turbogob@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: argparse
+Requires-Dist: csv
+
+# TCID50_Calculator
+
+## Pip Package Reference
+
+https://pypi.org/project/tcid50-calculator/
+
+## What does this calculate?
+
+1. Calculate cumulative infected and uninfected wells adding infected wells totaling everything
+under dilution and uninfected wells totaling everything above dilution.
+
+2. Find PD. PD=(A-50)/(A-B)<br />
+A=% response above 50% closest to 50<br />
+B=% response below 50% closest to 50<br />
+
+3. Find TCID 50<br />
+Log(10) TCID50 = Dilution giving above 50% response minus PD
+
+4. Take reciprocal of TCID50 and multiply by 100 to get TCID50/mL
+
+5. Multiply by 0.69 to get pfu/mL
+
+6. Output all the aforementioned step results per calculation to be executed.
+
+## How to run a new calculation?
+
+### Input
+
+Input should be a **csv** with the following layout (start and end block per calculation in the file if you want one file to calculate multiple results):
+<br /><br />
+START<br />
+Dilution,Infected,Uninfected<br />
+0.00001,8,0<br />
+0.000001,5,3<br />
+0.0000001,1,7<br />
+0.00000001,0,8<br />
+END<br />
+START<br />
+Dilution,Infected,Uninfected<br />
+0.00001,8,0<br />
+0.000001,5,3<br />
+0.0000001,1,7<br />
+0.00000001,0,8<br />
+END<br />
+
+### How to run?
+
+1. Install python 3.x: https://www.python.org/downloads/
+
+2. Install pip: https://pip.pypa.io/en/stable/installing/
+
+3. Install the pip package via command line: pip install tcid50_calculator
+
+4. Execute the module via command line: tcid50_calculator calculate_tcid50 "FULL_PATH_TO_CSV"
+
+<br />Example Command:<br />python ./TCID50_Calculator/application/__main__.py calculate_tcid50 "C:\Users\USER\Desktop\Projects\TCID50_Calculator\test.csv"
+
+### Output
+
+Output will match the same input **csv** in the same directory.<br /><br />
+It will have the same name of the provided csv, with **_result** suffixed.<br /><br />
+The result file will have additional columns for cumulative totals, Percent_Infected, PD, TCID50, TCID50/mL, and pfu/mL.<br /><br />
+START<br />
+Dilution,Infected,Uninfected,Cumulative_Infected,Cumulative_Uninfected,Percent_Infected,BLANK_COLUMN,PD,TCID50,TCID50_per_mL,pfu_per_mL<br />
+0.00001,8,0,14,0,100,,0.29,0.000000512,0.0000000195,0.0000000134<br />
+0.000001,5,3,6,3,66.7<br />
+0.0000001,1,7,1,10,9.1<br />
+0.00000001,0,8,0,18,0<br />
+END<br />
+START<br />
+Dilution,Infected,Uninfected,Cumulative_Infected,Cumulative_Uninfected,Percent_Infected,BLANK_COLUMN,PD,TCID50,TCID50_per_mL,pfu_per_mL<br />
+0.00001,8,0,14,0,100,,0.29,0.000000512,0.0000000195,0.0000000134<br />
+0.000001,5,3,6,3,66.7<br />
+0.0000001,1,7,1,10,9.1<br />
+0.00000001,0,8,0,18,0<br />
+END<br />
+
