@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: hydrosdk
+Version: 2.4.0rc2
+Summary: Hydro-serving SDK
+Home-page: https://hydrosphere.io/
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Requires-Dist: importlib-metadata (~=1.7.0)
+Requires-Dist: hydro-serving-grpc (~=2.2.1)
+Requires-Dist: sseclient-py (~=1.7)
+Requires-Dist: numpy (~=1.18.3)
+Requires-Dist: pyyaml (~=5.3.1)
+Requires-Dist: requests (~=2.23.0)
+Requires-Dist: requests-toolbelt (~=0.9.1)
+
+# Hydrosphere Serving SDK
+
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
+[![PyPI version](https://badge.fury.io/py/hydrosdk.svg)](https://badge.fury.io/py/hydrosdk)
+
+The package contains an implementation of [Hydroserving](https://github.com/Hydrospheredata/hydro-serving) API.
+
+This package's purpose is to provide a simple and convenient way
+of integrating user's workflow scripts with Serving API.
+
+Read the full documentation [here](https://hydrospheredata.github.io/hydro-serving-sdk/).
+
+## Installation
+```
+pip install hydrosdk
+```
+
+## Testing
+Tested on python 3.6, 3.7, 3.8.
+
+1. Install [tox](https://tox.readthedocs.io/en/latest/index.html)
+2. Run `tox`
+
+If there are changes in your environment, e.g. new dependencies, use `tox --recreate`
+
+
