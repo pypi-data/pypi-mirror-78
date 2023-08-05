@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+/build/
+/dist/
+
+# Testing
+/.tox/
+/.coverage
+.pytest_cache/
+
+# Docs
+/docs/_build/
+/docs/scanpydoc.*.rst
+
+# IDEs
+/.idea/
