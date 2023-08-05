@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: nersi
+Version: 0.1.0
+Summary: A package for easily calculating the Network-Extended Residual Supply Index (NERSI), a measure of market concentration and pivotality for nodal electricity networks.
+Author: Luke Marshall
+Author-email: lukasmarshall@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: matplotlib (>=3.3.1,<4.0.0)
+Requires-Dist: networkx (>=2.5,<3.0)
