@@ -1,0 +1,4 @@
+[console_scripts]
+ev3attach = ev3sim.attach:main
+ev3sim = ev3sim.sim:main
+
