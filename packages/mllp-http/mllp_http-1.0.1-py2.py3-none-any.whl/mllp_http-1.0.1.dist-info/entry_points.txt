@@ -1,0 +1,4 @@
+[console_scripts]
+http2mllp = mllp_http.main:http2mllp
+mllp2http = mllp_http.main:mllp2http
+
