@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: sql-to-ibis
+Version: 0.2.0
+Summary: A package for converting sql into ibis expressions
+Home-page: https://github.com/zbrookle/sql_to_ibis
+Maintainer: Zach Brookler
+Maintainer-email: zachb1996@yahoo.com
+License: UNKNOWN
+Download-URL: https://github.com/zbrookle/sql_to_ibis/archive/master.zip
+Project-URL: Source Code, https://github.com/zbrookle/sql_to_ibis
+Project-URL: Documentation, https://github.com/zbrookle/sql_to_ibis
+Project-URL: Bug Tracker, https://github.com/zbrookle/sql_to_ibis/issues
+Description: Coming soon...
+Keywords: pandas,data,dataframe,sql,ibis,database,query,etl
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: Topic :: Database :: Front-Ends
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Typing :: Typed
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
