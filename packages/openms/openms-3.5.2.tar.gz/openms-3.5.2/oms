@@ -1,0 +1,174 @@
+#!/usr/bin/env python3
+
+# ---------------------------------------------------------------------------
+#
+# oms, a tiny manuscript tool based on the OpenManuscript specification 
+#
+# ---------------------------------------------------------------------------
+
+import argparse
+import configparser
+import os
+import json
+import textwrap
+import openms
+
+def edit(args):
+    sdir = "scenes"
+    if args.scene == None:
+        args.scene = openms.core.get_next_scene(sdir)
+        # create a new scene
+        os.system("cp scenes/template.md scenes/{}".format(args.scene))
+    else:
+        args.scene = args.scene + ".md"
+
+    os.system("vi scenes/{}".format(args.scene))
+
+def outline(args):
+    # overwrite, because the default is being used for the docx file
+    openms.core.set("outputfile", "outline.html")
+
+    openms.core.set_settings_from_file(args.settingsfile)
+
+    # override settings from command line, if provided
+    if args.authorfile != None:
+        openms.core.set("authorfile", args.authorfile)
+    if args.columns != None:
+        openms.core.set("columns", args.columns)
+    if args.excludetags != None:
+        openms.core.set("excludetags", args.excludetags)
+    if args.includetags != None:
+        openms.core.set("includetags", args.includetags)
+    if args.manuscriptdir != None:
+        openms.core.set("manuscriptdir", args.manuscriptdir)
+    if args.manuscriptfile != None:
+        openms.core.set("manuscriptfile", args.manuscriptfile)
+    if args.outputfile != None:
+        openms.core.set("outputfile", args.outputfile)
+
+    # check existence of the files we will need
+    if not os.path.isfile(openms.core.get_authorfile()):
+        print("ERROR: cannot open file: " + openms.core.get_authorfile())
+        exit(0)
+
+    if not os.path.isfile( openms.core.get_manuscriptfile() ):
+        print("ERROR: cannot open file: " + openms.core.get_manuscriptfile())
+        exit(0)
+
+    # read
+    openms.core.read_data()
+
+    # write
+    openms.outline.write_outline()
+
+
+# ---------------------------------------------------------------------------
+# set up command line args
+# ---------------------------------------------------------------------------
+desc = """A tool that renders OpenManuscript data in Word (docx) format.
+"""
+
+parser = argparse.ArgumentParser(  
+                    formatter_class=argparse.RawDescriptionHelpFormatter,
+                    description=textwrap.dedent(desc)
+                    )
+
+parser.add_argument( "--authorfile", default=None,
+    help="read author data from this file. Must be located in MANUSCRIPTDIR. Default is [{}]".format(openms.core.settings["authorfile"]))
+parser.add_argument( "--chapter", default=None, 
+    help="the chapter for this operation")
+parser.add_argument( "--chapterdesc", action="store_true", default=None, 
+    help="print a chapter desc, if there is one")
+parser.add_argument( "--chaptersummary", action="store_true", default=None, 
+    help="print a chapter summary, if there is one")
+parser.add_argument( "--excludesections", nargs='+', type=str, default=None,
+    help="add scene sections that are considered 'off'") 
+parser.add_argument( "--includesections", nargs='+', type=str, default=None,
+    help="add scene sections that are considered 'on'") 
+parser.add_argument( "--excludetags", nargs='+', type=str, default=None,
+    help="add chapter tags that are considered 'off'")
+parser.add_argument( "--includetags", nargs='+', type=str, default=None,
+    help="add chapter tags that are considered 'on'")
+parser.add_argument( "--filescenesep", action="store_true", default=None, 
+    help="print file name as scene separator, instead of ###")
+parser.add_argument( "--font", default=None, choices=["Courier", "Times"],
+    help="Use this font for the manuscript")
+parser.add_argument( "--fontsize", default=None, 
+    help="Use this font size for the manuscript")
+parser.add_argument( "--listscenes", action="store_true", default=None, 
+    help="list the scenes and exit")
+parser.add_argument( "--manuscriptdir", default=None, 
+    help="directory that contains the manuscript data")
+parser.add_argument( "--manuscriptfile", default=None, 
+    help="read manuscript definition from this file. Must be located in MANUSCRIPTDIR")
+parser.add_argument( "--manuscripttype", default=None, 
+    help="type of manuscript to create. one of [novel, story]. Default is [{}]".format(openms.core.settings["manuscripttype"]))
+parser.add_argument( "--newmanuscript", default=None,
+    help="create a new manuscript template in this directory")
+parser.add_argument( "--notes", action="store_true", default=None, 
+    help="if there are notes, print them")
+parser.add_argument( "--outputfile", default=None,
+    help="write output to this file")
+parser.add_argument( "--settingsfile", default=None,
+    help="use settings from this file as command line args")
+parser.add_argument( "--specversion", action="store_true", default=None,
+    help="report the version of OpenManuscript specification this tool supports")
+parser.add_argument( "--toc", action="store_true", default=None, 
+    help="include a Table of Contents")
+parser.add_argument( "--types", action="store_true", default=None,
+    help="report the output data types supported")
+parser.add_argument( "--version", action="version", 
+                        version=str(openms.core.get_version()) ) 
+parser.set_defaults(func=openms.default.execute)
+subparsers = parser.add_subparsers(help='sub commands for OpenManuscript data')
+
+# parser for the query subcommand 
+parser_q = subparsers.add_parser('query',   help='query things about a manuscript')
+parser_q.add_argument( "--manuscriptfile", default=None,
+    help="Read manuscript definition from this file.")
+parser_q.add_argument( "--chapters", action="store_true", default=None,
+    help="Print the chapter names in the manuscript file")
+parser_q.add_argument( "--chapter", default=None,
+    help="Chapter name for this operation")
+parser_q.add_argument( "--state", default=None,
+    help="Find the current chapter for this operation, using state")
+parser_q.add_argument( "--tag", default=None,
+    help="Find the current chapter for this operation, using tags")
+parser_q.add_argument( "--scenes", action="store_true", default=None,
+    help="Print the set of scenes in the manuscript file")
+parser_q.set_defaults(func=openms.query.execute)
+
+# parser for the edit subcommand
+parser_e = subparsers.add_parser('edit',    help='edit help (new or existing scenes)')
+parser_e.add_argument("scene", default=None, nargs="?",
+    help="(optional) scene for this operation. If no scene provided, a new one is created")
+parser_e.set_defaults(func=edit)
+
+# parser for the outline subcommand
+parser_o = subparsers.add_parser('outline', help='create outlines for a manuscript')
+parser_o.add_argument( "--authorfile", default=None,
+    help="read author data from this file. Must be located in MANUSCRIPTDIR")
+parser_o.add_argument( "--columns", nargs="+", default=None,
+    help="set which columns of the outline to print when creating outline")
+parser_o.add_argument( "--excludetags", nargs='+', type=str, default=None,
+    help="add chapter tags that are considered 'off'")
+parser_o.add_argument( "--includetags", nargs='+', type=str, default=None,
+    help="add chapter tags that are considered 'on'")
+parser_o.add_argument( "--manuscriptdir", default=None,
+    help="directory that contains the manuscript data")
+parser_o.add_argument( "--manuscriptfile", default=None,
+    help="read manuscript definition from this file. Must be located in MANUSCRIPTDIR")
+parser_o.add_argument( "--outputfile", default=None,
+    help="write output to this file")
+parser_o.add_argument( "--settingsfile", default=None,
+    help="use settings from this file as command line args")
+parser_o.add_argument( "--specversion", action="store_true", default=None,
+    help="report the version of OpenManuscript specification this tool supports")
+parser_o.add_argument( "--version", action="version", version=str(openms.core.get_version()) ) 
+parser_o.set_defaults(func=outline)
+
+args = parser.parse_args()
+args.func(args)
+
+
+
