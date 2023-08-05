@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: bucketeer
+Version: 0.1.5
+Summary: Tool to automatically provide and trackt the lowest used API keys in rotation.
+Home-page: https://github.com/ms7m/bucketeer
+Author: Mustafa Mohamed
+Author-email: git@ms7m.me
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: loguru
+Provides-Extra: redis
+Requires-Dist: redis (==3.5.3) ; extra == 'redis'
+
+UNKNOWN
+
+
