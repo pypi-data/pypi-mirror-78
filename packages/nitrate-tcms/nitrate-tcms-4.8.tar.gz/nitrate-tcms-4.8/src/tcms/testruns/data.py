@@ -1,0 +1,162 @@
+# -*- coding: utf-8 -*-
+
+from collections import namedtuple
+from itertools import groupby
+from operator import itemgetter
+
+from django.conf import settings
+from django.db.models import Count, F
+
+from tcms.testruns.models import TestCaseRun
+from tcms.testruns.models import TestCaseRunStatus
+
+
+TestCaseRunStatusSubtotal = namedtuple('TestCaseRunStatusSubtotal',
+                                       'StatusSubtotal '
+                                       'CaseRunsTotalCount '
+                                       'CompletedPercentage '
+                                       'FailurePercentage')
+
+
+def stats_caseruns_status(run_id, case_run_statuss):
+    """Get statistics based on case runs' status
+
+    @param run_id: id of test run from where to get statistics
+    @type run_id: int
+    @param case_run_statuss: iterable object containing TestCaseRunStatus
+        objects representing PASS, FAIL, WAIVED, etc.
+    @type case_run_statuss: iterable object
+    @return: the statistics including the number of each status mapping,
+        total number of case runs, complete percent, and failure percent.
+    @rtype: namedtuple
+    """
+    rows = TestCaseRun.objects.filter(
+        run=run_id
+    ).values(
+        'case_run_status'
+    ).annotate(status_count=Count('case_run_status'))
+
+    caserun_statuss_subtotal = {
+        status.pk: [0, status] for status in case_run_statuss
+    }
+
+    for row in rows:
+        status_pk = row['case_run_status']
+        caserun_statuss_subtotal[status_pk][0] = row['status_count']
+
+    complete_count = 0
+    failure_count = 0
+    caseruns_total_count = 0
+    status_complete_names = TestCaseRunStatus.complete_status_names
+    status_failure_names = TestCaseRunStatus.failure_status_names
+
+    for status_pk, total_info in caserun_statuss_subtotal.items():
+        status_caseruns_count, caserun_status = total_info
+        status_name = caserun_status.name
+
+        caseruns_total_count += status_caseruns_count
+
+        if status_name in status_complete_names:
+            complete_count += status_caseruns_count
+        if status_name in status_failure_names:
+            failure_count += status_caseruns_count
+
+    # Final calculation
+    complete_percent = .0
+    if caseruns_total_count:
+        complete_percent = complete_count * 100.0 / caseruns_total_count
+    failure_percent = .0
+    if complete_count:
+        failure_percent = failure_count * 100.0 / complete_count
+
+    return TestCaseRunStatusSubtotal(caserun_statuss_subtotal,
+                                     caseruns_total_count,
+                                     complete_percent,
+                                     failure_percent)
+
+
+class TestCaseRunDataMixin:
+    """Data for test case runs"""
+
+    def stats_mode_caseruns(self, case_runs):
+        """Statistics from case runs mode
+
+        @param case_runs: iteratable object to access each case run
+        @type case_runs: iterable, list, tuple
+        @return: mapping between mode and the count. Example return value is
+            { 'manual': I, 'automated': J, 'manual_automated': N }
+        @rtype: dict
+        """
+        manual_count = 0
+        automated_count = 0
+        manual_automated_count = 0
+
+        for case_run in case_runs:
+            is_automated = case_run.case.is_automated
+            if is_automated == 1:
+                automated_count += 1
+            elif is_automated == 0:
+                manual_count += 1
+            else:
+                manual_automated_count += 1
+
+        return {
+            'manual': manual_count,
+            'automated': automated_count,
+            'manual_automated': manual_automated_count,
+        }
+
+    def get_caseruns_comments(self, run_pk):
+        """Get case runs' comments
+
+        :param int run_pk: run's pk whose comments will be retrieved.
+        :return: the mapping between case run id and comments
+        :rtype: dict
+        """
+        qs = TestCaseRun.objects.filter(
+            run=run_pk,
+            comments__site=settings.SITE_ID,
+            comments__is_public=True,
+            comments__is_removed=False,
+        ).annotate(
+            submit_date=F('comments__submit_date'),
+            comment=F('comments__comment'),
+            user_name=F('comments__user_name'),
+        ).values(
+            'case_run_id',
+            'submit_date',
+            'comment',
+            'user_name',
+        ).order_by('pk')
+
+        return {
+            case_run_id: list(comments) for case_run_id, comments in
+            groupby(qs, itemgetter('case_run_id'))
+        }
+
+    def get_summary_stats(self, case_runs):
+        """Get summary statistics from case runs
+
+        Statistics targets:
+        - the number of pending test case runs, whose status is IDLE
+        - the number of completed test case runs, whose status are PASSED,
+          ERROR, FAILED, WAIVED
+
+        @param case_runs: iterable object containing case runs
+        @type case_runs: iterable
+        @return: a mapping between statistics target and its value
+        @rtype: dict
+        """
+        idle_count = 0
+        complete_count = 0
+        complete_status_names = TestCaseRunStatus.complete_status_names
+        idle_status_names = TestCaseRunStatus.idle_status_names
+
+        for case_run in case_runs:
+            status_name = case_run.case_run_status.name
+            if status_name in idle_status_names:
+                idle_count += 1
+            elif status_name in complete_status_names:
+                complete_count += 1
+
+        return {'idle': idle_count, 'complete': complete_count}
