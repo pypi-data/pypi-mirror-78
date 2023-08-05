@@ -1,0 +1,16 @@
+[
+    {
+        "model": "coopstarter_data.type",
+        "pk": 1,
+        "fields": {
+            "name": "Starting up a cooperative"
+        }
+    },
+    {
+        "model": "coopstarter_data.type",
+        "pk": 2,
+        "fields": {
+            "name": "Learning about cooperatives"
+        }
+    }
+]

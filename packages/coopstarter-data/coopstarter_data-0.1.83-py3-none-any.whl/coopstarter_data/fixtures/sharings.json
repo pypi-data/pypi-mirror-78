@@ -1,0 +1,26 @@
+[
+    {
+        "model": "coopstarter_data.sharingcriteria",
+        "pk": 1,
+        "fields": {
+            "value": "private",
+            "name": "Private"
+        }
+    },
+    {
+        "model": "coopstarter_data.sharingcriteria",
+        "pk": 2,
+        "fields": {
+            "value": "organisation",
+            "name": "Organisation"
+        }
+    },
+    {
+        "model": "coopstarter_data.sharingcriteria",
+        "pk": 3,
+        "fields": {
+            "value": "public",
+            "name": "Public"
+        }
+    }
+]

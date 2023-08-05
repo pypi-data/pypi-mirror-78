@@ -1,0 +1,50 @@
+[
+    {
+        "model": "coopstarter_data.step",
+        "pk": 1,
+        "fields": {
+            "name": "Identifying needs",
+            "order": 1
+        }
+    },
+    {
+        "model": "coopstarter_data.step",
+        "pk": 2,
+        "fields": {
+            "name": "Motivating and including members",
+            "order": 2
+        }
+    },
+    {
+        "model": "coopstarter_data.step",
+        "pk": 3,
+        "fields": {
+            "name": "Generating business ideas",
+            "order": 3
+        }
+    },
+    {
+        "model": "coopstarter_data.step",
+        "pk": 4,
+        "fields": {
+            "name": "Planning the business",
+            "order": 4
+        }
+    },
+    {
+        "model": "coopstarter_data.step",
+        "pk": 5,
+        "fields": {
+            "name": "Contact a business support structure",
+            "order": 5
+        }
+    },
+    {
+        "model": "coopstarter_data.step",
+        "pk": 6,
+        "fields": {
+            "name": "Setting up the structure",
+            "order": 6
+        }
+    }
+]
