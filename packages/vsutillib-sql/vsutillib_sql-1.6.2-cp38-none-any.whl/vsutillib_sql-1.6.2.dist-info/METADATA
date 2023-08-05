@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: vsutillib-sql
+Version: 1.6.2
+Summary: vsutillib.sql sub package part of vsutillib
+Home-page: https://pypi.org/project/vsutillib-sql/
+Author: Efrain Vergara
+Author-email: akai10tsuki@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.8.1, <3.9
+Requires-Dist: PySide2 (>=5.14)
+Requires-Dist: vsutillib-macos (>=1.6.0)
+
+vsutillib.sql sub package part of vsutillib
+
+
