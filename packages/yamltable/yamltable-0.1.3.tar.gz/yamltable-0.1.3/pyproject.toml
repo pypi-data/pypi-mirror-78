@@ -1,0 +1,66 @@
+[build-system]
+build-backend = "poetry.masonry.api"
+requires = ["poetry>=1.0"]
+
+[tool.black]
+line-length = 80
+
+[tool.coverage.report]
+exclude_lines = [
+    "if sys.version_info.*",
+    "pragma: no cover",
+    "raise NotImplementedError",
+]
+fail_under = 100
+show_missing = true
+
+[tool.coverage.run]
+branch = true
+command_line = "-m pytest"
+omit = []
+source = ["yamltable"]
+
+[tool.poetry]
+authors = ["Macklan Weinstein <wolfgangwazzlestrauss@gmail.com>"]
+description = "Command line utility for list organized YAML files."
+homepage = "https://github.com/wolfgangwazzlestrauss/yamltable"
+keywords = ["yaml"]
+license = "MIT"
+name = "yamltable"
+readme = "README.md"
+version = "0.1.3"
+
+[tool.poetry.dependencies]
+jsonschema = "^3.2.0"
+pyrsistent = "^0.14.11"
+python = "^3.6.1"
+pyyaml = "^5.2"
+typer = "^0.2.1"
+
+[tool.poetry.dev-dependencies]
+bandit = "^1.6.2"
+black = "^19.10b0"
+coverage = { version = "^5.2.1", extras = ["toml"] }
+flake8 = "^3.7.9"
+flake8-bugbear = "^20.1.4"
+flake8-docstrings = "^1.5.0"
+flake8-import-order = "^0.18.1"
+mccabe = "^0.6.1"
+mkdocs = "^1.1"
+mkdocs-material = "^5.5.3"
+mkdocs-minify-plugin = "^0.3.0"
+mkdocstrings = "^0.12.2"
+mypy = "^0.761"
+pre-commit = "^1.21.0"
+py-spy = "^0.3.3"
+pymdown-extensions = "^7.1"
+pytest = "^5.2"
+pytest-benchmark = "^3.2.3"
+pytest-cov = "^2.10.0"
+pytest-mock = "^2.0.0"
+toml = "^0.10.0"
+tox = "^3.18.1"
+typer-cli = "^0.0.9"
+
+[tool.poetry.scripts]
+yamltable = "yamltable.__main__:app"
