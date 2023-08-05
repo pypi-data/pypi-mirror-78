@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: podcust
+Version: 0.0.7
+Summary: Python utility to handle podman containers within Fedora.
+Home-page: https://github.com/Iolaum/podcust
+Author: Nikolaos Perrakis
+Author-email: nikperrakis@gmail.com
+License: GNU General Public License v3
+Keywords: podcust
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Requires-Dist: Click (>=7.0)
+Provides-Extra: dev
+Requires-Dist: pip (>=20.2) ; extra == 'dev'
+Requires-Dist: bump2version (>=1.0) ; extra == 'dev'
+Requires-Dist: wheel (>=0.35.1) ; extra == 'dev'
+Requires-Dist: Sphinx (>=3.2.1) ; extra == 'dev'
+Requires-Dist: twine (>=3.2.0) ; extra == 'dev'
+Requires-Dist: check-manifest ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-runner ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: tox ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: yamllint ; extra == 'dev'
+
+================
+Podman Custodian
+================
+
+
+.. image:: https://img.shields.io/pypi/v/podcust.svg
+        :target: https://pypi.python.org/pypi/podcust
+
+.. image:: https://img.shields.io/travis/Iolaum/podcust.svg
+        :target: https://travis-ci.com/Iolaum/podcust
+
+.. image:: https://readthedocs.org/projects/podcust/badge/?version=latest
+        :target: https://podcust.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+.. image:: https://pyup.io/repos/github/Iolaum/podcust/shield.svg
+     :target: https://pyup.io/repos/github/Iolaum/podcust/
+     :alt: Updates
+
+
+
+Python utility to handle podman containers within Fedora.
+
+
+* Free software: GNU General Public License v3
+* Documentation: https://podcust.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.0.7 (2020-08-30)
+------------------
+
+CI, job stages and deploy stage.
+
+0.0.6 (2020-08-30)
+------------------
+
+Polishing code quality support tools.
+
+0.0.5 (2020-08-28)
+------------------
+
+First release on PyPI.
+
+
