@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: minique
+Version: 0.2.0
+Summary: Minimal Redis job runner
+Home-page: https://github.com/valohai/minique
+Author: Valohai
+Author-email: hait@valohai.com
+Maintainer: Aarni Koskela
+Maintainer-email: akx@iki.fi
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: redis (>=2.10.0)
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: pydocstyle ; extra == 'dev'
+Requires-Dist: pytest (>=4.3.0) ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+
+UNKNOWN
+
+
