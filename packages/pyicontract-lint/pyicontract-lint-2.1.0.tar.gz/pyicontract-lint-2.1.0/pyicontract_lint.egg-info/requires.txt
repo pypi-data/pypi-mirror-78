@@ -1,0 +1,10 @@
+icontract<3,>=2.0.0
+astroid<3,>=2.4.2
+
+[dev]
+mypy==0.782
+pylint==2.6.0
+yapf==0.20.2
+tox>=3.0.0
+pydocstyle<3,>=2.1.1
+coverage<5,>=4.5.1
