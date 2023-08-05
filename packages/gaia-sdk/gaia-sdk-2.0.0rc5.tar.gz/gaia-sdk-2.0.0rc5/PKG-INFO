@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: gaia-sdk
+Version: 2.0.0rc5
+Summary: Python SDK for the GAIA ecosystem.
+Author: Leftshift One
+Author-email: contact@leftshift.one
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: Rx (>=3.1.0,<4.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
