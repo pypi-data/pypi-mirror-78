@@ -1,0 +1,33 @@
+scikit-learn>=0.16.1
+theano
+wbia-utool
+wbia-vtool
+
+[:python_version < "3"]
+requests>=0.8.2
+
+[all]
+setuptools>=42
+wbia-utool
+wheel
+scikit-learn>=0.16.1
+theano
+wbia-utool
+wbia-vtool
+
+[all:python_version < "3"]
+requests>=0.8.2
+
+[build]
+setuptools>=42
+wbia-utool
+wheel
+
+[runtime]
+scikit-learn>=0.16.1
+theano
+wbia-utool
+wbia-vtool
+
+[runtime:python_version < "3"]
+requests>=0.8.2
