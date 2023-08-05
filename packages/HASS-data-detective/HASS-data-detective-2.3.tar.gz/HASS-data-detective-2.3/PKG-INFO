@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: HASS-data-detective
+Version: 2.3
+Summary: Tools for studying Home Assistant data.
+Home-page: https://github.com/robmarkcole/HASS-data-detective
+Author: Robin Cole
+Author-email: robmarkcole@gmail.com
+License: MIT
+Description: Home Assistant is an open-source home automation platform running on Python 3. This package provides a set of convenience functions and classes to analyse the data in your Home Assistant database. 
+Keywords: home,automation
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
