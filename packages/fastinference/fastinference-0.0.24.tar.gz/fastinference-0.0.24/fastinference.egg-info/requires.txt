@@ -1,0 +1,17 @@
+fastai>=2.0.0
+
+[all]
+fastai
+onnxruntime-gpu
+plotly
+plotnine
+
+[interp]
+plotly
+plotnine
+
+[onnx-cpu]
+onnxruntime-cpu
+
+[onnx-gpu]
+onnxruntime-gpu
