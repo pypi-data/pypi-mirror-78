@@ -1,0 +1,5 @@
+graft src/cioc4d/res
+include src/cioc4d/Conductor.pyp
+global-exclude __pycache__
+global-exclude *.py[co]
+ 
