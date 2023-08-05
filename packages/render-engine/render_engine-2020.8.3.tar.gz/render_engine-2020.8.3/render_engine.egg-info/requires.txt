@@ -1,0 +1,16 @@
+pendulum
+pygments
+markdown2
+progress
+jinja2
+more-itertools
+click
+python-slugify
+
+[dev]
+check-manifest
+
+[test]
+pytest
+pytest-cov
+black
