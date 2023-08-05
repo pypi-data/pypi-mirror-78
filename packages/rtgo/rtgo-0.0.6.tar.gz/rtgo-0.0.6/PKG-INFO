@@ -1,0 +1,142 @@
+Metadata-Version: 2.1
+Name: rtgo
+Version: 0.0.6
+Summary: Quick and simple multithreading
+Home-page: https://github.com/Thomas-Rowlands/multithread
+Author: Thomas Rowlands, Emma Croot
+Author-email: thomas.s.rowlands@gmail.com, ec339@le.ac.uk
+License: LICENCE.txt
+Description: # Ready Thready Go
+        Ready Thready Go (rtgo) is a Python module for easily running Python functions utilising multi-threading.
+        
+        ## Installation
+        Ready Thready Go is available through PyPI as rtgo. It can be installed via pip:
+        ```bash
+        pip install rtgo
+        ```
+        ### Requirements
+        No additional packages are required to run Ready Thready Go.
+        
+        Python 3.6 or higher is recommended.
+        
+        ## Usage
+        To use Ready Thready Go, the module ReadyThready should first be imported from the rtgo package.
+        
+        The ReadyThready function 'go' is used to run a function with multiple different input arguments over multiple threads. 
+        
+        ReadyThready.go takes the arguments:
+        
+        * `func`, the name of the function to be run
+        * `args`, a list of arguments to be passed to the function, including a list of multiple different arguments
+        * `arg_data_index`, the position of the list of multiple arguments within the args list
+        * `n_threads`, the number of threads to be used 
+        
+        It may be helpful to think of ReadyThready.go as an alternative to using a for loop to pass arguments from a list to a 
+        function: instead of 
+        ```python
+        def my_function(number):
+            new_number = (number * 3) - 1 
+            return new_number
+        
+        my_list = [1,2,3,4,5]
+        
+        for x in my_list:
+            my_function(x)
+        ```
+        It is possible to supply the list and the function to ReadyThready.go and have it run in parallel over a specified 
+        number of threads:
+        
+        ```python
+        from rtgo import ReadyThready
+        def my_function(number):
+            new_number = (number * 3) - 1 
+            return new_number
+        
+        my_list = [1,2,3,4,5]
+        
+        ReadyThready.go(func=my_function, args=[my_list], arg_data_index = 0, n_threads = 4)
+        ```
+        ### Examples 
+        #### Divide data and process a function on multiple threads
+        ```python
+        from rtgo import ReadyThready
+        
+        # initialise variables
+        my_input_list = [1,2,3,4,5,6,7,8]
+        example_string = "example:"
+        
+        # define a function to be run over multiple threads
+        def my_example_func(number, phrase):
+            if number < 5:
+                print(f"{phrase} {number} is less than 5")
+        
+        # run the function over 4 threads
+        ReadyThready.go(func=my_example_func, args=[my_input_list, example_string], arg_data_index=0, n_threads=4)
+        ```
+        #### Execute multiple functions concurrently
+        ```python
+        from rtgo import ReadyThready
+        import requests
+        
+        # Retrieve Human Phenotype Ontology data
+        def get_hpo_data():
+            my_hpo_data = requests.get("http://hpo.jax.org/api/hpo/term/HP%3A0001166/genes")
+            my_hpo_data = my_lengthy_processing(my_hpo_data)
+            return my_hpo_data
+        
+        # Retrieve Medical Subject Headings data
+        def get_mesh_data():
+            my_mesh_data = requests.get("https://id.nlm.nih.gov/mesh/lookup/term?label=obesity&match=contains&limit=10")
+            my_mesh_data = my_lenghty_processing(my_mesh_data)
+            return my_mesh_data
+           
+        # run each function on a separate thread
+        ontology_data = ReadyThready.go_cluster([get_hpo_data, get_mesh_Data])
+        ```
+        
+        #### Using your project's logger
+        ```python
+        from rtgo import ReadyThready
+        import logging 
+        
+        # create a logger for your project 
+        my_project_logger = logging.getLogger('example')
+        my_project_logger.setLevel(logging.INFO)
+        my_project_logger.addHandler(logging.StreamHandler())
+        
+        # initialise variables
+        my_input_list = [1,2,3,4,5,6,7,8]
+        example_string = "example:"
+        
+        # a simple function
+        def my_example_func(number, phrase):
+            if number < 5:
+                print(f"{phrase} {number} is less than 5")
+        
+        # set ReadyThready to use your project logger
+        ReadyThready.set_logger(my_project_logger)
+        
+        # run the function over 8 threads
+        ReadyThready.go(func=my_example_func, args=[my_input_list, example_string], arg_data_index=0, n_threads=8)
+        ```
+        ## Authors
+        Thomas Rowlands, Emma Croot
+        
+        ## Licence
+        GNU (see LICENCE.txt)
+        
+        ## Change log
+        ###version 0.0.5:
+        
+        First stable version
+        
+        ###version 0.0.6:
+        Improved error handling and logging
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
