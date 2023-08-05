@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: tigergraphcli
+Version: 0.0.2.1
+Summary: CLI for TigerGraph
+Home-page: https://github.com/frankfka/TigerGraphCLI
+License: MIT
+Keywords: TigerGraph,CLI,pyTigerGraph,Graph Database
+Author: Frank Jia
+Author-email: jiafrank98@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pyTigerGraph (>=0.0.7,<0.0.8)
+Requires-Dist: typer (>=0.3.1,<0.4.0)
+Project-URL: Documentation, https://github.com/frankfka/TigerGraphCLI
+Description-Content-Type: text/markdown
+
+# TigerGraphCLI (tgcli)
+
+![PyPI Version Badge](https://img.shields.io/pypi/v/tigergraphcli)
+![Python Versions Badge](https://img.shields.io/pypi/pyversions/tigergraphcli)
+
+TigerGraphCLI is a command-line utility for interacting with [TigerGraph](https://www.tigergraph.com/) servers. It's
+built on top of [pyTigerGraph](https://github.com/pyTigerGraph/pyTigerGraph).
+
+This project is still under active development. If you find a bug or have a feature request, feel free to create a Github issue.
+
+## Installation
+
+Tgcli is released on [PyPI](https://pypi.org/project/tigergraphcli/). Tgcli works best with Python 3.7+, but should work with any Python3 distribution. Installation is simple:
+`pip3 install tigergraphcli`.
+
+Verify your installation by running `tgcli version`
+
+Once installed, get started by creating a configuration, which holds all the config and credentials needed to
+connect to a TigerGraph server. You can do this by running `tgcli config add`. This will guide you through creating
+a tgcli configuration.
+
+## Usage
+
+There are 5 main operations that tgcli supports:
+
+1. `tgcli config`: Manages TigerGraph server configurations. Configurations are stored in a folder named `.tgcli`
+under the home directory (ex. `~/.tgcli`)
+2. `tgcli gsql`: Runs a GSQL command against a TigerGraph server
+3. `tgcli load`: Loads vertices/edges to a TigerGraph server
+4. `tgcli get`: Retrieves data from a TigerGraph server
+5. `tgcli delete`: Delete data from a TigerGraph server.
+
+See [usage](https://github.com/frankfka/TigerGraphCLI/blob/master/docs/USAGE.md) for detailed documentation.
