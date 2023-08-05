@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: finlab-crypto
+Version: 0.0.8.dev1
+Summary: A backtesting framework for crytpo currency
+Home-page: UNKNOWN
+Author: FinLab
+Author-email: finlabstaff@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Requires-Dist: python-binance (==0.7.5)
+Requires-Dist: numba (==0.49.0)
+Requires-Dist: bitmex (==0.2.2)
+Requires-Dist: pyecharts (==1.7.1)
+Requires-Dist: vectorbt (==0.12)
+Requires-Dist: statsmodels (==0.10.2)
+Requires-Dist: tqdm (>=4.41.1)
+Requires-Dist: seaborn (==0.10.1)
+
+# A backtesting framework for crytpo currency
+
+## Todo
+* remove vectorbt heatmap dependencies
+* improve optimization plots
+* add portfolio backtest
+* set default fees and slippage
+
+## Updates
+Version 0.0.8.dev1
+* fix transaction duplicate bug
+
+Version 0.0.7.dev1
+* fix bugs of zero transaction
+
+Version 0.0.6.dev1
+* fix latest signal
+* rename strategy.recent_signal
+* restructure rebalance function in online.py
+
+Version 0.0.5.dev1
+* add init module
+* add colab setup function
+* set vectorbt default
+* fix crawler duplicated index
+
+Version 0.0.4.dev1
+* add seaborn to dependencies
+* remove talib-binary from dependencies
+* fix padding style
+
+Version 0.0.3.dev1
+* remove logs when calculating portfolio
+* add render html to show final portfolio changes
+* add button in html to place real trade with google cloud function
+
+Version 0.0.2.dev1
+* skip heatmap if it is broken
+* add portfolio strategies
+* add talib dependency
+
+
