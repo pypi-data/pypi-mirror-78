@@ -1,0 +1,305 @@
+CHANGES
+=======
+
+v0.7.4
+------
+
+* Moved the state save to within context enter
+* Removes the dependency of fixed order of nn.Module.parameters()
+* Tests for requires\_grad
+* Relax ignite dependancy requirement a bit
+* Add README for pytest install in venv under running tests
+* Upgrade from deprecated CallableEvents
+* Fix decorators
+* Check that grad is bool
+* Context and decorator for module\_train and requires\_grad
+* Allow parameters in module compose
+* Requires grad context manager
+
+v0.7.3
+------
+
+* Fix github CI libGL error
+* Fix load model checkpoint
+* Upgrade to pytorch-ignite 0.4.1
+* Fix logic mistake
+* No exponential format for 0s
+* Dynamic float format for metrics logging
+* Module train context manager
+* Rename module device
+* Upgrade to pytorch-datastream 0.3.0
+* Refactor metrics in template
+* Add splits directory to git to fix template test
+* Update to new structure in template
+* Template improvement
+* Log examples
+* Modify template prediction class
+* Release predictions in template
+* Collate and preprocess in model. Prediction output from model
+* Create evaluator
+* Add test to ModuleCompose and make work with non-tensor input
+* Wrong sign on ModelScore function
+* Augmentation in template. Example class in template
+* Class names for realism in template
+* Move out metrics
+* Add ReproducibleBatchSampler temp fix
+* Modify ModelCheckpoint handler usage
+* Evaluate operation in template
+* Give version to test\_template script
+* Use test\_template.sh in github actions. Refactor share code between train and search
+* Dataset saved to folder in template prepare. Add search learning rate operation in template
+* Move out training setup
+* More realistic dataset with images in folder
+* Remove unneeded model-name from template
+* Seed workers correctly in template
+* Test template script. Early stopping in template
+* Update template and try to test with template in CI
+* Fix flake8 check
+* Environment using virtualenv instead
+* Use pytorch-datastream instead. Remove unused functions
+
+v0.7.2
+------
+
+* Remove todo comment on incorrect sampler length
+* Detach checks instanceof rather than type
+* Add soft binary cross entropy
+* Fix bug in train\_test\_split
+* State dict for datastream to save weights
+* Handle type of weight better
+* Refactor to weight for single examples and added MultiSampler
+* Fix ZipSampler
+* Update weights working and simple tests passing
+* Mixup/mixmatch working
+* Old tests working
+* Separate into MergeSampler
+* Simplify merge samplers
+* Decorator for updating cpu clone of model
+* Move tensors in output to cpu and detach
+* Worker init function for setting seeds correctly
+* Rename datastream combine to zip
+* Remove duplicate parse of args in template
+* Let method subset take pd.Series
+* Add datastream combine method
+* Add dataset combine method
+* git ignore .pyc files
+* Cleanup unused
+
+v0.7.1
+------
+
+* Allow template to be used in current directory
+* Change length definition of merged datastreams
+* Add cookiecutter readme
+* add setup\_project module
+* Update readme with temporary template usage
+* Multiple fixes of template/example
+* Add prepare operation
+* Mnist template and example
+
+v0.7.0
+------
+
+* Fix sampler repeating batches if epoch longer than dataset
+* Update api to train and progress keys
+* Update recipes
+* Define metrics in progress bar better
+* Expose set\_learning\_rate function
+
+v0.6.2
+------
+
+* Make cyclical triangular
+
+v0.6.1
+------
+
+* Special subset if source is dataframe
+* Set learning rate helper
+* Change to decorator and add tests
+* Make default seed None
+* Add temporary numpy seed to init
+* Add function to temorarily set numpy seed
+
+v0.6.0
+------
+
+* Static load checkpoint method
+* Fix imports
+* Move load model to ModelCheckpoint
+* Load best model can load dict of states
+* Remove trainer\_validator and change to no model score needed
+* Create model score handler
+* change to decorator
+* no\_grad scope for debug
+* Add requires\_nograd context manager
+
+v0.5.1
+------
+
+* Rename interleave and fix syntax
+* Interleave datastreams with ns
+* Add sampler fix back in
+* Zip datasets
+* Add recipe for creating datastream
+* make interleaving datastreams lazy
+* Fix failing tests
+* Fix n\_batches\_per\_epoch bug
+* Add inital version of datastreams
+* Version without v check
+
+v0.5.0
+------
+
+* Remove unused functions
+
+v0.4.5
+------
+
+* Average timer works better with multiple workers
+* Fix type bug in MCC
+* remove unnecessary things from docker build context to speed up build
+* COPY folder bug fix
+* add back .git since needed by dpr
+* try the same outside of docker
+* TERM=vt100 in Dockerfile
+* pip install . in guild enviornment
+* Also install and verify workflow itself
+* COPY library after dependencies
+* Ensure prerequisits on publish
+* ignore build publish artifacts
+* Have a clearification on expected answer y/N in publish
+* Update README
+* Reference environment in Docker
+
+v0.4.4
+------
+
+* Set TERM=vt100
+* Use guild init on CI
+* Run CI on python 3.6,3.7,3.8
+* Use local python from pytest
+* Remove guildai as a dependency
+* Collision with torch method
+* Escape non-ascii letters in setup.cfg author
+* Add guildai==0.7.0rc6
+* Make requirements more strict
+* Epoch for best model
+
+v0.4.3
+------
+
+* Attach BestModelTrigger to trainer instead
+* Track best model
+
+v0.4.2
+------
+
+* Fixed pypi syntax error
+* pypi does not allow intended audience
+* Fix publish script #72
+* Fix issues with logging to progress bar
+* Reduce metrics lambda
+* Log model score
+* Update with \_\_version\_\_ attribute
+* Use PBR, change requirements
+* Fix publish script to accommodate PBR
+* Simple CI
+* Linear warmup should be default
+* Fix LambdaLR wants multiplicative factor. Fix lr functions
+* Refactor learning rate scheduler
+* Simplify metrics
+* Simplify create trainer validator
+* More relaxed package requirements
+* Fix package requirement mistake
+* Add Apache 2 license
+* Change to stdout
+
+v0.4.1
+------
+
+* Version v0.4.1
+* Publish script
+* Fix learning rate logging #51
+* tmuxify guild setup
+* Bump version v0.4.0
+* Add Matthews Correlation Coefficient Metric
+* Multiple evaluators standard
+* Update cyclical.py
+* Update config names for handlers
+* Update add\_warmup.py
+
+v0.3.0
+------
+
+* Fix indentation in early stopping
+* Log learning rate to tensorboard
+* Update train evaluate recipes
+* Bump version v0.3.0
+* Refactor learning rate handlers
+* Create standard trainer validator
+* Metrics attached by default
+* Remove multiple evaluators. Cleanup. Fix bugs
+* Fix tensorboard logging
+* No grad in torch can be used as a decorator
+* Evaluators dict
+* Verbose early stopping. Fix some imports
+* Model checkpoint
+* Ignite-style handlers
+* Logging according to #40
+* Remove imports
+* Use contrib progress bars #41 #40
+* Update config names for handlers
+* Update model loading for ignite 0.3.0
+* MapDataset changed to behave as expected
+* Stderr works for vscode too #33 #30
+* Replace checkpoint by default
+* Fix logged epoch increased too fast
+* Change tensorboard logdir
+* Remove clip grad norm decorator
+* Add comment about TQDM output
+* Add optional length to sampler
+* Rename to add. Fix progress bars
+* Remove ignite.metrics
+* Bump version v0.2.2
+* Check if grad is none in step
+* Fix create trainer recipe
+* Bump version v0.2.1
+* Iterable sampler and stratified sampler recipe
+* Rename to filepath
+* Bugfix raise instead of return
+* Will not assume known dataset length anymore. Rename to n\_batches. Fix bug
+* Recreate earlier fix of to\_shapes
+* Multi line splitting for git
+
+v0.2.0
+------
+
+* Added docstring to split\_new\_data
+* functools.wraps
+* Fix step so it uses mean gradient instead of sum
+* Batch keys specified by user and specify batch processing function rather than create trainer
+* Fixes bug with moving batch to device
+* Progress bar and terminate on nan in default trainer
+* Moved out getting model device to its own function
+* Fix accumulation of gradients #11
+* Change to 4 space indentation
+* Rename accumulation\_steps. Remove mixup
+* to\_device should return x on else (for example file path string)
+* Move helper function get\_layer\_output\_size
+* batch\_to\_model\_device now accepts all input types
+* Prefer dict.get #9
+* Correction of development instructions
+
+v0.1.1
+------
+
+* Fixed import issue. Added twine for uploading to pypi
+
+v0.1.0
+------
+
+* Added simple tests to discuss
+* Split ignite into handlers and metrics
+* Fix package imports
+* Improved readme and added guild file

@@ -1,0 +1,60 @@
+- package: {{cookiecutter.repository_name}}-package
+
+- model: {{cookiecutter.repository_name}}-model
+  sourcecode:
+    - '*.py'
+    - guild.yml
+    - exclude:
+        dir:
+          - input
+          - tb
+          - checkpoints
+  operations:
+    prepare:
+      main: prepare
+      flags-import: all
+      output-scalars: off
+    search_lr:
+      main: search_lr
+      flags-import: all
+      output-scalars: off
+      requires:
+        - prepare
+        - splits
+    train:
+      main: train
+      flags-import: all
+      output-scalars: off
+      requires:
+        - prepare
+        - splits
+    retrain:
+      main: train
+      flags-import: all
+      output-scalars: off
+      requires:
+        - model
+        - prepare
+        - splits
+    evaluate:
+      main: evaluate
+      flags-import: all
+      output-scalars: off
+      requires:
+        - model
+        - prepare
+        - splits
+  resources:
+    model:
+      name: model
+      path: model
+      sources:
+        - operation: train|retrain
+    prepare:
+      name: prepare
+      path: prepare
+      sources:
+        - operation: prepare
+    splits:
+      sources:
+        - {{cookiecutter.package_name}}/splits
