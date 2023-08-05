@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "terminal-typing-test"
+version = "0.1.2"
+description = "A terminal-based typing test."
+authors = ["Fawaz Shah <fawaz010@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+typingtest = 'terminal_typing_test.main:run'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
