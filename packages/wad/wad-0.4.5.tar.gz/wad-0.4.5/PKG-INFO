@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: wad
+Version: 0.4.5
+Summary: A tool for detecting technologies used by web applications.
+Home-page: https://github.com/CERN-CERT/WAD
+Author: Sebastian Lopienski
+Author-email: sebastian.lopienski@cern.ch
+License: GPLv3
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Security
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires: six
