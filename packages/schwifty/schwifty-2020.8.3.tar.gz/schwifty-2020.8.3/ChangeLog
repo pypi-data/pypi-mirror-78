@@ -1,0 +1,141 @@
+CHANGES
+=======
+
+2020.08.3
+---------
+
+* Fix IBAN generation for countries with branch/sort code
+
+2020.08.2
+---------
+
+* Poland's IBAN spec only has a branch-code but no bank-code
+* Fix listing of supported countries for BIC derivation
+* Fix bank registry for HR
+* Update bank registry PL
+* Update bank registry BE
+* Update bank registry AT
+* Update IBAN spec for Sao Tome and Principe
+* Adapt IBAN registry script to updated SWFIT site
+
+2020.08.1
+---------
+
+* chore: Allow line length of 100 chars in docs
+* Add is\_valid property to IBAN and BIC objects
+
+2020.08.0
+---------
+
+* Update PL banks
+* Update FI banks
+* Update BE banks
+* Update DE banks
+* Update AT banks
+* BIC generation also works for other countries
+
+2020.05.3
+---------
+
+* Fix spaces in FI bics
+* Add FR, CH & GB banks
+
+2020.05.2
+---------
+
+* Reorder imports
+* Add country-methods to IBAN and BIC
+
+2020.05.1
+---------
+
+* Remove bogus editor tmpfile
+* Update BE script
+* Update SI banks and script
+* Update PL banks and script
+* Update FI script
+* Reformat LV banks
+* Update HR script
+* Update LV banks and script
+* Update CZ banks and script
+* Update AT banks and script
+* Update registry for german and belgian banks
+* Documentation - Fixed line lenght issues reported by doc8
+* Doc8 - added documentation linter to github workflows
+
+2020.04.1
+---------
+
+* Add tests for italian check char
+* Exclude W503 error about line break before binary operator
+* Reformatting code with black
+* Make a general bban\_checksum function
+* Calculate Italian bban checksum code and fix Italian iban generation
+* A new Spanish bank
+* Add "schwifty image"
+* Remove unused import
+* Refactor and simplify logic
+* Add script to generate Slovenia bank account registry
+* Add generated Slovenia bank account registry
+* Remove unnecessary if statement
+* Add generate Latvia bank registry script
+* Add auto generated Latvia bank account registry
+* Add script to generate AT bank registry
+* Add generated AT bank account registry
+* Create script to generate PL bank registry
+* Add generated PL bank account registry
+* Refactor script slightly
+* Add script to generate CZ bank bic codes registry
+* Add generated CZ bank codes registry
+* Add script to generate HR bic code registry
+* Add generated HR registry
+* Fixed too long line in URL
+* Added script to auto generate bic code from FFI site
+* Added auto generated Finnish banks registry
+
+2020.02.2
+---------
+
+* Fix formatting
+* Removed try/catch, removed if/and and replaced with shorthand if third cell empty
+* Added if statement to catch empty third field
+* Updated missing path
+* Refactored code as per review, added try block for sheet index
+* Run PyPI deployment only from one stage
+
+2020.02.1
+---------
+
+* Use rst compliant hyperlink targets
+* Use black as code formatter
+* Add \`\_\_hash\_\_()\` method to \`Base\`
+* last try to correct identation
+* Corrected indentation again.
+* Corrected indentation again as per Travis
+* Deleted over-indentation
+* Added extra indentation
+* Added extra space before last If statement as per Travis
+* Added generate\_be to bank\_register
+* Improve documentation with examples
+* chore: Add tox and remove default python envs
+* Add explicit travis build-matrix
+* Add explicit basepython version per environment
+* Fix linter errors
+* Add Makefile for common tasks
+
+2020.01.2
+---------
+
+* Adding manual bank-registry for 'ES' and 'GB'
+
+2020.01.1
+---------
+
+* Add logo to docs
+* Add deprecation marker to docs
+* Allow to extend the IBAN and bank registry
+
+2020.01.0
+---------
+
+* Rename script
