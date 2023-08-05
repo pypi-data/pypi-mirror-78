@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: lightfm_pandas
+Version: 0.2.1
+Summary: LightFM convenience tools
+Home-page: https://github.com/artdgn/lightfm-pandas
+Author: Arthur Deygin
+Author-email: arthurdgn@gmail.com
+License: UNKNOWN
+Description: ![CI](https://github.com/artdgn/lightfm-pandas/workflows/CI/badge.svg) ![PyPI](https://img.shields.io/pypi/v/lightfm-pandas?color=blue)
+        
+        # LightFM-pandas
+        This is a reduced version of the [ml-recsys-tool](https://github.com/artdgn/ml-recsys-tools) 
+        that's focused on just tools for LightFM package.
+        
+        
+Keywords: recommendations machine learning
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
