@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: django-mailcenter
+Version: 0.1.1
+Summary: Django mailcenter application.
+Home-page: https://github.com/zencore-cn/zencore-issues
+Author: zencore
+Author-email: dobetter@zencore.cn
+License: MIT
+Description: # django-mailcenter
+        
+        Django mailcenter application.
+        
+        ## Install
+        
+        ```
+        pip install django-mailcenter
+        ```
+        
+        ## Usage
+        
+        **pro/settings.py**
+        
+        ```
+        INSTALLED_APPS = [
+            ...
+            'django_static_ace_builds',
+            'django_db_lock',
+            'django_fastadmin',
+            'django_mailcenter',
+            ...
+        ]
+        ```
+        
+        - AceWidget used for options editor, so we needs `django_static_ace_builds` to provide ace-builds static files, and `django_fastadmin.widgets.AceWidget`.
+        - models.MailForDelivery as based on `django_fastadmin.models.SimpleTask` and it use `django_db_lock` to do distribute lock.
+        
+        ## Releases
+        
+        ### v0.1.1 2020/09/01
+        
+        - Add many required packages in requirements.txt.
+        
+        ### v0.1.0 2020/08/31
+        
+        - First release.
+        
+Keywords: django admin extentions,django mailcenter
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
