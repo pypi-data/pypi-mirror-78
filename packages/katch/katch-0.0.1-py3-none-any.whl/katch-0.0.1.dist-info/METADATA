@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: katch
+Version: 0.0.1
+Summary: A declarative error handler for Flask applications
+Home-page: https://github.com/python-utils/katch
+Author: Yuval Herziger
+Author-email: yuvalhrz@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: flask
+Provides-Extra: test
+Requires-Dist: bandit ; extra == 'test'
+Requires-Dist: black ; extra == 'test'
+Requires-Dist: coverage-badge ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: safety ; extra == 'test'
+
+UNKNOWN
+
+
