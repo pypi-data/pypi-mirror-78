@@ -1,0 +1,12 @@
+{% extends 'cms/blocks/full_centered/_base.html' %}
+{% load i18n %}
+
+{% block id %}404{% endblock %}
+
+{% block text %}
+    <h3 class="s-center">{% trans "Page Not Found" %}</h3>
+{% endblock %}
+
+{% block btn %}
+    <a href="/" class="btn primary-light">{% trans "Homepage" %}</a>
+{% endblock %}

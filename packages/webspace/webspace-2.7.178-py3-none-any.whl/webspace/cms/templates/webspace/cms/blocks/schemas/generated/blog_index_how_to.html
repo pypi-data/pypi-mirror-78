@@ -1,0 +1,24 @@
+{% extends 'webspace/cms/blocks/schemas/_schema.html' %}
+{% load wagtailcore_tags wagtailimages_tags my %}
+
+{% block json %}
+    {
+    "@context": "http://schema.org",
+    "@type": "HowTo",
+    "image": {
+    "@type": "ImageObject",
+    "url": "{% image page.feed_image fill-500x500 as img %}{{ img.url }}"
+    },
+    "name": "Quels sont les articles {% if current_tag %}{{ current_tag }}{% endif %} de la Station Spatiale?",
+    "step":[
+    {% for blog in blogs %}
+        {
+        "@type": "HowToStep",
+        "name": "{{ blog.title }}",
+        "text": "{{ blog.intro }}",
+        "image": "{% image blog.feed_image fill-500x500 as img %}{{ img.url }}",
+        "url": "https://{{ request.get_host }}{{ blog.url }}"
+        }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+    ]}
+{% endblock %}

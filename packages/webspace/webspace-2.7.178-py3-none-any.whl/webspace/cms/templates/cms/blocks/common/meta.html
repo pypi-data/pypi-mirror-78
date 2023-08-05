@@ -1,0 +1,25 @@
+{% load wagtailimages_tags %}
+<meta name="description" content="{% block page_description %}{{ page.search_description }}{% endblock %}"/>
+<meta content="{{ settings.cms.WebspaceSettings.brand_name }}" name="author"/>
+<meta name="content-language" content="{{ settings.cms.WebspaceSettings.language }}">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta property="og:type" content="website">
+<meta property="og:title" content="{% block og_title %}{{ page.seo_title }}{% endblock %}">
+<meta property="og:description" content="{% block og_desc %}{{ page.search_description }}{% endblock %}">
+{% if page.feed_image %}
+    <meta property="og:image"
+          content="{% image page.feed_image fill-500x500 as img %}{{ img.url }}">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+{% endif %}
+<meta property="og:url" content="https://{{ request.get_host }}{{ request.path|cut:"?build=true" }}">
+<meta name="twitter:title" content="{% block twitter_title %}{{ page.seo_title }}{% endblock %}">
+<meta name="twitter:description" content="{% block twitter_desc %}{{ page.search_description }}{% endblock %}">
+{% if page.feed_image %}
+    <meta name="twitter:image"
+          content="{% image page.feed_image fill-500x500 as img %}{{ img.url }}">
+    <meta name="twitter:card" content="summary_large_image">
+{% endif %}
+<meta name="theme-color" content="#317EFB"/>

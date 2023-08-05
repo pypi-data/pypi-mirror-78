@@ -1,0 +1,26 @@
+{% extends 'cms/blocks/schemas/_schema.html' %}
+{% load wagtailcore_tags wagtailimages_tags my %}
+
+{% block json %}
+    {
+    "@context": "https://schema.org/",
+    "@type": "HowTo",
+    "name": "{{ value.name }}",
+    "description": "{{ value.description }}",
+    "image": "{% image value.image fill-500x500 as img %}{{ img.url }}",
+    "supply": "{{ value.supply }}",
+    "tool": "{{ value.tool }}",
+    "totalTime": "{{ value.total_time }}",
+    "step": [
+    {% for step in value.step %}
+        {
+        "@type": "HowToStep",
+        "text": "{{ step.value.text }}",{% if step.value.image %}
+        "image": "{% image step.value.image fill-500x500 as img %}{{ img.url }}",{% endif %}
+        "name": "{{ step.value.name }}"{% if step.value.url %},
+        "url": "{{ step.value.url }}"{% endif %}
+        }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+    ]
+    }
+{% endblock %}

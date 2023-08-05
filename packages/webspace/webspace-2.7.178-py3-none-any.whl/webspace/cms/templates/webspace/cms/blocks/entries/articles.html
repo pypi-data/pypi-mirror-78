@@ -1,0 +1,10 @@
+{% extends 'webspace/cms/blocks/_block.html' %}
+{% load wagtailcore_tags %}
+
+{% block block_content %}
+    <div class="articles-container">
+        {% for blog in value.articles %}
+            {% include 'webspace/cms/blocks/common/article.html' with blog=blog.value %}
+        {% endfor %}
+    </div>
+{% endblock %}

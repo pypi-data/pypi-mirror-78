@@ -1,0 +1,16 @@
+{% extends 'webspace/cms/blocks/schemas/_schema.html' %}
+{% load wagtailcore_tags wagtailimages_tags my %}
+
+{% block json %}
+    {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "dateCreated": "{{ page.first_published_at|date:"c" }}",
+        "dateModified": "{{ page.last_published_at|date:"c" }}",
+        "description": "{{ page.search_description }}",
+        "image": "{% image page.feed_image fill-500x500 as img %}{{ img.url }}",
+        "url": "https://{{ request.get_host }}{{ request.path|cut:"?build=true" }}",
+        "inLanguage": "fr-FR",
+        "name": "{{ page.seo_title }}"
+    }
+{% endblock %}

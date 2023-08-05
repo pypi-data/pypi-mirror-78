@@ -1,0 +1,16 @@
+{% load wagtailimages_tags wagtailcore_tags my %}
+
+<div id="block-{{ block_num }}"
+         class="{{ block.block_type }} {% if value.svg_bg_position %}bg-pos-{{ value.svg_bg_position }}{% endif %} {% if value.theme %}theme-bg-{{ value.theme }}{% endif %} {% if value.svg_bg.desktop.file or value.svg_bg.mobile.file %}{% if block_num >= 2 %}lazy{% endif %}{% endif %}"
+        {% if value.svg_bg.desktop.file and request.user_agent.is_pc %}
+         {% if block_num >= 2 %}data-src="{{ value.svg_bg.desktop.file.url }}"{% else %}style="background-image: url({{ value.svg_bg.desktop.file.url }})"{% endif %}
+        {% endif %}
+        {% if value.svg_bg.mobile.file and not request.user_agent.is_pc %}
+         {% if block_num >= 2 %}data-src="{{ value.svg_bg.mobile.file.url }}"{% else %}style="background-image: url({{ value.svg_bg.mobile.file.url }})"{% endif %}
+        {% endif %}
+>
+    <div class="container {{ value.container }} {% if not value.padding_top %}nopadtop{% endif %} {% if not value.padding_bottom %}nopadbottom{% endif %} theme-{{ value.theme }}">
+        {% block block_content %}
+        {% endblock %}
+    </div>
+</div>

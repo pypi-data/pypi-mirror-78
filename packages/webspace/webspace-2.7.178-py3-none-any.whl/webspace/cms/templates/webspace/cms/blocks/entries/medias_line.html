@@ -1,0 +1,23 @@
+{% extends 'webspace/cms/blocks/_block.html' %}
+{% load wagtailcore_tags %}
+
+{% block block_content %}
+    <div class="medias-line-container">
+        {% for item in value.medias %}
+            <div class="media-line-item">
+                <a href="{% if item.value.link %}{{ item.value.link }}{% elif item.value.page %}{% pageurl item.value.page %}{% endif %}">
+                    {% if item.block_type == 'svg_label' %}
+                        {% include 'webspace/cms/blocks/common/svg.html' with value=item.value block_num=block_num %}
+                    {% elif item.block_type == 'image_label' %}
+                        {% include 'webspace/cms/blocks/common/image.html' with value=item.value block_num=block_num %}
+                    {% endif %}
+                    {% if item.value.label %}
+                        <div class="label-container">
+                            <h3 class="label">{{ item.value.label }}</h3>
+                        </div>
+                    {% endif %}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

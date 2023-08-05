@@ -1,0 +1,15 @@
+<amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+        {
+          "vars" : {
+            "gtag_id": "{% if env == 'prod' %}UA-126298837-1{% else %}UA-126298837-2{% endif %}",
+            "config" : {
+              "{% if env == 'prod' %}UA-126298837-1{% else %}UA-126298837-2{% endif %}": {
+                "groups": "default",
+                "site_speed_sample_rate": 100
+                }
+            }
+          }
+        }
+        </script>
+</amp-analytics>

@@ -1,0 +1,10 @@
+{% extends 'cms/blocks/_block.html' %}
+{% load wagtailcore_tags my %}
+
+{% block block_content %}
+    <div class="articles-container">
+        {% for portfolio in value.portfolios %}
+            {% include 'cms/blocks/common/portfolio.html' with portfolio=portfolio.value theme=value.theme|theme_reverse %}
+        {% endfor %}
+    </div>
+{% endblock %}

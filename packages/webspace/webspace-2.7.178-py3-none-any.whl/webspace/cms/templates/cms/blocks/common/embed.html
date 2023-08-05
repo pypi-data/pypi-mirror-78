@@ -1,0 +1,12 @@
+{% extends 'cms/blocks/_sizer.html' %}
+{% load my my_amp wagtailimages_tags %}
+
+{% block sizer_content %}
+    <div class="embed-container {% if value.animation and not amp %}animation fade-up{% endif %}">
+        {% if not amp %}
+            {% autoescape off %}{{ value.link|embed }}{% endautoescape %}
+        {% else %}
+            {% autoescape off %}{{ value.link|amp_embed }}{% endautoescape %}
+        {% endif %}
+    </div>
+{% endblock %}

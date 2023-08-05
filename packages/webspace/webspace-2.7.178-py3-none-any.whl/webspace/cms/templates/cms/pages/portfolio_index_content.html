@@ -1,0 +1,16 @@
+{% extends 'cms/pages/_tag_page.html' %}
+{% load wagtailcore_tags %}
+
+{% block first_content %}
+    <div class="rich-text-container">
+        {{ page.first_text|richtext }}
+    </div>
+{% endblock %}
+
+{% block main_container %}
+    <div class="articles-container">
+        {% for item in items %}
+            {% include 'cms/blocks/common/portfolio.html' with portfolio=item theme='light-inverse' %}
+        {% endfor %}
+    </div>
+{% endblock %}

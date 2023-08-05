@@ -1,0 +1,38 @@
+{% load wagtailimages_tags wagtailcore_tags %}
+
+<div id="block-blog-index" class="first_content theme-bg-space bg-pos-center"
+        {% if page.svg_bg_desktop and request.user_agent.is_pc %}
+     style="background-image: url({{ page.svg_bg_desktop.file.url }})"
+        {% endif %}
+        {% if page.svg_bg_mobile and not request.user_agent.is_pc %}
+     style="background-image: url({{ page.svg_bg_mobile.file.url }})"
+        {% endif %}
+>
+    <div class="container regular theme-space">
+        <div class="align-text-center">
+            <h1>{{ page.h1 }}</h1>
+            <div class="rich-text-container">
+                {{ page.first_text|richtext }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="block-articles-search" class="articles theme-bg-light">
+    <div class="container content nopadbottom theme-light">
+        <div class="align-text-center">
+            <h2>Recherche par tag</h2>
+            {% include 'webspace/cms/blocks/common/tags_blog.html' with checked=current_tag tags=tags links=1 %}
+        </div>
+    </div>
+</div>
+
+<div id="block-articles" class="articles theme-bg-light">
+    <div class="container regular theme-light">
+        <div class="articles-container">
+            {% for blog in blogs %}
+                {% include 'webspace/cms/blocks/common/article.html' with blog=blog %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

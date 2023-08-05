@@ -1,0 +1,6 @@
+<div class="sizer-{% if value.size %}{{ value.size }}{% else %}full{% endif %}">
+    <div class="sizer-container">
+        {% block sizer_content %}
+        {% endblock %}
+    </div>
+</div>

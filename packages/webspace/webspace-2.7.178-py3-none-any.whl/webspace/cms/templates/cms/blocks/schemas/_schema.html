@@ -1,0 +1,7 @@
+{% load my_minify %}
+<script type="application/ld+json">
+{% minify_schema %}
+    {% block json %}
+    {% endblock json %}
+{% endminify_schema %}
+</script>

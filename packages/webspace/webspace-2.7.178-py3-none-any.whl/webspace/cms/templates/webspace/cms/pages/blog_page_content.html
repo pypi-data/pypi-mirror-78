@@ -1,0 +1,121 @@
+{% load wagtailcore_tags my my_amp %}
+
+<div id="block-blog-intro" class="first_content theme-bg-space bg-pos-center"
+        {% if page.svg_bg_desktop and request.user_agent.is_pc %}
+     style="background-image: url({{ page.svg_bg_desktop.file.url }})"
+        {% endif %}
+        {% if page.svg_bg_mobile and not request.user_agent.is_pc %}
+     style="background-image: url({{ page.svg_bg_mobile.file.url }})"
+        {% endif %}
+>
+    <div class="container regular theme-space">
+        <div class="align-text-left">
+            <h1>{{ page.h1 }}</h1>
+            {% include 'webspace/cms/blocks/common/tags_blog.html' with tags=page.tags.all links=1 %}
+            <div class="rich-text-container">
+                {{ page.intro_page|richtext }}
+            </div>
+            <div class="s-flex-align">
+                <div class="article-author-img">
+                    <a href="{{ page.author.get_public_url }}">
+                        {% amp_img %}
+                        <img class="s-icon x2 nopad"
+                             src="{{ icons.astro_level_3|ico:'space' }}"
+                             alt="Astronaute"
+                        />
+                        {% endamp_img %}
+                    </a>
+                </div>
+                <div class="article-author">
+                    <a href="{{ page.author.get_public_url }}">
+                        <p>{{ page.author.get_complete_name }}</p>
+                        <small>{{ page.date|date }}{% if page.date_updated %} (Mis à jour le
+                            {{ page.date_updated|date }}){% endif %} • {{ page.read_time }}</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% comment %}---------------------------- Summary ----------------------------{% endcomment %}
+
+{% if summary %}
+    <div id="block-summary" class="theme-bg-light">
+        <div class="container content nopadbottom theme-light">
+            <div class="rich-text">
+                <h2>Structure de l'article</h2>
+                <ul>
+                    {% for h2 in summary %}
+                        <li>
+                            <a href="#{{ h2.link }}">
+                                <p>{{ h2.content }}</p>
+                            </a>
+                            {% if h2.h3 %}
+                                <ul>
+                                    {% for h3 in h2.h3 %}
+                                        <li>
+                                            <a href="#{{ h3.link }}">
+                                                <p>{{ h3.content }}</p>
+                                            </a>
+                                            {% if h3.h4 %}
+                                                <ul>
+                                                    {% for h4 in h3.h4 %}
+                                                        <li>
+                                                            <a href="#{{ h4.link }}">
+                                                                <p>{{ h4.content }}</p>
+                                                            </a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% comment %}---------------------------- Content ----------------------------{% endcomment %}
+
+{% for block in page.body %}
+    {% include_block block with block_num=forloop.counter %}
+{% endfor %}
+
+{% comment %}---------------------------- Articles related ----------------------------{% endcomment %}
+
+{% if page.related_blogs %}
+    <div id="block-title-article-related" class="text theme-bg-space">
+        <div class="container content theme-space">
+            <div class="rich-text-container align-text-center">
+                <div class="rich-text">
+                    <h2>Les articles du même thème</h2>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="block-article-related" class="theme-bg-space">
+        <div class="container regular nopadtop nopadbottom theme-space">
+            <div class="articles-container">
+                {% for blog in page.related_blogs %}
+                    {% include 'webspace/cms/blocks/common/article.html' with blog=blog.value %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="block-6" class="buttons theme-bg-space">
+        <div class="container content theme-space">
+            <div class="btn-container align-text-center">
+                <a class="btn white-full space-c" href="/articles/">
+                    Voir tous les articles
+                </a>
+            </div>
+        </div>
+    </div>
+{% endif %}

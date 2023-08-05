@@ -1,0 +1,22 @@
+.logo {
+  .logo-degrad-1, .logo-degrad-2 {
+    opacity: 0.1;
+  }
+
+  .logo-degrad-1 {
+    fill: url(#radiant-logo-1);
+  }
+
+  .logo-degrad-2 {
+    fill: url(#radiant-logo-2);
+  }
+
+
+  .logo-blue {
+    fill: $color-1;
+  }
+
+  .logo-green {
+    fill: $color-2;
+  }
+}

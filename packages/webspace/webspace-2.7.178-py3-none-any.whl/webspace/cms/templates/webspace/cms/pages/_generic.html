@@ -1,0 +1,34 @@
+{% extends 'webspace/_base.html' %}
+{% load wagtailcore_tags %}
+
+{% block extra_head %}
+    {% if page.get_breadcrumbs %}
+        {% include 'webspace/cms/blocks/schemas/generated/breadcrumb.html' %}
+    {% endif %}
+    {% include 'webspace/cms/blocks/schemas/generated/webpage.html' %}
+{% endblock %}
+
+{% block content %}
+    {% comment %}{% cache_wagtail_page page request.user_agent.is_pc request.user.is_authenticated %}{% endcomment %}
+
+    {% block header %}
+        {% include 'webspace/cms/blocks/common/header.html' %}
+        {% include 'webspace/cms/blocks/common/accordion.html' %}
+    {% endblock %}
+
+    {% block content_body %}
+        {% for block in page.body %}
+            {% include_block block with block_num=forloop.counter %}
+        {% endfor %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'webspace/cms/blocks/common/footer.html' %}
+    {% endblock %}
+
+    {% comment %}{% endcache_wagtail_page %}{% endcomment %}
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+{% endblock %}

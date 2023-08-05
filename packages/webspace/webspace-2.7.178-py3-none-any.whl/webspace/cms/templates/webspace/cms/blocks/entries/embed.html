@@ -1,0 +1,8 @@
+{% extends 'webspace/cms/blocks/_block.html' %}
+{% load wagtailcore_tags wagtailembeds_tags my %}
+
+{% block block_content %}
+    <div class="embed-container">
+        {% autoescape off %}{{ value.link|embed }}{% endautoescape %}
+    </div>
+{% endblock %}

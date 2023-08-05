@@ -1,0 +1,66 @@
+{% extends 'cms/blocks/schemas/_schema.html' %}
+{% load wagtailcore_tags wagtailimages_tags my %}
+
+{% block json %}
+    {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "dateCreated": "{{ page.first_published_at|date:"c" }}",
+        "dateModified": "{{ page.last_published_at|date:"c" }}",
+        "description": "{{ page.search_description }}",
+        "image": "{% image page.feed_image fill-500x500 as img %}{{ img.url }}",
+        "url": "https://{{ request.get_host }}{{ request.get_full_path|cut:"?build=true" }}",
+        "inLanguage": "{{ settings.cms.WebspaceSettings.locale }}",
+        "name": "{{ page.seo_title }}",
+        "about": {
+              "@type": "Organization",
+              "url": "https://{{ request.get_host }}",
+              "name": "{{ settings.cms.WebspaceSettings.brand_name }}",
+              "logo": "{% image settings.cms.DataTypesSettings.logo fill-500x500 as img %}{{ img.url }}",
+              "description": "{{ page.search_description }}",
+              "vatID": "{{ settings.cms.WebspaceSettings.vat_id }}",
+              "legalName": "{{ settings.cms.WebspaceSettings.legal_name }}",
+              "foundingDate": "{{ settings.cms.WebspaceSettings.founding_date|date:"c" }}",
+              "contactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "areaServed": "{{ settings.cms.WebspaceSettings.area_served }}",
+                  "availableLanguage": "French",
+                  "contactType": "customer support",
+                  "contactOption": "TollFree",
+                  "telephone": "{{ settings.cms.WebspaceSettings.contact_phone }}",
+                  "email":"{{ settings.cms.WebspaceSettings.contact_email }}"
+                }
+              ],
+              "location": {
+                "@type": "PostalAddress",
+                "streetAddress": "{{ settings.cms.WebspaceSettings.location_street_address }}",
+                "addressLocality": "{{ settings.cms.WebspaceSettings.location_address_locality }}",
+                "postalCode": "{{ settings.cms.WebspaceSettings.location_postal_code }}",
+                "addressCountry": "{{ settings.cms.WebspaceSettings.location_address_country }}"
+              },
+              "foundingLocation": {
+                "@type": "Place",
+                "name": "{{ settings.cms.WebspaceSettings.founding_location }}"
+              },
+              "founders": [
+                {% for founder in settings.cms.WebspaceSettings.founders.all %}
+                {
+                    "@type": "Person",
+                    "name": "{{ founder.name }}",
+                    "gender": "{{ founder.gender }}",
+                    "sameAs": "{{ founder.same_as }}",
+                    "nationality": {
+                        "@type": "Country",
+                        "name": "{{ founder.nationality }}"
+                    }
+                }{% if not forloop.last %},{% endif %}
+                {% endfor %}
+              ],
+              "brand": {
+                    "@type": "Thing",
+                    "name": "{{ settings.cms.WebspaceSettings.brand_name }}"
+              }
+        }
+    }
+{% endblock %}

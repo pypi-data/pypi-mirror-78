@@ -1,0 +1,73 @@
+{% extends 'webspace/cms/pages/_generic.html' %}
+{% load wagtailcore_tags my %}
+
+{% block extra_head %}
+    {% include 'webspace/cms/blocks/schemas/generated/breadcrumb.html' %}
+    {% include 'webspace/cms/blocks/schemas/generated/home.html' %}
+{% endblock %}
+
+{% block content %}
+    {% comment %}{% cache_wagtail_page page request.user_agent.is_pc request.user.is_authenticated %}{% endcomment %}
+
+    {% block header %}
+        {{ block.super }}
+    {% endblock %}
+
+    {% block content_body %}
+
+        <div id="block-search" class="first_content theme-bg-space bg-pos-center"
+                {% if page.svg_bg_desktop and request.user_agent.is_pc %}
+             style="background-image: url({{ page.svg_bg_desktop.file.url }})"
+                {% endif %}
+                {% if page.svg_bg_mobile and not request.user_agent.is_pc %}
+             style="background-image: url({{ page.svg_bg_mobile.file.url }})"
+                {% endif %}
+        >
+            <div class="container regular theme-space">
+                <div class="align-text-left">
+                    <h1>{{ page.h1 }}</h1>
+                    <div class="rich-text-container">
+                        {{ page.search_text|richtext }}
+                    </div>
+                    <form class="max" action="/matching" method="get">
+                        <div class="form-group">
+                            <div class="input-img inverse">
+                                <img class="s-icon x1"
+                                     src="{{ icons.search|ico:"space" }}"
+                                     alt="Recherche"
+                                />
+                                <input class="inverse"
+                                       name="recherche"
+                                       value=""
+                                       placeholder="{{ page.search_placeholder }}"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-submit">
+                            <button class="btn white-full {% if not request.user_agent.is_mobile %}space-l{% endif %}"
+                                    type="submit">
+                                Rechercher un service
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {% for block in page.body %}
+            {% include_block block with block_num=forloop.counter|add:1 %}
+        {% endfor %}
+
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'webspace/cms/blocks/common/footer.html' %}
+    {% endblock %}
+
+    {% comment %}{% endcache_wagtail_page %}{% endcomment %}
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    {% include 'webspace/cms/blocks/common/google-analytics.html' %}
+{% endblock %}

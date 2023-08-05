@@ -1,0 +1,41 @@
+{% extends 'cms/blocks/_block.html' %}
+{% load wagtailcore_tags %}
+
+{% block block_content %}
+    <div class="media-text-container">
+        {% if request.user_agent.is_pc %}
+            <div class="media-container">
+                {% for media in value.media %}
+                    {% include_block media with block_num=block_num %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <{% if value.section %}section{% else %}div{% endif %}
+                class="padding text-container {% if value.reverse %}reverse{% endif %} {% if value.align %}align-text-{{ value.align }}{% endif %}">
+            <h2>{{ value.h2 }}</h2>
+            {% if not request.user_agent.is_pc %}
+                <div class="media-container">
+                    {% for media in value.media %}
+                        {% include_block media with block_num=block_num %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% include_block value.text with theme=value.theme %}
+            <div class="btn-container">
+                {% for button in value.buttons %}
+                    {% if value.align == 'center' %}
+                        {% include_block button with space='c' %}
+                    {% elif value.align == 'right' %}
+                        {% include_block button with space='l' %}
+                    {% elif value.align == 'left' %}
+                        {% include_block button with space='r' %}
+                    {% elif value.reverse %}
+                        {% include_block button with space='l' %}
+                    {% else %}
+                        {% include_block button with space='r' %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </{% if value.section %}section{% else %}div{% endif %}>
+    </div>
+{% endblock %}

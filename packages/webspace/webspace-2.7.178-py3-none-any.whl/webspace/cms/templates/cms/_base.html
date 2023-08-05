@@ -1,0 +1,108 @@
+{% load static wagtailcore_tags wagtailimages_tags my_amp %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="{{ settings.cms.WebspaceSettings.language }}">
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block page_title %}{{ page.seo_title }}{% endblock %}</title>
+    {% include 'cms/blocks/common/meta.html' %}
+    {% include 'cms/blocks/common/favicon.html' %}
+    <link rel="canonical" href="https://{{ request.get_host }}{{ request.path|cut:"?build=true" }}"/>
+    {% block extra_links %}
+    {% endblock %}
+    {% if page and page.amp_active %}
+        {% amp_canonical %}
+    {% endif %}
+    {% block css_loading %}
+        <style>
+            #loader {
+                z-index: 10000000000000;
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                -webkit-transition: opacity .5s ease;
+                transition: opacity .5s ease
+            }
+
+            #loader img {
+                width: 20px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%)
+            }
+
+            #loader ~ div {
+                display: none
+            }
+        </style>
+    {% endblock css_loading %}
+    {% comment %}
+        <link href="/static/dist/css/cmsload{{ request.version_webspace }}.css" rel="stylesheet" type="text/css"/>
+    {% endcomment %}
+    {% block extra_head %}
+    {% endblock %}
+    {% if page.schemas %}
+        {% for schema in page.schemas %}
+            {% include_block schema %}
+        {% endfor %}
+    {% endif %}
+    {% include 'cms/blocks/schemas/generated/manifest.html' %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+<div id="loader" role="banner">
+    <img src="{% static 'webspace/img/svg/loader.svg' %}" alt="Loader">
+</div>
+
+{% block content %}{% endblock %}
+
+{% block collect %}
+    {% if not amp %}
+        {% include 'cms/blocks/common/collect.html' %}
+    {% endif %}
+{% endblock %}
+
+{% block font %}
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block css %}
+    <link href="/static/webspace/dist/css/cms{{ request.version_webspace }}.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block js %}
+    <script async src="/static/webspace/dist/js/smc{{ request.version_webspace }}.js"></script>
+    {% if not debug %}
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('/worker{{ version }}.js')
+                });
+            }
+        </script>
+    {% endif %}
+{% endblock %}
+
+<script>
+    {% autoescape off %}
+        (function () {
+            {% block onbodyload %}
+            {% endblock %}
+            const loader = document.getElementById('loader');
+            loader.style.opacity = "0";
+            loader.style.zIndex = "-1";
+        })();
+    {% endautoescape %}
+</script>
+
+<noscript>
+    This website requires JavaScript. To contact us, please send us an email at:
+    <a href="mailto:email@example.com">email@example.com</a>
+</noscript>
+
+</body>
+</html>

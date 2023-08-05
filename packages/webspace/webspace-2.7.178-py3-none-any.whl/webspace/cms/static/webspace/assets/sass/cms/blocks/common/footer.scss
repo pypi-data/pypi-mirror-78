@@ -1,0 +1,71 @@
+footer {
+
+  .footer-links {
+    @include theme($themes) {
+      background: t('kaks');
+    }
+  }
+
+  .footer-socials {
+    @include theme($themes) {
+      background: t('uks');
+    }
+    padding: 15px;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      a {
+        text-decoration: none;
+      }
+
+      .fs-container {
+        display: flex;
+      }
+
+      @include xs() {
+        display: block;
+        text-align: center;
+
+        .fs-ss, .fs-container {
+          margin: 20px 0;
+        }
+
+        .fs-container {
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  nav {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include xs() {
+      display: block;
+      text-align: center;
+    }
+
+    .ul-title {
+      color: $color-2;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover > p {
+        color: $color-2;
+      }
+    }
+  }
+}

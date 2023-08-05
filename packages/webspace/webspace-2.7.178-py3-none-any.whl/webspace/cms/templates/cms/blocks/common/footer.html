@@ -1,0 +1,30 @@
+{% load static i18n %}
+{% load wagtailsettings_tags my my_amp %}
+
+<div class="">
+    <div class="theme-{{ page.theme }}">
+        <footer>
+            {% if page.navigation.footer %}
+                <div id="block-footer" class="footer-links">
+                    <div class="container regular">
+                        <div>
+                            {% include 'cms/blocks/common/nav/nav_footer.html' with menus=page.navigation.footer %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div id="block-footer-socials" class="footer-socials">
+                <div class="container full nopad">
+                    <div class="fs-ss rich-text">
+                        <small>{% trans 'Made with ❤ | ' %} <a href="{{ studio.url }}">{{ studio.name }}</a></small>
+                    </div>
+                    <div class="fs-container">
+
+                        {% include 'cms/blocks/common/social_links.html' with size=1 %}
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+{% extends 'webspace/cms/blocks/_sizer.html' %}
+{% load wagtailimages_tags %}
+
+{% block sizer_content %}
+    {% if not amp %}
+        <picture>
+            {% if size_auto %}
+                {% image value.file width-375 format-webp as sm_image_webp %}
+                <source media="(max-width: 375px)" srcset="{{ sm_image_webp.url }}" type="image/webp">
+
+                {% image value.file width-375 format-jpeg as sm_image_jpeg %}
+                <source media="(max-width: 375px)" srcset="{{ sm_image_jpeg.url }}" type="image/jpeg">
+
+                {% image value.file width-768 format-webp as md_image_webp %}
+                <source media="(min-width: 376px)" srcset="{{ md_image_webp.url }}" type="image/webp">
+
+                {% image value.file width-768 format-jpeg as md_image_jpeg %}
+                <source media="(min-width: 376px)" srcset="{{ md_image_jpeg.url }}" type="image/jpeg">
+
+                <img {% if block_num >= 2 %}data-src{% else %}src{% endif %}="{{ md_image_jpeg.url }}"
+                     class="{% if block_num >= 2 %}lazy{% endif %}"
+                     alt="{{ value.file.title }}"
+                />
+            {% else %}
+                {% image value.file fill-350x350 format-webp as sm_image_webp %}
+                <source media="(max-width: 375px)" srcset="{{ sm_image_webp.url }}" type="image/webp">
+
+                {% image value.file fill-350x350 format-jpeg as sm_image_jpeg %}
+                <source media="(max-width: 375px)" srcset="{{ sm_image_jpeg.url }}" type="image/jpeg">
+
+                {% image value.file fill-500x500 format-webp as md_image_webp %}
+                <source media="(min-width: 376px)" srcset="{{ md_image_webp.url }}" type="image/webp">
+
+                {% image value.file fill-500x500 format-jpeg as md_image_jpeg %}
+                <source media="(min-width: 376px)" srcset="{{ md_image_jpeg.url }}" type="image/jpeg">
+
+                <img {% if block_num >= 2 %}data-src{% else %}src{% endif %}="{{ md_image_jpeg.url }}"
+                     class="{% if block_num >= 2 %}lazy{% endif %}"
+                     alt="{{ value.file.title }}"
+                />
+            {% endif %}
+        </picture>
+    {% else %}
+        {% if size_auto %}
+            {% image value.file width-375 format-webp as sm_image_webp %}
+            {% image value.file width-768 format-webp as md_image_webp %}
+            <amp-img alt="{{ value.file.title }}"
+                     width="{{ md_image_webp.width }}"
+                     height="{{ md_image_webp.height }}"
+                     layout="responsive"
+                     src="{{ md_image_webp.url }}"
+                     srcset="{{ md_image_webp.url }} 768w, {{ sm_image_webp.url }} 375w"
+            >
+                {% image value.file width-768 format-jpeg as md_image_jpeg %}
+                {% image value.file width-375 format-jpeg as sm_image_jpeg %}
+                <amp-img alt="{{ value.file.title }}"
+                         width="{{ md_image_webp.width }}"
+                         height="{{ md_image_webp.height }}"
+                         layout="fill"
+                         src="{{ md_image_jpeg.url }}"
+                         srcset="{{ md_image_jpeg.url }} 768w, {{ sm_image_jpeg.url }} 375w"
+                >
+                </amp-img>
+            </amp-img>
+        {% else %}
+            {% image value.file fill-350x350 format-webp as sm_image_webp %}
+            {% image value.file fill-500x500 format-webp as md_image_webp %}
+            <amp-img alt="{{ value.file.title }}"
+                     width="500"
+                     height="500"
+                     layout="responsive"
+                     src="{{ md_image_webp.url }}"
+                     srcset="{{ md_image_webp.url }} 500w, {{ sm_image_webp.url }} 350w"
+            >
+                {% image value.file fill-500x500 format-jpeg as md_image_jpeg %}
+                {% image value.file fill-350x350 format-jpeg as sm_image_jpeg %}
+                <amp-img alt="{{ value.file.title }}"
+                         width="500"
+                         height="500"
+                         layout="fill"
+                         src="{{ md_image_jpeg.url }}"
+                         srcset="{{ md_image_jpeg.url }} 500w, {{ sm_image_jpeg.url }} 350w"
+                >
+                </amp-img>
+            </amp-img>
+        {% endif %}
+    {% endif %}
+{% endblock %}

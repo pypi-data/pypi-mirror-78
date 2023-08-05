@@ -1,0 +1,16 @@
+<div class="gallery-container">
+    <ul>
+        {% for item in value.gallery.medias %}
+            <li>
+                {% if item.block_type == 'svg' %}
+                    {% comment %}TODO{% endcomment %}
+                {% elif item.block_type == 'image' %}
+                    <a rel="nofollow" href="{{ item.value.file.url }}" >
+                    {% include 'cms/blocks/common/picture.html' with img=item.value theme=theme %}
+                    </a>
+                {% endif %}
+            </li>
+        {% endfor %}
+        <li></li>
+    </ul>
+</div>

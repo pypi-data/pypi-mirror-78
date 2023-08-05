@@ -1,0 +1,26 @@
+{% extends 'webspace/_base_amp.html' %}
+{% load wagtailcore_tags %}
+
+{% block extra_head %}
+    {% if page.get_breadcrumbs %}
+        {% include 'webspace/cms/blocks/schemas/generated/breadcrumb.html' %}
+    {% endif %}
+    {% include 'webspace/cms/blocks/schemas/generated/webpage.html' %}
+{% endblock %}
+
+{% block content %}
+    {% block header %}
+        {% include 'webspace/cms/blocks/common/header.html' %}
+        {% include 'webspace/cms/blocks/common/accordion.html' %}
+    {% endblock %}
+
+    {% block content_body %}
+        {% for block in page.body %}
+            {% include_block block with block_num=forloop.counter %}
+        {% endfor %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'webspace/cms/blocks/common/footer.html' %}
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,29 @@
+.stream-content-container {
+  display: flex;
+  flex-direction: column;
+
+  &.right {
+    align-items: flex-end;
+    @include md() {
+      margin-left: 50%;
+    }
+  }
+
+  &.center {
+    align-items: center;
+    @include md() {
+      width: 50%;
+      transform: translate(50%, 0);
+    }
+  }
+
+  &.left {
+    @include md() {
+      width: 50%;
+    }
+  }
+
+  .rich-text-container {
+    max-width: 750px;
+  }
+}
