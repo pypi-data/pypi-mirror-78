@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: haruspex
+Version: 0.2.3
+Summary: filesystem haruspicy
+Home-page: UNKNOWN
+Author: Bruno Constanzo
+Author-email: bconstanzo@ufasta.edu.ar
+License: LGPL 2.1
+Project-URL: Source, https://github.com/bconstanzo/haruspex/
+Description: # haruspex
+        
+        A weird collection of tools to open, dissect, inspect and re-build on live
+        (and not so much) filesystems.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: System :: Filesystems
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
