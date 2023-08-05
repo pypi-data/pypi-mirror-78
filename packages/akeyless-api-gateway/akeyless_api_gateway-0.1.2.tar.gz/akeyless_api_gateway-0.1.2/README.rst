@@ -1,0 +1,62 @@
+########################
+Akeyless Api Gateway - the Python library for the AKEYLESS Vault API
+########################
+
+RESTFull API for interacting with AKEYLESS Vault API
+
+Minimum requirements
+====================
+
+* Python 3.4+
+* certifi>=2017.4.17
+* python-dateutil>=2.1
+* six>=1.10
+* urllib3>=1.23
+
+Installation
+============
+
+.. code::
+    $pip install akeyless_api_gateway
+
+*****
+Usage
+*****
+
+.. code::
+    from __future__ import print_function
+
+    import time
+    import akeyless_api_gateway
+    from akeyless_api_gateway.rest import ApiException
+    from pprint import pprint
+
+    # Defining the host is optional and defaults to https://127.0.0.1:8080
+    # See configuration.py for a list of all supported configuration parameters.
+    configuration = akeyless_api_gateway.Configuration()
+    configuration.host = "https://127.0.0.1:8080"
+
+
+
+    # create an instance of the API class
+    api_instance = akeyless_api_gateway.DefaultApi(akeyless_api_gateway.ApiClient(configuration))
+    role_name = 'role_name_example' # str | The role name to associate
+    am_name = 'am_name_example' # str | The auth method name to associate
+    token = 'token_example' # str | Access token
+    sub_claims = 'sub_claims_example' # str | key/val of sub claims, ex. group=admins,developers (optional)
+
+    try:
+        # Create an association between role and auth method
+        api_response = api_instance.assoc_role_am(role_name, am_name, token, sub_claims=sub_claims)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->assoc_role_am: %s\n" % e)
+
+
+*******
+License
+*******
+This SDK is distributed under the `Apache License, Version 2.0`_ see LICENSE.txt for more information.
+
+
+.. _Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
