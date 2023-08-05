@@ -1,0 +1,69 @@
+[tool.poetry]
+name = "hark-lang"
+version = "0.5.1"
+description = "The Hark Programming Language"
+license = "Apache-2.0"
+authors = ["Ric da Silva <ric@condense9.com>"]
+maintainers = ["Ric da Silva <ric@condense9.com>"]
+readme = "README.md"
+homepage = "https://www.condense9.com"
+repository = "https://github.com/condense9/hark-lang"
+keywords = [
+    "serverless",
+    "orchestration",
+    "concurrency",
+    "aws",
+    "language"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Topic :: Software Development",
+    "Intended Audience :: Developers"
+]
+packages = [
+    { include = "hark_lang", from = "src" },
+]
+
+include = ["src/hark_lang/dist_data/hark_lambda.zip"]
+exclude = ["src/hark_lang/examples/*.*"]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/condense9/hark-lang/issues"
+"Changelog" = "https://github.com/condense9/hark-lang/blob/master/CHANGELOG.md"
+
+[tool.poetry.scripts]
+hark = 'hark_lang.cli.main:main'
+
+[tool.poetry.dependencies]
+boto3 = "*"
+botocore = "*"
+python = "^3.8"
+pynamodb = "*"
+docopt = "*"
+graphviz = "^0.13.2"
+schema = "^0.7.2"
+pyyaml = "^5.3.1"
+pydot = "^1.4.1"
+sly = "^0.4"
+toml = "^0.10.1"
+deterministic_zip = "^0.1"
+coloredlogs = "^14.0"
+parsy = "^1.3.0"
+yaspin = "^0.17.0"
+colorful = "^0.5.4"
+texttable = "^1.6.2"
+PyInquirer = "^1.0.3"
+gql = "^2.0.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pytest-repeat = "*"
+# md-tangle = {version = "*", optional = true}
+# sphinx = {version = "*", optional = true}
+# pydoc-markdown = {version = "^2.1.3", optional = true}
+
+
+flake8 = "^3.7.9"
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
