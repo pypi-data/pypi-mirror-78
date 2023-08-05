@@ -1,0 +1,6 @@
+global-exclude .*
+global-exclude *~
+global-exclude *.swp
+global-exclude *.pyc
+
+recursive-include flamingo/ *

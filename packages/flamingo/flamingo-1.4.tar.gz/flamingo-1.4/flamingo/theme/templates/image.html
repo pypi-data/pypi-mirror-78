@@ -1,0 +1,73 @@
+{% if content.align %}
+  {% set align=content.align.lower() %}
+{% endif %}
+{%- if content.caption -%}
+  <div class="image"
+   style="
+    {% if align == 'left' %}
+      float: left;
+      margin-right: 1em;
+      clear: both;
+    {% elif align == 'right' %}
+      float: right;
+      margin-left: 1em;
+      clear: both;
+    {% elif align == 'center' %}
+      width: 100%;
+      text-align: center;
+    {% endif %}
+   ">
+{%- endif -%}
+{%- if content.link -%}
+  <a href="{{ content.link }}">
+{%- elif content.is_thumbnail -%}
+  <a href="{{ content.original.url }}">
+{%- endif -%}
+<img src="{{ content.url }}"
+  {% if content.alt %}
+     alt="{{ content.alt }}"
+  {% endif %}
+  {% if content.title %}
+     title="{{ content.title }}"
+  {% endif %}
+  style="
+    {% if not content.is_thumbnail %}
+      {% if content.width %}
+        width: {{ content.width }};
+      {% endif %}
+      {% if content.height %}
+        height: {{ content.height }};
+      {% endif %}
+    {% endif %}
+    {% if not content.caption %}
+      {% if align == 'left' %}
+        float: left;
+        margin-right: 1em;
+        clear: both;
+      {% elif align == 'right' %}
+        float: right;
+        margin-left: 1em;
+        clear: both;
+      {% elif align == 'center' %}
+        width: 100%;
+        text-align: center;
+      {% endif %}
+    {% endif %}
+  ">
+{% if content.link or content.is_thumbnail %}
+  </a>
+{% endif %}
+{%- if content.caption -%}
+  <div class="caption"
+    style="
+      {% if align == 'center' %}
+        width: 100%;
+      {% elif content.width %}
+        width: {{ content.width }};
+      {% endif %}
+      ">{{ content.caption }}</div>
+  </div>
+{%- endif -%}
+{%- if content.clear -%}
+  <div style="clear: both"></div>
+{%- endif -%}

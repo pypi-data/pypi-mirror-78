@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: flamingo
+Version: 1.4
+Summary: Flamingo is a python3-based, pelican-inspired static site generator
+Home-page: https://github.com/pengutronix/flamingo
+Author: Florian Scherf
+Author-email: python@pengutronix.de
+License: Apache License 2.0
+Description: flamingo
+        ========
+        
+        .. image:: doc/content/images/flamingo.svg
+            :height: 128px
+            :width: 128px
+        
+        |
+        
+        .. image:: https://img.shields.io/pypi/l/flamingo.svg
+            :alt: pypi.org
+            :target: https://pypi.org/project/flamingo
+        .. image:: https://img.shields.io/travis/com/pengutronix/flamingo/master.svg
+            :alt: Travis branch
+            :target: https://travis-ci.com/pengutronix/flamingo
+        .. image:: https://img.shields.io/pypi/pyversions/flamingo.svg
+            :alt: pypi.org
+            :target: https://pypi.org/project/flamingo
+        .. image:: https://img.shields.io/pypi/v/flamingo.svg
+            :alt: pypi.org
+            :target: https://pypi.org/project/flamingo
+        .. image:: https://img.shields.io/codecov/c/github/pengutronix/flamingo.svg
+            :alt: codecov.io
+            :target: https://codecov.io/gh/pengutronix/flamingo/
+        .. image:: https://img.shields.io/lgtm/alerts/g/pengutronix/flamingo.svg
+            :alt: lgtm.com
+            :target: https://lgtm.com/projects/g/pengutronix/flamingo/
+        .. image:: https://img.shields.io/lgtm/grade/python/g/pengutronix/flamingo.svg
+            :alt: lgtm.com
+            :target: https://lgtm.com/projects/g/pengutronix/flamingo/
+        
+        
+        Flamingo is a python3-based, pelican-inspired static site generator, made by
+        `Pengutronix <https://www.pengutronix.de>`__
+        
+        Websites powered by flamingo:
+         - `pengutronix.de <https://www.pengutronix.de>`__
+         - `linux-automation.com <https://www.linux-automation.com/de/>`__
+        
+        Documentation: `flamingo-web.org <https://flamingo-web.org>`__
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Framework :: AsyncIO
+Classifier: Framework :: IPython
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Documentation
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Classifier: Topic :: Text Processing :: Markup :: XML
+Classifier: Topic :: Utilities
+Provides-Extra: live-server
+Provides-Extra: chardet
+Provides-Extra: pygments
+Provides-Extra: markdown
+Provides-Extra: feeds
+Provides-Extra: thumbnails
+Provides-Extra: photoswipe
+Provides-Extra: coloredlogs
+Provides-Extra: ipython
+Provides-Extra: full

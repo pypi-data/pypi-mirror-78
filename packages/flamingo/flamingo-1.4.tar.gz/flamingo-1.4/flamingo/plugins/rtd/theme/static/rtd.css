@@ -1,0 +1,19 @@
+mark {
+    background: #F1C40F;
+    font-style: normal;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0 6px;
+}
+
+.wy-nav-side {
+    padding-bottom: 0;
+}
+
+.wy-side-scroll {
+    padding-bottom: 1em;
+}
+
+.rst-content table {
+    margin-bottom: 24px !important;
+}
