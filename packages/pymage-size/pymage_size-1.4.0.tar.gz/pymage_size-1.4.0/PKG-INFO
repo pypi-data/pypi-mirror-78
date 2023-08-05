@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: pymage-size
+Version: 1.4.0
+Summary: A Python package for getting the dimensions of an image without loading it into memory.
+Home-page: https://github.com/kobaltcore/pymage_size
+License: MIT
+Author: CobaltCore
+Author-email: cobaltcore@yandex.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Project-URL: Repository, https://github.com/kobaltcore/pymage_size
+Description-Content-Type: text/markdown
+
+# pymage_size
+[![CircleCI](https://circleci.com/gh/kobaltcore/pymage_size.svg?style=svg)](https://circleci.com/gh/kobaltcore/pymage_size)
+[![Downloads](https://pepy.tech/badge/pymage_size)](https://pepy.tech/project/pymage_size)
+
+A Python package for getting the dimensions of an image without loading it into memory. No external dependencies either!
+
+## Disclaimer
+This library is currently in Beta. This means that the interface might change and that not all possible edge cases have been properly tested.
+
+## Installation
+pymage_size is available from PyPI, so you can install via `pip`:
+```bash
+$ pip install pymage_size
+```
+
+## Usage
+```python
+from pymage_size import get_image_size
+
+img_format = get_image_size("example.png")
+width, height = img_format.get_dimensions()
+```
+
