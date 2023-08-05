@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: daWUAP
+Version: 0.2.1.dev0
+Summary: Hydrologic Engine for daWUAP model
+Home-page: https://bitbucket.org/umthydromodeling/dawuaphydroengine
+Author: Marco Maneta
+Author-email: marco.maneta@umontana.edu
+License: UNKNOWN
+Download-URL: https://bitbucket.org/umthydromodeling/dawuaphydroengine/get/a88ac8f68b01.zip
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: rasterio
+Requires-Dist: rasterstats
+Requires-Dist: fiona
+Requires-Dist: shapely
+Requires-Dist: tqdm
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: tables
+Requires-Dist: fire
+Provides-Extra: test
+Requires-Dist: nose ; extra == 'test'
+Requires-Dist: mock ; extra == 'test'
+
+
+The data assimilation Water Use and Agricultural Productivity model (daWUAP) is a hydro-economic model that couples an economic model of agricultural production calibrated using positive mathematical programming (PMP) and a semidistributed rainfall-runoff-routing model that simulates water available to producers.
+
+Features:
+
+- Calibration of economic component can use standard the mathematical programming method or a new recursive stochastic filter.
+- Stochastic calibration permits to obtain simulation results of agricultural outputs (land and water allocation, etc) as probability distributions that reflect the quality of the calibration.
+- Recursive stochastic filter permits calibration of economic model with noisy but frequent remote sensing observations of agricultural activity.
+- Model permits to trace the effect of producer choices on the hydrologic system and on other users.
+
+[Contributions and comments are welcome at Github.](https://bitbucket.org/umthydromodeling/dawuap.git)
+
+
