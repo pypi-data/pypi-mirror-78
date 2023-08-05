@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: steammanager
+Version: 0.5
+Summary: Steam Shortcut Manager
+Home-page: https://gitlab.com/avalonparton/steam-shortcut-manager
+Author: Avalon Parton
+Author-email: avalonlee@gmail.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: steamclient
+
+# Steam Shortcut Manager
+
+This is a script for adding non-steam shortcuts to Steam. Most of the work is done by the module [steamclient](https://gitlab.com/avalonparton/steam-client).
+
+## Installation
+
+The package is available on [PyPi](https://pypi.org/project/steamclient/) as `steammanager` and can be installed with pip.
+
+```bash
+pip install steammanager
+```
+
+## Usage
+
+Point the script at your installed games with the `--directory` flag.
+
+```
+$ python -m steammanager --help                                    
+usage: steammanager [-h] [--directory DIRECTORY] [--dry-run] [--clear-cache] [--vr] [--artwork] [--overwrite]
+
+Manage Steam Shortcuts
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --directory DIRECTORY
+                        location of installed game(s)
+  --dry-run             don't write any changes
+  --clear-cache         clears the app ID cache
+  --vr                  sets VR flag for all games
+  --artwork             gets official artwork from Steam
+  --overwrite           overwrite existing artwork files
+```
+
+# Example Output
+
+```console
+$ python -m steammanager --artwork --vr --directory "F:\Games\Pirated\VR\\"
+$ python -m steammanager --artwork --directory "F:\Games\Pirated\\" 
+...
+---------------------------
+Name: The Outer Worlds
+Exe: F:\Games\Pirated\The Outer Worlds\TheOuterWorlds.exe
+Getting artwork:
+header: https://steamcdn-a.akamaihd.net/steam/apps/578650/header.jpg
+grid: https://steamcdn-a.akamaihd.net/steam/apps/578650/library_600x900_2x.jpg
+logo: https://steamcdn-a.akamaihd.net/steam/apps/578650/logo.png
+---------------------------
+Name: The Witcher 3 Wild Hunt
+Exe: F:\Games\Pirated\The Witcher 3 Wild Hunt\bin\x64\witcher3.exe
+Getting artwork:
+header: https://steamcdn-a.akamaihd.net/steam/apps/292030/header.jpg
+grid: https://steamcdn-a.akamaihd.net/steam/apps/292030/library_600x900_2x.jpg
+logo: https://steamcdn-a.akamaihd.net/steam/apps/292030/logo.png
+=============================
+Done!
+Installed:
+ - 26 headers
+ - 25 grids
+ - 24 logos
+Skipped due to existing files (use --overwrite to bypass):
+ - 0 headers
+ - 1 grids
+ - 2 logos
+Failed: 0
+```
+
+
+![before](https://i.imgur.com/Q0gxwLS.png) ![after](https://i.imgur.com/AMIIRVj.png)
+
+
+## Deploying to PyPi
+
+```bash
+python -m pip install wheel twine
+python setup.py bdist_wheel
+python -m twine upload --skip-existing dist/*.whl
+```
+
+
+
+
