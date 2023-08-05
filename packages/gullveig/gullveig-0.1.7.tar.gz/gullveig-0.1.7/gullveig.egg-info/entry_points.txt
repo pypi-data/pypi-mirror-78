@@ -1,0 +1,6 @@
+[console_scripts]
+gullveig-agent = gullveig.agent.agent:main
+gullveig-server = gullveig.server.server:main
+gullveig-util = gullveig.util.util:main
+gullveig-web = gullveig.web.web:main
+
