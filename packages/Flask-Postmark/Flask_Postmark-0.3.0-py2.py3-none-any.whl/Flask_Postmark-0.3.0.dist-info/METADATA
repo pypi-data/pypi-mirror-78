@@ -1,0 +1,96 @@
+Metadata-Version: 2.1
+Name: Flask-Postmark
+Version: 0.3.0
+Summary: Postmark Flask extension
+Home-page: https://github.com/Stranger6667/Flask-Postmark
+Author: Dmitry Dygalo
+Author-email: dadygalo@gmail.com
+License: MIT
+Keywords: flask,postmark,email
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Communications :: Email
+Description-Content-Type: text/x-rst
+Requires-Dist: Flask
+Requires-Dist: postmarker (>=0.11.2)
+
+Flask Postmark
+==============
+
+|Build| |Coverage| |Version| |Python versions| |Docs| |License|
+
+This is a simple integration with `Postmark <https://postmarkapp.com/>`_ for Flask applications.
+
+Installation
+------------
+
+Installing is simple with pip::
+
+    $ pip install flask-postmark
+
+
+Usage
+-----
+
+To send an email in your Flask application:
+
+.. code-block:: python
+
+    from flask import Flask
+    from flask_postmark import Postmark
+
+    app = Flask(__name__)
+
+    app.config["POSTMARK_SERVER_TOKEN"] = "<replace with your server token>"
+
+    postmark = Postmark(app)
+
+
+    @app.route("/send", methods=["POST"])
+    def send():
+        postmark.send(
+            From="sender@example.com",
+            To="receiver@example.com",
+            Subject="Postmark test",
+            HtmlBody="<html><body><strong>Hello</strong> dear Postmark user.</body></html>",
+        )
+        return b"OK"
+
+Documentation
+=============
+
+You can view the documentation online at:
+
+- https://flask-postmark.readthedocs.io/en/latest/
+
+Or you can look at the docs/ directory in the repository.
+
+.. |Build| image:: https://github.com/Stranger6667/flask-postmark/workflows/build/badge.svg
+   :target: https://github.com/Stranger6667/flask-postmark/actions
+.. |Coverage| image:: https://codecov.io/github/Stranger6667/flask-postmark/coverage.svg?branch=master
+    :target: https://codecov.io/github/Stranger6667/flask-postmark?branch=master
+.. |Version| image:: https://img.shields.io/pypi/v/flask-postmark.svg
+   :target: https://pypi.org/project/flask-postmark/
+.. |Python versions| image:: https://img.shields.io/pypi/pyversions/flask-postmark.svg
+   :target: https://pypi.org/project/flask-postmark/
+.. |Docs| image:: https://readthedocs.org/projects/flask-postmark/badge/?version=stable
+   :target: https://flask-postmark.readthedocs.io/en/stable/?badge=stable
+   :alt: Documentation Status
+.. |License| image:: https://img.shields.io/pypi/l/flask-postmark.svg
+   :target: https://opensource.org/licenses/MIT
+
+
