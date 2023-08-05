@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: comcigan
+Version: 1.2.4
+Summary: Unofficial Comcigan API python wrapper
+Home-page: https://github.com/Team-IF/comcigan-py
+Author: Team IF
+Author-email: Coder-Iro@teamif.io
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+
+# comcigan-py
+[![Build Status](https://travis-ci.com/Team-IF/comcigan-py.svg?branch=master)](https://travis-ci.com/Team-IF/comcigan-py)
+
