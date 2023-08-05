@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+cmdlet/__init__.py
+cmdlet/cmdlet.py
+cmdlet/cmds.py
+cmdlet.egg-info/PKG-INFO
+cmdlet.egg-info/SOURCES.txt
+cmdlet.egg-info/dependency_links.txt
+cmdlet.egg-info/top_level.txt
+test/test_cmds.py
+test/test_import.py
+test/test_pipe.py
+test/test_sh.py
