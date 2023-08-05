@@ -1,0 +1,26 @@
+.c-sf-block__header {
+  cursor: pointer !important;
+}
+
+.c-sf-block__header__title {
+  white-space: unset !important;
+  flex: 1 !important;
+  font-size: small !important;
+}
+
+.c-sf-block__header__icon {
+  display: block !important;
+
+  .icon, .c-sf-block__type {
+    display: block !important;
+    text-align: center;
+  }
+}
+
+.cms-block-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+}

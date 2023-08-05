@@ -1,0 +1,25 @@
+{% extends 'webspace/cms/blocks/schemas/_schema.html' %}
+{% load wagtailcore_tags wagtailimages_tags my %}
+
+{% block json %}
+    {
+      "@context": "http://schema.org",
+      "@type": "HowTo",
+      "image": {
+        "@type": "ImageObject",
+        "url": "{% image page.feed_image fill-500x500 as img %}{{ img.url }}"
+      },
+      "name": "Quels sont les métiers de la Station Spatiale?",
+      "step":[
+        {% for job in page.get_children.specific.live %}
+        {
+            "@type": "HowToStep",
+            "name": "{{ job.title }}",
+            "text": "{{ job.search_description }}",
+            "image": "{{ job.svg_cover.url }}",
+            "url": "{% pageurl job %}"
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+{% endblock %}

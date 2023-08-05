@@ -1,0 +1,39 @@
+.tag-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 50px;
+
+  a {
+    text-decoration: none;
+  }
+
+  &.inline {
+    display: block;
+    min-height: 135px;
+    text-align: center;
+
+    .tag {
+      display: inline-block;
+    }
+  }
+
+  .tag {
+    border-radius: 30px;
+    padding: 5px 10px;
+    margin: 5px 1px;
+    overflow: hidden;
+
+    @include theme($themes) {
+      border: 1px solid t('colorP');
+      color: t('colorP');
+      background: t('uks');
+    }
+
+    &.checked {
+      border: 1px solid $color-2;
+      background: $color-2;
+    }
+  }
+}

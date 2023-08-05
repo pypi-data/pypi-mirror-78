@@ -1,0 +1,11 @@
+{% extends 'webspace/cms/blocks/_sizer.html' %}
+{% load my my_amp wagtailimages_tags %}
+
+{% block sizer_content %}
+    {% amp_img 'responsive' '500x500' %}
+        <img class="svg-img {% if block_num >= 2 %}lazy{% endif %}"
+             {% if block_num >= 2 %}data-src{% else %}src{% endif %}="{{ value.file.url }}"
+             alt="{% if alt %}{{ alt }}{% else %}{{ value.file.title }}{% endif %}"
+        />
+    {% endamp_img %}
+{% endblock %}

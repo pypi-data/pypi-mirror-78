@@ -1,0 +1,34 @@
+{% extends 'cms/blocks/_block.html' %}
+{% load wagtailcore_tags my my_amp %}
+
+{% block block_content %}
+    <div class="timeline-container">
+        {% for item in value.items %}
+            <div class="timeline-item {% if forloop.counter|divisibleby:2 != 0 %}right{% else %}left{% endif %} {% if value.animation and not amp %}animation fade-up{% endif %}">
+                <div class="timeline-marker">
+                    {% if item.value.icon %}
+                        {% amp_img %}
+                            <img loading="lazy" class="s-icon x1 nopad"
+                                 data-src="{{ item.value.icon|ico_snippet:value.theme }}"
+                                 alt="Icon {{ item.value.icon.key }}"/>
+                        {% endamp_img %}
+                    {% else %}
+                        <div class="market-dot"></div>
+                    {% endif %}
+                </div>
+                <div class="timeline-content">
+                    {% include_block item with theme=value.theme %}
+                    {% if item.value.buttons %}
+                        {% for button in item.value.buttons %}
+                            {% if forloop.counter|divisibleby:2 != 0 %}
+                                {% include_block button with space='l' %}
+                            {% else %}
+                                {% include_block button with space='r' %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

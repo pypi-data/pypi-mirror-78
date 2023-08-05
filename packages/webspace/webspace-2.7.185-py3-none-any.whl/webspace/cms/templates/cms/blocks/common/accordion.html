@@ -1,0 +1,30 @@
+{% load wagtailcore_tags my my_amp %}
+
+{% if request.user_agent.is_mobile %}
+        <div class="theme-{{ page.theme }}">
+        {% if amp %}<amp-sidebar id="sidebar1" layout="nodisplay" side="left">{% endif %}
+            <aside id="accordion" class="large">
+                <div class="accordion-header">
+                    <p class="accordion-title">Navigation</p>
+                    <div {% if amp %}tabindex="1" role="menu" on="tap:sidebar1.close"{% endif %} id="accordion-close" class="s-cursor">
+                        {% amp_img %}
+                            <img class="s-icon x1 nopad"
+                                 src="{{ icons.cross|ico:page.theme }}"
+                                 alt="Accordion"/>
+                        {% endamp_img %}
+                    </div>
+                </div>
+                <div class="accordion-nav">
+                    {% include 'cms/blocks/common/nav.html' with menus=page.header_menus %}
+                </div>
+                <div class="accordion-footer">
+                    <div class="btn-container s-center">
+                        {% for button in page.header_buttons %}
+                            {% include_block button %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </aside>
+        {% if amp %}</amp-sidebar>{% endif %}
+        </div>
+{% endif %}

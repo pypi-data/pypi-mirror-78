@@ -1,0 +1,38 @@
+{% load static wagtailcore_tags my my_amp %}
+
+<ul {% if click %}data-clicker{% endif %}>
+    <li class="first-li">
+        {% if click %}
+            <div class="s-flex-align">
+        {% endif %}
+        {% block menu_head %}
+            <p class="ul-title">{{ menu.value.title }}</p>
+        {% endblock %}
+        {% if click %}
+            {% amp_img %}
+                <img class="s-icon x0-5"
+                     alt="Angle"
+                     src="{{ icons.angle|ico:page.theme }}"
+                />
+            {% endamp_img %}
+            </div>
+        {% endif %}
+        <hr/>
+        <ul {% if click %}data-clicker-child{% endif %}>
+            {% block menu_for %}
+                {% for hmi in menu.value.menu_items.all %}
+                    <li class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                        <a href="
+                                {% if hmi.link_url %}{{ hmi.link_url }}{% else %}{% if hmi.link_page %}{% pageurl hmi.link_page %}{% endif %}{% endif %}"
+                                {% if hmi.open_in_new_tab %}
+                           target="_blank"
+                                {% endif %}
+                        >
+                            <p>{{ hmi.title }}</p>
+                        </a>
+                    </li>
+                {% endfor %}
+            {% endblock %}
+        </ul>
+    </li>
+</ul>

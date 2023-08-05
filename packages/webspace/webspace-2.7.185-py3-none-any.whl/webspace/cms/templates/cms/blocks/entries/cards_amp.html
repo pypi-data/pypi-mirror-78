@@ -1,0 +1,15 @@
+{% extends 'cms/blocks/_block.html' %}
+{% load wagtailcore_tags %}
+
+{% block block_theme_bg %}{% if value.theme_reverse and value.theme_reverse != value.theme %}{{ block.super }}-{{ value.theme_reverse }}{% else %}{{ block.super }}{% endif %}{% endblock block_theme_bg %}
+{% block theme %}{% if value.theme_content %}theme-{{ value.theme_content }}{% else %}theme-{{ value.theme }}{% endif %}{% endblock %}
+
+{% block block_content %}
+    <div class="cards-container {% if value.carousel %}amp-carousel{% else %}nocarousel{% endif %}">
+        {% if value.carousel %}<amp-carousel layout="responsive" width="100" height="1" type="carousel">{% endif %}
+            {% for card in value.cards %}
+                {% include_block card with theme=value.theme block_num=block_num carousel=value.carousel %}
+            {% endfor %}
+        {% if value.carousel %}</amp-carousel>{% endif %}
+    </div>
+{% endblock %}

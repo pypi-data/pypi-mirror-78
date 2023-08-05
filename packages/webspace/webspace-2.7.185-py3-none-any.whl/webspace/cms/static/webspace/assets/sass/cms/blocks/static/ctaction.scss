@@ -1,0 +1,57 @@
+.cta-container {
+  display: flex;
+
+  @include xs() {
+    display: block;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: unset;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cta-freelance, .cta-company {
+    flex: 1;
+    text-align: center;
+    height: 500px;
+
+    img {
+      width: 35%;
+      padding: 50px 50px 150px 50px;
+      @include xs() {
+        padding: 50px 0 150px 0;
+      }
+    }
+
+    amp-img {
+      width: 30%;
+      margin: auto;
+    }
+
+    @include theme($themes) {
+      background: t('uks');
+
+      border-top: 6px solid t('kaks');
+      border-left: 3px solid t('kaks');
+      border-right: 3px solid t('kaks');
+
+      &:hover {
+        background: t('kaks');
+      }
+    }
+
+    .rich-text-container {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @include xs() {
+        width: 100%;
+      }
+    }
+  }
+}
