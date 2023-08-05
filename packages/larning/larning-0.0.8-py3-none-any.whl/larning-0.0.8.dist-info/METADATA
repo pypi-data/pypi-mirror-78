@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: larning
+Version: 0.0.8
+Summary: larning
+Home-page: https://github.com/tasigabi97/larning
+Author: Tasnádi Gábor
+Author-email: tasi.gabi97@gmail.com
+License: MIT
+Keywords: larning
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Description-Content-Type: text/markdown
+Requires-Dist: twine
+Requires-Dist: pydantic
+Requires-Dist: sphinx
+Requires-Dist: setuptools
+Requires-Dist: black
+Requires-Dist: pytest
+Requires-Dist: wheel
+
+# larning
+
+
