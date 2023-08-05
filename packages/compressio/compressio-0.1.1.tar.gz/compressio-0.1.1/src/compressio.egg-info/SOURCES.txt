@@ -1,0 +1,44 @@
+.flake8
+.isort.cfg
+.pre-commit-config.yaml
+LICENSE
+MANIFEST.in
+Makefile
+README.md
+mypy.ini
+requirements.txt
+requirements_test.txt
+setup.py
+examples/notebooks/Compressio From Scratch.ipynb
+examples/notebooks/Compressio.ipynb
+examples/notebooks/Real-world dataset example.ipynb
+examples/notebooks/Sparse Data.ipynb
+examples/notebooks/pandas string type analysis.ipynb
+images/compressio.png
+images/notebook-example.png
+images/str-type-1.1.0.png
+images/logo/compressio-logos.jpeg
+images/logo/compressio-logos_black.png
+images/logo/compressio-logos_transparent.png
+images/logo/compressio-logos_transparent_banner.png
+images/logo/compressio-logos_white.png
+images/logo/details.txt
+src/compressio/__init__.py
+src/compressio/compress.py
+src/compressio/diagnostics.py
+src/compressio/formatter.py
+src/compressio/py.typed
+src/compressio/type_compressor.py
+src/compressio/typing.py
+src/compressio/utils.py
+src/compressio.egg-info/PKG-INFO
+src/compressio.egg-info/SOURCES.txt
+src/compressio.egg-info/dependency_links.txt
+src/compressio.egg-info/not-zip-safe
+src/compressio.egg-info/requires.txt
+src/compressio.egg-info/top_level.txt
+src/compressio/compression_algorithms/__init__.py
+src/compressio/compression_algorithms/type_compressions.py
+tests/test_compression_algorithms.py
+tests/test_compression_func_default.py
+tests/test_compression_func_sparse.py
