@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: megaqc
+Version: 0.2.0
+Summary: Collect and visualise data across multiple MultiQC runs
+Home-page: https://megaqc.info/
+Author: Phil Ewels
+Author-email: phil.ewels@scilifelab.se
+License: GPLv3
+Download-URL: https://github.com/ewels/MegaQC/releases
+Keywords: bioinformatics,biology,sequencing,NGS,next generation sequencing,quality control
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: JavaScript
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Dist: argon2-cffi (~=16.3)
+Requires-Dist: click (~=5.0)
+Requires-Dist: Flask-APScheduler (~=1.7)
+Requires-Dist: Flask-Caching (~=1.0)
+Requires-Dist: Flask-DebugToolbar (~=0.10)
+Requires-Dist: Flask-Login (~=0.5)
+Requires-Dist: Flask-SQLAlchemy (~=2.2)
+Requires-Dist: Flask-WTF (~=0.14)
+Requires-Dist: Flask (~=1.0)
+Requires-Dist: future (~=0.16)
+Requires-Dist: itsdangerous (~=0.24)
+Requires-Dist: Jinja2 (~=2.9)
+Requires-Dist: markdown (~=2.6)
+Requires-Dist: multiqc (~=1.3)
+Requires-Dist: numpy (~=1.14)
+Requires-Dist: passlib (~=1.7)
+Requires-Dist: plotly (~=2.0)
+Requires-Dist: pyyaml (~=5.1)
+Requires-Dist: SQLAlchemy (~=1.1)
+Requires-Dist: Werkzeug (~=0.14)
+Requires-Dist: WTForms[email] (~=2.1)
+Requires-Dist: flask-restful (~=0.3)
+Requires-Dist: flask-marshmallow (~=0.10)
+Requires-Dist: marshmallow (~=3.0)
+Requires-Dist: marshmallow-sqlalchemy (~=0.17)
+Requires-Dist: flask-uploads (~=0.2)
+Requires-Dist: marshmallow-jsonapi (~=0.21)
+Requires-Dist: outlier-utils (~=0.0.3)
+Requires-Dist: webargs (~=5.5)
+Requires-Dist: querystring-parser (~=1.2)
+Requires-Dist: scipy (~=1.3)
+Requires-Dist: flatten-json (~=0.1)
+Requires-Dist: flapison (~=0.30)
+Requires-Dist: Flask-Migrate (~=2.5)
+Provides-Extra: deploy
+Requires-Dist: wheel (~=0.30) ; extra == 'deploy'
+Provides-Extra: dev
+Requires-Dist: pytest (~=3.0) ; extra == 'dev'
+Requires-Dist: WebTest (~=2.0) ; extra == 'dev'
+Requires-Dist: factory-boy (~=2.12) ; extra == 'dev'
+Requires-Dist: livereload (~=2.5) ; extra == 'dev'
+Requires-Dist: flake8 (~=3.7) ; extra == 'dev'
+Requires-Dist: flake8-blind-except (~=0.1) ; extra == 'dev'
+Requires-Dist: flake8-debugger (~=3.1) ; extra == 'dev'
+Requires-Dist: flake8-docstrings (~=1.3) ; extra == 'dev'
+Requires-Dist: isort[pyproject] (~=4.3) ; extra == 'dev'
+Requires-Dist: pep8-naming (~=0.8) ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Provides-Extra: prod
+Requires-Dist: psycopg2 (~=2.6) ; extra == 'prod'
+Requires-Dist: gunicorn (~=19.7) ; extra == 'prod'
+
+
+MegaQC is a web application that collects results from multiple runs of MultiQC
+and allows bulk visualisation.
+
+See the MultiQC website for installation instructions and documentation: https://megaqc.info/
+
+MegaQC was written by Phil Ewels (http://phil.ewels.co.uk) and Denis Moreno at SciLifeLab Sweden (http://www.scilifelab.se)
+
+
