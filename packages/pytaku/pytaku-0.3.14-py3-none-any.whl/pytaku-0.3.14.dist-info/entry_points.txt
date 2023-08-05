@@ -1,0 +1,7 @@
+[console_scripts]
+pytaku=pytaku:serve
+pytaku-dev=pytaku:dev
+pytaku-generate-config=pytaku:generate_config
+pytaku-migrate=pytaku:migrate
+pytaku-scheduler=pytaku:scheduler
+
