@@ -1,0 +1,4 @@
+[console_scripts]
+WebDeploy-django = WebDeploy.scripts.runner:deploy_django
+WebDeploy-flask = WebDeploy.scripts.runner:deploy_flask
+
