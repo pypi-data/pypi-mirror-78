@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: nmeasim
+Version: 0.0.1.0
+Summary: A Python GNSS/NMEA receiver simulation
+Home-page: https://gitlab.com/nmeasim/nmeasim
+Author: Wei Li Jiang
+Author-email: wjiang87@gmail.com
+License: MIT
+Keywords: gnss glonass gps nmea simulator
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Requires-Dist: pyserial
+Requires-Dist: geographiclib
+Requires-Dist: importlib.metadata ; python_version < "3.8"
+
+UNKNOWN
+
+
