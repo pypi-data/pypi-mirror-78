@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: cs3apis
+Version: 0.1.dev38
+Summary: CS3 API client for Python
+Home-page: https://github.com/cs3org/python-cs3apis
+Author: CS3 Organization
+Author-email: contact@cs3community.org
+License: UNKNOWN
+Description: # CS3APIS for Python
+        
+        API definitions can be found at https://github.com/cs3org/cs3apis
+        
+        ## Install with pip
+        
+        ```bash
+        pip install cs3apis
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
