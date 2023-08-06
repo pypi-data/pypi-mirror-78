@@ -1,0 +1,3 @@
+class CreatorOwnerModelMixin:
+
+    pass
