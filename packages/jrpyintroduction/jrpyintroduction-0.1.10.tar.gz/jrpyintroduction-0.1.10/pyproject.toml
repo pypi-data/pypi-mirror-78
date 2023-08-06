@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "jrpyintroduction"
+description = "Jumping Rivers: Introduction to Python"
+version = "0.1.10"
+authors = ["Jamie <jamie@jumpingrivers.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.5"
+pandas = ">=0.23"
+numpy = ">=1.14.4"
+matplotlib = ">=3.0"
+
+[tool.poetry.dev-dependencies]
