@@ -1,0 +1,40 @@
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "click-skeleton"
+version = "0.2.3"
+description = "Click app skeleton"
+authors = ["Adrien Pensart"]
+
+[tool.poetry.dependencies]
+python = ">=3.6,<4.0"
+click-completion = "^0.5.0"
+click-didyoumean = "^0.0.3"
+click-option-group = "^0.5.1"
+click-help-colors = "^0.8"
+click-aliases = "^1.0.1"
+pytest = "^6.0.1"
+click = "^7.1.2"
+colorama = "^0.4.3"
+pytest-click = "^1.0.2"
+
+[tool.poetry.dev-dependencies]
+pytest-cov = "^2.10.1"
+pylint = "^2.6.0"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov-report term-missing:skip-covered --cov-report html --disable-pytest-warnings --durations=0 --cov click_skeleton -s"
+
+[tool.pylint.master]
+jobs = 4
+[tool.pylint.messages_control]
+disable = """
+disable=too-few-public-methods,logging-format-interpolation,line-too-long,too-many-arguments,protected-access,missing-docstring,invalid-name,too-many-public-methods,too-many-instance-attributes,duplicate-code,too-many-nested-blocks,too-many-branches,too-many-return-statements,too-many-statements,too-many-locals,too-few-public-methods,too-many-ancestors,abstract-method,anomalous-backslash-in-string,import-outside-toplevel,redefined-outer-name,unnecessary-lambda,c-extension-no-member,logging-fstring-interpolation
+"""
+
+[tool.dephell.main]
+from = {format = "poetry", path = "pyproject.toml"}
+to = {format = "setuppy", path = "setup.py"}
