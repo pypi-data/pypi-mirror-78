@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: parsevasp
+Version: 1.1.1
+Summary: A general parser for VASP
+Home-page: https://github.com/aiida-vasp/parsevasp
+Author: Espen Flage-Larsen
+Author-email: espen.flage-larsen@sintef.no
+License: MIT
+Keywords: VASP,parser,python,xml
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Requires-Dist: numpy
+Requires-Dist: lxml
+Requires-Dist: six
+Requires-Dist: future
+Requires-Dist: pyyaml
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: click ; extra == 'dev'
+
+=============================
+Parsevasp - a parser for VASP
+=============================
+
+.. image:: https://img.shields.io/pypi/v/parsevasp
+
+.. image:: https://img.shields.io/pypi/pyversions/parsevasp
+
+.. image:: https://github.com/aiida-vasp/parsevasp/workflows/parsevasp/badge.svg
+  :target: https://github.com/aiida-vasp/parsevasp/actions
+
+.. image:: https://codecov.io/gh/espenfl/aiida-vasp/branch/develop/graph/badge.svg
+  :target: https://codecov.io/gh/espenfl/aiida-vasp
+
+
+A parser for VASP using lxml or fallback elementTree.
+
+
