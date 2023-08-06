@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: shublang
+Version: 0.2.2
+Summary: Shublang - Data Extraction DSL
+Home-page: https://github.com/scrapinghub/shublang
+Author: Akshay Philar
+Author-email: akshayphilar@gmail.com
+License: BSD
+Platform: Any
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Requires-Dist: pipe (>=1.5.0)
+Requires-Dist: jmespath (>=0.9.4)
+Requires-Dist: w3lib (>=1.21.0)
+Requires-Dist: parsel (>=1.5.2)
+Requires-Dist: dateparser (>=0.7.2)
+Requires-Dist: price-parser (>=0.3.2)
+
+UNKNOWN
+
+
