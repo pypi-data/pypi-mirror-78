@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: lykkelledatahandler
+Version: 0.1.6
+Summary: Modules pertaining to exception handling and overrides
+Home-page: https://dev.azure.com/lykkelle/Lykkelle/_git/Lykkellescripts
+Author: Lykkelle Inc
+Author-email: admin@lykkelle.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+This is package that contains all modules related to exception handling and override handling
+Contents:
+    1. exception - region specific exception handlers
+    2.  overides - override solutions
+
+
+
