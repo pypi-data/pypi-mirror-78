@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: jp2tiff
+Version: 0.0.2
+Summary: convert jp2 raster to tiff raster 
+Home-page: https://github.com/SaifAati/Jp2toTiff.git
+Author: Saif Aati
+Author-email: saif@caltech.edu, saifaati@gmail.com
+License: UNKNOWN
+Description: # jp2totiff - Convert jpeg2000 raster to tiff raster 
+        
+        Python implementation to convert jp2 raster images typically from Sentienl-2 satellite platform to tiff raster.
+        
+        [Saif Aati](mailto:saif@caltech.edu)
+            - saif@caltech.edu
+            - saifaati@gmail.com
+        
+        `jp2totiff` is a Python library and command line tool for converting jp2 raster to tiff reasters. 
+        Its main source code repository is https://github.com/SaifAati/JP2toTiff.git.
+        
+        
+        # Installation
+        
+        To install `jp2totiff` from PyPI:
+        
+            pip install jp2totiff
+        
+        Alternatively, to install `jp2totiff` from sources:
+        
+            git clone https://github.com/SaifAati/JP2toTiff.git
+            cd JP2totiff
+            pip install -e .
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
