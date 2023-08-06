@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: wolk
+Version: 0.9.1
+Summary: Better os.walk
+Home-page: https://github.com/rec/wolk
+Author: Tom Ritchford
+Author-email: tom@swirly.com
+License: MIT
+Description: 🚶 wolk: a better os.path.walk 🚶
+        -------------------------------------
+        
+        Drop-in substitute for ``os.path.walk()`` with additional features:
+        
+        * Walks over multiple roots
+        
+        * Yields ``pathlib.Path()`` and not ``str``
+        
+        * Yields full absolute paths by default
+        
+        * Can exclude or include files flexibly by pattern or function
+        
+        * Excludes dotfiles by default
+        
+        * Two special patterns to match all files in a Python project,
+          or all Python sound files, are included
+        
+        The last one is really useful because Python tends to leave all sorts of copies
+        of your code in directories like ``build/``, ``dist/`` or ``*.egg/``.
+        
+Keywords: os.walk
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
