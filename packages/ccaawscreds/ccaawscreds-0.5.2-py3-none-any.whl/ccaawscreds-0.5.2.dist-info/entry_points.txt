@@ -1,0 +1,5 @@
+[console_scripts]
+awskey=ccaawscreds.credentials:awsK
+awspw=ccaawscreds.credentials:awsPW
+genpw=ccaawscreds.credentials:genPW
+
