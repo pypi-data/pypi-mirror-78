@@ -1,0 +1,18 @@
+name: t_protocol
+author: fetchai
+version: 0.1.0
+type: protocol
+description: A protocol for testing purposes.
+license: Apache-2.0
+aea_version: '>=0.6.0, <0.7.0'
+fingerprint:
+  __init__.py: QmTwLir2v2eYMkDeUomf9uL1hrQhjzVTTqrQwamGG5iwn4
+  custom_types.py: QmVboXL98TzRtreCRMrCF3U9xjRGRkGJjNgDBTAm5GXyLq
+  dialogues.py: QmVUoaW4CNgjZNy6PzmQrSYTCdeWQERsQR5maXhD9cd6HF
+  message.py: QmS3NcTMgbDx1ZkXkzwfiML26LU9FPfgjg2XznpL8wueQR
+  serialization.py: QmcS33k6rHgCCkhBuQ5kiXVKFMxxEzcZManshPD51MEHbw
+  t_protocol.proto: QmRuYvnojwkyZLzeECH3snomgoMJTB3m48yJiLq8LYsVb8
+  t_protocol_pb2.py: QmXrSgBBJCj8hbGCynKrvdkSDohQzHLPBA2vi5hDHmaGid
+fingerprint_ignore_patterns: []
+dependencies:
+  protobuf: {}
