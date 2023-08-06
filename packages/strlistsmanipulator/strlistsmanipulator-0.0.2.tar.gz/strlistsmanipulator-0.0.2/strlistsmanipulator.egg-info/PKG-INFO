@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: strlistsmanipulator
+Version: 0.0.2
+Summary: A package to modify lists of string
+Home-page: https://bitbucket.org/AnnaFabris/string-list-manipulator
+Author: Anna Fabris
+Author-email: anna.fabris@studio.unibo.com
+License: UNKNOWN
+Description: # String list manipulator
+        
+        A python library developed to substitute entities in a longer text.
+        Its most important function are used to:
+          - Modify elements in a string list to be 'abc_def' from 'Abc def'
+          - Substitute the match in the message with the first not empty element of another list (each letter alternated with a '-')
+          - Delete nth element in all lists if the nth elements of a particular list is true when evaluated with a custom condition
+        
+        ### Installation
+        The best way to install is to use pip:
+        ```sh
+        $ pip install strlistsmanipulator
+        ```
+        Other information on how to install: https://packaging.python.org/tutorials/installing-packages/#installing-from-pypi
+        ### License
+        MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
