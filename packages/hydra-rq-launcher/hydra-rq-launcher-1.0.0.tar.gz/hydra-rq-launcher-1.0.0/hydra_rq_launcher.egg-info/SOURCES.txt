@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+hydra_plugins/hydra_rq_launcher/__init__.py
+hydra_plugins/hydra_rq_launcher/_core.py
+hydra_plugins/hydra_rq_launcher/config.py
+hydra_plugins/hydra_rq_launcher/rq_launcher.py
+hydra_rq_launcher.egg-info/PKG-INFO
+hydra_rq_launcher.egg-info/SOURCES.txt
+hydra_rq_launcher.egg-info/dependency_links.txt
+hydra_rq_launcher.egg-info/requires.txt
+hydra_rq_launcher.egg-info/top_level.txt
