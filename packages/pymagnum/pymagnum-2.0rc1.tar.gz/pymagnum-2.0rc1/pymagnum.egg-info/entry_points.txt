@@ -1,0 +1,4 @@
+[console_scripts]
+magdump = magnum.magdump:main
+magtest = magnum.magtest:main
+
