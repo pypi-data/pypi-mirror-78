@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: generateme
+Version: 0.1.2
+Summary: Flask application to generate images with Generative Adversarial networks
+Home-page: https://github.com/Nikolay1499/GenerateMe
+Author: Nikolay Valkov
+Author-email: nikolay1499@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: flask
+Requires-Dist: gevent
+Requires-Dist: numpy
+Requires-Dist: Pillow
+Requires-Dist: matplotlib
+Requires-Dist: future
+
+A Flask application that uses different implementations of Generative adversarial networks to simulate the improvement of quality. Currently there is GAN and DCGAN.StyleGAN 2 is currently being worked on. The GANs are PyTorch Generator neural networks that save the image.
+
+
