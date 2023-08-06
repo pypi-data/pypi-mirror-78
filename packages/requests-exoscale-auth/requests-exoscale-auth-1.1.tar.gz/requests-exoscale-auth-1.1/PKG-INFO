@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: requests-exoscale-auth
+Version: 1.1
+Summary: Exoscale APIs support for Python-Requests.
+Home-page: https://github.com/exoscale/requests-exoscale-auth
+Author: Exoscale
+Author-email: UNKNOWN
+License: BSD
+Description: Requests-exoscale-auth
+        ======================
+        
+        Exoscale APIs support for Python-Requests.
+        
+        Installation::
+        
+            pip install requests-exoscale-auth
+        
+        Usage:
+        
+        .. code-block:: python
+        
+            import requests
+            from exoscale_auth import ExoscaleAuth
+        
+            auth = ExoscaleAuth('my-key', 'my-secret')
+            response = requests.get('https://portal.exoscale.com/api/account',
+                                    auth=auth)
+        
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
