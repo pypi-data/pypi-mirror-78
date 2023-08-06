@@ -1,0 +1,8 @@
+include *.txt
+recursive-include tests *.py
+
+# added by check_manifest.py
+recursive-include src *.csv
+
+# added by check_manifest.py
+recursive-include data *.csv
