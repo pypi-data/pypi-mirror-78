@@ -1,0 +1,99 @@
+Metadata-Version: 2.1
+Name: xy-cli
+Version: 0.5
+Summary: xy command tools
+Home-page: https://github.com/exiahuang/xy-cli
+Author: exiahuang
+Author-email: exia.huang@outlook.com
+License: Apache License 2.0
+Keywords: xy-cli command line
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: xlrd
+Provides-Extra: tests
+Requires-Dist: mock ; extra == 'tests'
+Requires-Dist: nose ; extra == 'tests'
+Requires-Dist: coverage ; extra == 'tests'
+Requires-Dist: yanc ; extra == 'tests'
+Requires-Dist: preggy ; extra == 'tests'
+Requires-Dist: tox ; extra == 'tests'
+Requires-Dist: ipdb ; extra == 'tests'
+Requires-Dist: coveralls ; extra == 'tests'
+Requires-Dist: sphinx ; extra == 'tests'
+
+# xy-cli
+
+[exiahuang/xy-cli](https://github.com/exiahuang/xy-cli) is a xy command tools.
+
+# install
+
+## install from pip
+
+```sh
+pip3 install xy-cli
+```
+
+## install from git
+
+```sh
+git clone https://github.com/exiahuang/xy-cli
+python3 setup.py install
+```
+
+## green install
+
+```sh
+xy_cli=`pwd`
+export PYTHONPATH="$xy_cli:$PYTHONPATH"
+python3 -m xy_cli
+```
+
+
+# Usage
+
+```
+xy clone -f from_directory -t to_directory -d DATA1=NewData1 DATA2=NewData2 DATA3=NewData3
+```
+
+
+# package
+
+```sh
+python3 setup.py sdist
+python3 setup.py bdist_wininst
+```
+
+## py2exe build windows exe
+
+```sh
+py -3.4 -m venv .py34
+.py34\Scripts\activate.bat
+# python -m pip install --upgrade pip
+pip install py2exe setuptools
+pip install requests XlsxWriter
+python -V
+python setup.py py2exe
+```
+
+# Acknowledgement
+
+## Basic on OpenSource
+
+# history
+
+- 2020/08/30 init project
+
