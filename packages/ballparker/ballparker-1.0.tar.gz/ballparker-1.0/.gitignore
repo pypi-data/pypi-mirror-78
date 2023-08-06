@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2020, Collabora, Ltd.
+# SPDX-License-Identifier: CC0-1.0
+
+.mypy_cache
+.pytest_cache
+.tox
+.vscode
+__pycache__/
+*.egg-info
+venv/
+*.pyc

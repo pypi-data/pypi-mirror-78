@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2020 Collabora, Ltd. and the Ballparker contributors
+
+.shared:
+  image: python:3.$PYTHON_MINOR
+  script:
+    - apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tox
+    - python3 -m pip install pytest-cov
+    - python3 -m pip install -r requirements-dev.txt
+    - tox -e py3$PYTHON_MINOR
+    - pytest --cov=ballparker
+
+python-3.6:
+  variables:
+    PYTHON_MINOR: 6
+  extends: .shared
+
+python-3.7:
+  variables:
+    PYTHON_MINOR: 7
+  extends: .shared
+
+python-3.8:
+  variables:
+    PYTHON_MINOR: 8
+  extends: .shared
+
+linting:
+  image: python:3.7
+  script:
+    - apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tox
+    - python3 -m pip install flake8
+    - flake8 ballparker/*.py
+    - tox -e codespell
+    - tox -e mypy
+
+reuse:
+  image:
+    name: fsfe/reuse:latest
+    entrypoint: [""]
+  script:
+    - reuse lint
+
+sphinx:
+  image: python:3.7
+  script:
+    - python3 -m pip install -r requirements.txt && python3 -m pip install -r docs/requirements.txt
+    - make -C docs
+
