@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: armcor
+Version: 0.2
+Summary: ArmCor is a Python library for detecting and correcting OCR errors for Armenian texts.
+Home-page: UNKNOWN
+Author: Shahane Tigranyan, Tsolak Ghukasyan
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: googledrivedownloader (==0.4)
+Requires-Dist: sparse (==0.10.0)
+Requires-Dist: Keras (==2.4.0)
+Requires-Dist: tensorflow (==2.3.0)
+Requires-Dist: scikit-learn (==0.22.2)
+
+# ArmCor
+
+ArmCor is a Python library for detecting and correcting OCR errors for Armenian texts.
+
+## Installation
+
+```bash
+pip install armcor
+```
+
+## Usage
+
+```python
+from armcor import ocr
+ocr.detect_errors(tokens) # returns list of labels, 
+                             # 1 if word contains OCR errors, and 0 otherwise
+ocr.correct_errors(tokens, labels) # returns list of corrected words
+
+
+
+
+
+
+
+
