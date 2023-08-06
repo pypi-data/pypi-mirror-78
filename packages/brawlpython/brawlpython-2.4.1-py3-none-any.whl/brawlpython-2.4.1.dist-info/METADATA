@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: brawlpython
+Version: 2.4.1
+Summary: Easy-to-configure library to use any Brawl Stars API
+Home-page: https://github.com/0dminnimda/brawlpython
+Author: 0dminnimda
+Author-email: 0dminnimda.contact@gmail.com
+License: MIT
+Project-URL: Say Thanks!, https://saythanks.io/to/0dminnimda%40gmail.com
+Project-URL: Bug tracker, https://github.com/0dminnimda/brawlpython/issues
+Project-URL: Code examples, https://github.com/0dminnimda/brawlpython/tree/master/examples
+Keywords: brawl stars, brawl stars api, brawlstars,supercell, brawl, stars, api,brawlpython, python, async, aiohttp, sync, requests,
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Natural Language :: English
+Classifier: Topic :: Games/Entertainment :: Real Time Strategy
+Classifier: Topic :: Internet :: WWW/HTTP :: Session
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: ~=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests (~=2.24.0)
+Requires-Dist: aiohttp (~=3.6.2)
+Requires-Dist: cachetools (~=4.1.1)
+Requires-Dist: pyformatting (~=0.2.1)
+
+# brawlpython
+
+[![PyPi][pypi img]][pypi link]
+![Supported Versions][versions img]
+[![License][license img]][license link]
+[![Wheel][wheel img]][wheel link]
+[![Coverage Status][cov img]][cov link]
+[![Say Thanks!][thanks img]][thanks link]
+
+
+Easy-to-configure library to use any Brawl Stars API
+
+[Source on github][github link]
+
+Documentation coming soon
+
+[Read code examples][examples link]
+
+
+[pypi img]: https://img.shields.io/pypi/v/brawlpython.svg?style=plastic
+[thanks img]: https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg?style=plastic
+[license img]: https://img.shields.io/pypi/l/brawlpython?style=plastic
+[versions img]: https://img.shields.io/pypi/pyversions/brawlpython.svg?style=plastic
+[wheel img]: https://img.shields.io/pypi/wheel/brawlpython?style=plastic
+[cov img]: https://coveralls.io/repos/github/0dminnimda/brawlpython/badge.svg?branch=master
+
+[pypi link]: https://pypi.org/project/brawlpython
+[thanks link]: https://saythanks.io/to/0dminnimda.contact%40gmail.com
+[license link]: https://github.com/0dminnimda/brawlpython/blob/master/LICENSE
+[wheel link]: https://pypi.org/project/brawlpython/#files
+[github link]: https://github.com/0dminnimda/brawlpython
+[examples link]: https://github.com/0dminnimda/brawlpython/tree/master/examples
+[cov link]: https://coveralls.io/github/0dminnimda/brawlpython?branch=master
+
+
