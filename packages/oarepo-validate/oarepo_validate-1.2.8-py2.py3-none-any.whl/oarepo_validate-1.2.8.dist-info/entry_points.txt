@@ -1,0 +1,3 @@
+[flask.commands]
+oarepo:validate = oarepo_validate.cli:validate
+
