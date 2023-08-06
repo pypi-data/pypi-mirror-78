@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: ettuparser
+Version: 1.2
+Summary: This package parses ETTU site for mass transit schedule.
+Home-page: https://github.com/petruccinator3000/ETTUParser
+Author: Djentelman
+Author-email: djentelman@fjandinn.ml
+License: UNKNOWN
+Description: # ETTUParser
+        
+        *DISCLAIMER: Корректная работа модуля не гарантируется, так как возможны ~~изменения сайта ETTU~~ второе пришествие и судный день.*
+        
+        This project parses ETTU(Ekaterinburg Tram and Trolley Administration) site for mass transit schedule. 
+        
+        Этот проект парсит сайт ЕТТУ(Екатеринбургское трамвайно-троллейбусное управление) на предмет времени до прибытия троллейбуса/трамвая на остановку.
+        
+        *The documentation for this repository is written in Russian, cause a problem that this project solves is applicable only to Yekaterinburg.*
+        
+        ## Установка
+        `pip install ettuparser`
+        ## Использование
+        Данный модуль зависит от `lxml` и `pandas`.
+        
+        Единственной функцией данного модуля(на данный момент) является `ettuparser.parseStation(stationID)`. Параметр `stationID` можно взять из URL остановки, информацию о которой требуется получить. К примеру: ht<span>tps://</span>mobile.ettu.ru/station/***3431*** ~~(на разных остановках разное количество символов, возможно, зависит от вида транспорта)~~ (неважно). Возвращает данная функция `pandas.DataFrame`.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
