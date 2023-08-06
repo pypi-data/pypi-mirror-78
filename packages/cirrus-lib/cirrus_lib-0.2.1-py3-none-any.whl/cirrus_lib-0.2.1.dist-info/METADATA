@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: cirrus-lib
+Version: 0.2.1
+Summary: Cirrus Library
+Home-page: https://github.com/cirrus-geo/cirrus-lib.git
+Author: Matthew Hanson (matthewhanson), Element 84
+Author-email: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: boto3-utils (~=0.3.1)
+Requires-Dist: pystac (==0.5.0-RC1)
+Requires-Dist: requests (>=2.24.0)
+
+UNKNOWN
+
+
