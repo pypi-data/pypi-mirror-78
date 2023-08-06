@@ -1,0 +1,21 @@
+include README.md
+include requirements.txt
+include LICENSE
+include CHANGELOG
+include pyproject.toml
+include settings.py
+
+recursive-include src/c_lib/include *
+recursive-include src/c_lib/lib *
+
+include src/mrsimulator/spin_system/isotope_data.json
+include src/mrsimulator/methods/methods_data.json
+
+include src/c_lib/base/base_model.pxd
+include src/c_lib/base/base_model.pyx
+
+include src/c_lib/test/test.pxd
+include src/c_lib/test/test.pyx
+
+include src/c_lib/sandbox/sandbox.pxd
+include src/c_lib/sandbox/sandbox.pyx
