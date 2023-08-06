@@ -1,0 +1,6 @@
+[console_scripts]
+securetea = securetea.entry_points.securetea_core_ep:run_core
+securetea-iot = securetea.entry_points.iot_ep:start_iot_process
+securetea-server = securetea.entry_points.server_ep:start_server_process
+securetea-system = securetea.entry_points.system_ep:start_system_process
+
