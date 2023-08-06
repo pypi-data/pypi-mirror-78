@@ -1,0 +1,30 @@
+{% if url %}
+    <a href="{{ url }}"
+{% else %}
+    <div
+{% endif %}
+    class="kt-media
+    {% if size == 'sm' %}
+    kt-media--sm
+    {% elif size == 'md' %}
+    {% elif size == 'lg' %}
+    kt-media--lg
+    {% elif size == 'xl' %}
+    kt-media--xl
+    {% if circle %}
+    kt-media--circle
+    {% endif %}
+    {% if label %}
+    kt-media--{{ color }}
+    {% endif %}
+    ">
+    {% if image %}
+        <img src="{{ image }}" alt="image">
+    {% else %}
+        <span> {{ label }} </span>
+    {% endif %}
+{% if url %}
+    </a>
+{% else %}
+    </div>
+{% endif %}

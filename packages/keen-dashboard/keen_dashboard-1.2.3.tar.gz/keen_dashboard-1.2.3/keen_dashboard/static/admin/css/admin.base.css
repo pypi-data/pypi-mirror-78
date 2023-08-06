@@ -1,0 +1,31 @@
+.no-footer {
+    margin-bottom: 3rem;
+}
+
+.kt-header .kt-header__top {
+    height: 70px !important;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-active {
+    color: #5867dd !important;
+}
+
+a.app-card-admin,
+a.app-card-admin:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-card-admin:hover {
+    opacity: 0.8;
+    background-color: #f8f8fa;
+    text-decoration: none;
+}
+
+.app-card-admin {
+    text-decoration: none;
+}

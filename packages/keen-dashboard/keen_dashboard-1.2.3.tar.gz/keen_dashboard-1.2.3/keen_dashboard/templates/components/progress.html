@@ -1,0 +1,21 @@
+<div class="progress">
+    <div class="progress-bar
+    {% if not color %}
+         {% if percentage > 80 %}
+         bg-success
+         {% elif percentage > 50 %}
+         bg-info
+         {% elif percentage > 25 %}
+         bg-warning
+         {% else %}
+         bg-danger
+         {% endif %}
+     {% else %}
+        {{ color }}
+     {% endif %}
+     progress-bar-striped progress-bar-animated progress-sm"
+     role="progressbar" aria-valuenow="{{ percentage }}" aria-valuemin="0"
+     aria-valuemax="100" style="width: {{ percentage }}%">
+        {{ percentage }} %
+    </div>
+</div>

@@ -1,0 +1,39 @@
+{% load i18n static %}
+{% if cl.search_fields %}
+    <div id="toolbar" class="d-inline-flex mt-auto">
+    {% if show_result_count %}
+            <span class="kt-font-bold mr-3 text-sm-center small" id="result-count-list">
+                <i class="fas fa-list-ol text-dark"></i>
+                {% blocktrans count counter=cl.result_count %}
+                    {{ counter }} Resultado
+                {% plural %}
+                    {{ counter }} Resultados
+                {% endblocktrans %}<br>
+                (<a href="?{% if cl.is_popup %}_popup=1
+                {% endif %}">
+                {% if cl.show_full_result_count %}
+                    {% blocktrans with full_result_count=cl.full_result_count %}
+                        {{ full_result_count }} total
+                    {% endblocktrans %}
+                {% else %}
+                    {% trans "Show all" %}
+                {% endif %}</a>)
+            </span>
+            {% endif %}
+
+        <form id="changelist-search" method="get" class="d-flex">
+
+            <input type="text" class="form-control" size="20" name="{{ search_var }}" value="{{ cl.query }}"
+                   id="searchbar" autofocus placeholder="Buscar...">
+            <i id="search-icon" class="fas fa-search"></i>
+
+            <input class="btn btn-primary" type="submit" value="{% trans 'Search' %}">
+
+            {% for pair in cl.params.items %}
+                {% if pair.0 != search_var %}
+                    <input type="hidden" name="{{ pair.0 }}" value="{{ pair.1 }}">
+                {% endif %}
+            {% endfor %}
+        </form>
+    </div>
+{% endif %}

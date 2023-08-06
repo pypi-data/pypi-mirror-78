@@ -1,0 +1,9 @@
+<div class="input-group date">
+    <input name="{{ widget.name }}" {% if widget.value %}value="{{ widget.value }}"{% endif %}
+            datepicker-br="true" type="text" {% include 'django/forms/widgets/attrs.html' %}>
+    <div class="input-group-append">
+        <span class="input-group-text">
+            <i class="la la-calendar glyphicon-th"></i>
+        </span>
+    </div>
+</div>

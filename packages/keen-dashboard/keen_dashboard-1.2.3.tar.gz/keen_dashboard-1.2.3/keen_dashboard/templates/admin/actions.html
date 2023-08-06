@@ -1,0 +1,54 @@
+{% load i18n admin_utils %}
+
+<div class="m-3" id="actions-container">
+
+    {% block actions-form %}
+        {% for field in action_form %}
+            {% if field.label %}
+                <label class="kt-font-bold p-1">
+                {{ field.label }}
+                <i class="flaticon2-information" data-toggle="kt-tooltip" data-placement="right" title=""
+                   data-original-title="Essa ação é aplicada a todos os registro selecionados">
+                </i>
+            {% endif %}
+                {{ field | addclass:"form-control mt-1" }}
+            {% if field.label %}
+                </label>
+            {% endif %}
+        {% endfor %}
+    {% endblock %}
+
+    {% block actions-submit %}
+        <button type="submit" class="btn btn-label-brand btn-bold"
+                title="{% trans "Run the selected action" %}"
+                name="index" value="{{ action_index|default:0 }}">
+            Aplicar
+        </button>
+    {% endblock %}
+
+    {% block actions-counter %}
+        {% if actions_selection_counter %}
+            <div class="actions d-inline">
+                <span class="action-counter kt-font-bold ml-2"
+                      data-actions-icnt="{{ cl.result_list|length }}">
+                    {{ selection_note }}
+                </span>
+                {% if cl.result_count != cl.result_list|length %}
+                    <span class="all kt-font-bold ml-2" style="display: none;">{{ selection_note_all }}</span>
+                    <span class="question kt-font-bold ml-2" style="display: none;">
+                    <a href="#"
+                       title="{% trans "Click here to select the objects across all pages" %}">
+                    {% blocktrans with cl.result_count as total_count %}
+                        Selecionar todos {{ total_count }} {{ module_name }}
+                    {% endblocktrans %}
+                    </a>
+                </span>
+                    <span class="clear kt-font-bold ml-2" style="display: none;">
+                        <a href="#">{% trans "Clear selection" %}
+                        </a>
+                    </span>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endblock %}
+</div>

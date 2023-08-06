@@ -1,0 +1,56 @@
+{% load static %}
+
+<button class="kt-header-menu-wrapper-close"
+        id="kt_header_menu_mobile_close_btn">
+    <i class="la la-close"></i>
+</button>
+
+
+<div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
+    <div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile ">
+        <ul class="kt-menu__nav ">
+
+            {% for menu in menus %}
+                {% if menu.1.has_perm %}
+                    <li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"
+                        data-ktmenu-submenu-toggle="click"
+                        aria-haspopup="true">
+                        <a href="{% if menu.1.children %}javascript:;{% else %}{{ menu.1.url }}{% endif %}"
+                           class="kt-menu__link {% if menu.1.children %}kt-menu__toggle{% endif %}">
+
+                            {% if menu.1.icon %}
+                            <i class="kt-menu__link-icon {{ menu.1.icon }}"></i>
+                            {% endif %}
+
+                            <span class="kt-menu__link-text">{{ menu.0 }}</span>
+                            {% if menu.1.children %}
+                                <i class="kt-menu__hor-arrow la la-angle-down"></i>
+                                <i class="kt-menu__ver-arrow la la-angle-right"></i>
+                            {% endif %}
+                        </a>
+                        {% if menu.1.children %}
+                            <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
+                                <ul class="kt-menu__subnav">
+                                    {% for item in menu.1.children %}
+                                        {% if item.1.has_perm %}
+                                            <li class="kt-menu__item  kt-menu__item--submenu"
+                                                data-ktmenu-submenu-toggle="hover"
+                                                aria-haspopup="true"><a href="{{ item.1.url }}"
+                                                                        class="kt-menu__link">
+                                                {% if item.1.icon %}
+                                                    <i class="kt-menu__link-icon {{ item.1.icon }}"></i>
+                                                {% endif %}
+                                                <span class="kt-menu__link-text">{{ item.0 }}</span></a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>

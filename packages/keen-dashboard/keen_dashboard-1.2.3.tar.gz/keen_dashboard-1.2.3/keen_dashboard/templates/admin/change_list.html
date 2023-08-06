@@ -1,0 +1,116 @@
+{% extends "admin/base_site.html" %}
+{% load admin_urls static admin_list admin_utils %}
+
+{% block extrastyle %}
+    <link href="{% static 'admin/css/admin.list.css' %}" rel="stylesheet" type="text/css"/>
+    {{ block.super }}
+    {{ media.css }}
+    {% if not actions_on_top and not actions_on_bottom %}
+        <style>
+            #changelist table thead th:first-child {
+                width: inherit
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} change-list{% endblock %}
+
+{% block subtitle %}
+    Lista de {{ cl.opts.verbose_name_plural|capfirst }}
+{% endblock %}
+
+{% if not is_popup %}
+    {% block breadcrumbs %}
+        <div class="kt-subheader__breadcrumbs" id="breadcrumbs">
+            <a href="{% url 'admin:index' %}" class="kt-subheader__breadcrumbs-link">
+                <i class="flaticon2-shelter"></i> Início
+            </a>
+            {% include 'admin/includes/breadcrumbs.html' with breadcrumbs=parent_breadcrumbs %}
+            <span class="kt-subheader__breadcrumbs-separator"></span>
+            <span class="kt-subheader__breadcrumbs-link breadcrumb-active">
+                {{ cl.opts.verbose_name_plural|capfirst }}
+            </span>
+        </div>
+    {% endblock %}
+{% endif %}
+
+
+
+{% block content %}
+
+    <div id="content-main" class="row kt-container kt-grid__item kt-grid__item--fluid
+       {% if cl.has_filters %} filtered {% endif %}">
+        <div class="col-12 {% block changelist_class %}kt-portlet kt-portlet--mobile{% endblock %}" id="changelist">
+            {% block toolbar %}
+            <div class="mt-3">
+                <div class="kt-portlet__head-toolbar d-flex kt-space-between">
+                    <div class="filters float-left d-flex mt-auto">
+                        {% block filters %}
+                            {% if cl.has_filters %}
+                                <span class="kt-font-bold mr-3 ml-2 pt-2">Filtros:</span>
+                                {% for spec in cl.filter_specs %}
+                                    {% admin_list_filter cl spec %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endblock %}
+                    </div>
+
+                    <div class="tools float-right d-flex">
+                        <div class="kt-portlet__head-wrapper ml-1">
+                            {% block search %}
+                                {% search_form cl %}
+                            {% endblock %}
+                        </div>
+
+                        <div class="kt-portlet__head-wrapper ml-3" id="object-tools">
+                            {% block list_buttons %}
+                                {% change_list_object_tools %}
+                            {% endblock %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% endblock %}
+
+            <form id="changelist-form" method="post"
+                    {% if cl.formset and cl.formset.is_multipart %}
+                  enctype="multipart/form-data"
+                    {% endif %}
+                  novalidate>
+                    {% csrf_token %}
+                    {% if cl.formset %}
+                        <div>{{ cl.formset.management_form }}</div>
+                    {% endif %}
+                <div class="mt-2 kt-portlet__body kt-portlet__body--fit">
+                    <div class="kt-section__content">
+
+                        {% block result_list %}
+                            {% result_list cl %}
+                        {% endblock %}
+
+                        {% block actions %}
+                            {% if action_form and actions_on_top and cl.show_admin_actions %}
+                                {% admin_actions %}
+                            {% endif %}
+                        {% endblock %}
+
+                        {% block pagination %}
+                            {% pagination cl %}
+                        {% endblock %}
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+{% block mediajs %}
+    <script type="text/javascript" src="{% static 'admin/js/change_list.js' %}"></script>
+    {{ media.js }}
+{% endblock %}

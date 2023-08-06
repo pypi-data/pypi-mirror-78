@@ -1,0 +1,14 @@
+{% load i18n admin_urls admin_utils %}
+
+<div>
+{% include 'admin/includes/object_tools.html' with extra_object_tools=extra_object_tools %}
+
+{% admin_url request opts|admin_urlname:'history' as history_url %}
+{% if history_url != '#' %}
+<a href="{{ history_url }}"
+   class="btn btn-label btn-label-brand btn-upper btn-bold">
+    <i class="fas fa-history"></i>
+    Histórico
+</a>
+{% endif %}
+</div>

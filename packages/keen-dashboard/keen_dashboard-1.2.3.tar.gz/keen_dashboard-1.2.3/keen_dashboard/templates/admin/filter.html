@@ -1,0 +1,32 @@
+{% load i18n admin_utils %}
+
+{% get_filter_selected spec.used_parameters choices as selected %}
+
+<div class="dropdown ml-1">
+    <button type="button" class="btn btn-default btn-bold btn-font-sm btn-upper dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true">
+        <i class="fas fa-filter"></i>
+            {% if selected %}
+                <strong class="badge badge-info">{{ selected.display }}</strong>
+            {% else %}
+                <span class="kt-font-sm">{{ title }}</span>
+            {% endif %}
+    </button>
+    <div class="dropdown-menu">
+        <ul class="kt-nav">
+            {% for choice in choices %}
+            <li class="kt-nav__item text-primary kt-font-bold
+                   {% if choice.selected %}
+                   kt-bg-light-info
+                    {% endif %}">
+                <a class="kt-nav__link {% if choice.selected %}text-primary{% else %}text-dark{% endif %}"
+                   href="{{ choice.query_string|iriencode }}"
+                   title="{{ choice.display }}">
+                    <span class="kt-nav__link-text">{{ choice.display }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+

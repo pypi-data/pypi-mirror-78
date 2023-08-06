@@ -1,0 +1,133 @@
+
+fieldset label.required:after {
+    content: '*';
+    margin: 0 0 0 5px;
+    position: absolute;
+    color: #f00;
+}
+
+.submit-row {
+    padding: 12px 14px;
+    margin: 10px 0 20px;
+    background: #f8f8f8;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    text-align: right;
+    overflow: hidden;
+}
+
+body.popup .submit-row {
+    overflow: auto;
+}
+
+.submit-row input {
+    height: 35px;
+    line-height: 15px;
+    margin: 0 0 0 5px;
+}
+
+.submit-row input.default {
+    margin: 0 0 0 8px;
+    text-transform: uppercase;
+}
+
+.submit-row p {
+    margin: 0.3em;
+}
+
+.submit-row p.deletelink-box {
+    float: left;
+    margin: 0;
+}
+
+.submit-row a.deletelink {
+    display: block;
+    background: #ba2121;
+    border-radius: 4px;
+    padding: 10px 15px;
+    height: 15px;
+    line-height: 15px;
+    color: #fff;
+}
+
+.submit-row a.closelink {
+    display: inline-block;
+    background: #bbbbbb;
+    border-radius: 4px;
+    padding: 10px 15px;
+    height: 15px;
+    line-height: 15px;
+    margin: 0 0 0 5px;
+    color: #fff;
+}
+
+.submit-row a.deletelink:focus,
+.submit-row a.deletelink:hover,
+.submit-row a.deletelink:active {
+    background: #a41515;
+}
+
+.submit-row a.closelink:focus,
+.submit-row a.closelink:hover,
+.submit-row a.closelink:active {
+    background: #aaaaaa;
+}
+
+.input-group.date {
+    width: 20rem;
+}
+.input-group.timepicker {
+    width: 20rem;
+}
+
+.table-original {
+    width: 20rem;
+}
+
+.inline-deletelink {
+    color: #212529 !important;
+}
+
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 30rem;
+}
+
+input[data-search-input] {
+    width: 20rem;
+}
+
+a.related-lookup {
+    margin-top: -1rem;
+}
+
+.search-modal-dialog {
+  width: 98%;
+  height: 92%;
+  padding: 0;
+  max-width: calc(100% - 10rem);
+}
+
+.search-modal-content {
+  height: 99%;
+}
+
+.related-widget-wrapper-link {
+    font-size: 1rem;
+}
+
+.related-widget-wrapper {
+    display: inline-grid;
+}
+
+.datepicker tbody tr > td.day {
+    color: #000000;
+    font-weight: 500;
+}
+
+tr.empty-form {
+    display: none;
+}
+
+[data-fieldset-readonly="True"] {
+    zoom: 1.1;
+}

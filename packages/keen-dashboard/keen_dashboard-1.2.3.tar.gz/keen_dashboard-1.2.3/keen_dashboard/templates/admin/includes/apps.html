@@ -1,0 +1,37 @@
+{% for title, options in user_apps %}
+    {% if options.has_perm %}
+        <div class="col-md-6 col-sm-6 col-lg-4 col-6 col-xl-3">
+            <a class="app-card-admin-link p-3" href="{{ options.url }}">
+                <div class="kt-portlet app-card-admin">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title text-primary">
+                                {{ title }}
+                            </h3>
+                        </div>
+                        <div class="kt-portlet__head-toolbar">
+                            <div class="kt-portlet__head-group">
+                                <button type="button" class="btn btn-default btn-sm btn-bold btn-upper">
+                                    Abrir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <span class="float-left m-2 mr-4">
+                            <img width="100px" height="100px" src="{{ options.image }}"
+                                 alt="" class="rounded-circle">
+                        </span>
+                        <div class="media-body">
+                            <p class="font-13 text-dark kt-font-bold">
+                                {{ options.label }}
+                            </p>
+                        </div>
+                        <!-- end media-body-->
+                    </div>
+                    <!-- end card-body-->
+                </div>
+            </a>
+        </div>
+    {% endif %}
+{% endfor %}

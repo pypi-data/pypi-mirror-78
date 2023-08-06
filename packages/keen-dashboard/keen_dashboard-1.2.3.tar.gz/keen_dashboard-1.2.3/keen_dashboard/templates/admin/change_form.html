@@ -1,0 +1,130 @@
+{% extends "admin/base_site.html" %}
+{% load admin_urls static admin_modify admin_utils %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+    {{ media.css }}
+{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link href="{% static 'admin/css/admin.form.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block bodyclass %}
+    {{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} change-form
+{% endblock %}
+
+{% block subtitle %}
+    {{ opts.verbose_name | capfirst }}
+{% endblock %}
+
+{% if not is_popup %}
+    {% block breadcrumbs %}
+        <div class="kt-subheader__breadcrumbs">
+            <a href="{% url 'admin:index' %}" class="kt-subheader__breadcrumbs-link">
+                <i class="flaticon2-shelter"></i> Início
+            </a>
+            {% include 'admin/includes/breadcrumbs.html' with breadcrumbs=parent_breadcrumbs %}
+            {% admin_url request opts|admin_urlname:'changelist' as changelist_url %}
+            {% if changelist_url != '#' %}
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a class="kt-subheader__breadcrumbs-link"
+                   href="{{ changelist_url }}">
+                    Lista de {{ opts.verbose_name_plural | capfirst }}
+                </a>
+            {% endif %}
+            <span class="kt-subheader__breadcrumbs-separator"></span>
+            <span class="kt-subheader__breadcrumbs-link breadcrumb-active">
+                {% if add %}
+                    Adicionar {{ opts.verbose_name }}
+                {% else %}
+                    Alterar {{ original|truncatewords:"18" }}
+                {% endif %}
+            </span>
+
+        </div>
+    {% endblock %}
+{% endif %}
+
+{% block toolbar %}
+    {% change_form_object_tools %}
+{% endblock %}
+
+{% block content %}
+    <div id="content-main" class="kt-container">
+        <form class="kt-portlet kt-form kt-form--label-right" {% if has_file_field %}
+              enctype="multipart/form-data"
+        {% endif %}
+              action="{{ form_url }}" method="post" id="{{ opts.model_name }}_form" novalidate>
+            {% csrf_token %}
+
+            {% block form_top %}
+            {% endblock %}
+
+            <div>
+                {% if is_popup %}
+                    <input type="hidden" name="{{ is_popup_var }}" value="1">
+                {% endif %}
+                {% if to_field %}
+                    <input type="hidden" name="{{ to_field_var }}" value="{{ to_field }}">
+                {% endif %}
+                {% if save_on_top %}
+                    {% block submit_buttons_top %}
+                        {% submit_row %}
+                    {% endblock %}
+                {% endif %}
+
+                {% if errors %}
+                    <div class="m-3 alert alert-solid-danger alert-bold" role="alert">
+                        <div class="alert-text">
+                            {% if errors|length == 1 %}
+                                Por favor, corrija o erro abaixo.
+                            {% else %}
+                                Por favor, corrija os erros abaixo.
+                            {% endif %}
+                        </div>
+                    </div>
+                    {{ adminform.form.non_field_errors }}
+                {% endif %}
+
+                {% block field_sets %}
+                    {% for fieldset in adminform %}
+                        {% include "admin/includes/fieldset.html" %}
+                    {% endfor %}
+                {% endblock %}
+
+                {% block after_field_sets %}
+                {% endblock %}
+
+                {% block inline_field_sets %}
+                    {% for inline_admin_formset in inline_admin_formsets %}
+                        {% include inline_admin_formset.opts.template %}
+                    {% endfor %}
+                {% endblock %}
+
+                {% block after_related_objects %}
+                {% endblock %}
+
+                {% block submit_buttons_bottom %}
+                    {% submit_row %}
+                {% endblock %}
+
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    {{ media.js }}
+    <script type="text/javascript" src="{% static 'admin/js/jquery.mask.min.js' %}"></script>
+    <script type="text/javascript"
+            id="django-admin-form-add-constants"
+            src="{% static 'admin/js/change_form.js' %}"
+            {% if adminform and add %}
+            data-model-name="{{ opts.model_name }}"
+            {% endif %}>
+    </script>
+    {% prepopulated_fields_js %}
+{% endblock %}

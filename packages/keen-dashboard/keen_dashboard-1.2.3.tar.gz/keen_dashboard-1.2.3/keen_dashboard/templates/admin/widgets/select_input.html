@@ -1,0 +1,17 @@
+{% spaceless %}
+<select width="auto" class="selectpicker" title="Selecione..." data-selected-text-format="count"
+        data-count-selected-text="Selecionados ({0})"
+        {% if group_name %}multiple{% endif %}  name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+    {% for group_name, group_choices, group_index in widget.optgroups %}
+        {% if group_name %}
+            <optgroup label="{{ group_name }}">
+        {% endif %}
+    {% for option in group_choices %}
+        {% include option.template_name with widget=option %}
+    {% endfor %}
+    {% if group_name %}
+        </optgroup>
+    {% endif %}
+    {% endfor %}
+</select>
+{% endspaceless %}

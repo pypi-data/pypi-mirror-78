@@ -1,0 +1,85 @@
+{% extends "admin/base.html" %}
+{% load admin_urls admin_utils %}
+
+{% block breadcrumbs %}
+    <div class="kt-subheader__breadcrumbs">
+        <a href="{% admin_url request 'admin:index' %}" class="kt-subheader__breadcrumbs-link">
+            <i class="flaticon2-shelter"></i> Início
+        </a>
+        {% include 'admin/includes/breadcrumbs.html' with breadcrumbs=parent_breadcrumbs %}
+        <span class="kt-subheader__breadcrumbs-separator"></span>
+        <a class="kt-subheader__breadcrumbs-link"
+           href="{% admin_url request opts|admin_urlname:'changelist' %}">
+            Lista de {{ opts.verbose_name_plural }}
+        </a>
+
+        <span class="kt-subheader__breadcrumbs-separator"></span>
+        <a class="kt-subheader__breadcrumbs-link"
+           href="{% admin_url request opts|admin_urlname:'change' %}">
+            Alterar {{ object|truncatewords:"18" }}
+        </a>
+
+        <span class="kt-subheader__breadcrumbs-separator"></span>
+        <span class="kt-subheader__breadcrumbs-link breadcrumb-active">
+            Histórico
+        </span>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="kt-portlet kt-portlet--height-fluid">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label">
+                <span class="kt-portlet__head-icon">
+                    <i class="fas fa-history"></i>
+                </span>
+                <h3 class="kt-portlet__head-title">Histório de Alterações</h3>
+            </div>
+            <div class="kt-portlet__head-toolbar">
+                Histório de Alterações
+            </div>
+        </div>
+        <div class="kt-portlet__body">
+            <div class="kt-portlet__content">
+                {% if action_list %}
+                <table class="table">
+                    <thead class="thead-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Data / Hora</th>
+                        <th>Usuário</th>
+                        <th>Ação</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for action in action_list %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <th>{{ action.action_time|date:"DATETIME_FORMAT" }}</th>
+                            <td>{{ action.user.get_username }}{% if action.user.get_full_name %} (
+                                {{ action.user.get_full_name }}){% endif %}</td>
+                            <td>{{ action.get_change_message }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                    <p>
+                        Este objeto não possui um histórico de alterações.
+                        Provavelmente não foi adicionado através deste site de administração.
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="kt-portlet__foot">
+            <a href="{% admin_url request opts|admin_urlname:'change' %}">
+                <button class="btn btn-outline-primary">
+                        Voltar
+                </button>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

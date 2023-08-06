@@ -1,0 +1,8 @@
+<div class="datetime d-inline-flex">
+  <div class="pr-4">
+      {% with widget=widget.subwidgets.0 %}{% include 'admin/widgets/date_input.html' %}{% endwith %}
+  </div>
+  <div>
+      {% with widget=widget.subwidgets.1 %}{% include 'admin/widgets/time_input.html' %}{% endwith %}
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static keen %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid mt-2">
+        <div class="row">
+            {% user_apps request %}
+        </div>
+    </div>
+{% endblock %}
+

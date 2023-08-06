@@ -1,0 +1,32 @@
+{% load static %}
+<div class="related-widget-wrapper">
+    {{ rendered_widget }}
+    {% block links %}
+        {% spaceless %}
+            {% if not is_hidden %}
+                {% if can_change_related %}
+                    <a class="related-widget-wrapper-link change-related" id="change_id_{{ name }}"
+                       data-href-template="{{ change_related_template_url }}?{{ url_params }}"
+                       title="Alterar Selecionado {{ model }}">
+                        <i class="fas fa-edit alert-icon text-warning"></i> Alterar
+
+                    </a>
+                {% endif %}
+                {% if can_add_related %}
+                    <a class="related-widget-wrapper-link add-related kt-font-bold" id="add_id_{{ name }}"
+                       href="{{ add_related_url }}?{{ url_params }}"
+                       title="Adicionar Outro {{ model }}">
+                        <i class="fas fa-plus text-success"></i> Adicionar
+                    </a>
+                {% endif %}
+                {% if can_delete_related %}
+                    <a class="related-widget-wrapper-link delete-related" id="delete_id_{{ name }}"
+                       data-href-template="{{ delete_related_template_url }}?{{ url_params }}"
+                       title="Deletar Selecionado {{ model }}">
+                        <i class="fas fa-trash alert-icon text-danger"> Deletar
+                    </a>
+                {% endif %}
+            {% endif %}
+        {% endspaceless %}
+    {% endblock %}
+</div>

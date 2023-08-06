@@ -1,0 +1,29 @@
+<div class="d-inline-flex">
+<div>
+    <input type="{{ widget.type }}" name="{{ widget.name }}"
+    {% if widget.value != None %}
+    value="{{ widget.value|stringformat:'s' }}"
+    {% endif %}
+    {% include "django/forms/widgets/attrs.html" %}
+>
+    <span class="text-muted small">Atual: </span>
+    <strong class="ml-2">
+        {% if widget.attrs.link_url %}
+            <a class="kt-font-bold" href="{{ widget.attrs.link_url }}">
+        {% endif %}
+        {% if widget.attrs.link_label %}{{ widget.attrs.link_label }}{% else %}Nenhum{% endif %}
+        {% if widget.attrs.link_url %}
+            </a>
+        {% endif %}
+    </strong>
+
+</div>
+
+<a data-search="{{ widget.attrs.id }}"
+   href="{{ widget.attrs.search_url }}"
+   class="ml-3 related-lookup align-self-center" id="lookup_id_{{ widget.name }}">
+    <i class="fas fa-search"></i> Buscar
+</a>
+</div>
+
+{% include 'admin/widgets/modal_search.html' with widget=widget %}

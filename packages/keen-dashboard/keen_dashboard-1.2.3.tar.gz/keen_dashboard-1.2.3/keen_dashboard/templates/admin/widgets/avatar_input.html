@@ -1,0 +1,29 @@
+{% load static %}
+<div class="kt-avatar kt-avatar--outline kt-avatar--primary"
+     id="kt_profile_avatar_3">
+    {% if widget.value.url %}
+    <a target="_blank" class="kt-font-bold" href="{{ widget.value.url }}">
+    {% endif %}
+
+    <div class="kt-avatar__holder"
+         {% if widget.value.url %}
+         style="background-image: url({{ widget.value.url }})">
+         {% else %}
+         style="background-image: url({% static 'admin/img/blank-avatar.svg' %})">
+         {% endif %}
+    </div>
+
+    {% if widget.value.url %}
+    </a>
+    {% endif %}
+
+
+    <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Alterar avatar">
+        <i class="fa fa-pen"></i>
+        <input type="file" required="{{ widget.attrs.required }}"
+                name="{{ widget.name }}" accept=".png, .jpg, .jpeg">
+    </label>
+    <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancelar Avatar">
+        <i class="fa fa-times"></i>
+    </span>
+</div>

@@ -1,0 +1,8 @@
+{% load admin_utils %}
+{% for label, route in breadcrumbs %}
+<span class="kt-subheader__breadcrumbs-separator"></span>
+<a class="kt-subheader__breadcrumbs-link"
+   href="{% admin_url request route %}">
+    {{ label }}
+</a>
+{% endfor %}

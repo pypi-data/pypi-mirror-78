@@ -1,0 +1,16 @@
+{% load i18n admin_urls admin_utils %}
+
+<div>
+{% include 'admin/includes/object_tools.html' with extra_object_tools=extra_object_tools %}
+
+{% if has_add_permission %}
+    {% admin_url request cl.opts|admin_urlname:'add' as add_url %}
+    <a href="{% add_preserved_filters add_url is_popup to_field %}"
+       class="btn btn-label btn-label-brand btn-upper btn-bold">
+        <i class="flaticon2-add"></i>
+        {% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}
+    </a>
+{% endif %}
+</div>
+
+

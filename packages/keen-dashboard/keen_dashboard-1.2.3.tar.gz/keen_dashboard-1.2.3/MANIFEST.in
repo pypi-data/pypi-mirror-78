@@ -1,0 +1,12 @@
+include README.rst
+include LICENSE
+recursive-include keen_dashboard/static/admin *
+recursive-include keen_dashboard/static/dist/assets *
+recursive-include keen_dashboard/templates *
+recursive-include keen_dashboard/templatetags *
+recursive-exclude demo *
+recursive-exclude dist *
+global-exclude *.png
+global-exclude *.jpg
+global-exclude *.scss
+global-exclude manage.py

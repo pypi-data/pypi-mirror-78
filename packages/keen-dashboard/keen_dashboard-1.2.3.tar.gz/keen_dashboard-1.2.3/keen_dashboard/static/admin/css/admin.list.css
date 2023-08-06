@@ -1,0 +1,60 @@
+.action-checkbox-column {
+    width: 0.6rem;
+}
+
+.table th, .table td {
+    vertical-align: baseline;
+}
+
+tr.selected {
+    background-color: #191b2acf !important;
+    color: white !important;
+}
+
+.kt-datatable__pager {
+    margin: 0px !important;
+    padding: 0.8rem !important;
+    padding-left: 1rem !important;
+}
+
+.kt-portlet__head-toolbar {
+    height: 38px !important;
+}
+
+#changelist-search {
+    align-items: baseline;
+}
+
+.kt-portlet__head-toolbar {
+    align-items: baseline;
+}
+
+th > div > a {
+    color: #191b2a;
+}
+
+th.sorted > div > a {
+    color: #5867dd !important;
+}
+
+#result-count-list {
+    margin-left: -8rem;
+    margin-top: 5px;
+}
+
+.table {
+    color: #212529cc !important;
+}
+
+th > a {
+    font-weight: 600 !important;
+}
+
+#search-icon {
+    position: relative;
+    left: -2rem;
+}
+
+.fas.fa-filter{
+    color: #00000066;
+}

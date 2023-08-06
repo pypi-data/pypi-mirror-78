@@ -1,0 +1,33 @@
+{% if show %}
+<div class="m-1">
+        <div class="btn text-left btn-secondary btn-block btn-sm mb-3">
+            <i class="fas fa-calendar"></i>
+            Por Data
+        </div>
+        <ul>
+        {% block date-hierarchy-toplinks %}
+            {% block date-hierarchy-back %}
+                {% if back %}
+                    <li class="kt-font-bold text-dark
+                    date-back">
+                        <a href="{{ back.link }}">&lsaquo; {{ back.title }}
+                        </a>
+                    </li>
+                {% endif %}
+                {% endblock %}
+                {% block date-hierarchy-choices %}
+                    {% for choice in choices %}
+                    <li class="kt-font-bold {% if choice.link %}text-dark{% else %}text-primary{% endif %}">
+                        {% if choice.link %}
+                        <a href="{{ choice.link }}">
+                    {% endif %}{{ choice.title }}
+                        {% if choice.link %}
+                            </a>
+                        {% endif %}</li>
+                {% endfor %}
+            {% endblock %}
+        {% endblock %}
+
+    </ul>
+</div>
+{% endif %}

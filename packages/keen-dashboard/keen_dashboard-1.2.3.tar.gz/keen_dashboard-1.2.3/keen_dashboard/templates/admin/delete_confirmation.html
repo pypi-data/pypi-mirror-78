@@ -1,0 +1,103 @@
+{% extends "admin/base_site.html" %}
+{% load admin_urls static admin_utils %}
+
+{% block extrahead %}
+    {{ block.super }}
+    {{ media }}
+    <script type="text/javascript" src="{% static 'admin/js/cancel.js' %}"></script>
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="kt-portlet kt-portlet--height-fluid">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label">
+                <span class="kt-portlet__head-icon">
+                    <i class="fas fa-trash"></i>
+                </span>
+                <h6 class="kt-portlet__head-title">Deletar Item</h6>
+            </div>
+        </div>
+        <div class="kt-portlet__body">
+            <div class="kt-portlet__content">
+                {% if perms_lacking %}
+                    <p class="kt-font-bold">
+                        Deletar o objeto '{{ object }}'
+                        irá deletar também os itens listados abaixo, mas sua conta não possui permissão para
+                        deletar-los:
+                    </p>
+                    <ul>
+                        {% for obj in perms_lacking %}
+                            <li>{{ obj }}</li>
+                        {% endfor %}
+                    </ul>
+                {% elif protected %}
+                    <p class="kt-font-bold">
+                        Deletar o objeto '{{ object }}'
+                        Requer que você delete os seguintes itens antes:
+                        </p>
+                    <ul>
+                        {% for obj in protected %}
+                            <li>{{ obj }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="kt-font-bold">
+                        Você tem certeza que quer deletar o objeto
+                        "{{ object }}"? Todos os seguintes itens serão deletados:
+                    </p>
+                    {% include "admin/includes/object_delete_summary.html" %}
+                    <h5>Objetos</h5>
+                    <ul>{{ deleted_objects|unordered_list }}</ul>
+                    <form method="post">{% csrf_token %}
+                        <div class="mt-5">
+                            <input type="hidden" name="post" value="yes">
+                            {% if is_popup %}
+                                <input type="hidden" name="{{ is_popup_var }}" value="1">
+                            {% endif %}
+                            {% if to_field %}
+                                <input type="hidden" name="{{ to_field_var }}" value="{{ to_field }}">
+                            {% endif %}
+                            <input type="submit" class="btn btn-danger" value="Sim, tenho certeza.">
+                            <a href="#" class="ml-3 btn btn-secondary button cancel-link kt-font-bold">
+                                Não, me leve de volta.
+                            </a>
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+    <div class="kt-subheader__breadcrumbs">
+        <a href="{% url 'admin:index' %}" class="kt-subheader__breadcrumbs-link">
+            <i class="flaticon2-shelter"></i> Início
+        </a>
+        {% include 'admin/includes/breadcrumbs.html' with breadcrumbs=parent_breadcrumbs %}
+        <span class="kt-subheader__breadcrumbs-separator"></span>
+        <a class="kt-subheader__breadcrumbs-link"
+           href="{% admin_url  request opts|admin_urlname:'changelist' %}">
+            Lista de {{ opts.verbose_name_plural }}
+        </a>
+
+
+        <span class="kt-subheader__breadcrumbs-separator"></span>
+        <a class="kt-subheader__breadcrumbs-link"
+           href="{% admin_url request opts|admin_urlname:'change' %}">
+            Alterar {{ object|truncatewords:"18" }}
+        </a>
+
+
+        <span class="kt-subheader__breadcrumbs-separator"></span>
+        <span class="kt-subheader__breadcrumbs-link breadcrumb-active">
+            Deletar
+        </span>
+    </div>
+{% endblock %}
+

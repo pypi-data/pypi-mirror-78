@@ -1,0 +1,46 @@
+{% load admin_urls admin_utils %}
+<div class="submit-row align-baseline">
+    {% block submit-row %}
+        {% admin_url  request opts|admin_urlname:'changelist' as changelist_url %}
+
+        <div class="float-left">
+        {% if show_save %}
+            <input class="btn btn-primary" type="submit" value="Salvar" name="_save">
+        {% endif %}
+
+        {% if show_save_as_new %}
+            <input class="btn btn-primary" type="submit" value="Salvar como Novo" name="_saveasnew">
+        {% endif %}
+
+        {% if show_save_and_add_another %}
+            <input class="btn btn-secondary" type="submit" value="Salvar e adicionar Novo" name="_addanother">
+        {% endif %}
+
+        {% if show_save_and_continue and changelist_url != '#' %}
+            <input class="btn btn-secondary" type="submit" value="{% if can_change %}
+            Salvar e Continuar
+            {% else %}
+            Salvar e Visualizar
+            {% endif %}" name="_continue">
+        {% endif %}
+
+
+        {% if changelist_url != '#' %}
+        <a href="{{ changelist_url }}"
+           class="kt-font-bold ml-3 pt-2" style="font-size: 1.2rem">
+            Voltar
+        </a>
+        {% endif %}
+
+        </div>
+
+        {% admin_url  request opts|admin_urlname:'delete' as delete_url %}
+        {% if show_delete_link and original and delete_url != '#' %}
+            <a href="{% add_preserved_filters delete_url %}"
+               class="btn btn-danger btn-icon-md">
+                <i class="fas fa-trash"></i> Deletar
+            </a>
+        {% endif %}
+
+    {% endblock %}
+</div>

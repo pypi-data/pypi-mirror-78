@@ -1,0 +1,15 @@
+<div class="dropdown dropdown-inline">
+    <button type="button" class="btn btn-hover-brand btn-elevate-hover btn-icon btn-sm btn-icon-md"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-ellipsis-{{ direction }}"></i>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" style="">
+        {% for label, option in options %}
+        {% if not option.divider %}
+        <a class="dropdown-item" href="{{ option.href }}"><i class="{{ option.icon }}"></i> {{ label }}</a>
+        {% else %}
+            <div class="dropdown-divider"></div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>

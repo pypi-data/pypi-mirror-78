@@ -1,0 +1,22 @@
+{% spaceless %}
+<div class="modal overflow-hidden" tabindex="-1" role="dialog"
+     id="modal_{{ widget.attrs.id }}" aria-hidden="true">
+    <div class="search-modal-dialog modal-dialog modal-lg">
+        <div class="search-modal-content modal-content w-100 h-100">
+            <div class="modal-header">
+                <h5 class="modal-title">Buscar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <iframe data-parent-input="{{ widget.attrs.id }}"
+                    data-search-url="{{ widget.attrs.search_url }}"
+                    data-search-field="{% if widget.attrs.search %}{{ widget.attrs.search }}{% else %}action-select{% endif %}"
+                    style="border: 0;"
+                    class="w-100 h-100" id="iframe_{{ widget.attrs.id }}" src="about:blank">
+
+            </iframe>
+        </div>
+    </div>
+</div>
+{% endspaceless %}

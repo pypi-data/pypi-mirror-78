@@ -1,0 +1,90 @@
+{% extends "admin/base_site.html" %}
+{% load admin_urls static admin_utils %}
+
+{% block extrahead %}
+    {{ block.super }}
+    {{ media }}
+    <script type="text/javascript" src="{% static 'admin/js/cancel.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="kt-portlet kt-portlet--height-fluid">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label">
+                <span class="kt-portlet__head-icon">
+                    <i class="fas fa-trash"></i>
+                </span>
+                <h6 class="kt-portlet__head-title">Deletar Multiplos Objetos</h6>
+            </div>
+        </div>
+        <div class="kt-portlet__body">
+            <div class="kt-portlet__content">
+                {% if perms_lacking %}
+                    <p>Deletando o objeto {{ objects_name }}, irá deletar também os
+                        seguintes itens, porém sua conta não possui acesso para deleta-los:
+                    </p>
+                    <ul>
+                        {% for obj in perms_lacking %}
+                            <li>{{ obj }}</li>
+                        {% endfor %}
+                    </ul>
+                {% elif protected %}
+                    <p>Deletar o objeto {{ objects_name }}
+                        requer que você delete primeiro os seguintes itens protegidos:
+                    </p>
+                    <ul>
+                        {% for obj in protected %}
+                            <li>{{ obj }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>
+                        Você tem certeza que deseja deletar o objeto {{ objects_name }}? Todos objetos abaixo
+                        também serão deletados:
+                    </p>
+
+                    {% include "admin/includes/object_delete_summary.html" %}
+                    <h4>Objetos</h4>
+                    {% for deletable_object in deletable_objects %}
+                        <ul>{{ deletable_object|unordered_list }}</ul>
+                    {% endfor %}
+
+                    <form method="post">{% csrf_token %}
+                        <div class="mt-5">
+                            {% for obj in queryset %}
+                                <input type="hidden" name="{{ action_checkbox_name }}" value="{{ obj.pk }}">
+                            {% endfor %}
+                            <input type="hidden" name="action" value="delete_selected">
+                            <input type="hidden" name="post" value="yes">
+                            <input class="btn btn-danger" type="submit" value="Sim, tenho certeza">
+                            <a class="ml-3 btn btn-secondary button cancel-link" href="#">
+                                Não, me leve de volta
+                            </a>
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <div class="kt-subheader__breadcrumbs">
+        <a href="{% admin_url request 'admin:index' %}" class="kt-subheader__breadcrumbs-link">
+            <i class="flaticon2-shelter"></i> Início
+        </a>
+        {% include 'admin/includes/breadcrumbs.html' with breadcrumbs=parent_breadcrumbs %}
+        <span class="kt-subheader__breadcrumbs-separator"></span>
+        <a class="kt-subheader__breadcrumbs-link"
+           href="{% admin_url request opts|admin_urlname:'changelist' %}">
+            Lista de {{ opts.verbose_name_plural }}
+        </a>
+
+        <span class="kt-subheader__breadcrumbs-separator"></span>
+        <span class="kt-subheader__breadcrumbs-link breadcrumb-active">
+            Deletar Múltiplos Objetos
+        </span>
+    </div>
+{% endblock %}
+

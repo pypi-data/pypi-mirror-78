@@ -1,0 +1,21 @@
+<div class="kt-user-card-v2">
+    {% if letter %}
+        <div class="kt-user-card-v2__pic">
+            <div class="kt-badge kt-badge--xl kt-badge--danger">{{ letter }}</div>
+        </div>
+    {% else %}
+        <div class="kt-user-card-v2__pic">
+            <img alt="{{ title | slugify }}" src="{{ image }}">
+        </div>
+    {% endif %}
+    <div class="kt-user-card-v2__details">
+        <a class="kt-user-card-v2__name" href="{{ url }}">
+            {{ title }}
+        </a>
+        {% if subtitle %}
+            <span class="kt-user-card-v2__desc">
+            {{ subtitle }}
+        </span>
+        {% endif %}
+    </div>
+</div>

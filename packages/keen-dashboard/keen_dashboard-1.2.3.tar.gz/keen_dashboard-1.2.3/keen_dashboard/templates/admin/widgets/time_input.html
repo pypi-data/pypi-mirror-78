@@ -1,0 +1,12 @@
+<div class="input-group timepicker">
+    <input name="{{ widget.name }}"
+           {% if widget.value %}value="{{ widget.value }}"{% endif %}
+            {% include 'django/forms/widgets/attrs.html' %}
+           timepicker-br="true" placeholder="Selecione a Hora"
+       type="text">
+    <div class="input-group-prepend">
+        <span class="input-group-text">
+            <i class="la la-clock-o"></i>
+        </span>
+    </div>
+</div>

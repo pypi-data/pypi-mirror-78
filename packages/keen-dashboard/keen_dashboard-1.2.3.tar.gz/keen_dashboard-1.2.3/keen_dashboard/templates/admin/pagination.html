@@ -1,0 +1,35 @@
+{% load admin_utils %}
+{% load i18n %}
+
+{% if pagination_required %}
+    <div class="kt_datatable kt-datatable kt-datatable--default">
+        <div class="kt-datatable__pager">
+            <ul class="kt-datatable__pager-nav">
+                {% for i in page_range %}
+                    <li>
+                        {% paginator_item cl i %}
+                    </li>
+                {% endfor %}
+            </ul>
+
+        <div class="kt-datatable__pager-info kt-font-bold float-left">
+                <span>
+                    {{ cl.result_count }}
+                    {% if cl.result_count == 1 %}
+                        {{ cl.opts.verbose_name }}
+                    {% else %}
+                        {{ cl.opts.verbose_name_plural }}
+                    {% endif %}
+                    {% if show_all_url %}&nbsp;&nbsp
+                        <a href="{{ show_all_url }}" class="showall">
+                            {% trans 'Show all' %}
+                        </a>
+                    {% endif %}
+                    {% if cl.formset and cl.result_count %}
+                        <input type="submit" name="_save" class="default" value="{% trans 'Save' %}">
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
+{% endif %}

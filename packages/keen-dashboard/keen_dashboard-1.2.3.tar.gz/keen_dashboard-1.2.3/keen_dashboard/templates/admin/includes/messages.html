@@ -1,0 +1,24 @@
+<div class="message-list">
+    {% for message in messages %}
+        <div class="toast toast-custom toast-bottom toast-right toast-fill fade hide" role="alert" aria-live="assertive"
+             aria-atomic="true" data-delay="4000" id="kt_toast_{{ forloop.counter }}">
+            <div class="toast-header">
+                {% if 'success' in message.level_tag %}
+                    <i class="toast-icon fas fa-check-circle kt-font-success"></i>
+                {% else %}
+                    <i class="toast-icon fas fa-exclamation-triangle kt-font-danger"></i>
+                {% endif %}
+                <span class="toast-title">
+                    {% if 'success' in message.level_tag %}
+                        Sucesso
+                    {% else %}
+                        Alerta
+                    {% endif %}
+                </span>
+            </div>
+            <div class="toast-body">
+                {{ message.message }}
+            </div>
+        </div>
+    {% endfor %}
+</div>

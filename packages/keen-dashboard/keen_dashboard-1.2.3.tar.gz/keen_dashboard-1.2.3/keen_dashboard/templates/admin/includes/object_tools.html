@@ -1,0 +1,11 @@
+{% load admin_urls %}
+
+{% for label, options in extra_object_tools %}
+    {% if options.has_perm %}
+    <a href="{{ options.url }}"
+        class="btn btn-label btn-label-brand btn-upper btn-bold">
+        <i class="{{  options.icon }}"></i>
+            {{ label }}
+    </a>
+    {% endif %}
+{% endfor %}

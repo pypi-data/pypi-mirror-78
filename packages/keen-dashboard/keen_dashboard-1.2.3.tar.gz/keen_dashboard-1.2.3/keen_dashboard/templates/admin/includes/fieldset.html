@@ -1,0 +1,84 @@
+{% load admin_utils %}
+<fieldset {% if fieldset.name %}id="fieldset_{{ fieldset.name | slugify }}"{% endif %}
+        class="kt-container  module aligned {{ fieldset.classes }}">
+        <div class="kt-portlet__head mb-4">
+            <div class="kt-portlet__head-label">
+                <h3 class="kt-portlet__head-title">
+                    {% if fieldset.name %}
+                        {{ fieldset.name }}
+                    {% else %}
+                        Opções Gerais
+                    {% endif %}
+                </h3>
+                {% if fieldset.description %}
+                <div class="ml-3 description">
+                    {{ fieldset.description|safe }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+    {% for line in fieldset %}
+
+        <div class="{% spaceless %}{% if line.fields|length_is:'1' and line.errors %} errors{% endif %}
+            {% if not line.has_visible_field %} hidden
+            {% endif %}
+            {% for field in line %}
+                {% if field.field.name %} field-{{ field.field.name }}
+                {% endif %}
+            {% endfor %}{% endspaceless %}">
+
+
+            {% for field in line %}
+                {% spaceless %}
+                <div
+                    {% if not line.fields|length_is:'1' %} class="form-group fieldBox
+                        {% if field.field.name %} field-{{ field.field.name }}
+                        {% endif %}
+                        {% if not field.is_readonly and field.errors %} errors
+                        {% endif %}
+                        {% if field.field.is_hidden %} hidden
+                        {% endif %}"
+                    {% else %}
+                       class="form-group row" data-fieldset-readonly="{{ field.is_readonly }}"
+                    {% endif %}
+                >
+
+                    {% if not line.fields|length_is:'1' and not field.is_readonly %}
+                        {{ field.errors }}
+                    {% endif %}
+                    {% endspaceless %}
+
+                    {{ field.label_tag | addclass:"kt-font-bold col-lg-2 col-md-2 col-sm-12 col-form-label" }}
+
+                    {% if field.is_readonly %}
+                        <div class="readonly">{{ field.contents }}</div>
+                    {% else %}
+                        <div class="col-lg-10 col-md-10 col-sm-12">
+                            {% if line.errors %}
+                                {{ field.field | addclass:"form-control is-invalid" }}
+                            {% else %}
+                                {{ field.field | addclass:"form-control" }}
+                            {% endif %}
+
+
+                            {% if line.fields|length_is:'1' %}
+                                {% if line.errors  %}
+                                <div class="invalid-feedback" style="display: block">{{ line.errors }}</div>
+                                {% endif %}
+                            {% endif %}
+
+                            {% if field.field.help_text %}
+                                <div class="text-muted small">
+                                    {{ field.field.help_text|safe }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</fieldset>
