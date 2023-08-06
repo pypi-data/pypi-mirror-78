@@ -1,0 +1,124 @@
+Metadata-Version: 2.1
+Name: swap
+Version: 0.1.0
+Summary: Cross-chain atomic swap between the networks of two Cryptocurrencies.
+Home-page: https://github.com/meherett/shuttle
+Author: Meheret Tesfaye
+Author-email: meherett@zoho.com
+License: AGPL-3.0
+Keywords: cross-chain,atomic,swap,htlc,cryptocurrencies
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development
+Requires-Python: >=3.6,<4
+Description-Content-Type: text/markdown
+Requires-Dist: requests (<3,>=2.24.0)
+Requires-Dist: cryptos (<2,>=1.36)
+Requires-Dist: chainside-btcpy (<1,>=0.6.5)
+Requires-Dist: mnemonic (<1,>=0.19)
+Requires-Dist: py-equity (<1,>=0.1.0)
+Requires-Dist: click (<8,>=7.1.2)
+Requires-Dist: pybytom (<2,>=1.3.3)
+Requires-Dist: six (<2,>=1.15.0)
+Provides-Extra: docs
+Requires-Dist: sphinx (<4,>=3.2.1) ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme (<1,>=0.5.0) ; extra == 'docs'
+Requires-Dist: sphinx-click (<3,>=2.5.0) ; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest (<7,>=6.0.1) ; extra == 'tests'
+Requires-Dist: pytest-cov (<3,>=2.10.1) ; extra == 'tests'
+
+# Swap
+
+[![Build Status](https://travis-ci.org/meherett/swap.svg?branch=master)](https://travis-ci.org/meherett/swap?branch=master)
+[![PyPI Version](https://img.shields.io/pypi/v/swap.svg?color=blue)](https://pypi.org/project/swap)
+[![Documentation Status](https://readthedocs.org/projects/swap/badge/?version=latest)](https://swap.readthedocs.io/en/latest/?badge=latest)
+[![Coverage Status](https://coveralls.io/repos/github/meherett/swap/badge.svg?branch=master&kill_cache=1)](https://coveralls.io/github/meherett/swap?branch=master)
+
+Swap is a python library forÂ cross-chain atomic swap betweenÂ the networksÂ ofÂ twoÂ Cryptocurrencies. 
+Cross-chain atomic swaps are the cheapest and most secure way to swapÂ Cryptocurrencies. 
+Itâ€™s a brand new decentralized payment environment based on Hash Time Lock Contracts (HTLCs) protocol. 
+
+## Available Cryptocurrencies
+
+Swap has the following available [Cryptocurrencies](https://github.com/meherett/swap/blob/master/cryptocurrencies) to swap:
+
+| Cryptocurrencies                                        | Mainnet | Testnet | Solonet | 
+| ------------------------------------------------------- | :-----: | :-----: | :-----: |
+| [Bitcoin](https://github.com/bitcoin/bitcoin) `BTC`     | Yes     | Yes     | None    |
+| [Bytom](https://github.com/bytom/bytom) `BTM`, `Assets` | Yes     | No      | No      |
+
+## Benefits of HTLC's
+
+There are many benefits to these types of contracts. First, because they are time sensitive, it
+prevents the person who is making the payment from having to wait indefinitely to find out whether
+or not his or her payment goes through. Second, the person who makes the payment will not have to
+waste his or her money if the payment is not accepted. It will simply be returned.
+
+- **Time Sensitivity** Â· The time sensitive nature of the transaction prevents the sender from having
+to wait forever to find out whether their payment went through. If the time runs out, the funds will
+just be sent back to the sender, so they donâ€™t have to worry and can wait for the process to unfold.
+
+- **Trustless system** Â· As is the case with all smart contracts, trust is not needed as the rules are
+already coded into the contract itself. Hash Time Lock Contracts take this one step further by
+implementing a time limit for recipients to acknowledge the payment.
+
+- **Validation of the Blockchain** Â· Transactions are validated because of the cryptographic proof of
+payment required by the receiver.
+
+- **Private Information's** Â· There are no complicated account setups or KYC/AML restrictions. Trade
+directly from your wallet with a counterparty of your choice. Only the parties involved know the
+details of the trade.
+
+- **Trading across multiple Cryptocurrencies** Â· HTLC makes Cross-chain transactions easier and more
+secure than ever. Cross chain transactions are the next step in the evolution of Cryptocurrency
+adoption. The easier it becomes to unite the hundreds of blockchain's that currently exist in
+silos, the faster the technology as a whole can begin to scale and achieve mass adoption.
+
+[Documentation](https://swap.readthedocs.io)
+
+## Installation
+
+PIP to install **swap** globally. For Linux `sudo` may be required.
+
+```
+$ pip install swap
+```
+
+For the versions available, see the [tags on this repository](https://github.com/meherett/swap/tags).
+
+## Development
+
+We welcome pull requests. Just fork this repo, clone it locally, and run:
+
+```
+$ pip install -e .[tests,docs] -r requirements.txt
+```
+
+## Testing
+
+Tests are still under development.
+
+You can run the tests with:
+
+```
+$ pytest
+```
+
+Or use `tox` to run the complete suite against the full set of build targets, or pytest to run specific 
+tests against a specific version of Python.
+
+## Contributing
+
+Feel free to open an issue if you find a problem, or a pull request if you've solved an issue.
+
+## License
+
+Distributed under the [AGPL-3.0](https://github.com/meherett/swap/blob/master/LICENSE) license. 
+See ``LICENSE`` for more information.
+
+
