@@ -1,0 +1,36 @@
+Metadata-Version: 1.2
+Name: redkyn-common
+Version: 1.1.0
+Summary: Common libraries for Redkyn projects
+Home-page: https://github.com/redkyn/redkyn-common
+Author: Natasha Jarus and Islam Elnabarawi
+Author-email: jarus@mst.edu
+License: UNKNOWN
+Description: Redkyn-common |pypi| |travis|
+        =============================
+        
+        .. |pypi| image:: https://badge.fury.io/py/redkyn-common.svg
+            :target: https://badge.fury.io/py/redkyn-common
+        
+        .. |travis| image:: https://travis-ci.org/redkyn/redkyn-common.svg?branch=master
+            :target: https://travis-ci.org/redkyn/redkyn-common
+        
+        Common libraries for `Assigner <https://github.com/redkyn/assigner>`_ and `Grader <https://github.com/redkyn/grader>`_.
+        
+        Libraries
+        ---------
+        - ``canvas``: An API wrapper for getting course information from Canvas
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.4
