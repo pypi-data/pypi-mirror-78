@@ -1,0 +1,15 @@
+FROM gms_base_centos:0.4
+RUN yum update -y && \
+    yum install -y patch  # patch: conda skeleton will not work without: # https://stackoverflow.com/questions/40392161/building-conda-skeleton-from-pypi-package-throws-error
+
+# copy some needed stuff to /root
+COPY *.yml /root/
+
+# update the ci_env environment (that already contains all packages installed via 'docker_pyenvs' repo)
+# -> also include packages for conda deployment and upload
+RUN /bin/bash -i -c "\
+    source /root/miniconda3/bin/activate ; \
+    conda update -n base -c defaults conda;\
+    source activate ci_env; \
+    conda env update -n ci_env -f /root/environment_py_tools_ds.yml ; \
+    conda install -c conda-forge conda-build conda-build-all anaconda-client"

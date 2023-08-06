@@ -1,0 +1,26 @@
+name: py_tools_ds
+
+channels: &id1
+  - http://conda.anaconda.org/conda-forge
+
+dependencies:
+  - python=3.*.*
+  - pip  # avoids that conda uses the wrong pip
+  - numpy
+  - gdal>=2.1.0
+  - pyproj>=2.2.0
+  - scikit-image>=0.16.0
+  - geopandas
+  - pip:
+    - sphinx-argparse
+    - six
+    - spectral
+    - flake8
+    - pycodestyle
+    - pylint
+    - pydocstyle
+    - nose
+    - nose2
+    - nose-htmloutput
+    - coverage
+    - rednose
