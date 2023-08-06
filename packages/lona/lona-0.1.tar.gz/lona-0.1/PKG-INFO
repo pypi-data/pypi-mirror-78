@@ -1,0 +1,45 @@
+Metadata-Version: 1.1
+Name: lona
+Version: 0.1
+Summary: Write responsive web apps in full python
+Home-page: https://github.com/fscherf/lona
+Author: Florian Scherf
+Author-email: f.scherf@pengutronix.de
+License: MIT
+Description: Lona
+        ====
+        
+        .. image:: https://img.shields.io/pypi/l/lona.svg
+            :alt: pypi.org
+            :target: https://pypi.org/project/lona
+        .. image:: https://img.shields.io/travis/com/fscherf/lona/master.svg
+            :alt: Travis branch
+            :target: https://travis-ci.com/fscherf/lona
+        .. image:: https://img.shields.io/pypi/pyversions/lona.svg
+            :alt: pypi.org
+            :target: https://pypi.org/project/lona
+        .. image:: https://img.shields.io/pypi/v/lona.svg
+            :alt: pypi.org
+            :target: https://pypi.org/project/lona
+        .. image:: https://img.shields.io/codecov/c/github/fscherf/lona.svg
+            :alt: codecov.io
+            :target: https://codecov.io/gh/fscherf/lona/
+        
+        
+        Write responsive web apps in full python
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: AsyncIO
+Classifier: Framework :: Django
+Classifier: Framework :: IPython
+Classifier: Framework :: Pytest
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Internet
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
