@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: pyflowcl
+Version: 0.2.0
+Summary: Cliente para comunicacion con flowAPI-3 de flow.cl
+Home-page: https://github.com/mariofix/pyflowcl
+License: MIT
+Author: Mario Hernandez
+Author-email: yo@mariofix.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Project-URL: Repository, https://github.com/mariofix/pyflowcl
+Description-Content-Type: text/markdown
+
+PyFlowCL
+============
+
+Cliente API para operaciones con el servicio de pagos Flow.cl  
+[FlowAPI-3.0.1](https://www.flow.cl/docs/api.html) 
+
+---
+
+## Features
+- Currently the "[Payment](https://www.flow.cl/docs/api.html#tag/payment)" command is available
+
+
+---
+
+## Setup
+This project is managed by Poetry (a requierements.txt file is also provided)
+
+---
+
+## Usage
+```python
+from pyflowcl import Payment
+from pyflowcl.Clients import ApiClient
+
+API_URL = "https://sandbox.flow.cl/api"
+API_KEY = "your_key"
+API_SECRET = "your_secret"
+FLOW_TOKEN = "your_payment_token"
+api = ApiClient(API_URL, API_KEY, API_SECRET)
+
+call = Payment.get_status(api, FLOW_TOKEN)
+print(call)
+```
+
+---
+
+## License
+>You can check out the full license [here](https://github.com/mariofix/pyflowcl/blob/stable-v3/LICENSE)
+
+This project is licensed under the terms of the **MIT** license.  
+FlowAPI is licensed under the terms of the **Apache 2.0** license.
+
