@@ -1,0 +1,150 @@
+Metadata-Version: 1.2
+Name: serveliza
+Version: 0.1.4
+Summary: Serveliza description
+Home-page: https://github.com/chivke/serveliza
+Author: chivke
+Author-email: chivke@pm.me
+License: GNU General Public License v3
+Description: =========
+        Serveliza
+        =========
+        
+        .. image:: https://img.shields.io/pypi/v/serveliza.svg
+                :target: https://pypi.python.org/pypi/serveliza
+        
+        .. image:: https://img.shields.io/pypi/pyversions/serveliza
+                :alt: Python versions
+        
+        .. image:: https://img.shields.io/travis/chivke/serveliza.svg
+                :target: https://travis-ci.com/chivke/serveliza
+        
+        .. image:: https://readthedocs.org/projects/serveliza/badge/?version=latest
+                :target: https://serveliza.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        .. image:: https://pyup.io/repos/github/chivke/serveliza/shield.svg
+                :target: https://pyup.io/repos/github/chivke/serveliza/
+                :alt: Updates
+        
+        .. image:: https://pyup.io/repos/github/chivke/serveliza/python-3-shield.svg
+                :target: https://pyup.io/repos/github/chivke/serveliza/
+                :alt: Python 3
+        
+        .. image:: https://img.shields.io/github/license/chivke/serveliza
+                :target: https://www.gnu.org/licenses/gpl-3.0
+                :alt: license badge
+        
+        
+        
+        |Intro|
+        
+        
+        `Serveliza`_ is an application to extract data of the Chilean Electoral Service (SERVEL) from different open sources.
+        
+        A first step to democratize data is to make it accessible for free use.
+        
+        
+        Quick start
+        ------------
+        
+        .. code-block:: console
+        
+            $ pip install serveliza
+            $ serveliza -h
+        
+        Features
+        --------
+        
+        * It analyzes, extracts and exports data from the **electoral roll**, having as a source the public pdf files distributed by SERVEL.
+        
+          |Roll|
+        
+          *Added in the first release (0.1)*
+        
+        `Documentation`_
+        -----------------
+        
+        * `Installation`_
+        * `Usage`_
+        * `API reference`_
+        * `Contributing`_
+        * `Credits`_
+        * `History`_
+        
+        `Spanish translation`_ is also available.
+        
+        License
+        --------
+        
+        GNU General Public License v3
+        
+        
+        .. |Intro| image:: https://github.com/chivke/serveliza/raw/master/images/serveliza_intro.gif
+            :align: middle
+            :alt: intro to cli
+            :width: 80%
+        
+        .. |Roll| image:: https://github.com/chivke/serveliza/raw/master/images/serveliza_roll.gif
+            :align: middle
+            :alt: Electoral roll example gif
+            :width: 80%
+        
+        .. _Serveliza: https://github.com/chivke/serveliza/
+        .. _Documentation: https://serveliza.readthedocs.io/
+        .. _Installation: https://serveliza.readthedocs.io/en/latest/installation.html
+        .. _Usage: https://serveliza.readthedocs.io/en/latest/usage.html
+        .. _API reference: https://serveliza.readthedocs.io/en/latest/reference.html
+        .. _Contributing: https://serveliza.readthedocs.io/en/latest/contributing.html
+        .. _Credits: https://serveliza.readthedocs.io/en/latest/authors.html
+        .. _History: https://serveliza.readthedocs.io/en/latest/history.html
+        .. _Spanish translation: https://serveliza.readthedocs.io/es/latest/index.html
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.4 (2020-09-04)
+        ------------------
+        
+        * Change development status to alpha.
+        * Fix deploy issue.
+        * Include the json data file in distribution.
+        
+        
+        0.1.3 (2020-09-02)
+        ------------------
+        
+        * Fix deploy issue.
+        
+        
+        0.1.2 (2020-09-02)
+        ------------------
+        
+        * Update README and documentation.
+        * Traslate the documentation to spanish.
+        * Fix another deploy issue.
+        
+        0.1.1 (2020-08-31)
+        ------------------
+        
+        * Fix deploy issue.
+        
+        
+        0.1.0 (2020-08-30)
+        ------------------
+        
+        * First release on PyPI.
+        * Electoral roll feature.
+Keywords: serveliza
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
