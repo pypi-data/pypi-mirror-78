@@ -1,0 +1,28 @@
+parameters:
+  jobsbundle:
+    databricks:
+      host: ''
+      token: ''
+      notifications:
+        on_failure: []
+
+    templates:
+      default:
+        name: '{identifier} (%kernel.environment%)'
+
+        new_cluster:
+          spark_version: '6.5.x-scala2.11'
+          node_type_id: '{nodeType}'
+        notebook_task:
+          notebook_path: '/my-project_{currentBranch}/main'
+
+      permissionsDefault:
+        usersNames: '%jobsbundle.databricks.notifications.on_failure%'
+        permissionLevel: 'CAN_MANAGE'
+
+    jobs:
+      main:
+        template: '%jobsbundle.templates.default%'
+        values:
+          nodeType: 'i3.2xlarge'
+        permission: '%jobsbundle.templates.permissionsDefault%'
