@@ -1,0 +1,8 @@
+lightgbm>=2.2.2
+numpy
+optuna
+pandas
+scikit-learn>=0.19.0
+
+[testing]
+matplotlib

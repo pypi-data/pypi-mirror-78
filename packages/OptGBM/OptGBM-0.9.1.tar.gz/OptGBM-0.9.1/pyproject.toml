@@ -1,0 +1,38 @@
+[build-system]
+requires = [
+    "setuptools>=35.0.2",
+    "wheel>= 0.29.0",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 79
+
+[tool.pytest.ini_options]
+addopts = [
+  "--black",
+  "--cov=./",
+  "--cov-report=xml",
+  "--doctest-modules",
+  "--flake8",
+  "--mypy",
+  "--pydocstyle",
+]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py
+isolated_build = True
+
+[testenv]
+commands = pytest
+deps =
+  pytest>=6.0.0
+  pytest-black
+  pytest-cov
+  pytest-flake8
+  pytest-mypy
+  pytest-pydocstyle>=2.1.0
+extras = testing
+"""
