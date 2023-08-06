@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "qalx-orcaflex"
+version = "0.1.5"
+description = "qalx Bots and helpers for OrcaFlex by Orcina"
+authors = ["Steven Rossiter <steve@agiletek.co.uk>"]
+license = "GPL-3.0+"
+
+[tool.poetry.dependencies]
+python = "^3.7.0"
+pyqalx = ">=0.12.0"
+OrcFxAPI = "^11.0.2"
+pyyaml = "^5.3.1"
+pandas = "^1.0.4"
+psutil = "^5.7.0"
+sphinx = {version = "^2.1",optional = true}
+sphinx-rtd-theme = {version = "^0.4.3",optional = true}
+pip-licenses = {version = "^1.16",optional = true}
+
+[tool.poetry.dev-dependencies]
+pytest-mock = "^1.10"
+pytest-xdist = "^1.31.0"
+pre-commit = "^1.20"
+
+[tool.poetry.extras]
+docs = ["sphinx", "sphinx-rtd-theme"]
+flaky = ["flaky"]
+pip-licenses = ["pip-licenses"]
+
+[tool.black]
+line-length = 88
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
