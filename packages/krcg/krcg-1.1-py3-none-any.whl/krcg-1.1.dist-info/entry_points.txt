@@ -1,0 +1,5 @@
+[console_scripts]
+krcg = src.cli:main
+krcg-bot = src.discord_bot:main
+krcg-gen = src.static_gen:main [dev]
+
