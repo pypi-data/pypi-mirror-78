@@ -1,0 +1,13 @@
+ruamel.yaml>=0.16
+yamale>=3.0
+werkzeug>=1.0
+mako>=1.1
+setuptools>=41.0
+click>=7.1
+
+[:python_version < "3.8"]
+typing-extensions>=3.7.4
+
+[colors]
+termcolor>=1.1
+colorama>=0.4

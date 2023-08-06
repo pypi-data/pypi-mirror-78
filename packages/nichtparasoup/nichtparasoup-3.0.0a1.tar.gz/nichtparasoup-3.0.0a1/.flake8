@@ -1,0 +1,22 @@
+[flake8]
+## https://flake8.pycqa.org/en/latest/user/configuration.html
+
+exclude =
+    build,dist,__pycache__,.eggs,*_cache
+    .git,.tox,.venv,venv
+    _OLD,_TEST,
+    docs
+
+show-source  = True
+
+ignore =
+    # ignore `self`, `cls` markers of flake8-annotations>=2.0
+    ANN101,ANN102
+    # ignore warnings for non-fstring with `{` in it
+    FS003
+
+
+max-complexity = 5
+
+max-line-length = 120
+
