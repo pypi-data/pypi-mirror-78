@@ -1,0 +1,13 @@
+{% load small_small_hr %}{{ object.content_object.staff.get_name }} requested overtime:
+
+{{ object.content_object.duration|overtime_duration }} on {{ object.content_object.date|date:"D, d M Y" }}
+{{ object.content_object.start|date:"P" }} - {{ object.content_object.end|date:"P" }}
+
+Please log in to process the above: http://{{SITE.domain}}/reviews/{{ object.pk }}
+
+Thank you,
+
+
+{{SITE.name}}
+------
+http://{{SITE.domain}}
