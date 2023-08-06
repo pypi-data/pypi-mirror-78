@@ -1,0 +1,118 @@
+Metadata-Version: 2.1
+Name: python-vivid
+Version: 0.3.3.1
+Summary: Support Tools for Machine Learning VIVIDLY
+Home-page: https://atma.co.jp/
+Author: nyk510
+Author-email: yamaguchi@atma.co.jp
+License: BSD License
+Platform: UNKNOWN
+Classifier: Framework :: Matplotlib
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: tqdm
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: joblib
+Requires-Dist: optuna
+Requires-Dist: xgboost (<=1.0.2)
+Requires-Dist: lightgbm
+Requires-Dist: feather-format
+Requires-Dist: tabulate
+Requires-Dist: networkx
+Provides-Extra: document
+Requires-Dist: sphinx ; extra == 'document'
+Requires-Dist: sphinx-rtd-theme ; extra == 'document'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: parameterized ; extra == 'test'
+Requires-Dist: ipython ; extra == 'test'
+Requires-Dist: jupyter ; extra == 'test'
+Requires-Dist: notebook ; extra == 'test'
+Requires-Dist: tornado (==5.1.1) ; extra == 'test'
+Requires-Dist: keras (<=2.3.1) ; extra == 'test'
+Requires-Dist: tensorflow (<=2.2.1) ; extra == 'test'
+Requires-Dist: comet-ml ; extra == 'test'
+
+# Vivid
+
+Support Tools for Machine Learning Vividly 🚀
+
+[Documents](https://lucid-lumiere-9b9b91.netlify.app/)
+
+## Usage
+
+The concept of vivid is **easy to use**. Only make instance and run fit, vivid save model metrics and weights (like feature_imporance, pr/auc curve, training time, ...) .
+
+```python
+import pandas as pd
+from sklearn.datasets import load_boston
+
+from vivid.backends.experiments import LocalExperimentBackend
+from vivid.estimators.boosting import XGBRegressorBlock
+
+X, y = load_boston(return_X_y=True)
+train_df = pd.DataFrame(X)
+
+# create model and experiment
+xgb = XGBRegressorBlock('xgb')
+experiment = LocalExperimentBackend('./outputs/simple')
+
+# run models
+from vivid.runner import create_runner
+
+runner = create_runner(blocks=xgb, experiment=experiment)
+runner.fit(train_df, y)
+runner.predict(train_df)
+```
+
+VIVID makes it easy to describe model/feature relationships. For example, you can easily describe stacking, which can be quite complicated if you create it normally.
+
+
+## Install
+
+```bash
+pip install python-vivid
+```
+
+## Sample Code
+
+In `/vivid/samples`, Some sample script codes exist.
+
+## Developer
+
+### Requirements
+
+* docker
+* docker-compose
+
+create docker-image from docker-compose file
+
+```bash
+docker-compose build
+docker-compose up -d
+docker exec -it vivid-test bash
+```
+
+### Test
+
+use `pytest` for test tool (see [gitlab-ci.yml](./gitlab-ci.yml)).
+
+```bash
+pytest tests
+```
+
+
