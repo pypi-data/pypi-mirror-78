@@ -1,0 +1,5 @@
+include coopstarter_data/fixtures/*.json
+include coopstarter_data/templates/*
+include coopstarter_data/templates/django_registration/*
+include coopstarter_data/templates/oidc_provider/*
+include coopstarter_data/templates/registration/*
