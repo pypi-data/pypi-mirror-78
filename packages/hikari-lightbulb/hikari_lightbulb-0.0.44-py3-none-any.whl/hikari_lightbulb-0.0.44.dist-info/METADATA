@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: hikari-lightbulb
+Version: 0.0.44
+Summary: A simple to use command handler for Hikari
+Home-page: https://gitlab.com/tandemdude/lightbulb
+Author: tandemdude
+Author-email: tandemdude1@gmail.com
+License: LGPL-3.0-ONLY
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.8.0,<3.10
+Description-Content-Type: text/markdown
+Requires-Dist: hikari (~=2.0.0.dev70)
+
+# Simple command handler for hikari
+**By yours truly (thomm.o)**
+
+## Installation
+
+`$ pip install hikari-lightbulb`
+
+## Usage
+
+```python
+import lightbulb
+
+bot = lightbulb.Bot(token="token_here", prefix="test.")
+
+@bot.command()
+async def ping(ctx):
+    await ctx.message.reply("Pong!")
+
+bot.run()
+```
+
+[Documentation](https://tandemdude.gitlab.io/lightbulb)
+
