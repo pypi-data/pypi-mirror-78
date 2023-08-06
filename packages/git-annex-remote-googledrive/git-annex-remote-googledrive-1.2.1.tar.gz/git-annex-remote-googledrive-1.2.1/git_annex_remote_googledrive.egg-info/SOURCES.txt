@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+git_annex_remote_googledrive/__init__.py
+git_annex_remote_googledrive/__main__.py
+git_annex_remote_googledrive/_version.py
+git_annex_remote_googledrive/google_remote.py
+git_annex_remote_googledrive/keys.py
+git_annex_remote_googledrive/run.py
+git_annex_remote_googledrive.egg-info/PKG-INFO
+git_annex_remote_googledrive.egg-info/SOURCES.txt
+git_annex_remote_googledrive.egg-info/dependency_links.txt
+git_annex_remote_googledrive.egg-info/entry_points.txt
+git_annex_remote_googledrive.egg-info/requires.txt
+git_annex_remote_googledrive.egg-info/top_level.txt
