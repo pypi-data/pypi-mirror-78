@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: desdeo-emo
+Version: 1.1.0
+Summary: The python version reference vector guided evolutionary algorithm.
+License: MPL-2.0
+Author: Bhupinder Saini
+Requires-Python: >=3.7.0,<4.0.0
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: desdeo-problem (>=0.15.0,<0.16.0)
+Requires-Dist: desdeo-tools (>=0.2.6,<0.3.0)
+Requires-Dist: diversipy (>=0.8.0,<0.9.0)
+Requires-Dist: optproblems (>=1.2,<2.0)
+Requires-Dist: plotly (>=4.1,<5.0)
+Requires-Dist: pyDOE (>=0.3.8,<0.4.0)
+Requires-Dist: pygmo (==2.12)
+Requires-Dist: scikit-learn (>=0.21.2,<0.22.0)
+Requires-Dist: scipy (>=1.2,<2.0)
+Description-Content-Type: text/markdown
+
+# desdeo-emo
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/industrial-optimization-group/desdeo-emo/master)
+
+The evolutionary algorithms package within the `desdeo` framework.
+
+Currently supported:
+* Multi-objective optimization with visualization and interaction support.
+* Preference is accepted as a reference point.
+* Surrogate modelling (neural networks and genetic trees) evolved via EAs.
+* Surrogate assisted optimization
+* Constraint handling using `RVEA`
+
+Currently _NOT_ supported:
+* Binary and integer variables.
+
+To test the code, open the [binder link](https://mybinder.org/v2/gh/industrial-optimization-group/desdeo-emo/master) and read example.ipynb.
+
+Read the documentation [here](https://desdeo-emo.readthedocs.io/en/latest/)
+
+### Requirements:
+* Python 3.7 (3.8 is NOT supported at the moment)
+* [Poetry dependency manager](https://github.com/sdispater/poetry): Only for developers
+
+### Installation process for normal users:
+* Create a new virtual enviroment for the project
+* Run: `pip install desdeo_emo`
+
+### Installation process for developers:
+* Download and extract the code or `git clone`
+* Create a new virtual environment for the project
+* Run `poetry install` inside the virtual environment shell.
