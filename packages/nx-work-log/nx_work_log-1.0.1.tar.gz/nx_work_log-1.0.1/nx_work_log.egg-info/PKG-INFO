@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: nx-work-log
+Version: 1.0.1
+Summary: NX Solutions Work Log
+Home-page: https://xanderhendriks.github.io/nx-work-log
+Author: Xander Hendriks
+Author-email: xander.hendriks@nx-solutions.com
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/xanderhendriks/nx-work-log/issues
+Project-URL: Source, https://github.com/xanderhendriks/nx-work-log
+Description: NX Work Log
+        
+        I wrote this program originally in Borland C++ Builder. It adds an icon to the windows system tray that is green when it's
+        measuring time and red when it's paused. I use it to measure my working hours, so I can switch it off when doing non work
+        related tasks.
+        
+        When I found `Simon Brunning SysTrayIcon  <http://www.brunningonline.net/simon/blog/archives/SysTrayIcon.py.html>` I decided
+        to rewrite the application in Python as I wanted to make some improvements to the tool and no longer wanted to use my outdated
+        version of C++ Builder.
+        
+        As I was exploring the winpy32 package I found it contains a resource file parser and I thought it would be cool to define
+        the dialog in Microsoft Visual Studio and see how this can be used in Python.
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Provides-Extra: test
+Provides-Extra: dev
+Provides-Extra: doc

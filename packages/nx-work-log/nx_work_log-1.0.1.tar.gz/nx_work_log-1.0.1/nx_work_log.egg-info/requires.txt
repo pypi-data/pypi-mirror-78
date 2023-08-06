@@ -1,0 +1,14 @@
+
+[:platform_system == "Windows"]
+pywin32
+
+[dev]
+check-manifest
+flake8
+
+[doc]
+sphinx
+sphinx-rtd-theme
+
+[test]
+pytest

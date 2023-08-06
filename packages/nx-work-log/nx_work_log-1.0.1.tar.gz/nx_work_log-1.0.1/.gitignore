@@ -1,0 +1,16 @@
+.eggs/*
+.idea/*
+build/*
+dist/*
+junit/*
+nx_work_log.egg-info/*
+*/__pycache__/*
+version.py
+*/.vs/*
+*.sln
+*.aps
+*.vxproj
+*.filters
+*.user
+*.vcxproj
+doc/autosummary/*
