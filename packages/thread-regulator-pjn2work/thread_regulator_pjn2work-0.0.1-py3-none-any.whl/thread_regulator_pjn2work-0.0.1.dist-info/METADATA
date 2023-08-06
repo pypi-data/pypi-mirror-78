@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: thread-regulator-pjn2work
+Version: 0.0.1
+Summary: Thread Regulator with notifications and statistics
+Home-page: https://github.com/pjn2work/thread_regulator
+Author: Pedro Jorge Nunes
+Author-email: pjn2work@google.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# ThreadRegulator
+Python class that allows to control thread execution in time (requests per second) for both constant rate mode, or burst mode. With a notify option that is called after a specific number of executions or a time delta
+
+
