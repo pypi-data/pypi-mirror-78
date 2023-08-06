@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: errr
+Version: 0.1.0
+Summary: Elegant detailed Python exceptions.
+Home-page: https://github.com/Helveg/errr
+Author: Robin De Schepper
+Author-email: robingilbert.deschepper@unipv.it
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# errr
+Elegantly create detailed exceptions in Python.
+
+
+```python
+>>> import errr
+>>> class MyException(errr.DetailedException, details=["cause", "type"]):
+...  pass
+...
+>>> raise MyException("The backend server crashed", "backend", "crash")
+__main__.MyException: The backend server crashed
+
+Details:
+ ˪cause: backend
+ ˪type: crash
+```
+
+
