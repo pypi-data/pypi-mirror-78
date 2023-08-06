@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: setux-managers
+Version: 0.20.37.0
+Summary: System deployment
+Home-page: https://bitbucket.org/dugres/setux_managers
+Author: Louis RIVIERE
+Author-email: louis@riviere.xyz
+License: MIT
+Keywords: utility
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Requires-Dist: pybrary (>=0.3.0)
+Requires-Dist: setux-core (>=0.20.37.0)
+
+########
+ setux
+########
+
+**Setup Tux**
+
+========
+Abstract
+========
+
+Install, Deploy, Admin
+
+=====
+Usage
+=====
+
+.. code-block:: shell
+
+    setux
+
+
+============
+Installation
+============
+
+.. code-block:: shell 
+
+    $ pip install setux
+
+
