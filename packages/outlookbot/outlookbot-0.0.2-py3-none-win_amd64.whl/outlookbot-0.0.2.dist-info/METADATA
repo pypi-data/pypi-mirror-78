@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: outlookbot
+Version: 0.0.2
+Summary: Outlook bot for sending a lot of emails and also for exctracting emails
+Home-page: https://github.com/subhrm/email-automation
+Author: 
+Author-email: 
+License: UNKNOWN
+Project-URL: Issue Tracker, https://github.com/subhrm/email-automation/issues
+Keywords: email,outlook,automation
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Utilities
+Classifier: Topic :: Communications :: Email
+Requires-Python: >=3.6
+Requires-Dist: click (>=7.1.2)
+Requires-Dist: colorama (>=0.4.3)
+Requires-Dist: flake8 (>=3.8.3)
+Requires-Dist: Jinja2 (>=2.11.2)
+Requires-Dist: openpyxl (>=3.0.5)
+Requires-Dist: pandas (>=1.1.1)
+Requires-Dist: pytest (>=6.0.1)
+Requires-Dist: pywin32 (>=228)
+Requires-Dist: tqdm (>=4.48.2)
+Requires-Dist: wheel (>=0.35.1)
+Requires-Dist: xlrd (>=1.2.0)
+
+# email-automation
+
+
