@@ -1,0 +1,12 @@
+async_generator
+jupyter_server<0.2.0,>=0.1.0
+nbconvert<6,>=5.5.0
+jupyterlab_pygments<0.2,>=0.1.0
+pygments<3,>=2.4.1
+
+[test]
+mock
+pytest<4
+pytest-tornado
+matplotlib
+ipywidgets
