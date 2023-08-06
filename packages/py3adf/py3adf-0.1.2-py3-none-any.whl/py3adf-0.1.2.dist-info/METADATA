@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: py3adf
+Version: 0.1.2
+Summary: Python 3 port of ADF2INF from David Boddie's Acorn-Format-Tools.
+Home-page: https://github.com/jarpy/Acorn-Format-Tools
+Author: David Boddie, Toby McLaughlin
+Author-email: toby@jarpy.net
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+py3adf
+======
+
+`py3adf` is a port of David Boddie's `ADF2INF` ADFS image reading tool and its
+supporting `ADFSlib` library module. The original versions can be found,
+alongside many other nice things, in the [Acorn-Format-Tools][] repository.
+
+The primary goal of this fork is to provide a version of `ADF2INF` that runs on
+Python 3.
+
+Additional goals include:
+
+ - Minor enhancements for `ADF2INF`.
+ - `pip` packaging, with support for running `py3adf.py` easily on Windows.
+ - Tasteful use of new language features.
+ - Increased type safety with type hints and explicit casts (where essential).
+ - Automated acceptance tests.
+
+[Acorn-Format-Tools]: https://github.com/dboddie/Acorn-Format-Tools
+
+Installing
+----------
+```
+pip install py3adf
+```
+
+Running
+-------
+The pip package installs `py3adf.py` as a runnable script, so just:
+```
+py3adf.py
+```
+
+Authors
+-------
+
+* David Boddie <david@boddie.org.uk>
+* Toby McLaughlin <toby@jarpy.net>
+
+License
+-------
+
+py3adf is licensed under the GNU General Public License version 3 or later:
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
