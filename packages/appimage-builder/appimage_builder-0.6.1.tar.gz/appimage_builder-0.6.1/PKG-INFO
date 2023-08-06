@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: appimage_builder
+Version: 0.6.1
+Summary: Recipe based AppImage creation meta-tool
+Home-page: https://github.com/AppImageCrafters/AppImageBuilder
+Author: Alexis Lopez Zubieta
+Author-email: contact@azubieta.net
+License: MIT
+Project-URL: Bug Tracker, https://github.com/AppImageCrafters/AppImageBuilder/issues
+Project-URL: Documentation, https://appimage-builder.readthedocs.io
+Project-URL: Source Code, https://github.com/AppImageCrafters/AppImageBuilder
+Description: # appimage-builder
+        
+        *GNU/Linux packaging made easy!* ™
+        
+        ## What is it?
+        
+        It's a tool for packing applications along with all of its dependencies using the
+        system package manager to obtain binaries and resolve dependencies. It creates a 
+        **self-sufficient** and **portable** bundle using the [AppImage](https://appimage.org)
+        format.
+        
+        Features:
+        - Real GNU/Linux packaging (no more distro packaging)
+        - Simple recipes
+        - Simple workflow
+        - Backward and forward compatibility
+        - One binary, many target systems.
+        
+        
+        ## Useful links
+        
+        - [Installation](https://appimage-builder.readthedocs.io/en/latest/intro/install.html)
+        - [Getting help](https://appimage-builder.readthedocs.io/en/latest/index.html#getting-help)
+        - [Tutorial](https://appimage-builder.readthedocs.io/en/latest/intro/tutorial.html)
+        - [Documentation](https://appimage-builder.readthedocs.io)
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
