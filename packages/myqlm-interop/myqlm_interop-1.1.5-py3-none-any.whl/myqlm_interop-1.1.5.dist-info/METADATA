@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: myqlm-interop
+Version: 1.1.5
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Atos Quantum Lab
+License: Atos myQLM EULA
+Platform: UNKNOWN
+Requires-Dist: qat-lang (>=0.0.6)
+Requires-Dist: numpy
+Requires-Dist: ply
+Provides-Extra: all
+Requires-Dist: qiskit (==0.19.2) ; extra == 'all'
+Requires-Dist: qiskit-terra (==0.14.1) ; extra == 'all'
+Requires-Dist: qiskit-aqua (==0.7.1) ; extra == 'all'
+Requires-Dist: qiskit-ignis (==0.3.0) ; extra == 'all'
+Requires-Dist: qiskit-aer (==0.5.1) ; extra == 'all'
+Requires-Dist: qiskit-ibmq-provider (==0.7.1) ; extra == 'all'
+Requires-Dist: projectq (==0.5.1) ; extra == 'all'
+Requires-Dist: cirq (==0.8.2) ; extra == 'all'
+Requires-Dist: pyquil (==2.20.0) ; extra == 'all'
+Requires-Dist: quantum-grove (==1.7.0) ; extra == 'all'
+Provides-Extra: cirq_binder
+Requires-Dist: cirq (==0.8.2) ; extra == 'cirq_binder'
+Provides-Extra: projectq_binder
+Requires-Dist: projectq (==0.5.1) ; extra == 'projectq_binder'
+Provides-Extra: pyquil_binder
+Requires-Dist: pyquil (==2.20.0) ; extra == 'pyquil_binder'
+Requires-Dist: quantum-grove (==1.7.0) ; extra == 'pyquil_binder'
+Provides-Extra: qiskit_binder
+Requires-Dist: qiskit (==0.19.2) ; extra == 'qiskit_binder'
+Requires-Dist: qiskit-terra (==0.14.1) ; extra == 'qiskit_binder'
+Requires-Dist: qiskit-aqua (==0.7.1) ; extra == 'qiskit_binder'
+Requires-Dist: qiskit-ignis (==0.3.0) ; extra == 'qiskit_binder'
+Requires-Dist: qiskit-aer (==0.5.1) ; extra == 'qiskit_binder'
+Requires-Dist: qiskit-ibmq-provider (==0.7.1) ; extra == 'qiskit_binder'
+
+UNKNOWN
+
+
