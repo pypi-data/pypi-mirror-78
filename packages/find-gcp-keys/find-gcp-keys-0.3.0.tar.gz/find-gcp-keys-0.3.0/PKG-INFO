@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: find-gcp-keys
+Version: 0.3.0
+Summary: Find and report valid Google Service Account keys on your filesystem
+Home-page: https://github.com/dinvlad/find-gcp-keys
+Author: Denis Loginov
+License: BSD 3-clause "New" or "Revised" License
+Description: # find-gcp-keys
+        
+        This tool finds and prints valid Google Service Account keys on your filesystem.
+        This is useful to keep track of any unexpired/non-disabled keys you may have.
+        
+        It does NOT require any special permissions,
+        or even to be authenticated with Google Cloud SDK.
+        
+        ## Requirements
+        
+        Python 3.7+
+        
+        ## Installation
+        
+        pip3 install find-gcp-keys
+        
+        ## Usage
+        
+        As a command-line utility:
+        
+        ```
+        find_gcp_keys <dir_path>
+        ```
+        
+        As a library:
+        
+        ```
+        import find_gcp_keys
+        ...
+        for path in find_gcp_keys.search(dir_path):
+          print(path)
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Security
+Classifier: Topic :: Security :: Cryptography
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
