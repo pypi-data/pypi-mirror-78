@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: sylenium
+Version: 1.0.1
+Summary: Selenium wrapper for stable system testing
+Home-page: UNKNOWN
+Author: Simon Kerr
+Author-email: jackofspaces@gmail.com
+License: MIT
+Project-URL: Documentation, https://sylenium.readthedocs.io/
+Project-URL: Changelog, https://sylenium.readthedocs.io/en/latest/changelog.html
+Project-URL: Tracker, https://github.com/symonk/sylenium/issues
+Keywords: system_tests
+Platform: unix
+Platform: linux
+Platform: osx
+Platform: cygwin
+Platform: win32
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+Requires-Dist: selenium (>=3.141.0)
+Requires-Dist: webdriver-manager (>=3.2.2)
+Requires-Dist: pyfields (>=1.2.0)
+
+UNKNOWN
+
+
