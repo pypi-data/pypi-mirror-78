@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pumpkin_supmcu_kubos
+Version: 0.0.3
+Summary: A library to interface with Pumpkin SupMCU modules via I2C with the KubOS I2C HAL library package.
+Home-page: https://gitlab.com/pumpkin-space-systems/public/pumpkin-supmcu-kubos
+Author: James Womack
+Author-email: info@pumpkininc.com
+License: UNKNOWN
+Description: # pumpkin-supmcu-kubos Package
+        
+        The `pumpkin-supmcu-kubos` package has the following functionality:
+        
+        * Leverages business logic found in [pumpkin-supmcu](https://pumpkin-supmcu.readthedocs.io/en/latest/index.html).
+            + Please read `pumpkin-supmcu` documentation for usage, this is the implementation package for [kubos-i2c-hal](https://docs.kubos.com/1.21.0/deep-dive/apis/kubos-hal/i2c-hal/python-i2c.html)
+        * Interfaces `pumpkin-supmcu` package with the KubOS I2C HAL library.
+        
+        The documentation for the `pumpkin_supmcu` package can be [found here](https://pumpkin-supmcu.readthedocs.io/en/latest/index.html).
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
