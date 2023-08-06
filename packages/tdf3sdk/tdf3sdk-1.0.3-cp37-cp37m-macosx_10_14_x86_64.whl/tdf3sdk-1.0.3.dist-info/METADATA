@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: tdf3sdk
+Version: 1.0.3
+Summary: Python Wrapper for TDF3 SDK
+Home-page: https://developer.virtru.com/
+Author: Virtru
+Author-email: developers@virtru.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Description-Content-Type: text/markdown
+
+# TDF3 SDK
+
+The TDF3 Python SDK allows developers to easily create and manage encrypted [Trusted Data Format (TDF) objects](https://github.com/virtru/tdf3-spec) and interact with [Key Access and Entity Attribute Services (KAS, EAS).](https://developer.virtru.com/docs/architecture) 
+
+
+## Installation
+Upgrade pip3 to the latest version and run
+```
+pip3 install tdf3sdk
+```
+
+## Authentication 
+
+Two different methods:
+1. Provide EAS url and user id (user should be registered on EAS):
+```python
+client = TDF3Client(eas_url, user_id)
+```
+2. Provide EAS url, user id, client key (absolute file path), client cetificate (absolute file path) and root CA (absolute file path)
+```python
+client = TDF3Client(eas_url, user_id, filepath_client_key, filepath_client_cert, filepath_rootCA)
+```
+## Create Encrypted TDF Object (minimal example)
+```python
+from tdf3sdk import TDF3Client
+
+client = TDF3Client(eas_url, user_id)
+unprotected_file = "sensitive.txt"
+protected_file = unprotected_file + ".tdf.html"
+
+client.encrypt_file(unprotected_file, protected_file)
+```
+[Terms of Service](https://www.virtru.com/terms-of-service/)
+[Privacy Policy](https://www.virtru.com/privacy-policy/)
+
