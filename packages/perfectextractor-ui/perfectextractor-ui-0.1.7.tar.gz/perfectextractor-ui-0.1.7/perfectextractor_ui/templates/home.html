@@ -1,0 +1,316 @@
+{% extends 'base/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<style>
+ #id_data_source li {
+     list-style:none;
+ }
+
+ #id_documents {
+     height: 350px;
+ }
+
+ .error {
+     background: #fcc;
+     color: #701;
+     padding: 1em;
+ }
+
+ .help {
+     margin-right: 5px;
+ }
+</style>
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+        <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<a id="show_import" href="{% url 'perfectextractor_ui:import_query' %}" class="pull-right">Load saved query</a>
+
+<h1>Run Extraction</h1>
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                {{field.label}}: {{ error|escape }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            {{ error|escape }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<form name="extraction" action="{% url 'perfectextractor_ui:run' %}" method="post">
+  <h4>Data Source</h4>
+  <div class="row">
+    {% with field=form.corpus %}
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field|add_class:"form-control" }}
+        </div>
+    </div>
+    {% endwith %}
+    {% with field=form.extractor %}
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field|add_class:"form-control" }}
+        </div>
+    </div>
+    {% endwith %}
+    {% if form.source %}
+    {% with field=form.source %}
+        <div class="col-md-3">
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field|add_class:"form-control" }}
+        </div>
+        </div>
+    {% endwith %}
+    {% with field=form.alignment %}
+        <div class="col-md-3">
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field|add_class:"form-control" }}
+        </div>
+        </div>
+    {% endwith %}
+    {% if form.documents %}
+    {% with field=form.documents %}
+        <div class="col-md-6">
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            <select id="{{field.auto_id}}" name="{{field.name}}" class="form-control" multiple></select>
+        </div>
+        </div>
+        <div class="col-md-6">
+        <div class="form-group">
+            <label for="documents_filter">Filter documents by name</label>
+            <input type="text" id="id_documents_filter" class="form-control" />
+        </div>
+        <p id="documents_filter_count"></p>
+        <p id="documents_selected_count">None selected</p>
+        </div>
+    {% endwith %}
+    {% endif %}
+    {% endif %}
+  </div>
+  <h4>Query</h4>
+  <div class="row">
+    {% with field=form.pos %}
+        <div class="col-md-3">
+        <div class="form-group">
+          <button class="pull-right btn btn-xs btn-primary add">+</button>
+          <a href="{% url 'perfectextractor_ui:help'%}#{{field.name}}"
+             target="_new"
+             class="btn btn-xs btn-default pull-right help">?</a>
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field|add_class:"form-control"|add_class:"maybe-list" }}
+        </div>
+        </div>
+    {% endwith %}
+    {% with field=form.lemmata %}
+        <div class="col-md-3">
+        <div class="form-group">
+          <button class="pull-right btn btn-xs btn-primary add">+</button>
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field|add_class:"form-control"|add_class:"maybe-list" }}
+        </div>
+        </div>
+    {% endwith %}
+    {% with field=form.regex %}
+        <div class="col-md-3">
+        <div class="form-group">
+          <button class="pull-right btn btn-xs btn-primary add">+</button>
+          <a href="{% url 'perfectextractor_ui:help'%}#{{field.name}}"
+             target="_new"
+             class="btn btn-xs btn-default pull-right help">?</a>
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field|add_class:"form-control"|add_class:"maybe-list" }}
+        </div>
+        </div>
+    {% endwith %}
+    {% with field=form.position %}
+        <div class="col-md-3">
+        <div class="form-group">
+          <button class="pull-right btn btn-xs btn-primary add">+</button>
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field|add_class:"form-control"|add_class:"maybe-list" }}
+        </div>
+        </div>
+    {% endwith %}
+  </div>
+  <h4>Options</h4>
+  <div class="row">
+    {% with field=form.file_limit %}
+        <div class="col-md-3">
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{field|add_class:"form-control"}}
+        </div>
+        </div>
+    {% endwith %}
+    {% with field=form.output_format %}
+        <div class="col-md-3">
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{field|add_class:"form-control"}}
+            <small>{{field.help_text}}</small>
+        </div>
+        </div>
+    {% endwith %}
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        <input type="submit" class="btn btn-lg btn-primary" value="Run" />
+        <a href="{% url 'perfectextractor_ui:home' %}" class="btn btn-lg btn-default">Reset</a>
+      </div>
+    </div>
+  </div>
+  {% csrf_token %}
+</form>
+
+<script>
+ function addFieldEvent(event) {
+     var element = event.target.parentNode.querySelector('input');
+     duplicateField(element, '');
+     event.preventDefault();
+ }
+ function duplicateField(element, value) {
+     if (element.disabled) return;
+     var clone = element.cloneNode();
+     clone.value = value;
+     element.parentNode.appendChild(clone);
+ }
+
+ document.querySelectorAll('button.add').forEach(function(button) {
+     button.addEventListener('click', addFieldEvent);
+ });
+
+ document.getElementById('id_corpus').addEventListener('change', function(event) {
+     sendPartialForm();
+ });
+
+ var sourceSelect = document.getElementById('id_source');
+ if(sourceSelect) {
+     sourceSelect.addEventListener('change', function(event) {
+         sendPartialForm();
+     });
+ }
+
+ // manipulating an existing <select> element with many options can be quite slow.
+ // this is why I replace avoid generating a huge <select> with all options on the server,
+ // use a smaller <select> with a limit on the number of options, and ask the user to use filters.
+ var docSelect = document.getElementById('id_documents');
+ var selectedDocuments = [];
+ var allDocuments = [];
+ {% if form.documents %}
+ allDocuments = {{ form.documents.field.choices | safe }};
+ {% if form.documents.value %}
+ selectedDocuments = {{ form.documents.value | safe }};
+ {% endif %}
+ {% endif %}
+ var documentsFilter = document.getElementById('id_documents_filter');
+ var activeFilter = '';
+ if(docSelect) {
+     var limit = 100;
+     function updateOptions(options) {
+         var buffer = [];
+         for(var i=0; i<Math.min(limit, options.length); i++) {
+             buffer.push('<option value="');
+             buffer.push(options[i]);
+             buffer.push('">');
+             buffer.push(options[i]);
+             buffer.push('</option>');
+         }
+         docSelect.innerHTML = buffer.join('');
+
+         var msg = 'Found ' + allDocuments.length + ' documents, showing ' +
+                   docSelect.children.length + ' (limit: ' + limit + ').';
+         if(docSelect.children.length >= limit) {
+             msg += '<br>Please use a filter to narrow down results.';
+         }
+         document.getElementById('documents_filter_count').innerHTML = msg;
+     }
+
+     function updateSelectedCount() {
+         var selected = docSelect.querySelectorAll('option:checked');
+         if(selected.length) {
+             document.getElementById('documents_selected_count').innerHTML = 'Selected: ' + selected.length;
+         }
+     }
+
+     if(selectedDocuments.length) {
+         updateOptions(selectedDocuments);
+         docSelect.querySelectorAll('option').forEach(function (element) {
+             element.selected = true;
+         });
+         updateSelectedCount();
+     }
+     else {
+         updateOptions(allDocuments.slice(0, limit));
+     }
+     documentsFilter.addEventListener('keyup', function(event) {
+         if(event.target.value !== activeFilter) {
+             activeFilter = event.target.value;
+             updateOptions(allDocuments.filter(function(doc) {
+                 return doc.indexOf(activeFilter) >= 0;
+             }));
+             updateSelectedCount();
+         }
+     });
+
+     docSelect.addEventListener('change', function(event) {
+         updateSelectedCount();
+     });
+ }
+
+ function sendPartialForm() {
+     var form = document.forms.extraction;
+     form.method = 'get';
+     form.action = '{% url "perfectextractor_ui:home" %}';
+     form.csrfmiddlewaretoken.remove();
+     form.submit();
+ }
+
+ function parseListFields() {
+     document.querySelectorAll('.maybe-list').forEach(function(element) {
+         var tryParse = element.value.split(',');
+         if(typeof(tryParse) === 'object') {
+             element.value = tryParse.pop();
+             tryParse.forEach(function(value) {
+                 duplicateField(element, value);
+             });
+         }
+     });
+ }
+
+ parseListFields();
+
+ function updateFilters() {
+     function disable(element) { element.disabled = true; }
+     function enable(element) { element.disabled = false; }
+     if(document.querySelector('#id_extractor').value == 'pos') {
+         document.querySelectorAll('#id_pos').forEach(enable);
+         document.querySelectorAll('#id_regex').forEach(enable);
+     }
+     else {
+         document.querySelectorAll('#id_pos').forEach(disable);
+         document.querySelectorAll('#id_regex').forEach(disable);
+     }
+ }
+
+ document.querySelector('#id_extractor').addEventListener('change', updateFilters);
+ updateFilters();
+</script>
+{% endblock %}
