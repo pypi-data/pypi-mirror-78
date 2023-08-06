@@ -1,0 +1,10 @@
+responder
+graphql-core==2.2.1
+graphene==2.1.8
+transformers[tf-cpu]==3.0.2
+rake_nltk
+nltk
+sqlalchemy
+sentence_transformers==0.3.0
+tensorflow-estimator==2.1.0
+tokenizers==0.7.0
