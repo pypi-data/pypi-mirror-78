@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+SoccerNet/DataLoaderTensorFlow.py
+SoccerNet/DataLoaderTorch.py
+SoccerNet/__init__.py
+SoccerNet/downloader.py
+SoccerNet/utils.py
+SoccerNet.egg-info/PKG-INFO
+SoccerNet.egg-info/SOURCES.txt
+SoccerNet.egg-info/dependency_links.txt
+SoccerNet.egg-info/requires.txt
+SoccerNet.egg-info/top_level.txt
+SoccerNet/data/SoccerNetGames.json
+SoccerNet/data/SoccerNetTestGames.json
