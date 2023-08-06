@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: password-lookup-napisani
+Version: 0.0.1
+Summary: password lookup utility for looking up keepass or bitwarden passwords via a terminal session
+Home-page: https://github.com/napisani/password-lookup
+Author: Nick Pisani
+Author-email: napisani@yahoo.com
+License: UNKNOWN
+Description: #password-lookup
+        
+        
+        A simple password lookup script for bitwarden/keepass
+        
+        
+        ```bash
+        pip install -r requirements.txt
+        
+        python password-lookup.py
+        ```
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
