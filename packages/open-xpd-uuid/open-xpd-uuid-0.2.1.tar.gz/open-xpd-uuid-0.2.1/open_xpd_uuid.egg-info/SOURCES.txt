@@ -1,0 +1,14 @@
+README.md
+setup.py
+cqd/__init__.py
+cqd/open_xpd_uuid/__init__.py
+open_xpd_uuid.egg-info/PKG-INFO
+open_xpd_uuid.egg-info/SOURCES.txt
+open_xpd_uuid.egg-info/dependency_links.txt
+open_xpd_uuid.egg-info/top_level.txt
+tests/__init__.py
+tests/test_checksum.py
+tests/test_encode_decode.py
+tests/test_generate.py
+tests/test_sanitize.py
+tests/test_validate.py
