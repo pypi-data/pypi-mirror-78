@@ -1,0 +1,32 @@
+{% extends "minimal.html" %}
+
+{% block title %}
+<title>{{site.config.name}} - Tags - {{ page.name }}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-12 col-lg-9">
+
+    {% if page.content|length > 0 %}
+    <h1>{{page.name}}</h1>
+    {{page.content}}
+    <hr>
+    <h3>Posts tagged {{page.name}}</h3>
+    {% else %}
+    <h1>Posts tagged {{page.name}}</h1>
+    <hr>
+    {% endif %}
+
+    <ul id='post-list'>
+      {% for post in page.paginator.objects %}
+        {% include "post_front.html" %}
+      {% endfor %}
+    </ul>
+    {% include 'pagination.html' %}
+  </div>
+  <div class="col-md-12 col-lg-3">
+    {% include "tag_list.html" %}
+  </div>
+</div>
+{% endblock content %}
