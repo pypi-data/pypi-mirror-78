@@ -1,0 +1,36 @@
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "prometheus-fastapi-instrumentator"
+version = "5.2.3"
+description = "Instrument your FastAPI with Prometheus metrics"
+authors = ["Tim Schwenke <tim.schwenke+trallnag@protonmail.ch>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/trallnag/prometheus-fastapi-instrumentator"
+keywords = ["prometheus", "instrumentation", "fastapi", "exporter", "metrics"]
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'Topic :: System :: Monitoring',
+    'Topic :: System :: Logging',
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+fastapi = ">=0.38.1, <=1.0.0"
+prometheus-client = "^0.8.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+flake8 = "^3.8"
+black = "^19.10b0"
+requests = "^2.24.0"
+pytest-cov = "^2.10.0"
+isort = "^5.2.2"
+pdoc3 = "^0.8.4"
+
+[tool.black]
+line-length = 90
