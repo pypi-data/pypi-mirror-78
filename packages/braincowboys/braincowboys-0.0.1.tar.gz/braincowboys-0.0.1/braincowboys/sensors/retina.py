@@ -1,0 +1,1 @@
+print('A lonely person, not immediately recognized, because, in his wide-open Retina, there is still a light of memories.\n\t-- Amichai')
