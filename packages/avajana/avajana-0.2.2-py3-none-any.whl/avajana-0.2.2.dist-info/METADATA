@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: avajana
+Version: 0.2.2
+Summary: Avajana helps chatbot to express/emulate indirect expressions. Currently, it helps with chatbot bubbling. The bubble that happen to the other end of receipient when someone is typing.
+Home-page: https://github.com/sakuguru/avajana
+License: MIT
+Author: Nutchanon Ninyawee
+Author-email: me@nutchanon.org
+Maintainer: Nutchanon Ninyawee
+Maintainer-email: me@nutchanon.org
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Project-URL: Repository, https://github.com/sakuguru/avajana
+Description-Content-Type: text/markdown
+
+# Avajana
+Avajana helps chatbot to express/emulate indirect expressions. Currently, it helps with chatbot bubbling. The bubble that happen to the other end of receipient when someone is typing.
+
+## Get Started
+```bash
+$ pip install avajana
+```
+
+> Avajana (อวัจนะ) means non-verbal in Thai. 
