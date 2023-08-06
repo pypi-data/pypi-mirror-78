@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: arkindex-base-worker
+Version: 0.1.4
+Summary: Base Worker to easily build Arkindex ML workflows
+Home-page: https://teklia.com
+Author: Teklia
+Author-email: contact@teklia.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: arkindex-client (==1.0.0)
+Requires-Dist: Pillow (==7.2.0)
+Requires-Dist: tenacity (==6.2.0)
+
+UNKNOWN
+
+
