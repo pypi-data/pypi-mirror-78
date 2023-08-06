@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: mtstreamz
+Version: 0.0.3
+Summary: Minh-Tri Pham's extension of the streamz Python library
+Home-page: https://github.com/inteplus/mtstreamz
+Author: ['Minh-Tri Pham']
+License: UNKNOWN
+Project-URL: Documentation, https://mtdoc.readthedocs.io/en/latest/mt.streamz/mt.streamz.html
+Project-URL: Source Code, https://github.com/inteplus/mtstreamz
+Platform: UNKNOWN
+Requires-Dist: tornado (>=6.0.4)
+Requires-Dist: dask (>=2.24.0)
+Requires-Dist: distributed (>=2.24.0)
+Requires-Dist: streamz (>=0.5.5)
+
+UNKNOWN
+
+
