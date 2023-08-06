@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: costreduce
+Version: 0.0.8
+Summary: 
+License: AGPL-3.0
+Author: Maxence Maireaux
+Author-email: maxence@maireaux.fr
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: boto3 (>=1.13.6)
+Requires-Dist: click (>=7.1.2)
+Requires-Dist: click-log (>=0.3.2)
+Requires-Dist: python-dotenv (>=0.13.0)
+Requires-Dist: texttable (>=1.6.2)
+Description-Content-Type: text/markdown
+
+# CostReduce
+
+![Tests](https://github.com/CostReduce/cli/workflows/Tests/badge.svg?branch=master&event=push)
+[![Requirements Status](https://requires.io/github/CostReduce/cli/requirements.svg?branch=master)](https://requires.io/github/CostReduce/cli/requirements/?branch=master)
+[![codecov](https://codecov.io/gh/costreduce/cli/branch/master/graph/badge.svg)](https://codecov.io/gh/costreduce/cli)
+![GitHub](https://img.shields.io/github/license/costreduce/cli)
+
+## Usage
+### Install
+For use this project, you need to install :
+```
+pip install costreduce
+```
+After install is complete. You can use the `costreduce --help` command.
+
+### First Run
+Check that you have correctly configured the [AWS cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+```
+costreduce analyze --provider aws --service ec2 --region us-east-1
+```
+## Developement
+### Requirements
+Check that you have correctly configured the [AWS cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+For install requirements.
+```
+poetry install
+```
+For launch virtual env.
+```
+poetry shell
+```
+### Analyze cli
+```
+python costreduce/main.py analyze --provider aws --service ec2 --region us-east-1
+```
+
