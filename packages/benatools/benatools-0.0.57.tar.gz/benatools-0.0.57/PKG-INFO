@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: benatools
+Version: 0.0.57
+Summary: Utilities package for XGBoost, CatBoost, LightGBM, Tensorflow and Pytorch
+Home-page: https://github.com/benayas1/benatools
+Author: Alberto Benayas
+Author-email: benayas1@gmail.com
+License: UNKNOWN
+Description: 
+        # benatools
+        This is a "wrapper" library containing utilities and resources, used mainly for Kaggle competitions, but that can be used for other purposes.
+        
+        I keep including code and functionality to this library, so it is still in a very initial stage.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
