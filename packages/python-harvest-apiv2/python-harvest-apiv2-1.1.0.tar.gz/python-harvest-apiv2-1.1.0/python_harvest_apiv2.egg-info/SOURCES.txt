@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+harvest/__init__.py
+harvest/harvest.py
+harvest/harvestdataclasses.py
+harvest/metadata.py
+harvest/reports.py
+python_harvest_apiv2.egg-info/PKG-INFO
+python_harvest_apiv2.egg-info/SOURCES.txt
+python_harvest_apiv2.egg-info/dependency_links.txt
+python_harvest_apiv2.egg-info/requires.txt
+python_harvest_apiv2.egg-info/top_level.txt
+python_harvest_apiv2.egg-info/zip-safe

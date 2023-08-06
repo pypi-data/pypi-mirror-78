@@ -1,0 +1,13 @@
+requests
+requests-oauthlib
+dacite
+configparser
+httpretty
+
+[build]
+pip-tools
+
+[test]
+coverage
+pytest
+pytest-cov

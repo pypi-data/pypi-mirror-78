@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: python-harvest-apiv2
+Version: 1.1.0
+Summary: Harvest API v2 client
+Home-page: https://github.com/bradbase/python-harvest-apiv2
+Author: Bradley van Ree
+Author-email: brads@bradbase.net
+License: Apache 2.0
+Description: Harvest Time Tracking API v2 Client
+Keywords: harvestapp timetracking api
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.7
+Provides-Extra: test
+Provides-Extra: build
