@@ -1,0 +1,15 @@
+neuron>=7.6.4
+numpy>=1.8
+scipy>=0.14
+Cython>=0.20
+h5py>=2.5
+mpi4py>=1.2
+MEAutility>=1.4.2
+
+[docs]
+sphinx
+numpydoc
+sphinx_rtd_theme
+
+[tests]
+pytest
