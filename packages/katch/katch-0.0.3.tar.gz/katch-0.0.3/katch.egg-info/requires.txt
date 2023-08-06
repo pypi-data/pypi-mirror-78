@@ -1,0 +1,10 @@
+flask
+
+[test]
+bandit
+black
+coverage-badge
+pytest
+pytest_pylint
+pytest-cov
+safety
