@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: arceus
+Version: 2.0.0
+Summary: Minecraft name sniper.
+Home-page: UNKNOWN
+Author: Aquild
+License: GPL-3.0-or-later
+Description: # Arceus
+        
+        The best (probably) free Minecraft name sniper.
+        
+        ## IMPORTANT - LICENSE TERMS
+        
+        The arceus project is licensed under GNU GPLv3 or later. This means you CANNOT redistribute modifications to the project except under GNU GLPv3. In other words, any modifications you make must also be open source.
+        
+        ## Features
+        
+        - Transfer and blocking sniper
+        - Benchmark to test settings
+        - Low latency by opening the TCP connections before sending requests
+        - High requests/second by bypassing HTTP overhead
+        
+        ## Installation
+        
+        First, install the networking library:
+        
+        ```sh
+        pip install ./arceus-net
+        ```
+        
+        Then, install the sniper:
+        
+        ```sh
+        pip insatll ./arceus-sniper
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Description-Content-Type: text/markdown
