@@ -1,0 +1,81 @@
+version: '3.7'
+
+services:
+  sw_web:
+    environment:
+      TURBINE_API_HOST: sw_turbine_api
+
+  sw_turbine_rabbitmq:
+    container_name: sw_turbine_rabbitmq
+    image: rabbitmq:3.7.17-management-alpine
+    restart: unless-stopped
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    volumes:
+      - 'rabbitmq:/var/lib/rabbitmq'
+    networks:
+      internal_network:
+
+  sw_turbine_engine:
+    container_name: sw_turbine_engine
+    image: swimlane/turbine-engine:0.7.1
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    env_file: /opt/swimlane/.secrets/.turbine-env
+    depends_on:
+      - sw_mongo
+      - sw_turbine_rabbitmq
+    networks:
+      internal_network:
+
+  sw_turbine_api:
+    container_name: sw_turbine_api
+    image: swimlane/turbine-api:0.7.1
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    env_file: /opt/swimlane/.secrets/.turbine-env
+    ports:
+      - '3000:3000'
+    depends_on:
+      - sw_mongo
+      - sw_turbine_rabbitmq
+    networks:
+      internal_network:
+
+  sw_turbine_agent:
+    container_name: sw_turbine_agent
+    image: swimlane/turbine-agent:0.7.1
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    env_file: /opt/swimlane/.secrets/.turbine-env
+    ports:
+      - '10000-10020:10000-10020/tcp'
+      - '10000-10020:10000-10020/udp'
+    depends_on:
+      - sw_turbine_rabbitmq
+    networks:
+      internal_network:
+
+  sw_turbine_ui:
+    container_name: sw_turbine_ui
+    image: swimlane/turbine-ui:0.7.1
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    env_file: /opt/swimlane/.secrets/.turbine-env
+    ports:
+      - '8080:8080'
+    depends_on:
+      - sw_turbine_api
+    networks:
+      internal_network:
+
+volumes:
+  rabbitmq:
+    external: false

@@ -1,0 +1,8 @@
+API_NAME=api-local-dev
+ENGINE_NAME=engine-local-dev
+WORKER_NAME=worker-local-dev
+TURBINE_API_HOST=sw_turbine_api
+AMQP_URL=amqp://sw_turbine_rabbitmq:5672
+DB_URL=mongodb://Swimlane:@sw-mongo.swimlane.io:27017/SwimlaneTurbine?ssl=true&sslVerifyCertificate=false
+LOG_LEVEL_DEFAULT=debug
+NODE_ENV=development
