@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: PogoOCR
+Version: 0.0.0
+Summary: A Python tool for running OCR on Pokemon Screenshots
+Home-page: https://github.com/TrainerDex/PogoOCR
+Author: JayTurnr/DynamicalSystem
+Author-email: jaynicholasturner@gmail.com
+Maintainer: Jay Turner
+Maintainer-email: jay@trainerdex.co.uk
+License: UNKNOWN
+Keywords: pokemon pokemongo trainer
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Games/Entertainment
+Requires-Python: >=2.6
+Description-Content-Type: text/x-rst
+Requires-Dist: opencv-python
+Requires-Dist: pyocr
+Requires-Dist: PIL
+
+PokeOCR
+==========
+
+A Python tool for running OCR on Pokemon Screenshots
+
+Installation
+------------
+::
+
+    pip install pogoocr==0.0.0
+
+
