@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: pymesis
+Version: 0.0.3
+Summary: Memoization decorator for Python, with optional TTL (measured in time or function calls) for the cached results.
+Home-page: https://github.com/danhje/pymesis
+Author: Daniel Hjertholm
+Author-email: danhje@gmail.com
+Maintainer: Daniel Hjertholm
+Maintainer-email: danhje@gmail.com
+License: UNKNOWN
+Description: # pymesis
+        Memoization decorator for Python, with optional TTL (measured in time or function calls) for the cached results.
+        
+        ## Installation
+        
+        Using pipenv (recommended):
+        
+        ```shell
+        pipenv install pymesis
+        ```
+        
+        Using pip:
+        
+        ```shell
+        pip install pymesis
+        ```
+        
+        
+        ## Usage
+        
+        Basic usage:
+        
+        ```python
+        from pymesis import memoize
+        from time import time, sleep
+        
+        @memoize
+        def slowFunction(*args, **kwargs):
+            sleep(1)
+            return 'Completed'
+        
+        start = time()
+        print(slowFunction('some', 'data')
+        print(f'Time elapsed: {time() - start :.1f} seconds\n')  # First call is slow
+        
+        start = time()
+        print(slowFunction('some', 'data')
+        print(f'Time elapsed: {time() - start :.1f} seconds\n')  # Second call is fast, as data is cached
+        
+        start = time()
+        print(slowFunction('some', 'new', 'data')
+        print(f'Time elapsed: {time() - start :.1f} seconds\n')  # This call is slow, as attributes have changed
+        ```
+        
+        With TTL:
+        
+        ```python
+        from pymesis import memoize, TTLUnit
+        from time import time, sleep
+        
+        @memoize(ttl=1, ttl_unit=TTLUnit.CALL_COUNT) # Only return cached result once, then go back to calling flowFunction
+        def slowFunction(*args, **kwargs):
+            sleep(1)
+            return 'Completed'
+        
+        start = time()
+        print(slowFunction('some', 'data')
+        print(f'Time elapsed: {time() - start :.1f} seconds\n')  # First call is slow
+        
+        start = time()
+        print(slowFunction('some', 'data')
+        print(f'Time elapsed: {time() - start :.1f} seconds\n')  # Second call is fast
+        
+        start = time()
+        print(slowFunction('some', 'data')
+        print(f'Time elapsed: {time() - start :.1f} seconds\n')  # Third call is slow, as cache has expired (TTL=1).
+        ```
+        
+        Note that functions are assumed to be unchanged as long as the name is unchanged. Redefined function (with decorator applied again) will return cached result of similar call to the original function.
+        
+        The decorator works with methods as well as functions. Note that the same method on two different instances of the same class are considered different methods, therefore a call to the second will not give the cached result from the first. 
+        
+        <!--
+        TODO:
+        
+        How it works
+        
+        Build status
+        -->
+        
+Keywords: memoization memoisation decorator cache caching function method ttl expiry expiration expires time minutes seconds call count faster function calls result return value performance optimization
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Natural Language :: English
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
