@@ -1,0 +1,33 @@
+ 
+from setuptools import setup
+
+def readme():
+    with open('README.md') as f:
+        README = f.read()
+    return README
+
+
+setup(
+    name="delphai-boil",
+    version="1.0.1",
+    description="A Python package to boilerblate Delphai minimal pakages.",
+    long_description=readme(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/delphai/delphai-boilerplate",
+    author="Ahmed Mahmoud",
+    author_email="ahmed.mahmoud@delphai.com",
+    license="MIT",
+    classifiers=[
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.7",
+    ],
+    packages=["boilerplate"],
+    include_package_data=True,
+    install_requires=["requests"],
+    entry_points={
+        "console_scripts": [
+            "delphai-boil=boilerplate.cli:main",
+        ]
+    },
+)
