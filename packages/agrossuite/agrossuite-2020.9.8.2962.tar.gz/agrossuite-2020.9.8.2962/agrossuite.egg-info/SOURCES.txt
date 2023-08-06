@@ -1,0 +1,95 @@
+LICENSE
+MANIFEST.in
+README
+setup.py
+agrossuite/__init__.py
+agrossuite/_agros.so
+agrossuite/agros.py
+agrossuite.egg-info/PKG-INFO
+agrossuite.egg-info/SOURCES.txt
+agrossuite.egg-info/dependency_links.txt
+agrossuite.egg-info/top_level.txt
+agrossuite/.idea/.gitignore
+agrossuite/.idea/agrossuite.iml
+agrossuite/.idea/misc.xml
+agrossuite/.idea/modules.xml
+agrossuite/.idea/vcs.xml
+agrossuite/.idea/workspace.xml
+agrossuite/.idea/inspectionProfiles/profiles_settings.xml
+agrossuite/examples/Coupled Problem.py
+agrossuite/examples/Cylindrical Capacitor.py
+agrossuite/examples/Heat Transfer.py
+agrossuite/examples/Matrices/matrices.py
+agrossuite/examples/Matrices/transient_solver-heat_matrix_mass.mat
+agrossuite/examples/Matrices/transient_solver-heat_matrix_stiffness.mat
+agrossuite/examples/Matrices/transient_solver-heat_rhs.mat
+agrossuite/examples/Matrices/transient_solver-heat_solutions.mat
+agrossuite/examples/Other/Control of Adaptive Process.py
+agrossuite/examples/Other/Control of Transient Process.py
+agrossuite/examples/Other/Excel Link.py
+agrossuite/examples/Other/Matrix and RHS.py
+agrossuite/examples/Other/TEAM Workshop 30 1f.py
+agrossuite/examples/Other/TEAM Workshop 30 3f.py
+agrossuite/examples/Python/Data visualization.py
+agrossuite/examples/Python/Differential equation.py
+agrossuite/examples/Python/Matrix solution of linear equations.py
+agrossuite/examples/Python/Numerical differentiation.py
+agrossuite/examples/Python/Numerical integration.py
+agrossuite/examples/Python/Polynomial regression.csv
+agrossuite/examples/Python/Polynomial regression.py
+agrossuite/examples/Python/Spline interpolation.py
+agrossuite/libs/_agros.so
+agrossuite/libs/libSHARED.a
+agrossuite/libs/libSHARED.so
+agrossuite/libs/libagros_3rdparty_bayesopt.so
+agrossuite/libs/libagros_3rdparty_ctemplate.so
+agrossuite/libs/libagros_3rdparty_dxflib.so
+agrossuite/libs/libagros_3rdparty_matio.so
+agrossuite/libs/libagros_3rdparty_nlopt2.so
+agrossuite/libs/libagros_3rdparty_nsga2.so
+agrossuite/libs/libagros_3rdparty_poly2tri.so
+agrossuite/libs/libagros_3rdparty_qcustomplot.so
+agrossuite/libs/libagros_3rdparty_qtawesome.so
+agrossuite/libs/libagros_3rdparty_quazip.so
+agrossuite/libs/libagros_3rdparty_stb_truetype.so
+agrossuite/libs/libagros_3rdparty_triangle.so
+agrossuite/libs/libagros_library.so
+agrossuite/libs/libagros_plugin_acoustic.so
+agrossuite/libs/libagros_plugin_current.so
+agrossuite/libs/libagros_plugin_dek.so
+agrossuite/libs/libagros_plugin_elasticity.so
+agrossuite/libs/libagros_plugin_electrostatic.so
+agrossuite/libs/libagros_plugin_flow.so
+agrossuite/libs/libagros_plugin_heat.so
+agrossuite/libs/libagros_plugin_magnetic.so
+agrossuite/libs/libagros_plugin_magnetic_electric.so
+agrossuite/libs/libagros_plugin_math_coeff.so
+agrossuite/libs/libagros_plugin_rf_te.so
+agrossuite/libs/libagros_plugin_rf_tm.so
+agrossuite/libs/libdeal_II.so.9.2.0
+agrossuite/libs/libquazip_static.a
+agrossuite/libs/solver_MUMPS
+agrossuite/libs/solver_MUMPS.ext
+agrossuite/libs/solver_PETSC
+agrossuite/libs/solver_PETSC.ext
+agrossuite/libs/solver_TRILINOS
+agrossuite/libs/solver_TRILINOS.ext
+agrossuite/tests/__init__.py
+agrossuite/tests/scenario.py
+agrossuite/tests/test_adaptivity.py
+agrossuite/tests/test_coupled_basic_problems.py
+agrossuite/tests/test_coupled_unrealistic_problems.py
+agrossuite/tests/test_field_acoustic.py
+agrossuite/tests/test_field_current.py
+agrossuite/tests/test_field_elasticity.py
+agrossuite/tests/test_field_electrostatic.py
+agrossuite/tests/test_field_flow.py
+agrossuite/tests/test_field_heat.py
+agrossuite/tests/test_field_magnetic_harmonic.py
+agrossuite/tests/test_field_magnetic_steady.py
+agrossuite/tests/test_field_magnetic_transient.py
+agrossuite/tests/test_field_math_coeff.py
+agrossuite/tests/test_field_rf_te.py
+agrossuite/tests/test_field_rf_tm.py
+agrossuite/tests/test_matrix_solvers.py
+agrossuite/tests/test_optilab.py
