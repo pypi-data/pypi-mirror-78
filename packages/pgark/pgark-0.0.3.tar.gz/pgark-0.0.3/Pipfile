@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = ">=2.24.0"
+click = "*"
+cssselect = ">=1.1.0"
+lxml = ">=4.5.2"
+rich = "*"
+
+[dev-packages]
+black = ">=19.10b0"
+coverage = "*"
+freezegun = "*"
+pytest = "*"
+responses = ">=0.12"
+twine = "*"
+wheel = "*"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
