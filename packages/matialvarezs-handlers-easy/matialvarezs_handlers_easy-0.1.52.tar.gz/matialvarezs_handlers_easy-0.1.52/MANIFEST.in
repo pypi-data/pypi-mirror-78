@@ -1,0 +1,6 @@
+include setup.cfg
+include setup.py
+include matialvarezs_handlers_easy/*.py
+recursive-include matialvarezs_handlers_easy/management *
+recursive-include matialvarezs_handlers_easy/migrations *
+recursive-include matialvarezs_handlers_easy/api *
