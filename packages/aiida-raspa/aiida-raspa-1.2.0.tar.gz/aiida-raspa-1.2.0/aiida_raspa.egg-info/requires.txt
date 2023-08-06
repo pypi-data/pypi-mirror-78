@@ -1,0 +1,27 @@
+aiida-core<2.0.0,>=1.0.0
+pycifrw
+
+[docs]
+sphinx
+sphinx-rtd-theme
+sphinxcontrib-contentui
+
+[docs:python_version >= "3.0"]
+sphinxcontrib-details-directive
+
+[pre-commit]
+pre-commit==1.18.3
+yapf==0.28.0
+prospector==1.1.7
+
+[pre-commit:python_version < "3.0"]
+pylint==1.9.4
+
+[pre-commit:python_version >= "3.0"]
+pylint==2.3.1
+
+[test]
+pgtest==1.2.0
+pytest<5.0.0,>=4.4
+pytest-cov<3.0.0,>=2.6.1
+coverage
