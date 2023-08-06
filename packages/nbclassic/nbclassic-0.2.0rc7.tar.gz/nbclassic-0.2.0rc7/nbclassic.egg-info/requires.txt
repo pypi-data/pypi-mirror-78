@@ -1,0 +1,7 @@
+jupyter_server~=1.0.0rc5
+notebook<7
+
+[test]
+pytest
+pytest-tornasync
+pytest-console-scripts
