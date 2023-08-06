@@ -1,0 +1,29 @@
+[tool.coverage.paths]
+source=["src","*/site-packages"]
+
+[tool.coverage.run]
+branch=true
+source=["jira_commonmark"]
+
+[tool.coverage.report]
+show_missing=true
+
+[tool.poetry]
+name = 'jira-commonmark'
+version = '0.1.7'
+description = ""
+authors = ["pbencze <paul@idelab.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+importlib_metadata = "^1.7.0"
+urllib3 = "^1.25.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+coverage = {extras = ["toml"], version = "^5.1"}
+pytest-cov = "^2.9.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

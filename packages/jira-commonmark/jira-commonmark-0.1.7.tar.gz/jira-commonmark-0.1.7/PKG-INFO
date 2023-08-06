@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: jira-commonmark
+Version: 0.1.7
+Summary: 
+Author: pbencze
+Author-email: paul@idelab.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: importlib_metadata (>=1.7.0,<2.0.0)
+Requires-Dist: urllib3 (>=1.25.10,<2.0.0)
