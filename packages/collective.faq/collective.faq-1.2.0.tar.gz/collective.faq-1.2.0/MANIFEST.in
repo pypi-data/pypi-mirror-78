@@ -1,0 +1,7 @@
+graft src/collective/faq
+graft docs
+include *.rst
+include *.png
+include *.txt
+exclude Makefile
+global-exclude *.pyc

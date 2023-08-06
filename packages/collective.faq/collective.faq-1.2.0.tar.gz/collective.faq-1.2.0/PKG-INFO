@@ -1,0 +1,282 @@
+Metadata-Version: 2.1
+Name: collective.faq
+Version: 1.2.0
+Summary: Plone addon package for managing FAQ sections
+Home-page: https://github.com/collective/collective.faq
+Author: kitconcept GmbH
+Author-email: info@kitconcept.com
+License: GPL version 2
+Description: .. This README is meant for consumption by humans and pypi. Pypi can render rst files so please do not use Sphinx features.
+           If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
+           This text does not appear on pypi or github. It is a comment.
+        
+        ==============================================================================
+        collective.faq
+        ==============================================================================
+        
+        .. image:: https://travis-ci.org/collective/collective.faq.svg?branch=master
+            :target: https://travis-ci.org/collective/collective.faq
+        
+        .. image:: https://img.shields.io/pypi/v/collective.faq.svg
+            :target: https://pypi.python.org/pypi/collective.faq/
+            :alt: Latest Version
+        
+        .. image:: https://img.shields.io/pypi/l/collective.faq.svg
+            :target: https://pypi.python.org/pypi/collective.faq/
+            :alt: License
+        
+        |
+        
+        .. image:: https://raw.githubusercontent.com/collective/collective.faq/master/kitconcept.png
+           :alt: kitconcept
+           :target: https://kitconcept.com/
+        
+        
+        Features
+        --------
+        
+        - As reviewer, I can add an FAQ.
+        - As reviewer, I can add an FAQ item to an FAQ.
+        - As reviewer, I can add an FAQ item (a "subquestion") to an FAQ item.
+        - As reviewer, I can use rich text to create an FAQ item.
+        - As reviewer, I can link to an existing FAQ item.
+        - As anonymous user, I can see an FAQ list.
+        - As anonymous user, I can search the FAQ and FAQ Entry.
+        
+        |
+        
+        .. image:: https://raw.githubusercontent.com/collective/collective.faq/master/docs/collective.faq.gif
+           :alt: collective.faq
+           :target: https://github.com/collective/collective.faq
+        
+        
+        Translations
+        ------------
+        
+        This product has been translated into
+        
+        - German
+        - French
+        
+        
+        Installation
+        ------------
+        
+        Install collective.faq by adding it to your buildout::
+        
+           [buildout]
+        
+            ...
+        
+            eggs =
+                collective.faq
+        
+        
+        and then run "bin/buildout".
+        
+        
+        Contribute
+        ----------
+        
+        - `Source code at Github <https://github.com/collective/collective.faq>`_
+        - `Issue tracker at Github <https://github.com/collective/collective.faq/issues>`_ or same
+        
+        
+        Support
+        -------
+        
+        If you are having issues, `please let us know <https://github.com/collective/collective.faq/issues>`_.
+        
+        
+        Development
+        -----------
+        
+        Requirements:
+        
+        - Python 2.7
+        - Virtualenv
+        
+        Setup::
+        
+          make
+        
+        Run Static Code Analysis::
+        
+          make code-Analysis
+        
+        Run Unit / Integration Tests::
+        
+          make test
+        
+        Run Robot Framework based acceptance tests::
+        
+          make test-acceptance
+        
+        
+        Credits
+        -------
+        
+        .. image:: https://www.hu-berlin.de/++resource++humboldt.logo.Logo.png
+           :height: 97px
+           :width: 434px
+           :scale: 100 %
+           :alt: HU Berlin
+           :target: https://www.hu-berlin.de
+        
+        |
+        
+        The development of this plugin has been kindly sponsored by `Humboldt-Universität zu Berlin`_.
+        
+        |
+        
+        .. image:: https://raw.githubusercontent.com/collective/collective.faq/master/kitconcept.png
+           :alt: kitconcept
+           :target: https://kitconcept.com/
+        
+        Developed by `kitconcept`_.
+        
+        
+        License
+        -------
+        
+        The project is licensed under the GPLv2.
+        
+        
+        .. _Humboldt-Universität zu Berlin: https://www.hu-berlin.de
+        .. _kitconcept: http://www.kitconcept.com/
+        
+        
+        Contributors
+        ============
+        
+        - Timo Stollenwerk, stollenwerk@kitconcept.com
+        - Rodrigo de Souza, souza@kitconcept.com
+        - Laurent Lasudry, laurent@affinitic.be
+        
+        
+        Changelog
+        =========
+        
+        
+        1.2.0 (2020-09-06)
+        ------------------
+        
+        - Python 3.8 compatibility.
+          [tisto]
+        
+        - Use Dexterity names to avoid nasty interface lookup errors.
+          [tisto]
+        
+        
+        1.1.0 (2019-04-15)
+        ------------------
+        
+        - Add French translation
+          [laulaz]
+        
+        
+        1.0.0 (2019-02-23)
+        ------------------
+        
+        - Add missing German translations.
+          [rodfersou]
+        
+        - Fix headline styles.
+          [rodfersou]
+        
+        
+        1.0.0a11 (2019-02-13)
+        ---------------------
+        
+        - Remove multilingual behavior.
+          [rodfersou]
+        
+        
+        1.0.0a10 (2019-02-13)
+        ---------------------
+        
+        - Add extra standard behaviors.
+          [rodfersou]
+        
+        
+        1.0.0a9 (2019-02-12)
+        --------------------
+        
+        - Fix translations.
+          [timo]
+        
+        
+        1.0.0a8 (2019-02-12)
+        --------------------
+        
+        - Changed styles to match Products.Faq implementation.
+          [rodfersou]
+        
+        1.0.0a7 (2019-02-11)
+        --------------------
+        
+        - Use icons from old Products.Faq package.
+          [rodfersou]
+        
+        
+        1.0.0a6 (2019-02-05)
+        --------------------
+        
+        - Add sprite for plus and minus icons for Plone 4.3.x.
+          [rodfersou]
+        
+        
+        1.0.0a5 (2019-01-22)
+        --------------------
+        
+        - Fix question link to expand item instead of navigate to question item.
+          [rodfersou]
+        
+        - Add content type icons for Plone 4.3.
+          [rodfersou]
+        
+        
+        1.0.0a4 (2019-01-11)
+        --------------------
+        
+        - Fix MANIFEST.in to include zcml files.
+          This fixes https://github.com/collective/collective.faq/issues/3.
+          [timo]
+        
+        
+        1.0.0a3 (2019-01-07)
+        --------------------
+        
+        - Fix README RST style.
+          [timo]
+        
+        
+        1.0.0a2 (2019-01-07)
+        --------------------
+        
+        - Add FAQ content type to displayed_types (which show up in the navigation).
+          [rodfersou]
+        
+        
+        1.0.0a1 (2019-01-04)
+        --------------------
+        
+        - Initial release.
+          [kitconcept]
+        
+Keywords: Python Plone
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.3
+Classifier: Framework :: Plone :: 5.0
+Classifier: Framework :: Plone :: 5.1
+Classifier: Framework :: Plone :: 5.2
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Provides-Extra: test
