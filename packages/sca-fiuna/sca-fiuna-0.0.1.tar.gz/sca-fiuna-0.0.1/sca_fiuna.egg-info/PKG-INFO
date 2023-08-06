@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: sca-fiuna
+Version: 0.0.1
+Summary: Un paquete de uso para la materia de control en la FIUNA
+Home-page: https://github.com/tetotille/SCA
+Author: Jorge Tillería
+Author-email: jtilleria@fiuna.edu.py
+License: UNKNOWN
+Description: # SCA
+        Paquete de control para FIUNA
+        
+        ## Instalación
+        ### PIP
+        ~~~
+        pip install slycot
+        pip install control
+        pip install sca_fiuna
+        ~~~
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8.2
+Description-Content-Type: text/markdown
