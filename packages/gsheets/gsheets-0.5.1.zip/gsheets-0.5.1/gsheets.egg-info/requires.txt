@@ -1,0 +1,24 @@
+oauth2client>=1.5.0
+
+[:python_version < "3"]
+google-api-python-client<1.8
+
+[:python_version >= "3"]
+google-api-python-client
+
+[dev]
+tox>=3
+flake8
+pep8-naming
+wheel
+twine
+
+[docs]
+sphinx>=1.8
+sphinx-rtd-theme
+
+[test]
+mock>=3
+pytest>=4
+pytest-mock>=2
+pytest-cov
