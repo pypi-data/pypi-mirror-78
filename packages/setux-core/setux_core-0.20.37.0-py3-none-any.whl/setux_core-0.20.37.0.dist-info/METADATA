@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: setux-core
+Version: 0.20.37.0
+Summary: System deployment
+Home-page: https://github.com/louis-riviere-xyz/setux_core
+Author: Louis RIVIERE
+Author-email: louis@riviere.xyz
+License: MIT
+Keywords: utility
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Requires-Dist: pybrary (>=0.20.37.0)
+
+########
+ setux
+########
+
+**Setux Core**
+
+============
+Installation
+============
+
+.. code-block:: shell 
+
+    $ pip install setux_core
+
+
