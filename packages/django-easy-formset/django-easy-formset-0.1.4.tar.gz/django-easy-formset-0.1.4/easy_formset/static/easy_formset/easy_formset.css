@@ -1,0 +1,11 @@
+[formset-form] [hidden] {
+  display: none;
+}
+
+[formset-form-excluded] [hidden] {
+  display: none;
+}
+
+[formset-add][hidden] {
+  display: none;
+}
