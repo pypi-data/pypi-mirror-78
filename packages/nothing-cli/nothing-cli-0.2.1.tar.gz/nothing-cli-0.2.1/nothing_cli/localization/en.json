@@ -1,0 +1,84 @@
+{
+  "step_prefix": "Step",
+  "default_context_prompt": "Please provide a value for {}",
+  "completion_message": "All done!",
+  "undefined_variable_warn":"Undefined variable in step {step_number}",
+
+  "steps_placeholder": "...\n\n",
+
+  "skeleton_title": "Skeleton Procedure",
+  "skeleton_description": "The procedure you get when you pass `--skeleton`",
+  "skeleton_context_name_name": "weather_today",
+  "skeleton_context_name_prompt": "Type anything anything here",
+  "skeleton_knowns_name": "tau",
+  "skeleton_knowns_value": "2π",
+  "skeleton_steps": "Put steps here...\n\nand here.\nAnd use multiple lines if you want.\n\nUse context variables like 'weather_today' --which you said was '{weather_today}'.\nAnd knowns like the value of tau, {tau}, which is hard coded in the procedure...",
+
+  "easter_steps":"Take 3 deep breaths, {name}.\n\nFind a comfortable position in your seat.\n\nBegin to breathe lightly and slowly, as if you're going to sleep.\n\nClose your eyes and count 10 of your gentle breaths.",
+  "easter_title":"Do Nothing",
+  "easter_description": "Literally do not do anything",
+  "easter_context_var_name": "name",
+  "easter_context_var_prompt": "What's your name?",
+
+  "cwd": "cwd",
+  "home": "home",
+  "both": "both",
+
+  "help": "Nothing helps coder be more smarter & less dumber.",
+  "version_help": "Print the nothing-cli version and exit.",
+  "file_written": "{filename} written to {destination}",
+  "filename_prompt": "What is the new name for the file? 📝",
+  "file_edited": "Edited {name}",
+  "file_renamed": "Renamed {old_name} to {name}",
+  "copied": "Copy of {name} written to {destination}",
+  "dropped": "'{name}' permanetly deleted from:\n    {location} ☠️",
+  "home_dot_nothing_exists_warn": "There is already a .nothing dir in your home",
+  "cwd_dot_nothing_exists_warn": "There is already a .nothing dir in your cwd",
+  "missing_dot_nothings_warn": "No .nothing directory in cwd or home.\nRun `not init` to create one.",
+  "made_cwd_dot_nothing_dir": "Created ./.nothing/",
+  "made_sample_procedure": "Created a sample Procdure called 'nothing' for you in {directory} 💖",
+  "delete_suggestion":"    For a clean start, delete and run this command again.",
+
+  "init_help":"Create ./.nothing if it doesn't exist.",
+
+  "nag": "Press enter to continue...",
+
+  "new_description_prompt": "A short description",
+  "new_title_prompt": "The title of your Procedure",
+  "new_name_prompt": "The name of the file",
+  "new_destination_prompt": "Destination directory",
+  "new_open_editor_prompt": "Open $EDITOR now?",
+
+  "new_help": "Create a new Procedure. Interactive when called without arguments (recommended).",
+  "new_procedure_name_option_help": "The name of the Procedure you're making. No extension, just the name.",
+  "new_extension_option_help": "The extension to apply to the generated file",
+  "new_nothing_flag_help": "Create a sample Procedure called 'nothing'.",
+  "global_flag_help":"Point the command at ~/.nothing instead of the deafault, ./.nothing",
+  "new_skeleton_option_help":"Create the Procedure without prompting for values instead using default placeholders.",
+  "edit_after_option_help":"Open $EDITOR after command completes.",
+  "new_overwrite_option_help":"If a Procedure with the given name exists, overwrite it or don't.",
+  "must_be_called_with_name_warn": "Can't use --empty/-E without --name/-N specified",
+
+  "edit_name_prompt": "New Procedure name",
+  "edit_title_prompt": "New Procedure title",
+  "edit_destination_prompt": "Destination dir for copy",
+  "edit_extension_prompt": "Extension for new Procedure",
+  "edit_open_editor_prompt": "Edit after write?",
+
+  "GLOBAL": "GLOBAL",
+  "LOCAL": "LOCAL",
+
+  "overwrite_warn": "🤔 Procedure '{name}' appears to exist already\nWould you like to overwrite it?",
+  "drop_warn": "😬 Are you sure you want to permanently delete '{name}'?",
+  "stylish_interjection": "Success! 🙌",
+  "missing_file_warn": "😕 It doesn't look like there's a procedure for '{name}'.",
+
+  "title_descriptor": "Title",
+  "description_descriptor": "Description",
+  "context_vars_descriptor": "Context vars",
+  "knowns_descriptor": "Knowns",
+  "step_count_descriptor": "# Steps",
+  "full_path_descriptor": "Full path",
+  "last_modified_descriptor": "Last modified",
+  "last_accessed_descriptor": "Last accessed"
+}
