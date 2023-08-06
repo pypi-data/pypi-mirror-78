@@ -1,0 +1,1 @@
+default_app_config = 'ms_oscar_flash_offer.dashboard.offers.apps.OffersDashboardConfig'
