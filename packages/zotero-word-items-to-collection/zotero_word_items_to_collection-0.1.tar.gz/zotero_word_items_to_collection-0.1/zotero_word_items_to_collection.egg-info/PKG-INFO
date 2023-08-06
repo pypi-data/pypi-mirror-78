@@ -1,0 +1,35 @@
+Metadata-Version: 1.2
+Name: zotero-word-items-to-collection
+Version: 0.1
+Summary: Create Zotero collections from Word files
+Home-page: https://github.com/mwort/zotero_word_items_to_collection
+Author: Michel Wortmann
+Author-email: wortmann@pik-potsdam.de
+License: MIT
+Description: # Zotero Word items to collection
+        
+        A Python utility to create a Zotero collection from items added to a Word (.docx) document via the Zotero Word integration.
+        
+        ## Setup
+        - Open a commandline and install using pip: `pip install zotero_word_items_to_collection`
+        - Login to Zotero online and create a Zotero API key with write permissions here: https://www.zotero.org/settings/keys/new
+        - Copy the API string displayed after you saved it and save it to an empty file in your home directory called: `~/.zotero_api_key` (you can also parse it via the `--api-key` argument)
+        
+        ## Usage
+        On a commandline run:
+        ```
+        zotero_word_items_to_collection <path/to/docx/file> "New collection name"
+        ```
+        (add `-h` for help or `-n` to do a dryrun first)
+        
+        ## Credit
+        Michel Wortmann < wortmann@pik-potsdam.de >
+        
+        MIT Licence
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Office/Business :: Office Suites
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.5
