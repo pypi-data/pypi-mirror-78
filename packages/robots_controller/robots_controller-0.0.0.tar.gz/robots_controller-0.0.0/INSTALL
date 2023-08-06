@@ -1,0 +1,27 @@
+robots_controller installation
+==============================
+
+Python ``pip`` package is required to install ``robots_controller``.
+
+
+From sources
+------------
+
+Use the folowing command line to install ``robots_controller`` from source directory (sontaining setup.py)
+
+    pip install .
+
+or
+
+    python sepup.py install
+
+From PyPI
+---------
+
+Alternatively you can install ``robots_controller`` from PyPI:
+
+    pip install robots_controller
+
+Use `-U` flag from upgrade:
+
+    pip install -U robots_controller

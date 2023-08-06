@@ -1,0 +1,15 @@
+include AUTHORS
+include CHANGELOG
+include INSTALL
+include LICENSE
+include READMY.rst
+
+include docs/Makefile
+recoursive-include docs *.rst
+recoursive-include docs *.py
+
+recoursive-include tests *
+recoursive-include robots_controller/helpers *
+
+recoursive-exclude * __pycache__
+recoursive-exclude * *.py[co]
