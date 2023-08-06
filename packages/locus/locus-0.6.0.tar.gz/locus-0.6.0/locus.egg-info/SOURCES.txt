@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+locus/__init__.py
+locus/hints.py
+locus/kd.py
+locus/r.py
+locus.egg-info/PKG-INFO
+locus.egg-info/SOURCES.txt
+locus.egg-info/dependency_links.txt
+locus.egg-info/requires.txt
+locus.egg-info/top_level.txt
+locus/core/__init__.py
+locus/core/hilbert.py
+locus/core/interval.py
+locus/core/utils.py
