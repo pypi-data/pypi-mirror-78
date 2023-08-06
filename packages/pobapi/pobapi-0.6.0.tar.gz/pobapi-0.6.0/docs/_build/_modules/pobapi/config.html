@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pobapi.config &#8212; 0.6.0 0.6.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for pobapi.config</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Built-ins</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">InitVar</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="c1"># Project</span>
+<span class="kn">from</span> <span class="nn">pobapi.constants</span> <span class="kn">import</span> <span class="n">MONSTER_DAMAGE_TABLE</span><span class="p">,</span> <span class="n">MONSTER_LIFE_TABLE</span>
+
+<span class="c1"># Third-party</span>
+<span class="kn">from</span> <span class="nn">dataslots</span> <span class="kn">import</span> <span class="n">with_slots</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Config&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Config"><a class="viewcode-back" href="../../api.html#pobapi.config.Config">[docs]</a><span class="nd">@with_slots</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Config(*args)</span>
+<span class="sd">    Class that holds build configuration data.</span>
+
+<span class="sd">    .. note:: Many map mods have different tiers for white, yellow and red maps;</span>
+<span class="sd">        documented as tuples (white, yellow, red).</span>
+
+<span class="sd">    :param resistance_penalty: Resistance penalty obtained by slaying Kitava.</span>
+<span class="sd">        Possible values: 0, -30, -60 (default).</span>
+<span class="sd">    :param enemy_level: Level of enemies.</span>
+<span class="sd">        Possible values: 1 to 100.</span>
+<span class="sd">    :param enemy_physical_hit_damage: Damage enemies deal with physical hits.</span>
+<span class="sd">    :param detonate_dead_corpse_life: Life of corpses consumed by Detonate Dead.</span>
+<span class="sd">    :param is_stationary: Whether the player is stationary.</span>
+<span class="sd">    :param is_moving: Whether the player is moving.</span>
+<span class="sd">    :param is_on_full_life: Whether the player is on Full Life.</span>
+<span class="sd">    :param is_on_low_life: Whether the player is on Low Life.</span>
+<span class="sd">    :param is_on_full_energy_shield: Whether the player is on Full Energy Shield.</span>
+<span class="sd">    :param has_energy_shield: Whether the player currently has energy shield.</span>
+<span class="sd">    :param minions_on_full_life: Whether the player&#39;s minions are on Full Life.</span>
+<span class="sd">    :param ignite_mode: Controls how ignite damage is calculated.</span>
+<span class="sd">        Possible values: (&#39;Average&#39;, &#39;Crit&#39;).</span>
+<span class="sd">    :param aspect_of_the_avian_avians_might: Whether Avian&#39;s Might is active.</span>
+<span class="sd">    :param aspect_of_the_avian_avians_flight: Whether Avian&#39;s Flight is active.</span>
+<span class="sd">    :param aspect_of_the_cat_cats_stealth: Whether Cat&#39;s Stealth is active.</span>
+<span class="sd">    :param aspect_of_the_cat_cats_agility: Whether Cats&#39;s Agility is active.</span>
+<span class="sd">    :param override_crab_barriers: Overridden number of crab barriers.</span>
+<span class="sd">    :param aspect_of_the_spider_web_stacks: Number of web stacks on enemies.</span>
+<span class="sd">    :param banner_planted: Whether the player has planted a banner.</span>
+<span class="sd">    :param banner_stages: Number of banner stages.</span>
+<span class="sd">    :param in_bloodstorm: Whether the player is in a Bloodstorm.</span>
+<span class="sd">    :param in_sandstorm: Whether the player is in a Sandstorm.</span>
+<span class="sd">    :param brand_attached: Whether the player has a brand attached.</span>
+<span class="sd">    :param dark_pact_skeleton_life:</span>
+<span class="sd">        Skeleton life points used for Dark Pact damage calculation.</span>
+<span class="sd">    :param deathmark: Whether the player applies Deathmark.</span>
+<span class="sd">    :param herald_of_agony_stacks: Number of Virulence stacks on Herald of Agony.</span>
+<span class="sd">    :param ice_nova_cast_on_frostbolt:</span>
+<span class="sd">        Whether the player casts Ice Nova on a Frost Bolt.</span>
+<span class="sd">    :param infusion: Whether the Infusion Infusion buff is active.</span>
+<span class="sd">    :param innervate_innervation: Whether the Innervate Innervation buff is active.</span>
+<span class="sd">    :param intensify_stacks: Number of Intensify stacks.</span>
+<span class="sd">    :param meat_shield_enemy_nearby:</span>
+<span class="sd">        Whether there are enemies near your minions supported by Meat Shield Support.</span>
+<span class="sd">    :param raise_spectres_spectre_level: Level of spectres raised by Raise Spectre.</span>
+<span class="sd">    :param raise_spectres_enable_curses: Whether the curses of spectres are active.</span>
+<span class="sd">    :param raise_spectres_blade_vortex_blade_count:</span>
+<span class="sd">        Number of Blade Vortex stacks of spectres.</span>
+<span class="sd">    :param raise_spectres_kaom_fire_beam_totem_stage:</span>
+<span class="sd">        Number of fire beam stages of spectres.</span>
+<span class="sd">    :param raise_spectres_enable_summoned_ursa_rallying_cry:</span>
+<span class="sd">        Whether the Rallying Cry of ursa spectres is active.</span>
+<span class="sd">    :param raise_spiders_spider_count: Number of spiders from Raise Spiders.</span>
+<span class="sd">    :param siphoning_trap_affected_enemies:</span>
+<span class="sd">        Number of enemies affected by Siphoning Trap.</span>
+<span class="sd">    :param stance: Controls whether the player is in Blood Stance or Sand Stance.</span>
+<span class="sd">        Possible values: (&#39;Blood&#39;, &#39;Sand&#39;).</span>
+<span class="sd">    :param summon_holy_relic_enable_holy_relic_buff:</span>
+<span class="sd">        Whether the Holy Relic buff of Summon Holy Relics is active.</span>
+<span class="sd">    :param summon_lightning_golem_enable_wrath:</span>
+<span class="sd">        Whether a Lightning Golem&#39;s wrath buff is active.</span>
+<span class="sd">    :param vortex_cast_on_frostbolt: Whether the player casts Vortex on a Frost Bolt.</span>
+<span class="sd">    :param wave_of_conviction_exposure_type:</span>
+<span class="sd">        Controls which Exposure damage type is selected.</span>
+<span class="sd">        Possible values: (&#39;Fire&#39;, &#39;Cold&#39;, &#39;Lightning&#39;).</span>
+<span class="sd">    :param winter_orb_stages: Number of stages of Winter Orb.</span>
+<span class="sd">    :param enemy_physical_reduction: Whether enemies have physical damage reduction.</span>
+<span class="sd">        Possible values: (20%, 30%, 40%).</span>
+<span class="sd">    :param enemy_hexproof: Whether enemies are hexproof.</span>
+<span class="sd">    :param less_curse_effect: Whether enemies have reduced effect of curses on them.</span>
+<span class="sd">        Possible values: (25%, 40%, 60%).</span>
+<span class="sd">    :param enemy_avoid_poison_blind_bleed:</span>
+<span class="sd">        Whether enemies have a chance to avoid poison, blind and bleed.</span>
+<span class="sd">        Possible values: (25%, 45%, 65%).</span>
+<span class="sd">    :param enemy_resistances:</span>
+<span class="sd">        Whether enemies have increased elemental and chaos resistances.</span>
+<span class="sd">        Possible values: ((20%, 15%), (30%, 20%), (40%, 25%)).</span>
+<span class="sd">    :param elemental_equilibrium: Whether player have Elemental Equilibrium.</span>
+<span class="sd">    :param no_leech: Whether players cannot leech life/mana/energy shield.</span>
+<span class="sd">    :param reduced_flask_charges: Whether players gain reduced flask charges.</span>
+<span class="sd">        Possible values: (30%, 40%, 50%).</span>
+<span class="sd">    :param minus_max_resists: Whether players have reduced maximum resistances.</span>
+<span class="sd">        Possible values: (0%, 5-8%, 9-12%).</span>
+<span class="sd">    :param less_aoe: Whether players have less area of effect.</span>
+<span class="sd">        Possible values: (15%, 20%, 25%).</span>
+<span class="sd">    :param enemy_avoid_status_ailment:</span>
+<span class="sd">        Whether enemies have a chance to avoid status ailments.</span>
+<span class="sd">        Possible values: (30%, 60%, 90%).</span>
+<span class="sd">    :param enemy_increased_accuracy: Whether enemies hav increased accuracy.</span>
+<span class="sd">        Possible values: (30%, 40%, 50%).</span>
+<span class="sd">    :param less_armour_block: Whether players have less armour and block chance.</span>
+<span class="sd">        Possible values: ((20%, 20%), (25%, 30%), (30%, 40%)).</span>
+<span class="sd">    :param point_blank: Whether players have Point Blank.</span>
+<span class="sd">    :param less_recovery:</span>
+<span class="sd">        Whether players have less life/mana/energy shield recovery rate.</span>
+<span class="sd">        Possible values: (20%, 40%, 60%).</span>
+<span class="sd">    :param no_regen: Whether players cannot regenerate life/mana/energy shield.</span>
+<span class="sd">    :param enemy_takes_reduced_extra_crit_damage:</span>
+<span class="sd">        Whether enemies take reduced extra damage from critical strikes.</span>
+<span class="sd">        Possible values: (25-30%, 31-35%, 36-40%).</span>
+<span class="sd">    :param curse_assassins_mark: Level of Assassin&#39;s Mark applying to players.</span>
+<span class="sd">    :param curse_conductivity: Level Conductivity applying to players.</span>
+<span class="sd">    :param curse_despair: Level of Despair applying to players.</span>
+<span class="sd">    :param curse_elemental_weakness: Level of Elemental Weakness applying to players.</span>
+<span class="sd">    :param curse_enfeeble: Level of Enfeeble applying to players.</span>
+<span class="sd">    :param curse_flammability: Level of Flammability applying to players.</span>
+<span class="sd">    :param curse_frostbite: Level of Frostbite applying to players.</span>
+<span class="sd">    :param curse_poachers_mark: Level of Poacher&#39;s Mark applying to players.</span>
+<span class="sd">    :param curse_projectile_weakness: Level of Projectile Weakness applying to players.</span>
+<span class="sd">    :param curse_punishment: Level of Punishment applying to players.</span>
+<span class="sd">    :param curse_temporal_chains: Level of Temporal Chains applying to players.</span>
+<span class="sd">    :param curse_vulnerability: Level of Vulnerability applying to players.</span>
+<span class="sd">    :param curse_warlords_mark: Level of Warlord&#39;s Mark applying to players.</span>
+<span class="sd">    :param use_power_charges: Whether the player uses power charges.</span>
+<span class="sd">    :param max_power_charges: Whether the player is at maximum power charges.</span>
+<span class="sd">    :param use_frenzy_charges: Whether the player uses frenzy charges.</span>
+<span class="sd">    :param max_frenzy_charges: Whether the player is at maximum frenzy charges.</span>
+<span class="sd">    :param use_endurance_charges: Whether the player uses endurance charges.</span>
+<span class="sd">    :param max_endurance_charges: Whether the player is at maximum endurance charges.</span>
+<span class="sd">    :param use_siphoning_charges: Whether the player uses siphoning charges.</span>
+<span class="sd">    :param use_challenger_charges: Whether the player uses Challenger Charges.</span>
+<span class="sd">    :param max_challenger_charges: Whether the player is at maximum Challenger Charges.</span>
+<span class="sd">    :param use_blitz_charges: Whether the player uses Blitz Charges.</span>
+<span class="sd">    :param max_blitz_charges: Whether the player is at maximum Blitz Charges.</span>
+<span class="sd">    :param use_inspiration_charges: Whether the player uses Inspiration Charges.</span>
+<span class="sd">    :param max_inspiration_charges:</span>
+<span class="sd">        Whether the player is at maximum Inspiration Charges.</span>
+<span class="sd">    :param max_siphoning_charges: Whether the player is at maximum siphoning charges.</span>
+<span class="sd">    :param minions_use_power_charges: Whether the player&#39;s minions use power charges.</span>
+<span class="sd">    :param minions_use_frenzy_charges: Whether the player&#39;s minions use frenzy charges.</span>
+<span class="sd">    :param minions_use_endurance_charges:</span>
+<span class="sd">        Whether the player&#39;s minions use endurance charges.</span>
+<span class="sd">    :param focus: Whether the player has Focus.</span>
+<span class="sd">    :param onslaught: Whether the player has Onslaught.</span>
+<span class="sd">    :param unholy_might: Whether the player has Unholy Might.</span>
+<span class="sd">    :param phasing: Whether the player has Phasing.</span>
+<span class="sd">    :param fortify: Whether the player has Fortify.</span>
+<span class="sd">    :param tailwind: Whether the player has Tailwind.</span>
+<span class="sd">    :param adrenaline: Whether the player has Adrenaline.</span>
+<span class="sd">    :param divinity: Whether the player has Divinity.</span>
+<span class="sd">    :param rage: Whether the player has Rage.</span>
+<span class="sd">    :param leeching: Whether the player is leeching.</span>
+<span class="sd">    :param leeching_life: Whether the player is leeching Life.</span>
+<span class="sd">    :param leeching_energy_shield: Whether the player is leeching Energy Shield.</span>
+<span class="sd">    :param leeching_mana: Whether the player is leeching Mana.</span>
+<span class="sd">    :param using_flask: Whether the player is using a flask.</span>
+<span class="sd">    :param has_totem: Whether the player has a totem.</span>
+<span class="sd">    :param number_of_nearby_allies: Number of nearby allies.</span>
+<span class="sd">    :param number_of_nearby_enemies: Number of nearby enemies.</span>
+<span class="sd">    :param number_of_nearby_corpses: Number of nearby corpses.</span>
+<span class="sd">    :param on_consecrated_ground: Whether the player is on consecrated ground.</span>
+<span class="sd">    :param on_burning_ground: Whether the player is on burning ground.</span>
+<span class="sd">    :param on_chilled_ground: Whether the player is on chilled ground.</span>
+<span class="sd">    :param on_shocked_ground: Whether the player is on shocked ground.</span>
+<span class="sd">    :param burning: Whether the player is burning.</span>
+<span class="sd">    :param ignited: Whether the player is ignited.</span>
+<span class="sd">    :param chilled: Whether the player is chilled.</span>
+<span class="sd">    :param frozen: Whether the player is frozen.</span>
+<span class="sd">    :param shocked: Whether the player is shocked.</span>
+<span class="sd">    :param bleeding: Whether the player is bleeding.</span>
+<span class="sd">    :param poisoned: Whether the player is poisoned.</span>
+<span class="sd">    :param number_of_poison_stacks: Number of poison stacks on the player.</span>
+<span class="sd">    :param only_one_nearby_enemy: Whether there is only one enemy nearby.</span>
+<span class="sd">    :param hit_recently: Whether the player has hit recently.</span>
+<span class="sd">    :param crit_recently: Whether the player has crit recently.</span>
+<span class="sd">    :param skill_crit_recently: Whether one the player&#39;s skills has crit recently.</span>
+<span class="sd">    :param non_crit_recently: Whether the player has not crit recently.</span>
+<span class="sd">    :param killed_recently: Whether the player has killed recently.</span>
+<span class="sd">    :param number_of_enemies_killed_recently:</span>
+<span class="sd">        Number of enemies killed by the player recently.</span>
+<span class="sd">    :param totems_killed_recently: Whether the player&#39;s totems killed recently.</span>
+<span class="sd">    :param number_of_totems_killed_recently:</span>
+<span class="sd">        Number of enemies killed by the player&#39;s totems recently.</span>
+<span class="sd">    :param minions_killed_recently: Whether the player&#39;s minions killed recently.</span>
+<span class="sd">    :param number_of_minions_killed_recently:</span>
+<span class="sd">        Number of enemies killed by the player&#39;s minions recently.</span>
+<span class="sd">    :param killed_affected_by_dot:</span>
+<span class="sd">        Whether the player has killed an enemy affected by damage over time recently.</span>
+<span class="sd">    :param number_of_shocked_enemies_killed_recently:</span>
+<span class="sd">        Number of shocked enemies killed by the player recently.</span>
+<span class="sd">    :param frozen_enemy_recently: Whether the player has frozen an enemy recently.</span>
+<span class="sd">    :param shattered_enemy_recently: Whether the player has shattered an enemy recently.</span>
+<span class="sd">    :param ignited_enemy_recently: Whether the player has ignited an enemy recently.</span>
+<span class="sd">    :param shocked_enemy_recently: Whether the player has shocked an enemy recently.</span>
+<span class="sd">    :param number_of_poisons_applied_recently:</span>
+<span class="sd">        Number of poisons applied by the player recently.</span>
+<span class="sd">    :param been_hit_recently: Whether the player has been hit recently.</span>
+<span class="sd">    :param been_crit_recently: Whether the player has been crit recently.</span>
+<span class="sd">    :param been_savage_hit_recently: Whether the player has been savage hit recently.</span>
+<span class="sd">    :param hit_by_fire_damage_recently:</span>
+<span class="sd">        Whether the player has been hit by fire damage recently.</span>
+<span class="sd">    :param hit_by_cold_damage_recently:</span>
+<span class="sd">        Whether the player has been hit by cold damage recently.</span>
+<span class="sd">    :param hit_by_lightning_damage_recently:</span>
+<span class="sd">        Whether the player has been hit by lightning damage recently.</span>
+<span class="sd">    :param blocked_recently: Whether the player has blocked recently.</span>
+<span class="sd">    :param blocked_attack_recently: Whether the player has blocked an attack recently.</span>
+<span class="sd">    :param blocked_spell_recently: Whether the player has blocked a spell recently.</span>
+<span class="sd">    :param energy_shield_recharge_started_recently:</span>
+<span class="sd">        Whether the player&#39;s energy shield recharge started recently.</span>
+<span class="sd">    :param pendulum_of_destruction: Controls Pendulum of Destruction mode.</span>
+<span class="sd">        Possible values: (&#39;Area&#39;, &#39;Damage&#39;).</span>
+<span class="sd">    :param elemental_conflux: Controls Elemental Conflux mode.</span>
+<span class="sd">        Possible values: (&#39;Chilling&#39;, &#39;Shocking&#39;, &#39;Igniting&#39;, &#39;All&#39;).</span>
+<span class="sd">    :param bastion_of_hope: Whether the player has Bastion of Hope.</span>
+<span class="sd">    :param her_embrace: Whether the player is in Her Embrace.</span>
+<span class="sd">    :param used_skill_recently: Whether the player has used a skill recently.</span>
+<span class="sd">    :param attacked_recently: Whether the player has attacked recently.</span>
+<span class="sd">    :param cast_spell_recently: Whether the player has cast a spell recently.</span>
+<span class="sd">    :param used_fire_skill_recently: Whether the player has used a fire skill recently.</span>
+<span class="sd">    :param used_cold_skill_recently: Whether the player has used a cold skill recently.</span>
+<span class="sd">    :param used_minion_skill_recently:</span>
+<span class="sd">        Whether the player has used a minion skill recently.</span>
+<span class="sd">    :param used_movement_skill_recently:</span>
+<span class="sd">        Whether the player has used a movement skill recently.</span>
+<span class="sd">    :param used_vaal_skill_recently: Whether the player has used a vaal skill recently.</span>
+<span class="sd">    :param used_warcry_recently: Whether the player has used a warcry recently.</span>
+<span class="sd">    :param used_warcry_in_past_8_seconds:</span>
+<span class="sd">        Whether the player has used a warcry in the past 8 seconds.</span>
+<span class="sd">    :param number_of_mines_detonated_recently: Number of mines detonated recently.</span>
+<span class="sd">    :param number_of_traps_triggered_recently: Number of traps triggered recently.</span>
+<span class="sd">    :param consumed_corpses_recently: Whether the player has consumed corpses recently.</span>
+<span class="sd">    :param number_of_corpses_consumed_recently:</span>
+<span class="sd">        Number of corpses consumed by the player recently.</span>
+<span class="sd">    :param taunted_enemy_recently: Whether the player has taunted an enemy recently.</span>
+<span class="sd">    :param blocked_hit_from_unique_enemy_in_past_ten_seconds:</span>
+<span class="sd">        Whether the player has blocked a hit from an unique enemy</span>
+<span class="sd">        in the past ten seconds.</span>
+<span class="sd">    :param lucky_crits: Whether the player&#39;s hits are lucky.</span>
+<span class="sd">    :param number_of_times_skill_has_chained:</span>
+<span class="sd">        Number of times the main skill has chained.</span>
+<span class="sd">    :param projectile_distance: Projectile travel distance.</span>
+<span class="sd">    :param enemy_in_close_range: Whether enemies are in close range.</span>
+<span class="sd">    :param enemy_moving: Whether enemies are moving.</span>
+<span class="sd">    :param enemy_on_full_life: Whether enemies are on full life.</span>
+<span class="sd">    :param enemy_on_low_life: Whether enemies are on low life.</span>
+<span class="sd">    :param enemy_cursed: Whether enemies are cursed.</span>
+<span class="sd">    :param enemy_bleeding: Whether enemies are bleeding.</span>
+<span class="sd">    :param enemy_poisoned: Whether enemies are poisoned.</span>
+<span class="sd">    :param enemy_number_of_poison_stacks: Number of poison stacks on enemies.</span>
+<span class="sd">    :param enemy_maimed: Whether enemies are maimed.</span>
+<span class="sd">    :param enemy_hindered: Whether enemies are hindered.</span>
+<span class="sd">    :param enemy_blinded: Whether enemies are blinded.</span>
+<span class="sd">    :param enemy_taunted: Whether enemies are taunted.</span>
+<span class="sd">    :param enemy_burning: Whether enemies are burning.</span>
+<span class="sd">    :param enemy_ignited: Whether enemies are ignited.</span>
+<span class="sd">    :param enemy_chilled: Whether enemies are chilled.</span>
+<span class="sd">    :param enemy_frozen: Whether enemies are frozen.</span>
+<span class="sd">    :param enemy_shocked: Whether enemies are shocked.</span>
+<span class="sd">    :param enemy_number_of_freeze_shock_ignite:</span>
+<span class="sd">        Number of enemies frozen, shocked, or ignited recently.</span>
+<span class="sd">    :param enemy_intimidated: Whether enemies are intimidated.</span>
+<span class="sd">    :param enemy_unnerved: Whether enemies are unnerved.</span>
+<span class="sd">    :param enemy_covered_in_ash:  Whether enemies are covered in ash.</span>
+<span class="sd">    :param enemy_rare_or_unique: Whether enemies are rare or unique.</span>
+<span class="sd">    :param enemy_boss: Whether enemies are bosses.</span>
+<span class="sd">        Possible Values: (False, True, &#39;Shaper&#39;).</span>
+<span class="sd">    :param enemy_physical_damage_reduction: Enemy physical damage reduction.</span>
+<span class="sd">    :param enemy_fire_resist: Enemy fire resistance.</span>
+<span class="sd">    :param enemy_cold_resist: Enemy cold resistance.</span>
+<span class="sd">    :param enemy_lightning_resist: Enemy lightning resistance.</span>
+<span class="sd">    :param enemy_chaos_resist: Enemy chaos resistance.</span>
+<span class="sd">    :param enemy_hit_by_fire_damage: Whether enemies were hit by fire damage.</span>
+<span class="sd">    :param enemy_hit_by_cold_damage: Whether enemies were hit by cold damage.</span>
+<span class="sd">    :param enemy_hit_by_lightning_damage: Whether enemies were hit by lightning damage.</span>
+<span class="sd">    :param elemental_equilibrium_ignore_hit_damage:</span>
+<span class="sd">        Whether to ignore skill hit damage resetting Elemental Equilibrium.</span>
+<span class="sd">    :param character_level:</span>
+<span class="sd">        Overridden character/enemy level used to estimate</span>
+<span class="sd">        hit and evasion chances, enemy life and damage.&quot;&quot;&quot;</span>
+
+    <span class="c1"># General Build Configuration</span>
+    <span class="n">resistance_penalty</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">60</span>
+    <span class="n">enemy_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_physical_hit_damage</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">detonate_dead_corpse_life</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">is_stationary</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">is_moving</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">on_full_life</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">on_low_life</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">on_full_energy_shield</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">has_energy_shield</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">minions_on_full_life</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">ignite_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># Skill Configuration</span>
+    <span class="n">aspect_of_the_avian_avians_might</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">aspect_of_the_avian_avians_flight</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">aspect_of_the_cat_cats_stealth</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">aspect_of_the_cat_cats_agility</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">override_crab_barriers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">aspect_of_the_spider_web_stacks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">banner_planted</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">banner_stages</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">in_bloodstorm</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">in_sandstorm</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">brand_attached</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">dark_pact_skeleton_life</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">deathmark</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">feeding_frenzy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">herald_of_agony_stacks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">ice_nova_cast_on_frostbolt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">infusion</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">innervate_innervation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">intensify_stacks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">meat_shield_enemy_nearby</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">raise_spectres_spectre_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">raise_spectres_enable_curses</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">raise_spectres_blade_vortex_blade_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">raise_spectres_kaom_fire_beam_totem_stage</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">raise_spectres_enable_summoned_ursa_rallying_cry</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">raise_spiders_spider_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">siphoning_trap_affected_enemies</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">stance</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">summon_holy_relic_enable_holy_relic_buff</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">summon_lightning_golem_enable_wrath</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">vortex_cast_on_frostbolt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">wave_of_conviction_exposure_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">winter_orb_stages</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># Map Configuration</span>
+    <span class="n">enemy_physical_reduction</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_hexproof</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">less_curse_effect</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_avoid_poison_blind_bleed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_resistances</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">elemental_equilibrium</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">no_leech</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">reduced_flask_charges</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">minus_max_resists</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">less_aoe</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_avoid_status_ailment</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_increased_accuracy</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">less_armour_block</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">point_blank</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">less_recovery</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">no_regen</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_takes_reduced_extra_crit_damage</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_assassins_mark</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_conductivity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_despair</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_elemental_weakness</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_enfeeble</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_flammability</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_frostbite</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_poachers_mark</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_projectile_weakness</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_punishment</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_temporal_chains</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_vulnerability</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">curse_warlords_mark</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># Combat Configuration</span>
+    <span class="n">use_power_charges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">max_power_charges</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">use_frenzy_charges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">max_frenzy_charges</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">use_endurance_charges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">max_endurance_charges</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">use_siphoning_charges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">max_siphoning_charges</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">use_challenger_charges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">max_challenger_charges</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">use_blitz_charges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">max_blitz_charges</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">use_inspiration_charges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">max_inspiration_charges</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">minions_use_power_charges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">minions_use_frenzy_charges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">minions_use_endurance_charges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">focus</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">onslaught</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">unholy_might</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">phasing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">fortify</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">tailwind</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">adrenaline</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">divinity</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">rage</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">leeching</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">leeching_life</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">leeching_energy_shield</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">leeching_mana</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">using_flask</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">has_totem</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">number_of_nearby_allies</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">number_of_nearby_enemies</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">number_of_nearby_corpses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">on_consecrated_ground</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">on_burning_ground</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">on_chilled_ground</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">on_shocked_ground</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">burning</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">ignited</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">chilled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">frozen</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">shocked</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">bleeding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">poisoned</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">number_of_poison_stacks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">only_one_nearby_enemy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">hit_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">crit_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">skill_crit_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">non_crit_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">killed_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">number_of_enemies_killed_recently</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">totems_killed_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">number_of_totems_killed_recently</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">minions_killed_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">number_of_minions_killed_recently</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">killed_affected_by_dot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">number_of_shocked_enemies_killed_recently</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">frozen_enemy_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">shattered_enemy_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">ignited_enemy_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">shocked_enemy_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">number_of_poisons_applied_recently</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">been_hit_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">been_crit_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">been_savage_hit_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">hit_by_fire_damage_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">hit_by_cold_damage_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">hit_by_lightning_damage_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">blocked_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">blocked_attack_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">blocked_spell_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">energy_shield_recharge_started_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">pendulum_of_destruction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">elemental_conflux</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">bastion_of_hope</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">her_embrace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">used_skill_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">attacked_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">cast_spell_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">used_fire_skill_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">used_cold_skill_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">used_minion_skill_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">used_movement_skill_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">used_vaal_skill_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">used_warcry_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">used_warcry_in_past_8_seconds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">number_of_mines_detonated_recently</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">number_of_traps_triggered_recently</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">consumed_corpses_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">number_of_corpses_consumed_recently</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">taunted_enemy_recently</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">blocked_hit_from_unique_enemy_in_past_ten_seconds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="c1"># DPS Configuration</span>
+    <span class="n">lucky_crits</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">number_of_times_skill_has_chained</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">projectile_distance</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_in_close_range</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_moving</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_on_full_life</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_on_low_life</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_cursed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_bleeding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_poisoned</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_number_of_poison_stacks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_maimed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_hindered</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_blinded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_taunted</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_burning</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_ignited</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_chilled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_frozen</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_shocked</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_number_of_freeze_shock_ignite</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_intimidated</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_unnerved</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_covered_in_ash</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_rare_or_unique</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_boss</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_physical_damage_reduction</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_fire_resist</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_cold_resist</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_lightning_resist</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_chaos_resist</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enemy_hit_by_fire_damage</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_hit_by_cold_damage</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">enemy_hit_by_lightning_damage</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">elemental_equilibrium_ignore_hit_damage</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="c1"># The fields in the post init method are the only values in Path of Building&#39;s</span>
+    <span class="c1"># configuration tab that are calculated, but can also be overridden so we</span>
+    <span class="c1"># potentially have to initialise them at a later point in time.</span>
+    <span class="n">character_level</span><span class="p">:</span> <span class="n">InitVar</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># TODO: Raise Spectre level calc on 3.0.0+</span>
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">character_level</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">character_level</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">character_level</span> <span class="o">=</span> <span class="mi">84</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">enemy_level</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">enemy_level</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">character_level</span><span class="p">,</span> <span class="mi">84</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">enemy_physical_hit_damage</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">enemy_physical_hit_damage</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">MONSTER_DAMAGE_TABLE</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">enemy_level</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.5</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">detonate_dead_corpse_life</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">detonate_dead_corpse_life</span> <span class="o">=</span> <span class="n">MONSTER_LIFE_TABLE</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">enemy_level</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">0.6.0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user.html">User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Peter Pölzl.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

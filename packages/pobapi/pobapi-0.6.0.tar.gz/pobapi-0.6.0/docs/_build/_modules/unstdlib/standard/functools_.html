@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>unstdlib.standard.functools_ &#8212; 0.6.0 0.6.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for unstdlib.standard.functools_</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span><span class="p">,</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">.list_</span> <span class="kn">import</span> <span class="n">iterate_items</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;memoized&#39;</span><span class="p">,</span> <span class="s1">&#39;memoized_property&#39;</span><span class="p">,</span> <span class="s1">&#39;memoized_method&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;assert_hashable&#39;</span><span class="p">,</span> <span class="s1">&#39;deprecated&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">assert_hashable</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Verify that each argument is hashable.</span>
+
+<span class="sd">    Passes silently if successful. Raises descriptive TypeError otherwise.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt;&gt; assert_hashable(1, &#39;foo&#39;, bar=&#39;baz&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; assert_hashable(1, [], baz=&#39;baz&#39;)</span>
+<span class="sd">        Traceback (most recent call last):</span>
+<span class="sd">          ...</span>
+<span class="sd">        TypeError: Argument in position 1 is not hashable: []</span>
+<span class="sd">        &gt;&gt;&gt; assert_hashable(1, &#39;foo&#39;, bar=[])</span>
+<span class="sd">        Traceback (most recent call last):</span>
+<span class="sd">          ...</span>
+<span class="sd">        TypeError: Keyword argument &#39;bar&#39; is not hashable: []</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+            <span class="nb">hash</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Argument in position </span><span class="si">%d</span><span class="s1"> is not hashable: </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">arg</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">iterate_items</span><span class="p">(</span><span class="n">kw</span><span class="p">):</span>
+            <span class="nb">hash</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Keyword argument </span><span class="si">%r</span><span class="s1"> is not hashable: </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_memoized_call</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">cache</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">kw</span><span class="o">.</span><span class="n">items</span><span class="p">())))</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">is_cached</span> <span class="o">=</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">cache</span>
+    <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># Re-raise a more descriptive error if it&#39;s a hashing problem.</span>
+        <span class="n">assert_hashable</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="c1"># If it hasn&#39;t raised by now, then something else is going on,</span>
+        <span class="c1"># raise it. (This shouldn&#39;t happen.)</span>
+        <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_cached</span><span class="p">:</span>
+        <span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">memoized</span><span class="p">(</span><span class="n">fn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Memoize a function into an optionally-specificed cache container.</span>
+
+<span class="sd">    If the `cache` container is not specified, then the instance container is</span>
+<span class="sd">    accessible from the wrapped function&#39;s `memoize_cache` property.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt;&gt; @memoized</span>
+<span class="sd">        ... def foo(bar):</span>
+<span class="sd">        ...   print(&quot;Not cached.&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; foo(1)</span>
+<span class="sd">        Not cached.</span>
+<span class="sd">        &gt;&gt;&gt; foo(1)</span>
+<span class="sd">        &gt;&gt;&gt; foo(2)</span>
+<span class="sd">        Not cached.</span>
+
+<span class="sd">    Example with a specific cache container (in this case, the</span>
+<span class="sd">    ``RecentlyUsedContainer``, which will only store the ``maxsize`` most</span>
+<span class="sd">    recently accessed items)::</span>
+
+<span class="sd">        &gt;&gt;&gt; from unstdlib.standard.collections_ import RecentlyUsedContainer</span>
+<span class="sd">        &gt;&gt;&gt; lru_container = RecentlyUsedContainer(maxsize=2)</span>
+<span class="sd">        &gt;&gt;&gt; @memoized(cache=lru_container)</span>
+<span class="sd">        ... def baz(x):</span>
+<span class="sd">        ...   print(&quot;Not cached.&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; baz(1)</span>
+<span class="sd">        Not cached.</span>
+<span class="sd">        &gt;&gt;&gt; baz(1)</span>
+<span class="sd">        &gt;&gt;&gt; baz(2)</span>
+<span class="sd">        Not cached.</span>
+<span class="sd">        &gt;&gt;&gt; baz(3)</span>
+<span class="sd">        Not cached.</span>
+<span class="sd">        &gt;&gt;&gt; baz(2)</span>
+<span class="sd">        &gt;&gt;&gt; baz(1)</span>
+<span class="sd">        Not cached.</span>
+<span class="sd">        &gt;&gt;&gt; # Notice that the &#39;2&#39; key remains, but the &#39;1&#39; key was evicted from</span>
+<span class="sd">        &gt;&gt;&gt; # the cache.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">fn</span><span class="p">:</span>
+        <span class="c1"># This is a hack to support both @memoize and @memoize(...)</span>
+        <span class="k">return</span> <span class="n">memoized</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="n">cache</span><span class="p">)(</span><span class="n">fn</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">cache</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+        <span class="n">wrapped</span> <span class="o">=</span> <span class="n">wraps</span><span class="p">(</span><span class="n">fn</span><span class="p">)(</span><span class="n">partial</span><span class="p">(</span><span class="n">_memoized_call</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">cache</span><span class="p">))</span>
+        <span class="n">wrapped</span><span class="o">.</span><span class="n">memoize_cache</span> <span class="o">=</span> <span class="n">cache</span>
+        <span class="k">return</span> <span class="n">wrapped</span>
+
+    <span class="k">return</span> <span class="n">decorator</span>
+
+
+<span class="c1"># `memoized_property` is lovingly borrowed from @zzzeek, with permission:</span>
+<span class="c1">#   https://twitter.com/zzzeek/status/310503354268790784</span>
+<span class="k">class</span> <span class="nc">memoized_property</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; A read-only @property that is only evaluated once. &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fget</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fget</span> <span class="o">=</span> <span class="n">fget</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">doc</span> <span class="ow">or</span> <span class="n">fget</span><span class="o">.</span><span class="vm">__doc__</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">or</span> <span class="n">fget</span><span class="o">.</span><span class="vm">__name__</span>
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fget</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">memoized_method</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cache_factory</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Memoize a class&#39;s method.</span>
+
+<span class="sd">    Arguments are similar to to `memoized`, except that the cache container is</span>
+<span class="sd">    specified with `cache_factory`: a function called with no arguments to</span>
+<span class="sd">    create the caching container for the instance.</span>
+
+<span class="sd">    Note that, unlike `memoized`, the result cache will be stored on the</span>
+<span class="sd">    instance, so cached results will be deallocated along with the instance.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt;&gt; class Person(object):</span>
+<span class="sd">        ...     def __init__(self, name):</span>
+<span class="sd">        ...         self._name = name</span>
+<span class="sd">        ...     @memoized_method</span>
+<span class="sd">        ...     def get_name(self):</span>
+<span class="sd">        ...         print(&quot;Calling get_name on %r&quot; %(self._name, ))</span>
+<span class="sd">        ...         return self._name</span>
+<span class="sd">        &gt;&gt;&gt; shazow = Person(&quot;shazow&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; shazow.get_name()</span>
+<span class="sd">        Calling get_name on &#39;shazow&#39;</span>
+<span class="sd">        &#39;shazow&#39;</span>
+<span class="sd">        &gt;&gt;&gt; shazow.get_name()</span>
+<span class="sd">        &#39;shazow&#39;</span>
+<span class="sd">        &gt;&gt;&gt; shazow._get_name_cache</span>
+<span class="sd">        {((), ()): &#39;shazow&#39;}</span>
+
+<span class="sd">    Example with a specific cache container::</span>
+
+<span class="sd">        &gt;&gt;&gt; from unstdlib.standard.collections_ import RecentlyUsedContainer</span>
+<span class="sd">        &gt;&gt;&gt; class Foo(object):</span>
+<span class="sd">        ...     @memoized_method(cache_factory=lambda: RecentlyUsedContainer(maxsize=2))</span>
+<span class="sd">        ...     def add(self, a, b):</span>
+<span class="sd">        ...         print(&quot;Calling add with %r and %r&quot; %(a, b))</span>
+<span class="sd">        ...         return a + b</span>
+<span class="sd">        &gt;&gt;&gt; foo = Foo()</span>
+<span class="sd">        &gt;&gt;&gt; foo.add(1, 1)</span>
+<span class="sd">        Calling add with 1 and 1</span>
+<span class="sd">        2</span>
+<span class="sd">        &gt;&gt;&gt; foo.add(1, 1)</span>
+<span class="sd">        2</span>
+<span class="sd">        &gt;&gt;&gt; foo.add(2, 2)</span>
+<span class="sd">        Calling add with 2 and 2</span>
+<span class="sd">        4</span>
+<span class="sd">        &gt;&gt;&gt; foo.add(3, 3)</span>
+<span class="sd">        Calling add with 3 and 3</span>
+<span class="sd">        6</span>
+<span class="sd">        &gt;&gt;&gt; foo.add(1, 1)</span>
+<span class="sd">        Calling add with 1 and 1</span>
+<span class="sd">        2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">memoized_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">cache_factory</span><span class="o">=</span><span class="n">cache_factory</span><span class="p">)</span>
+
+    <span class="n">cache_factory</span> <span class="o">=</span> <span class="n">cache_factory</span> <span class="ow">or</span> <span class="nb">dict</span>
+
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">memoized_method_property</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cache</span> <span class="o">=</span> <span class="n">cache_factory</span><span class="p">()</span>
+        <span class="n">cache_attr</span> <span class="o">=</span> <span class="s2">&quot;_</span><span class="si">%s</span><span class="s2">_cache&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="p">)</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache_attr</span><span class="p">,</span> <span class="n">cache</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span>
+            <span class="n">_memoized_call</span><span class="p">,</span>
+            <span class="n">partial</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="bp">self</span><span class="p">),</span>
+            <span class="n">cache</span>
+        <span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">memoize_cache</span> <span class="o">=</span> <span class="n">cache</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">memoized_property</span><span class="p">(</span><span class="n">memoized_method_property</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">deprecated</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="ne">PendingDeprecationWarning</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Throw a warning when a function/method will be soon deprecated</span>
+
+<span class="sd">    Supports passing a ``message`` and an ``exception`` class</span>
+<span class="sd">    (uses ``PendingDeprecationWarning`` by default). This is useful if you</span>
+<span class="sd">    want to alternatively pass a ``DeprecationWarning`` exception for already</span>
+<span class="sd">    deprecated functions/methods.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt;&gt; import warnings</span>
+<span class="sd">        &gt;&gt;&gt; from functools import wraps</span>
+<span class="sd">        &gt;&gt;&gt; message = &quot;this function will be deprecated in the near future&quot;</span>
+<span class="sd">        &gt;&gt;&gt; @deprecated(message)</span>
+<span class="sd">        ... def foo(n):</span>
+<span class="sd">        ...     return n+n</span>
+<span class="sd">        &gt;&gt;&gt; with warnings.catch_warnings(record=True) as w:</span>
+<span class="sd">        ...     warnings.simplefilter(&quot;always&quot;)</span>
+<span class="sd">        ...     foo(4)</span>
+<span class="sd">        ...     assert len(w) == 1</span>
+<span class="sd">        ...     assert issubclass(w[-1].category, PendingDeprecationWarning)</span>
+<span class="sd">        ...     assert message == str(w[-1].message)</span>
+<span class="sd">        ...     assert foo.__name__ == &#39;foo&#39;</span>
+<span class="sd">        8</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">exception</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">optionflags</span><span class="o">=</span><span class="n">doctest</span><span class="o">.</span><span class="n">ELLIPSIS</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">0.6.0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../user.html">User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Peter Pölzl.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pobapi.models &#8212; 0.6.0 0.6.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for pobapi.models</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Built-ins</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">asdict</span><span class="p">,</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="c1"># Third-party</span>
+<span class="kn">from</span> <span class="nn">dataslots</span> <span class="kn">import</span> <span class="n">with_slots</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Gem&quot;</span><span class="p">,</span> <span class="s2">&quot;GrantedAbility&quot;</span><span class="p">,</span> <span class="s2">&quot;SkillGroup&quot;</span><span class="p">,</span> <span class="s2">&quot;Tree&quot;</span><span class="p">,</span> <span class="s2">&quot;Keystones&quot;</span><span class="p">,</span> <span class="s2">&quot;Item&quot;</span><span class="p">,</span> <span class="s2">&quot;Set&quot;</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">Ability</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Abstract class that holds the data of an ability..</span>
+
+<span class="sd">    :param name: Ability name.</span>
+<span class="sd">    :param enabled: Whether the ability is in active use.</span>
+<span class="sd">    :param level: Ability level.&quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">level</span><span class="p">:</span> <span class="nb">int</span>
+
+
+<div class="viewcode-block" id="Gem"><a class="viewcode-back" href="../../api.html#pobapi.models.Gem">[docs]</a><span class="nd">@with_slots</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Gem</span><span class="p">(</span><span class="n">Ability</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Class that holds the data of an ability granted by a skill gem.</span>
+
+<span class="sd">    :param name: Skill gem name.</span>
+<span class="sd">    :param enabled: Whether the skill gem is in active use.</span>
+<span class="sd">    :param level: Skill gem level.</span>
+<span class="sd">    :param quality: Skill gem quality.</span>
+<span class="sd">    :param support: Whether the skill gem is a support gem.&quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">level</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">quality</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">support</span><span class="p">:</span> <span class="nb">bool</span></div>
+
+
+<div class="viewcode-block" id="GrantedAbility"><a class="viewcode-back" href="../../api.html#pobapi.models.GrantedAbility">[docs]</a><span class="nd">@with_slots</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">GrantedAbility</span><span class="p">(</span><span class="n">Ability</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Class that holds the data of an ability granted by an item.</span>
+
+<span class="sd">    :param name: Granted ability name.</span>
+<span class="sd">    :param enabled: Whether the granted ability is in active use.</span>
+<span class="sd">    :param level: Granted ability level.</span>
+<span class="sd">    :param quality: Granted abilities cannot have any quality on them.</span>
+<span class="sd">    :param support: Granted abilities are never support gems.&quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">level</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">quality</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">support</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="SkillGroup"><a class="viewcode-back" href="../../api.html#pobapi.models.SkillGroup">[docs]</a><span class="nd">@with_slots</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">SkillGroup</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Class that holds a (linked) socket group.</span>
+
+<span class="sd">    :param enabled: Whether the socket group is in active use.</span>
+<span class="sd">    :param label: Socket group label assigned in Path Of Building.</span>
+<span class="sd">    :param active: Main skill in socket group, if given.</span>
+<span class="sd">    :param abilities: List of :class:`Gem &lt;Gem&gt;` or</span>
+<span class="sd">        :class:`GrantedAbility &lt;GrantedAbility&gt;` objects in socket group.&quot;&quot;&quot;</span>
+
+    <span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">active</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">abilities</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Gem</span><span class="p">,</span> <span class="n">GrantedAbility</span><span class="p">]]</span></div>
+
+
+<div class="viewcode-block" id="Tree"><a class="viewcode-back" href="../../api.html#pobapi.models.Tree">[docs]</a><span class="nd">@with_slots</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Tree</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Class that holds a passive skill tree.</span>
+
+<span class="sd">    :param url: pathofexile.com link to passive skill tree.</span>
+<span class="sd">    :param nodes: List of passive skill tree nodes by ID.</span>
+<span class="sd">    :param sockets: Dictionary of</span>
+<span class="sd">        {&lt;passive skill tree jewel socket location&gt; : &lt;jewel set ID&gt;}.&quot;&quot;&quot;</span>
+
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">nodes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">sockets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Keystones"><a class="viewcode-back" href="../../api.html#pobapi.models.Keystones">[docs]</a><span class="nd">@with_slots</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Keystones</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Keystones(*args)</span>
+<span class="sd">    Class that holds keystone data.</span>
+
+<span class="sd">    :param acrobatics: Whether the player has Acrobatics.</span>
+<span class="sd">    :param ancestral_bond: Whether the player has Ancestral Bond.</span>
+<span class="sd">    :param arrow_dancing: Whether the player has Arrow Dancing.</span>
+<span class="sd">    :param avatar_of_fire: Whether the player has Avatar of Fire.</span>
+<span class="sd">    :param blood_magic: Whether the player has Blood Magic.</span>
+<span class="sd">    :param chaos_inoculation: Whether the player has Chaos Inoculation.</span>
+<span class="sd">    :param conduit: Whether the player has Conduit.</span>
+<span class="sd">    :param crimson_dance: Whether the player has Crimson Dance.</span>
+<span class="sd">    :param eldritch_battery: Whether the player has Eldritch Battery.</span>
+<span class="sd">    :param elemental_equilibrium: Whether the player has Elemental Equilibrium.</span>
+<span class="sd">    :param ghost_reaver: Whether the player has Ghost Reaver.</span>
+<span class="sd">    :param iron_grip: Whether the player has Iron Grip.</span>
+<span class="sd">    :param iron_reflexes: Whether the player has Iron Reflexes.</span>
+<span class="sd">    :param mind_over_matter: Whether the player has Mind Over Matter.</span>
+<span class="sd">    :param minion_instability: Whether the player has Minion Instability.</span>
+<span class="sd">    :param mortal_conviction: Whether the player has Mortal Conviction.</span>
+<span class="sd">    :param necromantic_aegis: Whether the player has Necromantic  Aegis.</span>
+<span class="sd">    :param pain_attunement: Whether the player has Pain Attunement.</span>
+<span class="sd">    :param perfect_agony: Whether the player has Perfect Agony.</span>
+<span class="sd">    :param phase_acrobatics: Whether the player has Phase Acrobatics.</span>
+<span class="sd">    :param point_blank: Whether the player has Point Blank.</span>
+<span class="sd">    :param resolute_technique: Whether the player has Resolute Technique.</span>
+<span class="sd">    :param runebinder: Whether the player has Runebinder.</span>
+<span class="sd">    :param unwavering_stance: Whether the player has Unwavering Stance.</span>
+<span class="sd">    :param vaal_pact: Whether the player has Vaal Pact.</span>
+<span class="sd">    :param wicked_ward: Whether the player has Wicked Ward.</span>
+<span class="sd">    :param zealots_oath: Whether the player has Zealots Oath.&quot;&quot;&quot;</span>
+
+    <span class="n">acrobatics</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">ancestral_bond</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">arrow_dancing</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">avatar_of_fire</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">blood_magic</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">chaos_inoculation</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">conduit</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">crimson_dance</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">eldritch_battery</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">elemental_equilibrium</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">ghost_reaver</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">iron_grip</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">iron_reflexes</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">mind_over_matter</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">minion_instability</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">mortal_conviction</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">necromantic_aegis</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">pain_attunement</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">perfect_agony</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">phase_acrobatics</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">point_blank</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">resolute_technique</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">runebinder</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">unwavering_stance</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">vaal_pact</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">wicked_ward</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">zealots_oath</span><span class="p">:</span> <span class="nb">bool</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">v</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">k</span></div>
+
+
+<span class="n">SocketGroup</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="n">GroupOfSocketGroups</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">SocketGroup</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Item"><a class="viewcode-back" href="../../api.html#pobapi.models.Item">[docs]</a><span class="nd">@with_slots</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Item</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Class that holds an item.</span>
+
+<span class="sd">    :param rarity: Item rarity.</span>
+<span class="sd">    :param name: Item name.</span>
+<span class="sd">    :param base: Item base type.</span>
+<span class="sd">    :param uid: Unique item ID for items in-game.</span>
+
+<span class="sd">    .. note:: Items created in Path of Building do not have an UID.</span>
+
+<span class="sd">    :param shaper: Whether the item is a Shaper base type.</span>
+<span class="sd">    :param elder: Whether the item is an Elder base type.</span>
+<span class="sd">    :param crafted: Whether the item has a crafted mod.</span>
+<span class="sd">    :param quality: Item quality, if the item can have quality.</span>
+<span class="sd">    :param sockets: Item socket groups, if the item can have sockets.</span>
+
+<span class="sd">    .. note:: Example: The format used for a 5 socket chest armour with 2 socket groups</span>
+<span class="sd">        of 3 linked blue sockets and 2 linked red sockets would be ((B, B, B), (R, R)).</span>
+
+<span class="sd">    :param level_req: Required character level to equip the item.</span>
+<span class="sd">    :param item_level: Item level.</span>
+<span class="sd">    :param implicit: Number of item implicits, if the item can have implicits.</span>
+<span class="sd">    :param text: Item text.</span>
+
+<span class="sd">    .. note:: For items existing in-game, their item text is just copied.</span>
+<span class="sd">        For items created with Path Of Building,</span>
+<span class="sd">        their affix values are calculated to match in-game items in appearance.&quot;&quot;&quot;</span>
+
+    <span class="n">rarity</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">base</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">uid</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">shaper</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">elder</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">crafted</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">quality</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">sockets</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">GroupOfSocketGroups</span><span class="p">]</span>
+    <span class="n">level_req</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">item_level</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">implicit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;Rarity: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rarity</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;Base: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shaper</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;Shaper Item</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">elder</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;Elder Item</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">crafted</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;Crafted Item</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quality</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;Quality: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">quality</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sockets</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;Sockets: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sockets</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;LevelReq: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">level_req</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;ItemLvl: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">item_level</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">implicit</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;Implicits: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">implicit</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">text</span></div>
+
+
+<div class="viewcode-block" id="Set"><a class="viewcode-back" href="../../api.html#pobapi.models.Set">[docs]</a><span class="nd">@with_slots</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Set</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Set(*args)</span>
+<span class="sd">    Class that holds an item set.</span>
+
+<span class="sd">    :param weapon1: Primary weapon.</span>
+<span class="sd">    :param weapon1_as1: Primary weapon abyssal socket 1.</span>
+<span class="sd">    :param weapon1_as2: Primary weapon abyssal socket 1.</span>
+<span class="sd">    :param weapon1_swap: Second primary weapon.</span>
+<span class="sd">    :param weapon1_swap_as1: Second primary weapon abyssal socket 1.</span>
+<span class="sd">    :param weapon1_swap_as2: Second primary weapon abyssal socket 2.</span>
+<span class="sd">    :param weapon2: Secondary weapon.</span>
+<span class="sd">    :param weapon2_as1: Secondary weapon abyssal socket 1.</span>
+<span class="sd">    :param weapon2_as2: Secondary weapon abyssal socket 1.</span>
+<span class="sd">    :param weapon2_swap: Second secondary weapon.</span>
+<span class="sd">    :param weapon2_swap_as1: Second secondary weapon abyssal socket 1.</span>
+<span class="sd">    :param weapon2_swap_as2: Second secondary weapon abyssal socket 2.</span>
+<span class="sd">    :param helmet: Helmet.</span>
+<span class="sd">    :param helmet_as1: Helmet abyssal socket 1.</span>
+<span class="sd">    :param helmet_as2: Helmet abyssal socket 2.</span>
+<span class="sd">    :param body_armour: Body armour.</span>
+<span class="sd">    :param body_armour_as1: Body armour abyssal socket 1.</span>
+<span class="sd">    :param body_armour_as2: Body armour abyssal socket 2.</span>
+<span class="sd">    :param gloves: Gloves.</span>
+<span class="sd">    :param gloves_as1: Gloves abyssal socket 1.</span>
+<span class="sd">    :param gloves_as2: Gloves abyssal socket 2.</span>
+<span class="sd">    :param boots: Boots.</span>
+<span class="sd">    :param boots_as1: Boots abyssal socket 1.</span>
+<span class="sd">    :param boots_as2: Boots abyssal socket 2.</span>
+<span class="sd">    :param amulet: Amulet.</span>
+<span class="sd">    :param ring1: Left ring.</span>
+<span class="sd">    :param ring2: Right ring.</span>
+<span class="sd">    :param belt: Belt.</span>
+<span class="sd">    :param belt_as1: Belt abyssal socket 1.</span>
+<span class="sd">    :param belt_as2: Belt abyssal socket 2.</span>
+<span class="sd">    :param flask1: Flask bound to &#39;1&#39; by default.</span>
+<span class="sd">    :param flask2: Flask bound to &#39;2&#39; by default.</span>
+<span class="sd">    :param flask3: Flask bound to &#39;3&#39; by default.</span>
+<span class="sd">    :param flask4: Flask bound to &#39;4&#39; by default.</span>
+<span class="sd">    :param flask5: Flask bound to &#39;5&#39; by default.&quot;&quot;&quot;</span>
+
+    <span class="n">weapon1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">weapon1_as1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">weapon1_as2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">weapon1_swap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">weapon1_swap_as1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">weapon1_swap_as2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">weapon2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">weapon2_as1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">weapon2_as2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">weapon2_swap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">weapon2_swap_as1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">weapon2_swap_as2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">helmet</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">helmet_as1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">helmet_as2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">body_armour</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">body_armour_as1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">body_armour_as2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">gloves</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">gloves_as1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">gloves_as2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">boots</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">boots_as1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">boots_as2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">amulet</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">ring1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">ring2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">belt</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">belt_as1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">belt_as2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">flask1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">flask2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">flask3</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">flask4</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">flask5</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">0.6.0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user.html">User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Peter Pölzl.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

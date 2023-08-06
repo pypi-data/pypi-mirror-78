@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pobapi.stats &#8212; 0.6.0 0.6.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for pobapi.stats</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Built-ins</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="c1"># Third-party</span>
+<span class="kn">from</span> <span class="nn">dataslots</span> <span class="kn">import</span> <span class="n">with_slots</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Stats&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Stats"><a class="viewcode-back" href="../../api.html#pobapi.stats.Stats">[docs]</a><span class="nd">@with_slots</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Stats</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Stats(*args)</span>
+<span class="sd">    Class that holds character stat-sheet data.</span>
+
+<span class="sd">    :param average_hit: Average hit damage.</span>
+<span class="sd">    :param average_damage: Average hit damage after accuracy check.</span>
+<span class="sd">    :param cast_speed: Spell cast speed.</span>
+<span class="sd">    :param attack_speed: Attack speed.</span>
+<span class="sd">    :param trap_throwing_speed: Trap throwing speed.</span>
+<span class="sd">    :param trap_cooldown: Trap throwing cooldown.</span>
+<span class="sd">    :param mine_laying_speed: Mine laying speed.</span>
+<span class="sd">    :param totem_placement_speed: Totem placement speed.</span>
+<span class="sd">    :param pre_effective_crit_chance:</span>
+<span class="sd">        Crit chance as displayed in-game (doesn&#39;t factor in accuracy and luck).</span>
+<span class="sd">    :param crit_chance: Effective crit chance, factors in accuracy and luck.</span>
+<span class="sd">    :param crit_multiplier: Critical strike multiplier.</span>
+<span class="sd">    :param hit_chance: Chance to hit with attacks.</span>
+<span class="sd">    :param total_dps: Total Damage per second.</span>
+<span class="sd">    :param total_dot: Total damage over time (per second).</span>
+<span class="sd">    :param bleed_dps: Bleeding damage per second.</span>
+<span class="sd">    :param ignite_dps: Ignite damage per second.</span>
+<span class="sd">    :param ignite_damage: Ignite hit damage.</span>
+<span class="sd">    :param total_dps_with_ignite: Total damage per second including ignite damage.</span>
+<span class="sd">    :param average_damage_with_ignite: Average hit damage including ignite.</span>
+<span class="sd">    :param poison_dps: Poison damage per second.</span>
+<span class="sd">    :param poison_damage: Poison hit damage.</span>
+<span class="sd">    :param total_dps_with_poison: Total damage per second including poison damage.</span>
+<span class="sd">    :param average_damage_with_poison: Average hit damage including poison.</span>
+<span class="sd">    :param decay_dps: Decay damage per second.</span>
+<span class="sd">    :param skill_cooldown: Skill cooldown time.</span>
+<span class="sd">    :param area_of_effect_radius: Area of effect radius.</span>
+<span class="sd">    :param mana_cost: Mana cost of skill.</span>
+<span class="sd">    :param strength: Strength attribute.</span>
+<span class="sd">    :param strength_required: Required strength.</span>
+<span class="sd">    :param dexterity: Dexterity attribute.</span>
+<span class="sd">    :param dexterity_required: Required dexterity.</span>
+<span class="sd">    :param intelligence: Intelligence attribute.</span>
+<span class="sd">    :param intelligence_required: Intelligence required.</span>
+<span class="sd">    :param life: Life points.</span>
+<span class="sd">    :param life_increased: Percent increased life.</span>
+<span class="sd">    :param life_unreserved: Unreserved life points.</span>
+<span class="sd">    :param life_unreserved_percent: Percent unreserved life.</span>
+<span class="sd">    :param life_regen: Flat life regeneration.</span>
+<span class="sd">    :param life_leech_rate_per_hit: Percent life leeched per hit.</span>
+<span class="sd">    :param life_leech_gain_per_hit: Flat life leeched per hit.</span>
+<span class="sd">    :param mana: Mana points.</span>
+<span class="sd">    :param mana_increased: Percent increased mana.</span>
+<span class="sd">    :param mana_unreserved: Unreserved mana points.</span>
+<span class="sd">    :param mana_unreserved_percent: Percent unreserved mana.</span>
+<span class="sd">    :param mana_regen: Flat mana regeneration.</span>
+<span class="sd">    :param mana_leech_rate_per_hit: Percent mana leeched per hit.</span>
+<span class="sd">    :param mana_leech_gain_per_hit: Flat mana leeched per hit.</span>
+<span class="sd">    :param total_degen: Total life degeneration.</span>
+<span class="sd">    :param net_life_regen: Net life regeneration.</span>
+<span class="sd">    :param net_mana_regen: Net mana regeneration.</span>
+<span class="sd">    :param energy_shield: Energy shield.</span>
+<span class="sd">    :param energy_shield_increased: Percent increased energy shield.</span>
+<span class="sd">    :param energy_shield_regen: Flat energy shield regeneration.</span>
+<span class="sd">    :param energy_shield_leech_rate_per_hit: Percent energy shield leeched per hit.</span>
+<span class="sd">    :param energy_shield_leech_gain_per_hit: Flat energy shield leeched per hit.</span>
+<span class="sd">    :param evasion: Evasion rating.</span>
+<span class="sd">    :param evasion_increased: Percent increased evasion rating.</span>
+<span class="sd">    :param melee_evade_chance: Chance to evade melee attacks.</span>
+<span class="sd">    :param projectile_evade_chance: Chance to evade projectiles.</span>
+<span class="sd">    :param armour: Armour.</span>
+<span class="sd">    :param armour_increased: Percent increased armour.</span>
+<span class="sd">    :param physical_damage_reduction: Physical damage reduction.</span>
+<span class="sd">    :param effective_movement_speed_modifier: Effective movement speed modifier.</span>
+<span class="sd">    :param block_chance: Chance to block attacks.</span>
+<span class="sd">    :param spell_block_chance: Chance to block spells.</span>
+<span class="sd">    :param attack_dodge_chance: Chance to dodge attacks.</span>
+<span class="sd">    :param spell_dodge_chance: Chance to dodge spells.</span>
+<span class="sd">    :param fire_resistance: Fire resistance.</span>
+<span class="sd">    :param cold_resistance: Cold resistance.</span>
+<span class="sd">    :param lightning_resistance: Lightning resistance.</span>
+<span class="sd">    :param chaos_resistance: Chaos resistance.</span>
+<span class="sd">    :param fire_resistance_over_cap: Overcapped fire resistance.</span>
+<span class="sd">    :param cold_resistance_over_cap: Overcapped cold resistance</span>
+<span class="sd">    :param lightning_resistance_over_cap: Overcapped lightning resistance.</span>
+<span class="sd">    :param chaos_resistance_over_cap: Overcapped chaos resistance.</span>
+<span class="sd">    :param power_charges: Power charges.</span>
+<span class="sd">    :param power_charges_maximum: Maximum power charges.</span>
+<span class="sd">    :param frenzy_charges: Frenzy charges.</span>
+<span class="sd">    :param frenzy_charges_maximum: Maximum frenzy charges.</span>
+<span class="sd">    :param endurance_charges: Endurance charges.</span>
+<span class="sd">    :param endurance_charges_maximum: Maximum endurance charges.</span>
+<span class="sd">    :param active_totem_limit: Maximum active totems.</span>
+<span class="sd">    :param active_minion_limit: Maximum number of minions.&quot;&quot;&quot;</span>
+
+    <span class="n">average_hit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">average_damage</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">cast_speed</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">attack_speed</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">trap_throwing_speed</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">trap_cooldown</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mine_laying_speed</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">totem_placement_speed</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">pre_effective_crit_chance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">crit_chance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">crit_multiplier</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">hit_chance</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">total_dps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">total_dot</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">bleed_dps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">ignite_dps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">ignite_damage</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">total_dps_with_ignite</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">average_damage_with_ignite</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">poison_dps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">poison_damage</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">total_dps_with_poison</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">average_damage_with_poison</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">decay_dps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">skill_cooldown</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">area_of_effect_radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mana_cost</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">strength</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">strength_required</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">dexterity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">dexterity_required</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">intelligence</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">intelligence_required</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">life</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">life_increased</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">life_unreserved</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">life_unreserved_percent</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">life_regen</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">life_leech_rate_per_hit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">life_leech_gain_per_hit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mana</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mana_increased</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mana_unreserved</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mana_unreserved_percent</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mana_regen</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mana_leech_rate_per_hit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mana_leech_gain_per_hit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">total_degen</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">net_life_regen</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">net_mana_regen</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">energy_shield</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">energy_shield_increased</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">energy_shield_regen</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">energy_shield_leech_rate_per_hit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">energy_shield_leech_gain_per_hit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">evasion</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">evasion_increased</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">melee_evade_chance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">projectile_evade_chance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">armour</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">armour_increased</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">physical_damage_reduction</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">effective_movement_speed_modifier</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">block_chance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">spell_block_chance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">attack_dodge_chance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">spell_dodge_chance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">fire_resistance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">cold_resistance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">lightning_resistance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">chaos_resistance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">fire_resistance_over_cap</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">cold_resistance_over_cap</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">lightning_resistance_over_cap</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">chaos_resistance_over_cap</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">power_charges</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">power_charges_maximum</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">frenzy_charges</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">frenzy_charges_maximum</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">endurance_charges</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">endurance_charges_maximum</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">active_totem_limit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">active_minion_limit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">0.6.0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user.html">User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Peter Pölzl.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Path Of Building API’s documentation! &#8212; 0.6.0 0.6.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="User Guide" href="user.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-path-of-building-api-s-documentation">
+<h1>Welcome to Path Of Building API’s documentation!<a class="headerlink" href="#welcome-to-path-of-building-api-s-documentation" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="path-of-building-api">
+<h1>Path of Building API<a class="headerlink" href="#path-of-building-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pre-release-software-warning">
+<h2>Pre-release Software Warning<a class="headerlink" href="#pre-release-software-warning" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">This library is currently in pre-release status and may change in the near future.</div>
+<div class="line">Meanwhile I am looking forward to community feedback to accommodate most use cases.</div>
+<div class="line">Pull requests are gladly accepted and much appreciated!</div>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Path Of Building API provides a comprehensive toolbox for processing
+<a class="reference external" href="https://github.com/Openarl/PathOfBuilding">Path of Building</a> pastebins.</div>
+<div class="line">It is aimed at community developers:</div>
+</div>
+<ul class="simple">
+<li><p>looking to add Path of Building functionality to their apps.</p></li>
+<li><p>upgrading from existing solutions.</p></li>
+</ul>
+<p>Benefits from using this library:</p>
+<ul class="simple">
+<li><p>Focus on your app’s core competences</p></li>
+<li><p>Spend your free time on unique features</p></li>
+<li><p>Backwards-compatibility as PoB’s export format changes</p></li>
+<li><p>Tested and secure codebase</p></li>
+</ul>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Look up and process:</dt><dd><ul>
+<li><p>Character stats (DPS, life, etc.)</p></li>
+<li><p>Skill trees</p></li>
+<li><p>Skills, skill groups and links</p></li>
+<li><p>Gear and item sets</p></li>
+<li><p>Path of Building configuration settings</p></li>
+<li><p>Build author’s notes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Exposes all of Path of Building’s relevant stats and attributes in a simple and pythonic way.</p></li>
+<li><p>Automatically calculates mod values on theorycrafted items.</p></li>
+<li><p>Low memory footprint through slots and dynamically generated attributes.</p></li>
+</ul>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/">Python 3.7+</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/dataslots/">dataslots</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/lxml/">lxml</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/requests/">requests</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/unstdlib/">unstdlib</a></p></li>
+</ul>
+</div>
+<div class="section" id="setup-instructions">
+<h2>Setup Instructions<a class="headerlink" href="#setup-instructions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install pobapi</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-instructions-for-developers">
+<h2>Setup Instructions For Developers<a class="headerlink" href="#setup-instructions-for-developers" title="Permalink to this headline">¶</a></h2>
+<p>Setup virtual environment:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install virtualenv</span>
+<span class="go">cd my_project_folder</span>
+<span class="go">virtualenv venv</span>
+</pre></div>
+</div>
+<p>To activate on Microsoft Windows:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">\venv\Scripts\activate</span>
+</pre></div>
+</div>
+<p>To activate on GNU/Linux:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">source venv/bin/activate</span>
+</pre></div>
+</div>
+<p>Setup repository:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/ppoelzl/PathOfBuildingAPI.git</span>
+<span class="go">pip install -r requirements.txt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pobapi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://pastebin.com/bQRjfedq&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">build</span> <span class="o">=</span> <span class="n">pobapi</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">build</span><span class="o">.</span><span class="n">ascendancy_name</span><span class="p">)</span>
+<span class="go">Elementalist</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">build</span><span class="o">.</span><span class="n">bandit</span><span class="p">)</span>
+<span class="go">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">build</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">life</span><span class="p">)</span>
+<span class="go">6911</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span>  <span class="n">build</span><span class="o">.</span><span class="n">active_skill</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Blade Vortex&quot;</span><span class="p">,</span> <span class="s2">&quot;Vaal Blade Vortex&quot;</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="s2">&quot;Storm Brand&quot;</span> <span class="ow">in</span> <span class="n">build</span><span class="o">.</span><span class="n">skill_names</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">build</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">brand_attached</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">build</span><span class="o">.</span><span class="n">items</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Inpulsa&#39;s Broken Heart&quot;</span><span class="p">:</span>
+<span class="gp">... </span>       <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="gp">... </span>       <span class="k">break</span>
+<span class="gp">...</span>
+<span class="go">Rarity: Unique</span>
+<span class="go">Name: Inpulsa&#39;s Broken Heart</span>
+<span class="go">Base: Sadist Garb</span>
+<span class="go">Quality: 20</span>
+<span class="go">Sockets: ((&#39;G&#39;, &#39;G&#39;, &#39;G&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;),)</span>
+<span class="go">LevelReq: 68</span>
+<span class="go">ItemLvl: 71</span>
+<span class="go">+64 to maximum Life</span>
+<span class="go">26% increased Damage if you have Shocked an Enemy Recently</span>
+<span class="go">33% increased Effect of Shock</span>
+<span class="go">Shocked Enemies you Kill Explode, dealing 5% of</span>
+<span class="go">their Maximum Life as Lightning Damage which cannot Shock</span>
+<span class="go">Unaffected by Shock</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>Available at <a class="reference external" href="https://pobapi.readthedocs.io">Read the Docs</a>.</p>
+</div>
+<div class="section" id="feedback">
+<h2>Feedback<a class="headerlink" href="#feedback" title="Permalink to this headline">¶</a></h2>
+<p>Please file a <a class="reference external" href="https://developer.github.com/v3/issues/">GitHub issue</a> in this repository for any feedback you may have.</p>
+</div>
+<div class="section" id="contribution">
+<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
+<p>Pull requests are gladly accepted. Check out the <a class="reference external" href="https://pobapi.readthedocs.io/dev.html">Developer Guide</a>.</p>
+</div>
+<div class="section" id="to-do">
+<h2>To-Do<a class="headerlink" href="#to-do" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Support corruptions</p></li>
+<li><p>Support enchantments</p></li>
+</ul>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://mit-license.org/">MIT</a></p>
+</div>
+<div class="section" id="the-user-guide">
+<h2>The User Guide<a class="headerlink" href="#the-user-guide" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#design-choices">Design Choices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-developer-guide">
+<h2>The Developer Guide<a class="headerlink" href="#the-developer-guide" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dev.html">Developer Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev.html#reporting-bugs">Reporting Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev.html#requesting-features">Requesting Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev.html#contributing-code">Contributing Code</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-api-documentation-guide">
+<h2>The API Documentation / Guide<a class="headerlink" href="#the-api-documentation-guide" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-pobapi.api">Main Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-pobapi.models">Data Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-pobapi.stats">Character Stat-Sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-pobapi.config">Build Configuration</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">0.6.0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dev.html">Developer Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="user.html" title="next chapter">User Guide</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Peter Pölzl.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
