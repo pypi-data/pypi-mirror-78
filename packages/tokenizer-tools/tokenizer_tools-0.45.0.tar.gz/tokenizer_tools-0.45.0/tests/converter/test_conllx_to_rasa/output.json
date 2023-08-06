@@ -1,0 +1,41 @@
+{
+    "rasa_nlu_data": {
+        "common_examples": [
+            {
+                "text": "王小明在北京的清华大学读书。",
+                "intent": "intent1",
+                "entities": [
+                    {
+                        "start": 0,
+                        "end": 3,
+                        "entity": "PERSON"
+                    },
+                    {
+                        "start": 4,
+                        "end": 6,
+                        "entity": "GPE"
+                    },
+                    {
+                        "start": 7,
+                        "end": 11,
+                        "entity": "ORG"
+                    }
+                ]
+            },
+            {
+                "text": "来一首蓝泽雨的歌。",
+                "intent": "intent2",
+                "entities": [
+                    {
+                        "start": 3,
+                        "end": 6,
+                        "entity": "歌手名"
+                    }
+                ]
+            }
+        ],
+        "regex_features": [],
+        "lookup_tables": [],
+        "entity_synonyms": []
+    }
+}
