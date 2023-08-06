@@ -1,0 +1,17 @@
+MANIFEST.in
+setup.cfg
+setup.py
+muses_bbcode/__init__.py
+muses_bbcode/br_bbcode_tag.py
+muses_bbcode/email_bbcode_tag.py
+muses_bbcode/hr_bbcode_tag.py
+muses_bbcode/invisible_bbcode_tag.py
+muses_bbcode/justifier_bbcode_tag.py
+muses_bbcode/mp3_bbcode_tag.py
+muses_bbcode/preformatted_bbcode_tag.py
+muses_bbcode/right_bbcode_tag.py
+muses_bbcode.egg-info/PKG-INFO
+muses_bbcode.egg-info/SOURCES.txt
+muses_bbcode.egg-info/dependency_links.txt
+muses_bbcode.egg-info/requires.txt
+muses_bbcode.egg-info/top_level.txt
