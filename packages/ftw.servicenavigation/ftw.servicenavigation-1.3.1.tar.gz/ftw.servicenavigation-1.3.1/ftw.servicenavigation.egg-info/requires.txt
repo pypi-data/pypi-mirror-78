@@ -1,0 +1,17 @@
+Plone
+PyYAML
+collective.z3cform.datagridfield
+ftw.upgrade
+plone.api
+plone.autoform
+plone.app.relationfield
+plone.supermodel
+setuptools
+z3c.relationfield
+
+[tests]
+ftw.builder
+ftw.testing
+ftw.testbrowser
+plone.app.testing
+ftw.mobile

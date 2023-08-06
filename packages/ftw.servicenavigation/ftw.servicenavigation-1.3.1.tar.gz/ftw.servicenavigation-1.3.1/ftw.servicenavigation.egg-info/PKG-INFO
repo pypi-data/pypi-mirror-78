@@ -1,0 +1,144 @@
+Metadata-Version: 2.1
+Name: ftw.servicenavigation
+Version: 1.3.1
+Summary: UNKNOWN
+Home-page: https://github.com/4teamwork/ftw.servicenavigation
+Author: 4teamwork AG
+Author-email: mailto:info@4teamwork.ch
+License: GPL2
+Description: .. contents:: Table of Contents
+        
+        
+        Installation
+        ============
+        
+        Add the package as dependency to your setup.py:
+        
+        .. code:: python
+        
+          setup(...
+                install_requires=[
+                  ...
+                  'ftw.servicenavigation',
+                ])
+        
+        or to your buildout configuration:
+        
+        .. code:: ini
+        
+          [instance]
+          eggs += ftw.servicenavigation
+        
+        and rerun buildout.
+        
+        
+        Icons
+        =====
+        
+        By default this package implements a list of font awesome (Version 4.3.0) icons (only .yaml).
+        You're self responsible how the icon resources are loaded.
+        
+        If you don not use the Icon feature, no problem the only effect it has is a CSS Class applied on
+        a service navigation item.
+        
+        Further this packages ships with select2 (Version 4.0.0) for the Icons list.
+        If you have already select2 installed, that's fine it will not be loaded again.
+        
+        
+        Notes
+        =====
+        
+        "collective.z3cform.datagridfield" 1.3.0 has some issues causing JavaScript errors when
+        trying to add or remove rows from the data grid. Please use "collective.z3cform.datagridfield" 1.2
+        until the bugs have been fixed in "collective.z3cform.datagridfield".
+        
+        
+        Links
+        =====
+        
+        - Github: https://github.com/4teamwork/ftw.servicenavigation
+        - Issues: https://github.com/4teamwork/ftw.servicenavigation/issues
+        - Pypi: http://pypi.python.org/pypi/ftw.servicenavigation
+        - Continuous integration: https://jenkins.4teamwork.ch/search?q=ftw.servicenavigation
+        
+        
+        Copyright
+        =========
+        
+        This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
+        
+        ``ftw.servicenavigation`` is licensed under GNU General Public License, version 2.
+        
+        Changelog
+        =========
+        
+        
+        1.3.1 (2020-09-08)
+        ------------------
+        
+        - Show icons in service navigation edit form icon list on Plone 5 [Nachtalb]
+        
+        
+        1.3.0 (2020-07-22)
+        ------------------
+        
+        - Add plone 5 support. [busykoala]
+        
+        
+        1.2.0 (2019-09-04)
+        ------------------
+        
+        - Validate that there is either an external or an internal link but not both. [elioschmutz]
+        - Extend the form to define the _blank attribute for each link. [elioschmutz]
+        
+        
+        1.1.3 (2019-08-15)
+        ------------------
+        
+        - Add possibility to define links without an icon.
+          [tinagerber]
+        
+        
+        1.1.2 (2016-09-07)
+        ------------------
+        
+        - Do not show links to non-existent objects
+          [raphael-s]
+        
+        
+        1.1.1 (2016-07-06)
+        ------------------
+        
+        - Remove obsolete css selector
+          [Kevin Bieri]
+        
+        
+        1.1.0 (2016-06-27)
+        ------------------
+        
+        - Implement uninstall profile. [jone]
+        
+        - Implement ftw.mobile button.
+          [mathias.leimgruber]
+        
+        
+        1.0.0 (2016-04-14)
+        ------------------
+        
+        - Add browserlayer.
+          [mathias.leimgruber]
+        
+        - Initial implementation
+          [jone]
+        
+Keywords: ftw.servicenavigation
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.3
+Classifier: Framework :: Plone :: 5.1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: tests

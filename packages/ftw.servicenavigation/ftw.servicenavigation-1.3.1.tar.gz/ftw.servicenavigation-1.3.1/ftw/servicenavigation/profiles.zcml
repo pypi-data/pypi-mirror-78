@@ -1,0 +1,50 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="ftw.servicenavigation">
+
+    <genericsetup:registerProfile
+        zcml:condition="not-have plone-5"
+        title="ftw.servicenavigation (default)"
+        name="default"
+        directory="profiles/default"
+        description="Install ftw.servicenavigation"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <genericsetup:registerProfile
+        zcml:condition="have plone-5"
+        title="ftw.servicenavigation (default)"
+        name="default"
+        directory="profiles/default_plone5"
+        description="Install ftw.servicenavigation"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <include package="ftw.upgrade" file="meta.zcml" />
+    <upgrade-step:directory
+        profile="ftw.servicenavigation:default"
+        directory="upgrades"
+        />
+
+    <genericsetup:registerProfile
+        zcml:condition="not-have plone-5"
+        name="uninstall"
+        title="ftw.servicenavigation : uninstall"
+        directory="profiles/uninstall"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        />
+
+    <genericsetup:registerProfile
+        zcml:condition="have plone-5"
+        name="uninstall"
+        title="ftw.servicenavigation : uninstall"
+        directory="profiles/uninstall_plone5"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        />
+
+</configure>
