@@ -1,0 +1,16 @@
+pythonnet
+numpy
+pandas
+matplotlib
+
+[dev]
+pytest
+black
+sphinx
+sphinx
+sphinx-rtd-theme
+shapely
+
+[test]
+pytest
+shapely
