@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: temperatures
+Version: 0.0.1
+Summary: A program that shows system temperatures in a concise string.
+Home-page: https://github.com/luismsgomes/temperatures
+Author: Luís Gomes
+Author-email: luismsgomes@gmail.com
+License: MIT
+Description: ==============
+         temperatures
+        ==============
+        
+        ``temperatures`` is a Python program that gathers temperatures from hard
+        disks, CPU and GPU and presents them in a concise string suitable to be
+        fed to XFCE's Generic Monitor panel plugin or similar.
+        
+        https://github.com/luismsgomes/temperatures
+        
+        Copyright (c) 2020 Luís Gomes <luismsgomes@gmail.com>
+        
+        Usage
+        -----
+        
+        This program takes no input and no options.
+        
+        It is assumed that `hddtempd` daemon is running and listening on port 7634.
+        
+Keywords: convenience system monitor
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
