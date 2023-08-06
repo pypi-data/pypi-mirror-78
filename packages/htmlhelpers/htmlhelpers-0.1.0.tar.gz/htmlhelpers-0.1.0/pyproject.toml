@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "htmlhelpers"
+version = "0.1.0"
+description = "Simple package that helps with creating html strings."
+authors = ["steventimberman <stevetimberman@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+m2r = "^0.2.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
