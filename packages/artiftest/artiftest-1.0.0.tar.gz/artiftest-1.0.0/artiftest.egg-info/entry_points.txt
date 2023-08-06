@@ -1,0 +1,3 @@
+[mlflow.artifact_repository]
+dbfs = mlflow_databricks_artifacts.store.entrypoint:dbfs_artifact_repo_factory
+

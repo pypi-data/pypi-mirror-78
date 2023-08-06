@@ -1,0 +1,82 @@
+from six.moves import urllib
+
+from mlflow_databricks_artifacts.utils.rest_utils import http_put
+
+_PUT_BLOCK_HEADERS = {
+    "x-ms-blob-type": "BlockBlob",
+}
+
+
+def put_block(sas_url, block_id, data, headers):
+    """
+    Performs an Azure `Put Block` operation
+    (https://docs.microsoft.com/en-us/rest/api/storageservices/put-block)
+
+    :param sas_url: A shared access signature URL referring to the Azure Block Blob
+                    to which the specified data should be staged.
+    :param block_id: A base64-encoded string identifying the block. For more information, see
+                     https://docs.microsoft.com/en-us/rest/api/storageservices/put-block.
+    :param data: Data to include in the Put Block request body.
+    :param headers: Additional headers to include in the Put Block request body
+                    (the `x-ms-blob-type` header is always included automatically).
+    """
+    headers = dict(headers)
+    headers.update(_PUT_BLOCK_HEADERS)
+
+    request_url = _append_query_parameters(
+        sas_url,
+        {
+            "comp": "block",
+            "blockid": block_id,
+        }
+    )
+
+    response = http_put(request_url, data, headers=headers)
+    response.raise_for_status()
+
+
+def put_block_list(sas_url, block_list, headers):
+    """
+    Performs an Azure `Put Block List` operation
+    (https://docs.microsoft.com/en-us/rest/api/storageservices/put-block)
+
+    :param sas_url: A shared access signature URL referring to the Azure Block Blob
+                    to which the specified data should be staged.
+    :param block_list: A list of uncommitted base64-encoded string block IDs to commit. For
+                       more information, see
+                       https://docs.microsoft.com/en-us/rest/api/storageservices/put-block-list.
+    :param headers: Headers to include in the Put Block request body.
+    """
+    request_url = _append_query_parameters(
+        sas_url,
+        {
+            "comp": "blocklist",
+        }
+    )
+    data = _build_block_list_xml(block_list)
+
+    response = http_put(request_url, data, headers=headers)
+    response.raise_for_status()
+
+
+def _append_query_parameters(url, parameters):
+    parsed_url = urllib.parse.urlparse(url)
+    query_dict = dict(urllib.parse.parse_qsl(parsed_url.query))
+    query_dict.update(parameters)
+    new_query = urllib.parse.urlencode(query_dict)
+    new_url_components = parsed_url._replace(query=new_query)
+    new_url = urllib.parse.urlunparse(new_url_components)
+    return new_url
+
+
+def _build_block_list_xml(block_list):
+    xml = '<?xml version="1.0" encoding="utf-8"?>\n<BlockList>\n'
+    for block_id in block_list:
+        # Because block IDs are base64-encoded and base64 strings do not contain
+        # XML special characters, we can safely insert the block ID directly into
+        # the XML document
+        xml += "<Latest>{}</Latest>\n".format(block_id)
+    xml += "</BlockList>"
+    return xml
+
+
