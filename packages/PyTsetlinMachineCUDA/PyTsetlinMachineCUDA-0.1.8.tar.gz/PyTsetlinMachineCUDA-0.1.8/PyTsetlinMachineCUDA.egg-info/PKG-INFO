@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: PyTsetlinMachineCUDA
+Version: 0.1.8
+Summary: Massively Parallel and Asynchronous Architecture for Logic-based AI.
+Home-page: https://github.com/cair/pyTsetlinMachineCUDA/
+Author: Ole-Christoffer Granmo
+Author-email: ole.granmo@uia.no
+License: MIT
+Description: Massively Parallel and Asynchronous Architecture for Logic-based AI. Implements the Multiclass Tsetlin Machine, Convolutional Tsetlin Machine, Regression Tsetlin Machine, and Weighted Tsetlin Machine, with support for continuous features and multiple layers.
+Keywords: pattern-recognition cuda machine-learning interpretable-machine-learning rule-based-machine-learning propositional-logic tsetlin-machine regression convolution classification multi-layer
+Platform: UNKNOWN
