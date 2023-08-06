@@ -1,0 +1,90 @@
+[tool.black]
+line-length = 88
+target-version = ["py36"]
+
+[tool.isort]
+line_length = 88
+force_grid_wrap = 0
+multi_line_output = 3
+use_parentheses = true
+include_trailing_comma = true
+combine_as_imports = true
+force_alphabetical_sort_within_sections = true
+
+[tool.pylint.MASTER]
+extension-pkg-whitelist = "torch"
+
+[tool.pylint.TYPECHECK]
+generated-members = "torch.*"
+
+[tool.pylint.FORMAT]
+max-line-length = "88"
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = """
+    too-few-public-methods,
+    too-many-instance-attributes,
+    too-many-arguments,
+    too-many-locals,
+    too-many-statements,
+    too-many-branches,
+    bad-continuation,
+    missing-docstring,
+    invalid-name,
+    protected-access,
+    wrong-import-position,
+    logging-format-interpolation,
+    logging-fstring-interpolation,
+    arguments-differ,
+    abstract-method,
+"""
+
+[tool.poetry]
+name = "shinyutils"
+version = "5.0.0"
+description = "Personal collection of common utilities"
+authors = ["Jayanth Koushik <jnkoushik@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/jayanthkoushik/shinyutils"
+packages = [
+    { include = "shinyutils" },
+    { include = "tests", format = "sdist" },
+]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6.1"
+
+crayons = { version = "*", optional = true }
+rich = { version = "^6.0.0", optional = true }
+matplotlib = { version = "^3.3", optional = true }
+seaborn = { version = "^0.10", optional = true }
+torch = { version = "^1.5.0", optional = true }
+torchvision = { version = "*", optional = true }
+tensorboard = { extras = ["python"], version = "^2.2.1", optional = true }
+tqdm = { version = "^4.46.0", optional = true }
+
+[tool.poetry.extras]
+color = ["crayons", "rich"]
+plotting = ["matplotlib", "seaborn"]
+pytorch = ["torch", "torchvision", "tensorboard", "tqdm"]
+
+[tool.poetry.dev-dependencies]
+black = { version = ">=19.3b0", allow-prereleases = true }
+pylint = "^2.3"
+pre-commit = "^2.0"
+isort = "^4.3"
+mypy = "^0.770"
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.masonry.api"
