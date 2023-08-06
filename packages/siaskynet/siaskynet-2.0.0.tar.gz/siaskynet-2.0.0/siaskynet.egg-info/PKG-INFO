@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: siaskynet
+Version: 2.0.0
+Summary: Skynet SDK
+Home-page: https://github.com/NebulousLabs/python-skynet
+Author: Peter-Jan Brone
+Author-email: peterjan.brone@gmail.com
+License: UNKNOWN
+Description: # Skynet Python SDK
+        
+        An SDK for integrating Skynet into Python applications.
+        
+        ## Instructions
+        
+        We recommend running your Python application using [pipenv](https://pipenv-searchable.readthedocs.io/basics.html). You can use `siaskynet` by installing it with `pip`, adding it to your project's `Pipfile`, or by cloning this repository.
+        
+        ## Documentation
+        
+        For documentation complete with examples, please see [the Skynet SDK docs](https://nebulouslabs.github.io/skynet-docs/?python#introduction).
+        
+        ## Contributing
+        
+        To run lints and tests on `python-skynet`, first run `make install` to install dependencies and then `make lint` or `make test`.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
