@@ -1,0 +1,18 @@
+[console_scripts]
+bro2fsdb = pyfsdb.pro2fsdb:main
+db2tex = pyfsdb.db2tex:main
+dbaugment = pyfsdb.dbaugment:main
+dbcoluniq = pyfsdb.coluniq:main
+dbensure = pyfsdb.dbensure:main
+dbformat = pyfsdb.dbformat:main
+dbfullpivot = pyfsdb.fullpivot:main
+dbkeyedsort = pyfsdb.keyedsort:main
+dbreescape = pyfsdb.dbreescape:main
+dbreversepivot = pyfsdb.reversepivot:main
+dbsplitter = pyfsdb.splitter:main
+dbtopn = pyfsdb.topn:main
+dbzerofill = pyfsdb.zerofill:main
+fsdb2json = pyfsdb.fsdb2json:main
+fsdb2many = pyfsdb.fsdb2many:main
+json2fsdb = pyfsdb.json2fsdb:main
+
