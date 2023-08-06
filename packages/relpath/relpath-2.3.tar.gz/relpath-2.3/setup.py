@@ -1,0 +1,25 @@
+from setuptools import setup
+
+with open('./README.md', encoding='utf-8') as f:
+    long_description = f.read()
+
+long_description = """
+
+# relpath
+
+!!! This document is a work in progress.
+"""
+
+setup(
+    name = "relpath",
+    version = '2.3',
+    description = 'relative path from the python file itself',
+    author = 'le latelle',
+    author_email = 'g.tiger.ml@gmail.com',
+    url = 'https://github.co.jp/',
+    packages = ["relpath"],
+    install_requires = [
+    ],
+    long_description = long_description,
+    long_description_content_type = 'text/markdown'
+)
