@@ -1,0 +1,4 @@
+include LICENSE
+include *.md
+
+recursive-include b_aws_websocket_api *.py
