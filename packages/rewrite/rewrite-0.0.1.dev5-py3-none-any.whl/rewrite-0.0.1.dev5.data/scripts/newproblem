@@ -1,0 +1,61 @@
+#!python
+"""Create a new problem at the given path."""
+
+# Standard library
+from pathlib import Path
+import shutil
+import argparse
+
+# Third party
+pass
+
+# Local
+pass
+
+# Create the parser object
+parser = argparse.ArgumentParser(description="Create a new problem for ReWrite at the given path.")
+# Require a problem name
+parser.add_argument('problem_name', help='Name of the new problem.')
+# Add the optional overwrite argument
+parser.add_argument(
+    '-w', '--overwrite',
+    help='Overwrites the existing problem if necessary.',
+    action='store_true',
+)
+
+# Parse the arguments from the standard input
+args = parser.parse_args()
+problem_name = Path(args.problem_name)
+
+# Set the new directory and create it if necessary
+directory = Path.cwd() / problem_name
+directory.mkdir(parents=True, exist_ok=True)
+
+# Set the path of the new problem
+path  = directory / problem_name.stem
+path = path.with_suffix('.ipynb')
+#path  = directory / problem_name.with_suffix('.ipynb') allows for problem names like 'three_sets/math_courses'
+
+# Ensure that the problem does not already exist
+destination = Path(path)
+if destination.exists():
+    if args.overwrite:
+        destination.unlink()
+        print("Existing problem replaced")
+    else:
+        raise Exception("Problem already exist at " + str(destination))
+
+# The default problem is in the same loction as this module newproblem.py
+abs_source_dir = Path(__file__).resolve().parent
+# Set the source file to the default problem
+source = abs_source_dir / 'default_problem.ipynb'
+
+# Copy the default problem
+try:
+    shutil.copy(source, destination)
+except Exception as err:
+    print("Failed to create new problem at "
+          + str(destination)
+          + "<---------------- FAILED")
+    print(err)
+    print("\n")
