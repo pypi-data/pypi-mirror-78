@@ -1,0 +1,8 @@
+include README.md
+include *.yaml
+include *.txt
+include *.md
+include *.rst
+recursive-include soxspipe *
+global-exclude *.pyo
+global-exclude *.pyc
