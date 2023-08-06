@@ -1,0 +1,10 @@
+[aiida.calculations]
+cp2k = aiida_cp2k.calculations:Cp2kCalculation
+
+[aiida.parsers]
+cp2k_advanced_parser = aiida_cp2k.parsers:Cp2kAdvancedParser
+cp2k_base_parser = aiida_cp2k.parsers:Cp2kBaseParser
+
+[aiida.workflows]
+cp2k.base = aiida_cp2k.workchains:Cp2kBaseWorkChain
+
