@@ -1,0 +1,11 @@
+requests
+numpy>=1.17
+pandas>=1.0
+scanpy
+scikit-learn
+scipy
+matplotlib
+setuptools>=41.0.0
+tensorflow==1.15.2
+tensorflow-gpu==1.15.2
+keras==2.2.4
