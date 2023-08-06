@@ -1,0 +1,68 @@
+{% extends "fn_station/base.html" %}
+
+{% block scripts %}
+
+
+<!-- Include Choices CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+/>
+
+<!-- Include Choices JavaScript (latest) -->
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+{% endblock %}
+
+{% block body %}
+
+<header class="title">
+  <h1>{{ title }}</h1>
+</header>
+
+
+
+<div class="items-content">
+  <div>
+    {% for item in items %}
+      <div class="item-card">
+        <h2><a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
+        <div class="tags">
+        {% for tag in item.tags %}
+        <span class="tag">{{tag.upper()}}</span>
+        {% endfor %}
+        </div>
+        </h2>
+        <p>{{ item.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <div>
+  <form action="" method="get">
+    
+    <div>
+      <input class="search" name="search" placeholder="Search..." value="{{search}}"/>
+    </div>
+
+    <div>
+      <select id="tags" name="tags" placeholder="Filter tags..." multiple>
+        <option value="">Filter tags...</option>
+        {% for tag, selected in tags %}
+        <option {% if selected %}selected{% endif %}>{{tag}}</option> 
+        {% endfor %}
+      </select>
+    </div>
+  
+    <div>
+      <button>Filter</button>    
+    </div>
+  </form>
+  </div>
+</div>
+
+
+<script>
+  var choices = new Choices('#tags',{ placeholder: true, placeholderValue: "Filter tags..." ,searchPlaceholderValue: "JIM"});
+</script>
+
+{% endblock %}

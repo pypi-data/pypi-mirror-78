@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Composer Station{% endblock %}</title>
+  <link rel="icon" type="image/x-icon" href="{{url_for('fn_station.static', filename='favicon.ico')}}">
+  <link rel="stylesheet" href="{{url_for('fn_station.static', filename='styles.css')}}">
+  <link rel="stylesheet" href="{{url_for('fn_station.static', filename='fontawesome/css/all.css')}}">
+  {% block scripts %}
+  {% endblock %}
+</head>
+<body class="container">
+
+<nav>
+  <div>
+    <div class="logo">
+      <a href="/"><img src="{{url_for('fn_station.static', filename='logo.svg')}}" alt="Fn Graph" /></a> 
+    </div>
+
+    {% for tab in tabs.values() %}
+      <a class="menu-item"
+          href="{{ tab.url }}">
+          <i class="fa fa-{{ tab.icon }}"></i>
+        {{ tab.title }}
+      </a>
+    {% endfor %}
+  </div>
+
+  <div>
+    
+    <a class="menu-item" href="">
+      <i class="fa fa-power-off"></i>
+      Logout
+    </a>
+  </div>
+</nav>
+
+<div class="primary-frame">
+  {% block primary_frame %}
+  <div class="primary-frame-inner">
+    <div class="wrapper">
+        {% block body %}
+        {% endblock %}
+    </div>
+  </div>
+  {% endblock %}
+</div>
+
+</body>
+</html>
