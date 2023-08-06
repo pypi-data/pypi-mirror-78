@@ -1,0 +1,9 @@
+aiohttp
+crccheck
+pycryptodome
+voluptuous
+
+[testing]
+asynctest
+pytest
+pytest-aiohttp
