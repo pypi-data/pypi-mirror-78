@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: wf-cv-utils
+Version: 0.5.4
+Summary: Miscellaneous utilities for working with camera data
+Home-page: https://github.com/WildflowerSchools/wf-cv-utils
+Author: Theodore Quinn
+Author-email: ted.quinn@wildflowerschools.org
+License: UNKNOWN
+Keywords: cv
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Requires-Dist: attrs (>=19.3.0)
+Requires-Dist: matplotlib (>=2.2)
+Requires-Dist: numpy (>=1.14)
+Requires-Dist: opencv-python (>=3.4.1)
+Requires-Dist: scipy (>=1.1)
+Requires-Dist: wf-cv-datetime-utils (>=0.1.0)
+
+# cvutilities
+
+Miscellaneous utilities for working with camera data:
+
+* Functions which load camera calibration data from local JSON files
+
+* Wrappers which reshape inputs, feed them through different combinations of various OpenCV functions, and regularize the outputs
+
+* Functions which support basic visualization of image and object points
+
+
