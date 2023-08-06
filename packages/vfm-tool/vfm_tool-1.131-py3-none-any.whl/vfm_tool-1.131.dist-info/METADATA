@@ -1,0 +1,117 @@
+Metadata-Version: 2.1
+Name: vfm-tool
+Version: 1.131
+Summary: Individual MSc Project
+Home-page: https://github.com/acse-2019/irp-acse-nt719/tree/master/Code/
+Author: Nicolas Trinephi
+Author-email: nicolas.trinephi@imperial.ac.uk
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# Independant Research Project - ACSE 9
+
+ ## Author
+ Nicolas Trinephi  
+ Student Number: 01212102  
+ e-mail: nicolas.trinephi@imperial.ac.uk
+ GitHub: acse-nt719
+
+ ## Welcome to the vfm_tool
+
+
+This package contains the code for the Imperial College ACSE-9 Individual Research Project: 'Deep Learning in Virtual Flow Metering'. It is common practice to share production licenses by equity, thus monitoring production Flow
+is crucial. This package contains tools to create data frames from well data and machine learning to predict oil, gas and water rates from that data. These predictions can be used to calibrate existing physical sensors or be expanded for real time monitoring.
+
+ ## Installation
+
+The ___repository___ can be cloned via Azure DevOps:
+ - by downloading the zip file and unzipping locally
+ - using the following command
+  ```
+  git clone https://wintershalldea@dev.azure.com/wintershalldea/Data%20Science/_git/IC-VFM
+  ```
+  and navigating to the desired repository. You can now use the modules and have access to the images and notebooks provided
+
+ The ___package___ only contains the modules since there is some undisclosable information elsewhere. The package is available on PyPI, installation works as follows:
+  - Databricks Cluster:
+      - PyPI installation via cluster -> libraries -> new library -> PyPI -> enter vfm_tool
+      - .whl installation via cluster -> libraries -> Upload New -> Python whl -> drag .whl file into the prompt box
+      - in-notebook installattion by running the following command in a cell, this needs to be run on each cluster start:
+        ```
+        !pip install vfm_tool
+        ```
+  - Locally:
+      - PyPI installation on the command line by running   
+        ```
+        pip install vfm_tool
+        ```
+ ## Package Contents:
+```
+vfm_tool/  
+â”œâ”€â”€ __pycache__/
+    â””â”€â”€ *.cpython-37.pyc
+â”œâ”€â”€ __init__.py  
+â”œâ”€â”€ model.py  
+â”œâ”€â”€ Pandas_data.py  
+â”œâ”€â”€ q_control.py  
+â”œâ”€â”€ Spark_data.py  
+â”œâ”€â”€ Utils.py   
+â””â”€â”€ visualization.py  
+``` 
+Additional documentation about the package can be find in the `documentation` directory. Open `index.html` in your favorite browser.
+
+ ## Requirements
+
+Make sure to have all dependencies installed, they are already installed on the cluster:  
+ - Command line:
+
+        pip install -r requirements.txt
+
+ - Azure Databricks Notebook
+
+        !pip install -r requirements.txt
+ - Caution! Databricks may require python restart for mlfow installation even if it is installed on the cluster, run the below commands before importing mlflow:
+    ```
+    dbutils.library.installPyPI("mlflow")
+    dbutils.library.restartPython()
+    ```
+ - Alternatively, the .whl or tar.gz files can be used for installation on Databricks or locally.
+
+ ## Usage
+
+```python
+from vfm_tool import LSTMmodel
+
+input = pd.DataFrame(my_data)
+name = 'model_name'
+
+my_model = LSTMmodel.VFM_LSTM(input, name) # creates instance of VFM_LSTM
+```
+
+
+On an Azure Databricks Notebook, it is possible to run the modules if they are located in your workspace directory, the contents become __global__:  
+Less standard, requires slight syntax change and the magic command must be run in its own cell.
+```python
+%run your_workspace/vfm_tool/LSTMmodel
+```
+```
+input = pd.DataFrame(my_data)
+name = 'model_name'
+
+my_model = VFM_LSTM(input, name) # creates instance of VFM_LSTM
+```
+A demo is provided in the form of a notebook the notebook directory.
+
+## Testing
+
+Testing modules can be found in the vfm_tool_tests/ directory.
+
+## License
+
+This repository uses the MIT license
+
+## Version
+
+Current code version is 1.11
+
