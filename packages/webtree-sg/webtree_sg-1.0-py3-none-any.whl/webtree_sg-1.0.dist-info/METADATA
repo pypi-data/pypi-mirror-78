@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: webtree-sg
+Version: 1.0
+Summary: A simple websiteStructure meker written in python.
+Home-page: UNKNOWN
+Author: shivam goswami
+Author-email: shivamgoswami2711@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Office/Business
+Requires-Python: >=3.5
+Requires-Dist: prompt-toolkit (==1.0.14)
+Requires-Dist: PyInquirer
+Requires-Dist: colorama
+Requires-Dist: examples
+
+#webtree-sg#
+
+
+**A simple websiteStructure meker written in python.**
+
