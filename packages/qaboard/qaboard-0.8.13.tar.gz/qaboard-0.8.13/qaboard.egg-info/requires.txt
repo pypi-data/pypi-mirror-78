@@ -1,0 +1,14 @@
+click>=7.0
+requests
+simplejson
+pyyaml
+joblib
+sklearn
+
+[dev]
+flake8
+green
+mypy
+
+[optimize]
+scikit-optimize>=0.7.2
