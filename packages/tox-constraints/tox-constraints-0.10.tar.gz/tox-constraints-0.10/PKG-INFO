@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: tox-constraints
+Version: 0.10
+Summary: Reproducible tests, by default.
+Home-page: https://github.com/apljungquist/tox-constraints
+Author: AP Ljungquist
+Author-email: ap@ljungquist.eu
+License: UNKNOWN
+Description: # tox-constraints
+        
+        *Reproducible tests, with minimal configuration, by default*
+        
+        
+        ## Limitations
+        
+        This section lists known problems with the current implementation.
+        
+        ### PyPy compatibility
+        
+        The version of pip that ships with pypy does not seem to like the `-r` option on which this plugin depends.
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
