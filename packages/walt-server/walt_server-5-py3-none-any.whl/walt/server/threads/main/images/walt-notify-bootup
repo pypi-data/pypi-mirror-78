@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# We consider the node is ready when its
+# sshd service is ready to accept connections.
+while [ 1 ]
+do
+    echo | busybox nc 127.0.0.1 22 >/dev/null 2>&1 && break
+    sleep 1
+done
+
+# call script /bin/on-bootup if image provides it
+if [ -f "mnt/fs_union/bin/on-bootup" ]
+then
+    if [ -x "mnt/fs_union/bin/on-bootup" ]
+    then
+        cd mnt/fs_union && chroot . bin/on-bootup
+    else
+        echo "WARNING: cannot run /bin/on-bootup (execute permission missing)." >&2
+    fi
+fi
+
+# send notification to server
+/bin/walt-rpc node_bootup_event >/dev/null
