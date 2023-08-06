@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: mlflow-elasticsearchstore
+Version: 0.1.1
+Summary: Mlflow plugin to use ElasticSearch as backend for MLflow tracking service
+Home-page: https://github.com/criteo/mlflow-elasticsearchstore
+Maintainer: Criteo
+Maintainer-email: github@criteo.com
+License: UNKNOWN
+Keywords: mlflow
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: elasticsearch-dsl (==6.4.0)
+Requires-Dist: fire
+Requires-Dist: mlflow
+
+# mlflow-elasticsearchstore
+
+Mlflow plugin to use ElasticSearch as backend for MLflow tracking service. To use this plugin you need a running instance of Elasticsearch 6.X.
+
+## Development
+
+In a python environment (you can use the one where mlflow is already installed): 
+
+```bash
+$ git clone git clone https://github.com/criteo/mlflow-elasticsearchstore.git
+$ cd mlflow-elasticsearch
+$ pip install .
+```
+
+## How To 
+
+mlflow-elasticsearchstore can now be used with the "elasticsearch" scheme, in the same python environment : 
+
+```bash
+$ mlflow server --host $MLFLOW_HOST --backend-store-uri elasticsearch://$USER:$PASSWORD@$ELASTICSEARCH_HOST:$ELASTICSEARCH_PORT --port $MLFLOW_PORT --default-artifact-root $ARTIFACT_LOCATION
+```
+
