@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: gtfs-lite
+Version: 0.1.3
+Summary: A lightweight pandas-driven package for analyzing static GTFS feeds.
+Home-page: https://github.com/wklumpen/gtfs-lite
+Author: Willem Klumpenhouwer
+Author-email: willem@klumpentown.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas (>=1.0)
+
+# GTFS-Lite
+A lightweight pandas-driven package for analyzing static GTFS feeds.
+
+GTFS-Lite is a simple module that allows for the quick loading and manipulation
+of statig GTFS feeds by leveraging the flexibility of the Pandas library.
+
+To get started:
+* Install this package using `pip install gtfs-lite`.
+* Load a feed directly from a zipfile with `from gtfslite import GTFS`  
+and `gtfs = GTFS.load_zip('path/to/file.zip')`
+* Access the various attributes, for example `print(gtfs.summary())`
+
