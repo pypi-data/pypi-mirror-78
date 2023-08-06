@@ -1,0 +1,88 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/ventrue-royalty.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-ventrue.svg') }}"> Ventrue Royalty</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>toolbox</em> deck using Ventrue <em>Princes</em>.
+</p>
+<p>
+    The idea is to get the highest capacity vampire out,
+    then use {{ card("Govern the Unaligned") }}
+    at superior <i>D</i> to get more vampires out fast and cheap, then later to bleed with the help of
+    some <i>d</i> modifiers.
+</p>
+<p>
+    The intercept module is built around the fact the many vampires in the crypt are <em>Princes</em> and uses
+    {{ card("Second Tradition: Domain") }} heavily.
+    {{ card("Deflection") }} is used to bounce bleeds in case
+    they get thtough anyway.
+</p>
+<p>
+    The combat module uses <i>f</i> for damage prevention and
+    {{ card("Weighted Walking Stick") }} to deal
+    more damage.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Daring the Dawn") }} and
+    {{ card("Foreshadowing Destruction") }}
+    are used for the lunge.
+    The use of {{ card("Direct Intervention") }} on a modifier
+    like {{ card("Conditioning") }} prevents it to be played again on the
+    same action (as a modifier can only be played once, even if countered).
+    Using an alternative bleed enhancer is permitted though
+    (the modifier did not apply, so limited bleed enhancement is still possible).
+    {{ card("Foreshadowing Destruction") }}
+    can even save a lunge this way.
+</p>
+<p>
+    {{ card("Scourge of the Enochians") }} and
+    {{ card("Anarchist Uprising") }} are counters against
+    breed constructs, as they can become overwhelming for this deck.
+</p>
+<h2>Variants</h2>
+<p>
+    There are many minor variations to this archetype.
+    {{ card("Parity Shift") }} and
+    {{ card("Entrancement") }} are often included,
+    {{ card("Seduction") }} can help to get the bleed through.
+    On the Master side,
+    {{ card("Papillon") }} and
+    {{ card("Island of Yiaros") }} are common inclusions.
+    Finally, some
+    {{ card("Freak Drive") }} to increase
+    {{ link("/strategy/fundamentals", _("A&B"), _anchor="AB") }}w is often seen too.
+</p>
+<p>
+    The <strong>Law Firm</strong> variant ditches the combat module and replaces it with some
+    {{ card("Majesty") }}, with a good number of
+    {{ card("Freak Drive") }} for multiple actions.
+    With more damaging votes like
+    {{ card("Kine Resources Contested") }},
+    it makes for many aggressive actions, and they quickly become hard to block.
+    {{ link("/deck-search", _("Anthony Coleman's deck"), twda_id="2k9uknats") }} from the 2009 English NC
+    is a good example. It is also often played with a group 1-2 crypt, as
+    {{ card("Emerson Bridges") }} and
+    {{ card("Sir Walter Nash") }} are good Princes
+    for the job, at a low cost.
+    {{ link("/deck-search", _("Sergio Gracia's deck"), twda_id="2k9powerbasecataluna") }} from 2009
+    is a good example.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'undecided' ) }}
+</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/jost-powerbleed.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-toreador-anti.svg') }}"> Jost Powerbleed</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>powerbleed</em> deck starring
+    {{ card("Rebekka, Chantry Elder of Munich") }} and
+    {{ card("Jost Werner") }}. The deck uses the <i>RA</i> disciplines
+    and the two star vampires have this nice permanent +1 stealth bonus that helps the deck get his actions through.
+</p>
+<p>
+    {{ card("Enchant Kindred") }} is used to help get more vampires out
+    in the game beginning, and bleed afterwards. {{ card("Mind Numb") }}
+    can be used against the prey or the predator depending on the context, to slow them down.
+</p>
+<p>
+    The deck uses no stealth apart from what the star vampires already have as an ability,
+    but the combination of {{ card("Mind Numb") }}
+    and {{ card("Majesty") }} makes it hard to block:
+    {{ card("Mind Numb") }} can lock any defender and, if blocked,
+    {{ card("Majesty") }} ends combat and unlock the acting vampire:
+    the defender is still locked and a new action can be undertaken.
+</p>
+<p>
+    The deck uses {{ card("Anarch Troublemaker") }} and
+    {{ card("Pentex™ Subversion") }} to help paralyze the prey a
+    bit more. When bleeds begin to get through,
+    {{ card("Aire of Elation") }} can be used to enhance them.
+</p>
+<p>
+    If a bleed is bounced, it uses no stealth so it can usually be blocker by the grand-prey.
+    The deck himself uses <i>A</i> for wakes and bounces, so it can add the bleed power of its
+    predator to its own.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Entrancement") }} can help get rid of cumbersome allies,
+    {{ card("Scourge of the Enochians") }} is there to
+    deal with breed constructs.
+</p>
+<p>
+    {{ card("Delaying Tactics") }} is the only defence available
+    against stealth & vote builds: as {{ card("Eyes of Argus") }}
+    can not be used against undirected political actions, intercept can never go beyond 2.
+</p>
+<p>
+    The deck plays a lot of bounces with
+    {{ card("Telepathic Misdirection") }} and
+    {{ card("My Enemy's Enemy") }}. They can also be used to block
+    key actions on the opponents side.
+</p>
+<h2>Variants</h2>
+<p>
+    The <strong>Palla Grande</strong> variant uses a Toreador antitribu crypt, so it can use
+    {{ card("Palla Grande") }} to increase the bleed power, like in
+    {{ link("/deck-search", _("Moisés Ferrer's deck"), twda_id="2018ccpms") }} from 2018.
+    {{ card("Art Scam") }} and
+    {{ card("The Embrace") }}
+    are used to strengthen both the bloat and the pool damages.
+</p>
+<p>
+    The <strong>Paolini-Detela</strong> variant uses
+    {{ card("The Parthenon") }} and
+    {{ card("Ashur Tablets") }} to get a bit of recursion
+    and help adapt the deck content to the table context.
+    {{ link("/deck-search", _("Martin Weinmayer's deck"), twda_id="2018nacd1co") }} from the 2018 NAC Day 1
+    was an hommage to it.
+</p>
+<p>
+    The <strong>Anson</strong> variant ditches
+    {{ card("Rebekka") }} in favor of
+    {{ card("Anson") }} to help play the
+    {{ card("Ashur Tablets") }} with less copies of
+    {{ card("The Parthenon") }} and add
+    {{ card("Liquidation") }} to the mix, like in
+    {{ link("/deck-search", _("Rudolf Scholz's deck"), twda_id="2012dnccd") }} from the 2012 Danish NC.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion() }}
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/weenie-dom.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1>Weenie DOM</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>weenie bleed</em> deck using the <i>d</i> discipline.
+    The idea is to get as many low capacity vampires out as fast as possible,
+    and bleed the preys one after the other as fast as possible.
+</p>
+<p>
+    {{ card("Govern the Unaligned") }}
+    combined with
+    {{ card("Conditioning") }},
+    {{ card("Seduction") }}, and
+    {{ card("Command of the Beast") }}
+    make for hard to block dreadful bleeds for 7.
+</p>
+<p>
+    As the game progresses, some <i>D</i> bounce can be used to add to the damages
+    if the predator becomes aggressive.
+</p>
+<p>
+    The Master module uses {{ card("Dominate") }} to enhance the vampires,
+    but also {{ card("The Parthenon") }} and
+    {{ card("Ashur Tablets") }} for a bit of recursion.
+    {{ card("Jake Washington") }},
+    {{ card("Life in the City") }} and
+    {{ card("Giant's Blood") }} are used to bring back some blood
+    on the vampires.
+</p>
+<p>
+    The combat modules uses only
+    {{ card("Absorb the Mind") }} for defence. It is a bit weak,
+    but <i>d</i> has nothing better to offer.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    Well-timed {{ card("Misdirection") }} and
+    {{ card("Pentex™ Subversion") }} can help for the lunge.
+</p>
+<h2>Variants</h2>
+<p>
+    The <strong>Agent of Power</strong> variant cuts the
+    {{ card("Ashur Tablets") }}
+    and uses {{ card("Agent of Power") }} to let more vampires
+    use superior <i>D</i>, like in
+    {{ link("/deck-search", _("Manoel Pinheiro's deck"), twda_id="2014saclcqspb") }} from 2014
+</p>
+<p>
+    The <strong>Aim & Chain</strong> variant uses
+    {{ card("Target Vitals") }} and
+    {{ card("Zip Gun") }} with a bit of <i>f</i> prevention
+    for the combat module, as in
+    {{ link("/deck-search", _("Vincent Ripoll's deck"), twda_id="2k9ecday1") }} from the 2009 EC Day 1.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'undecided' ) }}
+    {{ erratum.antheliostheredstar() }}
+</div>
+{% endblock %}
