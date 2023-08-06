@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="column is-4 is-offset-4">
+    {% if user %} Hello {{ user['email'] }}<hr> {% endif %}
+
+    This is the Index page.
+    <hr>
+    <br><a href="/private">Private Page</a>
+    <br> <a href="/admin">Admin Page</a>
+    <br>
+    {% if user %}
+    <a href="/logout">Logout</a>
+    {% else %}
+    <a href="/login">Login</a>
+    {% endif %}
+</div>
+{% endblock %}
+        

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="column is-4 is-offset-4">
+    This is the admin page.
+
+    <hr>
+    <h1>Here is a list of Users</h1>
+    <br>
+    <table class="table table-hover">
+        <tr>
+            <th>
+                Email
+            </th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user['email'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <hr>
+    <br><a href="/">Index Page</a>
+    <br><a href="/private">Private Page</a>
+    <br> <a href="/admin">Admin Page</a>
+    <br>
+    {% if user %}
+    <a href="/logout">Logout</a>
+    {% else %}
+    <a href="/login">Login</a>
+    {% endif %}
+</div>
+{% endblock %}
+        
