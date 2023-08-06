@@ -1,0 +1,14 @@
+ENVI
+description = {
+shillong_SRTM30_UTM_AllBasins.bil}
+samples = 3182
+lines = 1950
+bands = 1
+header offset = 0
+file type = ENVI Standard
+data type = 4
+interleave = bsq
+byte order = 0
+map info = {UTM, 1, 1, 325659.96215384, 2835612.16440704, 30, 30, 46, North,WGS-84}
+coordinate system string = {PROJCS["WGS_1984_UTM_Zone_46N",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",500000.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",93.0],PARAMETER["Scale_Factor",0.9996],PARAMETER["Latitude_Of_Origin",0.0],UNIT["Meter",1.0]]}
+data ignore value = -9999

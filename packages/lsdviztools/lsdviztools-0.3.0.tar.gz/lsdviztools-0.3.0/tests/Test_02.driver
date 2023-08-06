@@ -1,0 +1,16 @@
+# This is an LSDTopoTools driver file written with the python package lsdviztools
+
+# File locations
+read path: ./
+write path: ./
+read fname: CP_SRTM30_UTM
+write fname: CP_SRTM30_UTM
+
+
+# Now for the parameters
+remove_seas: true
+
+
+print_slope: true
+print_curvature: true
+

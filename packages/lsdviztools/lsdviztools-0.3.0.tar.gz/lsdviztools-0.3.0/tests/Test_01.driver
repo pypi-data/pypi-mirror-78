@@ -1,0 +1,18 @@
+# This is an LSDTopoTools driver file written with the python package lsdviztools
+
+# File locations
+read path: ./
+write path: ./
+read fname: CP_SRTM30_UTM
+write fname: CP_SRTM30_UTM
+
+
+# Now for the parameters
+write_hillshade: true
+remove_seas: true
+
+print_raster_without_seas: true
+print_fill_raster: true
+convert_csv_to_geojson: true
+
+print_channels_to_csv: true

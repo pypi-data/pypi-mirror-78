@@ -1,0 +1,87 @@
+# Here are the paramters ingested and set by the parameter parser
+# The file names and paths are: 
+read path: ./
+read fname: Mega_divide
+write path: ./
+write fname: Mega_divide
+CHeads file: NULL
+read extension: bil
+write extension: bil
+
+# ====================================
+# Now for parameters read from file.
+# If an expected parameter is not here check your spelling.
+convert_csv_to_geojson: true
+print_channels_to_csv: true
+print_fill_raster: true
+print_raster_without_seas: false
+remove_seas: true
+write_hillshade: true
+
+# ====================================
+# Now for the default parameters.
+A_0: 1
+BaselevelJunctions_file: NULL
+CHeads_file: NULL
+REI_critical_slope: 1
+REI_window_radius: 10
+SA_vertical_interval: 10
+basin_outlet_csv: NULL
+burn_data_csv_column_header: burned_data
+burn_raster_prefix: NULL
+burn_raster_to_csv: false
+calculate_basin_statistics: false
+calculate_window_size: false
+carve_before_fill: false
+channel_source_fname: single_channel_source
+csv_to_burn_name: NULL
+extend_channel_to_node_before_receiver_junction: true
+extract_single_channel: false
+find_basins: false
+fixed_channel_csv_name: single_channel_nodes
+get_basins_from_outlets: false
+isolate_pixels_draining_to_fixed_channel: false
+m_over_n: 0.5
+maximum_basin_size_pixels: 1000000
+maximum_elevation: 30000
+min_slope_for_fill: 0.0001
+minimum_basin_size_pixels: 50000
+minimum_elevation: 0
+only_check_parameters: false
+only_take_largest_basin: false
+print_FreemanMD_drainage_area_raster: false
+print_MD_drainage_area_raster: false
+print_QuinnMD_drainage_area_raster: false
+print_REI_raster: false
+print_aspect: false
+print_basin_raster: false
+print_chi_data_maps: false
+print_curvature: false
+print_d8_drainage_area_raster: false
+print_dinf_drainage_area_raster: false
+print_directional_gradients: false
+print_distance_from_outlet: false
+print_junction_angles_to_csv: false
+print_junction_index_raster: false
+print_junctions_to_csv: false
+print_planform_curvature: false
+print_point_classification: false
+print_profile_curvature: false
+print_relief_raster: false
+print_roughness_rasters: false
+print_slope: false
+print_smoothed_elevation: false
+print_stream_order_raster: false
+print_tangential_curvature: false
+print_trimmed_raster: false
+print_wiener_filtered_raster: false
+raster_is_filled: false
+relief_window: 200
+relief_window_kernel_type: 1
+remove_nodes_influenced_by_edge: false
+roughness_radius: 3
+search_radius_nodes: 8
+surface_fitting_radius: 30
+threshold_contributing_pixels: 1000
+trimming_buffer_pixels: 0
+use_dinf_for_single_channel: false
