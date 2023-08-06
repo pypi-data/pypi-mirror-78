@@ -1,0 +1,12 @@
+CHANGES
+=======
+
+v0.1.3
+------
+
+* Use pypi-publish-template for publish to pypi
+* List remote
+* Use valid bucket name for bucket test fixture
+* Relax requirements to be used as library
+* Fix .aws overshadowing kale configuration
+* Initial commit
