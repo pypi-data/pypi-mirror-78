@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: wanalyzer
+Version: 0.2
+Summary: A WhatsApp Chat Analyzer Script
+Home-page: https://github.com/rahuladream/Whatsapp-Chat-Analyzer/
+Author: Rahul Singh
+Author-email: rahul.singh4800@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: emoji
+Requires-Dist: python-dateutil
+
+# Whatsapp-Chat-Analyzer
+Analyzing Whatsapp Chat (Personal &amp; Group)
+
+* Current making is to analyzing the WhatsApp chat more efficiently
+
+### Next Iteration
+
+* Next step would be learn a model to predict the next chat 
+* Automate my text in real time
+
+
