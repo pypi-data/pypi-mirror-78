@@ -1,0 +1,4 @@
+[console_scripts]
+lyncs_pylint_badge = lyncs_setuptools:print_pylint_badge [pylint]
+lyncs_setuptools = lyncs_setuptools:print_keys
+
