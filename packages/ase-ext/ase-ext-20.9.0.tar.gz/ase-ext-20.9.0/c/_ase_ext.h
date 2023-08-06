@@ -1,0 +1,10 @@
+void lti_dos(long* simplices,
+             double* eigs,
+             double* weights,
+             double* energies,
+             double* dos,
+             int ni, int nj, int nk,
+             int neigs,
+             int nweights,
+             int nenergies,
+             int rank, int size);

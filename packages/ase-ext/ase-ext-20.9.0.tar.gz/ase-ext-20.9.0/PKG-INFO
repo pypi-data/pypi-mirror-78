@@ -1,0 +1,26 @@
+Metadata-Version: 1.2
+Name: ase-ext
+Version: 20.9.0
+Summary: C-extensions for the Atomic Simulation Environment
+Home-page: https://gitlab.com/ase/ase_ext
+Maintainer: ASE-community
+Maintainer-email: ase-users@listserv.fysik.dtu.dk
+License: LGPLv2.1+
+Description: ase-ext
+        =======
+        
+        ASE C-extensions.
+        
+        Installation::
+        
+            $ python3 -m pip install ase-ext
+        
+Platform: unix
+Classifier: Development Status :: 6 - Mature
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Physics
