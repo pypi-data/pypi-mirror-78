@@ -1,0 +1,43 @@
+{% load currency_filters %}
+{% load i18n %}
+{% load purchase_info_tags %}
+{% load flash_sale_tags %}
+
+{% purchase_info_for_product request product as session %}
+
+{% is_product_on_sale product as is_on_sale %}
+
+{% if session.price.exists %}
+    <p class="price_color">
+        <span {% if is_on_sale %}style="color: silver; text-decoration: line-through"{% endif %}>
+            {% if session.price.excl_tax == 0 %}
+                {% trans "Free" %}
+            {% elif session.price.is_tax_known %}
+                {{ session.price.incl_tax|currency:session.price.currency }}
+            {% else %}
+                {{ session.price.excl_tax|currency:session.price.currency }}
+            {% endif %}
+        </span>
+        {% if is_on_sale %}
+            {% calculate_product_price_incl_discounts product session.price as sale_price %}
+            {{ sale_price|currency:session.price.currency }}
+        {% endif %}
+    </p>
+    <div style="font-size: 0.9em; margin-top:-10px;">
+      {% if is_on_sale %}
+         {% get_flash_sale_offer product as flash_sale_offer %}
+          <b>Discount available till:</b><br>
+         {{ flash_sale_offer.end_datetime|date:'Y-m-d H:i' }}
+      {% endif %}
+    </div>
+{% else %}
+    <p class="price_color">&nbsp;</p>
+{% endif %}
+<p class="{{ session.availability.code }} availability">
+    <i class="icon-{% if session.availability.is_available_to_buy %}ok{% else %}remove{% endif %}"></i>
+    {% if verbose %}
+        {{ session.availability.message }}
+    {% else %}
+        {{ session.availability.short_message }}
+    {% endif %}
+</p>
