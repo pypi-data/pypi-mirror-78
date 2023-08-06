@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: peridot
+Version: 1.1.2
+Summary: A strongly typed interpreted language, with type inference, implemented in Python.
+Home-page: https://toto-bird.github.io/Peri.dot-lang
+Author: Totobird
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (==7.1.2)
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: perimod (>=1.0.1,<2.0.0)
+Requires-Dist: prompt_toolkit (>=3.0.7,<4.0.0)
+Requires-Dist: pygments (>=2.6.1,<3.0.0)
+Requires-Dist: xdgappdirs (>=1.4.5,<2.0.0)
+Project-URL: Documentation, https://toto-bird.github.io/Peri.dot-lang/docs
+Project-URL: Repository, https://github.com/toto-bird/Peri.dot
+Description-Content-Type: text/markdown
+
+# Peri.dot ([1.1](https://github.com/toto-bird/Peri.dot/releases/tag/1.1.1))
+
+![Peri.dot Logo](https://raw.githubusercontent.com/toto-bird/Peri.dot/master/logo.png)
+
+
+[Homepage](https://toto-bird.github.io/Peri.dot-lang/)<br />
+[Documentation](https://toto-bird.github.io/Peri.dot-lang/docs)<br />
+[Playground](https://toto-bird.github.io/Peri.dot-lang/playground)<br />
