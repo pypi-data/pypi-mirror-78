@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+include requirements.txt
+recursive-include assets/locale *
+recursive-include assets/templates *
+recursive-include assets/static *
+recursive-include assets/images/locale *
+recursive-include assets/images/templates *
+recursive-include assets/images/static *
+prune *.pyc
