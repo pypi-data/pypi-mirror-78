@@ -1,0 +1,40 @@
+---
+# Name of the DataSet on Azure Cloud
+dataset:
+
+# experiment settings unique to Azure, currently just metric used for scoring
+experiment:
+  # Latest experiment name
+  name:
+  # Latest experiment run
+  run_id:
+  ### Metric used to build Model
+  # Supported metrics for classification: accuracy, precision_score_weighted, AUC_weighted, norm_macro_recall, average_precision_score_weighted
+  # Supported metrics for regression: spearman_correlation, r2_score, normalized_mean_absolute_error, normalized_root_mean_squared_error
+  metric: accuracy
+
+cluster:
+  region: eastus2
+  min_nodes: 0
+  max_nodes: 2
+  type: STANDARD_D2_V2
+  name: a2ml-azure
+
+# Optional. Cluster to deploy models
+deploy_cluster:
+  # May be aci or aks
+  type: aci
+
+  #Common properties:
+  memory_gb: 2
+  cpu_cores: 1
+
+  # AKS only properties:
+  # https://aka.ms/azureml-aks-details
+  # compute_target: a2ml_aks
+
+  # Properties to create compute target for AKS
+  # purpose: DevTest
+  # agent_count: 2
+  # vm_size: STANDARD_D2_V2
+
