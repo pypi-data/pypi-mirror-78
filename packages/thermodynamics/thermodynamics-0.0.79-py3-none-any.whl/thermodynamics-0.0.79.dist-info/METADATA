@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: thermodynamics
+Version: 0.0.79
+Summary: Thermodynamic calculations for pure substance and mixtures
+Home-page: https://github.com/luis-zepeda/thermodynamics
+Author: Luis Zepeda
+Author-email: luiszepedavarela@comunidad.unam.mx
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+
+# thermodynamics
+Python package for thermodynamics calculations for pure and mix substances, including usefull diagrams
+
+
