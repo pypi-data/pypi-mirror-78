@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: veroku
+Version: 0.0.4
+Summary: An open source library for building and performing inference with probabilistic graphical models.
+Home-page: https://github.com/EJLouw/veroku
+Author: EJ Louw
+Author-email: ejlouw00@gmail.com
+License: BSD 3-Clause License
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: jupyterlab (==2.2.1)
+Requires-Dist: matplotlib (==3.0.3)
+Requires-Dist: seaborn (==0.7.1)
+Requires-Dist: tqdm (==4.48.1)
+Requires-Dist: graphviz (==0.10.1)
+Requires-Dist: Pillow (==6.0.0)
+Requires-Dist: ipython (==7.5.0)
+Requires-Dist: pandas (==0.23.4)
+Requires-Dist: numpy (==1.16.3)
+Requires-Dist: networkx (==1.11)
+Requires-Dist: numdifftools (==0.9.20)
+Requires-Dist: scipy (==1.2.1)
+Requires-Dist: mockito (==1.1.0)
+
+<div align="center">
+  <img src="veroku_logo.png">
+</div>
+
+
+An open source library for building and performing inference with probabilistic graphical models.
+
+More coming soon.
+
+
