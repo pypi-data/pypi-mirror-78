@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: sphinxcontrib.relative-link-corrector
+Version: 0.0.2
+Summary: Corrects relative links when generating documents  from .md to .html with commonmark
+Home-page: https://github.com/cntt-n/sphinxcontrib-relative-link-corrector
+Author: Gergely Csatari
+Author-email: gergely.csatari@nokia.com
+License: Apache License 2.0
+Keywords: helpers
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Documentation
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX
+Description-Content-Type: text/x-rst
+Requires-Dist: beautifulsoup4
+
+=====================================
+sphinxcontrib-relative-link-corrector
+=====================================
+
+A Sphinx extension to correct relative links when using .md as an input.
+
+Overview
+--------
+
+When converting Markdown files to html with Sphinx the relative links still point to ``*.md`` files.
+This Sphinx extension corrects the links to point to ``*.html`` files.
+
+Links
+-----
+
+- Source: https://github.com/cntt-n/sphinxcontrib-relative-link-corrector
+- Bugs: https://github.com/cntt-n/sphinxcontrib-relative-link-corrector/issues
+
+
+Contributing
+------------
+
+Please feel free to create a pr for code contributions or an issue for issues.
+
+License
+-------
+
+Licensed with Apache License 2.0 License, see the `LICENSE <LICENSE>`_ file.  
+
+
