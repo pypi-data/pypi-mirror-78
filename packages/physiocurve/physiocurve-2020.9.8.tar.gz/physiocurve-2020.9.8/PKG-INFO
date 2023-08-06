@@ -1,0 +1,22 @@
+Metadata-Version: 1.2
+Name: physiocurve
+Version: 2020.9.8
+Summary: Library to analyze physiologic data curves.
+Home-page: https://framagit.org/jaj/physiocurve
+Author: Jona Joachim
+Author-email: jona@joachim.cc
+License: ISC
+Description: # physiocurve
+        
+        
+Keywords: time series,data,analysis
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Requires-Python: >= 3.6
