@@ -1,0 +1,27 @@
+httpx
+simple-rest-client
+appdirs
+pycrypto
+PyJWT
+pandas
+isodate
+joblib
+
+[:python_version == "3.6"]
+dataclasses
+
+[dev]
+pytest
+pytest-cov
+pytest-mock
+mock
+pylint
+pycodestyle
+autopep8
+mypy
+typing-inspect
+sklearn
+
+[ml]
+sklearn
+tensorflow
