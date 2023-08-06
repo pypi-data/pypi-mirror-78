@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: gdash
+Version: 1.0.0
+Summary: GlusterFS Dashboard
+Home-page: https://github.com/kadalu/gdash
+Author: Aravinda Vishwanathapura
+Author-email: aravinda@kadalu.io
+License: Apache-2.0
+Description: 
+            This tool is based on remote execution support provided by
+            GlusterFS cli for `volume info` and `volume status` commands
+            
+Keywords: glusterfs,gui,dashboard
+Platform: linux
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Framework :: CherryPy
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
