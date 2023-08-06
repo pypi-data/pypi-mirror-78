@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: gcpds-utils
+Version: 0.1a1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Yeison Cardona
+Author-email: yencardonaal@unal.edu.co
+Maintainer: Yeison Cardona
+Maintainer-email: yencardonaal@unal.edu.co
+License: Simplified BSD License
+Description: # GCPDS - utils
+        
+        This package is a set of useful Python scripts for *Database handler*, *EEG filtering*, *Data visualizations* and *Package management*.
+        
+        ## Installation
+        
+        
+        ```python
+        pip install -U git+https://github.com/UN-GCPDS/python-gcpds.utils.git
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Topic :: Software Development :: Embedded Systems
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Hardware :: Hardware Drivers
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
