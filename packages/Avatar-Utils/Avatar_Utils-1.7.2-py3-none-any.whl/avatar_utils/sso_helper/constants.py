@@ -1,0 +1,6 @@
+AUTH_HEADER_NAME = 'Authorization'
+DEFAULT_TOKEN_TYPE = 'Bearer'
+ITMO_REALM = 'itmo'
+ITMO_SSO_SERVER = 'https://sso.itmo.ru/auth/'
+PUBLIC_KEY_WRAPPER = '-----BEGIN PUBLIC KEY-----\n{public_key}\n-----END PUBLIC KEY-----'
+USER_TOKEN_AUDIENCE = 'account'
