@@ -1,0 +1,5 @@
+[console_scripts]
+caiman_runner = jobcreator._pipeline_runners.caiman_runner:main
+jobcreator = jobcreator.__main__:main
+suite2p_runner = jobcreator._pipeline_runners.suite2p_runner:main
+
