@@ -1,0 +1,17 @@
+README.md
+setup.py
+kubeobject/__init__.py
+kubeobject/corev1api.py
+kubeobject/deployment.py
+kubeobject/kubeobject.py
+kubeobject/role.py
+kubeobject/service.py
+kubeobject/serviceaccount.py
+kubeobject.egg-info/PKG-INFO
+kubeobject.egg-info/SOURCES.txt
+kubeobject.egg-info/dependency_links.txt
+kubeobject.egg-info/top_level.txt
+tests/__init__.py
+tests/test_corev1_objects.py
+tests/test_custom_object.py
+tests/test_generate_random_name.py
