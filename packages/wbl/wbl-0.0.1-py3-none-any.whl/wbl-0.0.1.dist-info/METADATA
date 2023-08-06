@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: wbl
+Version: 0.0.1
+Summary: some useful modules
+Home-page: UNKNOWN
+Author: Baolong Wang
+Author-email: wangbaolong36@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+
+- common
+    - divide_into_equal_parts
+
+    - NewThread
+
+    - File
+        - save_to_file
+        - load_from_file
+        - save_to_json
+        - save_to_pickle
+        - load_from_json
+        - load_from_pickle
+        - save_to_excel
+        - adjust_excel_col_width
+
+    - Encrypt
+        - b64_encode
+        - b64_decode
+        - md5
+
+- spider
+    - Spider
+        - request_headers_string_to_dict
+        - search_query_join
+        - search_query_split
+        - cookie_dict_to_str
+        - cookie_string_to_dict
+        - get_chinese_char
+        - response_to_xpath
+
