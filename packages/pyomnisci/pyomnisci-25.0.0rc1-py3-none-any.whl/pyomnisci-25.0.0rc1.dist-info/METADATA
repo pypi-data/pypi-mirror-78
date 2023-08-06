@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: pyomnisci
+Version: 25.0.0rc1
+Summary: Data science toolkit support for OmniSciDB
+Home-page: https://github.com/omnisci/pyomnisci
+Author: OmniSci
+Author-email: community@omnisci.com
+License: Apache Software License
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Requires-Dist: pyarrow (==0.15.0)
+Requires-Dist: pyomniscidb (>=5.4.0rc1)
+Requires-Dist: shapely
+Requires-Dist: sqlalchemy (>=1.3)
+Requires-Dist: pandas (<0.26,>=0.25)
+Requires-Dist: packaging (>=20.0)
+Requires-Dist: requests (>=2.23.0)
+Requires-Dist: numba (>=0.48)
+Requires-Dist: rbc-project (==0.2.2)
+Provides-Extra: complete
+Requires-Dist: sphinx ; extra == 'complete'
+Requires-Dist: numpydoc ; extra == 'complete'
+Requires-Dist: sphinx-rtd-theme ; extra == 'complete'
+Requires-Dist: coverage ; extra == 'complete'
+Requires-Dist: pytest ; extra == 'complete'
+Requires-Dist: pytest-mock ; extra == 'complete'
+Requires-Dist: geopandas ; extra == 'complete'
+Requires-Dist: pre-commit ; extra == 'complete'
+Provides-Extra: dev
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: numpydoc ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-mock ; extra == 'dev'
+Requires-Dist: geopandas ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: numpydoc ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: coverage ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-mock ; extra == 'test'
+Requires-Dist: geopandas ; extra == 'test'
+
+=========
+pyomnisci
+=========
+
+.. image:: https://readthedocs.org/projects/pyomnisci/badge/?version=latest
+   :target: http://pyomnisci.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
+.. image:: https://jenkins-os.mapd.com/buildStatus/icon?job=pymapd-tests
+   :target: https://jenkins-os.mapd.com/job/pymapd-tests/
+   :alt: Jenkins Build Status
+
+This package enables using common Python data science toolkits with `OmniSciDB`. It brings data frame 
+support on CPU and GPU as well as support for arrow. See the `documentation`_ for more.
+
+Quick Install
+-------------
+
+Packages are available on conda-forge and PyPI::
+
+   conda install -c conda-forge pyomnisci
+
+   pip install pyomnisci
+
+To install cudf for GPU Dataframe support (conda-only)::
+
+   conda install -c nvidia/label/cuda10.0 -c rapidsai/label/cuda10.0 -c numba -c conda-forge -c defaults cudf pyomnisci
+
+.. _OmniSci: https://www.omnisci.com/
+.. _documentation: http://pyomnisci.readthedocs.io/en/latest/?badge=latest
+
+
