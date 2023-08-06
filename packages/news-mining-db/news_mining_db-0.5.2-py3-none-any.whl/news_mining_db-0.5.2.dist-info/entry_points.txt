@@ -1,0 +1,4 @@
+[console_scripts]
+init-news-db = news_mining_db.commands:init_db
+upgrade-db = news_mining_db.commands:upgrade_db
+
