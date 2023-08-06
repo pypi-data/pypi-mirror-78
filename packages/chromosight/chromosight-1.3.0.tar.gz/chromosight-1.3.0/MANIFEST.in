@@ -1,0 +1,5 @@
+include requirements.txt
+include chromosight/kernels/*
+recursive-exclude data_test *
+recursive-exclude tests *
+recursive-exclude chromosight/utils/format_converters *
