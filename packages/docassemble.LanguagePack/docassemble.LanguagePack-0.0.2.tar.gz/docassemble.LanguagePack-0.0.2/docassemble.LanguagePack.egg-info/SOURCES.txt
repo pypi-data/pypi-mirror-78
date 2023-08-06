@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+docassemble/__init__.py
+docassemble.LanguagePack.egg-info/PKG-INFO
+docassemble.LanguagePack.egg-info/SOURCES.txt
+docassemble.LanguagePack.egg-info/dependency_links.txt
+docassemble.LanguagePack.egg-info/namespace_packages.txt
+docassemble.LanguagePack.egg-info/not-zip-safe
+docassemble.LanguagePack.egg-info/top_level.txt
+docassemble/LanguagePack/__init__.py
+docassemble/LanguagePack/language.py
+docassemble/LanguagePack/data/sources/README.md
+docassemble/LanguagePack/data/sources/es-words.yml
+docassemble/LanguagePack/data/static/README.md
+docassemble/LanguagePack/data/templates/README.md
