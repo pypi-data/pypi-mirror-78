@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>thermosteam._thermo_data &mdash; Thermosteam  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>thermosteam._thermo_data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for thermosteam._thermo_data</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># BioSTEAM: The Biorefinery Simulation and Techno-Economic Analysis Modules</span>
+<span class="c1"># Copyright (C) 2020, Yoel Cortes-Pena &lt;yoelcortes@gmail.com&gt;</span>
+<span class="c1"># </span>
+<span class="c1"># This module is under the UIUC open-source license. See </span>
+<span class="c1"># github.com/BioSTEAMDevelopmentGroup/biosteam/blob/master/LICENSE.txt</span>
+<span class="c1"># for license details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
+<span class="kn">import</span> <span class="nn">thermosteam</span> <span class="k">as</span> <span class="nn">tmo</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ThermoData&#39;</span><span class="p">,)</span>
+
+<span class="c1"># %% Utilities</span>
+
+<span class="k">def</span> <span class="nf">as_IDs</span><span class="p">(</span><span class="n">IDs</span><span class="p">):</span>
+    <span class="n">isa</span> <span class="o">=</span> <span class="nb">isinstance</span>
+    <span class="k">if</span> <span class="n">isa</span><span class="p">(</span><span class="n">IDs</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">IDs</span> <span class="o">=</span> <span class="p">[</span><span class="n">IDs</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">isa</span><span class="p">(</span><span class="n">IDs</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">IDs</span><span class="p">:</span> 
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">isa</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;IDs must be an iterable of strings&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;IDs must be an iterable of strings&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">IDs</span>
+
+<span class="k">def</span> <span class="nf">chemicals_from_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">new_chemicals</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">chemical_copies</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">ID</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;Copy of&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">chemical_copies</span><span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">new_chemicals</span><span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmo</span><span class="o">.</span><span class="n">Chemical</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_chemicals</span><span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmo</span><span class="o">.</span><span class="n">Chemical</span><span class="p">(</span><span class="n">ID</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ID</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="n">chemical_copies</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">copied_ID</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;Copy of&#39;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">copied_chemical</span> <span class="o">=</span> <span class="n">new_chemicals</span><span class="p">[</span><span class="n">copied_ID</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">new_chemicals</span><span class="p">[</span><span class="n">copied_ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">copied_chemical</span> <span class="o">=</span> <span class="n">tmo</span><span class="o">.</span><span class="n">Chemical</span><span class="p">(</span><span class="n">copied_ID</span><span class="p">)</span>
+        <span class="n">new_chemicals</span><span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">copied_chemical</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tmo</span><span class="o">.</span><span class="n">CompiledChemicals</span><span class="p">([</span><span class="n">new_chemicals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
+
+
+<span class="c1"># %% </span>
+
+<div class="viewcode-block" id="ThermoData"><a class="viewcode-back" href="../../ThermoData.html#thermosteam.ThermoData">[docs]</a><span class="k">class</span> <span class="nc">ThermoData</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a ThermoData object for creating thermodynamic property packages</span>
+<span class="sd">    and streams.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : dict</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import thermosteam as tmo</span>
+<span class="sd">    &gt;&gt;&gt; data = {</span>
+<span class="sd">    ... &#39;Chemicals&#39;: {</span>
+<span class="sd">    ...     &#39;Water&#39;: {},</span>
+<span class="sd">    ...     &#39;Ethanol&#39;: {},</span>
+<span class="sd">    ...     &#39;O2&#39;: {&#39;phase&#39;: &#39;gas&#39;},</span>
+<span class="sd">    ...     &#39;Cellulose&#39;: {</span>
+<span class="sd">    ...          &#39;search_db&#39;: False,</span>
+<span class="sd">    ...          &#39;phase&#39;: &#39;solid&#39;,</span>
+<span class="sd">    ...          &#39;formula&#39;: &#39;C6H10O5&#39;,</span>
+<span class="sd">    ...          &#39;Hf&#39;: -975708.8,</span>
+<span class="sd">    ...          &#39;default&#39;: True</span>
+<span class="sd">    ...          },</span>
+<span class="sd">    ...     &#39;Octane&#39;: {}</span>
+<span class="sd">    ...     },</span>
+<span class="sd">    ... &#39;Synonyms&#39;: {</span>
+<span class="sd">    ...     &#39;Water&#39;: &#39;H2O&#39;,</span>
+<span class="sd">    ...     &#39;Ethanol&#39;: [</span>
+<span class="sd">    ...         &#39;CH3CH2OH&#39;,</span>
+<span class="sd">    ...         &#39;EthylAlcohol&#39;,</span>
+<span class="sd">    ...         ]</span>
+<span class="sd">    ...     },</span>
+<span class="sd">    ... &#39;Streams&#39;: {</span>
+<span class="sd">    ...     &#39;process_water&#39;: {</span>
+<span class="sd">    ...         &#39;Water&#39;: 500,</span>
+<span class="sd">    ...         &#39;units&#39;: &#39;kg/hr&#39;,</span>
+<span class="sd">    ...         &#39;price&#39;: 0.00035,</span>
+<span class="sd">    ...         },</span>
+<span class="sd">    ...     &#39;gasoline&#39;: {</span>
+<span class="sd">    ...         &#39;Octane&#39;: 400,</span>
+<span class="sd">    ...         &#39;units&#39;: &#39;kg/hr&#39;,</span>
+<span class="sd">    ...         &#39;price&#39;: 0.756,</span>
+<span class="sd">    ...         },</span>
+<span class="sd">    ...     }</span>
+<span class="sd">    ... }</span>
+<span class="sd">    &gt;&gt;&gt; thermo_data = tmo.ThermoData(data)</span>
+<span class="sd">    &gt;&gt;&gt; chemicals = thermo_data.create_chemicals()</span>
+<span class="sd">    &gt;&gt;&gt; chemicals</span>
+<span class="sd">    CompiledChemicals([Water, Ethanol, O2, Cellulose, Octane])</span>
+<span class="sd">    &gt;&gt;&gt; tmo.settings.set_thermo(chemicals)</span>
+<span class="sd">    &gt;&gt;&gt; thermo_data.create_streams()</span>
+<span class="sd">    [&lt;Stream: process_water&gt;, &lt;Stream: gasoline&gt;]</span>
+<span class="sd">    </span>
+<span class="sd">    It is also possible to create a ThermoData object from json or yaml files</span>
+<span class="sd">    For example, lets say we have a yaml file that looks like this:</span>
+<span class="sd">    </span>
+<span class="sd">    .. code-block:: yaml</span>
+<span class="sd">    </span>
+<span class="sd">        # File name: example_chemicals.yaml</span>
+<span class="sd">        Chemicals:</span>
+<span class="sd">          Water:</span>
+<span class="sd">          Ethanol:</span>
+<span class="sd">          O2:</span>
+<span class="sd">            phase: gas</span>
+<span class="sd">          Cellulose:</span>
+<span class="sd">            search_db: False</span>
+<span class="sd">            phase: solid</span>
+<span class="sd">            formula: C6H10O5</span>
+<span class="sd">            Hf: -975708.8</span>
+<span class="sd">            default: True</span>
+<span class="sd">          Octane:</span>
+<span class="sd">        Synonyms: </span>
+<span class="sd">          Water: H2O</span>
+<span class="sd">          Ethanol: </span>
+<span class="sd">            - CH3CH2OH</span>
+<span class="sd">            - EthylAlcohol</span>
+<span class="sd">    </span>
+<span class="sd">    Then we could create the chemicals in just a few lines:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; # thermo_data = tmo.ThermoData.from_yaml(&#39;example_chemicals.yaml&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; # thermo_data.create_chemicals()</span>
+<span class="sd">    &gt;&gt;&gt; # CompiledChemicals([Water, Ethanol, O2, Cellulose, Octane])</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,)</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">data_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Chemicals&#39;</span><span class="p">,</span> <span class="s1">&#39;Streams&#39;</span><span class="p">,</span> <span class="s1">&#39;Synonyms&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">{})</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data_fields</span><span class="p">}</span>
+        
+<div class="viewcode-block" id="ThermoData.from_yaml"><a class="viewcode-back" href="../../ThermoData.html#thermosteam.ThermoData.from_yaml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_yaml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a ThermoData object from a yaml file given its directory.&quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">yaml</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span> 
+            <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">full_load</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">),</span> <span class="s1">&#39;yaml file must return a dict&#39;</span> 
+            <span class="k">return</span> <span class="n">ThermoData</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="ThermoData.from_json"><a class="viewcode-back" href="../../ThermoData.html#thermosteam.ThermoData.from_json">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_json</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a ThermoData object from a json file given its directory.&quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">json</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span> 
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">),</span> <span class="s1">&#39;json file must return a dict&#39;</span> 
+            <span class="k">return</span> <span class="n">ThermoData</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">chemical_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Chemicals&#39;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;no chemical data available&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">stream_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Streams&#39;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;no stream data available&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">synonym_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Synonyms&#39;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;no synonym data available&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+    
+<div class="viewcode-block" id="ThermoData.create_streams"><a class="viewcode-back" href="../../ThermoData.html#thermosteam.ThermoData.create_streams">[docs]</a>    <span class="k">def</span> <span class="nf">create_streams</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">IDs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create streams from data. </span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        IDs=None : Iterable[str] or str, optional</span>
+<span class="sd">            IDs of streams to create. Defaults to all streams.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream_data</span>
+        <span class="k">if</span> <span class="n">IDs</span><span class="p">:</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">as_IDs</span><span class="p">(</span><span class="n">IDs</span><span class="p">)}</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">tmo</span><span class="o">.</span><span class="n">Stream</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">**</span><span class="p">(</span><span class="n">j</span> <span class="ow">or</span> <span class="p">{}))</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span></div>
+    
+<div class="viewcode-block" id="ThermoData.create_chemicals"><a class="viewcode-back" href="../../ThermoData.html#thermosteam.ThermoData.create_chemicals">[docs]</a>    <span class="k">def</span> <span class="nf">create_chemicals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">IDs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create streams from data. </span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        IDs=None : Iterable[str] or str, optional</span>
+<span class="sd">            IDs of chemicals to create. Defaults to all chemicals.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemical_data</span>
+        <span class="k">if</span> <span class="n">IDs</span><span class="p">:</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">as_IDs</span><span class="p">(</span><span class="n">IDs</span><span class="p">)}</span>
+        <span class="n">chemicals</span> <span class="o">=</span> <span class="n">chemicals_from_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_synonyms</span><span class="p">(</span><span class="n">chemicals</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">chemicals</span></div>
+    
+<div class="viewcode-block" id="ThermoData.set_synonyms"><a class="viewcode-back" href="../../ThermoData.html#thermosteam.ThermoData.set_synonyms">[docs]</a>    <span class="k">def</span> <span class="nf">set_synonyms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chemicals</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set synonyms to chemicals. </span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        chemicals : CompiledChemicals</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">chemicals</span><span class="p">,</span> <span class="n">tmo</span><span class="o">.</span><span class="n">CompiledChemicals</span><span class="p">),</span> <span class="s2">&quot;chemicals must be a CompiledChemicals object&quot;</span>
+        <span class="n">synonym_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">synonym_data</span>
+        <span class="n">set_synonym</span> <span class="o">=</span> <span class="n">chemicals</span><span class="o">.</span><span class="n">set_synonym</span>
+        <span class="k">for</span> <span class="n">ID</span><span class="p">,</span> <span class="n">synonyms</span> <span class="ow">in</span> <span class="n">synonym_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> 
+            <span class="k">for</span> <span class="n">synonym</span> <span class="ow">in</span> <span class="n">as_IDs</span><span class="p">(</span><span class="n">synonyms</span><span class="p">):</span> <span class="n">set_synonym</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">synonym</span><span class="p">)</span></div></div>
+
+        
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

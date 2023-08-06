@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reaction &mdash; Thermosteam  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ParallelReaction" href="ParallelReaction.html" />
+    <link rel="prev" title="reaction" href="reaction_module.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="reaction_module.html">reaction</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Reaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ParallelReaction.html">ParallelReaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SeriesReaction.html">SeriesReaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="reaction_module.html">reaction</a> &raquo;</li>
+        
+      <li>Reaction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/reaction/Reaction.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="reaction">
+<h1>Reaction<a class="headerlink" href="#reaction" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="thermosteam.reaction.Reaction">
+<em class="property">class </em><code class="sig-prename descclassname">thermosteam.reaction.</code><code class="sig-name descname">Reaction</code><span class="sig-paren">(</span><em class="sig-param">reaction</em>, <em class="sig-param">reactant</em>, <em class="sig-param">X</em>, <em class="sig-param">chemicals=None</em>, <em class="sig-param">basis='mol'</em>, <em class="sig-param">*</em>, <em class="sig-param">check_mass_balance=False</em>, <em class="sig-param">check_atomic_balance=False</em>, <em class="sig-param">correct_atomic_balance=False</em>, <em class="sig-param">correct_mass_balance=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/reaction/_reaction.html#Reaction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.reaction.Reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Reaction object which defines a stoichiometric reaction and
+conversion. When called, it elements of a material array due to the
+reaction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reaction</strong> (<em>dict</em><em> or </em><em>str</em>) – A dictionary of stoichiometric coefficients or a stoichiometric
+equation written as:
+i1 R1 + … + in Rn -&gt; j1 P1 + … + jm Pm</p></li>
+<li><p><strong>reactant</strong> (<em>str</em>) – ID of reactant compound.</p></li>
+<li><p><strong>X</strong> (<em>float</em>) – Reactant conversion (fraction).</p></li>
+<li><p><strong>chemicals=None</strong> (<a class="reference internal" href="../Chemicals.html#thermosteam.Chemicals" title="thermosteam.Chemicals"><em>Chemicals</em></a><em>, </em><em>defaults to settings.chemicals.</em>) – Chemicals corresponing to each entry in the stoichiometry array.</p></li>
+<li><p><strong>basis='mol'</strong> (<em>{'mol'</em><em>, </em><em>'wt'}</em>) – Basis of reaction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Other Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>check_mass_balance=False</strong> (<em>bool</em>) – Whether to assert that mass is not created or destroyed.</p></li>
+<li><p><strong>correct_mass_balance=False</strong> (<em>bool</em>) – Whether to make sure mass is not created or destroyed by varying the
+reactant stoichiometric coefficient.</p></li>
+<li><p><strong>check_atomic_balance=False</strong> (<em>bool</em>) – Whether to assert that stoichiometric balance by atoms cancel out.</p></li>
+<li><p><strong>correct_atomic_balance=False</strong> (<em>bool</em>) – Whether to correct the stoichiometry according to the atomic balance.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>A reaction object can react either a stream or an array. When a stream
+is passed, it reacts either the mol or mass flow rate according to
+the basis of the reaction object. When an array is passed, the array
+elements are reacted regardless of what basis they are associated with.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">thermosteam</span> <span class="k">as</span> <span class="nn">tmo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">thermosteam.reaction</span> <span class="k">as</span> <span class="nn">rxn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chemicals</span> <span class="o">=</span> <span class="n">tmo</span><span class="o">.</span><span class="n">Chemicals</span><span class="p">([</span><span class="s1">&#39;H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;H2&#39;</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmo</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set_thermo</span><span class="p">(</span><span class="n">chemicals</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span> <span class="o">=</span> <span class="n">rxn</span><span class="o">.</span><span class="n">Reaction</span><span class="p">(</span><span class="s1">&#39;2H2O -&gt; 2H2 + O2&#39;</span><span class="p">,</span> <span class="n">reactant</span><span class="o">=</span><span class="s1">&#39;H2O&#39;</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Note that the default basis is by &#39;mol&#39;</span>
+<span class="go">Reaction (by mol):</span>
+<span class="go"> stoichiometry       reactant    X[%]</span>
+<span class="go"> H2O -&gt; H2 + 0.5 O2  H2O        70.00</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feed</span> <span class="o">=</span> <span class="n">tmo</span><span class="o">.</span><span class="n">Stream</span><span class="p">(</span><span class="s1">&#39;feed&#39;</span><span class="p">,</span> <span class="n">H2O</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span><span class="p">(</span><span class="n">feed</span><span class="p">)</span> <span class="c1"># Call to run reaction on molar flow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feed</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Notice how 70% of water was converted to product</span>
+<span class="go">Stream: feed</span>
+<span class="go"> phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="go"> flow (kmol/hr): H2O  60</span>
+<span class="go">                 H2   140</span>
+<span class="go">                 O2   70</span>
+</pre></div>
+</div>
+<p>Alternatively, its also possible to react an array (instead of a stream):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">200.</span><span class="p">,</span> <span class="mf">0.</span> <span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span>
+<span class="go">array([ 60., 140.,  70.])</span>
+</pre></div>
+</div>
+<p>Let’s change to a per ‘wt’ basis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span><span class="o">.</span><span class="n">basis</span> <span class="o">=</span> <span class="s1">&#39;wt&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="go">Reaction (by wt):</span>
+<span class="go"> stoichiometry               reactant    X[%]</span>
+<span class="go"> H2O -&gt; 0.112 H2 + 0.888 O2  H2O        70.00</span>
+</pre></div>
+</div>
+<p>Although we changed the basis, the end result is the same if we pass a
+stream:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feed</span> <span class="o">=</span> <span class="n">tmo</span><span class="o">.</span><span class="n">Stream</span><span class="p">(</span><span class="s1">&#39;feed&#39;</span><span class="p">,</span> <span class="n">H2O</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span><span class="p">(</span><span class="n">feed</span><span class="p">)</span> <span class="c1"># Call to run reaction on mass flow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feed</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Notice how 70% of water was converted to product</span>
+<span class="go">Stream: feed</span>
+<span class="go"> phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="go"> flow (kmol/hr): H2O  60</span>
+<span class="go">                 H2   140</span>
+<span class="go">                 O2   70</span>
+</pre></div>
+</div>
+<p>If we pass an array, however, the Reaction object assumes the
+array data is by weight:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">200.</span><span class="p">,</span> <span class="mf">0.</span> <span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span>
+<span class="go">array([ 60.   ,  15.666, 124.334])</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.copy">
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">basis=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/reaction/_reaction.html#Reaction.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.reaction.Reaction.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return copy of Reaction object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.force_reaction">
+<code class="sig-name descname">force_reaction</code><span class="sig-paren">(</span><em class="sig-param">material</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/reaction/_reaction.html#Reaction.force_reaction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.reaction.Reaction.force_reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>React material ignoring feasibility checks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.product_yield">
+<code class="sig-name descname">product_yield</code><span class="sig-paren">(</span><em class="sig-param">product</em>, <em class="sig-param">basis=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/reaction/_reaction.html#Reaction.product_yield"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.reaction.Reaction.product_yield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return yield of product per reactant.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.adiabatic_reaction">
+<code class="sig-name descname">adiabatic_reaction</code><span class="sig-paren">(</span><em class="sig-param">stream</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/reaction/_reaction.html#Reaction.adiabatic_reaction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.reaction.Reaction.adiabatic_reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>React stream material adiabatically, accounting for the change in enthalpy
+due to the heat of reaction.</p>
+<p class="rubric">Examples</p>
+<p>Note how the stream temperature changed after the reaction due to the
+heat of reaction:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">thermosteam</span> <span class="k">as</span> <span class="nn">tmo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">thermosteam.reaction</span> <span class="k">as</span> <span class="nn">rxn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chemicals</span> <span class="o">=</span> <span class="n">tmo</span><span class="o">.</span><span class="n">Chemicals</span><span class="p">([</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">,</span> <span class="s1">&#39;H2O&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmo</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">set_thermo</span><span class="p">(</span><span class="n">chemicals</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span> <span class="o">=</span> <span class="n">rxn</span><span class="o">.</span><span class="n">Reaction</span><span class="p">(</span><span class="s1">&#39;2H2 + O2 -&gt; 2H2O&#39;</span><span class="p">,</span> <span class="n">reactant</span><span class="o">=</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="n">tmo</span><span class="o">.</span><span class="n">Stream</span><span class="p">(</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="n">H2</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">O2</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">H2O</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="n">tmo</span><span class="o">.</span><span class="n">Stream</span><span class="p">(</span><span class="s1">&#39;s2&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span><span class="o">.</span><span class="n">copy_like</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="c1"># s1 and s2 are the same</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Before reaction</span>
+<span class="go">Stream: s1</span>
+<span class="go"> phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="go"> flow (kmol/hr): H2   10</span>
+<span class="go">                 O2   20</span>
+<span class="go">                 H2O  1e+03</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="go">Reaction (by mol):</span>
+<span class="go"> stoichiometry       reactant    X[%]</span>
+<span class="go"> H2 + 0.5 O2 -&gt; H2O  H2         70.00</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># After non-adiabatic reaction</span>
+<span class="go">Stream: s1</span>
+<span class="go"> phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="go"> flow (kmol/hr): H2   3</span>
+<span class="go">                 O2   16.5</span>
+<span class="go">                 H2O  1.01e+03</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reaction</span><span class="o">.</span><span class="n">adiabatic_reaction</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># After adiabatic reaction</span>
+<span class="go">Stream: s2</span>
+<span class="go"> phase: &#39;l&#39;, T: 324.11 K, P: 101325 Pa</span>
+<span class="go"> flow (kmol/hr): H2   3</span>
+<span class="go">                 O2   16.5</span>
+<span class="go">                 H2O  1.01e+03</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.dH">
+<em class="property">property </em><code class="sig-name descname">dH</code><a class="headerlink" href="#thermosteam.reaction.Reaction.dH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Heat of reaction at given conversion. Units are in either
+J/mol-reactant or J/g-reactant; depending on basis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.X">
+<em class="property">property </em><code class="sig-name descname">X</code><a class="headerlink" href="#thermosteam.reaction.Reaction.X" title="Permalink to this definition">¶</a></dt>
+<dd><p>[float] Reaction converion as a fraction.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.stoichiometry">
+<em class="property">property </em><code class="sig-name descname">stoichiometry</code><a class="headerlink" href="#thermosteam.reaction.Reaction.stoichiometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>[array] Stoichiometry coefficients.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.istoichiometry">
+<em class="property">property </em><code class="sig-name descname">istoichiometry</code><a class="headerlink" href="#thermosteam.reaction.Reaction.istoichiometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>[ChemicalIndexer] Stoichiometry coefficients.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.reactant">
+<em class="property">property </em><code class="sig-name descname">reactant</code><a class="headerlink" href="#thermosteam.reaction.Reaction.reactant" title="Permalink to this definition">¶</a></dt>
+<dd><p>[str] Reactant associated to conversion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.MWs">
+<em class="property">property </em><code class="sig-name descname">MWs</code><a class="headerlink" href="#thermosteam.reaction.Reaction.MWs" title="Permalink to this definition">¶</a></dt>
+<dd><p>[1d array] Molecular weights of all chemicals [mol/g].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.basis">
+<em class="property">property </em><code class="sig-name descname">basis</code><a class="headerlink" href="#thermosteam.reaction.Reaction.basis" title="Permalink to this definition">¶</a></dt>
+<dd><p>{‘mol’, ‘wt’} Basis of reaction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.check_mass_balance">
+<code class="sig-name descname">check_mass_balance</code><span class="sig-paren">(</span><em class="sig-param">tol=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/reaction/_reaction.html#Reaction.check_mass_balance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.reaction.Reaction.check_mass_balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assert that stoichiometric mass balance is correct.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.check_atomic_balance">
+<code class="sig-name descname">check_atomic_balance</code><span class="sig-paren">(</span><em class="sig-param">tol=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/reaction/_reaction.html#Reaction.check_atomic_balance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.reaction.Reaction.check_atomic_balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assert that stoichiometric atomic balance is correct.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.correct_mass_balance">
+<code class="sig-name descname">correct_mass_balance</code><span class="sig-paren">(</span><em class="sig-param">variable=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/reaction/_reaction.html#Reaction.correct_mass_balance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.reaction.Reaction.correct_mass_balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure mass is not created or destroyed by varying the
+reactant stoichiometric coefficient.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.reaction.Reaction.correct_atomic_balance">
+<code class="sig-name descname">correct_atomic_balance</code><span class="sig-paren">(</span><em class="sig-param">constants=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/reaction/_reaction.html#Reaction.correct_atomic_balance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.reaction.Reaction.correct_atomic_balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Correct stoichiometry coffecients to satisfy atomic balance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ParallelReaction.html" class="btn btn-neutral float-right" title="ParallelReaction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="reaction_module.html" class="btn btn-neutral float-left" title="reaction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

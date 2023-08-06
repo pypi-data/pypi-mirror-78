@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>thermosteam.properties.permittivity &mdash; Thermosteam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>thermosteam.properties.permittivity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for thermosteam.properties.permittivity</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Data and methods for calculating a chemical&#39;s permitivity.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;permitivity_handle&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;IAPWS_Permittivity&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;CRC&#39;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">CASDataReader</span>
+<span class="kn">from</span> <span class="nn">.._constants</span> <span class="kn">import</span> <span class="n">N_A</span><span class="p">,</span> <span class="n">epsilon_0</span><span class="p">,</span> <span class="n">k</span>
+<span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="n">TDependentHandleBuilder</span><span class="p">,</span> <span class="n">epsilon</span>
+
+<span class="n">read</span> <span class="o">=</span> <span class="n">CASDataReader</span><span class="p">(</span><span class="vm">__file__</span><span class="p">,</span> <span class="s1">&#39;Electrolytes&#39;</span><span class="p">)</span>
+
+<span class="c1">#: [CASDataSource] Permitivity data</span>
+<span class="n">permittivity_data_CRC</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;Permittivity (Dielectric Constant) of Liquids.tsv&#39;</span><span class="p">)</span>
+
+<span class="nd">@epsilon</span>
+<span class="k">def</span> <span class="nf">IAPWS_Permittivity</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Vl</span><span class="p">,</span>
+                       <span class="c1"># Actual molecular dipole moment of water, in C*m</span>
+                       <span class="n">dipole</span> <span class="o">=</span> <span class="mf">6.138E-30</span><span class="p">,</span>
+                       <span class="c1"># Actual mean molecular polarizability of water, C^2/J*m^2</span>
+                       <span class="n">polarizability</span> <span class="o">=</span> <span class="mf">1.636E-40</span><span class="p">,</span>
+                       <span class="c1"># Molecular weight of water, kg/mol</span>
+                       <span class="n">MW</span> <span class="o">=</span> <span class="mf">0.018015268</span><span class="p">,</span> 
+                       <span class="c1"># Coefficients</span>
+                       <span class="n">ih</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span>
+                       <span class="n">jh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span>
+                       <span class="n">Nh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.978224486826</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.957771379375</span><span class="p">,</span>
+                                      <span class="mf">0.237511794148</span><span class="p">,</span> <span class="mf">0.714692244396</span><span class="p">,</span>
+                                      <span class="o">-</span><span class="mf">0.298217036956</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.108863472196</span><span class="p">,</span>
+                                      <span class="mf">0.949327488264E-1</span><span class="p">,</span> <span class="o">-.</span><span class="mf">980469816509E-2</span><span class="p">,</span>
+                                      <span class="mf">0.165167634970E-4</span><span class="p">,</span> <span class="mf">0.937359795772E-4</span><span class="p">,</span> 
+                                      <span class="o">-</span><span class="mf">0.12317921872E-9</span><span class="p">])):</span>
+    <span class="n">rhom</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Vl</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">101325</span><span class="p">)</span>
+    <span class="n">rho</span> <span class="o">=</span> <span class="n">MW</span> <span class="o">*</span> <span class="n">rhom</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">rho</span><span class="o">/</span><span class="mf">322.</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="mf">647.096</span><span class="o">/</span><span class="n">T</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">Nh</span><span class="o">*</span><span class="n">delta</span><span class="o">**</span><span class="n">ih</span><span class="o">*</span><span class="n">tau</span><span class="o">**</span><span class="n">jh</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.196096504426E-2</span><span class="o">*</span><span class="n">delta</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="mf">228.</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**-</span><span class="mf">1.2</span><span class="p">)</span>
+    
+    <span class="n">A</span> <span class="o">=</span> <span class="n">N_A</span><span class="o">*</span><span class="n">dipole</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">rhom</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="n">epsilon_0</span><span class="o">/</span><span class="n">k</span><span class="o">/</span><span class="n">T</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">N_A</span><span class="o">*</span><span class="n">polarizability</span><span class="o">*</span><span class="p">(</span><span class="n">rhom</span><span class="p">)</span><span class="o">/</span><span class="mf">3.</span><span class="o">/</span><span class="n">epsilon_0</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">A</span> <span class="o">+</span> <span class="mf">5.</span><span class="o">*</span><span class="n">B</span> <span class="o">+</span> <span class="p">(</span><span class="mf">9.</span> <span class="o">+</span> <span class="mf">2.</span><span class="o">*</span><span class="n">A</span> <span class="o">+</span> <span class="mf">18.</span><span class="o">*</span><span class="n">B</span> <span class="o">+</span> <span class="n">A</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">10.</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">B</span> <span class="o">+</span> <span class="mf">9.</span><span class="o">*</span><span class="n">B</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">4.</span> <span class="o">-</span> <span class="mf">4.</span><span class="o">*</span><span class="n">B</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CRC"><a class="viewcode-back" href="../../../properties/permittivity.html#thermosteam.properties.permittivity.CRC">[docs]</a><span class="nd">@epsilon</span><span class="p">(</span><span class="n">doc</span><span class="o">=</span><span class="s2">&quot;auto-doc&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">CRC</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">T</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">T</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">d</span><span class="o">*</span><span class="n">T</span><span class="o">**</span><span class="mi">3</span></div>
+
+<span class="nd">@TDependentHandleBuilder</span><span class="p">(</span><span class="s1">&#39;epsilon&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">permitivity_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">CAS</span><span class="p">,</span> <span class="n">Vl</span><span class="p">):</span>
+    <span class="n">add_model</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">add_model</span>
+    <span class="k">if</span> <span class="n">Vl</span> <span class="ow">and</span> <span class="n">CAS</span> <span class="o">==</span> <span class="s1">&#39;7732-18-5&#39;</span><span class="p">:</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">IAPWS_Permittivity</span><span class="o">.</span><span class="n">from_args</span><span class="p">((</span><span class="n">Vl</span><span class="p">,)))</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">permittivity_data_CRC</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">CRC_CONSTANT_T</span><span class="p">,</span> <span class="n">CRC_permittivity</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="n">permittivity_data_CRC</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="mi">0</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">])</span>
+        <span class="n">Tmin</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">Tmin</span><span class="p">)</span> <span class="k">else</span> <span class="n">Tmin</span>
+        <span class="n">Tmax</span> <span class="o">=</span> <span class="mf">1e6</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">Tmax</span><span class="p">)</span> <span class="k">else</span> <span class="n">Tmax</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">CRC</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;CRC&#39;</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">CRC_permittivity</span><span class="p">,</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;CRC_constant&#39;</span><span class="p">)</span>
+
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,689 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>thermosteam.properties.viscosity &mdash; Thermosteam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>thermosteam.properties.viscosity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for thermosteam.properties.viscosity</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Data and methods for calculating the viscosity of a chemical.</span>
+
+<span class="sd">References</span>
+<span class="sd">----------</span>
+<span class="sd">.. [1] Viswanath, Dabir S., and G. Natarajan. Databook On The Viscosity Of</span>
+<span class="sd">       Liquids. New York: Taylor &amp; Francis, 1989</span>
+<span class="sd">.. [2] Letsou, Athena, and Leonard I. Stiel. &quot;Viscosity of Saturated</span>
+<span class="sd">       Nonpolar Liquids at Elevated Pressures.&quot; AIChE Journal 19, no. 2 (1973):</span>
+<span class="sd">       409-11. doi:10.1002/aic.690190241.</span>
+<span class="sd">.. [3] Przedziecki, J. W., and T. Sridhar. &quot;Prediction of Liquid</span>
+<span class="sd">       Viscosities.&quot; AIChE Journal 31, no. 2 (February 1, 1985): 333-35.</span>
+<span class="sd">       doi:10.1002/aic.690310225.</span>
+<span class="sd">.. [4] Lucas, Klaus. &quot;Ein Einfaches Verfahren Zur Berechnung Der</span>
+<span class="sd">       Viskositat von Gasen Und Gasgemischen.&quot; Chemie Ingenieur Technik 46, no. 4</span>
+<span class="sd">       (February 1, 1974): 157-157. doi:10.1002/cite.330460413.</span>
+<span class="sd">.. [5] Reid, Robert C.; Prausnitz, John M.; Poling, Bruce E.</span>
+<span class="sd">       Properties of Gases and Liquids. McGraw-Hill Companies, 1987.</span>
+<span class="sd">.. [6] Yoon, Poong, and George Thodos. &quot;Viscosity of Nonpolar Gaseous</span>
+<span class="sd">       Mixtures at Normal Pressures.&quot; AIChE Journal 16, no. 2 (1970): 300-304.</span>
+<span class="sd">       doi:10.1002/aic.690160225.</span>
+<span class="sd">.. [7] Stiel, Leonard I., and George Thodos. &quot;The Viscosity of Nonpolar</span>
+<span class="sd">       Gases at Normal Pressures.&quot; AIChE Journal 7, no. 4 (1961): 611-15.</span>
+<span class="sd">       doi:10.1002/aic.690070416.</span>
+<span class="sd">.. [8] Gharagheizi, Farhad, Ali Eslamimanesh, Mehdi Sattari, Amir H.</span>
+<span class="sd">       Mohammadi, and Dominique Richon. &quot;Corresponding States Method for</span>
+<span class="sd">       Determination of the Viscosity of Gases at Atmospheric Pressure.&quot;</span>
+<span class="sd">       Industrial &amp; Engineering Chemistry Research 51, no. 7</span>
+<span class="sd">       (February 22, 2012): 3179-85. doi:10.1021/ie202591f.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">CASDataReader</span>
+<span class="kn">from</span> <span class="nn">..functional</span> <span class="kn">import</span> <span class="n">horner_polynomial</span>
+<span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="n">InterpolatedTDependentModel</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">TPDependentHandleBuilder</span><span class="p">,</span> <span class="n">TDependentModel</span><span class="p">,</span> <span class="n">PhaseTPHandleBuilder</span>
+<span class="kn">from</span> <span class="nn">.miscdata</span> <span class="kn">import</span> <span class="n">VDI_saturation_dict</span><span class="p">,</span> <span class="n">VDI_tabular_data</span>
+<span class="c1"># from .electrochem import _Laliberte_Viscosity_ParametersDict, Laliberte_viscosity</span>
+<span class="kn">from</span> <span class="nn">.dippr</span> <span class="kn">import</span> <span class="n">DIPPR_EQ101</span><span class="p">,</span> <span class="n">DIPPR_EQ102</span>
+
+<span class="n">__all__</span><span class="o">=</span> <span class="p">(</span><span class="s1">&#39;viscosity_gas_handle&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Viswanath_Natarajan2&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;Viswanath_Natarajan3&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;Letsou_Stiel&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;Przedziecki_Sridhar&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;VDI&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;Lucas_liquid&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Lucas_gas&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Yoon_Thodos&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Stiel_Thodos&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Gharagheizi_gas_viscosity&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">read</span> <span class="o">=</span> <span class="n">CASDataReader</span><span class="p">(</span><span class="vm">__file__</span><span class="p">,</span> <span class="s1">&#39;Viscosity&#39;</span><span class="p">)</span>
+<span class="n">_Dutt_Prasad</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;Dutt Prasad 3 term.tsv&#39;</span><span class="p">)</span>
+<span class="n">_VN3</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;Viswanath Natarajan Dynamic 3 term.tsv&#39;</span><span class="p">)</span>
+<span class="n">_VN2</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;Viswanath Natarajan Dynamic 2 term.tsv&#39;</span><span class="p">)</span>
+<span class="n">_VN2E_data</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;Viswanath Natarajan Dynamic 2 term Exponential.tsv&#39;</span><span class="p">)</span>
+<span class="n">_Perrys2_313</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;Table 2-313 Viscosity of Inorganic and Organic Liquids.tsv&#39;</span><span class="p">)</span>
+<span class="n">_Perrys2_312</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;Table 2-312 Vapor Viscosity of Inorganic and Organic Substances.tsv&#39;</span><span class="p">)</span>
+<span class="n">_VDI_PPDS_7</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;VDI PPDS Dynamic viscosity of saturated liquids polynomials.tsv&#39;</span><span class="p">)</span>
+<span class="n">_VDI_PPDS_8</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;VDI PPDS Dynamic viscosity of gases polynomials.tsv&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Viswanath_Natarajan2"><a class="viewcode-back" href="../../../properties/viscosity.html#thermosteam.properties.viscosity.Viswanath_Natarajan2">[docs]</a><span class="nd">@mu</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[1]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Viswanath_Natarajan2</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This method is known to produce values 10 times too low.</span>
+<span class="sd">    The author&#39;s data must have an error. I have adjusted it to fix this.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; # DDBST has 0.0004580 as a value at this temperature</span>
+<span class="sd">    &gt;&gt;&gt; f = ViswanathNatarajan2(-5.9719, 1007.0)</span>
+<span class="sd">    &gt;&gt;&gt; f(348.15)</span>
+<span class="sd">    0.00045983686956829517</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">exp</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="o">/</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="mf">100.</span></div>
+
+<div class="viewcode-block" id="Viswanath_Natarajan3"><a class="viewcode-back" href="../../../properties/viscosity.html#thermosteam.properties.viscosity.Viswanath_Natarajan3">[docs]</a><span class="nd">@mu</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[1]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Viswanath_Natarajan3</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates the viscosity of a liquid using the 3-term Antoine form</span>
+<span class="sd">    representation developed in [1]_. Requires input coefficients. The `A`</span>
+<span class="sd">    coefficient is assumed to yield coefficients in centipoise, as all </span>
+<span class="sd">    coefficients found so far have been.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \log_{10} \mu = A + B/(T + C)</span>
+<span class="sd">    </span>
+<span class="sd">    No other source for these coefficients has been found.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; ViswanathNatarajan3(298.15, -2.7173, -1071.18, -129.51)</span>
+<span class="sd">    0.0006129806445142112</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="o">/</span><span class="p">(</span><span class="n">C</span> <span class="o">-</span> <span class="n">T</span><span class="p">))</span><span class="o">/</span><span class="mf">1000.</span></div>
+
+<div class="viewcode-block" id="Letsou_Stiel"><a class="viewcode-back" href="../../../properties/viscosity.html#thermosteam.properties.viscosity.Letsou_Stiel">[docs]</a><span class="nd">@mu</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[2]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Letsou_Stiel</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates the viscosity of a liquid using an emperical model</span>
+<span class="sd">    developed in [2]_. However. the fitting parameters for tabulated values</span>
+<span class="sd">    in the original article are found in ChemSep.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \xi = \frac{2173.424 T_c^{1/6}}{\sqrt{MW} P_c^{2/3}}</span>
+<span class="sd">        </span>
+<span class="sd">        \xi^{(0)} = (1.5174 - 2.135T_r + 0.75T_r^2)\cdot 10^{-5}</span>
+<span class="sd">        </span>
+<span class="sd">        \xi^{(1)} = (4.2552 - 7.674 T_r + 3.4 T_r^2)\cdot 10^{-5}</span>
+<span class="sd">        </span>
+<span class="sd">        \mu = (\xi^{(0)} + \omega \xi^{(1)})/\xi</span>
+<span class="sd">    </span>
+<span class="sd">    The form of this equation is a polynomial fit to tabulated data.</span>
+<span class="sd">    The fitting was performed by the DIPPR. This is DIPPR Procedure 8G: Method</span>
+<span class="sd">    for the viscosity of pure, nonhydrocarbon liquids at high temperatures</span>
+<span class="sd">    internal units are SI standard. [2]_&#39;s units were different.</span>
+<span class="sd">    DIPPR test value for ethanol is used.</span>
+<span class="sd">    Average error 34%. Range of applicability is 0.76 &lt; Tr &lt; 0.98.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Letsou_Stiel(46.07, 516.25, 6.383E6, 0.6371)</span>
+<span class="sd">    &gt;&gt;&gt; f(400.)</span>
+<span class="sd">    0.0002036150875308151</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">xi0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.5174</span><span class="o">-</span><span class="mf">2.135</span><span class="o">*</span><span class="n">Tr</span> <span class="o">+</span> <span class="mf">0.75</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">1E-5</span>
+    <span class="n">xi1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">4.2552</span><span class="o">-</span><span class="mf">7.674</span><span class="o">*</span><span class="n">Tr</span> <span class="o">+</span> <span class="mf">3.4</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">1E-5</span>
+    <span class="n">xi</span> <span class="o">=</span> <span class="mf">2173.424</span><span class="o">*</span><span class="n">Tc</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">6.</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">MW</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="n">Pc</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">xi0</span> <span class="o">+</span> <span class="n">omega</span><span class="o">*</span><span class="n">xi1</span><span class="p">)</span><span class="o">/</span><span class="n">xi</span></div>
+
+<div class="viewcode-block" id="Przedziecki_Sridhar"><a class="viewcode-back" href="../../../properties/viscosity.html#thermosteam.properties.viscosity.Przedziecki_Sridhar">[docs]</a><span class="nd">@mu</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[3]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Przedziecki_Sridhar</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">MW</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates the viscosity of a liquid using an emperical formula</span>
+<span class="sd">    developed in [1]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \mu=\frac{V_o}{E(V-V_o)}</span>
+<span class="sd">        </span>
+<span class="sd">        E=-1.12+\frac{V_c}{12.94+0.10MW-0.23P_c+0.0424T_{m}-11.58(T_{m}/T_c)}</span>
+<span class="sd">        </span>
+<span class="sd">        V_o = 0.0085\omega T_c-2.02+\frac{V}{0.342(T_m/T_c)+0.894}</span>
+<span class="sd">    </span>
+<span class="sd">    A test by Reid (1983) is used, but only mostly correct.</span>
+<span class="sd">    This function is not recommended. Its use has been removed from the Liquid Viscosity function.</span>
+<span class="sd">    Internal units are bar and mL/mol.</span>
+<span class="sd">    TODO: Test again with data from 5th ed table.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Przedziecki_Sridhar(178., 591.8, 41E5, 316E-6, 95E-6, .263, 92.14)</span>
+<span class="sd">    &gt;&gt;&gt; f(383.)</span>
+<span class="sd">    0.0002198147995603383</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Pc</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">/</span><span class="mf">1E5</span>  <span class="c1"># Pa to atm</span>
+    <span class="n">V</span><span class="p">,</span> <span class="n">Vc</span> <span class="o">=</span> <span class="n">V</span><span class="o">*</span><span class="mf">1E6</span><span class="p">,</span> <span class="n">Vc</span><span class="o">*</span><span class="mf">1E6</span>  <span class="c1"># m^3/mol to mL/mol</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">Gamma</span> <span class="o">=</span> <span class="mf">0.29607</span> <span class="o">-</span> <span class="mf">0.09045</span><span class="o">*</span><span class="n">Tr</span> <span class="o">-</span> <span class="mf">0.04842</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">VrT</span> <span class="o">=</span> <span class="mf">0.33593</span><span class="o">-</span><span class="mf">0.33953</span><span class="o">*</span><span class="n">Tr</span> <span class="o">+</span> <span class="mf">1.51941</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">2.02512</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mf">1.11422</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">4</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">VrT</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">omega</span><span class="o">*</span><span class="n">Gamma</span><span class="p">)</span><span class="o">*</span><span class="n">Vc</span>
+
+    <span class="n">Vo</span> <span class="o">=</span> <span class="mf">0.0085</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">Tc</span> <span class="o">-</span> <span class="mf">2.02</span> <span class="o">+</span> <span class="n">V</span><span class="o">/</span><span class="p">(</span><span class="mf">0.342</span><span class="o">*</span><span class="p">(</span><span class="n">Tm</span><span class="o">/</span><span class="n">Tc</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.894</span><span class="p">)</span>  <span class="c1"># checked</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.12</span> <span class="o">+</span> <span class="n">Vc</span><span class="o">/</span><span class="p">(</span><span class="mf">12.94</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">MW</span> <span class="o">-</span> <span class="mf">0.23</span><span class="o">*</span><span class="n">Pc</span> <span class="o">+</span> <span class="mf">0.0424</span><span class="o">*</span><span class="n">Tm</span> <span class="o">-</span> <span class="mf">11.58</span><span class="o">*</span><span class="p">(</span><span class="n">Tm</span><span class="o">/</span><span class="n">Tc</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">Vo</span><span class="o">/</span><span class="p">(</span><span class="n">E</span><span class="o">*</span><span class="p">(</span><span class="n">V</span><span class="o">-</span><span class="n">Vo</span><span class="p">))</span><span class="o">/</span><span class="mf">1000.</span></div>
+
+<div class="viewcode-block" id="VDI"><a class="viewcode-back" href="../../../properties/viscosity.html#thermosteam.properties.viscosity.VDI">[docs]</a><span class="nd">@mu</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;VDI-PPDS&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">VDI</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">E</span><span class="p">):</span>
+    <span class="n">term</span> <span class="o">=</span> <span class="p">(</span><span class="n">C</span> <span class="o">-</span> <span class="n">T</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="o">-</span><span class="n">D</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">term</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">term1</span> <span class="o">=</span> <span class="o">-</span><span class="p">((</span><span class="n">T</span> <span class="o">-</span> <span class="n">C</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="o">-</span><span class="n">D</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">term1</span> <span class="o">=</span> <span class="n">term</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span>
+    <span class="n">term2</span> <span class="o">=</span> <span class="n">term</span><span class="o">*</span><span class="n">term1</span>
+    <span class="k">return</span> <span class="n">E</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="n">term1</span> <span class="o">+</span> <span class="n">B</span><span class="o">*</span><span class="n">term2</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Lucas_liquid"><a class="viewcode-back" href="../../../properties/viscosity.html#thermosteam.properties.viscosity.Lucas_liquid">[docs]</a><span class="nd">@mu</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">doc</span><span class="o">=</span><span class="s1">&#39;auto-header&#39;</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[4]_ [5]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Lucas_liquid</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Psat</span><span class="p">,</span> <span class="n">mu_l</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float</span>
+<span class="sd">        Temperature of fluid [K]</span>
+<span class="sd">    P : float</span>
+<span class="sd">        Pressure of fluid [Pa]</span>
+<span class="sd">    Tc: float</span>
+<span class="sd">        Critical point of fluid [K]</span>
+<span class="sd">    Pc : float</span>
+<span class="sd">        Critical pressure of the fluid [Pa]</span>
+<span class="sd">    omega : float</span>
+<span class="sd">        Acentric factor of compound</span>
+<span class="sd">    Psat : function(T)</span>
+<span class="sd">        Saturation pressure of the fluid [Pa]</span>
+<span class="sd">    mu_l : function(T, P)</span>
+<span class="sd">        Viscosity of liquid at 1 atm or saturation, [Pa*S]</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This equation is entirely dimensionless; all dimensions cancel.</span>
+<span class="sd">    The example is from Reid (1987); all results agree.</span>
+<span class="sd">    Above several thousand bar, this equation does not represent true behavior.</span>
+<span class="sd">    If Psat is larger than P, the fluid may not be liquid; dPr is set to 0.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Lucas_liquid(500E5, 572.2, 34.7E5, 0.236, 0, 0.00068) # methylcyclohexane</span>
+<span class="sd">    &gt;&gt;&gt; f(300.)</span>
+<span class="sd">    0.0010683738499316518</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.07921</span><span class="o">+</span><span class="mf">2.1616</span><span class="o">*</span><span class="n">Tr</span> <span class="o">-</span> <span class="mf">13.4040</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">44.1706</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mf">84.8291</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">4</span> \
+        <span class="o">+</span> <span class="mf">96.1209</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">5</span><span class="o">-</span><span class="mf">59.8127</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">6</span><span class="o">+</span><span class="mf">15.6719</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mi">7</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="mf">0.3257</span><span class="o">/</span><span class="p">((</span><span class="mf">1.0039</span><span class="o">-</span><span class="n">Tr</span><span class="o">**</span><span class="mf">2.573</span><span class="p">)</span><span class="o">**</span><span class="mf">0.2906</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.2086</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="mf">0.9991</span> <span class="o">-</span> <span class="mf">4.674E-4</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0523</span><span class="o">*</span><span class="n">Tr</span><span class="o">**-</span><span class="mf">0.03877</span> <span class="o">-</span> <span class="mf">1.0513</span><span class="p">)</span>
+    <span class="n">dPr</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="o">-</span><span class="n">Psat</span><span class="p">(</span><span class="n">T</span><span class="p">))</span><span class="o">/</span><span class="n">Pc</span>
+    <span class="k">if</span> <span class="n">dPr</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">dPr</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">D</span><span class="o">*</span><span class="p">(</span><span class="n">dPr</span><span class="o">/</span><span class="mf">2.118</span><span class="p">)</span><span class="o">**</span><span class="n">A</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">C</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">dPr</span><span class="p">)</span><span class="o">*</span><span class="n">mu_l</span><span class="p">(</span><span class="n">T</span><span class="p">)</span></div>
+
+<span class="nd">@TPDependentHandleBuilder</span><span class="p">(</span><span class="s1">&#39;mu.l&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">viscosity_liquid_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">CAS</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Psat</span><span class="p">,</span> <span class="n">Vl</span><span class="p">):</span>
+    <span class="n">add_model</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">add_model</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">VDI_saturation_dict</span><span class="p">:</span>
+        <span class="n">Ts</span><span class="p">,</span> <span class="n">Ys</span> <span class="o">=</span> <span class="n">VDI_tabular_data</span><span class="p">(</span><span class="n">CAS</span><span class="p">,</span> <span class="s1">&#39;Mu (l)&#39;</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">InterpolatedTDependentModel</span><span class="p">(</span><span class="n">Ts</span><span class="p">,</span> <span class="n">Ys</span><span class="p">,</span> <span class="n">Ts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Ts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
+                                            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;VDI-interpolated&#39;</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_Dutt_Prasad</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="n">_Dutt_Prasad</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Viswanath_Natarajan3</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_VN3</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="n">_VN3</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Viswanath_Natarajan3</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_VN2</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="n">_VN2</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Viswanath_Natarajan2</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tmin</span> <span class="p">,</span><span class="n">Tmax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_Perrys2_313</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">C3</span><span class="p">,</span> <span class="n">C4</span><span class="p">,</span> <span class="n">C5</span><span class="p">,</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="n">_Perrys2_313</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">C3</span><span class="p">,</span> <span class="n">C4</span><span class="p">,</span> <span class="n">C5</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">DIPPR_EQ101</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_VDI_PPDS_7</span><span class="p">:</span>
+        <span class="n">coef</span> <span class="o">=</span> <span class="n">_VDI_PPDS_7</span><span class="p">[</span><span class="n">CAS</span><span class="p">][</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">VDI</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">coef</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Letsou_Stiel</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tc</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Vl</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Przedziecki_Sridhar</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">mu_l</span> <span class="ow">in</span> <span class="n">handle</span><span class="o">.</span><span class="n">models</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mu_l</span><span class="p">,</span> <span class="n">TDependentModel</span><span class="p">):</span> <span class="k">break</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Psat</span><span class="p">,</span> <span class="n">mu_l</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Lucas_liquid</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span>
+                  <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Lucas&#39;</span><span class="p">)</span>
+
+
+<span class="c1">### Viscosity of Gases - low pressure</span>
+<div class="viewcode-block" id="Yoon_Thodos"><a class="viewcode-back" href="../../../properties/viscosity.html#thermosteam.properties.viscosity.Yoon_Thodos">[docs]</a><span class="nd">@mu</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[6]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Yoon_Thodos</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">MW</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates the viscosity of a gas using an emperical formula</span>
+<span class="sd">    developed in [6]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \eta \xi \times 10^8 = 46.10 T_r^{0.618} - 20.40 \exp(-0.449T_r) + 1</span>
+<span class="sd">        9.40\exp(-4.058T_r)+1</span>
+<span class="sd">        </span>
+<span class="sd">        \xi = 2173.424 T_c^{1/6} MW^{-1/2} P_c^{-2/3}</span>
+<span class="sd">        </span>
+<span class="sd">    This equation has been tested. The equation uses SI units only internally.</span>
+<span class="sd">    The constant 2173.424 is an adjustment factor for units.</span>
+<span class="sd">    Average deviation within 3% for most compounds.</span>
+<span class="sd">    Greatest accuracy with dipole moments close to 0.</span>
+<span class="sd">    Hydrogen and helium have different coefficients, not implemented.</span>
+<span class="sd">    This is DIPPR Procedure 8B: Method for the Viscosity of Pure,</span>
+<span class="sd">    non hydrocarbon, nonpolar gases at low pressures</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Yoon_Thodos(556.35, 4.5596E6, 153.8)</span>
+<span class="sd">    &gt;&gt;&gt; f(300.)</span>
+<span class="sd">    1.0194885727776819e-05</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">xi</span> <span class="o">=</span> <span class="mf">2173.4241</span><span class="o">*</span><span class="n">Tc</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">6.</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">MW</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="n">Pc</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">))</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mf">46.1</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mf">0.618</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mf">20.4</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.449</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="mf">19.4</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.058</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="n">b</span> <span class="o">-</span> <span class="n">c</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="n">Tr</span><span class="p">)</span> <span class="o">+</span> <span class="n">e</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">f</span><span class="o">*</span><span class="n">Tr</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mf">1E8</span><span class="o">*</span><span class="n">xi</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Stiel_Thodos"><a class="viewcode-back" href="../../../properties/viscosity.html#thermosteam.properties.viscosity.Stiel_Thodos">[docs]</a><span class="nd">@mu</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[7]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Stiel_Thodos</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">MW</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates the viscosity of a gas using an emperical formula</span>
+<span class="sd">    developed in [7]_.</span>
+<span class="sd">    </span>
+<span class="sd">    Untested.</span>
+<span class="sd">    Claimed applicability from 0.2 to 5 atm.</span>
+<span class="sd">    Developed with data from 52 nonpolar, and 53 polar gases.</span>
+<span class="sd">    internal units are poise and atm.</span>
+<span class="sd">    Seems to give reasonable results.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Stiel_Thodos(556.35, 4.5596E6, 153.8) #CCl4</span>
+<span class="sd">    &gt;&gt;&gt; f(300.)</span>
+<span class="sd">    1.0408926223608723e-05</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Pc</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">/</span><span class="mf">101325.</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">xi</span> <span class="o">=</span> <span class="n">Tc</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">6.</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">MW</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="n">Pc</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">Tr</span> <span class="o">&gt;</span> <span class="mf">1.5</span><span class="p">:</span>
+        <span class="n">mu_g</span> <span class="o">=</span> <span class="mf">17.78E-5</span><span class="o">*</span><span class="p">(</span><span class="mf">4.58</span><span class="o">*</span><span class="n">Tr</span><span class="o">-</span><span class="mf">1.67</span><span class="p">)</span><span class="o">**.</span><span class="mi">625</span><span class="o">/</span><span class="n">xi</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mu_g</span> <span class="o">=</span> <span class="mf">34E-5</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mf">0.94</span><span class="o">/</span><span class="n">xi</span>
+    <span class="k">return</span> <span class="n">mu_g</span><span class="o">/</span><span class="mf">1000.</span></div>
+
+<span class="n">_lucas_Q_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;7440-59-7&#39;</span><span class="p">:</span> <span class="mf">1.38</span><span class="p">,</span> <span class="s1">&#39;1333-74-0&#39;</span><span class="p">:</span> <span class="mf">0.76</span><span class="p">,</span> <span class="s1">&#39;7782-39-0&#39;</span><span class="p">:</span> <span class="mf">0.52</span><span class="p">}</span>
+
+<div class="viewcode-block" id="Lucas_gas"><a class="viewcode-back" href="../../../properties/viscosity.html#thermosteam.properties.viscosity.Lucas_gas">[docs]</a><span class="nd">@mu</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[5]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Lucas_gas</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">Zc</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">dipole</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the viscosity of a gas using an emperical</span>
+<span class="sd">    formula developed in several sources, but as discussed in [5]_ as the</span>
+<span class="sd">    original sources are in German or merely personal communications with the</span>
+<span class="sd">    authors of [5]_:</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \eta  = \left[0.807T_r^{0.618}-0.357\exp(-0.449T_r) + 0.340\exp(-4.058</span>
+<span class="sd">        T_r) + 0.018\right]F_p^\circ F_Q^\circ /\xi</span>
+<span class="sd">        </span>
+<span class="sd">        F_p^\circ = 1, 0 \le \mu_{r} &lt; 0.022</span>
+<span class="sd">        </span>
+<span class="sd">        F_p^\circ = 1+30.55(0.292-Z_c)^{1.72}, 0.022 \le \mu_{r} &lt; 0.075</span>
+<span class="sd">        </span>
+<span class="sd">        F_p^\circ = 1+30.55(0.292-Z_c)^{1.72}|0.96+0.1(T_r-0.7)| 0.075 &lt; \mu_{r}</span>
+<span class="sd">        </span>
+<span class="sd">        F_Q^\circ = 1.22Q^{0.15}\left\{ 1+0.00385[(T_r-12)^2]^{1/M}\text{sign}</span>
+<span class="sd">        (T_r-12)\right\}</span>
+<span class="sd">        </span>
+<span class="sd">        \mu_r = 52.46 \frac{\mu^2 P_c}{T_c^2}</span>
+<span class="sd">        </span>
+<span class="sd">        \xi = 0.176\left(\frac{T_c}{MW^3 P_c^4}\right)^{1/6}</span>
+<span class="sd">    </span>
+<span class="sd">    The example is from [5]_; all results agree.</span>
+<span class="sd">    Viscosity is calculated in micropoise, and converted to SI internally (1E-7).</span>
+<span class="sd">    Q for He = 1.38; Q for H2 = 0.76; Q for D2 = 0.52.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Lucas_gas(Tc=512.6, Pc=80.9E5, Zc=0.224, MW=32.042, dipole=1.7)</span>
+<span class="sd">    &gt;&gt;&gt; f(T=550)</span>
+<span class="sd">    1.7822676912698928e-05</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">xi</span> <span class="o">=</span> <span class="mf">0.176</span><span class="o">*</span><span class="p">(</span><span class="n">Tc</span><span class="o">/</span><span class="n">MW</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">Pc</span><span class="o">/</span><span class="mf">1E5</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">6.</span><span class="p">)</span>  <span class="c1"># bar arrording to example in Poling</span>
+    <span class="k">if</span> <span class="n">dipole</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dipole</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">dipoler</span> <span class="o">=</span> <span class="mf">52.46</span><span class="o">*</span><span class="n">dipole</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">Pc</span><span class="o">/</span><span class="mf">1E5</span><span class="p">)</span><span class="o">/</span><span class="n">Tc</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># bar arrording to example in Poling</span>
+    <span class="k">if</span> <span class="n">dipoler</span> <span class="o">&lt;</span> <span class="mf">0.022</span><span class="p">:</span>
+        <span class="n">Fp</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="mf">0.022</span> <span class="o">&lt;=</span> <span class="n">dipoler</span> <span class="o">&lt;</span> <span class="mf">0.075</span><span class="p">:</span>
+        <span class="n">Fp</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mf">30.55</span><span class="o">*</span><span class="p">(</span><span class="mf">0.292</span> <span class="o">-</span> <span class="n">Zc</span><span class="p">)</span><span class="o">**</span><span class="mf">1.72</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Fp</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mf">30.55</span><span class="o">*</span><span class="p">(</span><span class="mf">0.292</span> <span class="o">-</span> <span class="n">Zc</span><span class="p">)</span><span class="o">**</span><span class="mf">1.72</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="mf">0.96</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="p">(</span><span class="n">Tr</span><span class="o">-</span><span class="mf">0.7</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">Q</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Tr</span> <span class="o">-</span> <span class="mi">12</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">FQ</span> <span class="o">=</span> <span class="mf">1.22</span><span class="o">*</span><span class="n">Q</span><span class="o">**</span><span class="mf">0.15</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.00385</span><span class="o">*</span><span class="p">((</span><span class="n">Tr</span><span class="o">-</span><span class="mi">12</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">MW</span><span class="p">)</span><span class="o">*</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">FQ</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">eta</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.807</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mf">0.618</span> <span class="o">-</span> <span class="mf">0.357</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.449</span><span class="o">*</span><span class="n">Tr</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.340</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">4.058</span><span class="o">*</span><span class="n">Tr</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.018</span><span class="p">)</span><span class="o">*</span><span class="n">Fp</span><span class="o">*</span><span class="n">FQ</span><span class="o">/</span><span class="n">xi</span>
+    <span class="k">return</span> <span class="n">eta</span><span class="o">/</span><span class="mf">1E7</span></div>
+
+<div class="viewcode-block" id="Gharagheizi_gas_viscosity"><a class="viewcode-back" href="../../../properties/viscosity.html#thermosteam.properties.viscosity.Gharagheizi_gas_viscosity">[docs]</a><span class="nd">@mu</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[8]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Gharagheizi_gas_viscosity</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">MW</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates the viscosity of a gas using an emperical formula</span>
+<span class="sd">    developed in [8]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \mu = 10^{-7} | 10^{-5} P_cT_r + \left(0.091-\frac{0.477}{M}\right)T +</span>
+<span class="sd">        M \left(10^{-5}P_c-\frac{8M^2}{T^2}\right)</span>
+<span class="sd">        </span>
+<span class="sd">        \left(\frac{10.7639}{T_c}-\frac{4.1929}{T}\right)|</span>
+<span class="sd">    </span>
+<span class="sd">    Example is first point in supporting information of article, for methane.</span>
+<span class="sd">    This is the prefered function for gas viscosity.</span>
+<span class="sd">    7% average relative deviation. Deviation should never be above 30%.</span>
+<span class="sd">    Developed with the DIPPR database. It is believed theoretically predicted values</span>
+<span class="sd">    are included in the correlation.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Gharagheizi_gas_viscosity(190.564, 45.99E5, 16.04246)</span>
+<span class="sd">    &gt;&gt;&gt; f(120.)</span>
+<span class="sd">    5.215761625399613e-06</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">mu_g</span> <span class="o">=</span> <span class="mf">1E-5</span><span class="o">*</span><span class="n">Pc</span><span class="o">*</span><span class="n">Tr</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.091</span> <span class="o">-</span> <span class="mf">0.477</span><span class="o">/</span><span class="n">MW</span><span class="p">)</span><span class="o">*</span><span class="n">T</span> <span class="o">+</span> <span class="n">MW</span><span class="o">*</span><span class="p">(</span><span class="mf">1E-5</span><span class="o">*</span><span class="n">Pc</span> <span class="o">-</span> <span class="mi">8</span><span class="o">*</span><span class="n">MW</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">T</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">10.7639</span><span class="o">/</span><span class="n">Tc</span> <span class="o">-</span> <span class="mf">4.1929</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">1E-7</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mu_g</span><span class="p">)</span></div>
+
+
+<span class="nd">@TPDependentHandleBuilder</span><span class="p">(</span><span class="s1">&#39;mu.g&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">viscosity_gas_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">CAS</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">Zc</span><span class="p">,</span> <span class="n">dipole</span><span class="p">):</span>
+    <span class="n">add_model</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">add_model</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">VDI_saturation_dict</span><span class="p">:</span>
+        <span class="n">Ts</span><span class="p">,</span> <span class="n">Ys</span> <span class="o">=</span> <span class="n">VDI_tabular_data</span><span class="p">(</span><span class="n">CAS</span><span class="p">,</span> <span class="s1">&#39;Mu (g)&#39;</span><span class="p">)</span>
+        <span class="n">Tmin</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">Tmax</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">InterpolatedTDependentModel</span><span class="p">(</span><span class="n">Ts</span><span class="p">,</span> <span class="n">Ys</span><span class="p">,</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">,</span>
+                                            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;VDI-interpolated&#39;</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_Perrys2_312</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">C3</span><span class="p">,</span> <span class="n">C4</span><span class="p">,</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="n">_Perrys2_312</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">C3</span><span class="p">,</span> <span class="n">C4</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">DIPPR_EQ102</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_VDI_PPDS_8</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">_VDI_PPDS_8</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">horner_polynomial</span><span class="o">.</span><span class="n">from_kwargs</span><span class="p">({</span><span class="s1">&#39;coeffs&#39;</span><span class="p">:</span><span class="n">data</span><span class="p">}),</span>
+                  <span class="n">name</span><span class="o">=</span><span class="s1">&#39;VDI-PPDS&#39;</span><span class="p">)</span>
+    <span class="c1"># data = (Tc, Pc, Zc, MW)</span>
+    <span class="c1"># if all(data):</span>
+    <span class="c1">#     Tmin = 0; Tmax = 1e3</span>
+    <span class="c1">#     add_model(Lucas_gas.from_args(data), Tmin, Tmax,</span>
+    <span class="c1">#               name=&#39;Lucas&#39;)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">MW</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">Tmin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="mf">5e3</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Gharagheizi_gas_viscosity</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">,</span>
+                  <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Gharagheizi&#39;</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Yoon_Thodos</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Stiel_Thodos</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+        <span class="c1"># Intelligently set limit</span>
+        <span class="c1"># GHARAGHEIZI turns nonsensical at ~15 K, YOON_THODOS fine to 0 K,</span>
+        <span class="c1"># same as STIEL_THODOS</span>
+
+<span class="n">viscosity_handle</span> <span class="o">=</span> <span class="n">PhaseTPHandleBuilder</span><span class="p">(</span><span class="s1">&#39;mu&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+                                          <span class="n">viscosity_liquid_handle</span><span class="p">,</span>
+                                          <span class="n">viscosity_gas_handle</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
