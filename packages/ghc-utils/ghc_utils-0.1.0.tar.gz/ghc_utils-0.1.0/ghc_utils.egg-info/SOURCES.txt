@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+ghc_utils/__init__.py
+ghc_utils/cli.py
+ghc_utils/ghc_utils.py
+ghc_utils.egg-info/PKG-INFO
+ghc_utils.egg-info/SOURCES.txt
+ghc_utils.egg-info/dependency_links.txt
+ghc_utils.egg-info/entry_points.txt
+ghc_utils.egg-info/not-zip-safe
+ghc_utils.egg-info/requires.txt
+ghc_utils.egg-info/top_level.txt
+tests/__init__.py
+tests/test_ghc_utils.py
