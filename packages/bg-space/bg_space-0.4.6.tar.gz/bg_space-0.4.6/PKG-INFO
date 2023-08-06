@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: bg_space
+Version: 0.4.6
+Summary: Anatomical space conventions made easy
+Home-page: https://github.com/brainglobe/bg-space
+Author: Luigi Petrucco @portugueslab
+Author-email: luigi.petrucco@gmail.com
+License: UNKNOWN
+Description: `bg-space` provides a neat way of defining an anatomical space, and to operate
+        stacks and point transformations between anatomical spaces.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.6
+Provides-Extra: dev

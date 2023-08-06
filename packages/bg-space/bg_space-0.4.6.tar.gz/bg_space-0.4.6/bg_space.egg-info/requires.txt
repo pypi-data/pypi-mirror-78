@@ -1,0 +1,11 @@
+numpy
+scipy
+
+[dev]
+black
+pytest-cov
+pytest
+gitpython
+coveralls
+pre-commit
+nox
