@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: bitpanda-pro-sdk
+Version: 0.7.0
+Summary: Bitpanda Pro Python SDK
+Home-page: https://github.com/bitpanda-labs/bitpanda-pro-sdk-py
+Author: Bitpanda
+Author-email: support@bitpanda.com
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/bitpanda-labs/bitpanda-pro-sdk-py/issues
+Project-URL: Source, https://github.com/bitpanda-labs/bitpanda-pro-sdk-py
+Keywords: bitpanda,api,sdk,trading
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7.0, <4
+Description-Content-Type: text/markdown
+Requires-Dist: websockets
+Requires-Dist: dataclasses-json
+Requires-Dist: pylint
+
+Python reference implementation to easily interact with the web socket api from Bitpanda Pro
+
+
