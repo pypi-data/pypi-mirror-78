@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Dogsheep Beta{% if q %}: {{ q }}{% endif %}{% endblock %}
+
+{% block content %}
+<style>
+.result {
+    padding: 1em 0;
+    border-bottom: 1px solid #666;
+}
+.facet h2 {
+    font-size: 1em;
+}
+.facet .x:link,
+.facet .x:visited,
+.facet .x:hover,
+.facet .x:focus,
+.facet .x:active {
+    text-decoration: none;
+}
+.facet .label {
+    word-wrap: break-word;
+}
+aside {
+    float: right;
+    width: 30%;
+}
+section.results {
+    margin-right: 30%;
+    padding-right: 2em;
+}
+pre {
+    white-space: pre-wrap;
+}
+</style>
+<h1>Dogsheep Beta{% if q %}: {{ q }}{% endif %}</h1>
+
+<form action="/-/beta" method="get"><div>
+    <input type="search" name="q" value="{{ q }}" id="q">
+    <input type="submit" value="Search">
+    {% for hidden in hiddens %}
+        <input type="hidden" name="{{ hidden.name }}" value="{{ hidden.value }}">
+    {% endfor %}
+</div></form>
+
+{% if count %}<p>Got {{ intcomma(count) }} result{% if count != 1 %}s{% endif %}</p>{% endif %}
+
+<aside>
+{% if facets %}
+    {% for facet in facets %}
+        <div class="facet">
+            <h2>{{ facet.name }}</h2>
+            <ul>
+                {% for item in facet.results %}
+                    <li{% if item.selected %} class="selected"{% endif %}>
+                        {% if item.selected %}
+                            <span class="label">{{ item.label }}</span> <a href="{{ item.toggle_url }}" class="x">✖</a>
+                        {% else %}
+                        <a href="{{ item.toggle_url }}" class="label">{{ item.label }}</a>
+                        {% endif %}
+                        - <span class="count">{{ intcomma(item.count) }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+{% endif %}
+</aside>
+
+<section class="results">
+{% for result in results %}
+    <div class="result" data-table-key="{{ result.table }}:{{ result.key }}">
+        {{ result.output|safe }}
+    </div>
+{% endfor %}
+</section>
+
+{% endblock %}
