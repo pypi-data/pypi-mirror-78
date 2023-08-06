@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: papersurfer
+Version: 0.12.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Johann Jacobsohn
+Author-email: johann.jacobsohn@uni-hamburg.de
+License: MIT
+Description: # Papersurfer
+        
+        Automatically download paper list from Mattermost channel and display.
+        
+        # UI
+        
+        ![](screencast.gif)
+        
+        
+        # Direct export
+        
+        # Jupyter Notebook
+        
+        # Database
+        
+        Papersurfer uses a tinydb database to cache retrieved data, mostly because I
+        intensely dislike sql-databases.python setup.py install --record files.txt
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Development Status :: 1 - Planning
+Description-Content-Type: text/markdown
