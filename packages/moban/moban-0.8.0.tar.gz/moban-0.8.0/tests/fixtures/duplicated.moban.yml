@@ -1,0 +1,6 @@
+configuration:
+  template_dir:
+    - "."
+targets:
+  - setup.py: setup.py
+  - setup.py: setup.py
