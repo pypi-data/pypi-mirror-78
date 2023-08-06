@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="contract_contract_product_filter_form_view" model="ir.ui.view">
+    <field name="name">contract.contract product filter form view (in contract)</field>
+    <field name="model">contract.contract</field>
+    <field name="inherit_id" ref="contract.contract_contract_form_view" />
+    <field name="arch" type="xml">
+      <group name="main" position="after">
+        <group name="contract_service">
+          <group>
+            <field name="is_broadband" invisible="1" />
+            <field name="service_partner_id"
+                   attrs="{'invisible': [('is_broadband','=',False)]}" />
+          </group>
+          <group>
+            <field name="service_technology_id" />
+            <field name="service_supplier_id" />
+          </group>
+        </group>
+      </group>
+      <field name="invoice_partner_id" position="after">
+        <field name="available_email_ids" invisible="True"/>
+        <field name="email_ids" widget="many2many_tags_contract_email"
+               options="{'no_create_edit':True}"
+               context="{'email_tags': True}"
+               domain="[('id', 'in', available_email_ids)]"
+        />
+      </field>
+    </field>
+  </record>
+</odoo>

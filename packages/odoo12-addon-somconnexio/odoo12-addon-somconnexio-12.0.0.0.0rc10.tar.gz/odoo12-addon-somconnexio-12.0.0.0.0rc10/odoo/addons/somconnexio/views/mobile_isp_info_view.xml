@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="mobile_isp_info_form" model="ir.ui.view">
+    <field name="name">mobile.isp.info.form</field>
+    <field name="model">mobile.isp.info</field>
+    <field name="arch" type="xml">
+      <form string="Mobile ISP Info">
+        <group>
+          <group>
+            <field name="phone_number"/>
+            <field name="delivery_address"/>
+            <field name="type"/>
+            <field name="icc"/>
+            <field name="previous_contract_type"/>
+          </group>
+          <group name="Portability Info"
+            attrs="{'invisible': [('type','=','new')]}">
+            <field name="previous_provider"/>
+            <field name="previous_owner_vat_number"/>
+            <field name="previous_owner_name"/>
+            <field name="previous_owner_firstname"/>
+          </group>
+        </group>
+      </form>
+    </field>
+  </record>
+</odoo>
