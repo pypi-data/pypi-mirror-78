@@ -1,0 +1,18 @@
+exclude .gitattributes
+exclude .gitignore
+
+exclude __pycache__
+
+recursive-exclude cytoscape-sessions
+recursive-exclude docs *
+recursive-exclude examples *
+recursive-exclude notebooks *
+recursive-exclude PTools-22 *
+recursive-exclude PTools-24 *
+recursive-exclude tutorial *
+
+recursive-exclude arabinose *
+recursive-exclude central-carbon *
+recursive-exclude fucose *
+recursive-exclude lactose *
+recursive-exclude sigma *
