@@ -1,0 +1,122 @@
+.builds:
+  stage: build
+  script:
+    - echo "free -h"
+    - free -h
+    - echo "grep -c ^processor /proc/cpuinfo"
+    - grep -c ^processor /proc/cpuinfo
+    - cd build
+    - cmake -DCMAKE_BUILD_TYPE:STRING=Release -DMUSPECTRE_RUNNING_IN_CI=ON ..
+    - make -k
+    - ctest --output-on-failure
+    - make test
+  artifacts:
+    when: always
+    paths:
+      - build/tests/test_results*.xml
+      - build/tests/libmufft/test_results*.xml
+      - build/tests/libmugrid/test_results*.xml
+    reports:
+      junit:
+      - build/tests/test_results*.xml
+      - build/tests/libmufft/test_results*.xml
+      - build/tests/libmugrid/test_results*.xml
+
+build:testing_gcc_mpi:
+  extends: .builds
+
+  image: registry.gitlab.com/muspectre/muspectre:debian_testing
+  script:
+    - echo "free -h"
+    - free -h
+    - echo "grep -c ^processor /proc/cpuinfo"
+    - grep -c ^processor /proc/cpuinfo
+    - cd build
+    - cmake -DCMAKE_BUILD_TYPE:STRING=Release -DMUSPECTRE_MPI_PARALLEL=ON -DMPIEXEC_MAX_NUMPROCS=2 -DMPIEXEC_PREFLAGS="--oversubscribe;--allow-run-as-root" -DMUSPECTRE_RUNNING_IN_CI=ON ..
+    - make -k
+    - ctest --output-on-failure
+    - make test
+
+build:testing_gcc_setuptools:
+  extends: .builds
+  image: registry.gitlab.com/muspectre/muspectre:debian_testing
+  script:
+    - echo "free -h"
+    - free -h
+    - echo "grep -c ^processor /proc/cpuinfo"
+    - grep -c ^processor /proc/cpuinfo
+    - python3 setup.py sdist
+    - python3 -m pip install --user dist/*.tar.gz
+    - cd tests/libmufft
+    - python3 python_binding_tests.py
+
+build:testing_clang:
+  extends: .builds
+  image: registry.gitlab.com/muspectre/muspectre:debian_testing
+  script:
+    - echo "free -h"
+    - free -h
+    - echo "grep -c ^processor /proc/cpuinfo"
+    - grep -c ^processor /proc/cpuinfo
+    - cd build
+    - CXX=clang++ cmake -DCMAKE_BUILD_TYPE:STRING=Release -DMUSPECTRE_RUNNING_IN_CI=ON ..
+    - make -k
+    - ctest --output-on-failure
+    - make test
+
+build:stable_gcc:
+  extends: .builds
+  image: registry.gitlab.com/muspectre/muspectre:debian_stable
+
+build:ubuntu16.04_gcc:
+  extends: .builds
+  image: registry.gitlab.com/muspectre/muspectre:ubuntu16.04
+
+build:testing_gcc_split:
+  extends: .builds
+  image: registry.gitlab.com/muspectre/muspectre:debian_testing
+  script:
+    - echo "free -h"
+    - free -h
+    - echo "grep -c ^processor /proc/cpuinfo"
+    - grep -c ^processor /proc/cpuinfo
+    - cd build
+    - cmake -DCMAKE_BUILD_TYPE:STRING=Release -DSPLIT_CELL=ON ..
+    - make
+    - ctest --output-on-failure
+    - make test
+
+build:test_documention:
+  stage: build
+  image: registry.gitlab.com/muspectre/muspectre:debian_stable
+  script:
+    - cd build
+    - cmake -DMUSPECTRE_MAKE_DOC_TARGET=ON ..
+    - make dev_doc
+  artifacts:
+    paths:
+    - build/doc/html
+
+pages:
+  stage: deploy
+  image: registry.gitlab.com/muspectre/muspectre:debian_stable
+  script:
+    - cd build
+    - cmake -DMUSPECTRE_MAKE_DOC_TARGET=ON ..
+    - make dev_doc
+    - mv doc/html ../public
+  artifacts:
+    paths:
+    - public
+  only:
+    - master
+
+pypi:
+  stage: deploy
+  image: registry.gitlab.com/muspectre/muspectre:debian_stable
+  script:
+    - python3 -m pip install twine
+    - python3 setup.py sdist
+    - python3 -m twine upload --non-interactive --username __token__ --password "$PYPI_PASSWORD" dist/*
+  only:
+    - tags
