@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+py_rename/__init__.py
+py_rename/__main__.py
+py_rename/main.py
+py_rename/py_rename.py
+py_rename/version.py
+py_rename.egg-info/PKG-INFO
+py_rename.egg-info/SOURCES.txt
+py_rename.egg-info/dependency_links.txt
+py_rename.egg-info/entry_points.txt
+py_rename.egg-info/top_level.txt
+tests/test_rename_py.py
