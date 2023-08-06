@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: darkseid
+Version: 1.0.3
+Summary: A library to interact with comic archives
+Home-page: https://github.com/bpepple/darkseid
+Author: Brian Pepple
+Author-email: bdpepple@gmail.com
+License: GPLv3
+Description: .. image:: https://img.shields.io/pypi/v/darkseid.svg
+            :target: https://pypi.org/project/darkseid/
+        
+        .. image:: https://img.shields.io/pypi/pyversions/darkseid.svg
+            :target: https://pypi.org/project/darkseid/
+        
+        .. image:: https://codecov.io/gh/bpepple/darkseid/branch/master/graph/badge.svg
+            :target: https://codecov.io/gh/bpepple/darkseid
+            :alt: Code coverage Status
+        
+        .. image:: https://travis-ci.org/bpepple/darkseid.svg?branch=master
+            :target: https://travis-ci.org/bpepple/darkseid
+        
+        .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+            :target: https://github.com/psf/black
+        
+        Darkseid
+        ========
+        
+        A python library to interact with comic archives.
+        
+        Installation
+        ------------
+        
+        PyPi
+        ~~~~
+        
+        Add this line to your application's requirements.txt:
+        
+        .. code:: python
+        
+            darkseid
+        
+        And then execute:
+        
+        .. code:: bash
+        
+            $ pip install -r requirements.txt
+        
+        Or install it yourself:
+        
+        .. code:: bash
+        
+            $ pip install darkseid
+        
+        GitHub
+        ~~~~~~
+        
+        Installing the latest version from Github:
+        
+        .. code:: bash
+        
+            $ git clone https://github.com/bpepple/darkseid
+            $ cd darkseid
+            $ python setup.py install
+        
+        Bugs/Requests
+        -------------
+        
+        Please use the `GitHub issue tracker <https://github.com/bpepple/darkseid/issues>`_ to submit bugs or request features.
+        
+        License
+        -------
+        
+        This project is licensed under the `GPLv3 License <LICENSE>`_.
+        
+Keywords: comics,comic,metadata,tagging,tagger
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: BSD
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
