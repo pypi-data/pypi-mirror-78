@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "htmlhelpers"
+version = "0.1.1"
+description = "Simple package that helps with creating html strings."
+authors = ["steventimberman <stevetimberman@gmail.com>"]
+maintainers = ["steventimberman <stevetimberman@gmail.com>"]
+license = "MIT"
+readme = "README.rst"
+homepage = ""
+repository = "https://github.com/steventimberman/htmlhelpers"
+keywords = ["HTML", "String Formatting"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.urls]
+issues = "https://github.com/steventimberman/htmlhelpers/issues"
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
