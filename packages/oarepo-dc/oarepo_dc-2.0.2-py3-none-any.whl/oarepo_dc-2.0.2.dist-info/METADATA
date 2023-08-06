@@ -1,0 +1,145 @@
+Metadata-Version: 2.1
+Name: oarepo-dc
+Version: 2.0.2
+Summary: DCTerms support for OARepo (just selected props)
+Home-page: https://github.com/oarepo/oarepo-dc
+Author: Alzbeta Pokorna
+Author-email: alzbeta.pokorna@cesnet.cz
+License: MIT
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Development Status :: 4 - Beta
+Description-Content-Type: text/markdown
+Requires-Dist: marshmallow
+Requires-Dist: oarepo-multilingual
+Requires-Dist: flask
+Provides-Extra: tests
+Requires-Dist: oarepo-multilingual ; extra == 'tests'
+Requires-Dist: oarepo-mapping-includes ; extra == 'tests'
+Requires-Dist: oarepo[tests] (~=3.3.0) ; extra == 'tests'
+Provides-Extra: tests-es7
+Requires-Dist: oarepo-multilingual ; extra == 'tests-es7'
+Requires-Dist: oarepo-mapping-includes ; extra == 'tests-es7'
+Requires-Dist: oarepo[tests-es7] (~=3.3.0) ; extra == 'tests-es7'
+
+OARepo DC data model
+====================
+
+[![image][]][1]
+[![image][2]][3]
+[![image][4]][5]
+[![image][6]][7]
+
+DC Terms data model for oarepo.
+
+Instalation
+----------
+```bash
+    pip install oarepo-dc
+```
+Usage
+-----
+The library provides Dublin Core object for json schema with marshmallow validation and deserialization and elastic search mapping.
+
+JSON Schema
+----------
+Add this package to your dependencies and use it via $ref in json
+schema as ``"[server]/schemas/dcterms-v2.0.0.json#/definitions/DCObject"``. 
+Elastic Search mapping is handled automatically via Eleastic Search templates.
+
+### Usage example
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "these": {
+            "$ref": "https://localhost:5000/schemas/dcterms-v2.0.0.json#/definitions/DCObject"
+      }
+  }
+}
+```
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "these": {
+        "abstract" : {"cs": "neco", "en": "something"}, 
+        "contributor" : "Alzbeta Pokorna", 
+        "modified":"2012-04-23T18:25:43.511Z"
+            }
+        }
+}
+```
+Marshmallow
+-----------
+For data validation and deserialization.
+
+If marshmallow validation is performed within application context, languages in multilingual string data fields are validated against SUPPORTED_LANGUAGES config.
+If the validation is performed outside app context, the keys are not checked against a list of languages
+but a generic validation is performed - keys must be in ISO 639-1 or language-region format from RFC 5646.
+
+### Usage example
+```python
+class MD(DCObjectSchemaV2Mixin, marshmallow.Schema):
+    pass
+
+data = {"title": {"cs": "neco"},
+                 "alternative": {"en-us": "something", "cs": "neco"},
+                 "abstract": {},
+                 "creator": "Alzbeta Pokorna",
+                 "contributor": "Miroslav Simek",
+                 "dateSubmitted": "1970-10-12",
+                 "available": "1970-03-18",
+                 "created": "1970-09-29",
+                 "modified": "1970-12-31",
+                 "description": {"en-us": "something", "cs": "neco"},
+                 "identifier": "id"}
+
+
+    MD().load(data)
+```
+Supported languages validation
+------------------------------
+You can specified supported languages in your application configuration in ``SUPPORTED_LANGUAGES`` . Then only these
+languages are allowed as multilingual string. 
+You must specified your languages in format ``"en"`` or ``"en-us"``.
+### Usage example
+```python
+app.config.update(SUPPORTED_LANGUAGES = ["cs", "en"])
+```
+
+  [image]: https://img.shields.io/github/license/oarepo/oarepo-dc.svg
+  [1]: https://github.com/oarepo/oarepo-dc/blob/master/LICENSE
+  [2]: https://img.shields.io/travis/oarepo/oarepo-dc.svg
+  [3]: https://travis-ci.org/oarepo/oarepo-dc
+  [4]: https://img.shields.io/coveralls/oarepo/oarepo-dc.svg
+  [5]: https://coveralls.io/r/oarepo/oarepo-dc
+  [6]: https://img.shields.io/pypi/v/oarepo-dc.svg
+  [7]: https://pypi.org/pypi/oarepo-dc
+
+<!--
+Copyright (C) 2020 CESNET z.s.p.o.
+
+oarepo-dc is free software; you can redistribute it and/or modify it
+under the terms of the MIT License; see LICENSE file for more details.
+-->
+
+# Changes
+
+## Version 2.0.0 (released 2020-08-25)
+
+- Initial public release.
+
+
