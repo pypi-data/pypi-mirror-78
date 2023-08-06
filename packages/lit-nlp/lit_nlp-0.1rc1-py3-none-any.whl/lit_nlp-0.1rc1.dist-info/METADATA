@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: lit-nlp
+Version: 0.1rc1
+Summary: Language Interpretability Tool.
+Home-page: https://github.com/pair-code/lit
+Author: Google Inc.
+License: Apache 2.0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: Werkzeug
+Requires-Dist: absl-py
+Requires-Dist: attrs
+Requires-Dist: lime
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: sacrebleu
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: umap-learn
+
+# Language Interpretability Tool (LIT)
+
+The Language Interpretability Tool (LIT) is a visual, interactive
+model-understanding tool for NLP models.
+
+LIT is built to answer questions such as:
+
+*   **What kind of examples** does my model perform poorly on?
+*   **Why did my model make this prediction?** Can this prediction be attributed
+    to adversarial behavior, or to undesirable priors in the training set?
+*   **Does my model behave consistently** if I change things like textual style,
+    verb tense, or pronoun gender?
+
+The source code and documentation can be found at https://github.com/pair-code/lit.
+
+
+
