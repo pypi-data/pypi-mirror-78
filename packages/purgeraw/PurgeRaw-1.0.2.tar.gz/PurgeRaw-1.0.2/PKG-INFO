@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: purgeraw
+Version: 1.0.2
+Summary: 
+Author: Andy Phelps
+Author-email: andrew.m.phelps@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: mypy (>=0.782,<0.783)
+Requires-Dist: pylint (>=2.6.0,<3.0.0)
+Requires-Dist: toolz (>=0.10.0,<0.11.0)

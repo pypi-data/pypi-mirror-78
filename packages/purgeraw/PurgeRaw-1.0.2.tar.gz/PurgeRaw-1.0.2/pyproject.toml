@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "PurgeRaw"
+version = "1.0.2"
+description = ""
+authors = ["Andy Phelps <andrew.m.phelps@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "^7.1.2"
+mypy = "^0.782"
+pylint = "^2.6.0"
+toolz = "^0.10.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.scripts]
+praw = "purgeraw.main:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
