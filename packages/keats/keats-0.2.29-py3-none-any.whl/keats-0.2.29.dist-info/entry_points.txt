@@ -1,0 +1,4 @@
+[console_scripts]
+keats=keats:main
+keats_version_up_hook=keats.hooks.keats_version_up:main
+
