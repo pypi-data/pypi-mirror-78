@@ -1,0 +1,66 @@
+type: object
+properties:
+  browser:
+    type: object
+    required: 
+      - name
+    properties:
+      name:
+        type: string
+        enum: 
+          - brave
+          - chromium
+          - firefox
+          - opeara
+          - tbb
+      proxy:
+        type: 
+          - string
+      dns:
+        type: object
+        properties:
+          ip:
+            type: 
+              - string
+            pattern: '^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\.(?!$)|$)){4}$'
+          host:
+            type: 
+              - string
+            pattern: '^[a-zA-Z0-9_-]+(\.[a-zA-Z-]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_-]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$'
+          doh:
+            type: boolean
+  profile:
+    type: object
+    required:
+      - default
+    properties:
+      default:
+        type: string
+      list: 
+        type: array
+        items:
+          type: string
+  vpn:
+    type: object
+    properties:
+      provider:
+        type: string
+        enum:
+          - cyberghost
+          - generic
+          - ipvanish
+          - nord
+          - pia
+          - surfshark
+          - tor
+          - torguard
+          - tunnelbear
+      user:
+        type: 
+          - string
+      pass:
+        type: 
+          - string
+      config:
+        type: 
+          - string
