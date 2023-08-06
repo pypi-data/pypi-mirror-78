@@ -1,0 +1,147 @@
+Metadata-Version: 2.1
+Name: ballparker
+Version: 1.0.1
+Summary: A tool for structuring and creating ballpark estimates
+Home-page: https://gitlab.com/ryanpavlik/ballparker
+Author: Ryan A. Pavlik
+Author-email: ryan.pavlik@collabora.com
+License: Apache-2.0 AND CC0-1.0
+Project-URL: Source Code and Issue Tracker, https://gitlab.com/ryanpavlik/ballparker
+Project-URL: Documentation, https://ballparker.readthedocs.io
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: attrs
+Requires-Dist: typing
+
+# Ballparker
+
+<!--
+Copyright 2019-2020, Collabora, Ltd.
+SPDX-License-Identifier: Apache-2.0
+-->
+
+[![Documentation Status](https://readthedocs.org/projects/ballparker/badge/?version=latest)](https://ballparker.readthedocs.io/en/latest/?badge=latest)
+[![REUSE status](https://api.reuse.software/badge/gitlab.com/ryanpavlik/ballparker)](https://api.reuse.software/info/gitlab.com/ryanpavlik/ballparker)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+
+A Python package for creating, maintaining, and manipulating task lists/trees
+associated with "ballpark" estimation.
+
+## Table of Contents
+
+- [Install](#install)
+  - [Upgrading](#upgrading)
+- [Usage](#usage)
+- [Maintainers](#maintainers)
+- [Thanks](#thanks)
+- [Code of Conduct](#code-of-conduct)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Install
+
+Python 3.6 or newer is required.
+
+Ballparker is in PyPI, so you can install the latest released version as follows:
+
+```sh
+python3 -m pip install --user ballparker
+```
+
+If you want the latest source tree, instead of latest release, you can install
+directly from the main Git repo as follows:
+
+```sh
+python3 -m pip install --user git+https://gitlab.com/ryanpavlik/ballparker.git
+```
+
+Alternately, especially if you would like to participate in development, you can
+install from a clone of this repository. It's recommended to install this in a
+virtualenv *especially* if you choose this install option. Something like this
+will work on *nix-like systems, adjusted for your shell usage.
+
+```bash
+# Create a virtualenv in `venv`
+python3 -m venv venv
+
+# Activate it
+. venv/bin/activate
+
+# Install a link to this package in the venv.
+python3 -m pip install --editable .
+```
+
+If you follow those instructions, the virtualenv will refer to the source
+instead of copying the source, so updating your local clone of this repo will
+also update the virtualenv. Omit the `--editable` if you want other behavior.
+
+### Upgrading
+
+If you installed using pip and want to upgrade, you'll want to do one of the
+following, depending on where you want to update from. You can even upgrade
+between a packaged release and the latest Git, if you like.
+
+To upgrade to the latest tagged release:
+
+```sh
+python3 -m pip install --user --upgrade ballparker
+```
+
+To upgrade to the very latest code in Git:
+
+```sh
+python3 -m pip install --user --upgrade git+https://gitlab.com/ryanpavlik/ballparker.git
+```
+
+## Usage
+
+You will typically create a new Python file for each estimate you produce. You
+can start it with the template in
+[`ballpark_template.py`](ballpark_template.py).
+
+See the documentation for `ballparker.dsl` for instructions on the ballpark
+process this package was designed around.
+
+When preparing for a customer, do not forget to add project-managment overhead
+to the estimated days!
+
+## Maintainers
+
+[@ryanpavlik](https://gitlab.com/ryanpavlik)
+
+## Thanks
+
+This tool was initially developed by Ryan Pavlik in the course of his work at
+the open source software consultancy [Collabora](https://collabora.com). Thanks
+to Collabora and their "Open First" mantra for supporting the development of
+this software.
+
+## Code of Conduct
+
+Please note that this project is released with a Contributor Code of Conduct. By
+participating in this project you agree to abide by its terms.
+
+## Contributing
+
+If you have questions or found a bug, feel free to file an issue on the GitLab
+project for Ballparker.
+
+## License
+
+The *tl;dr* is: The software written for this package is [Apache-2.0][]
+licensed, while a few other files, including templates, are CC0-1.0 public
+domain dedications. See [COPYING.md](COPYING.md) for details, and see individual
+files for specifics.
+
+[Apache-2.0]: http://www.apache.org/licenses/LICENSE-2.0
+
+
