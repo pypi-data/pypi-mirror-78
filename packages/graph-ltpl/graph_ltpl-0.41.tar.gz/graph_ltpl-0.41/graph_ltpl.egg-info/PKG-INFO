@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: graph-ltpl
+Version: 0.41
+Summary: Multilayer graph-based local trajectory planner.
+Home-page: UNKNOWN
+Author: Tim Stahl
+Author-email: stahl@ftm.mw.tum.de
+License: UNKNOWN
+Description: # Local Trajectory Planner
+        
+        ### Disclaimer
+        This software is provided *as-is* and has not been subject to a certified safety validation. Autonomous Driving is a
+        highly complex and dangerous task. In case you plan to use this software on a vehicle, it is by all means required that
+        you assess the overall safety of your project as a whole. By no means is this software a replacement for a valid 
+        safety-concept. See the license for more details.
+        
+        
+        ### Documentation
+        Documentation and details will be provided in a future version of this package, together with the github account
+        (ETA Oct 2020).
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
