@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: imopay_wrapper
+Version: 0.0.4a1
+Summary: Cliente oficial imobanco
+Home-page: https://github.com/imobanco/imopay-wrapper
+Author: Imobanco
+License: UNKNOWN
+Project-URL: Documentation, https://imopay-wrapper.readthedocs.io
+Project-URL: Source, https://github.com/imobanco/imopay-wrapper
+Project-URL: Tracker, https://github.com/imobanco/imopay-wrapper/issues
+Description: .. |br| raw:: html
+        
+          <br/>
+        
+        |br|
+        
+        Cliente oficial do Imobanco feito em Python, para realizar integração com o gateway de pagamento Imopay.
+        
+        `Documentação oficial do Imopay <https://imopay.com.br>`_
+        
+Keywords: Imopay API client wrapper
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: Portuguese (Brazilian)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content :: CGI Tools/Libraries
+Classifier: Topic :: Utilities
+Classifier: 
+Classifier: 
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
