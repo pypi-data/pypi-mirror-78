@@ -1,0 +1,95 @@
+Metadata-Version: 2.1
+Name: pylookyloo
+Version: 1.2.1
+Summary: Python CLI and module for Lookyloo
+Home-page: https://github.com/lookyloo/PyLookyloo
+License: BSD-3-Clause
+Author: Raphaël Vinot
+Author-email: raphael.vinot@circl.lu
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet
+Classifier: Topic :: Security
+Requires-Dist: requests (>=2.22.0,<3.0.0)
+Project-URL: Repository, https://github.com/lookyloo/PyLookyloo
+Description-Content-Type: text/markdown
+
+# PyLookyloo
+
+This is the client API for [Lookyloo](https://github.com/Lookyloo/lookyloo).
+
+## Installation
+
+```bash
+pip install pylookyloo
+```
+
+## Usage
+
+* You can use the lookyloo command to enqueue an URL.
+
+```bash
+usage: lookyloo [-h] [--url URL] --query QUERY
+
+Enqueue a URL on Lookyloo.
+
+optional arguments:
+  -h, --help     show this help message and exit
+  --url URL      URL of the instance (defaults to https://lookyloo.circl.lu/,
+                 the public instance).
+  --query QUERY  URL to enqueue.
+  --listing      Should the report be publicly listed.
+  --redirects    Get redirects for a given capture.
+
+The response is the permanent URL where you can see the result of the capture.
+```
+
+* Or as a library
+
+```python
+
+from pylookyloo import Lookyloo
+
+lookyloo = Lookyloo('https://url.of.lookyloo.instance')
+if lookyloo.is_up:  # to make sure it is up and reachable
+	permaurl = lookyloo.enqueue('http://url.to.lookup')
+
+```
+You can add the following paramaters to the enqueue fuction:
+```
+    quiet      Return only the uuid
+    listing    Should the report be publicly listed.
+    user_agent Set your own user agent
+    Depth      Set the analysis depth. Can not be more than in config
+```
+To retrieve the redirects (json)
+```python
+    redirect = lookyloo.get_redirects(uuid)
+```
+To retrieve the cookies (json)
+```python
+    cookies = lookyloo.get_cookies(uuid)
+```
+To retrieve the screenshot (raw)
+```python
+    screen = lookyloo.get_screenshot(uuid)
+```
+To retrieve the html (raw)
+```python
+    html = lookyloo.get_html(uuid)
+```
+To retrieve the complete capture(raw)
+```python
+    capture = lookyloo.get_complete_capture(uuid)
+```
+
