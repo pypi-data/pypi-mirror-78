@@ -1,0 +1,21 @@
+Metadata-Version: 1.2
+Name: dv_pyclient
+Version: 0.7.1
+Summary: Python libraries for Datavore. Auth, Exec, Publish, gRPC, ....
+Home-page: https://github.com/datavore-labs/dv-pyclient
+Author: Datavore Labs
+Author-email: info@datavorelabs.com
+License: MIT license
+Description: Provides python services to interact with Datavore's applications and servers. Auth, Exec, Publish, gRPC, ....
+Keywords: dv_pyclient
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
