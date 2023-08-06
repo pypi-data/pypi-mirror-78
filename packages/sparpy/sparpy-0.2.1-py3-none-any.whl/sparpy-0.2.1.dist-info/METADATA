@@ -1,0 +1,139 @@
+Metadata-Version: 2.1
+Name: sparpy
+Version: 0.2.1
+Summary: A spark entry point for python
+Home-page: https://github.com/alfred82santa/sparpy
+Author: Alfred Santacatalina
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: click
+
+======================================
+Sparpy: A Spark entry point for python
+======================================
+
+---------
+Changelog
+---------
+
+......
+v0.2.1
+......
+
+* Force `pyspark` python executable to same than `sparpy`.
+* Fix unrecognized options.
+* Fix default configuration file names.
+
+......
+v0.2.0
+......
+
+* Added configuration file option.
+* Added `--debug` option.
+
+----------------------------
+How to build a Sparpy plugin
+----------------------------
+
+On package `setup.py` a entry point must be configured for Sparpy:
+
+.. code-block:: python
+
+    setup(
+        name='yourpackage',
+        ...
+
+        entry_points={
+            ...
+            'sparpy.cli_plugins': [
+                'my_command_1=yourpackage.module:command_1',
+                'my_command_2=yourpackage.module:command_2',
+            ]
+        }
+    )
+
+.. note::
+
+    Avoid to use PySpark as requirement in order to not download package from pypi.
+
+-------
+Install
+-------
+
+It must be installed on a Spark edge node.
+
+.. code-block:: bash
+
+    $  pip install sparpy
+
+
+----------
+How to use
+----------
+
+Using default Spark submit parameters:
+
+.. code-block:: bash
+
+    $ sparpy --plugin "mypackage>=0.1" my_plugin_command --myparam 1
+
+
+-------------------
+Configuration files
+-------------------
+
+`sparpy` and `sparpu-submit` accept the parameter `--config` that allow to set a configuration file. If it is not set
+it will try to use configuration file `$HOME/.sparpyrc`. It if does not exist it will try to use `/etc/sparpy.conf`.
+
+Format:
+
+.. code-block:: ini
+
+    [spark]
+
+    master=yarn
+    deploy-mode=client
+
+    spark-executable=/path/to/my-spark-submit
+    conf=
+        spark.conf.1=value1
+        spark.conf.2=value2
+
+    packages=
+        maven:package_1:0.1.1
+        maven:package_1:0.1.1
+
+    repositories=
+        http://my-maven-repository-1.com/simple
+        http://my-maven-repository-2.com/simple
+
+    reqs_paths=
+        /path/to/dir/with/python/packages_1
+        /path/to/dir/with/python/packages_2
+
+    [plugins]
+
+    extra-index-urls=
+        http://my-pypi-repository-1.com/simple
+        http://my-pypi-repository-2.com/simple
+
+    cache-dir=/path/to/cache/dir
+
+    plugins=
+        my-package1
+        my-package2==0.1.2
+
+    requirements-files=
+        /path/to/requirement-1.txt
+        /path/to/requirement-2.txt
+
+    download-dir-prefix=my_prefix_
+
+    no-self=false
+    force-download=true
+

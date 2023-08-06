@@ -1,0 +1,5 @@
+[console_scripts]
+sparpy = sparpy.cli:run_sparpy
+sparpy-runner = sparpy.cli:run_sparpy_runner
+sparpy-submit = sparpy.cli:run_sparpy_submit
+
