@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "ccaawscreds"
+version = "0.5.5"
+description = "update AWS console PW, rotate Access Keys, generate random passwords."
+authors = ["ccdale <chris.charles.allison@gmail.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+repository = "https://github.com/ccdale/ccaawscreds"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+click = "^7.1.2"
+boto3 = "^1.14.48"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.scripts]
+awspw = "ccaawscreds.credentials:awsPW"
+awskey = "ccaawscreds.credentials:awsK"
+genpw = "ccaawscreds.credentials:genPW"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
