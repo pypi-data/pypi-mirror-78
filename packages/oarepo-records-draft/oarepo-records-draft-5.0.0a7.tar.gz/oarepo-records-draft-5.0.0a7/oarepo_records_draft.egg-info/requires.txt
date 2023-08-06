@@ -1,0 +1,7 @@
+wrapt>=1.11.2
+oarepo_validate
+deepmerge
+
+[tests]
+oarepo[tests]
+pytest-cov
