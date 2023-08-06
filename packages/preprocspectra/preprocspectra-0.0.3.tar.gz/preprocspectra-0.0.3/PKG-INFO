@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: preprocspectra
+Version: 0.0.3
+Summary: A simple library to apply preprocessing of spectra obtained from infrared spectroscopy.
+Home-page: https://github.com/dijsilva/preprocspectra
+Author: Diego José da Silva
+Author-email: diegojsilvabr@gmail.com
+License: MIT
+Download-URL: https://github.com/dijsilva/preprocspectra/releases/tag/0.0.1
+Description: 
+        This library provides a set of some pre-processing methods that can be used in
+        spectra obtained by infrared spectroscopy. It is possible to use some treatments 
+        sometimes or all.
+        
+Keywords: SPECTROSCOPY,PREPROCESSING,SPECTRA
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
