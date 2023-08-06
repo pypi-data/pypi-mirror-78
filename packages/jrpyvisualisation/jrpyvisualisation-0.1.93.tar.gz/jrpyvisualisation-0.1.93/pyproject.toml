@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "jrpyvisualisation"
+version = "0.1.93"
+description = "Jumping Rivers: Introduction to Visualisation in Python"
+authors = ["Jamie <jamie@jumpingrivers.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.5.3"
+plotly = "^4.1"
+pandas = "^0.25.0"
+numpy = "^1.17"
+sklearn = "^0.0.0"
+scikit-learn = "^0.21.3"
+
+[tool.poetry.dev-dependencies]
