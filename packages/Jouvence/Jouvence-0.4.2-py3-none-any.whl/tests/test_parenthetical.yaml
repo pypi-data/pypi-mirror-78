@@ -1,0 +1,24 @@
+---
+in: |
+    STEEL
+    (starting the engine)
+    So much for retirement!
+out: 
+    - '@STEEL'
+    - '_(starting the engine)'
+    - '=So much for retirement!'
+---
+in: |
+    STEEL
+    They're coming out of the woodwork!
+    (pause)
+    No, everybody we've put away!
+    (pause)
+    Point Blank Sniper?
+out:
+    - "@STEEL"
+    - "=They're coming out of the woodwork!"
+    - "_(pause)"
+    - "=No, everybody we've put away!"
+    - "_(pause)"
+    - "=Point Blank Sniper?"

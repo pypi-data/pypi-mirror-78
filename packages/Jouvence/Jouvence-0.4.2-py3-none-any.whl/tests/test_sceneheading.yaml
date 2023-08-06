@@ -1,0 +1,52 @@
+---
+in: |
+    EXT. ANOTHER PLACE
+
+    This is an action I think.
+out:
+    - ".EXT. ANOTHER PLACE"
+    - "!\nThis is an action I think."
+---
+in: |
+    An action.
+
+
+    EXT. ANOTHER PLACE
+
+    This is an action I think.
+out:
+    - "!An action.\n"
+    - ".EXT. ANOTHER PLACE"
+    - "!\nThis is an action I think."
+---
+in: |
+    title: Something for Testing
+    author: Moi
+
+
+    EXT. ANOTHER PLACE
+
+    This is an action I think.
+title:
+    title: Something for Testing
+    author: Moi
+out:
+    - "!"
+    - ".EXT. ANOTHER PLACE"
+    - "!\nThis is an action I think."
+---
+in: |
+    .somewhere in space
+
+    We are in space!
+out:
+    - ".somewhere in space"
+    - "!\nWe are in space!"
+---
+in: |
+    EXT. OLYMPIA CIRCUS - NIGHT
+    
+    ...where the second-rate carnival is parked for the moment in an Alabama field.
+out:
+    - ".EXT. OLYMPIA CIRCUS - NIGHT"
+    - "!\n...where the second-rate carnival is parked for the moment in an Alabama field."
