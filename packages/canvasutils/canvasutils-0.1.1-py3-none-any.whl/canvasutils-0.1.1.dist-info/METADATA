@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: canvasutils
+Version: 0.1.1
+Summary: Utilities for interacting with Canvas using Python and the canvasapi.
+Home-page: https://github.com/TomasBeuzen/canvasutils
+Author: Tomas Beuzen
+Author-email: tomas.beuzen@stat.ubc.ca
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: canvasapi (>=2.0.0,<3.0.0)
+Requires-Dist: ipywidgets (>=7.5.1,<8.0.0)
+Project-URL: Repository, https://github.com/TomasBeuzen/canvasutils
+Description-Content-Type: text/markdown
+
+# CanvasUtils
+
+Utilities for interacting with Canvas using Python and the canvasapi.
+
+## Installation
+
+```bash
+pip install canvasutils
+```
+
+## Features
+
+- Submit files to Canvas from within a Jupyter notebook.
+- Create assignments (coming)
+- Create assignment rubrics (coming)
+
+## Dependencies
+
+See the file [pyproject.toml](pyproject.toml), `[tool.poetry.dependencies]`.
+
+## Usage
+
+### Assignment Submission in Jupyter
+
+The submit module is made to be used within a Jupyter notebook (.ipynb file):
+
+![](docs/img/assignment_submit.gif)
+
+```python
+api_url = "https://canvas.instructure.com/"
+course_code = 123456
+
+from canvasutils.submit import submit
+submit(course_code, api_url=api_url, token_present=False)  # token present false allows you to enter token interactively.
+```
+
+## Contributors
+
+Contributions are welcomed and recognized. You can see a list of contributors in the [contributors tab](https://github.com/TomasBeuzen/canvasutils/graphs/contributors).
+
+### Credits
+
+This package was originally based on [this repository](https://github.com/eagubsi/JupyterCanvasSubmit) created by Emily Gubski and Steven Wolfram.
+
