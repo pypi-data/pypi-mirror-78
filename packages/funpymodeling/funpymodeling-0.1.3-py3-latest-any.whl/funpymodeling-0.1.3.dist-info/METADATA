@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: funpymodeling
+Version: 0.1.3
+Summary: A package designed for data scientists and teachers, to speed up their ML projects, focused on exploratory data analysis, data preparation, and model performance.
+Home-page: https://github.com/pablo14/funPyModeling
+License: MIT
+Author: Pablo Casas
+Author-email: pcasas.biz@gmail.com
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: matplotlib (>=3.3.0,<4.0.0)
+Requires-Dist: numpy (>=1.19.1,<2.0.0)
+Requires-Dist: pandas (>=1.1.0,<2.0.0)
+Requires-Dist: seaborn (>=0.10.1,<0.11.0)
+Requires-Dist: sklearn (>=0.0,<0.1)
+Project-URL: Documentation, https://github.com/pablo14/funPyModeling
+Project-URL: Repository, https://github.com/pablo14/funPyModeling
+Description-Content-Type: text/markdown
+
+# funPyModeling
+A package to help data scientist in Exploratory Data Analysis and Data Preparation for ML models
+
