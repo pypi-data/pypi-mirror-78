@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: tea-django
+Version: 0.0.11
+Summary: Set of django helpers for developing web and non-web apps.
+Home-page: https://github.com/alefnula/tea-django
+Author: Viktor Kerkez
+Author-email: alefnula@gmail.com
+Maintainer: Viktor Kerkez
+Maintainer-email: alefnula@gmail.com
+License: Apache-2.0
+Platform: Windows
+Platform: POSIX
+Platform: MacOSX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: django (~=3.1.1)
+Requires-Dist: djangorestframework (~=3.11.1)
+Requires-Dist: djangorestframework-simplejwt (~=4.4.0)
+Requires-Dist: python-slugify (~=4.0.1)
+Requires-Dist: tea (~=0.1.2)
+Requires-Dist: tea-console (~=0.0.5)
+Requires-Dist: typer (~=0.3.2)
+
+# Tea Django
+
+Is a set of helper modules for developing command line, web and gui
+applications using the django framework.
+
+It's just a personal collection of modules that I found myself copying from
+project to project.
+
+
+## Installation
+
+
+```bash
+pip install tea-django
+```
+
+Add `tea_django` to `INSTALLED_APPS`:
+
+```python
+
+INSTALLED_APPS = [
+    ...,
+    "tea_django",
+    ...,
+]
+```
+
