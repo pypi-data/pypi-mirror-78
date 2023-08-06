@@ -1,0 +1,32 @@
+{
+"classes":{
+    "outer_space":1,
+    "bright_region":3,
+    "filament":4,
+    "prominence":5,
+    "coronal_hole":6,
+    "quiet_sun":7,
+    "limb":8,
+    "flare":9
+  },
+
+  "display":{
+    "colors":{
+      "outer_space": "#000000",
+      "bright_region": "#F0E442",
+      "filament": "#D55E00",
+      "prominence": "#E69F00",
+      "coronal_hole": "#009E73",
+      "quiet_sun": "#0072B2",
+      "limb": "#56B4E9",
+      "flare": "#CC79A7"
+    },
+
+    "channels":{
+      "red": "suvi-l1b-fe171",
+      "green": "suvi-l1b-fe195",
+      "blue": "suvi-l1b-fe284",
+      "single":"halpha"
+    }
+  }
+}
