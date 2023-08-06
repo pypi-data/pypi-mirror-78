@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: heartbeat-sh
+Version: 0.0.2
+Summary: A client library for heartbeat.sh
+Home-page: https://heartbeat.sh
+Author: heartbeat.sh
+Author-email: admin@heartbeat.sh
+License: UNKNOWN
+Project-URL: Source Code, https://github.com/heartbeat-sh/heartbeat.py
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Heartbeat.sh Python Client
+
+This is a Python client library for [heartbeat.sh](https://heartbeat.sh).
+
+
