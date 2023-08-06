@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "poetry_notebook"
+version = "0.1.0"
+description = ""
+authors = ["Jean-Christophe Cazes <jean-christophe.cazes@groupeseloger.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+jupyter = "^1.0.0"
+pandas = "^1.1.1"
+numpy = "^1.19.1"
+numba = "^0.51.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
