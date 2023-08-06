@@ -1,0 +1,405 @@
+Metadata-Version: 2.1
+Name: packet-python
+Version: 1.43.1
+Summary: Packet API client
+Home-page: https://github.com/packethost/packet-python
+Author: Packet Developers
+License: LGPL v3
+Description: # Packet
+        
+        A Python client for the Packet API.
+        
+        ![Build Status](https://drone.packet.net/api/badges/packethost/packet-python/status.svg "Build Status")
+        
+        ## Table of Contents
+        
+        * [Installation](#installation)
+        * [Documentation](#documentation)
+        * [Authentication](#authentication)
+        * [Examples](#examples)
+          * [List Projects](#list-projects)
+          * [List Plans](#list-plans)
+          * [Creating a Device](#creating-a-device)
+          * [Checking the Status and Rebooting a Device](#checking-the-status-and-rebooting-a-device)
+          * [Listing all Devices Limiting to 50 per Page](#listing-all-devices-limiting-to-50-per-page)
+          * [Updating a Device](#updating-a-device)
+          * [Deleting a Device](#deleting-a-device)
+          * [Creating a Device Batch](#creating-a-device-batch)
+          * [Creating a Volume](#creating-a-volume)
+          * [Attaching and Detaching a Volume](#attaching-and-detaching-a-volume)
+          * [Creating and Restoring a Volume Snapshot](#creating-and-restoring-a-volume-snapshot)
+          * [Listing Project IP Addresses](#listing-project-ip-addresses)
+          * [Creating a Project for an Organization](#creating-a-project-for-an-organization)
+          * [Creating a VLAN](#creating-a-vlan)
+        * [Contributing](#contributing)
+        * [Copyright](#copyright)
+        * [Changes](#changes)
+        
+        ## Installation
+        
+        The packet python api library can be installed using pip:
+        
+            pip install packet-python
+        
+        Package information available here:
+        
+        https://pypi.python.org/pypi/packet-python
+        
+        ## Documentation
+        
+        Full Packet API documenation is available here:
+        [https://www.packet.net/developers/api/](https://www.packet.net/developers/api/)
+        
+        ## Authentication
+        
+        Provide your credentials when instantiating client:
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        ```
+        
+        ## Examples
+        
+        ### List Projects
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        projects = manager.list_projects()
+        for project in projects:
+            print(project)
+        ```
+        
+        ### List Plans
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        plans = manager.list_plans()
+        for plan in plans:
+            print(plan)
+            if 'cpus' in plan.specs:
+                print(plan.specs['cpus'][0]['count'])
+        ```
+        
+        ### Creating a Device
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        device = manager.create_device(project_id='project-id',
+                                       hostname='node-name-of-your-choice',
+                                       plan='baremetal_1', facility='ewr1',
+                                       operating_system='ubuntu_18_04')
+        print(device)
+        ```
+        
+        ### Checking the Status and Rebooting a Device
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        device = manager.get_device('device-id')
+        print(device.state)
+        device.reboot()
+        ```
+        
+        ### Listing all Devices Limiting to 50 per Page
+        
+        _Packet API defaults to a limit of 10 per page_
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        params = {
+            'per_page': 50
+        }
+        devices = manager.list_devices(project_id='project_id', params = params)
+        print(devices)
+        ```
+        
+        ### Updating a Device
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        device = manager.get_device('device-id')
+        device.hostname = "test02"
+        device.description = "new description"
+        
+        device.update()
+        ```
+        
+        ### Deleting a Device
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        device = manager.get_device('device-id')
+        device.delete()
+        ```
+        
+        ### Creating a Device Batch
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        batch01 = packet.DeviceBatch({
+                    "hostname": "batch01",
+                    "quantity": 2,
+                    "facility": "ams1",
+                    "operating_system": "centos_7",
+                    "plan": "baremetal_0",
+                })
+        
+        device_batch = manager.create_batch(project_id="project_id", params=[batch01])
+        print(device_batch)
+        ```
+        
+        ### Creating a Volume
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        volume = manager.create_volume(project_id="project-id",
+                                        description="volume description",
+                                        plan="storage_1",
+                                        size="100",
+                                        facility="ewr1",
+                                        snapshot_count=7,
+                                        snapshot_frequency="1day")
+        print(volume)
+        ```
+        
+        ### Attaching and Detaching a Volume
+        
+        ```python
+        import packet
+        import time
+        
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        volume = manager.get_volume("volume_id")
+        
+        volume.attach("device_id")
+        
+        while True:
+            if manager.get_device("device_id").state == "active":
+                break
+            time.sleep(2)
+        
+        volume.detach()
+        ```
+        
+        ## Creating and Restoring a Volume Snapshot
+        
+        ```python
+        import packet
+        import time
+        
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        volume = manager.get_volume("volume_id")
+        volume.create_snapshot()
+        
+        while True:
+            if manager.get_volume(volume.id).state == "active":
+                break
+            time.sleep(2)
+        
+        snapshots = manager.get_snapshots(volume.id)
+        volume.restore(snapshots[0].timestamp)
+        ```
+        
+        ### Listing Project IP Addresses
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        ips = manager.list_project_ips("project_id")
+        for ip in ips:
+            print(ip.address)
+        ```
+        
+        ### Creating a Project for an Organization
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        project = manager.create_organization_project(
+            org_id="organization_id",
+            name="Integration Tests",
+            customdata={"tag": "QA"}
+        )
+        print(project)
+        ```
+        
+        ### Creating a VLAN
+        
+        ```python
+        import packet
+        manager = packet.Manager(auth_token="yourapiauthtoken")
+        
+        vlan = manager.create_vlan(project_id="project_id", facility="ewr1")
+        print(vlan)
+        ```
+        
+        ## Contributing
+        
+        * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
+        * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
+        * Fork the project.
+        * Start a feature/bugfix branch.
+        * Commit and push until you are happy with your contribution.
+        * You can test your changes with the `test/tests.sh` script, which is what drone uses to check builds.
+        
+        ## Credits
+        
+        CargoCulted with much gratitude from:
+        https://github.com/koalalorenzo/python-digitalocean
+        
+        ## Copyright
+        
+        Copyright (c) 2017 Packet Host. See [License](LICENSE.txt) for further details.
+        
+        ## Changes
+        
+        See the [Changelog](CHANGELOG.md) for further details.
+        
+        # Changelog
+        All notable changes to this project will be documented in this file.
+        
+        The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
+        This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+        
+        ## [1.44.0] - Unreleased
+        ### Added
+        ### Changed
+        ### Fixed
+        
+        ## [1.43.1] - 2020-09-04
+        ### Fixed
+        - ResponseError fixed for Python2.7 compatibility
+        
+        ## [1.43.0] - 2020-07-14
+        ### Added
+        - Support for reinstalling the operating system to a device, including changing the operating system.
+        - `Manager.create_vlan` now includes a description argument
+        ### Changed
+        - `ResponseError` will now be raised when an API call results in an error
+        ### Fixed
+        - `Manager.validate_capacity` now considers availability
+        - `Manager.create_project_ssh_key` will retry when it encounters 404 responses following a successful creation.
+        - API responses with `{"error":""}` keys were not handled well, and will now be handled just like `{"errors":[""]}` keys.
+        
+        ## [1.42.0] - 2020-02-14
+        ### Added
+        - Capturing of `available_in` to Plan
+        - Capturing of `hardware_reservation`, `spot_price_max`, `termination_time`, and `provisioning_percentage` to `Device`
+        - Support for creating project ssh keys
+        - Support for passing `custom_data` when creating a device
+        ### Fixed
+        - Black not building for CI and thus failing
+        
+        ## [1.41.0] - 2019-10-16
+        ### Added
+        - Support for retrieval of hardware reservations
+        - CPR support at device creation
+        
+        ## [1.40.0] - 2019-10-14
+        ### Added
+        - Integration tests are only run if `PACKET_PYTHON_TEST_ACTUAL_API` envvar is set
+        - Rescue action and along with test
+        - Missing SPDX and source encoding meta comments
+        ### Removed
+        - Use of Travis CI
+        
+        ## [1.39.1] - 2019-09-17
+        ### Added
+        - Support for `hardware_reservation_id`
+        
+        ## [1.39.0] - 2019-08-26
+        ### Added
+        - Support for Organizations, Events, Emails, VLAN, Snapshot Policies, Batches, Ports, VPN and IPs.
+        - Live tests
+        
+        ## [1.38.2] - 2019-05-30
+        ### Added
+        - Test fixtures to sdist
+        
+        ## [1.38.1] - 2019-05-30
+        ### Fixed
+        - Changelog
+        
+        ## [1.38.0] - 2019-05-30
+        ### Added
+        - Support for python3.7
+        - `legacy` param to `get_capacity` function
+        ### Removed
+        - Support for python3.3
+        ### Changed
+        - setup.py no longer converts markdown to reST because pypi now supports markdown, woop.
+        
+        ## [1.37.1] - 2018-01-08
+        ### Fixed
+        - Version number in setup.py
+        
+        ## [1.37.0] - 2018-01-08
+        ### Added
+        - Spot Market Support
+        - Ability to specify ssh keys on device creation
+        
+        ## [1.36.0] - 2017-10-16
+        ### Added
+        - Better tests using PacketMockManager
+        - Test on 2.7 and 3.[3-6]
+        - Changelog
+        
+        ### Changed
+        - Use tox for testing
+        
+        ## [1.35] - 2017-08-04
+        ### Fixed
+        - Some tests were broken
+        
+        ## [1.35]
+        ### Added
+        - `public_ipv4_subnet_size`
+        
+        ## [1.34] - 2017-08-04
+        ### Added
+        - Custom iPXE and `always_pxe` setting
+        - Volume coloning
+        - Device Tags
+        
+        ### Fixed
+        - Handling of error messages from api response
+        
+        ## [1.33] - 2017-03-15
+        ### Fixed
+        - Default payment method
+        
+Keywords: packet api client
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
