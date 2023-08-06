@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+./CMakeLists.txt
+./patches/sharedlib.patch
+lyncs_tmLQCD/__init__.py
+lyncs_tmLQCD/gauge.py
+lyncs_tmLQCD/lib.py
+lyncs_tmLQCD.egg-info/PKG-INFO
+lyncs_tmLQCD.egg-info/SOURCES.txt
+lyncs_tmLQCD.egg-info/dependency_links.txt
+lyncs_tmLQCD.egg-info/requires.txt
+lyncs_tmLQCD.egg-info/top_level.txt
+test/__init__.py
+test/test_gauge.py
