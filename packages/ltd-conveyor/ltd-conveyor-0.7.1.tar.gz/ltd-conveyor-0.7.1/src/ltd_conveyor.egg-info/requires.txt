@@ -1,0 +1,14 @@
+boto3
+requests
+uritemplate
+click
+
+[dev]
+responses
+pytest
+pytest-mock
+documenteer[pipelines]
+sphinx-click
+coverage[toml]
+Sphinx<2.0
+mypy
