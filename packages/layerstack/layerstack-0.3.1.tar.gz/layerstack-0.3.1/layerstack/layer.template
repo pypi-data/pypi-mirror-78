@@ -1,0 +1,48 @@
+from __future__ import print_function, division, absolute_import
+
+from builtins import super
+import logging
+from uuid import UUID
+
+from layerstack.args import Arg, Kwarg
+from {{ layer_base_class_module }} import {{ layer_base_class }}
+
+logger = logging.getLogger('layerstack.layers.{{ class_name }}')
+
+
+class {{ class_name }}({{ layer_base_class }}):
+    '''{{ layer_base_class_doc }}'''
+
+    name = "{{ name }}"
+    uuid = UUID("{{ uuid }}")
+    version = '0.1.0'
+    desc = {% if desc %}"{{ desc }}"{% else %}None{% endif %}
+
+    @classmethod
+    def args(cls{% if is_model_layer != 'LayerBase' %}, model=None{% endif %}):
+        '''{{ layer_base_class_args_doc }}'''
+        arg_list = super().args()
+        arg_list.append(Arg('arg_name', description='', parser=None,
+                            choices=None, nargs=None))
+        return arg_list
+
+    @classmethod
+    def kwargs(cls{% if is_model_layer %}, model=None{% endif %}):
+        '''{{ layer_base_class_kwargs_doc }}'''
+        kwarg_dict = super().kwargs()
+        kwarg_dict['kwarg_name'] = Kwarg(default=None, description='',
+                                         parser=None, choices=None,
+                                         nargs=None, action=None)
+        return kwarg_dict
+
+    @classmethod
+    def apply(cls, stack, {% if layer_base_class != 'LayerBase' %}model, {% endif %}*args, **kwargs):
+        '''{{ layer_base_class_apply_doc }}'''
+        return {% if is_model_layer %}model{% else %}True{% endif %}
+
+
+if __name__ == '__main__':
+{{ main_opts }}
+    {{ class_name }}.main()
+
+    
