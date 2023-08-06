@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: kong-batch
+Version: 0.9.4
+Summary: Batch job submission and management tool
+Home-page: https://github.com/paulgessinger/kong/
+License: MIT
+Author: Paul Gessinger
+Author-email: hello@paulgessinger.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: ipython
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: coloredlogs (>=14.0,<15.0)
+Requires-Dist: halo (>=0.0.29,<0.0.31)
+Requires-Dist: humanfriendly (>=8.2,<9.0)
+Requires-Dist: ipython (>=7.16.1,<8.0.0); extra == "ipython"
+Requires-Dist: jinja2 (>=2.11.2,<3.0.0)
+Requires-Dist: notifiers (>=1.2.1,<2.0.0)
+Requires-Dist: peewee (>=3.13.3,<4.0.0)
+Requires-Dist: psutil (>=5.7.2,<6.0.0)
+Requires-Dist: python-dateutil (>=2.8.1,<3.0.0)
+Requires-Dist: pytimeparse (>=1.1.8,<2.0.0)
+Requires-Dist: pytz (>=2020.1,<2021.0)
+Requires-Dist: pyyaml (>=5.3.1,<6.0.0)
+Requires-Dist: schema (>=0.7.2,<0.8.0)
+Requires-Dist: sh (>=1.13.1,<2.0.0)
+Requires-Dist: tqdm (>=4.48.0,<5.0.0)
+Description-Content-Type: text/markdown
+
+# Kong ![CI](https://github.com/paulgessinger/kong/workflows/CI/badge.svg) [![codecov](https://codecov.io/gh/paulgessinger/kong/branch/master/graph/badge.svg)](https://codecov.io/gh/paulgessinger/kong) [![pypi](https://img.shields.io/pypi/v/kong-batch)](https://pypi.org/project/kong-batch/) [![docs](https://readthedocs.org/projects/kong-batch/badge/?version=latest)](https://kong-batch.readthedocs.io)
+[Documentation](https://kong-batch.readthedocs.io)
+
+
+
+## What does this do?
+Suppose you use a batch cluster somewhere to run parallel workloads. Normally
+you'd write dedicated submission code for each type of system and use the
+relevant shell commands to monitor job progress. How do you keep track
+of what happened to jobs? How do you even keep track of which job did what?
+
+With kong, you can organize your jobs into *folders* (not actual folders on disk),
+however you feel like it. Kong can keep track of job statuses and reports
+them to you in a clean and organized view. You can manage your jobs 
+in kong, kill them, resubmit them, remove them. Kong also normalizes things
+like where the your job can find scratch space, where to put log files
+and where to put output files. This is done by a set of environment variables
+available in every job, regardless of backend (called *driver*):
+
+variable name       | value
+--------------------|------
+KONG_JOB_ID         | Kong-specific job ID (not the batch system one)
+KONG_JOB_OUTPUT_DIR | Where to put output files
+KONG_JOB_LOG_DIR    | Where log files go
+KONG_JOB_NPROC      | How many core your job can use
+KONG_JOB_SCRATCHDIR | scratch dir for the job
+
+You can write job scripts that are mostly agnostic to which driver is
+used to execute the job. Some things remain specific to your environment,
+especially things that are implemented on top of the actual batch system. This
+includes things like licenses, queue names, and any other specific configuration.
+Kong allows you to provide arguments like this either via configuration, or on
+a job by job basis.
+
+## Interface
+
+### REPL
+
+Kong provides a command line like program. If you run
+
+[![asciicast](https://asciinema.org/a/hnBQ7S4GQQj2uGI42kbOQyHw4.svg)](https://asciinema.org/a/hnBQ7S4GQQj2uGI42kbOQyHw4)
+
+
+
