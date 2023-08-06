@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: niva-api-client
+Version: 0.1.0
+Summary: Client library for interacting with API's exposed at https://data.niva.no. Handles common tasks such as authentication
+License: MIT
+Author: Håkon Drolsum Røkenes
+Author-email: hakon.rokenes@niva.no
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: poetry-version (>=0.1.5,<0.2.0)
+Requires-Dist: pydantic (>=1.6.1,<2.0.0)
+Requires-Dist: requests (==2.24.0)
+Requires-Dist: uuid (>=1.30,<2.0)
