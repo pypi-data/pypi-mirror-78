@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: event-isc-py2
+Version: 0.0.1
+Summary: Library for inter-service event-based communication
+Home-page: https://github.com/radiocut/event-isc/
+Author: Guillermo Narvaja
+Author-email: guillermo.narvaja@radiocut.fm
+License: UNKNOWN
+Project-URL: Funding, https://donate.pypi.org
+Project-URL: Bug Reports, https://github.com/radiocutfm/event-isc/issues
+Project-URL: Say Thanks!, https://saythanks.io/to/guillermo.narvaja%40radiocut.fm
+Project-URL: Source, https://github.com/radiocutfm/event-isc/
+Description: # Inter-service event communication
+        
+        This library handles inter (micro)services communication in a decoupled way using the event/observer pattern.
+        
+        The code raises an event when something happens and that event fires notifications to the registered listeners.
+        
+        **THIS IS A PYTHON 2.7 COMPATIBLE PACKAGE, FOR PYTHON 3 USE https://pypi.org/project/event-isc/**
+        
+        Implemented notifications are:
+        
+        1. Celery task
+        2. HTTP request
+        
+        
+        ## YAML file configuration
+        
+        Can be configured with a yaml file like this, passed as initialization argument or in environment variable EVENTISC_CONFIG
+        
+        ```yaml
+        name_prefix: myapp.
+        listeners:
+        - kind: http
+          event_name: myapp.user_created
+          url: http://notification-service.mycompany.com/send-welcome/
+          requests_kwargs:
+            auth: ["myuser", "password"]
+          request_format: json
+          data:
+            user_id: "{event_data['user'].id}"
+            email: "{event_data['user'].email}"
+        - kind: celery
+          event_name_regex: myapp[.].*_created
+          queue: foo_service
+          task_name: foo_handle_created
+          task_kwargs:
+            event_name: {event_name}
+            event_data: {event_data}
+        ```
+        
+        
+        ## Usage
+        
+        ```python
+        
+        import eventisc
+        
+        ...
+        eventisc.trigger("user_created", {"user": user})  # Should fire both listeners
+        
+        eventisc.trigger("foo_created", {"foo": "bar"})  # Should fire only celery
+        
+        ```
+        
+Keywords: event inter-service-communication celery microservices
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Requires-Python: >=2.7, <3
+Description-Content-Type: text/markdown
+Provides-Extra: celery
+Provides-Extra: dev
+Provides-Extra: requests
+Provides-Extra: test
