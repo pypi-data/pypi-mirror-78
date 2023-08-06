@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pgdiff
+Version: 0.1.20.post1
+Summary: 
+Author: Your Name
+Author-email: you@example.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: networkx (>=2.4,<3.0)
+Requires-Dist: psycopg2 (>=2.8.5,<3.0.0)
+Requires-Dist: typing_extensions (>=3.7.4,<4.0.0)
