@@ -1,0 +1,3 @@
+[console_scripts]
+pysradb = pysradb.cli:parse_args
+
