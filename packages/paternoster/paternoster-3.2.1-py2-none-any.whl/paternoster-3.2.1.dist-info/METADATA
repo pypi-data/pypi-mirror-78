@@ -1,0 +1,44 @@
+Metadata-Version: 2.0
+Name: paternoster
+Version: 3.2.1
+Summary: Paternoster provides allows to run ansible playbooks like ordinary python or bash scripts.
+Home-page: https://github.com/uberspace/paternoster
+Author: uberspace.de
+Author-email: hallo@uberspace.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Security
+Classifier: Topic :: Utilities
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: six
+Requires-Dist: tldextract (>=2.0.1)
+Provides-Extra: ansible21
+Requires-Dist: ansible (==2.1.*); extra == 'ansible21'
+Provides-Extra: ansible22
+Requires-Dist: ansible (==2.2.*); extra == 'ansible22'
+Provides-Extra: ansible23
+Requires-Dist: ansible (==2.3.*); extra == 'ansible23'
+Provides-Extra: ansible24
+Requires-Dist: ansible (==2.4.*); extra == 'ansible24'
+Provides-Extra: ansible25
+Requires-Dist: ansible (==2.5.*); extra == 'ansible25'
+Provides-Extra: ansible26
+Requires-Dist: ansible (==2.6.*); extra == 'ansible26'
+Provides-Extra: ansible27
+Requires-Dist: ansible (==2.7.*); extra == 'ansible27'
+Provides-Extra: ansible28
+Requires-Dist: ansible (==2.8.*); extra == 'ansible28'
+Provides-Extra: ansible29
+Requires-Dist: ansible (==2.9.*); extra == 'ansible29'
+
+UNKNOWN
+
+
