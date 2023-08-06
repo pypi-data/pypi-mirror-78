@@ -1,0 +1,12 @@
+build
+dist
+venv
+*.pyc
+*.egg-info
+__pycache__
+.idea
+.tox
+.venv
+_build
+ci/*.matrix.gen.yml
+docs/_build

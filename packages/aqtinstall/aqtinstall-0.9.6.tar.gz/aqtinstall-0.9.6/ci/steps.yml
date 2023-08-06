@@ -1,0 +1,258 @@
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: $(PYTHON_VERSION)
+      architecture: 'x64'
+  - powershell: |
+      pip install -e .
+    displayName: install package
+
+  # Run Aqt
+  ##----------------------------------------------------
+  ## we insert sleep in random duration < 30sec to reduce
+  ## download server load.
+  - bash: |
+      number=$RANDOM
+      let "number %= 30"
+      sleep $number
+      mkdir Qt
+      cd Qt
+      python -m aqt install $(QT_VERSION) $(HOST) $(TARGET) $(ARCH)
+    workingDirectory: $(Build.BinariesDirectory)
+    env:
+      AQT_CONFIG: $(Build.SourcesDirectory)/ci/settings.ini
+    condition: and(not(variables['QT_BASE_MIRROR']), not(variables['TOOL_NAME']), not(variables['EXTERNAL']), eq(variables['MODULE'], ''), eq(variables['SUBARCHIVES'], ''))
+    displayName: Run Aqt (No Base URL Set)
+  - bash: |
+      number=$RANDOM
+      let "number %= 30"
+      sleep $number
+      mkdir Qt
+      cd Qt
+      python -m aqt install $(QT_VERSION) $(HOST) $(TARGET) $(ARCH) -b $(QT_BASE_MIRROR)
+    workingDirectory: $(Build.BinariesDirectory)
+    env:
+      AQT_CONFIG: $(Build.SourcesDirectory)/ci/settings.ini
+    condition: and(variables['QT_BASE_MIRROR'], not(variables['TOOL_NAME']), not(variables['EXTERNAL']), eq(variables['MODULE'], ''), eq(variables['SUBARCHIVES'], ''))
+    displayName: Run Aqt (Base URL Set)
+  - bash: |
+      number=$RANDOM
+      let "number %= 30"
+      sleep $number
+      mkdir Qt
+      cd Qt
+      python -m aqt install $(QT_VERSION) $(HOST) $(TARGET) $(ARCH) -m $(MODULE)
+    workingDirectory: $(Build.BinariesDirectory)
+    env:
+      AQT_CONFIG: $(Build.SourcesDirectory)/ci/settings.ini
+    condition: and(not(variables['TOOL_NAME']), not(variables['EXTERNAL']), ne(variables['MODULE'], ''), eq(variables['SUBARCHIVES'], ''))
+    displayName: Run Aqt (With modules)
+  - bash: |
+      number=$RANDOM
+      let "number %= 30"
+      sleep $number
+      mkdir Qt
+      python -m aqt install --outputdir $(Build.BinariesDirectory)/Qt $(QT_VERSION) $(HOST) $(TARGET) $(ARCH) -E "$(EXTERNAL)"
+    workingDirectory: $(Build.BinariesDirectory)
+    env:
+      AQT_CONFIG: $(Build.SourcesDirectory)/ci/settings.ini
+    condition: and(not(variables['TOOL_NAME']), variables['EXTERNAL'], eq(variables['SUBARCHIVES'], ''))
+    displayName: Run Aqt (With external 7zip)
+  - bash: |
+      number=$RANDOM
+      let "number %= 30"
+      sleep $number
+      mkdir Qt
+      cd Qt
+      python -m aqt install $(QT_VERSION) $(HOST) $(TARGET) $(ARCH) --archives $(SUBARCHIVES)
+    workingDirectory: $(Build.BinariesDirectory)
+    env:
+      AQT_CONFIG: $(Build.SourcesDirectory)/ci/settings.ini
+    condition: ne(variables['SUBARCHIVES'], '')
+    displayName: Run Aqt (sub arhives option)
+  - bash: |
+      number=$RANDOM
+      let "number %= 30"
+      sleep $number
+      mkdir Qt
+      cd Qt
+      python -m aqt src $(QT_VERSION) $(HOST) $(TARGET)
+    workingDirectory: $(Build.BinariesDirectory)
+    env:
+      AQT_CONFIG: $(Build.SourcesDirectory)/ci/settings.ini
+    condition: eq(variables['TOOL_NAME'], 'src')
+    displayName: Run Aqt (source)
+  - bash: |
+      number=$RANDOM
+      let "number %= 30"
+      sleep $number
+      mkdir Qt
+      cd Qt
+      python -m aqt examples $(QT_VERSION) $(HOST) $(TARGET)
+    workingDirectory: $(Build.BinariesDirectory)
+    env:
+      AQT_CONFIG: $(Build.SourcesDirectory)/ci/settings.ini
+    condition: eq(variables['TOOL_NAME'], 'examples')
+    displayName: Run Aqt (examples)
+  - bash: |
+      number=$RANDOM
+      let "number %= 30"
+      sleep $number
+      mkdir Qt
+      cd Qt
+      python -m aqt doc $(QT_VERSION) $(HOST) $(TARGET)
+    workingDirectory: $(Build.BinariesDirectory)
+    env:
+      AQT_CONFIG: $(Build.SourcesDirectory)/ci/settings.ini
+    condition: eq(variables['TOOL_NAME'], 'doc')
+    displayName: Run Aqt (doc)
+
+  # Test installation environments
+  ##----------------------------------------------------
+  # for Android on linux
+  - script: |
+      wget https://dl.google.com/android/repository/android-ndk-r20b-linux-x86_64.zip
+      unzip android-ndk-r20b-linux-x86_64.zip
+    condition: and(eq(variables['TARGET'], 'android'), eq(variables['Agent.OS'], 'Linux'))
+    displayName: Download and extract Android NDK
+  # for Android on mac
+  - script: |
+      wget https://dl.google.com/android/repository/android-ndk-r20b-darwin-x86_64.zip
+      unzip android-ndk-r20b-darwin-x86_64.zip
+    condition: and(eq(variables['TARGET'], 'android'), eq(variables['Agent.OS'], 'Darwin'))
+    displayName: Download and extract Android NDK
+  - bash: |
+      export ANDROID_NDK_ROOT=$(Build.SourcesDirectory)/android-ndk-r20b
+      mkdir $(Build.BinariesDirectory)/tests
+      (cd $(Build.BinariesDirectory)/tests; 7zr x $(Build.SourcesDirectory)/ci/accelbubble.7z)
+      export PATH=$(Build.BinariesDirectory)/Qt/$(QT_VERSION)/$(ARCHDIR)/bin:$PATH
+      qmake $(Build.BinariesDirectory)/tests/accelbubble
+      make
+    condition: and(eq(variables['TARGET'], 'android'), or(eq(variables['Agent.OS'], 'Linux'), eq(variables['Agent.OS'], 'Darwin')))
+    displayName: Build accelbubble example application to test for android
+
+  ##----------------------------------------------------
+  # Test build on Windows/Linux and Mac
+  # determine Windows build system
+  - powershell: |
+      Install-PackageProvider NuGet -Force
+      Import-PackageProvider NuGet -Force
+      Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+      Install-Module Pscx -AllowClobber
+      Install-Module VSSetup -Scope CurrentUser
+      if ('$(ARCH)' -like '*msvc*') {
+        Write-Host '##vso[task.setvariable variable=TOOLCHAIN]MSVC'
+      }
+      if ('$(ARCH)' -like '*mingw*') {
+        Write-Host '##vso[task.setvariable variable=TOOLCHAIN]MINGW'
+      }
+      if ('$(ARCH)' -like 'win64_msvc*') {
+        Write-Host '##vso[task.setvariable variable=ARCHITECTURE]amd64'
+      } else {
+        Write-Host '##vso[task.setvariable variable=ARCHITECTURE]x86'
+      }
+      if ('$(ARCH)' -like '*msvc2019*') {
+        Write-Host '##vso[task.setvariable variable=VSVER]2019'
+      } elseif ('$(ARCH)' -like '*msvc2017*') {
+        Write-Host '##vso[task.setvariable variable=VSVER]2017'
+      } else {
+        Write-Host '##vso[task.setvariable variable=VSVER]2015'
+      }
+    condition: eq( variables['Agent.OS'], 'Windows_NT')
+    displayName: Detect toolchain for Windows and update PATH
+  - script: |
+      sudo apt-get install libgl1-mesa-dev
+    condition: and(eq( variables['TARGET'], 'desktop'), eq(variables['Agent.OS'], 'Linux'), eq(variables['TOOL_NAME'], ''))
+    displayName: install test dependency for Linux
+
+  # no modules
+  # TODO: current PSCX release does not support VSVER 2019
+  - powershell: |
+      Import-VisualStudioVars -VisualStudioVersion $(VSVER) -Architecture $(ARCHITECTURE)
+      $env:Path += ";$(Build.BinariesDirectory)\Qt\$(QT_VERSION)\$(ARCHDIR)\bin"
+      mkdir $(Build.BinariesDirectory)\tests
+      cd $(Build.BinariesDirectory)\tests
+      7z x $(Build.SourcesDirectory)\ci\helloworld.7z
+      cd ..
+      qmake $(Build.BinariesDirectory)\tests\helloworld
+      nmake
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT'), eq(variables['TOOLCHAIN'], 'MSVC'), eq(variables['MODULE'], ''), ne(variables['VSVER'], '2019'))
+    displayName: build test with qmake with MSVC w/o extra module
+  - powershell: |
+      python -m aqt tool --outputdir $(Build.BinariesDirectory)/Qt $(HOST) tools_mingw 8.1.0-1-202004170606 qt.tools.win64_mingw810
+      [Environment]::SetEnvironmentVariable("Path", ";$(Build.BinariesDirectory)\Qt\Tools\mingw810_64\bin" + $env:Path, "Machine")
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT'), eq(variables['TOOLCHAIN'], 'MINGW'), eq(variables['ARCH'], 'win64_mingw81'))
+    displayName: Install Mingw81(win64) from Qt distribution and set PATH
+  - powershell: |
+      python -m aqt tool --outputdir $(Build.BinariesDirectory)/Qt $(HOST) tools_mingw 8.1.0-1-202004170606 qt.tools.win32_mingw810
+      [Environment]::SetEnvironmentVariable("Path", ";$(Build.BinariesDirectory)\Qt\Tools\mingw810_32\bin" + $env:Path, "Machine")
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT'), eq(variables['TOOLCHAIN'], 'MINGW'), eq(variables['ARCH'], 'win32_mingw81'))
+    displayName: Install Mingw81(win32) from Qt distribution and set PATH
+  - powershell: |
+      $env:Path = "$(Build.BinariesDirectory)\Qt\Tools\$(ARCHDIR)\bin;$(Build.BinariesDirectory)\Qt\$(QT_VERSION)\$(ARCHDIR)\bin;" + $env:Path
+      mkdir $(Build.BinariesDirectory)\tests
+      cd $(Build.BinariesDirectory)\tests
+      7z x $(Build.SourcesDirectory)\ci\helloworld.7z
+      cd ..
+      qmake $(Build.BinariesDirectory)\tests\helloworld
+      mingw32-make
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT'), eq(variables['TOOLCHAIN'], 'MINGW'), eq(variables['MODULE'], ''))
+    displayName: build test with qmake with MINGW w/o extra module
+  - script: |
+      mkdir $(Build.BinariesDirectory)/tests
+      (cd $(Build.BinariesDirectory)/tests; 7zr x $(Build.SourcesDirectory)/ci/helloworld.7z)
+      export PATH=$(Build.BinariesDirectory)/Qt/$(QT_VERSION)/$(ARCHDIR)/bin:$PATH
+      qmake $(Build.BinariesDirectory)/tests/helloworld
+      make
+    condition: and(eq( variables['TARGET'], 'desktop' ), ne( variables['ARCH'], 'wasm_32' ), or(eq(variables['Agent.OS'], 'Linux'), eq(variables['Agent.OS'], 'Darwin')), eq(variables['MODULE'], ''), eq(variables['TOOL_NAME'], ''))
+    displayName: Build test with qmake for Linux and macOS w/o extra module
+  # modules
+  # TODO: current PSCX release does not support VSVER 2019
+  - powershell: |
+      Import-VisualStudioVars -VisualStudioVersion $(VSVER) -Architecture $(ARCHITECTURE)
+      $env:Path += ";$(Build.BinariesDirectory)\Qt\$(QT_VERSION)\$(ARCHDIR)\bin"
+      echo Add Qt to PATH: $env:PATH
+      mkdir $(Build.BinariesDirectory)/tests
+      cd $(Build.BinariesDirectory)/tests
+      7z x $(Build.SourcesDirectory)/ci/redditclient.7z
+      cd ..
+      qmake $(Build.BinariesDirectory)\tests\redditclient
+      nmake
+    condition: and(eq( variables['Agent.OS'], 'Windows_NT'), eq(variables['TOOLCHAIN'], 'MSVC'), ne(variables['MODULE'], ''), ne(variables['VSVER'], '2019'))
+    displayName: build test with qmake with MSVC with extra module
+  - bash: |
+      mkdir $(Build.BinariesDirectory)/tests
+      (cd $(Build.BinariesDirectory)/tests; 7zr x $(Build.SourcesDirectory)/ci/redditclient.7z)
+      export PATH=$(Build.BinariesDirectory)/Qt/$(QT_VERSION)/$(ARCHDIR)/bin:$PATH
+      qmake $(Build.BinariesDirectory)/tests/redditclient
+      make
+    condition: and(eq( variables['TARGET'], 'desktop'), or(eq(variables['Agent.OS'], 'Linux'), eq(variables['Agent.OS'], 'Darwin')), ne(variables['MODULE'], ''))
+    displayName: Build test with qmake for Linux and macOS with extra module
+
+  ##----------------------------------------------------
+  # for ios
+  - script: echo Currently not implemented.
+    condition: and(eq(variables['TARGET'], 'ios'), eq(variables['Agent.OS'], 'Darwin'))
+    displayName: Build test with qmake for ios
+
+  ##----------------------------------------------------
+  # wasm_32 on linux and mac
+  - script: |
+      git clone https://github.com/emscripten-core/emsdk.git
+      cd emsdk
+      ./emsdk install sdk-fastcomp-1.38.27-64bit
+      ./emsdk activate --embedded  sdk-fastcomp-1.38.27-64bit
+    workingDirectory: $(Build.BinariesDirectory)
+    condition: and(eq( variables['ARCH'], 'wasm_32' ), or(eq(variables['Agent.OS'], 'Linux'), eq(variables['Agent.OS'], 'Darwin')))
+    displayName: 'Install Emscripten SDK'
+  - bash: |
+      source $(Build.BinariesDirectory)/emsdk/emsdk_env.sh
+      mkdir $(Build.BinariesDirectory)/tests
+      (cd $(Build.BinariesDirectory)/tests; 7zr x $(Build.SourcesDirectory)/ci/openglwindow.7z)
+      export PATH=$(Build.BinariesDirectory)/Qt/$(QT_VERSION)/$(ARCHDIR)/bin:$PATH
+      qmake $(Build.BinariesDirectory)/tests/openglwindow
+      make
+    workingDirectory: $(Build.BinariesDirectory)
+    condition: and(eq( variables['ARCH'], 'wasm_32' ), or(eq(variables['Agent.OS'], 'Linux'), eq(variables['Agent.OS'], 'Darwin')))
+    displayName: 'Build WebAssembler sample project'
+
