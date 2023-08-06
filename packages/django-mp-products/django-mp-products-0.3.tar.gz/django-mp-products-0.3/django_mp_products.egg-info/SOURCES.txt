@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+django_mp_products.egg-info/PKG-INFO
+django_mp_products.egg-info/SOURCES.txt
+django_mp_products.egg-info/dependency_links.txt
+django_mp_products.egg-info/top_level.txt
+products/__init__.py
+products/managers.py
+products/model_fields.py
+products/querysets.py
+products/utils.py
