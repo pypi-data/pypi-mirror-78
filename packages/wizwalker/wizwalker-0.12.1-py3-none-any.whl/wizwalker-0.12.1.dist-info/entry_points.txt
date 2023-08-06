@@ -1,0 +1,4 @@
+[console_scripts]
+wiz=wizwalker.__main__:wiz_command
+wizwalker=wizwalker.__main__:main
+
