@@ -1,0 +1,15 @@
+[run]
+data_file = .coverage2
+
+omit =
+    setup.py
+    /usr/*
+    tests/*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    no cover: 2.x
+
+[html]
+directory = htmlcov/py2
