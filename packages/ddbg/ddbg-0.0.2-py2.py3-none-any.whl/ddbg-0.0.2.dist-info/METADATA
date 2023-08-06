@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: ddbg
+Version: 0.0.2
+Summary: Debugger for ML Datasets
+Home-page: https://github.com/ml-illustrated/ddbg
+Author: ML Illustrated
+Author-email: gerald@ml-illustrated.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: numpy
+Requires-Dist: torch (==1.6.*)
+Requires-Dist: torchvision (==0.7.*)
+Requires-Dist: Pillow (==7.*)
+Requires-Dist: pytorch-lightning (==0.9.*)
+Requires-Dist: umap-learn (==0.4.*)
+Requires-Dist: fvcore
+Requires-Dist: psutil
+Requires-Dist: matplotlib (==3.2.*)
+Requires-Dist: tensorboard (==2.2.*)
+Requires-Dist: future (==0.18.*)
+
+Debugger for ML Datasets
+
+
