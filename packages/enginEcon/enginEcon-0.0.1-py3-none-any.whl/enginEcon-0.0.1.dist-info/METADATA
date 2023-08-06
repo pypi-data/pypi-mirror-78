@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: enginEcon
+Version: 0.0.1
+Summary: helper functions for Engineering Economy problems
+Home-page: https://github.com/cookiedan42/EnginEcon
+Author: Daniel Tan
+Author-email: cookiedan42@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+This module provides    
+Interest table calculators in form of   
+
+    [A/P,i%,n] --> AP(i,n)  
+
+CashFlow Object that helps with adding and calculation of worth
+
+
+TODO    
+
+    1) Test cases to verify everything is correct    
+    2) adding more calculation to CashFlow object
+        2a. B/C calculations
+        2b. MIRR calculations
+        2c. IRR calculation
+        2d. incremental comparisons
+
