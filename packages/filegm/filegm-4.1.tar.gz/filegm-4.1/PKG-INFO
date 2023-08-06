@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: filegm
+Version: 4.1
+Summary: File searching
+Home-page: https://pypi.org/
+Author: Carlo Capobianchi
+Author-email: degnucs@gmail.com
+License: UNKNOWN
+Description: 
+        
+        # Filegm
+        
+        Filegm is a stand-alone script that allows you to search for files in a file system, exclusively according to the parameters of the extension(s) and the date of file creation.
+        You can enter a single date, from which to perform the search until today, or a start and end date, within which to perform the search.
+        You can then specify one or more file extensions. You can also create a directory in the current folder into which the searched files will be copied.
+        Finally, in case there are duplicate files, you can choose whether to copy all duplicate files, a sorting of them, or no duplicate files, to the new
+        directory.
+        
+        ## Installation
+        
+        Use the package manager to install Filegm.
+        
+        pip install filegm
+        
+        ## Usage
+        
+        filegm.py
+        
+        ## License
+        
+        LGPLv3 (https://www.gnu.org/licenses/lgpl-3.0.html)
+        
+Platform: linux
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Topic :: Documentation
+Classifier: Topic :: Utilities
