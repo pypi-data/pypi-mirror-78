@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: onet
+Version: 0.1.0
+Summary: Train and predict procedures of DNN for binary image classification.
+Home-page: https://github.com/fmind/onet
+Author: Médéric Hurier (fmind)
+Author-email: fmind@fmind.me
+License: LGPL-3.0
+Keywords: tensorflow keras image-classification
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pillow (<8.0.0,>=7.2.0)
+Requires-Dist: tensorflow (<3.0,>=2.3)
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+
+# onet
+
+## Usage
+
+Help procedure:
+```bash
+onet --help
+```
+
+Train procedure:
+```bash
+$ onet train images/train
+```
+
+Predict procedure:
+```bash
+onet predict images/predict
+```
+
+## Installation
+
+```bash
+python -m pip install onet
+```
+
+## Documentation
+
+```bash
+python -m pydoc onet
+```
+
+
