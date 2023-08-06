@@ -1,0 +1,26 @@
+include AUTHORS
+include CHANGES.rst
+include LICENSE.txt
+include README.rst
+
+graft docs
+graft vsutillib
+
+prune docs/build
+
+prune vsutillib/vsutillib-files
+prune vsutillib/vsutillib-log
+prune vsutillib/vsutillib-macos
+prune vsutillib/vsutillib-media
+prune vsutillib/vsutillib-misc
+prune vsutillib/vsutillib-mkv
+prune vsutillib/vsutillib-network
+prune vsutillib/vsutillib-process
+prune vsutillib/vsutillib-pyqt
+prune vsutillib/vsutillib-scripts
+prune vsutillib/vsutillib-sql
+prune vsutillib/vsutillib-vsxml
+prune vsutillib/scripts
+
+global-exclude __pycache__
+global-exclude *.py[co]
