@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: gyver-database
+Version: 0.3.0
+Summary: UNKNOWN
+Home-page: https://github.com/MaxGyverTech/database/
+Author: MaxGyverTech
+Author-email: maksimfadeenko2@gmail.com
+License: UNKNOWN
+Description: ## РњРѕРґСѓР»СЊ РґР»СЏ python РґР»СЏ Р»С‘РіРєРѕР№ СЂР°Р±РѕС‚С‹ СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С… sqlite
+        
+        Р”Р»СЏ СѓСЃС‚Р°РЅРѕРІРєРё:
+        
+        ```
+        pip install gyver-database
+        ```
+        
+        РћР±РЅРѕРІРёС‚СЊ:
+        
+        ```
+        pip install gyver-database --update
+        ```
+        
+        Р”Р»СЏ РёРјРїРѕСЂС‚Р°:
+        
+        ```python
+        from database.database import DB
+        ```
+        
+        Р”РѕРєСѓРјРµРЅС‚Р°С†РёСЋ РѕРЅР° Р¶Рµ РёРЅСЃС‚СЂСѓРєС†РёСЏ СЃРјРѕС‚СЂРµС‚СЊ РІ [useDB](https://github.com/MaxGyverTech/database/blob/master/useDB.py)
+        
+        ```
+        python useDB.py
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
