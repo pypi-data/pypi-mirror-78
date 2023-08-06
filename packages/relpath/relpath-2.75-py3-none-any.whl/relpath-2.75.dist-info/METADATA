@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: relpath
+Version: 2.75
+Summary: relative path from the python file itself
+Home-page: https://github.co.jp/
+Author: le latelle
+Author-email: g.tiger.ml@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# relpath
+
+!!! このドキュメントは書きかけです。
+!!! This document is a work in progress.
+
+下の方に日本語・●・●の説明があります
+
+## 概要 (日本語)
+このパッケージでできること:
+1. 直感的な相対パス参照ができる
+	- pythonのパス参照の仕様は直感に反する
+2. モジュールの相対importに使える
+	- フォルダが多重で複雑なプロジェクトにも対応できる
+
+## 使い方1: 基本的な例
+
+下記は、pythonファイル自身の場所(ディレクトリ)を取得する例です。
+
+```python
+import relpath as rp
+print(rp.rel2abs("./"))	# -> "(このpythonファイルが存在するディレクトリ)"
+```
+
