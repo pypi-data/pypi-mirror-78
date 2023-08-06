@@ -1,0 +1,5 @@
+include README.rst
+include LICENSE
+recursive-include mavenn/src *
+recursive-include mavenn/examples *
+recursive-include mavenn/tests *
