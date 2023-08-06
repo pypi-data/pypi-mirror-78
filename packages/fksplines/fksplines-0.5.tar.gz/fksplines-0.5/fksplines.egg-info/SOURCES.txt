@@ -1,0 +1,15 @@
+README.md
+setup.py
+fksplines.egg-info/PKG-INFO
+fksplines.egg-info/SOURCES.txt
+fksplines.egg-info/dependency_links.txt
+fksplines.egg-info/top_level.txt
+splines/__init__.py
+splines/metrics.py
+splines/regression.py
+splines/core/__init__.py
+splines/core/mv_splines.py
+splines/core/optimizers.py
+splines/core/training_algorithms.py
+splines/core/utils.py
+splines/core/uv_splines.py
