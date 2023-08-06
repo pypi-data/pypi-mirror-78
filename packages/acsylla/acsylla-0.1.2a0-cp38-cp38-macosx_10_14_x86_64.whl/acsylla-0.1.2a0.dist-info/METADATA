@@ -1,0 +1,109 @@
+Metadata-Version: 2.1
+Name: acsylla
+Version: 0.1.2a0
+Summary: A high performance asynchronous Cassandra and Scylla client
+Home-page: http://github.com/pfreixes/acsylla
+Author: Pau Freixes
+Author-email: pfreixes@gmail.com
+License: UNKNOWN
+Platform: *nix
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Provides-Extra: dev
+Requires-Dist: Cython (==0.29.18) ; extra == 'dev'
+Requires-Dist: pytest (==5.4.1) ; extra == 'dev'
+Requires-Dist: pytest-mock (==3.1.0) ; extra == 'dev'
+Requires-Dist: pytest-asyncio (==0.11.0) ; extra == 'dev'
+Requires-Dist: asynctest (==0.13.0) ; extra == 'dev'
+Requires-Dist: pytest-cov (==2.8.1) ; extra == 'dev'
+Requires-Dist: black (==19.10b0) ; extra == 'dev'
+Requires-Dist: isort (==4.3.21) ; extra == 'dev'
+Requires-Dist: flake8 (==3.7.9) ; extra == 'dev'
+Requires-Dist: mypy (==0.782) ; extra == 'dev'
+
+acsylla
+#######
+
+WORK IN PROGRESS, use only for developing
+
+Install
+==========
+
+There is an Alpha realease compabitble with Python 3.7 and Python 3.8 for Linux and MacOS environments uploaded as a Pypi package. Use the following
+command for installing it:
+
+.. code-block:: bash
+
+    pip install acsylla
+
+For MacOS you would need to install the following libraries for make it work:
+
+.. code-block:: bash
+
+    brew install libuv openssl 
+
+Usage
+==========
+
+The following snippet shows the minimal stuff that would be needed for creating a new ``Session``
+object for the keyspace ``acsylla`` and then peform a query for reading a set of rows.
+
+.. code-block:: python
+
+    import asyncio
+    import acsylla
+    async def main():
+        cluster = acsylla.create_cluster([host])
+        session = await cluster.create_session(keyspace="acsylla")
+        statement = ascylla.create_statement("SELECT id, value FROM test WHERE id = 100")
+        result = await session.execute(statement)
+        row = result.first()
+        value = row.column_by_name("value")
+        await session.close()
+    asyncio.run(main())
+
+
+Acsylla comes with a minimal support for the following objects: ``Cluster``, ``Session``,
+``Statement``, ``PreparedStatement``, ``Batch``, ``Result``, ``Row`` and ``Value``.
+
+
+Developing
+============
+
+For developing you must clone the respository and first compile the CPP Cassandra driver, please
+follow the `instructions <https://docs.datastax.com/en/developer/cpp-driver/2.6/topics/building/>`_
+for installing any dependency that you would need for compiling the driver:
+
+.. note::
+    The driver depends on `libuv` and `openssl`. To install on Mac OS X, do `brew install libuv`
+    and `brew install openssl` respectively. Additionally, you may need to export openssl lib
+    locations: `export LDFLAGS="-L/usr/local/opt/openssl/lib"`
+    and `export CPPFLAGS="-I/usr/local/opt/openssl/include"`.
+
+.. code-block:: bash
+
+    git clone git@github.com:pfreixes/acsylla.git
+    make install-driver
+
+Set up the environment and compile the package using the following commands:
+
+.. code-block:: bash
+
+    python -m venv venv
+    source venv/bin/activate
+    make compile
+    make install-dev
+
+And finally run the tests:
+
+.. code-block:: bash
+
+    docker-compose up -d
+    make test
+
+
