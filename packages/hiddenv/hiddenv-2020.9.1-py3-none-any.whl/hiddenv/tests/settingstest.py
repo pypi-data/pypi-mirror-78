@@ -1,0 +1,4 @@
+CONFIGURATION = "jejee"
+_AAAA = "B"
+COMMON = "THAT"
+TRUTHY = True
