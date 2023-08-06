@@ -1,0 +1,45 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:grok="http://namespaces.zope.org/grok">
+
+  <!-- meta files -->
+  <include package="zope.component" file="meta.zcml" />
+  <include package="zope.i18n" file="meta.zcml" />
+  <include package="zope.security" file="meta.zcml" />
+  <include package="zope.securitypolicy" file="meta.zcml" />
+  <include package="zope.principalregistry" file="meta.zcml" />
+
+  <!-- Dependencies -->
+  <include package="zope.security" />
+  <include package="zope.publisher" />
+  <include package="dolmen.beaker" />
+
+
+  <!-- Security -->
+  <securityPolicy
+      component="zope.securitypolicy.zopepolicy.ZopeSecurityPolicy" />
+
+  <principal
+      id="zope.manager"
+      title="Manager"
+      login="mgr"
+      password="mgrpw"
+      />
+
+  <principal
+      id="zope.manfred"
+      title="Manfred"
+      login="manfred"
+      password="mammoth"
+      />
+
+  <grantAll principal="zope.manager" />
+
+
+  <!-- session -->
+  <browser:beakerSession
+      secret="Test"
+      validate_key="Some key" />
+
+</configure>
