@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: tkgui
+Version: 0.1.0
+Summary: Declarative tkinter wrapper for Python, features quick prototype & codegen
+Home-page: https://github.com/duangsuse-valid-projects/Hachiko
+Author: duangsuse
+Author-email: fedora-opensuse@outlook.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.5
+
+
+TkGUI is a declarative tkinter wrapper for Python, with lambdas, you can omit the parent argument for all widgets,
+and let your code represents widget view tree directly
+
+
