@@ -1,0 +1,13 @@
+Metadata-Version: 1.2
+Name: renderconftree
+Version: 0.3
+Summary: Config tree readerer.
+Home-page: https://github.com/CD3/renderconfigtree
+Author: C.D. Clark III
+License: MIT License
+Description: Write configurations files with values that contain python expressions that can refer to other configuration parameters.
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4
