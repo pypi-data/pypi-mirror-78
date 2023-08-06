@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: downward-ch
+Version: 0.0.8
+Summary: downward_ch is the Fast-Downward Planning System (www.fast-downward.org) with Critical hop patches
+Home-page: UNKNOWN
+Author: Kuznetsov Andrey A.
+Author-email: andreykyz@gmail.com
+License: GNU General Public License Version 3
+Keywords: semantic planning pddl fast downward planner fast-downward domain-independent
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: C++
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.6.0
+
+[![PyPI version](https://badge.fury.io/py/downward-ch.svg)](https://badge.fury.io/py/downward-ch) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+This is the "unofficial" disctibution of Fast-Downward Planning System (www.fast-downward.org) with Critical Hop patches supported by CriticalHop team. 
+
+# Usage
+
+## Installing:
+
+```
+pip install downward-ch
+```
+
+## Running:
+
+```
+$ fast-downward <options> <domain.pddl> <problem.pddl>
+```
+
+# Developing
+
+## Building:
+
+```
+sudo apt install mercurial g++ cmake
+python3.7 setup.py bdist_wheel
+```
+
+## Publishing:
+
+1. Build the manylinux distribution
+
+alternatively, rename platform tag to `manylinux1_x86_64`
+
+2. Upload
+
+```
+twine upload dist/*
+```
+
+
