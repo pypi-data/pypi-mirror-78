@@ -1,0 +1,15 @@
+astropy
+networkx
+numpy
+scipy
+pyyaml
+
+[all]
+camb
+
+[docs]
+sphinx-astropy
+matplotlib
+
+[test]
+pytest-astropy
