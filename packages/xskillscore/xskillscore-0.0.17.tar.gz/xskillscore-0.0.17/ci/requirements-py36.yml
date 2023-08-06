@@ -1,0 +1,37 @@
+name: xskillscore-dev
+channels:
+  - conda-forge
+dependencies:
+  - python=3.6
+  # Documentation
+  - nbsphinx
+  - nbstripout
+  - sphinx
+  - sphinx_rtd_theme
+  - sphinx-autosummary-accessors
+  # IDE
+  - jupyterlab
+  # Numerics
+  - bottleneck
+  - cftime
+  - dask
+  - numba
+  - numpy
+  - properscoring
+  - scikit-learn
+  - scipy
+  - xarray
+  - xhistogram
+  # Package Management
+  - asv
+  - black==19.10b0
+  - coveralls
+  - doc8
+  - importlib_metadata
+  - isort
+  - flake8
+  - pre-commit
+  - pytest
+  - pytest-cov
+  - pytest-lazy-fixture
+  - pytest-sugar
