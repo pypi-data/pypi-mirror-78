@@ -1,0 +1,57 @@
+Metadata-Version: 1.1
+Name: cgmzscore
+Version: 1.0.4
+Summary: Calculate z-scores of anthropometric measurements based on WHO
+Home-page: UNKNOWN
+Author: Prajwal Kumar Singh
+Author-email: prajwalsingh651@gmail.com
+License: BSD
+Description: Z score
+        
+        Calculate z-scores of anthropometric measurements based on WHO
+        
+        REQUIREMENTS
+        ============
+        
+        * Python 2.7.x, Python 3.x or later
+        
+        INSTALLATION
+        ============
+        `pip install cgmzscore`
+        
+        EXAMPLE USAGE
+        =============
+        
+        from cgmzscore import Calculator
+        calculator=Calculator()
+        
+        
+        v=calculator.zScore_wfa(weight="7.853",muac="13.5",age_in_months='16',sex='M',height='73')-->Use to calculate z score for weight vs age
+        v=calculator.zScore_wfl(weight="7.853",muac="13.5",age_in_months='16',sex='M',height='73')-->Use to calculate z score for weight vs length/height
+        v=calculator.zScore_wfh(weight="7.853",muac="13.5",age_in_months='16',sex='M',height='73')-->Use to calculate z score for weight vs length/height
+        both wfl and wfh works same
+        v=calculator.zScore_lhfa(weight="7.853",muac="13.5",age_in_months='16',sex='M',height='73')-->Use to calculate z score for length vs age
+        
+        v=calculator.zScore(weight="7.853",muac="13.5",age_in_months='16',sex='M',height='73')-->Use to calculate all three z score
+        v=calculator.zScore_withclass(weight="7.853",muac="13.5",age_in_months='16',sex='M',height='73')-->Use to calculate all three z score along with class
+        v=calculator.SAM_MAM(weight="7.853",muac="13.5",age_in_months='16',sex='M',height='73')-->Use to find child is SAM/MAM/Healthy
+        
+        
+        
+        ## Different function of calculator
+        
+        zScore_wfa
+        zScore_wfl/zScore_wfh
+        zScore_lhfa
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Operating System :: OS Independent
