@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "jrpytensorflow"
+version = "0.1.10"
+description = "Jumping Rivers: Introduction to Tensorflow"
+authors = ["Jamie <jamie@jumpingrivers.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+pip = "^19"
+tensorflow = "2.1.0rc1"
+scikit-learn = "^0.22"
+tensorflow-datasets = "^1.3"
+h5py = "^2.10"
+pyyaml = "^5.3"
+tensorboard = "^2.1"
+pandas = "^0.25.3"
+matplotlib = "^3.1"
+numpy = "^1.18"
+six = "^1.13"
+jrpytests = "^0.1.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
