@@ -1,0 +1,79 @@
+apiVersion: v1
+{%- if fips %}
+fips: True
+{%- endif %}
+baseDomain: {{ domain }}
+compute:
+- name: worker
+  replicas: {{ workers }}
+controlPlane:
+  name: master
+  replicas: {{ masters }}
+metadata:
+  name: {{ cluster }}
+networking:
+  networkType: {{ network_type | default('OpenShiftSDN') }}
+{%- if baremetal %}
+  machineCIDR: {{ baremetal_machine_cidr }}
+{%- endif %}
+  clusterNetworks:
+{%- if ipv6 %}
+  - cidr: fd01::/48
+    hostPrefix: 64
+  serviceNetwork:
+  - fd02::/112
+{%- else %}
+  - cidr: 10.132.0.0/14
+    hostPrefix: 23
+  serviceNetwork:
+  - 172.30.0.0/16
+{%- endif %}
+platform:
+{%- if config_type == 'vsphere' %}
+  vsphere:
+    vcenter: {{ config_host }}
+    username: {{ config_user }}
+    password: {{ config_password }}
+    datacenter: {{ config_datacenter }}
+    defaultDatastore: {{ config_pool }}
+{%- elif baremetal %}
+  baremetal:
+    apiVIP: {{ api_ip }}
+    dnsVIP: {{ api_ip }}
+    ingressVIP: {{ api_ip }}
+    provisioningBridge: {{ provisioning_net }}
+    provisioningNetworkInterface: {{ provisioning_nic }}
+    hosts:
+    - name: fake-0
+      role: master
+      bmc:
+        address: ipmi://192.168.125.254:6230
+        username: xxx
+        password: xxx
+      bootMACAddress: aa:bb:cc:dd:aa:01
+{%- else %} 
+  none: {}
+{%- endif %}
+{%- if ca != None %}
+additionalTrustBundle: |
+ {{ ca | replace('\n', '\n ') }}
+{%- endif %}
+pullSecret: '{{ pull_secret }}'
+sshKey: |
+  {{ pub_key }}
+{% if disconnected_url != None -%}
+imageContentSources:
+- mirrors:
+  - {{ disconnected_url }}/ocp/release
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
+- mirrors:
+  - {{ disconnected_url }}/ocp/release
+  source: registry.svc.ci.openshift.org/ocp/release
+{%- elif imagecontentsources %}
+imageContentSources:
+{%- for source in imagecontentsources %}
+- mirrors:
+  - {{ source }}
+  source: image-registry.openshift-image-registry.svc:5000/openshift/{{ source | basename | replace("openshift-", "")}}
+{%- endfor %}
+{%- endif %}
