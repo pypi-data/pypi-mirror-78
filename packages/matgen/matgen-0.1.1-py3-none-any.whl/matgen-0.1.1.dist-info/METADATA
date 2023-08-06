@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: matgen
+Version: 0.1.1
+Summary: Fast matrix generation in python, including python style and matlab style support
+Home-page: https://gitee.com/junruoyu-zheng/mat-gen
+Author: junruoyu-zheng
+Author-email: zhengjry@outlook.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+
+# MatGen
+
+## 介绍
+
+在 Python 中快速构建矩阵的方法。
+
+## 软件功能
+
+### 基于 `numpy.stack` 的构造
+
+提供了两个语法糖类，分别是 `VerticalStacker` 和 `HorizontalStacker`，以及对应的一个实例，分别是 `v_` 和 `h_`。对 `v_` 和 `h_` 进行 `__getitem__` 访问，效果完全等同于 `numpy.vstack` 和 `numpy.hstack`。
+
+#### 示例
+
+~~~py
+>>>v_[np.array([1,2,3]), h_[[[4,5],[4,5]], [[6],[6]]], np.zeros((2,3)), np.eye(3)]
+
+[[1. 2. 3.]
+ [4. 5. 6.]
+ [4. 5. 6.]
+ [0. 0. 0.]
+ [0. 0. 0.]
+ [1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+~~~
+
+### 基于 MATLAB 风格的解释器
+
+提供一个函数 `M_` 通过解析字符串的形式来构建矩阵，支持部分 MATLAB 语法和 Python 语法。该字符串的组成形式如下：
+
+~~~
+[* * ... *;
+ * * ... *;
+     ...  ;
+ * * ... *]
+~~~
+
+其中 `*` 代表一个元素，该元素可以是一个数字，可以是上述的矩阵（矩阵嵌套），还可以是一个 python 表达式。注意，如果该 python 表达式包含 `[*]` 符号，会使解释器产生误解（这是由于两种语言风格混合在一起导致的），例如 `arr[1,2]`，解释器不知道这里是两个元素还是对 `arr` 的切片。如果你想表达这是一个 python 表达式，请用括号将它们包括起来，即写成 `(arr[1,2])`。
+
+示例
+
+~~~py
+>>>M_('[1 2 3; np.zeros((2, 2)), np.array([[1, 2]]).T]')
+
+[[1. 2. 3.]
+ [0. 0. 1.]
+ [0. 0. 2.]]
+~~~
+
