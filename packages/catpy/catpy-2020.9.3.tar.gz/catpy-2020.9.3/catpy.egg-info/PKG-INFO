@@ -1,0 +1,96 @@
+Metadata-Version: 1.1
+Name: catpy
+Version: 2020.9.3
+Summary: Python client for the CATMAID API
+Home-page: https://github.com/catmaid/catpy
+Author: Andrew S. Champion
+Author-email: andrew.champion@gmail.com
+License: MIT license
+Description: catpy - Python client for the CATMAID API
+        =========================================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/catpy.svg
+                :target: https://pypi.python.org/pypi/catpy
+                :alt: PyPI Package Version
+        
+        .. image:: https://img.shields.io/travis/catmaid/catpy.svg
+                :target: https://travis-ci.org/catmaid/catpy
+                :alt: Continuous Integration Status
+        
+        .. image:: https://readthedocs.org/projects/catpy/badge/?version=latest
+                :target: https://catpy.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        .. image:: https://img.shields.io/badge/License-MIT-blue.svg
+                :target: https://opensource.org/licenses/MIT
+                :alt: License: MIT
+        
+        
+        Python client for the `CATMAID <https://catmaid.org>`_ API, plus some helpful tools for working with the data.
+        
+        Versioning
+        ----------
+        
+        ``catpy`` stopped using semantic versioning after 0.3.0, and now uses [calendar versioning](https://calver.org), using the scheme ``YYYY.MM.DD`` (python does not support ``0M`` and ``0D`` specifiers), with an optional incrementing field in rare cases where more than one release is necessary in a day.
+        The `next_version.py` script produces the next version.
+        The first version under the new scheme is ``2020.08.19``.
+        
+        CATMAID also uses calendar versioning.
+        However, development does not always happen in parallel so a new CATMAID release does not imply a new catpy release and vice versa.
+        
+        The core CATMAID API supported by catpy does not change frequently.
+        If a new release of either breaks their coupling, please raise an issue.
+        
+        
+        
+        =======
+        History
+        =======
+        
+        
+        In progress
+        -----------
+        
+        * Drop networkx 1
+        * Drop python < 3.6
+        * MorphologyFetcher, StackFetcher
+        * More flexible NameResolver type checks
+        
+        0.3.0 (2019-01-11)
+        ------------------
+        
+        * Refactors
+        * Improve docs
+        * Allow networkx 2+ to be used
+        * Add NameResolver application
+        * Add enum for connector relation types
+        * Add utility for interpolating virtual treenodes
+        
+        
+        0.2.0 (2018-05-30)
+        ------------------
+        
+        * Refactoring and fixing PyPI deployment
+        * ImageFetcher
+        * CoordinateTransformer
+        * URL builder
+        
+        
+        0.1.0 (2017-05-12)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: catpy catmaid neuron
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
