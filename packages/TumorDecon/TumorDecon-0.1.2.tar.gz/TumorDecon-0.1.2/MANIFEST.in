@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include TumorDecon/data/LM6.txt
+include TumorDecon/data/LM22.txt
+include TumorDecon/data/*.csv
+include TumorDecon/data/gene_ID_conversion/*.txt
+include TumorDecon/data/downloaded/readme.txt
