@@ -1,0 +1,39 @@
+Metadata-Version: 2.0
+Name: snowland-qyweixin
+Version: 0.0.3a3
+Summary: toolkit for qyweixin. 企业微信开发SDK。
+Home-page: https://gitee.com/snowlandltd/snowland-qyweixin-python
+Author: A.Star
+Author-email: astar@snowland.ltd
+License: Apache v2.0
+Description-Content-Type: UNKNOWN
+Platform: all
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: astartool (>=0.0.7)
+Requires-Dist: snowland-authsdk (>=0.0.1)
+Requires-Dist: requests
+
+========================
+snowland-qyweixin-python
+========================
+
+.. image:: https://img.shields.io/pypi/v/snowland-qyweixin.svg
+    :target: https://pypi.python.org/pypi/snowland-qyweixin
+
+.. image:: https://img.shields.io/pypi/dm/snowland-qyweixin.svg
+    :target: https://pypi.python.org/pypi/snowland-qyweixin
+
+.. image:: https://img.shields.io/pypi/wheel/snowland-qyweixin.svg
+    :target: https://pypi.python.org/pypi/snowland-qyweixin
+
+.. image:: https://img.shields.io/pypi/status/snowland-qyweixin.svg
+    :target: https://pypi.python.org/pypi/snowland-qyweixin
+
