@@ -1,0 +1,35 @@
+language: python
+dist: xenial
+cache: false
+env:
+  global:
+    - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+    - SEGFAULT_SIGNALS=all
+    - LANG=en_US.UTF-8
+matrix:
+  include:
+    - env:
+        - TOXENV=py37,codecov
+      python: '3.7'
+before_install:
+  - python --version
+  - uname -a
+  - lsb_release -a || true
+  - sleep 3
+  - export CHROME_BIN=/usr/bin/google-chrome
+install:
+  - python -mpip install --progress-bar=off tox -rci/requirements.txt
+  - virtualenv --version
+  - easy_install --version
+  - pip --version
+  - tox --version
+script:
+  - tox -v -p --parallel-live
+after_failure:
+  - more .tox/log/* | cat
+  - more .tox/*/log/* | cat
+notifications:
+  email: false
+
+packages:
+  - google-chrome-stable
