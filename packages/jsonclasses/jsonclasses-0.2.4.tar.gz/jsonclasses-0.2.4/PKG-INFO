@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: jsonclasses
+Version: 0.2.4
+Summary: Python @dataclass <=> JSON declarable, interchangeable, validatable, sanitizable.
+Home-page: https://github.com/Wiosoft-Crafts/jsonclasses
+Author: Wiosoft Crafts
+Author-email: wiosoftvictor@163.com
+License: MIT
+Description: # jsonclasses
+        
+        Python dataclasses <=> JSON declarable, interchangeable, validatable, sanitizable.
+        
+        ## Motivation
+        
+        Python lacks a great solution of JSON web inputs, JSON objects manipulation and
+        serialization. By declaring field specifications with Python class and
+        @dataclass, we can solve this issue elegantly.
+        
+        ## Example
+        
+        ### Converting from dict
+        
+        ### Coverting to dict
+        
+        ### Sanitization
+        
+        ### Validation
+        
+        ### Integration with web frameworks
+        
+        Using `jsonclasses` with `sanic` web framework.
+        
+        ```python
+        
+        ```
+        
+        Using `jsonclasses` with `flask` web framework.
+        
+        ```python
+        
+        ```
+        
+        ## Installation
+        
+        Install `jsonclasses` package with `pip`.
+        
+        ```sh
+        pip install jsonclasses
+        ```
+        
+        ## Supported Python versions
+        
+        `jsonclasses` supports `Python >= 3.5`.
+        
+        ## License
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
