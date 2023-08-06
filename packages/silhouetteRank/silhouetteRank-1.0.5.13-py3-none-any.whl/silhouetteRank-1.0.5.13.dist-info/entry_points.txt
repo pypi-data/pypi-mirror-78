@@ -1,0 +1,10 @@
+[console_scripts]
+silhouette_rank_main = silhouetteRank.evaluate_2b:main
+silhouette_rank_one = silhouetteRank.silhouette_rank_one:main
+silhouette_rank_random = silhouetteRank.evaluate_exact_one_2b:main
+silhouette_rank_random_batch = silhouetteRank.evaluate_exact_2b:main
+slrank_combine_fast = silhouetteRank.combine_fast:main
+slrank_fast = silhouetteRank.evaluate_fast_2b:main
+slrank_prep_fast = silhouetteRank.prep_fast:main
+slrank_random_fast = silhouetteRank.evaluate_fast_one_2b:main
+
