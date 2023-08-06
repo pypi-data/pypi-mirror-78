@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+
+include LICENSE
+recursive-include oarepo_records_draft *.py
+recursive-include oarepo_records_draft *.json
+
+recursive-exclude tests *.py
+recursive-exclude tests *.json
+recursive-exclude sample *
+
+exclude .coveragerc
+exclude .pydocstyle
+exclude pytest.ini
+exclude *.yml
+exclude run-tests.sh
+exclude tests
+exclude tests/schemas
+exclude tests/schemas/test
+exclude sample
+include *.rst
