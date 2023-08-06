@@ -1,0 +1,6 @@
+include iam/ext/idc/VERSION
+include iam/ext/idc/package.json
+prune iam/__init__.py
+prune iam/canon/__init__.py
+prune iam/lib/__init__.py
+prune iam/ext/__init__.py
