@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: jupyter-lsp
+Version: 0.9.2
+Summary: Multi-Language Server WebSocket proxy for Jupyter notebook or lab server for Python 3.5+.
+Home-page: https://github.com/krassowski/jupyterlab-lsp
+Author: jupyter-lsp Contributors
+Author-email: krassowski.michal+pypi@gmail.com
+License: BSD-3-Clause
+Description: # jupyter-lsp
+        
+        Multi-[Language Server][language-server] WebSocket proxy for your Jupyter
+        `notebook` or `lab` server. For Python 3.5+.
+        
+        > See the parent of this repository,
+        > [jupyterlab-lsp](https://github.com/krassowski/jupyterlab-lsp) for the
+        > reference client implementation for [JupyterLab][].
+        
+        # Language Servers
+        
+        `jupyter-lsp` does not come with any Language Servers! Learn more about installing
+        and configuring [language servers](../../docs/LANGUAGESERVERS.md)
+        
+        [language-server]: https://microsoft.github.io/language-server-protocol/specification
+        [langserver]: https://langserver.org
+        [lsp-implementations]: https://microsoft.github.io/language-server-protocol/implementors/servers
+        [jupyter-lsp]: https://github.com/krassowski/jupyterlab-lsp.git
+        [jupyterlab]: https://github.com/jupyterlab/jupyterlab
+        
+Keywords: Interactive,Language Server,LSP
+Platform: UNKNOWN
+Classifier: Framework :: Jupyter
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Description-Content-Type: text/markdown

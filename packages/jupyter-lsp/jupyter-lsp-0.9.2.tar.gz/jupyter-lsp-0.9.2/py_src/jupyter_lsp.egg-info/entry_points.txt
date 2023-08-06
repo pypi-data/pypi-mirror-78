@@ -1,0 +1,14 @@
+[jupyter_lsp_spec_v1]
+bash-language-server = jupyter_lsp.specs:bash
+dockerfile-language-server-nodejs = jupyter_lsp.specs:dockerfile
+javascript-typescript-langserver = jupyter_lsp.specs:ts
+python-language-server = jupyter_lsp.specs:py
+r-languageserver = jupyter_lsp.specs:r
+sql-language-server = jupyter_lsp.specs:sql
+texlab = jupyter_lsp.specs:tex
+unified-language-server = jupyter_lsp.specs:md
+vscode-css-languageserver-bin = jupyter_lsp.specs:css
+vscode-html-languageserver-bin = jupyter_lsp.specs:html
+vscode-json-languageserver-bin = jupyter_lsp.specs:json
+yaml-language-server = jupyter_lsp.specs:yaml
+
