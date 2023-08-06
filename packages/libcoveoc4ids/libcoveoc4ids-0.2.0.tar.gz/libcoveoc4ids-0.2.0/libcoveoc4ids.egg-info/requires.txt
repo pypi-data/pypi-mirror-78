@@ -1,0 +1,10 @@
+flattentool
+libcove>=0.18.0
+rfc3987
+strict-rfc3339
+
+[test]
+coveralls
+pytest
+pytest-cov
+isort
