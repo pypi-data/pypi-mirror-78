@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: beet
+Version: 0.1.1
+Summary: A python library and toolchain for composing Minecraft pack generators
+Home-page: https://github.com/vberlier/beet
+License: MIT
+Keywords: beet,minecraft,datapack,resourcepack,mcfunction
+Author: Valentin Berlier
+Author-email: berlier.v@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: click-help-colors (>=0.8,<0.9)
+Requires-Dist: nbtlib (>=1.8.0,<2.0.0)
+Requires-Dist: pathspec (>=0.8.0,<0.9.0)
+Project-URL: Documentation, https://github.com/vberlier/beet
+Project-URL: Repository, https://github.com/vberlier/beet
+Description-Content-Type: text/markdown
+
+# Beet
+
+> A python library and toolchain for composing Minecraft pack generators.
+
+---
+
+License - [MIT](https://github.com/vberlier/beet/blob/master/LICENSE)
+
