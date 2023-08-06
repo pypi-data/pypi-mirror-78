@@ -1,0 +1,64 @@
+db_type: "SQLite"
+ip: ""
+db_name: "test_db"
+
+username: ""
+password: ""
+
+schemas:
+
+  main:
+
+    table_1:
+      name: "table1"
+      descriprion: "table for test"
+      permissions:
+        usr1: "r*"
+        usr2: "w*"
+
+      columns:
+        column1:
+          name: "column1"
+          type: "text"
+          is_pk: 1
+          is_sk: 0
+
+        column2:
+          name: "column2"
+          type: "double"
+          is_pk: 0
+          is_sk: 1
+          link: 'table2'
+
+        column3:
+          name: "column3"
+          type: "text"
+          is_pk: 0
+          is_sk: 0
+
+    table_2:
+      name: "table2"
+      descriprion: "table for test"
+      permissions:
+        usr1: "r*"
+        usr2: "w*"
+
+      columns:
+        column1:
+          name: "column1"
+          type: "text"
+          is_pk: 1
+          is_sk: 0
+
+        column2:
+          name: "column2"
+          type: "double"
+          is_pk: 0
+          is_sk: 1
+          link: 'table2'
+
+        column3:
+          name: "column3"
+          type: "text"
+          is_pk: 0
+          is_sk: 0
