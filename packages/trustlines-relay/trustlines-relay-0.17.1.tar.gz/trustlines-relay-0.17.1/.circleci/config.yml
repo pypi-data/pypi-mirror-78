@@ -1,0 +1,428 @@
+version: 2.1
+
+templates:
+  tagged-filter: &tagged-filter
+    tags:
+      only: /^[0-9]+(\.[0-9]+)*((a|b|rc)[0-9]+)?(\.dev[0-9]+)?/
+
+executors:
+  ubuntu-builder:
+    docker:
+      - image: trustlines/builder:master32
+    working_directory: ~/repo
+
+# define some common commands
+# see https://circleci.com/docs/2.0/configuration-reference/#commands-requires-version-21
+commands:
+  create-venv:
+    description: "Create venv"
+    steps:
+      - run:
+          name: Create python venv
+          command: |
+            python3 -m venv venv
+            venv/bin/pip install -c dev-requirements.txt pip wheel setuptools
+
+  config-path:
+    description: "set environment variables and change PATH"
+    steps:
+    - run:
+        name: Configuring PATH
+        command: |
+          echo >> ${BASH_ENV} 'export PATH=~/bin:~/repo/venv/bin:${PATH}'
+
+jobs:
+  install:
+    executor: ubuntu-builder
+    steps:
+      - checkout
+      - config-path
+      - restore_cache:
+          key: venv-{{ checksum "dev-requirements.txt" }}-{{ checksum "requirements.txt" }}
+      - create-venv
+      - run:
+          name: Install requirements
+          command: |
+            pip install -r requirements.txt
+      - run:
+          name: Install dev-requirements
+          command: |
+            pip install -r dev-requirements.txt
+      - run:
+          name: Install codecov
+          command: |
+            pip install codecov==2.0.16
+      - save_cache:
+          key: venv-{{ checksum "dev-requirements.txt" }}-{{ checksum "requirements.txt" }}
+          paths:
+            - venv
+      - run:
+          name: Install package
+          command: |
+            pip install -e .
+      - run:
+          name: Verify installed packages have compatible dependencies
+          command: |
+            pip check
+      - persist_to_workspace:
+          root: "~"
+          paths:
+            - repo
+
+  build-sdist:
+    executor: ubuntu-builder
+    steps:
+      - checkout
+      - config-path
+      - create-venv
+      - run:
+          name: Build distribution
+          command: |
+            python setup.py sdist
+      - persist_to_workspace:
+          root: "~"
+          paths:
+            - repo/dist
+
+  run-flake8:
+    executor: ubuntu-builder
+    steps:
+      - attach_workspace:
+          at: '~'
+      - config-path
+      - run:
+          name: Run flake8
+          command: |
+            flake8 setup.py src tests
+
+  run-black:
+    executor: ubuntu-builder
+    steps:
+      - attach_workspace:
+          at: '~'
+      - config-path
+      - run:
+          name: Run black
+          command: |
+            black --check setup.py src tests
+
+  run-pytest:
+    executor: ubuntu-builder
+    steps:
+      - attach_workspace:
+          at: '~'
+      - config-path
+      - run:
+          name: Run pytest
+          command: |
+            ./pytest --cov=relay tests
+            codecov
+
+  run-mypy:
+    executor: ubuntu-builder
+    steps:
+      - attach_workspace:
+          at: '~'
+      - config-path
+      - run:
+          name: Run mypy
+          command: |
+            mypy --ignore-missing-imports src/relay tests
+
+  upload-pypi:
+    executor: ubuntu-builder
+    steps:
+      - attach_workspace:
+          at: '~'
+      - config-path
+      - run:
+          name: Init .pypirc
+          command: |
+            echo -e "[pypi]" >> ~/.pypirc
+            echo -e "username = $PYPI_USER" >> ~/.pypirc
+            echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
+      - run:
+          name: Upload to pypi
+          command: |
+            twine upload dist/*
+
+  build-docker-image:
+    executor: ubuntu-builder
+    environment:
+      DOCKER_REPO: trustlines/relay
+      LOCAL_IMAGE: relay
+
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: Build docker image
+          command: |
+            docker build . -t $LOCAL_IMAGE
+      - run:
+          name: Save docker image
+          command: |
+            mkdir -p ~/images
+            docker save --output ~/images/$LOCAL_IMAGE.tar $LOCAL_IMAGE
+      - persist_to_workspace:
+          root: "~"
+          paths:
+            - images
+
+  deploy-docker-image:
+    executor: ubuntu-builder
+    environment:
+      DOCKER_REPO: trustlines/relay
+      LOCAL_IMAGE: relay
+    working_directory: ~/repo
+    steps:
+      - setup_remote_docker
+      - attach_workspace:
+          at: '~'
+      - run:
+          name: Load docker image
+          command: |
+            docker load --input ~/images/$LOCAL_IMAGE.tar
+      - run:
+          name: Login to dockerhub
+          command: |
+            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+      - run:
+          name: Upload tagged version
+          command: |
+            version=$(docker run --rm $LOCAL_IMAGE --version | tr '+' '_')
+            echo "Tagging with $version"
+            docker tag $LOCAL_IMAGE $DOCKER_REPO:$version
+            docker push $DOCKER_REPO:$version
+      - run:
+          name: Upload latest
+          command: |
+            docker tag $LOCAL_IMAGE $DOCKER_REPO:latest
+            docker push $DOCKER_REPO:latest
+
+  deploy-docker-image-release:
+    executor: ubuntu-builder
+    environment:
+      DOCKER_REPO: trustlines/relay
+      LOCAL_IMAGE: relay
+    working_directory: ~/repo
+    steps:
+      - setup_remote_docker
+      - attach_workspace:
+          at: "~"
+      - run:
+          name: Load docker image
+          command: |
+            docker load --input ~/images/$LOCAL_IMAGE.tar
+      - run:
+          name: Login to dockerhub
+          command: |
+            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+      - run:
+          name: Upload tagged release
+          command: |
+            version=$(docker run --rm $LOCAL_IMAGE --version | tr '+' '_')
+            echo "Tagging version $version as release"
+            docker tag $LOCAL_IMAGE $DOCKER_REPO:release
+            docker push $DOCKER_REPO:release
+
+  run-end2end-tests:
+    executor: ubuntu-builder
+    environment:
+      DOCKER_REPO: trustlines/relay
+      LOCAL_IMAGE: relay
+    working_directory: ~
+    steps:
+      - setup_remote_docker
+      - attach_workspace:
+          at: '~'
+      - run:
+          name: Checkout end2end repo
+          command: |
+            git clone https://github.com/trustlines-protocol/end2end.git
+      - run:
+          name: Load docker image
+          command: |
+            docker load --input ~/images/$LOCAL_IMAGE.tar
+      - run:
+          name: run end2end tests
+          command: |
+            docker tag $LOCAL_IMAGE $DOCKER_REPO
+            cd end2end
+            ./run-e2e.sh
+
+  run-backwards-compatibiltiy-end2end-tests:
+    executor: ubuntu-builder
+    environment:
+      DOCKER_REPO: trustlines/relay
+      LOCAL_IMAGE: relay
+    working_directory: ~
+    steps:
+      - setup_remote_docker
+      - attach_workspace:
+          at: '~'
+      - run:
+          name: Checkout end2end repo
+          command: |
+            git clone https://github.com/trustlines-protocol/end2end.git
+      - run:
+          name: Load docker image
+          command: |
+            docker load --input ~/images/$LOCAL_IMAGE.tar
+      - run:
+          name: run end2end tests against latest stable clientlib
+          command: |
+            docker tag $LOCAL_IMAGE $DOCKER_REPO
+            cd end2end
+            # Should point to latest stable clientlib e2e tests
+            TL_E2E_IMAGE=trustlines/e2e:v0.13.4-0 ./run-e2e.sh
+
+  pre-commit-checks:
+    executor: ubuntu-builder
+    steps:
+      - checkout
+      - run:
+          name: Configuring PATH
+          command: |
+            echo 'export PATH=~/bin:~/repo/venv/bin:${PATH}' >> ${BASH_ENV}
+      - run:
+          name: Create python virtualenv
+          command: |
+            python3 -m venv venv
+            pip install -c dev-requirements.txt pip wheel setuptools
+      - run:
+          name: Install pre-commit
+          command: |
+            pip install -c dev-requirements.txt pre-commit
+      - run:
+          name: Check for large files
+          command: |
+            pre-commit run -a check-added-large-files
+      - run:
+          name: Check byte order mark
+          command: |
+            pre-commit run -a check-byte-order-marker
+      - run:
+          name: Check merge conflict
+          command: |
+            pre-commit run -a check-merge-conflict
+      - run:
+          name: Check json files
+          command: |
+            pre-commit run -a check-json
+      - run:
+          name: Check yaml files
+          command: |
+            pre-commit run -a check-yaml
+      - run:
+          name: Run end-of-file-fixer
+          command: |
+            pre-commit run -a end-of-file-fixer
+      - run:
+          name: Run trailing-whitespace fixer
+          command: |
+            pre-commit run -a trailing-whitespace
+      - run:
+          name: Run isort
+          command: |
+            pre-commit run -a isort
+
+workflows:
+  version: 2
+  default:
+    jobs:
+      - install:
+          filters:
+            <<: *tagged-filter
+
+      - build-sdist:
+          filters:
+            <<: *tagged-filter
+
+      - run-flake8:
+          requires:
+            - install
+          filters:
+            <<: *tagged-filter
+
+      - run-black:
+          requires:
+            - install
+          filters:
+            <<: *tagged-filter
+
+      - pre-commit-checks:
+          filters:
+            <<: *tagged-filter
+
+      - run-pytest:
+          requires:
+            - install
+          filters:
+            <<: *tagged-filter
+
+      - run-mypy:
+          requires:
+            - install
+          filters:
+            <<: *tagged-filter
+
+      - upload-pypi:
+          requires:
+            - run-flake8
+            - run-black
+            - pre-commit-checks
+            - run-pytest
+            - run-mypy
+            - build-sdist
+          filters:
+            <<: *tagged-filter
+            branches:
+              ignore: /.*/
+          context: pypi-credentials
+
+      - build-docker-image:
+          filters:
+            <<: *tagged-filter
+
+      - run-end2end-tests:
+          filters:
+            <<: *tagged-filter
+          requires:
+            - build-docker-image
+
+      - run-backwards-compatibiltiy-end2end-tests:
+          filters:
+            <<: *tagged-filter
+          requires:
+            - build-docker-image
+
+      - deploy-docker-image:
+          filters:
+            <<: *tagged-filter
+            branches:
+              only: master
+          requires:
+            - run-flake8
+            - run-black
+            - pre-commit-checks
+            - run-pytest
+            - run-mypy
+            - install
+            - build-docker-image
+          context: docker-credentials
+
+      - deploy-docker-image-release:
+          filters:
+            <<: *tagged-filter
+            branches:
+              ignore: /.*/
+          requires:
+            - run-flake8
+            - run-black
+            - pre-commit-checks
+            - run-pytest
+            - run-mypy
+            - install
+            - build-docker-image
+          context: docker-credentials
