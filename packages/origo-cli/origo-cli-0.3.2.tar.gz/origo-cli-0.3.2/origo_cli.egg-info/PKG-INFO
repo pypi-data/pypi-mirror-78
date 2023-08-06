@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: origo-cli
+Version: 0.3.2
+Summary: CLI for services provided by Oslo Origo
+Home-page: https://github.com/oslokommune/origo-cli/
+Author: Oslo Origo
+Author-email: dataplattform@oslo.kommune.no
+License: MIT
+Description: # Oslo Origo CLI
+        
+        Origo CLI provides a unified interface to the services provided by Oslo Origo.
+        
+        ## Resources
+        * [Documentation at Read the Docs](https://origo-cli.readthedocs.io/)
+        * [GitHub pages for Origo Dataplatform](https://oslokommune.github.io/dataplattform/)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
