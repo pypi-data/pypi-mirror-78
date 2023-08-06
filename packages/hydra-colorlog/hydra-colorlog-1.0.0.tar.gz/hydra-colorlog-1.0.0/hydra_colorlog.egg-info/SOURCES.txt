@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+hydra_colorlog.egg-info/PKG-INFO
+hydra_colorlog.egg-info/SOURCES.txt
+hydra_colorlog.egg-info/dependency_links.txt
+hydra_colorlog.egg-info/requires.txt
+hydra_colorlog.egg-info/top_level.txt
+hydra_plugins/hydra_colorlog/__init__.py
+hydra_plugins/hydra_colorlog/colorlog.py
+hydra_plugins/hydra_colorlog/conf/__init__.py
+hydra_plugins/hydra_colorlog/conf/hydra/hydra_logging/colorlog.yaml
+hydra_plugins/hydra_colorlog/conf/hydra/job_logging/colorlog.yaml
