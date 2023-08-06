@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "instru"
+version = "0.1.21"
+description = "Various commonly used instrument drivers"
+authors = ["James Maxwell"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+qcodes = "^0.5.2"
+pymodbus = "^2.2"
+pyvisa-py = "^0.3.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+
+[tool.poetry.scripts]
+demo = "instru:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
