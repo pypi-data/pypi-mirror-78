@@ -1,0 +1,47 @@
+#!c:\Python27\python.exe
+#############################################
+##   Filename: postwininst.py
+##
+##    Copyright (C) 2011 Marcus C. Newton
+##
+## This program is free software: you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation, either version 3 of the License, or
+## (at your option) any later version.
+##
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with this program.  If not, see <http://www.gnu.org/licenses/>.
+##
+## Contact: Bonsu.Devel@gmail.com
+#############################################
+import sys
+import os
+if sys.argv[1] == '-install':
+	desktop = get_special_folder_path('CSIDL_DESKTOPDIRECTORY')
+	startmenu = get_special_folder_path('CSIDL_STARTMENU')
+	create_shortcut(os.path.join(sys.prefix, 'pythonw.exe'),
+		"Interactive Phase Retrieval Suite",
+		os.path.join(desktop, 'Bonsu.lnk'),
+		os.path.join(sys.prefix, 'Scripts', 'bonsu'),
+		desktop,
+		os.path.join(sys.prefix, 'Lib','site-packages', 'bonsu','image', 'bonsu.ico'))
+	file_created(os.path.join(desktop, 'Bonsu.lnk'))
+	bonsumenu = os.path.join(startmenu, 'Programs','Bonsu')
+	if not os.path.exists(bonsumenu):
+		os.makedirs(bonsumenu)
+	create_shortcut(os.path.join(sys.prefix, 'pythonw.exe'),
+		"Interactive Phase Retrieval Suite",
+		os.path.join(bonsumenu, 'Bonsu.lnk'),
+		os.path.join(sys.prefix, 'Scripts', 'bonsu'),
+		desktop,
+		os.path.join(sys.prefix, 'Lib','site-packages', 'bonsu','image', 'bonsu.ico'))
+	file_created(os.path.join(bonsumenu, 'Bonsu.lnk'))
+elif sys.argv[1] == '-remove':
+	startmenu = get_special_folder_path('CSIDL_STARTMENU')
+	bonsumenu = os.path.join(startmenu, 'Programs','Bonsu')
+	os.remove(bonsumenu)
