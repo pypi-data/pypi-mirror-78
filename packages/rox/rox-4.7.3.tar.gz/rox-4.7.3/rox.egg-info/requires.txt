@@ -1,0 +1,10 @@
+cryptography
+requests
+six
+sseclient-py
+backoff
+monotonic
+python-dateutil
+
+[:python_version == "2.7"]
+futures
