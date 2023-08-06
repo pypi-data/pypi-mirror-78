@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: transpy
+Version: 2020.9.1
+Summary: UNKNOWN
+Home-page: https://github.com/coderepocenter/TransPy.git
+Author: 
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: ezrequest
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: rtree
+Requires-Dist: geopandas
+Requires-Dist: shapely
+
+# TransPy
+A collection of Python utilities assisting analytics and mapping related to transportation.
+
+
