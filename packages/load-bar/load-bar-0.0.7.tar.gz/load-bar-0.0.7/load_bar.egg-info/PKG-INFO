@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: load-bar
+Version: 0.0.7
+Summary: Python Librairy for a loading bar in the console
+Home-page: https://github.com/ValentinVignal/LoadBar
+Author: Valentin Vignal
+Author-email: valentin.vignal.dev@outlook.fr
+License: MIT
+Description: # LoadBar
+        
+        This is a very simple python library to create a loading bar on the shell
+        
+        ## Install it
+        
+        ```
+        pip install load-bar
+        ```
+        
+        ## Use it
+        
+        ``` python
+        import time
+        from loadbar import LoadBar
+        bar = LoadBar(max=100)
+        bar.start()
+        for i in range(100):
+            time.sleep(0.05)
+            bar.update(step=i)
+        bar.end()
+        ```
+        
+        ![image](https://github.com/ValentinVignal/LoadBar/blob/master/images/loadbar.gif)
+        
+        [See the documentation](https://github.com/ValentinVignal/LoadBar/blob/master/doc/Loadbar.md)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
