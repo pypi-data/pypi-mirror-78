@@ -1,0 +1,11 @@
+numpy>=1.14
+scipy>=1.2.1
+numba
+
+[dev]
+sphinx
+sphinx-autodoc-typehints
+sphinx_bootstrap_theme
+pytest
+setuptools_scm
+black
