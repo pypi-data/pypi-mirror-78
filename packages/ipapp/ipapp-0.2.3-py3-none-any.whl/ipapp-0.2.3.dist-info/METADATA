@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: ipapp
+Version: 0.2.3
+Summary: InPlat application framework
+Home-page: https://gitlab.app.ipl/inplat/ipapp
+Author: InPlat
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet
+Requires-Python: >=3.7
+Requires-Dist: pydantic (==1.6.1)
+Requires-Dist: aiohttp (==3.6.2)
+Requires-Dist: aiozipkin (==0.7.0)
+Requires-Dist: aiojobs (==0.2.2)
+Requires-Dist: prometheus-client (==0.8.0)
+Requires-Dist: sentry-sdk (==0.17.3)
+Requires-Dist: deepmerge (==0.1.0)
+Requires-Dist: async-timeout (==3.0.1)
+Requires-Dist: pyyaml (==5.3.1)
+Requires-Dist: docstring-parser (==0.7.1)
+Requires-Dist: tinyrpc (==1.0.4)
+Provides-Extra: fastapi
+Requires-Dist: uvicorn (==0.11.8) ; extra == 'fastapi'
+Requires-Dist: fastapi (==0.61.1) ; extra == 'fastapi'
+Provides-Extra: iprpc
+Requires-Dist: iprpc (==0.2.1) ; extra == 'iprpc'
+Provides-Extra: oracle
+Requires-Dist: cx-Oracle (==8.0.1) ; extra == 'oracle'
+Provides-Extra: postgres
+Requires-Dist: asyncpg (==0.21.0) ; extra == 'postgres'
+Provides-Extra: rabbitmq
+Requires-Dist: pika (==1.1.0) ; extra == 'rabbitmq'
+Provides-Extra: s3
+Requires-Dist: aiobotocore (==1.1.1) ; extra == 's3'
+Requires-Dist: python-magic (==0.4.18) ; extra == 's3'
+Provides-Extra: sftp
+Requires-Dist: asyncssh[pyopenssl] (==2.4.0) ; extra == 'sftp'
+Provides-Extra: testing
+Requires-Dist: idna (==2.10) ; extra == 'testing'
+Requires-Dist: black (==20.8b1) ; extra == 'testing'
+Requires-Dist: flake8 (==3.8.3) ; extra == 'testing'
+Requires-Dist: mock (==4.0.2) ; extra == 'testing'
+Requires-Dist: mypy (==0.782) ; extra == 'testing'
+Requires-Dist: bandit (==1.6.2) ; extra == 'testing'
+Requires-Dist: isort (==5.5.0) ; extra == 'testing'
+Requires-Dist: safety (==1.9.0) ; extra == 'testing'
+Requires-Dist: pylint (==2.6.0) ; extra == 'testing'
+Requires-Dist: pytest-aiohttp (==0.3.0) ; extra == 'testing'
+Requires-Dist: pytest (==6.0.1) ; extra == 'testing'
+Requires-Dist: pytest-asyncio (==0.14.0) ; extra == 'testing'
+Requires-Dist: pytest-cov (==2.10.1) ; extra == 'testing'
+Requires-Dist: coverage (==5.2.1) ; extra == 'testing'
+Requires-Dist: Sphinx (==3.2.1) ; extra == 'testing'
+Requires-Dist: sphinx-rtd-theme (==0.5.0) ; extra == 'testing'
+Requires-Dist: pip (==20.2.2) ; extra == 'testing'
+Requires-Dist: wheel (==0.35.1) ; extra == 'testing'
+Requires-Dist: tox (==3.20.0) ; extra == 'testing'
+Requires-Dist: async-generator (==1.10) ; extra == 'testing'
+Requires-Dist: async-timeout (==3.0.1) ; extra == 'testing'
+Requires-Dist: docker-compose (==1.26.2) ; extra == 'testing'
+Requires-Dist: watchdog (==0.10.3) ; extra == 'testing'
+Requires-Dist: requests (==2.24.0) ; extra == 'testing'
+
+UNKNOWN
+
+
