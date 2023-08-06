@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: azure-data-nspkg
+Version: 1.0.0
+Summary: Microsoft Azure Data Namespace Package [Internal]
+Home-page: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/tables
+Author: Microsoft Corporation
+Author-email: azpysdkhelp@microsoft.com
+License: MIT License
+Description: # Microsoft Azure Data SDK for Python
+        
+        This is the Microsoft Azure Data namespace package.
+        
+        This package is not intended to be installed directly by the end user.
+        
+        It provides the necessary files for other packages to extend the
+        azure.data namespace.
+        
+        If you are looking to install the Azure Data libraries, see the
+        [azure](https://pypi.python.org/pypi/azure) bundle package.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
