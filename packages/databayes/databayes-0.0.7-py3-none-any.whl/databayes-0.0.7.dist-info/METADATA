@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: databayes
+Version: 0.0.7
+Summary: Model as a service machine learning library
+Home-page: https://gitlab.com/alphabayes/databayes
+Author: Roland Donat
+Author-email: roland.donat@gmail.com, roland.donat@alphabayes.fr
+Maintainer: Roland Donat
+Maintainer-email: roland.donat@gmail.com
+License: GPL V3
+Keywords: pronostic datascience machine-learning
+Platform: ALL
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6
+Requires-Dist: typing-extensions (>=3.7.4.1)
+Requires-Dist: pandas (>=0.25.0)
+Requires-Dist: numpy (>=1.16.0)
+Requires-Dist: PyYAML (>=3.13)
+Requires-Dist: pydantic (>=1.3)
+Requires-Dist: tqdm (>=4.45.0)
+Requires-Dist: scikit-learn (>=0.21.2)
+Requires-Dist: pyAgrum (==0.17.1)
+Requires-Dist: termcolor (==1.1.0)
+Requires-Dist: dash
+Requires-Dist: dash-bootstrap-components
+
+UNKNOWN
+
+
