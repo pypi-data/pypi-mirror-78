@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "keats"
+version = "0.2.29"
+description = "Utilities for managing version, changelogs, and project releases."
+authors = ["Justin Vrana <justin.vrana@gmail.com>"]
+packages = [
+    { include = "keats" },
+    { include = "keat_scripts" }
+]
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+readme = "README.md"
+repository = "https://github.com/jvrana/keats"
+homepage = "https://github.com/jvrana/keats"
+documentation = "https://github.com/jvrana/keats"
+
+[tool.poetry.dependencies]
+python = "^3.5"
+fire = "^0.1.3"
+toml = "^0.10.0"
+termcolor = "^1.1"
+poetry-setup = "^0.3.6"
+
+[tool.poetry.dev-dependencies]
+tox = "^3.13"
+tox-conda = "^0.2.0"
+black = { version = "^19.3b0", python = "^3.6" }
+pre-commit = "^1.17"
+pytest = "^4.1"
+
+[tool.poetry.scripts]
+keats = 'keats:main'
+keats_version_up_hook = 'keats.hooks.keats_version_up:main'
+
+[tool.black]
+line-length = 88
+target-version = ['py36', 'py37', 'py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
