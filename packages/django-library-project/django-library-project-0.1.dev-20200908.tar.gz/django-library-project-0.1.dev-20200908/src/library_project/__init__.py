@@ -1,0 +1,5 @@
+__version__ = "0.1"
+__author__ = "Stuart MacKay"
+__email__ = "smackay@flagstonesoftware.com"
+__license__ = "Apache Software License 2.0"
+__copyright__ = "Copyright (C) 2020 Stuart MacKay"
