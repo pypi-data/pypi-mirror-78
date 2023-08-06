@@ -1,0 +1,9 @@
+*.pyc
+*.egg-info
+*.egg
+*.sw?
+build
+dist
+wq/
+tests/media
+wqdb_test.sqlite3
