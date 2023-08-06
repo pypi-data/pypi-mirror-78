@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: hydra-ax-sweeper
+Version: 1.0.0rc6
+Summary: Hydra Ax Sweeper plugin
+Home-page: https://github.com/facebookresearch/hydra/
+Author: Omry Yadan, Shagun Sodhani
+Author-email: omry@fb.com, sshagunsodhani@gmail.com
+License: UNKNOWN
+Description: # Hydra Ax Sweeper
+        Provides a [`Ax Sweeper`](https://ax.dev/) based Hydra Sweeper supporting parallel execution.
+        
+        See [website](https://hydra.cc/docs/next/plugins/ax_sweeper/) for more information
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Development Status :: 4 - Beta
+Description-Content-Type: text/markdown
