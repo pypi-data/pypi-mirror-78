@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: moodlepy
+Version: 0.1.1
+Summary: Client for moodle webservice
+Home-page: https://github.com/hexatester/moodlepy
+License: MIT
+Author: hexatester
+Author-email: habibrohman@protonmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: dacite (>=1.5.1,<2.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Project-URL: Repository, https://github.com/hexatester/moodlepy
+Description-Content-Type: text/markdown
+
+# moodlepy
+
+[![moodlepy - PyPi](https://img.shields.io/pypi/v/moodlepy)](https://pypi.org/project/moodlepy/)
+[![codecov](https://codecov.io/gh/hexatester/moodlepy/branch/master/graph/badge.svg)](https://codecov.io/gh/hexatester/moodlepy)
+[![BUILD](https://img.shields.io/travis/com/hexatester/moodlepy)](https://travis-ci.com/github/hexatester/moodlepy)
+[![LICENSE](https://img.shields.io/github/license/hexatester/moodlepy)](https://github.com/hexatester/moodlepy/blob/master/LICENSE)
+
+Python client for moodle webservice
+
