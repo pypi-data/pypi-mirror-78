@@ -1,0 +1,7 @@
+[console_scripts]
+averageROC = quhep.util.averageROC:main
+extracAUC = quhep.util.extracAUC:main
+inspecPQC = quhep.util.inspecPQC:main
+quhep_qsk = quhep.train.train_qsk:main
+quhep_tfq = quhep.train.train_tfq:main
+
