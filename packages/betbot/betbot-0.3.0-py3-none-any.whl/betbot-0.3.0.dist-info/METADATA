@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: betbot
+Version: 0.3.0
+Summary: A betting bot for bundesliga-tippspiel
+Home-page: https://gitlab.namibsun.net/namboy94/betbot
+Author: Hermann Krumrey
+Author-email: hermann@krumreyh.com
+License: GNU GPL3
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+Requires-Dist: puffotter
+
+# BetBot
+
+|master|develop|
+|:----:|:-----:|
+|[![build status](https://gitlab.namibsun.net/namibsun/python/betbot/badges/master/build.svg)](https://gitlab.namibsun.net/namibsun/python/betbot/commits/master)|[![build status](https://gitlab.namibsun.net/namibsun/python/betbot/badges/develop/build.svg)](https://gitlab.namibsun.net/namibsun/python/betbot/commits/develop)|
+
+![Logo](resources/logo/logo-readme.png)
+
+BetBot is a bot that places bets on
+[bundesliga-tippspiel](https://hk-tippspiel.com) using a variety of methods.
+
+## Further Information
+
+* [Changelog](CHANGELOG)
+* [License (GPLv3)](LICENSE)
+* [Gitlab](https://gitlab.namibsun.net/namibsun/python/betbot)
+* [Github](https://github.com/namboy94/betbot)
+* [Progstats](https://progstats.namibsun.net/projects/betbot)
+* [PyPi](https://pypi.org/project/betbot)
+
+
