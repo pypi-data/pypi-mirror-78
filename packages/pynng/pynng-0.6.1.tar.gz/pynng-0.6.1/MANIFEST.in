@@ -1,0 +1,15 @@
+include *.sh *.py *.bat 8.txt *.md
+include *.h
+include LICENSE.txt
+recursive-include nng *
+recursive-include test *.py
+recursive-include pynng *.py
+prune nng/build
+prune nng/.git
+prune nng/.circleci
+exclude nng/.gitignore
+prune mbedtls/build
+prune mbedtls/.git
+prune mbedtls/.github
+prune mbedtls/.travis.yml
+exclude mbedtls/.gitignore
