@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: codeball
+Version: 0.0.1
+Summary: Tactical analysis of football/soccer games
+Home-page: https://github.com/metrica-sports/codeball
+Author: Bruno Dagnino
+Author-email: bruno@metrica-sporst.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+Requires-Dist: kloppy (>=1.1.0)
+Requires-Dist: pandas (>=1.0.5)
+Provides-Extra: development
+Requires-Dist: pre-commit ; extra == 'development'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
+# codeball
+Repository containing scripts and modules to work with football tracking and event data.
+
+
