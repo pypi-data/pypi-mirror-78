@@ -1,0 +1,6 @@
+[console_scripts]
+pyats-image-build = pyatsimagebuilder.builder:main
+
+[pyats.cli.commands]
+image = pyatsimagebuilder.commands:ImageCommand
+
