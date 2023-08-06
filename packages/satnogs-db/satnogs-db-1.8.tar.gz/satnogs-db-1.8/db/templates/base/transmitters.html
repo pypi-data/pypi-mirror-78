@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} - Transmitter List{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'lib/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'lib/admin-lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css' %}">
+{% endblock %}
+
+{% block top-menu-left %}
+<span class="h4 mb-0 mr-3 text-truncate d-none d-md-block">Transmitters</span>
+{% endblock %}
+
+{% block top %}
+<span class="h4 mb-0">Transmitters</span>
+{% endblock %}
+
+{% block content %}
+<div class="p-3">
+
+  <table id="transmitters" class="table table-sm display responsive table-striped" width="100%">
+    <thead>
+      <tr>
+        <th data-priority="1"></th>
+        <th data-visible="false" data-priority="20">UUID</th>
+        <th data-sortable="true" data-priority="1">Satellite</th>
+        <th data-sortable="true" data-priority="4">Type</th>
+        <th data-sortable="true" data-priority="1">Description</th>
+        <th data-sortable="true" data-priority="2">Downlink</th>
+        <th data-sortable="true" data-visible="false" data-priority="10">Downlink Drift</th>
+        <th data-sortable="true" data-visible="false" data-priority="10">Uplink</th>
+        <th data-sortable="true" data-visible="false" data-priority="10">Uplink Drift</th>
+        <th data-sortable="true" data-visible="false" data-priority="10">Inverted</th>
+        <th data-sortable="true" data-priority="3">Mode</th>
+        <th data-sortable="true" data-priority="4">Baud</th>
+        <th data-sortable="true" data-priority="10">Service</th>
+        <th data-sortable="true" data-priority="10">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for trans in transmitters %}
+      <tr>
+        <td class='details-control'>
+          <i class="fa fa-plus-square" aria-hidden="true"></i>
+        </td>
+
+        <td>{{ trans.uuid }}</td>
+        <td>
+          {% if trans.satellite.norad_cat_id %}
+          <a href="{% url 'satellite' norad=trans.satellite.norad_cat_id %}">
+            {{ trans.satellite }}
+          </a>
+          {% else %}
+          {{ trans.satellite }}
+          {% endif %}
+        </td>
+        <td>{{ trans.type }}</td>
+        <td>{{ trans.description }}</td>
+        <td class="frequency">{{ trans.downlink_low }}</td>
+        <td>{{ trans.downlink_drift }}</td>
+        <td class="frequency">{{ trans.uplink }}</td>
+        <td>{{ trans.uplink_drift }}</td>
+        <td>{{ trans.invert }}</td>
+        <td>{{ trans.downlink_mode }}</td>
+        <td>{{ trans.baud }}</td>
+        <td>{{ trans.service }}</td>
+        <td>{{ trans.status }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'lib/admin-lte/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'lib/admin-lte/plugins/datatables-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'lib/admin-lte/plugins/datatables-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'lib/admin-lte/plugins/datatables-buttons/js/buttons.colVis.js' %}"></script>
+<script src="{% static 'lib/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'lib/admin-lte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/datatables-natural.js' %}"></script>
+<script src="{% static 'js/transmitters.js' %}"></script>
+{% endblock %}
