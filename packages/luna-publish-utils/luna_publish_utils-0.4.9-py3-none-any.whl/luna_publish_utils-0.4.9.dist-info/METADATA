@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: luna-publish-utils
+Version: 0.4.9
+Summary: Publishing utilities for project Luna
+Home-page: https://github.com/allenwux/ml/src/luna/utils
+Author: Xiaochen Wu
+Author-email: allenwu.x@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: azureml-sdk
+Requires-Dist: mlflow
+
+# Luna pubishing utils
+
+## ModelManager
+
+- **RegisterModel**: register a model
+- **DownloadModel**: download a model
+- **GetModelPath**: get the local model path
+- **ParseArguments**: parse arguments
+- **GetPipelineArguments**: get AML pipeline arguments
+
