@@ -1,0 +1,5 @@
+minty>=1.6.9,~=1.6
+redis~=3.5
+
+[dev]
+bumpversion~=0.5
