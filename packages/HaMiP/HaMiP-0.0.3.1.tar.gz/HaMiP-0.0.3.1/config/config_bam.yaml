@@ -1,0 +1,85 @@
+sampleinfo:
+  - sampleid: K1
+    group: K
+    reference:
+      - /data/bam/DKO1.CMS.bam
+    spikein:
+      - /data/bam/DKO1.CMS.spikein.bam
+  - sampleid: K2
+    group: K
+    reference:
+      - /data/bam/DKO2.CMS.bam
+    spikein:
+      - /data/bam/DKO2.CMS.spikein.bam
+  - sampleid: W1
+    group: W
+    reference:
+      - /data/bam/WT1.CMS.bam
+    spikein:
+      - /data/bam/WT1.CMS.spikein.bam
+  - sampleid: W2
+    group: W
+    reference:
+      - /data/bam/WT2.CMS.bam
+    spikein:
+      - /data/bam/WT2.CMS.spikein.bam
+  - sampleid: IK1
+    group: IK
+    reference:
+      - /data/bam/DKO.input.bam
+    spikein:
+      - /data/bam/DKO.input.spikein.bam
+  - sampleid: IW1
+    group: IW
+    reference:
+      - /data/bam/WT.input.bam
+    spikein:
+      - /data/bam/WT.input.spikein.bam
+groupinfo:
+  group1: K
+  group2: W
+resultdir: /data/result
+aligninfo:
+  reference: mm10.fa
+  usespikein: True
+  inputbam: True
+  spikein: hg38.fa
+  statfile: qcstats.txt
+  barplotinfo:
+    outfile: qcstats_twsn_barplot.pdf
+    height: 5
+    width: 5
+  numthreads: 24
+  verbose: True
+genomescaninfo:
+  readextension: True
+  fragsize: 100
+  windowfile: /data/result/mm10_w200.bed
+  referencename: mm10
+  windowsize: 200
+  readscount: True
+  counttablefile: /data/result/extTrue_cntTrue_w200.txt.gz
+  verbose: True
+dhmrinfo:
+  method: gtest
+  meandepth: 1
+  testfile: /data/result/gtest_extTrue_cntTrue_w200.txt.gz
+  qthr: 0.05
+  maxdistance: 0
+  dhmrfile: /data/result/gtest_extTrue_cntTrue_w200.dhmr.gz
+  numthreads: 24
+  nsplit: 1000
+  verbose: True
+  keepNA: True
+useinput: True
+inputinfo:
+  group1: IK
+  group2: IW
+  method: gtest
+  qthr: 0.05
+  testfile1: /data/result/gtest_extTrue_cntTrue_w200_G1VsInput.txt.gz
+  dhmrfile1: /data/result/gtest_extTrue_cntTrue_w200_G1VsInput.dhmr.gz
+  testfile2: /data/result/gtest_extTrue_cntTrue_w200_G2VsInput.txt.gz
+  dhmrfile2: /data/result/gtest_extTrue_cntTrue_w200_G2VsInput.dhmr.gz
+  inputfilterfile: /data/result/extTrue_cntTrue_w200_inputfilter.txt.gz
+  verbose: True
