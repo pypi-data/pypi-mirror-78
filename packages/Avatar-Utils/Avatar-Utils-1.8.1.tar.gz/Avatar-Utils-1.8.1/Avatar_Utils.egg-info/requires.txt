@@ -1,0 +1,13 @@
+aiohttp>=3.6.2
+flask>=1.1.1
+flask-sqlalchemy>=2.3.2
+psycopg2-binary>=2.7.5
+requests>=2.23.0
+apispec>=3.3.0
+marshmallow>=3.6.0
+flasgger>=0.9.4
+APScheduler~=3.6.3
+python-keycloak~=0.21.0
+cryptography~=3.0
+PyJWT~=1.7.1
+marshmallow_dataclass~=7.6.0
