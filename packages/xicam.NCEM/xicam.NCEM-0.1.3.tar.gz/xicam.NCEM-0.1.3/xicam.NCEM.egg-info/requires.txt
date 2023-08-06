@@ -1,0 +1,10 @@
+ncempy>=1.6.0
+tifffile
+dask
+numpy
+databroker
+qtpy
+
+[tests]
+pytest
+coverage
