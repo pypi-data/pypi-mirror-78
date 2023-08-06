@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: tutti-product-tagger
+Version: 1.1.5
+Summary: A tutti.ch automatic product tagger.
+Home-page: UNKNOWN
+Author: Oscar Saleta
+Author-email: oscar@tutti.ch
+License: Proprietary
+Keywords: product,tagging
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5.2
+Requires-Dist: fuzzywuzzy (<1.0.0,>=0.17.0)
+Requires-Dist: pandas (<2.0.0,>=1.1.1)
+Requires-Dist: python-levenshtein (<1.0.0,>=0.12.0)
+
+Very simple logic to tag furniture products from Swiss-German text ads.
+
+
