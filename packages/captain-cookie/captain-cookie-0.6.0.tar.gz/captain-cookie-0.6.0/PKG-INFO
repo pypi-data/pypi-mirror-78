@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: captain-cookie
+Version: 0.6.0
+Summary: 
+Author: gcharbon
+Author-email: guillaume.charbonnier@capgemini.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: cookiecutter (>=1.7.2,<2.0.0)
