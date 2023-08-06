@@ -1,0 +1,23 @@
+
+
+Examples using ``sphinx_gallery.ExplicitOrder``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example runs after plot_future_statements.py (alphabetical ordering within subsection) and...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/images/thumb/sphx_glr_plot_second_future_imports_thumb.png
+     :alt: Testing future statements across examples
+
+     :ref:`sphx_glr_auto_examples_plot_second_future_imports.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_plot_second_future_imports.py`

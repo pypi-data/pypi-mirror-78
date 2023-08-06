@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Test without __future__ imports &#8212; Python  documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Test __future__ imports across cells" href="plot_future_imports.html" />
+    <link rel="prev" title="Link to other packages" href="../plot_numpy_matplotlib.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-future-plot-future-imports-broken-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="test-without-future-imports">
+<span id="sphx-glr-auto-examples-future-plot-future-imports-broken-py"></span><h1>Test without __future__ imports<a class="headerlink" href="#test-without-future-imports" title="Permalink to this headline">¶</a></h1>
+<p>Test that __future__ imports inside sphinx_gallery modules does not affect the
+parsing of this script.</p>
+<div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/lucy/Documents/sphinx-gallery/sphinx_gallery/tests/tinybuild/examples/future/plot_future_imports_broken.py&quot;</span>, line <span class="m">18</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Forcing this example to fail on Python 3&#39;</span><span class="p">)</span>
+<span class="gr">RuntimeError</span>: <span class="n">Forcing this example to fail on Python 3</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">PY3_OR_LATER</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/sys.html#sys.version_info" title="sys.version_info" class="sphx-glr-backref-module-sys sphx-glr-backref-type-py-data"><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span>
+
+<span class="c1"># SyntaxError on Python 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1"># Need to make this example fail on Python 3 as well (currently no way to say</span>
+<span class="c1"># that an example is expected to fail only on Python 2)</span>
+<span class="k">if</span> <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">PY3_OR_LATER</span></a><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Forcing this example to fail on Python 3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.001 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-future-plot-future-imports-broken-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/2b12073b01b18ea3dc8c5aeafcb7eeb0/plot_future_imports_broken.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_future_imports_broken.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/9395a333d61cc5d8b4a7881c7f3a6185/plot_future_imports_broken.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_future_imports_broken.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Python</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gen_modules/sphinx_gallery.gen_gallery.html">sphinx_gallery.gen_gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gen_modules/sphinx_gallery.backreferences.html">sphinx_gallery.backreferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gen_modules/sphinx_gallery.gen_rst.html">sphinx_gallery.gen_rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gen_modules/sphinx_gallery.py_source_parser.html">sphinx_gallery.py_source_parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gen_modules/sphinx_gallery.docs_resolv.html">sphinx_gallery.docs_resolv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gen_modules/sphinx_gallery.notebook.html">sphinx_gallery.notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gen_modules/sphinx_gallery.downloads.html">sphinx_gallery.downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gen_modules/sphinx_gallery.docs_resolv.html">sphinx_gallery.docs_resolv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gen_modules/sphinx_gallery.sorting.html">sphinx_gallery.sorting</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Gallery of Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html#future-examples">Future examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Test without __future__ imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_future_imports.html">Test __future__ imports across cells</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Gallery of Examples</a><ul>
+      <li>Previous: <a href="../plot_numpy_matplotlib.html" title="previous chapter">Link to other packages</a></li>
+      <li>Next: <a href="plot_future_imports.html" title="next chapter">Test __future__ imports across cells</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/auto_examples/future/plot_future_imports_broken.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

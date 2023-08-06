@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Logging test &#8212; Python  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pickling" href="plot_pickle.html" />
+    <link rel="prev" title="Command line arguments support" href="plot_command_line_args.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-log-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="logging-test">
+<span id="sphx-glr-auto-examples-plot-log-py"></span><h1>Logging test<a class="headerlink" href="#logging-test" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="k">def</span> <span class="nf">_create_logger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <a href="https://docs.python.org/3/library/logging.html#logging.Logger" title="logging.Logger" class="sphx-glr-backref-module-logging sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">logger</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/logging.html#logging.getLogger" title="logging.getLogger" class="sphx-glr-backref-module-logging sphx-glr-backref-type-py-function"><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span></a><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <a href="https://docs.python.org/3/library/logging.html#logging.Logger.setLevel" title="logging.Logger.setLevel" class="sphx-glr-backref-module-logging sphx-glr-backref-type-py-method"><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span></a><span class="p">)</span>
+    <span class="n">sh</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/logging.handlers.html#logging.StreamHandler" title="logging.StreamHandler" class="sphx-glr-backref-module-logging sphx-glr-backref-type-py-class"><span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="io.TextIOWrapper" class="sphx-glr-backref-module-io sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span></a><span class="p">)</span>
+    <span class="n">sh</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span></a><span class="p">)</span>
+    <a href="https://docs.python.org/3/library/logging.html#logging.Logger.addHandler" title="logging.Logger.addHandler" class="sphx-glr-backref-module-logging sphx-glr-backref-type-py-method"><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span></a><span class="p">(</span><span class="n">sh</span><span class="p">)</span>
+    <span class="k">return</span> <a href="https://docs.python.org/3/library/logging.html#logging.Logger" title="logging.Logger" class="sphx-glr-backref-module-logging sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">logger</span></a>
+</pre></div>
+</div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/logging.html#logging.Logger" title="logging.Logger" class="sphx-glr-backref-module-logging sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">logger</span></a> <span class="o">=</span> <span class="n">_create_logger</span><span class="p">(</span><span class="s2">&quot;first_logger&quot;</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/logging.html#logging.Logger.info" title="logging.Logger.info" class="sphx-glr-backref-module-logging sphx-glr-backref-type-py-method"><span class="n">logger</span><span class="o">.</span><span class="n">info</span></a><span class="p">(</span><span class="s2">&quot;is in the same cell&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>is in the same cell
+</pre></div>
+</div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/logging.html#logging.Logger.info" title="logging.Logger.info" class="sphx-glr-backref-module-logging sphx-glr-backref-type-py-method"><span class="n">logger</span><span class="o">.</span><span class="n">info</span></a><span class="p">(</span><span class="s2">&quot;is not in the same cell&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>is not in the same cell
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.002 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-log-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/2605673e66d2cc847b70bb1bf2d4b939/plot_log.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_log.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/936dfa023c8a1fbfaa560a549ee3f458/plot_log.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_log.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Python</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.gen_gallery.html">sphinx_gallery.gen_gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.backreferences.html">sphinx_gallery.backreferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.gen_rst.html">sphinx_gallery.gen_rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.py_source_parser.html">sphinx_gallery.py_source_parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.docs_resolv.html">sphinx_gallery.docs_resolv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.notebook.html">sphinx_gallery.notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.downloads.html">sphinx_gallery.downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.docs_resolv.html">sphinx_gallery.docs_resolv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.sorting.html">sphinx_gallery.sorting</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Gallery of Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plot_scraper_broken.html">Error during scraping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_svg.html">“SVG”:-<cite>graphics_</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_command_line_args.html">Command line arguments support</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logging test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_pickle.html">Pickling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_second_future_imports.html">Testing future statements across examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_matplotlib_alt.html">Matplotlib alt text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_animation.html">Animation support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_numpy_matplotlib.html">Link to other packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#future-examples">Future examples</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Gallery of Examples</a><ul>
+      <li>Previous: <a href="plot_command_line_args.html" title="previous chapter">Command line arguments support</a></li>
+      <li>Next: <a href="plot_pickle.html" title="next chapter">Pickling</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/auto_examples/plot_log.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

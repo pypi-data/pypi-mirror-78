@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Error during scraping &#8212; Python  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="“SVG”:-graphics_" href="plot_svg.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="local_module.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-scraper-broken-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="error-during-scraping">
+<span id="sphx-glr-auto-examples-plot-scraper-broken-py"></span><h1>Error during scraping<a class="headerlink" href="#error-during-scraping" title="Permalink to this headline">¶</a></h1>
+<p>The error is actually introduced by the resetter in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>. It mocks
+a “zero-size reduction” error in <code class="docutils literal notranslate"><span class="pre">fig.savefig</span></code>.</p>
+<div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/lucy/Documents/sphinx-gallery/sphinx_gallery/scrapers.py&quot;</span>, line <span class="m">335</span>, in <span class="n">save_figures</span>
+    <span class="n">rst</span> <span class="o">=</span> <span class="n">scraper</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">block_vars</span><span class="p">,</span> <span class="n">gallery_conf</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/lucy/Documents/sphinx-gallery/sphinx_gallery/tests/tinybuild/conf.py&quot;</span>, line <span class="m">17</span>, in <span class="n">__call__</span>
+    <span class="k">return</span> <span class="n">matplotlib_scraper</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">block_vars</span><span class="p">,</span> <span class="n">gallery_conf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/lucy/Documents/sphinx-gallery/sphinx_gallery/scrapers.py&quot;</span>, line <span class="m">151</span>, in <span class="n">matplotlib_scraper</span>
+    <a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="o">**</span><span class="n">these_kwargs</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/lucy/Documents/sphinx-gallery/sphinx_gallery/tests/tinybuild/conf.py&quot;</span>, line <span class="m">43</span>, in <span class="n">&lt;lambda&gt;</span>
+    <span class="n">Figure</span><span class="o">.</span><span class="n">savefig</span> <span class="o">=</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([])</span>
+  File <span class="nb">&quot;&lt;__array_function__ internals&gt;&quot;</span>, line <span class="m">6</span>, in <span class="n">amin</span>
+  File <span class="nb">&quot;/home/lucy/miniconda3/envs/sphinx/lib/python3.7/site-packages/numpy/core/fromnumeric.py&quot;</span>, line <span class="m">2746</span>, in <span class="n">amin</span>
+    <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/lucy/miniconda3/envs/sphinx/lib/python3.7/site-packages/numpy/core/fromnumeric.py&quot;</span>, line <span class="m">90</span>, in <span class="n">_wrapreduction</span>
+    <span class="k">return</span> <span class="n">ufunc</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">passkwargs</span><span class="p">)</span>
+<span class="gr">ValueError</span>: <span class="n">zero-size array to reduction operation minimum which has no identity</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.231 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-scraper-broken-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/875869823209fb298bef99090ff5b596/plot_scraper_broken.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_scraper_broken.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/2300099a8a72b1f91aa46a11810faaaa/plot_scraper_broken.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_scraper_broken.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Python</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.gen_gallery.html">sphinx_gallery.gen_gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.backreferences.html">sphinx_gallery.backreferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.gen_rst.html">sphinx_gallery.gen_rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.py_source_parser.html">sphinx_gallery.py_source_parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.docs_resolv.html">sphinx_gallery.docs_resolv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.notebook.html">sphinx_gallery.notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.downloads.html">sphinx_gallery.downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.docs_resolv.html">sphinx_gallery.docs_resolv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gen_modules/sphinx_gallery.sorting.html">sphinx_gallery.sorting</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Gallery of Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Error during scraping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_svg.html">“SVG”:-<cite>graphics_</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_command_line_args.html">Command line arguments support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_log.html">Logging test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_pickle.html">Pickling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_second_future_imports.html">Testing future statements across examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_matplotlib_alt.html">Matplotlib alt text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_animation.html">Animation support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_numpy_matplotlib.html">Link to other packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#future-examples">Future examples</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Gallery of Examples</a><ul>
+      <li>Previous: <a href="local_module.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Next: <a href="plot_svg.html" title="next chapter">“SVG”:-<cite>graphics_</cite></a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/auto_examples/plot_scraper_broken.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

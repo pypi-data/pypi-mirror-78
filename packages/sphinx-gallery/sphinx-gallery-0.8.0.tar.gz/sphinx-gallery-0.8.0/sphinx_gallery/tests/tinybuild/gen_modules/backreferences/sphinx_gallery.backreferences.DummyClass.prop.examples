@@ -1,0 +1,23 @@
+
+
+Examples using ``sphinx_gallery.backreferences.DummyClass.prop``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Use sphinx_gallery to link to other packages, like numpy, matplotlib.colors, and matplotlib.pyp...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/images/thumb/sphx_glr_plot_numpy_matplotlib_thumb.png
+     :alt: Link to other packages
+
+     :ref:`sphx_glr_auto_examples_plot_numpy_matplotlib.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_plot_numpy_matplotlib.py`

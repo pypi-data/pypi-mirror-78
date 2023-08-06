@@ -1,0 +1,23 @@
+
+
+Examples using ``sphinx_gallery.backreferences.NameFinder``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example tests that __future__ imports works across cells.">
+
+.. only:: html
+
+ .. figure:: /auto_examples/future/images/thumb/sphx_glr_plot_future_imports_thumb.png
+     :alt: Test __future__ imports across cells
+
+     :ref:`sphx_glr_auto_examples_future_plot_future_imports.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_future_plot_future_imports.py`

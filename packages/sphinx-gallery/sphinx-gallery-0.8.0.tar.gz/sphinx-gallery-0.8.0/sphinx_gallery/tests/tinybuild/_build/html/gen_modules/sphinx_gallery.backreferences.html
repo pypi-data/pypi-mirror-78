@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>sphinx_gallery.backreferences &#8212; Python  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sphinx_gallery.gen_rst" href="sphinx_gallery.gen_rst.html" />
+    <link rel="prev" title="sphinx_gallery.gen_gallery" href="sphinx_gallery.gen_gallery.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-sphinx_gallery.backreferences">
+<span id="sphinx-gallery-backreferences"></span><h1>sphinx_gallery.backreferences<a class="headerlink" href="#module-sphinx_gallery.backreferences" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="backreferences-generator">
+<h2>Backreferences Generator<a class="headerlink" href="#backreferences-generator" title="Permalink to this headline">¶</a></h2>
+<p>Parses example file code in order to keep track of used functions</p>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="sphinx_gallery.backreferences.identify_names">
+<code class="sig-prename descclassname">sphinx_gallery.backreferences.</code><code class="sig-name descname">identify_names</code><span class="sig-paren">(</span><em class="sig-param">script_blocks</em>, <em class="sig-param">global_variables=None</em>, <em class="sig-param">node=''</em><span class="sig-paren">)</span><a class="headerlink" href="#sphinx_gallery.backreferences.identify_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a codeobj summary by identifying and resolving used names.</p>
+</dd></dl>
+
+<div class="section" id="examples-using-sphinx-gallery-backreferences-identify-names">
+<span id="sphx-glr-backref-sphinx-gallery-backreferences-identify-names"></span><h4>Examples using <code class="docutils literal notranslate"><span class="pre">sphinx_gallery.backreferences.identify_names</span></code><a class="headerlink" href="#examples-using-sphinx-gallery-backreferences-identify-names" title="Permalink to this headline">¶</a></h4>
+<div class="sphx-glr-thumbcontainer" tooltip="Use sphinx_gallery to link to other packages, like numpy, matplotlib.colors, and matplotlib.pyp..."><div class="figure align-default" id="id1">
+<img alt="Link to other packages" src="../_images/sphx_glr_plot_numpy_matplotlib_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/plot_numpy_matplotlib.html#sphx-glr-auto-examples-plot-numpy-matplotlib-py"><span class="std std-ref">Link to other packages</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-clear"></div></div>
+</div>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sphinx_gallery.backreferences.DummyClass">
+<em class="property">class </em><code class="sig-prename descclassname">sphinx_gallery.backreferences.</code><code class="sig-name descname">DummyClass</code><a class="headerlink" href="#sphinx_gallery.backreferences.DummyClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dummy class for testing method resolution.</p>
+<dl class="method">
+<dt id="sphinx_gallery.backreferences.DummyClass.prop">
+<em class="property">property </em><code class="sig-name descname">prop</code><a class="headerlink" href="#sphinx_gallery.backreferences.DummyClass.prop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sphinx_gallery.backreferences.DummyClass.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sphinx_gallery.backreferences.DummyClass.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do nothing.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="examples-using-sphinx-gallery-backreferences-dummyclass">
+<span id="sphx-glr-backref-sphinx-gallery-backreferences-dummyclass"></span><h4>Examples using <code class="docutils literal notranslate"><span class="pre">sphinx_gallery.backreferences.DummyClass</span></code><a class="headerlink" href="#examples-using-sphinx-gallery-backreferences-dummyclass" title="Permalink to this headline">¶</a></h4>
+<div class="sphx-glr-thumbcontainer" tooltip="Use sphinx_gallery to link to other packages, like numpy, matplotlib.colors, and matplotlib.pyp..."><div class="figure align-default" id="id2">
+<img alt="Link to other packages" src="../_images/sphx_glr_plot_numpy_matplotlib_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/plot_numpy_matplotlib.html#sphx-glr-auto-examples-plot-numpy-matplotlib-py"><span class="std std-ref">Link to other packages</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-clear"></div><dl class="class">
+<dt id="sphinx_gallery.backreferences.NameFinder">
+<em class="property">class </em><code class="sig-prename descclassname">sphinx_gallery.backreferences.</code><code class="sig-name descname">NameFinder</code><span class="sig-paren">(</span><em class="sig-param">global_variables=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sphinx_gallery.backreferences.NameFinder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the longest form of variable names and their imports in code.</p>
+<p>Only retains names from imported modules.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="examples-using-sphinx-gallery-backreferences-namefinder">
+<span id="sphx-glr-backref-sphinx-gallery-backreferences-namefinder"></span><h4>Examples using <code class="docutils literal notranslate"><span class="pre">sphinx_gallery.backreferences.NameFinder</span></code><a class="headerlink" href="#examples-using-sphinx-gallery-backreferences-namefinder" title="Permalink to this headline">¶</a></h4>
+<div class="sphx-glr-thumbcontainer" tooltip="This example tests that __future__ imports works across cells."><div class="figure align-default" id="id3">
+<img alt="Test __future__ imports across cells" src="../_images/sphx_glr_plot_future_imports_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/future/plot_future_imports.html#sphx-glr-auto-examples-future-plot-future-imports-py"><span class="std std-ref">Test __future__ imports across cells</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-clear"></div></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Python</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sphinx_gallery.gen_gallery.html">sphinx_gallery.gen_gallery</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">sphinx_gallery.backreferences</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#backreferences-generator">Backreferences Generator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples-using-sphinx-gallery-backreferences-identify-names">Examples using <code class="docutils literal notranslate"><span class="pre">sphinx_gallery.backreferences.identify_names</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples-using-sphinx-gallery-backreferences-dummyclass">Examples using <code class="docutils literal notranslate"><span class="pre">sphinx_gallery.backreferences.DummyClass</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples-using-sphinx-gallery-backreferences-namefinder">Examples using <code class="docutils literal notranslate"><span class="pre">sphinx_gallery.backreferences.NameFinder</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx_gallery.gen_rst.html">sphinx_gallery.gen_rst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx_gallery.py_source_parser.html">sphinx_gallery.py_source_parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx_gallery.docs_resolv.html">sphinx_gallery.docs_resolv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx_gallery.notebook.html">sphinx_gallery.notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx_gallery.downloads.html">sphinx_gallery.downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx_gallery.docs_resolv.html">sphinx_gallery.docs_resolv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx_gallery.sorting.html">sphinx_gallery.sorting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Gallery of Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#future-examples">Future examples</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="sphinx_gallery.gen_gallery.html" title="previous chapter">sphinx_gallery.gen_gallery</a></li>
+      <li>Next: <a href="sphinx_gallery.gen_rst.html" title="next chapter">sphinx_gallery.gen_rst</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/gen_modules/sphinx_gallery.backreferences.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
