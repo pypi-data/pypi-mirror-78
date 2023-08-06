@@ -1,0 +1,40 @@
+{
+    "python": {
+        "command": [
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "source"
+                    }
+                ],
+                "id": "code", 
+                "name": "Python Script",
+                "suggest": false,
+                "parameter": [
+                    {
+                        "datatype": "code",
+                        "hidden": false,
+                        "id": "source",
+                        "index": 0,
+                        "language": "python",
+                        "name": "Python Code",
+                        "required": true
+                    },
+                    {
+                        "datatype": "string",
+                        "defaultValue": "text/plain",
+                        "hidden": true,
+                        "id": "format",
+                        "index": 1,
+                        "name": "Output Format",
+                        "required": false
+                    }
+                ]
+            }
+        ],
+        "id": "python"
+    }
+}

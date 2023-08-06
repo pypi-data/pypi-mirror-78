@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: vizier-webapi
+Version: 0.7.3
+Summary: UI, Web API, and Backend for data curation projects and workflows
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: apache-2.0
+Keywords: data curation
+Platform: UNKNOWN
+Requires-Dist: Flask (>=1.0)
+Requires-Dist: astor
+Requires-Dist: bokeh
+Requires-Dist: celery
+Requires-Dist: docker
+Requires-Dist: flask-cors
+Requires-Dist: geopandas
+Requires-Dist: jsonschema
+Requires-Dist: matplotlib
+Requires-Dist: minio
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pyyaml (>=5.1.0)
+Requires-Dist: requests
+Requires-Dist: shapely
+Requires-Dist: sklearn
+Requires-Dist: unicodecsv (>=0.14.1)
+
+UNKNOWN
+
+

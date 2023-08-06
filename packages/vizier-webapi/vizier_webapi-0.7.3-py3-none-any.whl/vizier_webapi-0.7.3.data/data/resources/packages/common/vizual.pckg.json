@@ -1,0 +1,869 @@
+{
+    "vizual": {
+        "command": [
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "DELETE"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "COLUMN"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "column"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "FROM"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    }
+                ],
+                "id": "deleteColumn",
+                "name": "Delete Column",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    },
+                    {
+                        "datatype": "colid",
+                        "hidden": false,
+                        "id": "column",
+                        "index": 1,
+                        "name": "Column",
+                        "required": true
+                    }
+                ],
+                "suggest": false
+            },
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "DELETE"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "ROW"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "row"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "FROM"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    }
+                ],
+                "id": "deleteRow",
+                "name": "Delete Row",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    },
+                    {
+                        "datatype": "rowid",
+                        "hidden": false,
+                        "id": "row",
+                        "index": 1,
+                        "name": "Row",
+                        "required": true
+                    }
+                ],
+                "suggest": false
+            },
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "DROP"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "DATASET"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    }
+                ],
+                "id": "dropDataset",
+                "name": "Drop Dataset",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    }
+                ],
+                "suggest": false
+            },
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "INSERT"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "COLUMN"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "name"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "INTO"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "AT"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "POSITION"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "position"
+                    }
+                ],
+                "id": "insertColumn",
+                "name": "Insert Column",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    },
+                    {
+                        "datatype": "int",
+                        "hidden": false,
+                        "id": "position",
+                        "index": 2,
+                        "name": "Position",
+                        "required": true
+                    },
+                    {
+                        "datatype": "string",
+                        "hidden": false,
+                        "id": "name",
+                        "index": 1,
+                        "name": "Column Name",
+                        "required": true
+                    }
+                ],
+                "suggest": false
+            },
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "INSERT"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "ROW"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "INTO"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "AT"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "POSITION"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "position"
+                    }
+                ],
+                "id": "insertRow",
+                "name": "Insert Row",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    },
+                    {
+                        "datatype": "int",
+                        "hidden": false,
+                        "id": "position",
+                        "index": 1,
+                        "name": "Position",
+                        "required": true
+                    }
+                ],
+                "suggest": false
+            },
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "MOVE"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "COLUMN"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "column"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "IN"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "TO"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "POSITION"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "position"
+                    }
+                ],
+                "id": "moveColumn",
+                "name": "Move Column",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    },
+                    {
+                        "datatype": "colid",
+                        "hidden": false,
+                        "id": "column",
+                        "index": 1,
+                        "name": "Column",
+                        "required": true
+                    },
+                    {
+                        "datatype": "int",
+                        "hidden": false,
+                        "id": "position",
+                        "index": 2,
+                        "name": "Position",
+                        "required": true
+                    }
+                ],
+                "suggest": false
+            },
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "MOVE"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "ROW"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "row"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "IN"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "TO"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "POSITION"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "position"
+                    }
+                ],
+                "id": "moveRow",
+                "name": "Move Row",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    },
+                    {
+                        "datatype": "rowid",
+                        "hidden": false,
+                        "id": "row",
+                        "index": 1,
+                        "name": "Row",
+                        "required": true
+                    },
+                    {
+                        "datatype": "int",
+                        "hidden": false,
+                        "id": "position",
+                        "index": 2,
+                        "name": "Position",
+                        "required": true
+                    }
+                ],
+                "suggest": false
+            },
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "FILTER"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "COLUMNS"
+                    },
+                    {
+                        "format": [
+                            {
+                                "lspace": true,
+                                "rspace": true,
+                                "type": "var",
+                                "value": "columns_column"
+                            }
+                        ],
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "columns"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "FROM"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    }
+                ],
+                "id": "projection",
+                "name": "Filter Columns",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    },
+                    {
+                        "datatype": "list",
+                        "hidden": false,
+                        "id": "columns",
+                        "index": 1,
+                        "name": "Columns",
+                        "required": true
+                    },
+                    {
+                        "datatype": "colid",
+                        "hidden": false,
+                        "id": "columns_column",
+                        "index": 2,
+                        "name": "Column",
+                        "parent": "columns",
+                        "required": true
+                    },
+                    {
+                        "datatype": "string",
+                        "hidden": false,
+                        "id": "columns_name",
+                        "index": 3,
+                        "name": "Rename as ...",
+                        "parent": "columns",
+                        "required": false
+                    }
+                ],
+                "suggest": false
+            },
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "RENAME"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "COLUMN"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "column"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "IN"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "TO"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "name"
+                    }
+                ],
+                "id": "renameColumn",
+                "name": "Rename Column",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    },
+                    {
+                        "datatype": "colid",
+                        "hidden": false,
+                        "id": "column",
+                        "index": 1,
+                        "name": "Column",
+                        "required": true
+                    },
+                    {
+                        "datatype": "string",
+                        "hidden": false,
+                        "id": "name",
+                        "index": 2,
+                        "name": "New Column Name",
+                        "required": true
+                    }
+                ],
+                "suggest": false
+            },
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "RENAME"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "DATASET"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "TO"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "name"
+                    }
+                ],
+                "id": "renameDataset",
+                "name": "Rename Dataset",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    },
+                    {
+                        "datatype": "string",
+                        "hidden": false,
+                        "id": "name",
+                        "index": 1,
+                        "name": "New Dataset Name",
+                        "required": true
+                    }
+                ],
+                "suggest": false
+            },
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "SORT"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "BY"
+                    },
+                    {
+                        "format": [
+                            {
+                                "lspace": true,
+                                "rspace": true,
+                                "type": "var",
+                                "value": "columns_column"
+                            },
+                            {
+                                "lspace": true,
+                                "prefix": "(",
+                                "rspace": true,
+                                "suffix": ")",
+                                "type": "opt",
+                                "value": "columns_order"
+                            }
+                        ],
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "columns"
+                    }
+                ],
+                "id": "sortDataset",
+                "name": "Sort Dataset",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    },
+                    {
+                        "datatype": "list",
+                        "hidden": false,
+                        "id": "columns",
+                        "index": 1,
+                        "name": "Columns",
+                        "required": true
+                    },
+                    {
+                        "datatype": "colid",
+                        "hidden": false,
+                        "id": "columns_column",
+                        "index": 2,
+                        "name": "Column",
+                        "parent": "columns",
+                        "required": true
+                    },
+                    {
+                        "datatype": "string",
+                        "hidden": false,
+                        "id": "columns_order",
+                        "index": 3,
+                        "name": "Order",
+                        "parent": "columns",
+                        "required": true,
+                        "values": [
+                            {
+                                "isDefault": true,
+                                "text": "A -> Z",
+                                "value": "ASC"
+                            },
+                            {
+                                "isDefault": false,
+                                "text": "Z -> A",
+                                "value": "DESC"
+                            }
+                        ]
+                    }
+                ],
+                "suggest": false
+            },
+            {
+                "format": [
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "UPDATE"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "dataset"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "SET"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": false,
+                        "type": "const",
+                        "value": "["
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "column"
+                    },
+                    {
+                        "lspace": false,
+                        "rspace": true,
+                        "type": "const",
+                        "value": ","
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "row"
+                    },
+                    {
+                        "lspace": false,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "]"
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "const",
+                        "value": "="
+                    },
+                    {
+                        "lspace": true,
+                        "rspace": true,
+                        "type": "var",
+                        "value": "value"
+                    }
+                ],
+                "id": "updateCell",
+                "name": "Update Cell",
+                "parameter": [
+                    {
+                        "datatype": "dataset",
+                        "hidden": false,
+                        "id": "dataset",
+                        "index": 0,
+                        "name": "Dataset",
+                        "required": true
+                    },
+                    {
+                        "datatype": "colid",
+                        "hidden": false,
+                        "id": "column",
+                        "index": 1,
+                        "name": "Column",
+                        "required": true
+                    },
+                    {
+                        "datatype": "rowid",
+                        "hidden": false,
+                        "id": "row",
+                        "index": 2,
+                        "name": "Row",
+                        "required": true
+                    },
+                    {
+                        "datatype": "scalar",
+                        "hidden": false,
+                        "id": "value",
+                        "index": 3,
+                        "name": "Value",
+                        "required": false
+                    }
+                ],
+                "suggest": false
+            }
+        ],
+        "id": "vizual"
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "scala": {
+        "command": [
+            {
+                "format": [
+                    {
+                        "lspace": true, 
+                        "rspace": true, 
+                        "type": "var", 
+                        "value": "source"
+                    }
+                ], 
+                "id": "code", 
+                "name": "Scala Script", 
+                "parameter": [
+                    {
+                        "datatype": "code", 
+                        "hidden": false, 
+                        "id": "source", 
+                        "index": 0, 
+                        "language": "scala", 
+                        "name": "Scala Code", 
+                        "required": true
+                    }
+                ]
+            }
+        ], 
+        "id": "scala",
+        "category": "code"
+    }
+}
