@@ -1,0 +1,6 @@
+dragonfly-core==1.25.20
+honeybee-energy==1.55.16
+
+[cli]
+click==7.1.2
+dragonfly-core[cli]==1.25.19
