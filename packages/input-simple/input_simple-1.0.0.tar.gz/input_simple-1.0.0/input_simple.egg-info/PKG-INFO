@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: input-simple
+Version: 1.0.0
+Summary: A Library for facilitating input operations
+Home-page: UNKNOWN
+Author: Saikat Sahana
+Author-email: saikatsahana91@gmail.com
+License: MIT
+Description: This is Basically a Library for People who want to simplify the process of taking input in different formats and from different file types in Python.
+        
+        Install Instructions:
+        
+        Windows:
+        
+        pip install input_simple
+        
+        Mac/Linux:
+        
+        sudo pip3 install input_simple
+        
+        
+        Change Log
+        ==========
+        
+        1.0.0 (07/09/2020)
+        ------------------
+        - First release
+Keywords: inputmodule input inputsimple
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
