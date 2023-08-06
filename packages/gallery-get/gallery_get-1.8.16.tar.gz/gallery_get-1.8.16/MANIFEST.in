@@ -1,0 +1,6 @@
+include *.py
+include gallery_plugins/*.py
+include gallery_get_test_input.csv
+include LICENSE.txt
+include README*
+exclude setup.py
