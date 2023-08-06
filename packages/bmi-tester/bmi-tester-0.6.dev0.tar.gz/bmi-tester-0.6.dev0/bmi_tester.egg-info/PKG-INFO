@@ -1,0 +1,131 @@
+Metadata-Version: 1.1
+Name: bmi-tester
+Version: 0.6.dev0
+Summary: Test Python BMI bindings.
+Home-page: https://github.com/csdms/bmi-tester
+Author: Eric Hutton
+Author-email: eric.hutton@colorado.edu
+License: UNKNOWN
+Description: |Build Status| |Documentation Status| |Coverage Status| |Conda Version|
+        |Conda Installation| |Conda Downloads|
+        
+        bmi-tester
+        ==========
+        
+        Test Python implementations of the Basic Model Interface.
+        
+        Links
+        -----
+        
+        -  `Source code <http://github.com/csdms/bmi-tester>`__: The
+           *bmi-tester* source code repository.
+        -  `Documentation <http://bmi-tester.readthedocs.io/>`__: User
+           documentation for *bmi-tester*
+        -  `Get <http://bmi-tester.readthedocs.io/en/latest/getting.html>`__:
+           Installation instructions
+        
+        .. |Build Status| image:: https://travis-ci.org/csdms/bmi-tester.svg?branch=master
+           :target: https://travis-ci.org/csdms/bmi-tester
+        .. |Documentation Status| image:: https://readthedocs.org/projects/bmi-tester/badge/?version=latest
+           :target: http://bmi-tester.readthedocs.io/en/latest/?badge=latest
+        .. |Coverage Status| image:: https://coveralls.io/repos/github/csdms/bmi-tester/badge.svg?branch=master
+           :target: https://coveralls.io/github/csdms/bmi-tester?branch=master
+        .. |Conda Version| image:: https://anaconda.org/conda-forge/bmi-tester/badges/version.svg
+           :target: https://anaconda.org/conda-forge/bmi-tester
+        .. |Conda Installation| image:: https://anaconda.org/conda-forge/bmi-tester/badges/installer/conda.svg
+           :target: https://conda.anaconda.org/conda-forge
+        .. |Conda Downloads| image:: https://anaconda.org/conda-forge/bmi-tester/badges/downloads.svg
+           :target: https://anaconda.org/conda-forge/bmi-tester
+        
+        
+        Credits
+        =======
+        
+        * Eric Hutton
+        
+        * Mark Piper
+        
+        
+        Changelog for bmi-tester
+        ========================
+        
+        0.6 (unreleased)
+        ----------------
+        
+        - Nothing changed yet.
+        
+        
+        0.5 (2020-09-02)
+        ----------------
+        
+        - Fixed an error with empty_var_buffer where it returned a read-only array (#20)
+        
+        - Fixed MANIFEST.in to include necessary source files (#21)
+        
+        - Added test stages where successive stages depend on one another (#19)
+        
+        - Cleaned up continuous integration and added Python 3.8 builds (#18)
+        
+        
+        0.4.4 (2020-03-23)
+        ------------------
+        
+        - Added test for get_grid_node_count (#17)
+        
+        0.4.3 (2019-11-12)
+        ------------------
+        
+        
+        0.4.2 (2019-07-24)
+        ------------------
+        
+        
+        0.4.1 (2019-05-16)
+        ------------------
+        
+        
+        0.4.0 (2018-10-25)
+        ------------------
+        
+        
+        0.3.1 (2018-10-16)
+        ------------------
+        
+        
+        0.3.0 (2018-09-30)
+        ------------------
+        
+        
+        0.2.4 (2018-07-04)
+        ------------------
+        
+        
+        0.2.2 (2018-07-03)
+        ------------------
+        
+        
+        0.2.1 (2018-06-04)
+        ------------------
+        
+        
+        0.2 (2018-06-04)
+        ----------------
+        
+        
+        0.1.0 (2018-04-14)
+        ------------------
+        
+        - Initial release
+        
+Keywords: bmi
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering :: Physics
