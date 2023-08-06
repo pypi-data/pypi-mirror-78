@@ -1,0 +1,28 @@
+<%include file="./style.html" />
+
+<div style="width: 100%; overflow-x: scroll;">
+    <div class="full-width">
+        <h2>Loss</h2>
+        <img src="${loss_plot}" />
+    </div>
+    <h2>Summary</h2>
+    <table class="full-width">
+        <thead>
+            <tr>
+                <th><h3 class="left">Training Data</h3></th>
+                <th><h3 class="right">Test Data</h3></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>${fit.training_summary._repr_html_()}</td>
+                <td>${fit.test_summary._repr_html_()}</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    ${str(fit.model)}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
