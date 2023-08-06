@@ -1,0 +1,5 @@
+[console_scripts]
+nabu = nabu.resources.cli.reconstruct:main
+nabu-config = nabu.resources.cli.bootstrap:bootstrap
+nabu-test = nabu.tests:nabu_test
+
