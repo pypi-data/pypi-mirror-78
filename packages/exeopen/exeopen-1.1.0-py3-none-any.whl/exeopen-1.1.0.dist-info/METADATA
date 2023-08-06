@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: exeopen
+Version: 1.1.0
+Summary: Can open any inbuilt .exe in windows
+Home-page: UNKNOWN
+Author: Komal
+Author-email: komalpreetx.kaur@intel.com
+License: Commercial
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: cryptography
+Requires-Dist: mysql.connector
+Requires-Dist: Fernet
+Requires-Dist: sqlalchemy
+
+will open any .exe which is inbuilt in windows,provided by you in the arguments.
+
+
