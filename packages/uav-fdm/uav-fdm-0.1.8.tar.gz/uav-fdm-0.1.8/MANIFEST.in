@@ -1,0 +1,5 @@
+include gencode/sam_intercepter2/uav_fdm3d_ert_rtw/*.h
+include gencode/R2018b/rtw/c/src/*.h
+include gencode/R2018b/rtw/c/src/ext_mode/common/*.h
+include gencode/R2018b/simulink/include/*.h
+include *.h
