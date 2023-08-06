@@ -1,0 +1,24 @@
+{% load i18n %}
+{% if iotds %}
+  <li class="nav-item dropdown">
+    <a class="nav-link" data-toggle="dropdown" href="#">
+      <i class="fas fa-info-circle"></i>
+      <span class="badge badge-info navbar-badge">{{ iotds|length }}</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="max-width: 1000px !important;">
+      <span class="dropdown-item dropdown-header">{{ iotds|length }} information{{ iotds|pluralize }} of the day</span>
+      {% for iotd in iotds %}
+        <div class="dropdown-divider"></div>
+        <a href="{% url "nobinobi_child:InformationOfTheDay_detail" pk=iotd.id %}" class="dropdown-item">
+          {{ iotd.content.excerpt }}<br>
+          <span class="text-muted text-sm">{% for classroom in iotd.classrooms.all %}{{ classroom.name }}
+            , {% endfor %}</span>
+        </a>
+      {% endfor %}
+      <div class="dropdown-divider"></div>
+      <a href="{% url "nobinobi_child:InformationOfTheDay_list" %}"
+         class="dropdown-item dropdown-footer">{% trans "See all Informations of the day" %}</a>
+    </div>
+  </li>
+{% endif %}
+

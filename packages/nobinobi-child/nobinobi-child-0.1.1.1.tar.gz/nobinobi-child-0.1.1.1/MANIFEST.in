@@ -1,0 +1,6 @@
+include AUTHORS.rst
+include CONTRIBUTING.rst
+include HISTORY.rst
+include LICENSE
+include README.rst
+recursive-include nobinobi_child *.html *.png *.gif *js *.css *jpg *jpeg *svg *py *json *woff *woff2 *ttf *ico
