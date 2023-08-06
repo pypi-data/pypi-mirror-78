@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="padding: 0; margin: 0;">
+    {% for code in codes %}
+        <img src="{% url 'barcode:get' code %}" style="max-width: 50mm;margin-left: 7mm;margin-top: 4mm;">
+        {% if forloop.count != 1 and not forloop.last %}
+            <div style="display: block;page-break-before: always;"></div>
+        {% endif %}
+    {% endfor %}
+
+    <script>
+        window.print();
+    </script>
+</body>
+</html>

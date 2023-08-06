@@ -1,0 +1,26 @@
+
+{% extends 'admin/base_site.html' %}
+
+{% load i18n %}
+
+
+{% block content %}
+    <form method="post" target="_blank">
+        {% csrf_token %}
+
+        <b>{% trans 'How many codes should be generated' %} ?</b>
+
+        <div class="clearfix"></div>
+
+        <input type="text"
+               class="form-control"
+               style="width: 145px;float: left"
+               placeholder="{% trans 'Enter the number' %}"
+               name="count">
+
+        <button type="submit" class="btn btn-success">
+            <i class="fa fa-check"></i>
+            {% trans 'Generate' %}
+        </button>
+    </form>
+{% endblock %}
