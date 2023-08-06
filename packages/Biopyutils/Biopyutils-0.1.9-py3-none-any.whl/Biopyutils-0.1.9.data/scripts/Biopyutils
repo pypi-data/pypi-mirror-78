@@ -1,0 +1,16 @@
+#!python
+# -*- coding: utf-8 -*-
+# Author            : Jingxin Fu <jingxin_fu@outlook.com>
+# Date              : 09/02/2020
+# Last Modified Date: 10/02/2020
+# Last Modified By  : Jingxin Fu <jingxin_fu@outlook.com>
+__doc__="""
+"""
+import argparse
+from Biopyutils import Gene 
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('function',help="Name of function")
