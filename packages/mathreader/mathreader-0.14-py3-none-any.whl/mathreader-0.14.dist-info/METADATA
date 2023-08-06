@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: mathreader
+Version: 0.14
+Summary: UNKNOWN
+Home-page: https://github.com/carolreis/mathreader
+Author: Caroline Reis
+Author-email: caroline.reis@rede.ulbra.br
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: Markdown
+Requires-Dist: Pillow
+Requires-Dist: bison
+Requires-Dist: h5py
+Requires-Dist: idx2numpy
+Requires-Dist: imageio
+Requires-Dist: imutils
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: ply
+Requires-Dist: tensorflow
+Requires-Dist: tensorflow-estimator (==2.2.0)
+Requires-Dist: tensorflow (==2.2.0)
+Requires-Dist: twine
+
+==========================================================
+MathReader
+==========================================================
+API for handwritten mathematical expressions recognition
+---------------------------------------------------------
+
+GitHub `MathReader <https://github.com/carolreis/mathreader>`_.
+
+
