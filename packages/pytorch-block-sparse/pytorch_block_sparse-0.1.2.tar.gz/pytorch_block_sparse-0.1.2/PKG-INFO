@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: pytorch_block_sparse
+Version: 0.1.2
+Summary: PyTorch extension for fast block sparse matrices computation, drop in replacement for torch.nn.Linear.
+Home-page: https://github.com/huggingface/pytorch_block_sparse
+Author: François Lagunas
+Author-email: francois.lagunas@m4x.org
+License: BSD 3-Clause "New" or "Revised" License
+Download-URL: https://test.pypi.org/project/pytorch-block-sparse/0.1.2/
+Description: pytorch_block_sparse is a PyTorch extension for fast block sparse matrices computation, drop in replacement for torch.nn.Linear
+Keywords: PyTorch,sparse,matrices,machine learning
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.0
