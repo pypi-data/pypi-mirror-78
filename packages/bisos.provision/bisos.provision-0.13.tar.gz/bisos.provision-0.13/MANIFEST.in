@@ -1,0 +1,12 @@
+# 
+
+include lh-agpl3-LICENSE.txt
+
+include TITLE.txt
+include README.rst
+
+# Include the data files
+
+global-exclude *.py[co]
+global-exclude */.git/*
+global-exclude *~
