@@ -1,0 +1,5 @@
+[console_scripts]
+ip2as = ip2as.ip2as:main
+ip2ases = ip2as.ip2ases:main
+rir2as = ip2as.rir_delegations:main
+
