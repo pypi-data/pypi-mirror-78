@@ -1,0 +1,32 @@
+patool
+colorama
+appdirs
+black
+GitPython
+progressbar2
+RestrictedPython>=4.0
+redbaron
+requests
+chardet
+packaging
+
+[:platform_system != "Windows"]
+python-sat
+
+[:platform_system == "Windows"]
+pywin32
+python-sat>=0.1.5.dev12
+
+[:python_version < "3.8"]
+importlib_metadata
+
+[bash]
+argcomplete
+
+[benchmark]
+pytest-benchmark
+
+[test]
+pytest
+pytest-cov
+setuptools_scm

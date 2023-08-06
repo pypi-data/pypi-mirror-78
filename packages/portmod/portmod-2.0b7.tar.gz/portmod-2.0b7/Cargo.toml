@@ -1,0 +1,36 @@
+# Copyright 2019-2020 Portmod Authors
+# Distributed under the terms of the GNU General Public License v3
+
+[package]
+name = "portmod"
+version = "2.0.0-beta5"
+authors = ["Portmod Authors <incoming+portmod-portmod-9660349-issue-@incoming.gitlab.com>"]
+publish = false
+edition = "2018"
+
+[profile.release]
+lto = true
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+esplugin = "3"
+walkdir = "2"
+crossterm = "0.17"
+serde_yaml = "0.8"
+serde = {version = "1.0", features = ["derive"]}
+derive_more = "0.99"
+serde_with = "1.4"
+fluent-templates = "0.5"
+fluent-bundle = "0.12"
+unic-langid = "0.9"
+
+[dependencies.pyo3]
+version = "0.11"
+features = ["extension-module"]
+
+[dependencies.tui]
+version = "0.9"
+default-features = false
+features = ['crossterm']

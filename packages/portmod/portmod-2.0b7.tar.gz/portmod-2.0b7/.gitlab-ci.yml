@@ -1,0 +1,87 @@
+image: registry.gitlab.com/portmod/portmod/rust:latest
+
+# Change pip's cache directory to be inside the project directory since we can
+# only cache local items.
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+# Pip's cache doesn't store the python packages
+# https://pip.pypa.io/en/stable/reference/pip_install/#caching
+#
+# If you want to also cache the installed packages, you have to install
+# them in a virtualenv and cache it as well.
+cache:
+  paths:
+    - .cache
+    - .venv/
+    - ~/.cache/portmod
+    - target
+    - portmod/portmod.cpython-*
+
+stages:
+  - build
+  - test
+  - deploy
+
+before_script:
+  - python -V # Print out python version for debugging
+  - rustc -V
+  - virtualenv .venv
+  - source .venv/bin/activate
+
+inquisitor:
+  stage: test
+  script:
+  - mkdir -p .cache/tmp
+  - pip install -e .[test] --cache-dir .cache/pip
+  - git clone https://gitlab.com/portmod/openmw-mods.git .cache/openmw --depth 1 || true
+  - cd .cache/openmw
+  - git pull
+  - python ${CI_PROJECT_DIR}/bin/inquisitor
+
+install:
+  stage: build
+  script:
+  - mkdir -p .cache/tmp
+  - pip install -e .[test] --cache-dir .cache/pip
+
+lint:
+  stage: test
+  script:
+  - pip install --upgrade flake8 pylint setuptools_rust
+  - shopt -s globstar
+  - flake8 --exclude .venv,--max-line-length=88 --filename '*.py,*.pybuild'
+  - pylint -E **/*.py
+  - cargo clippy -- -D warnings
+
+pytest:
+  stage: test
+  script:
+  - pytest --cov=portmod --cov=pybuild_
+
+#mypy:
+#  stage: test
+#  script:
+#  - pip install mypy
+#  - MYPYPATH=.venv/lib/python3.6/site-packages mypy bin/*.py portmod
+
+format:
+  stage: test
+  script:
+  - pip install --upgrade black
+  - shopt -s globstar
+  - black --diff --check **/*.{py,pybuild}
+  - cargo fmt -- --check -l
+
+deploy:
+  image: quay.io/pypa/manylinux1_x86_64
+  stage: deploy
+  only:
+  - tags
+  before_script:
+  - /opt/python/cp36-cp36m/bin/pip -V
+  script:
+  - /opt/python/cp36-cp36m/bin/pip install twine
+  - ./build-wheels.sh
+  - python setup.py check sdist
+  - /opt/python/cp36-cp36m/bin/python -m twine upload dist/*

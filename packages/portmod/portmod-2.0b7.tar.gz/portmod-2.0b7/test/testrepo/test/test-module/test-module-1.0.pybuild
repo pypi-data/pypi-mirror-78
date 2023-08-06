@@ -1,0 +1,40 @@
+import os
+import shutil
+from pybuild import Pybuild1
+from pybuild.modinfo import M
+
+
+class Mod(Pybuild1):
+    NAME = "Test Module"
+    KEYWORDS = "test"
+    DESC = "test desc"
+    HOMEPAGE = "test homepage"
+    PROPERTIES = "module"
+
+    def src_prepare(self):
+        os.makedirs(M)
+        with open(os.path.join(M, "test-module.pmodule"), "w") as file:
+            print(
+                '''
+"""Test Module"""
+import os
+from portmod.module_util import create_file
+
+def do_update(state):
+    print("Updating test module")
+    with open(os.path.join(state.ROOT, "test_file"), "w") as file:
+        print("Foo", file=file)
+
+    path = create_file("/etc/foo")
+    with open(path, "w") as file:
+        print("Foo", file=file)
+
+def do_list(state, args):
+    """Description"""
+    return []
+        ''',
+                file=file,
+            )
+
+    def src_install(self):
+        shutil.copy(os.path.join(self.WORKDIR, self.M, "test-module.pmodule"), self.D)
