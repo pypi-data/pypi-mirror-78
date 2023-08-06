@@ -1,0 +1,1 @@
+from swearfilter import Filter
