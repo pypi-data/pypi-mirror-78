@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: pyNSID
+Version: 0.0.1
+Summary: Framework for storing, visualizing, and processing N-Dimensional Spectroscopic and Imaging Data (NSID)
+Home-page: https://pycroscopy.github.io/pyUSID/about.html
+Author: G. Duscher, S. Somnath, and contributors
+Author-email: pycroscopy@gmail.com
+License: MIT
+Keywords: imaging,spectra,multidimensional,data format,universal,hdf5
+Platform: Linux
+Platform: Mac OSX
+Platform: Windows 10/8.1/8/7
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Provides-Extra: MPI
+Requires-Dist: numpy (>=1.10)
+Requires-Dist: toolz
+Requires-Dist: cytoolz
+Requires-Dist: dask (>=0.10)
+Requires-Dist: h5py (>=2.6.0)
+Requires-Dist: six
+Requires-Dist: sidpy (>=0.0.2)
+Requires-Dist: ipywidgets (>=5.2.2)
+Requires-Dist: ipython (<6,>=5.1.0); python_version < "3.3"
+Requires-Dist: ipython (>=6.0); python_version >= "3.3"
+Provides-Extra: MPI
+Requires-Dist: mpi4py; extra == 'MPI'
+
+UNKNOWN
+
+
