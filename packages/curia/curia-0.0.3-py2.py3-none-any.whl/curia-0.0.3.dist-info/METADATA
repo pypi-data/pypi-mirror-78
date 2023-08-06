@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: curia
+Version: 0.0.3
+Summary: A library for training and using risk & impactability models on Curia
+Home-page: https://github.com/FoundryAI/curia-python-sdk
+Author: Curia.ai
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Dist: ipykernel
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: dynaconf
+Requires-Dist: validation-decorators
+Requires-Dist: scikit-learn
+Requires-Dist: logzero
+Requires-Dist: docutils
+Requires-Dist: importlib-metadata
+Requires-Dist: packaging
+Provides-Extra: docs
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: sphinxcontrib-apidoc ; extra == 'docs'
+Requires-Dist: sphinx ; extra == 'docs'
+Provides-Extra: testing
+Requires-Dist: flake8 ; extra == 'testing'
+Requires-Dist: pytest-pylint ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+Requires-Dist: pytest-mock ; extra == 'testing'
+
+file: README.md
+
+
