@@ -1,0 +1,71 @@
+Metadata-Version: 1.2
+Name: vyoma_download
+Version: 0.1.0
+Summary: Download course contents from sanskritfromhome.in
+Home-page: https://github.com/hrishikeshrt/vyoma_download
+Author: Hrishikesh Terdalkar
+Author-email: hrishikeshrt@linuxmail.org
+License: MIT license
+Description: ==============
+        vyoma-download
+        ==============
+        
+        
+        .. image:: https://img.shields.io/pypi/v/vyoma_download.svg
+                :target: https://pypi.python.org/pypi/vyoma_download
+        
+        .. image:: https://img.shields.io/travis/hrishikeshrt/vyoma_download.svg
+                :target: https://travis-ci.com/hrishikeshrt/vyoma_download
+        
+        .. image:: https://readthedocs.org/projects/vyoma-download/badge/?version=latest
+                :target: https://vyoma-download.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        
+        
+        Download course contents from sanskritfromhome.in
+        
+        **Note**:
+        You must be registered on https://sanskritfromhome.in/.
+        You must be subscribed to the course that you vish to download.
+        
+        * Free software: MIT license
+        * Documentation: https://vyoma-download.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * Download video, audio and documents for courses from sanskritfromhome.in
+        * Resume download whenever possible
+        * Keep a list of files that fail to download
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2020-09-08)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: vyoma_download
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
