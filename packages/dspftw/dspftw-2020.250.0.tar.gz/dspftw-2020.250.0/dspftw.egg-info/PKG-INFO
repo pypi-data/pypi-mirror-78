@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: dspftw
+Version: 2020.250.0
+Summary: Utilities for digital signal processing (DSP) fundamentals.
+Home-page: https://github.com/gershwinlabs/dspftw
+Author: Bill Allen
+Author-email: photo.allen@gmail.com
+License: MIT
+Description: # DSPFTW
+        
+        Starting points for learning digital signal processing.
+        
+        ## Lessons
+        
+        Lessons can be found in the [doc/](doc directory).
+        
+        There is a Python package that corresponds with the lessons, also called `dspftw`.  You can install it with:
+        
+        ```sh
+        python3 -m pip install dspftw --user
+        ```
+        
+Keywords: dsp,sinusoid
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
