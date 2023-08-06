@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+
+from dna_workflows import wf_client
+
+if __name__ == "__main__":
+    wf_client.run()
