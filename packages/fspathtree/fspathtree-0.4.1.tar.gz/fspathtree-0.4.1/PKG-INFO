@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: fspathtree
+Version: 0.4.1
+Summary: A small utility for wrapping trees (nested dict/list) that allows filesystem-like path access, including walking up with "../".
+Home-page: https://github.com/CD3/fspathtree
+Author: CD Clark III
+Author-email: clifton.clark@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: dict,tree,filesystem path
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
