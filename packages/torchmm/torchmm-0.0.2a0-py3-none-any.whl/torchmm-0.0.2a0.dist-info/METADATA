@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: torchmm
+Version: 0.0.2.alpha
+Summary: PyTorch DataLoader and Abstraction for multi-modal data.
+Home-page: https://github.com/pytorch-duo/torchmm
+Author: Abdul Waheed, Ganeshan Malhotra
+Author-email: abdulwaheed1513@gmail.com
+License: MIT
+Project-URL: Source, https://github.com/pytorch-duo/torchmm
+Keywords: machine learning,deep learning,computer vision,natural language processing,pytorch
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: torch (==1.5.1)
+Requires-Dist: torchtext (==0.6.0)
+Requires-Dist: torchvision (==0.6.0a0+82fd1c8)
+
+# torchmm
+PyTorch Data loaders and abstraction for multi-modal data
+
+
