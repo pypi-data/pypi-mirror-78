@@ -1,0 +1,63 @@
+Metadata-Version: 1.2
+Name: django-powerwiki
+Version: 0.2.1
+Summary: Build admin-style views with minimal code
+Home-page: http://radiac.net/projects/django-powerwiki/
+Author: Richard Terry
+Author-email: code@radiac.net
+License: BSD
+Project-URL: Documentation, http://radiac.net/projects/django-powerwiki/
+Project-URL: Source, https://github.com/radiac/django-powerwiki
+Project-URL: Tracker, https://github.com/radiac/django-powerwiki/issues
+Description: ===============================================
+        Django Powerwiki - Run multiple wikis in Django
+        ===============================================
+        
+        A work in progress wiki system for Django 2.2+
+        
+        * Project site: http://radiac.net/projects/django-powerwiki/
+        * Source code: https://github.com/radiac/django-powerwiki
+        
+        .. image:: https://travis-ci.org/radiac/django-powerwiki.svg?branch=master
+            :target: https://travis-ci.org/radiac/django-powerwiki
+        
+        .. image:: https://coveralls.io/repos/radiac/django-powerwiki/badge.svg?branch=master&service=github
+            :target: https://coveralls.io/github/radiac/django-powerwiki?branch=master
+        
+        
+        Features
+        ========
+        
+        * Run one or multiple wikis from one installation
+        * Full control over who can read and edit content, by user or group
+        * Create pages in Markdown, reStructuredText, plain text, or extend with a custom format
+        
+        See `Upgrading <docs/upgrading.rst>`_ for changelog and upgrade instructions
+        
+        
+        Quickstart
+        ==========
+        
+        #. Install in a single or multiple wiki configuration at a url of your choice - see
+           `Installation <docs/installation.rst>`_
+        
+        #. Add users, wikis and configure permissions in the admin site
+        
+        #. Write pages using your choice of markup language - see `Usage <docs/usage.rst>`_
+        
+        
+Keywords: django wiki
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
