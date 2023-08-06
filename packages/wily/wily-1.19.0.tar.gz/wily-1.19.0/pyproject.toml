@@ -1,0 +1,89 @@
+[build-system]
+requires = [
+    "flit>=2.0",
+    "gitpython>=3.0.0,<4.0.0",
+    "radon>=4.0.0,<4.1.0",
+    "click>=7.0,<8.0",
+    "nbformat>=4.4.0,<4.5.0",
+    "colorlog>=4.0.0,<5.0.0",
+    "tabulate>=0.8.2,<1.0.0",
+    "plotly>=4.0.0,<5.0.0",
+    "sphinx",
+    "sphinx-click",
+    "progress==1.4",
+    "dataclasses; python_version == '3.6'",]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "wily"
+author = "Anthony Shaw"
+author-email = "anthonyshaw@apache.org"
+home-page = "https://github.com/tonybaloney/wily"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3 :: Only",
+    ]
+requires = [
+    "gitpython>=3.0.0,<4.0.0",
+    "radon>=4.0.0,<4.1.0",
+    "click>=7.0,<8.0",
+    "nbformat>=4.4.0,<4.5.0",
+    "colorlog>=4.0.0,<5.0.0",
+    "tabulate>=0.8.2,<1.0.0",
+    "plotly>=4.0.0,<5.0.0",
+    "progress==1.4",
+    "dataclasses; python_version == '3.6'",]
+requires-python = ">=3.6"
+description-file = "README.md"
+
+[tool.flit.metadata.urls]
+Documentation = "https://wily.readthedocs.io/en/latest/"
+
+[tool.flit.sdist]
+include = ["doc/"]
+exclude = ["doc/*.html"]
+
+[tool.flit.scripts]
+wily = "wily.__main__:cli"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+isolated_build = true
+envlist = py36, py37, py38
+[testenv]
+passenv = CI TRAVIS TRAVIS_* HOME
+setenv =
+    PYTHONPATH = {toxinidir}
+deps =
+    pip>=19.1
+    pytest
+    pytest-cov
+    codecov
+    mock
+    pydocstyle
+commands =
+    pytest --cov=wily
+    codecov
+    pydocstyle --ignore=D301,D212,D203 wily
+"""
+
+[tool.black]
+line-length = 88
+py36 = true
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
