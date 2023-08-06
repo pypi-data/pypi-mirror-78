@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: django-datastore
+Version: 0.1.3.4
+Summary: Generic data store for Django Rest framework
+Home-page: https://github.com/Terralego/django-datastore
+Author: Makina Corpus
+Author-email: terralego-pypi@makina-corpus.com
+License: MIT, see LICENSE file.
+Description: [![Build Status](https://travis-ci.org/Terralego/django-datastore.svg?branch=master)](https://travis-ci.org/Terralego/django-datastore)
+        [![codecov](https://codecov.io/gh/Terralego/django-datastore/branch/master/graph/badge.svg)](https://codecov.io/gh/Terralego/django-datastore)
+        [![PyPi version](https://pypip.in/v/django-datastore/badge.png)](https://pypi.org/project/django-datastore/)
+        
+        # Django Datastore
+        
+        Django application to either :
+          - store unstructured data in JSON format with permission handling
+          - store files for models through a generic foreign key
+          
+        All of that can be handled with a REST API thanks to Django REST Framework.
+        
+        
+        
+        =========
+        CHANGELOG
+        =========
+        
+        0.1.3.4         (2020-09-07)
+        ----------------------------
+        
+        * Restore deployment with pypi provider
+        
+        0.1.2           (2020-09-03)
+        ----------------------------
+        
+        * Create related document url serializer
+        * Using django.db.models.JSONField instead of django.contrib.postgres.fields
+        
+        0.1.1           (2019-12-19)
+        ----------------------------
+        
+        * First release
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Description-Content-Type: text/markdown
+Provides-Extra: dev
