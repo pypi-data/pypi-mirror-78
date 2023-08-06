@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: guardcam
+Version: 0.2.4
+Summary: Visual movement detector in python with remote notifications
+Home-page: https://github.com/Milogav/GuardCam
+Author: Milogav
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: opencv-contrib-python (>=4.1.0.25)
+Requires-Dist: numpy (==1.19.1)
+Requires-Dist: uvicorn (==0.11.8)
+Requires-Dist: fastapi (==0.61.1)
+Requires-Dist: requests (==2.24.0)
+
+UNKNOWN
+
+
