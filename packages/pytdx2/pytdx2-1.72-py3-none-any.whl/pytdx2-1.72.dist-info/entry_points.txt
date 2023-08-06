@@ -1,0 +1,6 @@
+[console_scripts]
+get_tts = pytdx2.bin.get_tdx_trader_server:main
+hqbenchmark = pytdx2.bin.hqbenchmark:main
+hqget = pytdx2.bin.hqget:main
+hqreader = pytdx2.bin.hqreader:main
+
