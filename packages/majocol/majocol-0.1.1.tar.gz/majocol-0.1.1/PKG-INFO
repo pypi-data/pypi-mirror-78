@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: majocol
+Version: 0.1.1
+Summary: pick major colors from image
+Home-page: https://github.com/suzukey/majocol
+License: MIT
+Author: suzukey
+Author-email: suzukey28@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: numpy (>=1.19.1,<2.0.0)
+Requires-Dist: opencv-python (>=4.4.0,<5.0.0)
+Requires-Dist: scikit-learn (>=0.23.2,<0.24.0)
+Project-URL: Repository, https://github.com/suzukey/majocol
+Description-Content-Type: text/markdown
+
+# MajoCol
+
+pick major colors from image
+
