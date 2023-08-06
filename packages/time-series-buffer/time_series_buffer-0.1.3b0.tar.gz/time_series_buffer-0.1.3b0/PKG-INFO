@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: time_series_buffer
+Version: 0.1.3b0
+Summary: This package provides support for buffering time-series with uncertainty.
+Home-page: https://github.com/PTB-PSt1/time-series-buffer
+Author: Maximilian Gruber, Björn Ludwig
+Author-email: maximilian.gruber@ptb.de
+License: UNKNOWN
+Description: ![Python package](https://github.com/PTB-PSt1/time-series-buffer/workflows/Python%20package/badge.svg?branch=master)
+        
+        # time-series-buffer - a metrological time-series buffer
+        
+        This package provides support for time-series buffering based on the build-in Python `collections.deque`. 
+        
+        The package is developed and maintained at the "Physikalisch-Technische Bundesanstalt" by Björn Ludwig and Maximilian Gruber. 
+Keywords: buffer time-series uncertainty metrology
+Platform: UNKNOWN
+Classifier: Topic :: Utilities
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
