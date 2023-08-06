@@ -1,0 +1,8 @@
+include glasskit/project_templates/__appname__/controllers/*
+include glasskit/project_templates/__appname__/models/*
+include glasskit/project_templates/__appname__/tasks/*
+include glasskit/project_templates/__appname__/*
+include glasskit/project_templates/commands/*
+include glasskit/project_templates/config/*
+include glasskit/project_templates/*
+include glasskit/unit_templates/*

@@ -1,0 +1,10 @@
+from glasskit.api import json_response, json_body_required
+from {{ cls_module_path }} import {{ cls_name }}
+
+
+{{ ctrl_name }}_ctrl = {{ cls_name }}("{{ ctrl_name }}", __name__, require_auth={{ require_auth }})
+
+
+@{{ ctrl_name }}_ctrl.route("/")
+def index():
+    pass
