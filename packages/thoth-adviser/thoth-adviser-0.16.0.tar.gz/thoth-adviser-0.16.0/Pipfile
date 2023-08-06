@@ -1,0 +1,33 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+pytest-timeout = "*"
+pytest-cov = "*"
+hypothesis-auto = "*"
+hypothesis = "*"
+flexmock = "*"
+pytest-mypy = "*"
+
+[packages]
+click = "*"
+attrs = "*"
+thoth-python = "*"
+thoth-storages = "*"
+contoml = "==0.30"
+toml = "*"
+thoth-solver = "*"
+matplotlib = "*"
+pyyaml = "*"
+packaging = "*"
+voluptuous = "*"
+fext = ">=0.2.0"
+
+[requires]
+python_version = "3.6"
+
+[pipenv]
+allow_prereleases = false
