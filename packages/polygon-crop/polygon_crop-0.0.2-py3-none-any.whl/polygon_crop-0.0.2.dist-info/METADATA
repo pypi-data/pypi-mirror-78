@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: polygon-crop
+Version: 0.0.2
+Summary: An image processing package which supports interactive cropping function
+Home-page: https://github.com/chiang9/polygon_crop
+Author: Kuan-Yu Chiang
+Author-email: jchiang1225@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: Pillow
+Requires-Dist: matplotlib
+Requires-Dist: sklearn
+Requires-Dist: opencv-python
+
+# polygon_crop
+
+This package allows you to crop the image interactively with mouse.
+
+```python
+img_crop(img_array)
+```
+
+
