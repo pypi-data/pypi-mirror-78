@@ -1,0 +1,33 @@
+on:
+  SearchRequest:
+    - !VectorSearchDriver
+      with:
+        executor: BaseVectorIndexer
+    - !ExcludeQL
+      with:
+        fields:
+          - embedding
+          - buffer
+          - blob
+          - text
+    - !KVSearchDriver
+      with:
+        executor: BaseKVIndexer
+        recur_on: matches
+        recur_range: [0, 1]
+  IndexRequest:
+    - !VectorIndexDriver
+      with:
+        executor: BaseVectorIndexer
+    - !ExcludeQL
+      with:
+        fields:
+          - embedding
+          - buffer
+          - blob
+          - text
+    - !KVIndexDriver
+      with:
+        executor: BaseKVIndexer
+  ControlRequest:
+    - !ControlReqDriver {}
