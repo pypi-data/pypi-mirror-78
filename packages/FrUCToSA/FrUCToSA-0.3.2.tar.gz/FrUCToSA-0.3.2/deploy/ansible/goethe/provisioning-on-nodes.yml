@@ -1,0 +1,24 @@
+- name: Provisioning infrastructure for FrUCToSA on nodes
+  hosts: "{{ restricted_hosts | default('fuchs-compute-nodes') }}"
+  vars:
+    fructosa_conf: "/etc/fructosa"
+    
+  tasks:
+  - name: Install Python 3.6 (yum)
+    yum:
+      name:
+        - python36.x86_64
+        - python36-devel.x86_64
+      state: present
+
+  - name: Create configuration directory
+    file:
+      path: "{{ fructosa_conf }}"
+      state: directory
+
+  - name: Copy configuration files
+    copy:
+      src: "{{ item }}"
+      dest: "{{ fructosa_conf }}"
+    with_items:
+      - lagent.conf

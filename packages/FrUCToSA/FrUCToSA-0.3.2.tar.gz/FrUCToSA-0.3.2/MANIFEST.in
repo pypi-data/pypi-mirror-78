@@ -1,0 +1,12 @@
+# MANIFEST.in
+
+recursive-include doc *
+recursive-exclude doc *~
+recursive-exclude FrUCToSA.egg-info *
+recursive-exclude devel *
+exclude .hgignore
+exclude .hgtags
+exclude .hg
+recursive-exclude examples *
+recursive-include examples/etc *
+

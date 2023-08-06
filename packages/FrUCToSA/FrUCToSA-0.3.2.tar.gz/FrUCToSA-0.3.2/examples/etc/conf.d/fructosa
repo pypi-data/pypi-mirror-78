@@ -1,0 +1,18 @@
+
+
+#  This file should contain variables to be used by the fructosa init script.
+
+
+#QULOD_PIDFILE="/tmp/qulod.pid" # WRONG!!!
+
+#  As the openrc documentation [1] seems to imply, the PIDFILEs should be handled
+# in a different way.
+#
+#  * if the programs need to run as non-priviledged user (for testing or whatever)
+#    then set a non-default value in command line (lmaster -p ...).
+#  * if the program is launched by a priviledged user, there is no need to set
+#    a non-standard pidfile
+# 
+#
+# [1] https://github.com/OpenRC/openrc/blob/master/service-script-guide.md
+# 

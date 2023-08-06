@@ -1,0 +1,6 @@
+- name: Start lmaster on nodes
+  hosts: fuchs-master
+
+  tasks:
+  - name: Start lmaster
+    command: /cm/shared/admintools/FrUCToSA/bin/lmaster start

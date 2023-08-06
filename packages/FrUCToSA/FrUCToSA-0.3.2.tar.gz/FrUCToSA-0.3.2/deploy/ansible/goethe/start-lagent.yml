@@ -1,0 +1,8 @@
+- name: Start lagent on nodes
+  hosts: fuchs-compute-nodes
+  #hosts: only-two
+
+  tasks:
+  - name: Start lagent
+    command: "/cm/shared/admintools/FrUCToSA/bin/lagent start"
+    #shell: hostname; /cm/shared/admintools/FrUCToSA/bin/lagent start

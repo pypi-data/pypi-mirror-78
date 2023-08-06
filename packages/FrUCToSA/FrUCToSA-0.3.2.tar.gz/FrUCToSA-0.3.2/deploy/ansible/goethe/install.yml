@@ -1,0 +1,31 @@
+- name: Deploy FrUCToSA
+  hosts: fuchs-master
+  vars:
+    fructosa_conf: "/etc/fructosa"
+    
+  tasks:
+  - name: Install Python 3.6
+    yum:
+      name:
+        - python36.x86_64
+        - python36-devel.x86_64
+      state: present
+
+  - name: Install FrUCToSA
+    pip:
+      name: FrUCToSA
+      virtualenv: /cm/shared/admintools/FrUCToSA
+      virtualenv_command: "/usr/bin/pyvenv-3.6"
+
+  - name: Create configuration directory
+    file:
+      path: "{{ fructosa_conf }}"
+      state: directory
+
+  - name: Copy configuration files
+    copy:
+      src: "{{ item }}"
+      dest: "{{ fructosa_conf }}"
+    with_items:
+      - lagent.conf
+      - lmaster.conf
