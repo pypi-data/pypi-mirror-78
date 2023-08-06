@@ -1,0 +1,23 @@
+# report format type, supported "text", "html" and "xml",
+# default is "html"
+#   text: plain text
+#   html: html web page
+#   xml: xml file
+output: text
+
+# case running type, should be "serial" or "concorrence",
+# default is "serial"
+#   serial: run cases one by one
+#   concorrence: run cases concorrently by threads.
+running_type: serial
+
+# set maxinum process count to run the tasks while `running_type`
+# is `concorrence`. if it is set to 0 or greater than 1000, it will be
+# reset to 1000.
+max_process_count: 50
+
+# project modules path, which will be inserted into sys.path at application
+# started. by default, "lib", "cases", "vendor" will be added mandatory.
+# modules_path:
+#     - sample_dir1
+#     - sample_dir2
