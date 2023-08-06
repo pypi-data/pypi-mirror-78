@@ -1,0 +1,8 @@
+# {{header_text}}
+{%- for change_type, change_type_files in file_commits | groupby('friendly_change_type') | sort(attribute='grouper')  %}
+
+## {{change_type}} Files
+{% for file_commit in change_type_files %}
+ - {{file_commit.file_path}} - {{file_commit.hexsha_short}} - {{file_commit.committed_date}} - {{file_commit.author}}
+{%- endfor %}    
+{%- endfor %}
