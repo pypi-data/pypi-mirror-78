@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: tabletop-tools
+Version: 0.0.2
+Summary: Tools for interacting with Tabletop Simulator mods.
+Home-page: https://github.com/tomprince/tabletop-tools
+License: UNKNOWN
+Author: Tom Prince
+Author-email: tom.prince@hocat.ca
+Requires-Python: >=3.7
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: attrs
