@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: LbAPLocal
+Version: 0.0.1
+Summary: Tool to locally run tests for AnalysisProductions
+Home-page: https://gitlab.cern.ch/lhcb-dpa/analysis-productions/lbaplocal
+Author: LHCb
+License: UNKNOWN
+Project-URL: Bug Reports, https://gitlab.cern.ch/lhcb-dpa/analysis-productions/lbaplocal/-/issues
+Project-URL: Source, https://gitlab.cern.ch/lhcb-dpa/analysis-productions/lbaplocal
+Keywords: LHCb AnalysisProductions DIRAC
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: click
+Requires-Dist: LbAPCommon
+Requires-Dist: LbEnv
+Requires-Dist: LbDiracWrappers
+Requires-Dist: requests
+Requires-Dist: requests-kerberos
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+# LbAPLocal
+
+LbAPLocal is the python library for running offline tests for the LHCb AnalysisProductions framework.
+
+## Installation
+
+For now it can be installed by running
+
+```bash
+python -m pip install git+https://gitlab.cern.ch/lhcb-dpa/analysis-productions/lbaplocal.git
+```
+In the future it will become available within the LHCb environment,
+
+## Usage
+
+After installing, LbAPLocal can be run from the command line with the following options:
+
+```bash
+Usage: lb-ap [OPTIONS] COMMAND [ARGS]...
+
+  Command line tool for the LHCb AnalysisProductions
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  list       List the available production folders by running lb-ap list...
+  render     Render the info.yaml for a given production
+  reproduce  Reproduce an existing online test locally
+  test       Run a local test job for a specific production job
+```
+
+To see which productions are available:
+```bash
+lb-ap list
+```
+
+To see which jobs are avaiable for a given production:
+```bash
+lb-ap list BsToJpsiPhi
+```
+
+To render the `info.yaml` for a given production:
+```bash
+lb-ap render BsToJpsiPhi
+```
+
