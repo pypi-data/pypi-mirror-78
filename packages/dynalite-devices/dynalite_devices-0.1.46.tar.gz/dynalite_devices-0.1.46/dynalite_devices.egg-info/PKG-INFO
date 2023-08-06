@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: dynalite-devices
+Version: 0.1.46
+Summary: An unofficial Dynalite DyNET interface creating devices.
+Home-page: https://github.com/ziv1234/python-dynalite-devices
+Author: Ziv
+License: Apache License 2.0
+Project-URL: Bug Reports, https://github.com/ziv1234/python-dynalite-devices/issues
+Project-URL: Source, https://github.com/ziv1234/python-dynalite-devices
+Description: # python-dynalite-devices
+         A library that uses pydynalite and creates devices
+        
+Keywords: homeautomation lighting philips dynalite
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
