@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: tl-dockerwrapper
+Version: 1.3.5
+Summary: Simple wrapper for Docker SDKs
+Home-page: https://github.com/thanhledev/dockerwrapper
+Author: Thanh Le
+Author-email: thanhledev@gmail.com
+License: MIT
+Description: 
+        ### DockerWrapper
+        
+        Python custom package that provides functions for controlling docker daemon using Docker SDKs.
+        
+        To install:
+        ```
+        pip install tl-dockerwrapper
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
