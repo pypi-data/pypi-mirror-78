@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pygeodesy.utmupsBase</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pygeodesy-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://GitHub.com/mrJean1/PyGeodesy">PyGeodesy</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pygeodesy-module.html">Package&nbsp;pygeodesy</a> ::
+        Module&nbsp;utmupsBase
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pygeodesy.utmupsBase-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module utmupsBase</h1><p class="nomargin-top"></p>
+<p>(INTERNAL) Base class <code>UtmUpsBase</code> and private functions 
+  for the UTM, UPS, Mgrs and Epsg classes/modules.</p>
+
+<hr />
+<div class="fields">      <p><strong>Version:</strong>
+        20.08.31
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Classes</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pygeodesy.utmupsBase.LatLonDatum5Tuple-class.html" class="summary-name">LatLonDatum5Tuple</a><br />
+      5-Tuple <code>(lat, lon, datum, convergence, scale)</code> in 
+        <code>degrees90</code>, <code>degrees180</code>, <a 
+        href="pygeodesy.datums.Datum-class.html" class="link">Datum</a>, 
+        <code>degrees</code> and <code>float</code>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pygeodesy.utmupsBase.UtmUpsBase-class.html" class="summary-name">UtmUpsBase</a><br />
+      (INTERNAL) Base class for <a href="pygeodesy.utm.Utm-class.html" 
+        class="link">Utm</a> and <a href="pygeodesy.ups.Ups-class.html" 
+        class="link">Ups</a> coordinates.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pygeodesy.utmupsBase.UtmUps2Tuple-class.html" class="summary-name">UtmUps2Tuple</a><br />
+      2-Tuple <code>(zone, hemipole)</code> as <code>int</code> and 
+        <code>str</code>, where <code>zone</code> is <code>1..60</code> for
+        UTM or <code>0</code> for UPS and <code>hemipole</code> 
+        <code>'N'|'S'</code> is the UTM hemisphere or the UPS pole.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pygeodesy.utmupsBase.UtmUps5Tuple-class.html" class="summary-name">UtmUps5Tuple</a><br />
+      5-Tuple <code>(zone, hemipole, easting, northing, band)</code> as 
+        <code>int</code>, <code>str</code>, <code>meter</code>, 
+        <code>meter</code> and <code>band</code> letter, where 
+        <code>zone</code> is <code>1..60</code> for UTM or <code>0</code> 
+        for UPS, <code>hemipole</code> <code>'N'|'S'</code> is the UTM 
+        hemisphere or the UPS pole and <code>band</code> is 
+        <code>&quot;&quot;</code> or the (longitudinal) UTM band 
+        <code>'C'|'D'..'W'|'X'</code> or the (polar) UPS band 
+        <code>'A'|'B'|'Y'|'Z'</code>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pygeodesy.utmupsBase.UtmUps8Tuple-class.html" class="summary-name">UtmUps8Tuple</a><br />
+      8-Tuple <code>(zone, hemipole, easting, northing, band, datum, 
+        convergence, scale)</code> as <code>int</code>, <code>str</code>, 
+        <code>meter</code>, <code>meter</code>, <code>band</code> letter, 
+        <code>Datum</code>, <code>degrees</code> and <code>float</code>, 
+        where <code>zone</code> is <code>1..60</code> for UTM or 
+        <code>0</code> for UPS, <code>hemipole</code> <code>'N'|'S'</code> 
+        is the UTM hemisphere or the UPS pole and <code>band</code> is 
+        <code>&quot;&quot;</code> or the (longitudinal) UTM band 
+        <code>'C'|'D'..'W'|'X'</code> or the (polar) UPS band 
+        <code>'A'|'B'|'Y'|'Z'</code>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pygeodesy.utmupsBase.UtmUpsLatLon5Tuple-class.html" class="summary-name">UtmUpsLatLon5Tuple</a><br />
+      5-Tuple <code>(zone, band, hemipole, lat, lon)</code> as 
+        <code>int</code>, <code>str</code>, <code>str</code>, 
+        <code>degrees90</code> and <code>degrees180</code>, where 
+        <code>zone</code> is <code>1..60</code> for UTM or <code>0</code> 
+        for UPS, <code>band</code> is <code>&quot;&quot;</code> or the 
+        (longitudinal) UTM band <code>'C'|'D'..'W'|'X'</code> or (polar) 
+        UPS band <code>'A'|'B'|'Y'|'Z'</code> and <code>hemipole</code> 
+        <code>'N'|'S'</code> is the UTM hemisphere or the UPS pole.
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pygeodesy-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://GitHub.com/mrJean1/PyGeodesy">PyGeodesy</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Sep  5 15:12:13 2020
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
