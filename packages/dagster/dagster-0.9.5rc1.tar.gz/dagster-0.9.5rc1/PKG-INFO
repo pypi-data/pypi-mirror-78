@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: dagster
+Version: 0.9.5rc1
+Summary: A data orchestrator for machine learning, analytics, and ETL.
+Home-page: https://github.com/dagster-io/dagster
+Author: Elementl
+Author-email: hello@elementl.com
+License: Apache-2.0
+Description: ## Dagster
+        Dagster is a data orchestrator for machine learning, analytics, and ETL.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Provides-Extra: docker
