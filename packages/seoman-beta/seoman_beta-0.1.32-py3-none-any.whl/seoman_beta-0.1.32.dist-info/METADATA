@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: seoman-beta
+Version: 0.1.32
+Summary: Beta version for seoman
+Home-page: https://github.com/ycd/seoman-beta
+Author: ycd
+Author-email: yagizcanilbey1903@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: google-api-python-client (>=1.10.1,<2.0.0)
+Requires-Dist: google-auth-oauthlib (>=0.4.1,<0.5.0)
+Requires-Dist: pytablewriter[excel] (>=0.58.0,<0.59.0)
+Requires-Dist: typer (>=0.3.2,<0.4.0)
+Project-URL: Repository, https://github.com/ycd/seoman-beta
