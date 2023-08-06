@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: gemd
+Version: 0.13.2
+Summary: Python binding for Citrine's GEMD data model
+Home-page: http://github.com/CitrineInformatics/gemd-python
+Author: Max Hutchinson
+Author-email: maxhutch@citrine.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: toolz
+Requires-Dist: pytest (>=4.3)
+Requires-Dist: pint (>=0.9)
+Requires-Dist: strip-hints (>=0.1.5)
+Requires-Dist: deprecation (<3,>=2.0.7)
+
+UNKNOWN
+
+
