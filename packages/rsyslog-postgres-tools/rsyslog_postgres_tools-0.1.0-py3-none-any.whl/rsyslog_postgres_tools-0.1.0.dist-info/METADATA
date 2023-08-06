@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: rsyslog-postgres-tools
+Version: 0.1.0
+Summary: Tools for using PostgreSQL as the storage medium for rsyslog logging.
+Home-page: https://github.com/cope-systems/rsyslog-postgres-viewer
+Author: Robert Cope
+Author-email: robert@copesystems.com
+License: AGPL v3
+Keywords: postgresql postgres syslog rsyslog logging sysadmin systems administration
+Platform: any
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: SQL
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Database
+Classifier: Topic :: Internet :: Log Analysis
+Classifier: Topic :: System :: Logging
+Classifier: Topic :: System :: Systems Administration
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Development Status :: 4 - Beta
+Requires-Dist: bottle (==0.12.18)
+Requires-Dist: eventlet (==0.26.1)
+Requires-Dist: bottle-swagger-2 (==2.0.9)
+Requires-Dist: psycopg2-binary (==2.8.6)
+Requires-Dist: psycogreen (==1.0.2)
+Requires-Dist: yoyo-migrations (==7.2.0)
+
+UNKNOWN
+
+
