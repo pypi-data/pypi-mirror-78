@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: modelzoo-client
+Version: 0.15.0
+Summary: The Model Zoo Python Client
+Home-page: https://www.modelzoo.dev
+Author: Model Zoo, Inc.
+Author-email: admin@modelzoo.dev
+License: Apache 2.0
+Keywords: model zoo
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: tqdm
+Requires-Dist: requests
+Requires-Dist: Pillow
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: termcolor (==1.1.0)
+Requires-Dist: yaspin (==0.16.0)
+Requires-Dist: names (==0.3.0)
+Requires-Dist: click (==7.1)
+Provides-Extra: fastai
+Requires-Dist: fastai (>=2) ; extra == 'fastai'
+Provides-Extra: sklearn
+Requires-Dist: scikit-learn ; extra == 'sklearn'
+Requires-Dist: joblib ; extra == 'sklearn'
+Provides-Extra: tensorflow
+Requires-Dist: tensorflow (>2) ; extra == 'tensorflow'
+Provides-Extra: torch
+Requires-Dist: torch (>=1.5.0) ; extra == 'torch'
+Requires-Dist: torchvision ; extra == 'torch'
+Requires-Dist: onnx (==1.6.0) ; extra == 'torch'
+Provides-Extra: transformers
+Requires-Dist: transformers (>=2.10.0) ; extra == 'transformers'
+Requires-Dist: torch ; extra == 'transformers'
+
+<p align="center">
+
+  <h1 align="center">Model Zoo Python Client</h1>
+
+  <p align="center">
+    <a href="https://opensource.org/licenses/Apache-2.0">
+      <img alt="Apache License, Version 2.0" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg">
+    </a>
+  </p>
+</p>
+
+## Table of contents
+
+- [Overview](#overview)
+
+## Overview
+
+Deploy a TensorFlow model to a production-ready HTTP endpoint in a few minutes.
+
+Model Zoo's python client is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0). For more information, see the [License](LICENSE) file.
+
+
