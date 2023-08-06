@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: mgetool
+Version: 0.0.1
+Summary: This is an tool box contains tools for mgedata.Some of code are non-originality, just copy for use. All the referenced code are marked,details can be shown in their sources
+Home-page: UNKNOWN
+Author: wangchangxin
+Author-email: 986798607@qq.com
+Maintainer: wangchangxin
+License: UNKNOWN
+Description: # mgetool
+        Some useful base tools for other mge packages, but without specific task.
+        
+Keywords: exports,imports,show,tool,newclass,packbox
+Platform: Windows
+Platform: Unix
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
