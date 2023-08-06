@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: jack-web
+Version: 0.0.1
+Summary: a webinterface to patch jack connections
+Home-page: https://github.com/ljurk/jack-web-patchbay
+Author: Lukas Jurk
+Author-email: ljurk@pm.me
+License: GPLv3
+Description: # jack-web-patchbay
+        
+        This script starts a webserver and serves an interface to patch jack connections
+        
+        ## usage
+        
+        install the requirements
+        ```
+        $ pip install -r requirements.txt
+        ```
+        
+        
+        start the server
+        ```
+        $ python main.py
+        ```
+        
+        the webinterface can be accessed on this page http://localhost:2323/
+        
+Keywords: jack jack2 patchbay
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
