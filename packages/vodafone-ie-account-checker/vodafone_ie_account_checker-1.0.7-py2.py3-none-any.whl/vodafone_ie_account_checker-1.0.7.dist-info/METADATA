@@ -1,0 +1,169 @@
+Metadata-Version: 2.1
+Name: vodafone-ie-account-checker
+Version: 1.0.7
+Summary: Python package to check broadband usage data from vodafone.ie
+Home-page: https://github.com/fbradyirl/vodafone_ie_account_checker
+Author: Finbarr Brady
+Author-email: finbarr.brady@gmail.com
+License: MIT license
+Keywords: vodafone_ie_account_checker
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
+Requires-Dist: requests (>=2.23.0)
+Requires-Dist: lxml (>=4.5.0)
+Requires-Dist: coloredlogs (>=14.0)
+
+================================
+Vodafone Ireland Account Checker
+================================
+
+
+.. image:: https://img.shields.io/pypi/v/vodafone_ie_account_checker.svg
+        :target: https://pypi.python.org/pypi/vodafone_ie_account_checker
+
+.. image:: https://img.shields.io/travis/fbradyirl/vodafone_ie_account_checker.svg
+        :target: https://travis-ci.com/fbradyirl/vodafone_ie_account_checker
+
+.. image:: https://readthedocs.org/projects/vodafone-ie-account-checker/badge/?version=latest
+        :target: https://vodafone-ie-account-checker.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+
+
+Python package to check broadband usage data from vodafone.ie
+
+
+* Free software: MIT license
+* Documentation: https://vodafone-ie-account-checker.readthedocs.io.
+
+
+Features
+--------
+
+* 1 function - to check the broadband usage for Vodafone Ireland account holders. e.g. 412GB used this month.
+
+
+=======
+History
+=======
+
+0.1.0 (2020-04-29)
+------------------
+
+* First release on PyPI.
+
+0.1.2 (2020-04-29)
+------------------
+
+* Basic first working release returning data usage and time since date.
+
+0.1.3 (2020-04-30)
+------------------
+
+* Switch to returning single items in results.
+
+0.1.4 (2020-04-30)
+------------------
+
+* Update data object on fetch success.
+
+0.1.6 (2020-04-30)
+------------------
+
+* Adding last update time.
+* Adding bundle name and account balance.
+
+0.1.8 (2020-04-30)
+------------------
+
+* Bump version
+
+0.2.0 (2020-05-01)
+------------------
+
+* Remove Python 3.5 support.
+
+0.3.1 (2020-05-01)
+------------------
+
+* Remove Python 3.6 support.
+
+
+0.3.2 (2020-05-01)
+------------------
+
+* Return percent used as attribute.
+
+
+0.3.3 (2020-05-01)
+------------------
+
+* Dont fetch on init
+
+0.3.4 (2020-05-01)
+------------------
+
+* Set data to None if failed.
+
+0.3.5 (2020-05-01)
+------------------
+
+* Extra logging
+
+0.3.6 (2020-05-01)
+------------------
+
+* Extra logging
+
+0.3.7 (2020-05-01)
+------------------
+
+* Fix check
+
+1.0.0 (2020-05-07)
+------------------
+
+* Adding get_account_usage_request function
+
+1.0.1 (2020-05-08)
+------------------
+
+* Fix package
+
+1.0.2 (2020-05-08)
+------------------
+
+* Login during init
+
+1.0.3 (2020-05-13)
+------------------
+
+* Add updated time
+
+1.0.4 (2020-05-14)
+------------------
+
+* Add total used in MB
+
+1.0.5 (2020-05-15)
+------------------
+
+* Reset session each time
+
+1.0.6 (2020-09-01)
+------------------
+* Unpin deps.
+
+1.0.7 (2020-09-01)
+------------------
+* Skip real login test.
+
+
