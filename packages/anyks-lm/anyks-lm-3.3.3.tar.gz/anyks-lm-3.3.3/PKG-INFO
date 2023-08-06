@@ -1,0 +1,1375 @@
+Metadata-Version: 2.1
+Name: anyks-lm
+Version: 3.3.3
+Summary: Smart language model
+Home-page: https://github.com/anyks/alm
+Author: Yuriy Lobarev
+Author-email: forman@anyks.com
+License: UNKNOWN
+Download-URL: https://github.com/anyks/alm/archive/release.tar.gz
+Description: # ANYKS Language Model (ALM)
+        
+        ## Requirements
+        
+        - [Zlib](http://www.zlib.net)
+        - [OpenSSL](https://www.openssl.org)
+        - [Python3](https://www.python.org/download/releases/3.0)
+        - [NLohmann::json](https://github.com/nlohmann/json)
+        - [BigInteger](http://mattmccutchen.net/bigint)
+        
+        ## Install PyBind11
+        
+        ```bash
+        $ python3 -m pip install pybind11
+        ```
+        
+        ## Description of Methods
+        
+        ### Methods:
+        - **idw** - Word ID retrieval method
+        - **idt** - Token ID retrieval method
+        - **ids** - Sequence ID retrieval method
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.idw("hello")
+        1794085167
+        >>> alm.idw("<s>")
+        1
+        >>> alm.idw("</s>")
+        19
+        >>> alm.idw("<unk>")
+        3
+        >>> alm.idt("1424")
+        2
+        >>> alm.idt("hello")
+        0
+        >>> alm.idw("Living")
+        48384019276
+        >>> alm.idw("in")
+        2833
+        >>> alm.idw("the")
+        175734
+        >>> alm.idw("USA")
+        147770
+        >>> alm.ids([48384019276, 2833, 175734, 147770])
+        2514129976
+        ```
+        
+        ### Description
+        | Name      | Description                                                                                                                                           |
+        |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+        |〈s〉       | Sentence beginning token                                                                                                                              |
+        |〈/s〉      | Sentence end token                                                                                                                                    |
+        |〈url〉     | URL-address token                                                                                                                                     |
+        |〈num〉     | Number (arabic or roman) token                                                                                                                        |
+        |〈unk〉     | Unknown word token                                                                                                                                    |
+        |〈time〉    | Time token (15:44:56)                                                                                                                                 |
+        |〈score〉   | Score count token (4:3 ¦ 01:04)                                                                                                                       |
+        |〈fract〉   | Fraction token (5/20 ¦ 192/864)                                                                                                                       |
+        |〈date〉    | Date token (18.07.2004 ¦ 07/18/2004)                                                                                                                  |
+        |〈abbr〉    | Abbreviation token (1-й ¦ 2-е ¦ 20-я ¦ p.s ¦ p.s.)                                                                                                    |
+        |〈dimen〉   | Dimensions token (200x300 ¦ 1920x1080)                                                                                                                |
+        |〈range〉   | Range of numbers token (1-2 ¦ 100-200 ¦ 300-400)                                                                                                      |
+        |〈aprox〉   | Approximate number token (~93 ¦ ~95.86 ¦ 10~20)                                                                                                       |
+        |〈anum〉    | Pseudo-number token (combination of numbers and other symbols) (T34 ¦ 895-M-86 ¦ 39km)                                                                |
+        |〈pcards〉  | Symbols of the play cards (♠ ¦ ♣ ¦ ♥ ¦ ♦ )                                                                                                            |
+        |〈punct〉   | Punctuation token (. ¦ , ¦ ? ¦ ! ¦ : ¦ ; ¦ … ¦ ¡ ¦ ¿)                                                                                                 |
+        |〈route〉   | Direction symbols (arrows) (← ¦ ↑ ¦ ↓ ¦ ↔ ¦ ↵ ¦ ⇐ ¦ ⇑ ¦ ⇒ ¦ ⇓ ¦ ⇔ ¦ ◄ ¦ ▲ ¦ ► ¦ ▼)                                                                    |
+        |〈greek〉   | Symbols of the Greek alphabet (Α ¦ Β ¦ Γ ¦ Δ ¦ Ε ¦ Ζ ¦ Η ¦ Θ ¦ Ι ¦ Κ ¦ Λ ¦ Μ ¦ Ν ¦ Ξ ¦ Ο ¦ Π ¦ Ρ ¦ Σ ¦ Τ ¦ Υ ¦ Φ ¦ Χ ¦ Ψ ¦ Ω)                         |
+        |〈isolat〉  | Isolation/quotation token (( ¦ ) ¦ [ ¦ ] ¦ { ¦ } ¦ " ¦ « ¦ » ¦ „ ¦ “ ¦ ` ¦ ⌈ ¦ ⌉ ¦ ⌊ ¦ ⌋ ¦ ‹ ¦ › ¦ ‚ ¦ ’ ¦ ′ ¦ ‛ ¦ ″ ¦ ‘ ¦ ” ¦ ‟ ¦ ' ¦〈 ¦ 〉)         |
+        |〈specl〉   | Special character token (_ ¦ @ ¦ # ¦ № ¦ © ¦ ® ¦ & ¦ § ¦ æ ¦ ø ¦ Þ ¦ – ¦ ‾ ¦ ‑ ¦ — ¦ ¯ ¦ ¶ ¦ ˆ ¦ ˜ ¦ † ¦ ‡ ¦ • ¦ ‰ ¦ ⁄ ¦ ℑ ¦ ℘ ¦ ℜ ¦ ℵ ¦ ◊ ¦ \ )     |
+        |〈currency〉| Symbols of world currencies ($ ¦ € ¦ ₽ ¦ ¢ ¦ £ ¦ ₤ ¦ ¤ ¦ ¥ ¦ ℳ ¦ ₣ ¦ ₴ ¦ ₸ ¦ ₹ ¦ ₩ ¦ ₦ ¦ ₭ ¦ ₪ ¦ ৳ ¦ ƒ ¦ ₨ ¦ ฿ ¦ ₫ ¦ ៛ ¦ ₮ ¦ ₱ ¦ ﷼ ¦ ₡ ¦ ₲ ¦ ؋ ¦ ₵ ¦ ₺ ¦ ₼ ¦ ₾ ¦ ₠ ¦ ₧ ¦ ₯ ¦ ₢ ¦ ₳ ¦ ₥ ¦ ₰ ¦ ₿ ¦ ұ) |
+        |〈math〉    | Mathematical operation token (+ ¦ - ¦ = ¦ / ¦ * ¦ ^ ¦ × ¦ ÷ ¦ − ¦ ∕ ¦ ∖ ¦ ∗ ¦ √ ¦ ∝ ¦ ∞ ¦ ∠ ¦ ± ¦ ¹ ¦ ² ¦ ³ ¦ ½ ¦ ⅓ ¦ ¼ ¦ ¾ ¦ % ¦ ~ ¦ · ¦ ⋅ ¦ ° ¦ º ¦ ¬ ¦ ƒ ¦ ∀ ¦ ∂ ¦ ∃ ¦ ∅ ¦ ∇ ¦ ∈ ¦ ∉ ¦ ∋ ¦ ∏ ¦ ∑ ¦ ∧ ¦ ∨ ¦ ∩ ¦ ∪ ¦ ∫ ¦ ∴ ¦ ∼ ¦ ≅ ¦ ≈ ¦ ≠ ¦ ≡ ¦ ≤ ¦ ≥ ¦ ª ¦ ⊂ ¦ ⊃ ¦ ⊄ ¦ ⊆ ¦ ⊇ ¦ ⊕ ¦ ⊗ ¦ ⊥ ¦ ¨) |
+        
+        ---
+        
+        ### Methods:
+        - **setZone** - User zone set method
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setZone("com")
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **clear** - Method clear all data
+        - **setAlphabet** - Method set alphabet
+        - **getAlphabet** - Method get alphabet
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.getAlphabet()
+        'abcdefghijklmnopqrstuvwxyz'
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.getAlphabet()
+        'abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+        >>> alm.clear()
+        >>> alm.getAlphabet()
+        'abcdefghijklmnopqrstuvwxyz'
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **setUnknown** - Method set unknown word
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setUnknown("word")
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **getUnknown** - Method extraction unknown word
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setUnknown("word")
+        >>> alm.getUnknown()
+        'word'
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **sentences** - Sentences generation method
+        - **readLM** - Method for reading data from arpa file
+        - **sentencesToFile** - Method for assembling a specified number of sentences and writing to a file
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> def sentencesFn(text):
+        ...     print("Sentences:", text)
+        ...     return True
+        ...
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.sentences(sentencesFn)
+        Sentences: <s> В общем </s>
+        Sentences: <s> С лязгом выкатился и остановился возле мальчика </s>
+        Sentences: <s> У меня нет </s>
+        Sentences: <s> Я вообще не хочу </s>
+        Sentences: <s> Да и в общем </s>
+        Sentences: <s> Не могу </s>
+        Sentences: <s> Ну в общем </s>
+        Sentences: <s> Так что я вообще не хочу </s>
+        Sentences: <s> Потому что я вообще не хочу </s>
+        Sentences: <s> Продолжение следует </s>
+        Sentences: <s> Неожиданно из подворотни в олега ударил яркий прожектор патрульный трактор </s>
+        >>> alm.sentencesToFile(5, "./result.txt")
+        ```
+        
+        #### Read binary file of language model
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> import json
+        >>> def sentencesFn(text):
+        ...     print("Sentences:", text)
+        ...     return True
+        ...
+        >>> meta = {
+        ... "aes": 128,
+        ... "name": "Test",
+        ... "author": "Test",
+        ... "lictype": "MIT"
+        ... }
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.alm', json.dumps(meta))
+        >>> alm.sentences(sentencesFn)
+        Sentences: <s> В общем </s>
+        Sentences: <s> С лязгом выкатился и остановился возле мальчика </s>
+        Sentences: <s> У меня нет </s>
+        Sentences: <s> Я вообще не хочу </s>
+        Sentences: <s> Да и в общем </s>
+        Sentences: <s> Не могу </s>
+        Sentences: <s> Ну в общем </s>
+        Sentences: <s> Так что я вообще не хочу </s>
+        Sentences: <s> Потому что я вообще не хочу </s>
+        Sentences: <s> Продолжение следует </s>
+        Sentences: <s> Неожиданно из подворотни в олега ударил яркий прожектор патрульный трактор </s>
+        >>> alm.sentencesToFile(5, "./result.txt")
+        ```
+        
+        #### Binary container metadata
+        ```json
+        {
+        	"aes": 128,
+        	"name": "Name dictionary",
+        	"author": "Name author",
+        	"lictype": "License type",
+        	"lictext": "License text",
+        	"contacts": "Contacts data",
+        	"password": "Password if needed",
+        	"copyright": "Copyright author"
+        }
+        ```
+        
+        #### Description:
+        
+        - **aes** - AES Encryption Size (128, 192, 256) bits
+        - **name** - The dictionary name
+        - **author** - The author of the dictionary
+        - **lictype** - The license type
+        - **lictext** - The license text
+        - **contacts** - The author contact info
+        - **password** - An encryption password (if required), encryption is performed only when setting a password
+        - **copyright** - Copyright of the dictionary owner
+        
+        ---
+        
+        ### Methods:
+        - **findNgram** - N-gram search method in text
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> def callbackFn(text):
+        ...     print(text)
+        ... 
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.findNgram("Особое место занимает чудотворная икона Лобзание Христа Иудою", callbackFn)
+        <s> Особое
+        Особое место
+        место занимает
+        занимает чудотворная
+        чудотворная икона
+        икона Лобзание
+        Лобзание Христа
+        Христа Иудою
+        Иудою </s>
+        
+        
+        >>>
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **setOption** - Method for set module options
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.debug)
+        >>> alm.setOption(alm.options_t.mixdicts)
+        >>> alm.setOption(alm.options_t.onlyGood)
+        >>> alm.setOption(alm.options_t.confidence)
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **unsetOption** - Disable module option method
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.unsetOption(alm.options_t.debug)
+        >>> alm.unsetOption(alm.options_t.mixdicts)
+        >>> alm.unsetOption(alm.options_t.onlyGood)
+        >>> alm.unsetOption(alm.options_t.confidence)
+        ```
+        
+        ### Description
+        | Name       | Description                                                     |
+        |------------|-----------------------------------------------------------------|
+        | debug      | Flag debug mode                                                 |
+        | mixdicts   | Flag allowing the use of words consisting of mixed dictionaries |
+        | onlyGood   | Flag allowing to consider words from the white list only        |
+        | confidence | Flag arpa file loading without pre-processing the words         |
+        
+        ---
+        
+        ### Methods:
+        - **size** - Method of obtaining the size of the N-gram
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.size()
+        3
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **textToJson** - Method to convert text to JSON
+        - **isAllowApostrophe** - Apostrophe permission check method
+        - **switchAllowApostrophe** - Method for permitting or denying an apostrophe as part of a word
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> def callbackFn(text):
+        ...     print(text)
+        ... 
+        >>> alm.isAllowApostrophe()
+        False
+        >>> alm.switchAllowApostrophe()
+        >>> alm.isAllowApostrophe()
+        True
+        >>> alm.textToJson("«On nous dit qu'aujourd'hui c'est le cas, encore faudra-t-il l'évaluer» l'astronomie", callbackFn)
+        [["«","On","nous","dit","qu'aujourd'hui","c'est","le","cas",",","encore","faudra-t-il","l'évaluer","»","l'astronomie"]]
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **jsonToText** - Method to convert JSON to text
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> def callbackFn(text):
+        ...     print(text)
+        ... 
+        >>> alm.jsonToText('[["«","On","nous","dit","qu\'aujourd\'hui","c\'est","le","cas",",","encore","faudra-t-il","l\'évaluer","»","l\'astronomie"]]', callbackFn)
+        «On nous dit qu'aujourd'hui c'est le cas, encore faudra-t-il l'évaluer» l'astronomie
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **restore** - Method for restore text from context
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.uppers)
+        >>> alm.restore(["«","On","nous","dit","qu\'aujourd\'hui","c\'est","le","cas",",","encore","faudra-t-il","l\'évaluer","»","l\'astronomie"])
+        "«On nous dit qu'aujourd'hui c'est le cas, encore faudra-t-il l'évaluer» l'astronomie"
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **allowStress** - Method for allow using stress in words
+        - **disallowStress** - Method for disallow using stress in words
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> def callbackFn(text):
+        ...     print(text)
+        ... 
+        >>> alm.textToJson('«Бе́лая стрела́» — согласно распространённой в 1990-е годы в России городской легенде, якобы специально организованная и подготовленная законспирированная правительственная спецслужба, сотрудники которой — бывшие и действовавшие милиционеры и спецназовцы, имеющие право на физическую ликвидацию особо опасных уголовных авторитетов и лидеров орудовавших в России ОПГ, относительно которых не представляется возможным привлечения их к уголовной ответственности законными методами[1][2][3]. Несмотря на отсутствие официальных доказательств существования организации и многочисленные опровержения со стороны силовых структур и служб безопасности[4], в российском обществе легенду считают основанной на подлинных фактах громких убийств криминальных авторитетов, совершённых в 1990-е годы, и не исключают существование реальной спецслужбы[5].', callbackFn)
+        [["«","Белая","стрела","»","—","согласно","распространённой","в","1990-е","годы","в","России","городской","легенде",",","якобы","специально","организованная","и","подготовленная","законспирированная","правительственная","спецслужба",",","сотрудники","которой","—","бывшие","и","действовавшие","милиционеры","и","спецназовцы",",","имеющие","право","на","физическую","ликвидацию","особо","опасных","уголовных","авторитетов","и","лидеров","орудовавших","в","России","ОПГ",",","относительно","которых","не","представляется","возможным","привлечения","их","к","уголовной","ответственности","законными","методами","[","1","]","[","2","]","[","3","]","."],["Несмотря","на","отсутствие","официальных","доказательств","существования","организации","и","многочисленные","опровержения","со","стороны","силовых","структур","и","служб","безопасности","[","4","]",",","в","российском","обществе","легенду","считают","основанной","на","подлинных","фактах","громких","убийств","криминальных","авторитетов",",","совершённых","в","1990-е","годы",",","и","не","исключают","существование","реальной","спецслужбы","[","5","]","."]]
+        
+        >>> alm.jsonToText('[["«","Белая","стрела","»","—","согласно","распространённой","в","1990-е","годы","в","России","городской","легенде",",","якобы","специально","организованная","и","подготовленная","законспирированная","правительственная","спецслужба",",","сотрудники","которой","—","бывшие","и","действовавшие","милиционеры","и","спецназовцы",",","имеющие","право","на","физическую","ликвидацию","особо","опасных","уголовных","авторитетов","и","лидеров","орудовавших","в","России","ОПГ",",","относительно","которых","не","представляется","возможным","привлечения","их","к","уголовной","ответственности","законными","методами","[","1","]","[","2","]","[","3","]","."],["Несмотря","на","отсутствие","официальных","доказательств","существования","организации","и","многочисленные","опровержения","со","стороны","силовых","структур","и","служб","безопасности","[","4","]",",","в","российском","обществе","легенду","считают","основанной","на","подлинных","фактах","громких","убийств","криминальных","авторитетов",",","совершённых","в","1990-е","годы",",","и","не","исключают","существование","реальной","спецслужбы","[","5","]","."]]', callbackFn)
+        «Белая стрела» — согласно распространённой в 1990-е годы в России городской легенде, якобы специально организованная и подготовленная законспирированная правительственная спецслужба, сотрудники которой — бывшие и действовавшие милиционеры и спецназовцы, имеющие право на физическую ликвидацию особо опасных уголовных авторитетов и лидеров орудовавших в России ОПГ, относительно которых не представляется возможным привлечения их к уголовной ответственности законными методами [1] [2] [3].
+        Несмотря на отсутствие официальных доказательств существования организации и многочисленные опровержения со стороны силовых структур и служб безопасности [4], в российском обществе легенду считают основанной на подлинных фактах громких убийств криминальных авторитетов, совершённых в 1990-е годы, и не исключают существование реальной спецслужбы [5].
+        
+        >>> alm.allowStress()
+        >>> alm.textToJson('«Бе́лая стрела́» — согласно распространённой в 1990-е годы в России городской легенде, якобы специально организованная и подготовленная законспирированная правительственная спецслужба, сотрудники которой — бывшие и действовавшие милиционеры и спецназовцы, имеющие право на физическую ликвидацию особо опасных уголовных авторитетов и лидеров орудовавших в России ОПГ, относительно которых не представляется возможным привлечения их к уголовной ответственности законными методами[1][2][3]. Несмотря на отсутствие официальных доказательств существования организации и многочисленные опровержения со стороны силовых структур и служб безопасности[4], в российском обществе легенду считают основанной на подлинных фактах громких убийств криминальных авторитетов, совершённых в 1990-е годы, и не исключают существование реальной спецслужбы[5].', callbackFn)
+        [["«","Бе́лая","стрела́","»","—","согласно","распространённой","в","1990-е","годы","в","России","городской","легенде",",","якобы","специально","организованная","и","подготовленная","законспирированная","правительственная","спецслужба",",","сотрудники","которой","—","бывшие","и","действовавшие","милиционеры","и","спецназовцы",",","имеющие","право","на","физическую","ликвидацию","особо","опасных","уголовных","авторитетов","и","лидеров","орудовавших","в","России","ОПГ",",","относительно","которых","не","представляется","возможным","привлечения","их","к","уголовной","ответственности","законными","методами","[","1","]","[","2","]","[","3","]","."],["Несмотря","на","отсутствие","официальных","доказательств","существования","организации","и","многочисленные","опровержения","со","стороны","силовых","структур","и","служб","безопасности","[","4","]",",","в","российском","обществе","легенду","считают","основанной","на","подлинных","фактах","громких","убийств","криминальных","авторитетов",",","совершённых","в","1990-е","годы",",","и","не","исключают","существование","реальной","спецслужбы","[","5","]","."]]
+        
+        >>> alm.jsonToText('[["«","Бе́лая","стрела́","»","—","согласно","распространённой","в","1990-е","годы","в","России","городской","легенде",",","якобы","специально","организованная","и","подготовленная","законспирированная","правительственная","спецслужба",",","сотрудники","которой","—","бывшие","и","действовавшие","милиционеры","и","спецназовцы",",","имеющие","право","на","физическую","ликвидацию","особо","опасных","уголовных","авторитетов","и","лидеров","орудовавших","в","России","ОПГ",",","относительно","которых","не","представляется","возможным","привлечения","их","к","уголовной","ответственности","законными","методами","[","1","]","[","2","]","[","3","]","."],["Несмотря","на","отсутствие","официальных","доказательств","существования","организации","и","многочисленные","опровержения","со","стороны","силовых","структур","и","служб","безопасности","[","4","]",",","в","российском","обществе","легенду","считают","основанной","на","подлинных","фактах","громких","убийств","криминальных","авторитетов",",","совершённых","в","1990-е","годы",",","и","не","исключают","существование","реальной","спецслужбы","[","5","]","."]]', callbackFn)
+        «Бе́лая стрела́» — согласно распространённой в 1990-е годы в России городской легенде, якобы специально организованная и подготовленная законспирированная правительственная спецслужба, сотрудники которой — бывшие и действовавшие милиционеры и спецназовцы, имеющие право на физическую ликвидацию особо опасных уголовных авторитетов и лидеров орудовавших в России ОПГ, относительно которых не представляется возможным привлечения их к уголовной ответственности законными методами [1] [2] [3].
+        Несмотря на отсутствие официальных доказательств существования организации и многочисленные опровержения со стороны силовых структур и служб безопасности [4], в российском обществе легенду считают основанной на подлинных фактах громких убийств криминальных авторитетов, совершённых в 1990-е годы, и не исключают существование реальной спецслужбы [5].
+        
+        >>> alm.disallowStress()
+        >>> alm.textToJson('«Бе́лая стрела́» — согласно распространённой в 1990-е годы в России городской легенде, якобы специально организованная и подготовленная законспирированная правительственная спецслужба, сотрудники которой — бывшие и действовавшие милиционеры и спецназовцы, имеющие право на физическую ликвидацию особо опасных уголовных авторитетов и лидеров орудовавших в России ОПГ, относительно которых не представляется возможным привлечения их к уголовной ответственности законными методами[1][2][3]. Несмотря на отсутствие официальных доказательств существования организации и многочисленные опровержения со стороны силовых структур и служб безопасности[4], в российском обществе легенду считают основанной на подлинных фактах громких убийств криминальных авторитетов, совершённых в 1990-е годы, и не исключают существование реальной спецслужбы[5].', callbackFn)
+        [["«","Белая","стрела","»","—","согласно","распространённой","в","1990-е","годы","в","России","городской","легенде",",","якобы","специально","организованная","и","подготовленная","законспирированная","правительственная","спецслужба",",","сотрудники","которой","—","бывшие","и","действовавшие","милиционеры","и","спецназовцы",",","имеющие","право","на","физическую","ликвидацию","особо","опасных","уголовных","авторитетов","и","лидеров","орудовавших","в","России","ОПГ",",","относительно","которых","не","представляется","возможным","привлечения","их","к","уголовной","ответственности","законными","методами","[","1","]","[","2","]","[","3","]","."],["Несмотря","на","отсутствие","официальных","доказательств","существования","организации","и","многочисленные","опровержения","со","стороны","силовых","структур","и","служб","безопасности","[","4","]",",","в","российском","обществе","легенду","считают","основанной","на","подлинных","фактах","громких","убийств","криминальных","авторитетов",",","совершённых","в","1990-е","годы",",","и","не","исключают","существование","реальной","спецслужбы","[","5","]","."]]
+        
+        >>> alm.jsonToText('[["«","Белая","стрела","»","—","согласно","распространённой","в","1990-е","годы","в","России","городской","легенде",",","якобы","специально","организованная","и","подготовленная","законспирированная","правительственная","спецслужба",",","сотрудники","которой","—","бывшие","и","действовавшие","милиционеры","и","спецназовцы",",","имеющие","право","на","физическую","ликвидацию","особо","опасных","уголовных","авторитетов","и","лидеров","орудовавших","в","России","ОПГ",",","относительно","которых","не","представляется","возможным","привлечения","их","к","уголовной","ответственности","законными","методами","[","1","]","[","2","]","[","3","]","."],["Несмотря","на","отсутствие","официальных","доказательств","существования","организации","и","многочисленные","опровержения","со","стороны","силовых","структур","и","служб","безопасности","[","4","]",",","в","российском","обществе","легенду","считают","основанной","на","подлинных","фактах","громких","убийств","криминальных","авторитетов",",","совершённых","в","1990-е","годы",",","и","не","исключают","существование","реальной","спецслужбы","[","5","]","."]]', callbackFn)
+        «Белая стрела» — согласно распространённой в 1990-е годы в России городской легенде, якобы специально организованная и подготовленная законспирированная правительственная спецслужба, сотрудники которой — бывшие и действовавшие милиционеры и спецназовцы, имеющие право на физическую ликвидацию особо опасных уголовных авторитетов и лидеров орудовавших в России ОПГ, относительно которых не представляется возможным привлечения их к уголовной ответственности законными методами [1] [2] [3].
+        Несмотря на отсутствие официальных доказательств существования организации и многочисленные опровержения со стороны силовых структур и служб безопасности [4], в российском обществе легенду считают основанной на подлинных фактах громких убийств криминальных авторитетов, совершённых в 1990-е годы, и не исключают существование реальной спецслужбы [5].
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **addBadword** - Method add bad word
+        - **setBadwords** - Method set words to blacklist
+        - **getBadwords** - Method get words in blacklist
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setBadwords(["hello", "world", "test"])
+        >>> alm.getBadwords()
+        {24227504, 1219922507, 1794085167}
+        >>> alm.addBadword("test2")
+        >>> alm.getBadwords()
+        {24227504, 5035487504, 1219922507, 1794085167}
+        ```
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setBadwords({24227504, 1219922507, 1794085167})
+        >>> alm.getBadwords()
+        {24227504, 1219922507, 1794085167}
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **addGoodword** - Method add good word
+        - **setGoodwords** - Method set words to whitelist
+        - **getGoodwords** - Method get words in whitelist
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setGoodwords(["hello", "world", "test"])
+        >>> alm.getGoodwords()
+        {24227504, 1219922507, 1794085167}
+        >>> alm.addGoodword("test2")
+        >>> alm.getGoodwords()
+        {24227504, 5035487504, 1219922507, 1794085167}
+        ```
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setGoodwords({24227504, 1219922507, 1794085167})
+        >>> alm.getGoodwords()
+        {24227504, 1219922507, 1794085167}
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **setUserToken** - Method for adding user token
+        - **getUserTokens** - User token list retrieval method
+        - **getUserTokenId** - Method for obtaining user token identifier
+        - **getUserTokenWord** - Method for obtaining a custom token by its identifier
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setUserToken("usa")
+        >>> alm.setUserToken("russia")
+        >>> alm.getUserTokenId("usa")
+        4188610529
+        >>> alm.getUserTokenId("russia")
+        47207634939
+        >>> alm.getUserTokens()
+        ['usa', 'russia']
+        >>> alm.getUserTokenWord(4188610529)
+        'usa'
+        >>> alm.getUserTokenWord(47207634939)
+        'russia'
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **setUserTokenMethod** - Method for set a custom token processing function
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> def fn(token, word):
+        ...     if token and (token == "<usa>"):
+        ...         if word and (word.lower() == "usa"):
+        ...             return True
+        ...     elif token and (token == "<russia>"):
+        ...         if word and (word.lower() == "russia"):
+        ...             return True
+        ...     return False
+        ... 
+        >>> alm.setUserToken("usa")
+        >>> alm.setUserToken("russia")
+        >>> alm.setUserTokenMethod("usa", fn)
+        >>> alm.setUserTokenMethod("russia", fn)
+        >>> alm.idw("usa")
+        346562990
+        >>> alm.idw("russia")
+        3602214519
+        >>> alm.getUserTokenWord(346562990)
+        'usa'
+        >>> alm.getUserTokenWord(3602214519)
+        'russia'
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **setWordPreprocessingMethod** - Method for set the word preprocessing function
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> def run(word, context):
+        ...     if word == "возле": word = "около"
+        ...     return word
+        ... 
+        >>> alm.setOption(alm.options_t.debug)
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.setWordPreprocessingMethod(run)
+        >>> a = alm.perplexity("неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор???с лязгом выкатился и остановился возле мальчика....")
+        info: <s> Неожиданно из подворотни в олега ударил яркий прожектор патрульный трактор <punct> <punct> <punct> </s>
+        
+        info: p( неожиданно | <s> ) 	= [2gram] 0.00250617 [ -2.60098900 ] / 0.99999999
+        info: p( из | неожиданно ...) 	= [3gram] 0.84584931 [ -0.07270700 ] / 1.00000081
+        info: p( подворотни | из ...) 	= [3gram] 0.73518561 [ -0.13360300 ] / 0.99999924
+        info: p( в | подворотни ...) 	= [3gram] 0.93193581 [ -0.03061400 ] / 0.99999960
+        info: p( олега | в ...) 	= [3gram] 0.72047846 [ -0.14237900 ] / 1.00000026
+        info: p( ударил | олега ...) 	= [3gram] 0.89971301 [ -0.04589600 ] / 1.00000043
+        info: p( яркий | ударил ...) 	= [3gram] 0.92987592 [ -0.03157500 ] / 0.99999918
+        info: p( прожектор | яркий ...) 	= [3gram] 0.92987592 [ -0.03157500 ] / 0.99999918
+        info: p( патрульный | прожектор ...) 	= [3gram] 0.92987592 [ -0.03157500 ] / 0.99999918
+        info: p( трактор | патрульный ...) 	= [3gram] 0.92987592 [ -0.03157500 ] / 0.99999918
+        info: p( <punct> | трактор ...) 	= [OOV] 0.00000000 [ -inf ] / 0.99999999
+        info: p( <punct> | <punct> ...) 	= [OOV] 0.00000000 [ -inf ] / 1.00000011
+        info: p( <punct> | <punct> ...) 	= [OOV] 0.00000000 [ -inf ] / 1.00000011
+        info: p( </s> | <punct> ...) 	= [1gram] 0.07816800 [ -1.10697100 ] / 1.00000011
+        
+        info: 1 sentences, 13 words, 0 OOVs
+        info: 3 zeroprobs, logprob= -4.25945900 ppl= 2.01487019 ppl1= 2.12642805
+        
+        info: <s> С лязгом выкатился и остановился около мальчика <punct> <punct> <punct> <punct> </s>
+        
+        info: p( с | <s> ) 	= [2gram] 0.01301973 [ -1.88539800 ] / 0.99999999
+        info: p( лязгом | с ...) 	= [3gram] 0.21850984 [ -0.66052900 ] / 1.00000061
+        info: p( выкатился | лязгом ...) 	= [3gram] 0.92987592 [ -0.03157500 ] / 0.99999918
+        info: p( и | выкатился ...) 	= [3gram] 0.93211608 [ -0.03053000 ] / 0.99999926
+        info: p( остановился | и ...) 	= [3gram] 0.72065433 [ -0.14227300 ] / 0.99999975
+        info: p( около | остановился ...) 	= [1gram] 0.00003415 [ -4.46662200 ] / 1.00000027
+        info: p( мальчика | около ...) 	= [1gram] 0.00023364 [ -3.63146100 ] / 0.99999938
+        info: p( <punct> | мальчика ...) 	= [OOV] 0.00000000 [ -inf ] / 0.99999965
+        info: p( <punct> | <punct> ...) 	= [OOV] 0.00000000 [ -inf ] / 1.00000011
+        info: p( <punct> | <punct> ...) 	= [OOV] 0.00000000 [ -inf ] / 1.00000011
+        info: p( <punct> | <punct> ...) 	= [OOV] 0.00000000 [ -inf ] / 1.00000011
+        info: p( </s> | <punct> ...) 	= [1gram] 0.07816800 [ -1.10697100 ] / 1.00000011
+        
+        info: 1 sentences, 11 words, 0 OOVs
+        info: 4 zeroprobs, logprob= -11.95535900 ppl= 9.91470774 ppl1= 12.21380039
+        >>> print(a.logprob)
+        -16.214818
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **setLogfile** - Method of set the file for log output
+        - **setOOvFile** - Method set file for saving OOVs words
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setLogfile("./log.txt")
+        >>> alm.setOOvFile("./oov.txt")
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **perplexity** - Perplexity calculation
+        - **pplConcatenate** - Method of combining perplexia
+        - **pplByFiles** - Method for reading perplexity calculation by file or group of files
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> a = alm.perplexity("неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор???с лязгом выкатился и остановился возле мальчика....")
+        >>> print(a.logprob)
+        -8.238353
+        >>> print(a.oovs)
+        0
+        >>> print(a.words)
+        24
+        >>> print(a.sentences)
+        2
+        >>> print(a.zeroprobs)
+        7
+        >>> print(a.ppl)
+        2.135669866658319
+        >>> print(a.ppl1)
+        2.204269585673276
+        >>> b = alm.pplByFiles("./text.txt")
+        >>> c = alm.pplConcatenate(a, b)
+        >>> print(c.ppl)
+        7.384123548831112
+        ```
+        
+        ### Description
+        | Name      | Description                                                                 |
+        |-----------|-----------------------------------------------------------------------------|
+        | ppl       | The meaning of perplexity without considering the beginning of the sentence |
+        | ppl1      | The meaning of perplexion taking into account the beginning of the sentence |
+        | oovs      | Count of oov words                                                          |
+        | words     | Count of words in sentence                                                  |
+        | logprob   | Word sequence frequency                                                     |
+        | sentences | Count of sequences                                                          |
+        | zeroprobs | Count of zero probs                                                         |
+        
+        ---
+        
+        ### Methods:
+        - **tokenization** - Method for breaking text into tokens
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> def tokensFn(word, context, reset, stop):
+        ...     print(word, " => ", context)
+        ...     return True
+        ...
+        >>> alm.switchAllowApostrophe()
+        >>> alm.tokenization("«On nous dit qu'aujourd'hui c'est le cas, encore faudra-t-il l'évaluer» l'astronomie", tokensFn)
+        «  =>  []
+        On  =>  ['«']
+        nous  =>  ['«', 'On']
+        dit  =>  ['«', 'On', 'nous']
+        qu'aujourd'hui  =>  ['«', 'On', 'nous', 'dit']
+        c'est  =>  ['«', 'On', 'nous', 'dit', "qu'aujourd'hui"]
+        le  =>  ['«', 'On', 'nous', 'dit', "qu'aujourd'hui", "c'est"]
+        cas  =>  ['«', 'On', 'nous', 'dit', "qu'aujourd'hui", "c'est", 'le']
+        ,  =>  ['«', 'On', 'nous', 'dit', "qu'aujourd'hui", "c'est", 'le', 'cas']
+        encore  =>  ['«', 'On', 'nous', 'dit', "qu'aujourd'hui", "c'est", 'le', 'cas', ',']
+        faudra-t-il  =>  ['«', 'On', 'nous', 'dit', "qu'aujourd'hui", "c'est", 'le', 'cas', ',', 'encore']
+        l'évaluer  =>  ['«', 'On', 'nous', 'dit', "qu'aujourd'hui", "c'est", 'le', 'cas', ',', 'encore', 'faudra-t-il']
+        »  =>  ['«', 'On', 'nous', 'dit', "qu'aujourd'hui", "c'est", 'le', 'cas', ',', 'encore', 'faudra-t-il', "l'évaluer"]
+        l'astronomie  =>  ['«', 'On', 'nous', 'dit', "qu'aujourd'hui", "c'est", 'le', 'cas', ',', 'encore', 'faudra-t-il', "l'évaluer", '»']
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **setTokenizerFn** - Method for set the function of an external tokenizer
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> def tokenizerFn(text, callback):
+        ...     word = ""
+        ...     context = []
+        ...     for letter in text:
+        ...         if letter == " " and len(word) > 0:
+        ...             if not callback(word, context, False, False): return
+        ...             context.append(word)
+        ...             word = ""
+        ...         elif letter == "." or letter == "!" or letter == "?":
+        ...             if not callback(word, context, True, False): return
+        ...             word = ""
+        ...             context = []
+        ...         else:
+        ...             word += letter
+        ...     if len(word) > 0:
+        ...         if not callback(word, context, False, True): return
+        ...
+        >>> def tokensFn(word, context, reset, stop):
+        ...     print(word, " => ", context)
+        ...     return True
+        ...
+        >>> alm.setTokenizerFn(tokenizerFn)
+        >>> alm.tokenization("Hello World today!", tokensFn)
+        Hello  =>  []
+        World  =>  ['Hello']
+        today  =>  ['Hello', 'World']
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **fixUppers** - Method for correcting registers in the text
+        - **fixUppersByFiles** - Method for correcting text registers in a text file
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.fixUppers("неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор???с лязгом выкатился и остановился возле мальчика....")
+        'Неожиданно из подворотни в олега ударил яркий прожектор патрульный трактор??? С лязгом выкатился и остановился возле мальчика....'
+        >>> alm.fixUppersByFiles("./corpus", "./result.txt", "txt")
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **checkHypLat** - Hyphen and latin character search method
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.checkHypLat("Hello-World")
+        (True, True)
+        >>> alm.checkHypLat("Hello")
+        (False, True)
+        >>> alm.checkHypLat("Привет")
+        (False, False)
+        >>> alm.checkHypLat("так-как")
+        (True, False)
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **getUppers** - Method for extracting registers for each word
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.idw("Living")
+        48384019276
+        >>> alm.idw("in")
+        2833
+        >>> alm.idw("the")
+        175734
+        >>> alm.idw("USA")
+        147770
+        >>> alm.getUppers([48384019276, 2833, 175734, 147770])
+        [1, 0, 0, 7]
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **urls** - Method for extracting URL address coordinates in a string
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.urls("This website: example.com was designed with ...")
+        {14: 25}
+        >>> alm.urls("This website: https://a.b.c.example.net?id=52#test-1 was designed with ...")
+        {14: 52}
+        >>> alm.urls("This website: https://a.b.c.example.net?id=52#test-1 and 127.0.0.1 was designed with ...")
+        {14: 52, 57: 66}
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **roman2Arabic** - Method for translating Roman numerals to Arabic
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.roman2Arabic("XVI")
+        16
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **rest** - Method for correction and detection of words with mixed alphabets
+        - **setSubstitutes** - Method for set letters to correct words from mixed alphabets
+        - **getSubstitutes** - Method of extracting letters to correct words from mixed alphabets
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.setSubstitutes({'p':'р','c':'с','o':'о','t':'т','k':'к','e':'е','a':'а','h':'н','x':'х','b':'в','m':'м'})
+        >>> alm.getSubstitutes()
+        {'a': 'а', 'b': 'в', 'c': 'с', 'e': 'е', 'h': 'н', 'k': 'к', 'm': 'м', 'o': 'о', 'p': 'р', 't': 'т', 'x': 'х'}
+        >>> str = "ПPИBETИК"
+        >>> str.lower()
+        'пpиbetик'
+        >>> alm.rest(str)
+        'приветик'
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **setTokensDisable** - Method for set the list of forbidden tokens
+        - **setTokensUnknown** - Method for set the list of tokens cast to 〈unk〉
+        - **setTokenDisable** - Method for set the list of unidentifiable tokens
+        - **setTokenUnknown** - Method of set the list of tokens that need to be identified as 〈unk〉
+        - **getTokensDisable** - Method for retrieving the list of forbidden tokens
+        - **getTokensUnknown** - Method for extracting a list of tokens reducible to 〈unk〉
+        - **setAllTokenDisable** - Method for set all tokens as unidentifiable
+        - **setAllTokenUnknown** - The method of set all tokens identified as 〈unk〉
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.idw("<date>")
+        6
+        >>> alm.idw("<time>")
+        7
+        >>> alm.idw("<abbr>")
+        5
+        >>> alm.idw("<math>")
+        9
+        >>> alm.setTokenDisable("date|time|abbr|math")
+        >>> alm.getTokensDisable()
+        {9, 5, 6, 7}
+        >>> alm.setTokensDisable({6, 7, 5, 9})
+        >>> alm.setTokenUnknown("date|time|abbr|math")
+        >>> alm.getTokensUnknown()
+        {9, 5, 6, 7}
+        >>> alm.setTokensUnknown({6, 7, 5, 9})
+        >>> alm.setAllTokenDisable()
+        >>> alm.getTokensDisable()
+        {2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23}
+        >>> alm.setAllTokenUnknown()
+        >>> alm.getTokensUnknown()
+        {2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23}
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **countAlphabet** - Method of obtaining the number of letters in the dictionary
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.getAlphabet()
+        'abcdefghijklmnopqrstuvwxyz'
+        >>> alm.countAlphabet()
+        26
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.countAlphabet()
+        59
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **countBigrams** - Method get count bigrams
+        - **countTrigrams** - Method get count trigrams
+        - **countGrams** - Method get count N-gram by lm size
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.countBigrams("неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор???с лязгом выкатился и остановился возле мальчика....")
+        12
+        >>> alm.countTrigrams("неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор???с лязгом выкатился и остановился возле мальчика....")
+        10
+        >>> alm.size()
+        3
+        >>> alm.countGrams("неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор???с лязгом выкатился и остановился возле мальчика....")
+        10
+        >>> alm.idw("неожиданно")
+        30444893210
+        >>> alm.idw("из")
+        4645
+        >>> alm.idw("подворотни")
+        7494072262
+        >>> alm.idw("в")
+        48
+        >>> alm.idw("Олега")
+        2431694341
+        >>> alm.idw("ударил")
+        54100711961
+        >>> alm.countBigrams([30444893210, 4645, 7494072262, 48, 2431694341, 54100711961])
+        5
+        >>> alm.countTrigrams([30444893210, 4645, 7494072262, 48, 2431694341, 54100711961])
+        4
+        >>> alm.countGrams([30444893210, 4645, 7494072262, 48, 2431694341, 54100711961])
+        4
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **arabic2Roman** - Convert arabic number to roman number
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.arabic2Roman(23)
+        'XXIII'
+        >>> alm.arabic2Roman("33")
+        'XXXIII'
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **setLocale** - Method set locale (Default: en_US.UTF-8)
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setLocale("ru_RU.UTF-8")
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **setThreads** - Method for set the number of threads (0 - all threads)
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.setThreads(3)
+        >>> a = alm.pplByFiles("./text.txt")
+        >>> print(a.logprob)
+        -48201.29481399994
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **fti** - Method for removing the fractional part of a number
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.fti(5892.4892)
+        5892489200000
+        >>> alm.fti(5892.4892, 4)
+        58924892
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **context** - Method for assembling text context from a sequence
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.idw("неожиданно")
+        30444893210
+        >>> alm.idw("из")
+        4645
+        >>> alm.idw("подворотни")
+        7494072262
+        >>> alm.idw("в")
+        48
+        >>> alm.idw("Олега")
+        2431694341
+        >>> alm.idw("ударил")
+        54100711961
+        >>> alm.context([30444893210, 4645, 7494072262, 48, 2431694341, 54100711961])
+        'Неожиданно из подворотни в олега ударил'
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **isAbbr** - Method of checking a word for compliance with an abbreviation
+        - **isSuffix** - Method for checking a word for a suffix of a numeric abbreviation
+        - **isToken** - Method for checking if an identifier matches a token
+        - **isIdWord** - Method for checking if an identifier matches a word
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.addAbbr("США")
+        >>> alm.isAbbr("сша")
+        True
+        >>> alm.addSuffix("1-я")
+        >>> alm.isSuffix("1-я")
+        True
+        >>> alm.isToken(alm.idw("США"))
+        True
+        >>> alm.isToken(alm.idw("1-я"))
+        True
+        >>> alm.isToken(alm.idw("125"))
+        True
+        >>> alm.isToken(alm.idw("<s>"))
+        True
+        >>> alm.isToken(alm.idw("Hello"))
+        False
+        >>> alm.isIdWord(alm.idw("https://anyks.com"))
+        True
+        >>> alm.isIdWord(alm.idw("Hello"))
+        True
+        >>> alm.isIdWord(alm.idw("-"))
+        False
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **findByFiles** - Method search N-grams in a text file
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.debug)
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.findByFiles("./text.txt", "./result.txt")
+        info: <s> Кукай
+        сари кукай
+        сари японские
+        японские каллиграфы
+        каллиграфы я
+        я постоянно
+        постоянно навещал
+        навещал их
+        их тайно
+        тайно от
+        от людей
+        людей </s>
+        
+        
+        info: <s> Неожиданно из
+        Неожиданно из подворотни
+        из подворотни в
+        подворотни в Олега
+        в Олега ударил
+        Олега ударил яркий
+        ударил яркий прожектор
+        яркий прожектор патрульный
+        прожектор патрульный трактор
+        патрульный трактор
+        
+        <s> С лязгом
+        С лязгом выкатился
+        лязгом выкатился и
+        выкатился и остановился
+        и остановился возле
+        остановился возле мальчика
+        возле мальчика
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **checkSequence** - Sequence Existence Method
+        - **existSequence** - Method for checking the existence of a sequence, excluding non-word tokens
+        - **checkByFiles** - Method for checking if a sequence exists in a text file
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.debug)
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.checkSequence("Неожиданно из подворотни в олега ударил")
+        (True, 0)
+        >>> alm.checkSequence("<s> Сегодня сыграл и в Олега ударил яркий прожектор патрульный трактор с корпоративным сектором </s>")
+        (True, 0)
+        >>> alm.checkSequence("<s> Сегодня сыграл и в Олега ударил яркий прожектор патрульный трактор с корпоративным сектором </s>", True)
+        (False, 0)
+        >>> alm.checkSequence("<s> в Олега ударил яркий </s>")
+        (True, 0)
+        >>> alm.checkSequence("<s> в Олега ударил яркий </s>", True)
+        (True, 0)
+        >>> alm.checkSequence("от госсекретаря США")
+        (True, 7)
+        >>> alm.checkSequence("от госсекретаря США", True)
+        (False, 0)
+        >>> alm.checkSequence("Неожиданно из подворотни в олега ударил", 2)
+        True
+        >>> alm.checkSequence(["Неожиданно","из","подворотни","в","олега","ударил"], 2)
+        True
+        >>> alm.existSequence("<s> Сегодня сыграл и в, Олега ударил яркий прожектор, патрульный трактор - с корпоративным сектором </s>", 2)
+        (True, 9)
+        >>> alm.existSequence(["<s>","Сегодня","сыграл","и","в",",","Олега","ударил","яркий","прожектор",",","патрульный","трактор","-","с","корпоративным","сектором","</s>"], 2)
+        (True, 9)
+        >>> alm.idw("от")
+        5586
+        >>> alm.idw("госсекретаря")
+        10074609004
+        >>> alm.idw("США")
+        338449
+        >>> alm.checkSequence([5586, 10074609004, 338449])
+        (True, 7)
+        >>> alm.checkSequence([5586, 10074609004, 338449], True)
+        (False, 0)
+        >>> alm.checkSequence(["от", "госсекретаря", "США"])
+        (True, 7)
+        >>> alm.checkSequence(["от", "госсекретаря", "США"], True)
+        (False, 0)
+        >>> alm.checkByFiles("./text.txt", "./result.txt")
+        info: 1999 | YES | Какой-то период времени мы вообще не общались
+        
+        info: 2000 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор.С лязгом выкатился и остановился возле мальчика.
+        
+        info: 2001 | YES | Так как эти яйца жалко есть а хочется все больше любоваться их можно покрыть лаком даже прозрачным лаком для ногтей
+        
+        info: 2002 | NO | кукай <unk> <unk> сари кукай <unk> <unk> сари японские каллиграфы я постоянно навещал их тайно от людей
+        
+        info: 2003 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор???С лязгом выкатился и остановился возле мальчика....
+        
+        info: 2004 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор?С лязгом выкатился и остановился возле мальчика.
+        
+        info: 2005 | YES | Сегодня яичницей никто не завтракал как впрочем и вчера на ближайшем к нам рынке мы ели фруктовый салат со свежевыжатым соком как в старые добрые времена в Бразилии
+        
+        info: 2006 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор!С лязгом выкатился и остановился возле мальчика.
+        
+        info: 2007 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор.с лязгом выкатился и остановился возле мальчика.
+        
+        All texts: 2007
+        Exists texts: 1359
+        Not exists texts: 648
+        >>> alm.checkByFiles("./corpus", "./result.txt", False, "txt")
+        info: 1999 | YES | Какой-то период времени мы вообще не общались
+        
+        info: 2000 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор.С лязгом выкатился и остановился возле мальчика.
+        
+        info: 2001 | YES | Так как эти яйца жалко есть а хочется все больше любоваться их можно покрыть лаком даже прозрачным лаком для ногтей
+        
+        info: 2002 | NO | кукай <unk> <unk> сари кукай <unk> <unk> сари японские каллиграфы я постоянно навещал их тайно от людей
+        
+        info: 2003 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор???С лязгом выкатился и остановился возле мальчика....
+        
+        info: 2004 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор?С лязгом выкатился и остановился возле мальчика.
+        
+        info: 2005 | YES | Сегодня яичницей никто не завтракал как впрочем и вчера на ближайшем к нам рынке мы ели фруктовый салат со свежевыжатым соком как в старые добрые времена в Бразилии
+        
+        info: 2006 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор!С лязгом выкатился и остановился возле мальчика.
+        
+        info: 2007 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор.с лязгом выкатился и остановился возле мальчика.
+        
+        All texts: 2007
+        Exists texts: 1359
+        Not exists texts: 648
+        >>> alm.checkByFiles("./corpus", "./result.txt", True, "txt")
+        info: 2000 | NO | Так как эти яйца жалко есть а хочется все больше любоваться их можно покрыть лаком даже прозрачным лаком для ногтей
+        
+        info: 2001 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор.С лязгом выкатился и остановился возле мальчика.
+        
+        info: 2002 | NO | Сегодня яичницей никто не завтракал как впрочем и вчера на ближайшем к нам рынке мы ели фруктовый салат со свежевыжатым соком как в старые добрые времена в Бразилии
+        
+        info: 2003 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор!С лязгом выкатился и остановился возле мальчика.
+        
+        info: 2004 | NO | кукай <unk> <unk> сари кукай <unk> <unk> сари японские каллиграфы я постоянно навещал их тайно от людей
+        
+        info: 2005 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор?С лязгом выкатился и остановился возле мальчика.
+        
+        info: 2006 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор???С лязгом выкатился и остановился возле мальчика....
+        
+        info: 2007 | NO | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор.с лязгом выкатился и остановился возле мальчика.
+        
+        All texts: 2007
+        Exists texts: 0
+        Not exists texts: 2007
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **check** - String Check Method
+        - **match** - String Matching Method
+        - **addAbbr** - Method add abbreviation
+        - **addSuffix** - Method add number suffix abbreviation
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.setSubstitutes({'p':'р','c':'с','o':'о','t':'т','k':'к','e':'е','a':'а','h':'н','x':'х','b':'в','m':'м'})
+        >>> alm.check("Дом-2", alm.check_t.home2)
+        True
+        >>> alm.check("Дом2", alm.check_t.home2)
+        False
+        >>> alm.check("Дом-2", alm.check_t.latian)
+        False
+        >>> alm.check("Hello", alm.check_t.latian)
+        True
+        >>> alm.check("прiвет", alm.check_t.latian)
+        True
+        >>> alm.check("Дом-2", alm.check_t.hyphen)
+        True
+        >>> alm.check("Дом2", alm.check_t.hyphen)
+        False
+        >>> alm.check("Д", alm.check_t.letter)
+        True
+        >>> alm.check("$", alm.check_t.letter)
+        False
+        >>> alm.check("-", alm.check_t.letter)
+        False
+        >>> alm.check("просtоквaшино", alm.check_t.similars)
+        True
+        >>> alm.match("my site http://example.ru, it's true", alm.match_t.url)
+        True
+        >>> alm.match("по вашему ip адресу 46.40.123.12 проводится проверка", alm.match_t.url)
+        True
+        >>> alm.match("мой адрес в формате IPv6: http://[2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d]/", alm.match_t.url)
+        True
+        >>> alm.match("13-я", alm.match_t.abbr)
+        True
+        alm.match("13-я-й", alm.match_t.abbr)
+        False
+        alm.match("т.д", alm.match_t.abbr)
+        True
+        alm.match("т.п.", alm.match_t.abbr)
+        True
+        >>> alm.match("С.Ш.А.", alm.match_t.abbr)
+        True
+        >>> alm.addAbbr("сша")
+        >>> alm.match("США", alm.match_t.abbr)
+        True
+        >>> alm.addSuffix("15-летия")
+        >>> alm.match("15-летия", alm.match_t.abbr)
+        True
+        >>> alm.match("Hello", alm.match_t.latian)
+        True
+        >>> alm.match("прiвет", alm.match_t.latian)
+        False
+        >>> alm.match("23424", alm.match_t.number)
+        True
+        >>> alm.match("hello", alm.match_t.number)
+        False
+        >>> alm.match("23424.55", alm.match_t.number)
+        False
+        >>> alm.match("23424", alm.match_t.decimal)
+        False
+        >>> alm.match("23424.55", alm.match_t.decimal)
+        True
+        >>> alm.match("23424,55", alm.match_t.decimal)
+        True
+        >>> alm.match("-23424.55", alm.match_t.decimal)
+        True
+        >>> alm.match("+23424.55", alm.match_t.decimal)
+        True
+        >>> alm.match("+23424.55", alm.match_t.anumber)
+        True
+        >>> alm.match("15T-34", alm.match_t.anumber)
+        True
+        >>> alm.match("hello", alm.match_t.anumber)
+        False
+        >>> alm.match("hello", alm.match_t.allowed)
+        True
+        >>> alm.match("évaluer", alm.match_t.allowed)
+        False
+        >>> alm.match("13", alm.match_t.allowed)
+        True
+        >>> alm.match("Hello-World", alm.match_t.allowed)
+        True
+        >>> alm.match("Hello", alm.match_t.math)
+        False
+        >>> alm.match("+", alm.match_t.math)
+        True
+        >>> alm.match("=", alm.match_t.math)
+        True
+        >>> alm.match("Hello", alm.match_t.upper)
+        True
+        >>> alm.match("hello", alm.match_t.upper)
+        False
+        >>> alm.match("hellO", alm.match_t.upper)
+        False
+        >>> alm.match("a", alm.match_t.punct)
+        False
+        >>> alm.match(",", alm.match_t.punct)
+        True
+        >>> alm.match(" ", alm.match_t.space)
+        True
+        >>> alm.match("a", alm.match_t.space)
+        False
+        >>> alm.match("a", alm.match_t.special)
+        False
+        >>> alm.match("±", alm.match_t.special)
+        True
+        >>> alm.match("[", alm.match_t.isolation)
+        True
+        >>> alm.match("a", alm.match_t.isolation)
+        False
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **delInText** - Method for delete letter in text
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.delInText("неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор??? с лязгом выкатился и остановился возле мальчика....", alm.wdel_t.punct)
+        'неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор с лязгом выкатился и остановился возле мальчика'
+        >>> alm.delInText("hello-world-hello-world", alm.wdel_t.hyphen)
+        'helloworldhelloworld'
+        >>> alm.delInText("неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор??? с лязгом выкатился и остановился возле мальчика....", alm.wdel_t.broken)
+        'неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор с лязгом выкатился и остановился возле мальчика'
+        >>> alm.delInText("«On nous dit qu'aujourd'hui c'est le cas, encore faudra-t-il l'évaluer» l'astronomie", alm.wdel_t.broken)
+        'On nous dit quaujourdhui cest le cas encore faudra-t-il lvaluer lastronomie'
+        ```
+        
+        ---
+        
+        ### Methods:
+        - **countsByFiles** - Method for counting the number of n-grams in a text file
+        
+        ### Example:
+        ```python
+        >>> import alm
+        >>> alm.setOption(alm.options_t.debug)
+        >>> alm.setOption(alm.options_t.confidence)
+        >>> alm.setAlphabet("abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+        >>> alm.readLM('./lm.arpa')
+        >>> alm.countsByFiles("./text.txt", "./result.txt", 3)
+        info: 0 | Сегодня яичницей никто не завтракал как впрочем и вчера на ближайшем к нам рынке мы ели фруктовый салат со свежевыжатым соком как в старые добрые времена в Бразилии
+        
+        info: 10 | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор?С лязгом выкатился и остановился возле мальчика.
+        
+        info: 10 | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор!С лязгом выкатился и остановился возле мальчика.
+        
+        info: 0 | Так как эти яйца жалко есть а хочется все больше любоваться их можно покрыть лаком даже прозрачным лаком для ногтей
+        
+        info: 10 | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор???С лязгом выкатился и остановился возле мальчика....
+        
+        Counts 3grams: 471
+        >>> alm.countsByFiles("./corpus", "./result.txt", 2, "txt")
+        info: 19 | Так как эти яйца жалко есть а хочется все больше любоваться их можно покрыть лаком даже прозрачным лаком для ногтей
+        
+        info: 12 | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор.с лязгом выкатился и остановился возле мальчика.
+        
+        info: 12 | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор!С лязгом выкатился и остановился возле мальчика.
+        
+        info: 10 | кукай <unk> <unk> сари кукай <unk> <unk> сари японские каллиграфы я постоянно навещал их тайно от людей
+        
+        info: 12 | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор???С лязгом выкатился и остановился возле мальчика....
+        
+        info: 12 | Неожиданно из подворотни в Олега ударил яркий прожектор патрульный трактор?С лязгом выкатился и остановился возле мальчика.
+        
+        info: 27 | Сегодня яичницей никто не завтракал как впрочем и вчера на ближайшем к нам рынке мы ели фруктовый салат со свежевыжатым соком как в старые добрые времена в Бразилии
+        
+        Counts 2grams: 20270
+        ```
+        
+        ### Description
+        | N-gram size | Description         |
+        |-------------|---------------------|
+        | 1           | language model size |
+        | 2           | bigram              |
+        | 3           | trigram             |
+        
+Keywords: nlp,lm,alm,language-model
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: POSIX :: BSD :: FreeBSD
+Requires: pybind11
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
