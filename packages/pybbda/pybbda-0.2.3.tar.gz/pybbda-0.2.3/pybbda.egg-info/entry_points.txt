@@ -1,0 +1,4 @@
+[console_scripts]
+pybbda_data_update = pybbda.data.tools.update:main
+pybbda_run_expectancy = pybbda.analysis.run_expectancy.markov.cli:main
+
