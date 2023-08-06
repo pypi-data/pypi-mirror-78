@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "standard_header": {
+            "$ref": "headers.json#/definitions/standard_header"
+        },
+        "service_provider_header": {
+            "$ref": "headers.json#/definitions/service_provider_header"
+        },
+        "dataset_input_details": {
+			"type": "array",
+			"items": {
+				"$ref": "headers.json#/definitions/dataset_details_input_component"
+			}
+		},
+        "dataset_output_details": {
+            "$ref": "headers.json#/definitions/dataset_details_output_component"
+        },
+        "service_offer_description": {
+            "type": "string",
+            "description": "A user-friendly description of the offered service. Provided by vendors"
+        },
+        "service_offer_parameters": {
+            "type": "string",
+            "description": "The set of parameters required for a specific service in JSON Schema format (http://json-schema.org/draft-07/schema). Provided by vendors"
+        },
+        "service_offer_name": {
+            "type": "string",
+            "description": "A user-friendly specific name of the offered service. Provided by vendors"
+        }
+    }
+}
