@@ -1,0 +1,213 @@
+{
+    "__gui_label__": "RSA Cypher",
+    "django_form_module_function": {
+        "decode": {
+            "__function__": "decode",
+            "__async__": false,
+            "__return__": "text",
+            "key": {
+                "__type__": "text",
+                "label_desc": "key",
+                "placeholder": "key",
+                "required": true
+            },
+            "ciphertext": {
+                "__type__": "text",
+                "label_desc": "ciphertext",
+                "placeholder": "ciphertext",
+                "required": true
+            },
+            "__pool_it_decode__": {
+                "__type__": "checkbox",
+                "label_desc": "Pool the execution to the pool list",
+                "selected": false
+            }
+        },
+        "decrypt": {
+            "__function__": "decrypt",
+            "__async__": false,
+            "__return__": "text",
+            "public_key": {
+                "__type__": "text",
+                "label_desc": "public_key",
+                "placeholder": "public_key",
+                "required": true
+            },
+            "ciphertext": {
+                "__type__": "text",
+                "label_desc": "ciphertext",
+                "placeholder": "ciphertext",
+                "required": true
+            },
+            "__pool_it_decrypt__": {
+                "__type__": "checkbox",
+                "label_desc": "Pool the execution to the pool list",
+                "selected": false
+            }
+        },
+        "encode": {
+            "__function__": "encode",
+            "__async__": false,
+            "__return__": "text",
+            "key": {
+                "__type__": "text",
+                "label_desc": "key",
+                "placeholder": "key",
+                "required": true
+            },
+            "plaintext": {
+                "__type__": "text",
+                "label_desc": "plaintext",
+                "placeholder": "plaintext",
+                "required": true
+            },
+            "__pool_it_encode__": {
+                "__type__": "checkbox",
+                "label_desc": "Pool the execution to the pool list",
+                "selected": false
+            }
+        },
+        "encrypt": {
+            "__function__": "encrypt",
+            "__async__": false,
+            "__return__": "text",
+            "private_key": {
+                "__type__": "text",
+                "label_desc": "private_key",
+                "placeholder": "private_key",
+                "required": true
+            },
+            "plaintext": {
+                "__type__": "text",
+                "label_desc": "plaintext",
+                "placeholder": "plaintext",
+                "required": true
+            },
+            "__pool_it_encrypt__": {
+                "__type__": "checkbox",
+                "label_desc": "Pool the execution to the pool list",
+                "selected": false
+            }
+        },
+        "generate_keypair": {
+            "__function__": "generate_keypair",
+            "__async__": false,
+            "__return__": "text",
+            "prime_a": {
+                "__type__": "text",
+                "label_desc": "prime_a",
+                "placeholder": "prime_a",
+                "required": true
+            },
+            "prime_b": {
+                "__type__": "text",
+                "label_desc": "prime_b",
+                "placeholder": "prime_b",
+                "required": true
+            },
+            "__pool_it_generate_keypair__": {
+                "__type__": "checkbox",
+                "label_desc": "Pool the execution to the pool list",
+                "selected": false
+            }
+        },
+        "getRandomKeypair": {
+            "__function__": "getRandomKeypair",
+            "__async__": false,
+            "__return__": "text",
+            "length": {
+                "__type__": "number",
+                "label_desc": "length",
+                "placeholder": "length",
+                "value": 8
+            },
+            "__pool_it_getRandomKeypair__": {
+                "__type__": "checkbox",
+                "label_desc": "Pool the execution to the pool list",
+                "selected": false
+            }
+        },
+        "decodeFromComplexMap": {
+            "__function__": "decodeFromComplexMap",
+            "__async__": false,
+            "__return__": "text",
+            "password": {
+                "__type__": "text",
+                "label_desc": "password",
+                "placeholder": "password",
+                "required": true
+            },
+            "ciphertext": {
+                "__type__": "text",
+                "label_desc": "ciphertext",
+                "placeholder": "ciphertext",
+                "required": true
+            },
+            "complexMap": {
+                "__type__": "text",
+                "label_desc": "complexMap",
+                "placeholder": "complexMap",
+                "required": true
+            },
+            "__pool_it_decodeFromComplexMap__": {
+                "__type__": "checkbox",
+                "label_desc": "Pool the execution to the pool list",
+                "selected": false
+            }
+        },
+        "encodeFromComplexMap": {
+            "__function__": "encodeFromComplexMap",
+            "__async__": false,
+            "__return__": "text",
+            "password": {
+                "__type__": "text",
+                "label_desc": "password",
+                "placeholder": "password",
+                "required": true
+            },
+            "plaintext": {
+                "__type__": "text",
+                "label_desc": "plaintext",
+                "placeholder": "plaintext",
+                "required": true
+            },
+            "__pool_it_encodeFromComplexMap__": {
+                "__type__": "checkbox",
+                "label_desc": "Pool the execution to the pool list",
+                "selected": false
+            }
+        }
+    },
+    "django_form_main_function": {
+        "__function__": "encode",
+        "__async__": false,
+        "__return__": "text",
+        "password": {
+            "__type__": "text",
+            "label_desc": "password",
+            "placeholder": "password",
+            "required": true
+        },
+        "plaintext": {
+            "__type__": "text",
+            "label_desc": "plaintext",
+            "placeholder": "plaintext",
+            "required": true
+        },
+        "__pool_it_encode__": {
+            "__type__": "checkbox",
+            "label_desc": "Pool the execution to the pool list",
+            "selected": false
+        },
+        "close": {
+            "__type__": "button",
+            "value": "Close"
+        },
+        "submit": {
+            "__id__": "encode",
+            "__type__": "submit",
+            "value": "Encode",
+            "loading_text": "rsaing"
+        }
+    }
+}
