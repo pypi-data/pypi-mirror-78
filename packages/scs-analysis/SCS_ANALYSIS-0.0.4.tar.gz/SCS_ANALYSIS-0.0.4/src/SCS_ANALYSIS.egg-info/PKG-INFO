@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: SCS-ANALYSIS
+Version: 0.0.4
+Summary: Information management and analysis utilities for South Coast Science data consumers.
+Home-page: https://github.com/south-coast-science/scs_analysis
+Author: South Coast Science
+Author-email: contact@southcoastscience.com
+License: UNKNOWN
+Description: # scs_analysis
+        _Information management and analysis utilities for South Coast Science data consumers_
+        
+        Detailed information at the [scs_analysis wiki](https://github.com/south-coast-science/scs_analysis/wiki).
+        
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX
+Requires-Python: >3.5
+Description-Content-Type: text/markdown
+Provides-Extra: dev
