@@ -1,0 +1,173 @@
+Metadata-Version: 2.1
+Name: checkmk-commander
+Version: 1.5.1
+Summary: Curses interface to Checkmk Raw.
+Home-page: https://gitlab.com/larsfp/checkmk-commander
+Author: Lars Falk-Petersen
+Author-email: dev@falkp.no
+License: GPLv3+
+Description: # Check Commander
+        
+        Check Commander is an efficient [curses](https://en.wikipedia.org/wiki/Ncurses) interface for the monitoring software [Checkmk](https://checkmk.com/).
+        
+        ![Logo](https://gitlab.com/larsfp/checkmk-commander/-/raw/master/media/logo_256.png)
+        
+        Most day-to-day activities like time limited acknowledgement, downtime, reinventorize, look up server in a wiki, copy alert text for a ticket system and SSH in to servers can be done with a few keypresses. See screenshots to understand what it's about.
+        
+        ## Screenshots
+        
+        SSH to selected host (which opens a new terminal, in this case a new split in tilix):
+        ![SSH to selected host v1.2](https://gitlab.com/larsfp/checkmk-commander/-/raw/master/media/open_host_in_terminalv1.2.gif)
+        
+        Acknowledge an alert and display help:
+        ![Acknowledge and help v.8](https://gitlab.com/larsfp/checkmk-commander/-/raw/master/media/ack0.8.gif)
+        
+        Show details for an alert:
+        ![Details v.6](https://gitlab.com/larsfp/checkmk-commander/-/raw/master/media/Screenshotv.6.png)
+        
+        ## Getting Started
+        
+        ### Prerequisites
+        
+        * An up to date Checkmk instance.
+        * Linux, MacOS. (not tested on other platforms yet)
+        * Python 3.6 or later
+        * PIP (for easy installation)
+        
+        ### Installation
+        
+        From PIP:
+        
+        ```bash
+        $ pip3 install --upgrade --user checkmk-commander
+        ```
+        
+        Run command: ```chkcom```. It usually ends up in
+        
+        Linux:
+        
+            ~/.local/bin (installed with --user)
+         
+        MacOS:
+        
+            ~/Library/Python/<version>/bin
+        
+        ### Configuration
+        
+        You need a "machine" account for your Checkmk instance. A normal user won't work. See [Checkmk user config](https://checkmk.com/cms_wato_user.html#user_config).
+        
+        You will be asked for configuration details on first run, and a config will be created at
+        
+        Linux:
+        
+            ~/.config/check-commander.ini
+        
+        MacOS:
+        
+            ~/Library/Application Support/check-commander.ini
+        
+        Example basic config:
+        
+            host = http://omd.lxd/test/
+            username = automation
+            secret = long-random-string
+        
+        How an ssh connection is opened can be changed. Suggested alternatives (put one in config file):
+        
+        Linux:
+        
+            terminal_command = x-terminal-emulator -e ssh HOSTNAME
+            terminal_command = tmux split-window -v -c "$PWD" ssh HOSTNAME
+            terminal_command = tmux new-window -c "#{pane_current_path}" ssh HOSTNAME
+        
+        These should open default terminal, split your current tmux tab and open new tmux tab respectively.
+        
+        MacOS:
+        
+            terminal_command = open ssh://HOSTNAME
+        
+        How a wiki is opened can be changed. Suggested alternatives (put one in config file):
+        
+        Linux:
+        
+            wiki_command = x-www-browser "https://wiki.example.com/?search=HOSTNAME"
+            wiki_command = /usr/bin/firefox -new-tab "https://wiki.example.com/?search=HOSTNAME"
+        
+        MacOS:
+        
+            wiki_command = open "https://wiki.example.com/?search=HOSTNAME"
+        
+        How the checkmk website is opened can be changed. Suggested alternatives (put one in config file):
+        
+        Linux:
+        
+            browser_command = x-www-browser "https://wiki.example.com/?search=HOSTNAME"
+            browser_command = /usr/bin/firefox -new-tab "https://wiki.example.com/?search=HOSTNAME"
+        
+        MacOS:
+        
+            browser_command = open "https://wiki.example.com/?search=HOSTNAME"
+        
+        Refresh delay in seconds can be set thus:
+        
+            delay = 5
+        
+        ### Hot-keys
+        
+        Press ? in app to get an overview.
+        
+        ## Support
+        
+        Open a gitlab issue if you hit a bug or need help.
+        
+        ## Implementation details
+        
+        Uses CheckMK's web API.
+        
+        Functionality copy to clipboard requires python module cliboard. You will be notified to install it.
+        
+        Does not read your ssh config or keys, just asks OS to open an ssh connection in a new terminal if you ask for it.
+        
+        No tracking or nastyness.
+        
+        ## Known bugs
+        
+        * Calling a reschedule may give the error "ERROR - you did an active check on this service - please disable active checks". Not sure why this happens.
+        * If a non-OMD site is connected to your "distributed monitoring", calling WATO commands on it will return 200 and an error. The WATO command will not be run.
+        
+        ## Development
+        
+        Tests can be run with ```tox```. Static tests have been done with prospector.
+        
+        ## Inspirations and thanks
+        
+        * Icon made by [RallyPointComic](https://anus.no/)
+        * Thanks to [Frank](http://www.frank2.net/) for lots of suggestions and feedback.
+        * Thanks to [Scott Hansen](https://gitlab.com/firecat4153) for testing and feedback.
+        * Thanks to [Truls](http://mastyr.no/) for testing and feedback.
+        * <https://github.com/aranair/rtscli/>
+        * <https://forum.checkmk.com/t/writing-to-nagios-cmd-in-distributed-monitoring/17616>
+        * <https://checkmk.com/cms_legacy_multisite_automation.html>
+        
+        ## What users say
+        
+        * "Herregud så mye bedre dette er enn å kuke i webinterface"
+        
+Keywords: monitoring
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: System :: Networking
+Classifier: Environment :: Console :: Curses
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Environment :: Console
+Classifier: Topic :: System :: Networking :: Monitoring
+Classifier: Natural Language :: English
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

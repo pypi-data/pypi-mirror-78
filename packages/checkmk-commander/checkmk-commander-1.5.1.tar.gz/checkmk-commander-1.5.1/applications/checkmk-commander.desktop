@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Check Commander
+Comment=Checkmk curses client
+Exec=/usr/bin/x-terminal-emulator -e chkcom
+Icon=checkmk-commander
+Type=Application
+Terminal=True
+StartupWMClass=checkmkcommander
+Categories=Utility;Network;
+Comment=Checkmk Commander, or Check Commander, efficient Curses interface for Checkmk.
