@@ -1,0 +1,17 @@
+# description
+include README.rst
+
+# license
+include LICENSE
+
+# requirements
+include requirements.txt
+
+# configuration files
+recursive-include wc_utils *.cfg
+
+# unit system definition
+include wc_utils/util/units.txt
+
+# Java file for chemistry calculations
+recursive-include wc_utils *.java *.jar
