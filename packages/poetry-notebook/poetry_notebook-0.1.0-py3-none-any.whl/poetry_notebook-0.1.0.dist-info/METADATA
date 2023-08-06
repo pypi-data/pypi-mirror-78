@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: poetry-notebook
+Version: 0.1.0
+Summary: 
+Author: Jean-Christophe Cazes
+Author-email: jean-christophe.cazes@groupeseloger.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: jupyter (>=1.0.0,<2.0.0)
+Requires-Dist: numba (>=0.51.2,<0.52.0)
+Requires-Dist: numpy (>=1.19.1,<2.0.0)
+Requires-Dist: pandas (>=1.1.1,<2.0.0)
