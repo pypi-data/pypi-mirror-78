@@ -1,0 +1,7 @@
+
+        [ckan.plugins]
+        fpx=ckanext.fpx.plugin:FpxPlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+    
