@@ -1,0 +1,12 @@
+numpy
+scipy
+python-igraph
+
+[dev]
+pytest
+pytest-benchmark
+pdoc3
+isort
+yapf
+mypy
+pyflakes
