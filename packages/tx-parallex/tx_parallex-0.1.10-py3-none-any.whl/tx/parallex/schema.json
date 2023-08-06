@@ -1,0 +1,153 @@
+{
+    "definitions": {
+	"term": {
+	    "anyOf": [
+		{
+		    "type": "object",
+		    "properties": {
+			"name": {
+			    "type": "string"
+			}
+		    },
+		    "required": ["name"],
+		    "additionalProperties": false
+		}, {
+		    "type": "object",
+		    "properties": {
+			"depends_on": {
+			    "type": "string"
+			}
+		    },
+		    "required": ["depends_on"],
+		    "additionalProperties": false
+		}, {
+		    "type": "object",
+		    "properties": {
+			"data": {}
+		    },
+		    "required": ["data"],
+		    "additionalProperties": false
+		}
+	    ]
+	}
+    },
+    "anyOf": [
+	{
+	    "properties": {
+		"type": {
+		    "enum": ["map"]
+		},
+		"coll": {
+		    "$ref": "#/definitions/term"
+		},
+		"var": {
+		    "type": "string"
+		},
+		"sub": {
+		    "$ref": "#"
+		}
+	    },
+	    "required": ["type", "coll", "var", "sub"],
+	    "additionalProperties": false
+	}, {
+	    "properties": {
+		"type": {
+		    "enum": ["cond"]
+		},
+		"on": {
+		    "$ref": "#/definitions/term"
+		},
+		"then": {
+		    "$ref": "#"
+		},
+		"else": {
+		    "$ref": "#"
+		}
+	    },
+	    "required": ["type", "on", "then", "else"],
+	    "additionalProperties": false
+	}, {
+	    "properties": {
+		"type": {
+		    "enum": ["let"]
+		},
+		"name": {
+		    "type": "string"
+		},
+		"obj": {
+		    "$ref": "#/definitions/term"
+		}
+	    },
+	    "required": ["type", "name", "obj"],
+	    "additionalProperties": false
+	}, {
+	    "properties": {
+		"type": {
+		    "enum": ["top"]
+		},
+		"sub": {
+		    "type": "array",
+		    "items": {
+			"$ref": "#"
+		    }
+		}
+	    },
+	    "required": ["sub"],
+	    "additionalProperties": false
+	}, {
+	    "properties": {
+		"type": {
+		    "enum": ["seq"]
+		},
+		"sub": {
+		    "type": "array",
+		    "items": {
+			"$ref": "#"
+		    }
+		}
+	    },
+	    "required": ["sub"],
+	    "additionalProperties": false
+	}, {
+	    "properties": {
+		"type": {
+		    "enum": ["python"]
+		},
+		"mod": {
+		    "type": "string"
+		},
+		"func": {
+		    "type": "string"
+		},
+		"params": {
+		    "type": "object",
+		    "additionalProperties": {
+			"$ref": "#/definitions/term"
+		    }
+		},
+		"depends_on": {
+		    "type": "object",
+		    "additionalProperties": {
+			"type": "string"
+		    }
+		},
+		"name": {
+		    "type": "string"
+		}
+	    },
+	    "required": ["type", "name", "mod", "func"],
+	    "additionalProperties": false
+	}, {
+	    "properties": {
+		"type": {
+		    "enum": ["ret"]
+		},
+		"obj": {
+		    "$ref": "#/definitions/term"
+		}
+	    },
+	    "required": ["type", "obj"],
+	    "additionalProperties": false
+	}
+    ]
+}
