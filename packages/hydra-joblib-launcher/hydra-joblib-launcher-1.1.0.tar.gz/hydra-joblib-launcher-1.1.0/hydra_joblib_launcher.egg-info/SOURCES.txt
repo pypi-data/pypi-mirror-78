@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+hydra_joblib_launcher.egg-info/PKG-INFO
+hydra_joblib_launcher.egg-info/SOURCES.txt
+hydra_joblib_launcher.egg-info/dependency_links.txt
+hydra_joblib_launcher.egg-info/requires.txt
+hydra_joblib_launcher.egg-info/top_level.txt
+hydra_plugins/hydra_joblib_launcher/__init__.py
+hydra_plugins/hydra_joblib_launcher/_core.py
+hydra_plugins/hydra_joblib_launcher/config.py
+hydra_plugins/hydra_joblib_launcher/joblib_launcher.py
