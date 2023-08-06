@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: pyformatting
+Version: 0.3.1
+Summary: Pyformatting is a collection of useful formatting features.
+Home-page: https://github.com/0dminnimda/pyformatting
+Author: 0dminnimda
+Author-email: 0dminnimda.contact@gmail.com
+License: MIT
+Project-URL: Documentation, https://pyformatting.readthedocs.io/en/latest/
+Project-URL: Say Thanks!, https://saythanks.io/to/0dminnimda.contact%40gmail.com
+Project-URL: Bug tracker, https://github.com/0dminnimda/pyformatting/issues
+Description: # pyformatting
+        
+        **Pyformatting** is a collection of useful formatting features.
+        
+        ```python
+        >>> from pyformatting import optional_format, defaultformatter
+        >>> optional_format('{:.3f}{other:.5f}{}', .12345)
+        '0.123{other:.5f}{}'
+        >>> optional_format('{0[0]}{1!a}{2}{0[1]!r}', 'cool')
+        "c{1!a}{2}'o'"
+        >>> default_format = defaultformatter(str)
+        >>> default_format('{nothing}{data}{quotes!r}', data={1: 2})
+        "{1: 2}''"
+        ```
+        
+        ## Installing Pyformatting
+        
+        Pyformatting is available on PyPI:
+        
+        ```console
+        python -m pip install -U pyformatting
+        ```
+        
+        ## Supported Versions
+        
+        Pyformatting supports Python 3.1+.
+        
+        ## Development Status
+        
+        Pre-Alpha
+        
+Keywords: format, formatting, formatter,python format, python formatting, python formatter,optional format, optional formatting, optional formatter,default format, default formatting, default formatter
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: ~=3.1
+Description-Content-Type: text/markdown
