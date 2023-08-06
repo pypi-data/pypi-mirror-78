@@ -1,0 +1,9 @@
+datasette
+click
+PyYAML
+sqlite-utils
+
+[test]
+pytest
+pytest-asyncio
+httpx
