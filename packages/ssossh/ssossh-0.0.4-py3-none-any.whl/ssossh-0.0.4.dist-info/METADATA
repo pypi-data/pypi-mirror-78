@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: ssossh
+Version: 0.0.4
+Summary: Generate a SSH Certificate from an OAuth2 compliat cert server
+Home-page: https://gitlab.erc.monash.edu.au/hpc-team/ssossh
+Author: Chris Hines
+Author-email: chris.hines@monash.edu
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: jinja2
+Requires-Dist: requests
+Requires-Dist: importlib-resources ; python_version < "3.7"
+
+Generate a SSH Certificate from an OAuth2 compliat cert server
+
+
