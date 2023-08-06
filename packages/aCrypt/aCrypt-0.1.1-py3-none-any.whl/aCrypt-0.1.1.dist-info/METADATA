@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: aCrypt
+Version: 0.1.1
+Summary: Ciphering made easy.
+Home-page: https://repl.it/@ChezCoder/aCrypt
+Author: ChezCoder
+Author-email: mrpizzaguyytb@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# aCrypt
+Ciphering made easy.
+
+## Usage
+
+| Usage          | Params                   | Return Value      |
+| :------------- | :----------------------- | :---------------- |
+| `create_key()` | `None: None`             | `int: key`        |
+| `cipher()`     | `str: message, int: key` | `str: ciphered`   |
+| `decipher()`   | `str: message, int: key` | `str: deciphered` |
+
