@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: oarepo-records-draft
+Version: 5.0.0a1
+Summary: Handling Draft and Production invenio records in one package
+Home-page: https://github.com/oarepo/oarepo-records-draft
+Author: Mirek Šimek
+Author-email: miroslav.simek@vscht.cz
+License: MIT
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Development Status :: 4 - Beta
+Description-Content-Type: text/markdown
+Requires-Dist: wrapt (>=1.11.2)
+Requires-Dist: oarepo-validate
+Provides-Extra: tests
+Requires-Dist: oarepo[tests] ; extra == 'tests'
+
+UNKNOWN
+
+
