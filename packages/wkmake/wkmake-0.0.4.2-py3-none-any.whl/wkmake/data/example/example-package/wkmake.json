@@ -1,0 +1,7 @@
+{
+  "required_vars": ["pkg_name"],
+  "optional_vars": ["python_name","pip_name","pkg_desc","remote_url","author","email"],
+  "defaults": {
+
+  }
+}

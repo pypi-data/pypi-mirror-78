@@ -1,0 +1,11 @@
+{
+  "author": "TestAuthor",
+  "author_email": "TestAuthorEmail",
+  "pkg_name": "TestPackageName",
+  "pkg_desc": "TestPacakgeDescription",
+  "url": "TestPackageUrl",
+  "remote_url": "TestGitRemoteUrl:git@github.com:Peiiii/wkmake",
+  "install_requires": [
+    "jinja2"
+  ]
+}
