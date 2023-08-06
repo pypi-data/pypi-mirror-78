@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+specgfx/__init__.py
+specgfx/cyrender.c
+specgfx/cyrender.pyx
+specgfx/specgfx.py
+specgfx.egg-info/PKG-INFO
+specgfx.egg-info/SOURCES.txt
+specgfx.egg-info/dependency_links.txt
+specgfx.egg-info/requires.txt
+specgfx.egg-info/top_level.txt
