@@ -1,0 +1,1 @@
+This library allows to calculate confidence intervals.

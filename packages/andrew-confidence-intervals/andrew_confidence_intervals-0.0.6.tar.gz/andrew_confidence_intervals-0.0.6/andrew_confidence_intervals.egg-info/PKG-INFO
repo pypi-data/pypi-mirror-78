@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: andrew-confidence-intervals
+Version: 0.0.6
+Summary: Package for calculation of confidence intervals.
+Home-page: https://github.com/Cliefspring/andrew_confidence_intervals
+Author: Andrey Vazhentsev
+Author-email: vazhentsev@inbox.ru
+License: MIT
+Description: This library allows to calculate confidence intervals.
+        
+        Change Log
+        ===============
+        
+        0.0.1 (23/08/2020)
+        -------------------
+        - First Release
+        
+        0.0.5 (28/08/2020)
+        -------------------
+        - Second Release. New confidence intervals have been added.
+        
+        
+        0.0.6 (05/09/2020)
+        -------------------
+        - Third Release. More calculating details have been added to the functions. Print statements have become optional (verbose paramater added).
+Keywords: confidence intervals
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/x-rst
