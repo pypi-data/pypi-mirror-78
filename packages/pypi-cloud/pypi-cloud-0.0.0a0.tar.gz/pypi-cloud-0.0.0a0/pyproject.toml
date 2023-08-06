@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "pypi-cloud"
+version = "0.0.0a0"
+description = "Host a personal PyPi clone in the cloud."
+authors = ["Kyle Finley <kyle@finley.sh>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+homepage = ""
+repository = ""
+
+keywords = ["aws"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+]
+
+packages = [
+    { include = "pypi_cloud" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
