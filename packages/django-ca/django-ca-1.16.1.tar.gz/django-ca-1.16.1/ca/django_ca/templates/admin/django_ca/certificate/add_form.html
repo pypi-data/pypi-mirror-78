@@ -1,0 +1,7 @@
+{% extends "admin/django_ca/certificate/change_form.html" %}
+{% load django_ca i18n admin_urls %}
+
+{% block extrahead %}{{ block.super }}
+<meta name="csr-details-url" value="{{ csr_details_url }}">
+<meta name="get-profiles-url" value="{{ profiles_url }}">
+{% endblock %}
