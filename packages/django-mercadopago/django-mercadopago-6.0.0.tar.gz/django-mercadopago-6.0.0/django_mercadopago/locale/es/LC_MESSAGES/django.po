@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-10 19:23-0500\n"
+"PO-Revision-Date: 2020-08-11 02:23+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.3.1\n"
+
+#, python-format
+msgid "%d payments created."
+msgstr "%d pagos creados."
+
+msgid "poll status"
+msgstr "obtener estado"
+
+msgid "Poll MercadoPago to fetch and possible updates to unpaid Preferences."
+msgstr ""
+"Obtener el estado  y posibles actualizaciones para preferencias impagas."
+
+msgid "name"
+msgstr "nombre"
+
+msgid "A friendly name to recognize this account."
+msgstr "Un nombre amigable para reconocer esta cuenta."
+
+msgid "slug"
+msgstr "slug"
+
+msgid "This slug is used for this account's notification URL."
+msgstr "El slug es usado para la URL de notificaciones de esta cuenta."
+
+msgid ""
+"The CLIENT_ID given by MercadoPago.  This is called APP_ID by MercadoLibre."
+msgstr ""
+"El CLIENT_ID dado por MercadoPago. Esto se llama APP_ID en MercadoLibre."
+
+msgid ""
+"The CLIENT_SECRET given by MercadoPago. This is called SECRET_KEY by "
+"MercadoLibre."
+msgstr ""
+"El CLIENT_SECRET dado por MercadoPago. Esto se llama SECRET_KEY en "
+"MercadoLibre."
+
+msgid "sandbox"
+msgstr "sandbox"
+
+msgid ""
+"Indicates if this account uses the sandbox mode, indicated for testing "
+"rather than real transactions."
+msgstr ""
+"Indica si esta cuenta usa el modo sandbox, indicado para pruebas, en vez de "
+"transacciones reales."
+
+msgid "owner"
+msgstr "dueño"
+
+msgid "mercadopago id"
+msgstr "id mercadopago"
+
+msgid "The id MercadoPago has assigned for this Preference"
+msgstr "El id que MercadoPago otortó a esta preferencia"
+
+msgid "payment url"
+msgstr "url de pagos"
+
+msgid "sandbox url"
+msgstr "url de sanbox"
+
+msgid "reference"
+msgstr "referencia"
+
+msgid "paid"
+msgstr "pagado"
+
+msgid "Indicates if the preference has been paid."
+msgstr "Indica si la preferencia ha sido pagada."
+
+msgid "preference"
+msgstr "preferencia"
+
+msgid "title"
+msgstr "título"
+
+msgid "currency id"
+msgstr "id moneda"
+
+msgid "description"
+msgstr "descripción"
+
+msgid "item"
+msgstr "item"
+
+msgid "items"
+msgstr "items"
+
+msgid "mp id"
+msgstr "mp id"
+
+msgid "status"
+msgstr "estado"
+
+msgid "status detail"
+msgstr "detalles de estado"
+
+msgid "created"
+msgstr "creado"
+
+msgid "approved"
+msgstr "aprovado"
+
+msgid "notification"
+msgstr "notificación"
+
+msgid "The notification that informed us of this payment."
+msgstr "La notificación que nos informó de este pago."
+
+msgid "Pending"
+msgstr "Pendiente"
+
+msgid "Processed"
+msgstr "Procesado"
+
+msgid "Ignored"
+msgstr "Ignorado"
+
+msgid "Okay"
+msgstr "Okay"
+
+msgid "Error 404"
+msgstr "Error 404"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "resource_id"
+msgstr "id de recurso"
+
+msgid "last_update"
+msgstr "última actualización"
