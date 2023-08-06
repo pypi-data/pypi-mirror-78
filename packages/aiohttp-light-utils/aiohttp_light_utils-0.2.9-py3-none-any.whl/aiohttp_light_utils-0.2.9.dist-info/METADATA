@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: aiohttp-light-utils
+Version: 0.2.9
+Summary: 
+Author: Khaziev Radik
+Author-email: xazrad@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: aiohttp_graphql (>=1.0.0,<2.0.0)
+Requires-Dist: graphene (>=2.1.8,<3.0.0)
+Requires-Dist: graphene-file-upload (>=1.2.2,<2.0.0)
+Requires-Dist: jsonrpcclient[aiohttp] (>=3.3,<4.0)
+Requires-Dist: pymongo (>=3.9,<4.0)
+Requires-Dist: python-json-logger (>=0.1.11,<0.2.0)
+Requires-Dist: trafaret-config (>=2.0,<3.0)
+Requires-Dist: ujson (>=1.35,<2.0)
