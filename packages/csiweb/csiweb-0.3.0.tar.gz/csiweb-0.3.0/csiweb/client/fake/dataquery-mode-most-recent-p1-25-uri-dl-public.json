@@ -1,0 +1,995 @@
+{
+  "head": {
+    "transaction": 0,
+    "signature": 56843,
+    "environment": {
+      "station_name": "8785",
+      "table_name": "Public",
+      "model": "CR6",
+      "serial_no": "8785",
+      "os_version": "CR6.Std.08.00 CR6-WIFI.04",
+      "prog_name": "CPU:EasyFlux_DL_CR6OP_V1.03.csiweb"
+    },
+    "fields": [
+      {
+        "name": "card_storage_available_days",
+        "type": "xsd:float",
+        "units": "days",
+        "settable": true
+      },
+      {
+        "name": "TIMESTAMP_START",
+        "type": "xsd:string",
+        "settable": true,
+        "string_len": 16
+      },
+      {
+        "name": "TIMESTAMP_END",
+        "type": "xsd:string",
+        "settable": true,
+        "string_len": 16
+      },
+      {
+        "name": "sonic_azimuth",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "latitude",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "hemisphere_NS",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "longitude",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "hemisphere_EW",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "altitude",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "height_measurement",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "surface_type",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "height_canopy",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "displacement_user",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "roughness_user",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "separation_x_irga",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "separation_y_irga",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "dist_intrst_60_300",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "dist_intrst_60_170",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "dist_intrst_170_190",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "dist_intrst_190_300",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "sun_azimuth",
+        "type": "xsd:float",
+        "units": "decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "sun_elevation",
+        "type": "xsd:float",
+        "units": "decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "hour_angle",
+        "type": "xsd:float",
+        "units": "decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "sun_declination",
+        "type": "xsd:float",
+        "units": "decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "air_mass_coeff",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "daytime",
+        "type": "xsd:int",
+        "settable": true
+      },
+      {
+        "name": "Cp",
+        "type": "xsd:float",
+        "units": "J kg-1 deg C-1",
+        "settable": true
+      },
+      {
+        "name": "Lv",
+        "type": "xsd:float",
+        "units": "J g-1",
+        "settable": true
+      },
+      {
+        "name": "panel_tmpr",
+        "type": "xsd:float",
+        "units": "deg C",
+        "settable": true
+      },
+      {
+        "name": "batt_volt",
+        "type": "xsd:float",
+        "units": "V",
+        "settable": true
+      },
+      {
+        "name": "alpha",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "beta",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "gamma",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "alpha_5min",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "beta_5min",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "gamma_5min",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "alpha_PF_60_300",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "beta_PF_60_300",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "alpha_PF_60_170",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "beta_PF_60_170",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "alpha_PF_170_190",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "beta_PF_170_190",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "alpha_PF_190_300",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "beta_PF_190_300",
+        "type": "xsd:float",
+        "units": "Decimal degrees",
+        "settable": true
+      },
+      {
+        "name": "Planar_Fit_flg",
+        "type": "xsd:boolean",
+        "settable": true
+      },
+      {
+        "name": "MO_LENGTH",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "PBLH",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "d",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "z0",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "z",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "ZL",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "iteration_FreqFactor",
+        "type": "xsd:int",
+        "settable": true
+      },
+      {
+        "name": "FreqFactor_UW_VW",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "FreqFactor_WT_SONIC",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "FreqFactor_WCO2_WH2O",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "press_source",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "heater",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "IRGA_power_off",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "select_CO2_fast_tmpr",
+        "type": "xsd:boolean",
+        "settable": true
+      },
+      {
+        "name": "shadow_corr",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "CO2_span_gas",
+        "type": "xsd:float",
+        "units": "umol mol-1",
+        "settable": true
+      },
+      {
+        "name": "T_DP_span_gas",
+        "type": "xsd:float",
+        "units": "deg C",
+        "settable": true
+      },
+      {
+        "name": "set_press_source_flg",
+        "type": "xsd:boolean",
+        "settable": true
+      },
+      {
+        "name": "set_zero_flg",
+        "type": "xsd:boolean",
+        "settable": true
+      },
+      {
+        "name": "set_CO2_span_flg",
+        "type": "xsd:boolean",
+        "settable": true
+      },
+      {
+        "name": "set_H2O_span_flg",
+        "type": "xsd:boolean",
+        "settable": true
+      },
+      {
+        "name": "set_heater_flg",
+        "type": "xsd:boolean",
+        "settable": true
+      },
+      {
+        "name": "set_IRGA_power_flg",
+        "type": "xsd:boolean",
+        "settable": true
+      },
+      {
+        "name": "set_CO2_fast_tmpr_flg",
+        "type": "xsd:boolean",
+        "settable": true
+      },
+      {
+        "name": "set_shadow_corr_flg",
+        "type": "xsd:boolean",
+        "settable": true
+      },
+      {
+        "name": "Ts",
+        "type": "xsd:float",
+        "units": "deg C",
+        "settable": true
+      },
+      {
+        "name": "Ux",
+        "type": "xsd:float",
+        "units": "m s-1",
+        "settable": true
+      },
+      {
+        "name": "Uy",
+        "type": "xsd:float",
+        "units": "m s-1",
+        "settable": true
+      },
+      {
+        "name": "Uz",
+        "type": "xsd:float",
+        "units": "m s-1",
+        "settable": true
+      },
+      {
+        "name": "diag_sonic",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "diag_sonic_aggregate",
+        "type": "xsd:int",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "TKE",
+        "type": "xsd:float",
+        "units": "m2 s-2",
+        "settable": true
+      },
+      {
+        "name": "WT_SONIC_Cov_fc_SND",
+        "type": "xsd:float",
+        "units": "deg C m s-1",
+        "settable": true
+      },
+      {
+        "name": "TSTAR",
+        "type": "xsd:float",
+        "units": "deg C",
+        "settable": true
+      },
+      {
+        "name": "H",
+        "type": "xsd:float",
+        "units": "W m-2",
+        "settable": true
+      },
+      {
+        "name": "RN_UW_VW_cov",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "RN_UW_cov",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "RN_VW_cov",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "RN_WT_SONIC_cov",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "nmbr_interval_qc_csat",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "TAU_SSITC_TEST",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "H_SSITC_TEST",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "TAU_QC",
+        "type": "xsd:float",
+        "units": "grade",
+        "settable": true
+      },
+      {
+        "name": "H_QC",
+        "type": "xsd:float",
+        "units": "grade",
+        "settable": true
+      },
+      {
+        "name": "FETCH_MAX",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "FETCH_90",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "FETCH_55",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "FETCH_40",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "UPWND_DIST_INTRST",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "FP_DIST_INTRST",
+        "type": "xsd:float",
+        "units": "%",
+        "settable": true
+      },
+      {
+        "name": "FP_EQUATION",
+        "type": "xsd:string",
+        "units": "authors",
+        "settable": true,
+        "string_len": 16
+      },
+      {
+        "name": "separation_lat_dist_irga",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "separation_lag_dist_irga",
+        "type": "xsd:float",
+        "units": "m",
+        "settable": true
+      },
+      {
+        "name": "separation_lag_scan_irga",
+        "type": "xsd:float",
+        "units": "scans",
+        "settable": true
+      },
+      {
+        "name": "CO2_density",
+        "type": "xsd:float",
+        "units": "mg m-3",
+        "settable": true
+      },
+      {
+        "name": "H2O_density",
+        "type": "xsd:float",
+        "units": "g m-3",
+        "settable": true
+      },
+      {
+        "name": "diag_irga",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "amb_tmpr",
+        "type": "xsd:float",
+        "units": "deg C",
+        "settable": true
+      },
+      {
+        "name": "amb_press",
+        "type": "xsd:float",
+        "units": "kPa",
+        "settable": true
+      },
+      {
+        "name": "CO2_sig_strgth",
+        "type": "xsd:float",
+        "units": "fraction",
+        "settable": true
+      },
+      {
+        "name": "H2O_sig_strgth",
+        "type": "xsd:float",
+        "units": "fraction",
+        "settable": true
+      },
+      {
+        "name": "amb_RH",
+        "type": "xsd:float",
+        "units": "%",
+        "settable": true
+      },
+      {
+        "name": "amb_T_DP",
+        "type": "xsd:float",
+        "units": "deg C",
+        "settable": true
+      },
+      {
+        "name": "amb_e_sat",
+        "type": "xsd:float",
+        "units": "kPa",
+        "settable": true
+      },
+      {
+        "name": "amb_e",
+        "type": "xsd:float",
+        "units": "kPa",
+        "settable": true
+      },
+      {
+        "name": "amb_rho_d",
+        "type": "xsd:float",
+        "units": "g m-3",
+        "settable": true
+      },
+      {
+        "name": "amb_rho_a",
+        "type": "xsd:float",
+        "units": "kg m-3",
+        "settable": true
+      },
+      {
+        "name": "Tc",
+        "type": "xsd:float",
+        "units": "deg C",
+        "settable": true
+      },
+      {
+        "name": "RH",
+        "type": "xsd:float",
+        "units": "%",
+        "settable": true
+      },
+      {
+        "name": "T_DP",
+        "type": "xsd:float",
+        "units": "deg C",
+        "settable": true
+      },
+      {
+        "name": "e_sat",
+        "type": "xsd:float",
+        "units": "kPa",
+        "settable": true
+      },
+      {
+        "name": "e",
+        "type": "xsd:float",
+        "units": "kPa",
+        "settable": true
+      },
+      {
+        "name": "rho_d",
+        "type": "xsd:float",
+        "units": "g m-3",
+        "settable": true
+      },
+      {
+        "name": "rho_a",
+        "type": "xsd:float",
+        "units": "kg m-3",
+        "settable": true
+      },
+      {
+        "name": "CO2_mixratio",
+        "type": "xsd:float",
+        "units": "umol/mol",
+        "settable": true
+      },
+      {
+        "name": "H2O_mixratio",
+        "type": "xsd:float",
+        "units": "mmol/mol",
+        "settable": true
+      },
+      {
+        "name": "diag_irga_aggregate",
+        "type": "xsd:int",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "VPD",
+        "type": "xsd:float",
+        "units": "hPa",
+        "settable": true
+      },
+      {
+        "name": "FC",
+        "type": "xsd:float",
+        "units": "umolCO2 m-2 s-1",
+        "settable": true
+      },
+      {
+        "name": "FC_mass",
+        "type": "xsd:float",
+        "units": "mg m-2 s-1",
+        "settable": true
+      },
+      {
+        "name": "LE",
+        "type": "xsd:float",
+        "units": "W m-2",
+        "settable": true
+      },
+      {
+        "name": "ET",
+        "type": "xsd:float",
+        "units": "mm hour-1",
+        "settable": true
+      },
+      {
+        "name": "Bowen_ratio",
+        "type": "xsd:float",
+        "units": "fraction",
+        "settable": true
+      },
+      {
+        "name": "RN_WCO2_Cov",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "RN_WH2O_Cov",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "nmbr_interval_qc_irga",
+        "type": "xsd:float",
+        "settable": true
+      },
+      {
+        "name": "FC_SSITC_TEST",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "LE_SSITC_TEST",
+        "type": "xsd:float",
+        "units": "adimensional",
+        "settable": true
+      },
+      {
+        "name": "FC_QC",
+        "type": "xsd:float",
+        "units": "Grade",
+        "settable": true
+      },
+      {
+        "name": "LE_QC",
+        "type": "xsd:float",
+        "units": "Grade",
+        "settable": true
+      },
+      {
+        "name": "T_probe",
+        "type": "xsd:float",
+        "units": "deg C",
+        "settable": true
+      },
+      {
+        "name": "RH_probe",
+        "type": "xsd:float",
+        "units": "%",
+        "settable": true
+      },
+      {
+        "name": "T_DP_Probe",
+        "type": "xsd:float",
+        "units": "deg C",
+        "settable": true
+      },
+      {
+        "name": "e_probe",
+        "type": "xsd:float",
+        "units": "kPa",
+        "settable": true
+      },
+      {
+        "name": "e_sat_probe",
+        "type": "xsd:float",
+        "units": "kPa",
+        "settable": true
+      },
+      {
+        "name": "H2O_probe",
+        "type": "xsd:float",
+        "units": "g/m^3",
+        "settable": true
+      },
+      {
+        "name": "rho_d_probe",
+        "type": "xsd:float",
+        "units": "g/m^3",
+        "settable": true
+      }
+    ]
+  },
+  "data": [
+    {
+      "time": "2019-10-01T15:59:20.458",
+      "no": 16848,
+      "vals": [
+        36.35347,
+        "201910011531",
+        "",
+        0,
+        41.766,
+        1,
+        -111.855,
+        -1,
+        1356,
+        2,
+        2,
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        164.413,
+        164.413,
+        164.413,
+        164.413,
+        229.8082,
+        31.80693,
+        40.57611,
+        -3.345095,
+        1.813151,
+        1,
+        0,
+        0,
+        23.22772,
+        11.97492,
+        0,
+        0,
+        0,
+        -11.49435,
+        0,
+        197.7294,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        false,
+        0,
+        0,
+        0.3558702,
+        0.06651102,
+        1.64413,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        -2,
+        0,
+        true,
+        0,
+        0,
+        0,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        24.1736,
+        -0.02457071,
+        -0.005314272,
+        0.005944194,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6.835326e-05,
+        -0.0001633128,
+        0.0004901591,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        "",
+        0,
+        0,
+        0,
+        1841.14,
+        "NAN",
+        1048577,
+        21.75412,
+        97.06848,
+        0.9472922,
+        0.9384454,
+        "NAN",
+        0,
+        2.615033,
+        "NAN",
+        "NAN",
+        "NAN",
+        "NAN",
+        "NAN",
+        0,
+        0,
+        "NAN",
+        "NAN",
+        "NAN",
+        "NAN",
+        "NAN",
+        2093109,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        21.03494,
+        61.76538,
+        13.42108,
+        1.545563,
+        2.502313,
+        11.38411,
+        1131.433
+      ]
+    }
+  ]
+}

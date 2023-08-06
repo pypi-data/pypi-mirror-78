@@ -1,0 +1,11 @@
+[Unit]
+Description=CSI Web Server MQTT data publishment
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env python3 -m csiweb query publish
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=default.target
