@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: wintoast
+Version: 0.1
+Summary: An easy-to-use Python library for displaying Windows 10 Toast Notifications
+Home-page: https://github.com/samkenhuang/Windows-Toast-Notifications
+Author: Jithu R Jacob
+Author-email: jithurjacob@gmail.com
+License: BSD
+Download-URL: https://github.com/samkenhuang/Windows-Toast-Notifications/0.1
+Description: # Windows Toast Notifications
+        
+        ## Installation
+        
+        ```
+        pip install wintoast
+        ```
+        
+        ## Requirements
+        
+        ### Installation of pywin32
+        ```
+        pypiwin32
+        setuptools
+        ```
+        
+        ## Example
+        
+        ```
+        from wintoast import ToastNotifier
+        toaster = ToastNotifier()
+        toaster.show_toast("Hello World!!!",
+                           "Python is 10 seconds awsm!",
+                           icon_path="custom.ico",
+                           duration=10)
+        
+        toaster.show_toast("Example two",
+                           "This notification is in it's own thread!",
+                           icon_path=None,
+                           duration=5,
+                           threaded=True)
+        # Wait for threaded notification to finish
+        while toaster.notification_active(): time.sleep(0.1)
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: Operating System :: Microsoft
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
