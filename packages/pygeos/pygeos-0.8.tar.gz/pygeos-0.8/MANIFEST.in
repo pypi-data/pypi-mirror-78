@@ -1,0 +1,5 @@
+include src/*
+include versioneer.py
+include pygeos/_version.py
+include pygeos/*.dll
+include LICENSE
