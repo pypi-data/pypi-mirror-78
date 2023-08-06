@@ -1,0 +1,122 @@
+Metadata-Version: 2.1
+Name: maildir-deduplicate
+Version: 2.2.0
+Summary: Deduplicate mails from a set of maildir folders.
+Home-page: https://github.com/kdeldycke/maildir-deduplicate
+Author: Kevin Deldycke
+Author-email: kevin@deldycke.com
+License: GPLv2+
+Description: Maildir Deduplicate
+        ===================
+        
+        
+        .. DANGER::
+           This is an **old version**. The project has been renamed to *Mail
+           Deduplicate* and is now available on:
+           
+           * Github at https://github.com/kdeldycke/mail-deduplicate
+           * PyPi at https://pypi.org/project/mail-deduplicate
+        
+        
+        
+        Command-line tool to deduplicate mails from a set of maildir folders.
+        
+        Stable release: |release| |versions| |license| |dependencies|
+        
+        Development: |build| |docs| |coverage| |quality|
+        
+        .. |release| image:: https://img.shields.io/pypi/v/maildir-deduplicate.svg
+            :target: https://pypi.python.org/pypi/maildir-deduplicate
+            :alt: Last release
+        .. |versions| image:: https://img.shields.io/pypi/pyversions/maildir-deduplicate.svg
+            :target: https://pypi.python.org/pypi/maildir-deduplicate
+            :alt: Python versions
+        .. |license| image:: https://img.shields.io/pypi/l/maildir-deduplicate.svg
+            :target: https://www.gnu.org/licenses/gpl-2.0.html
+            :alt: Software license
+        .. |dependencies| image:: https://requires.io/github/kdeldycke/maildir-deduplicate/requirements.svg?branch=master
+            :target: https://requires.io/github/kdeldycke/maildir-deduplicate/requirements/?branch=master
+            :alt: Requirements freshness
+        .. |build| image:: https://travis-ci.org/kdeldycke/maildir-deduplicate.svg?branch=develop
+            :target: https://travis-ci.org/kdeldycke/maildir-deduplicate
+            :alt: Unit-tests status
+        .. |docs| image:: https://readthedocs.org/projects/maildir-deduplicate/badge/?version=develop
+            :target: https://maildir-deduplicate.readthedocs.io/en/develop/
+            :alt: Documentation Status
+        .. |coverage| image:: https://codecov.io/gh/kdeldycke/maildir-deduplicate/branch/develop/graph/badge.svg
+            :target: https://codecov.io/github/kdeldycke/maildir-deduplicate?branch=develop
+            :alt: Coverage Status
+        .. |quality| image:: https://scrutinizer-ci.com/g/kdeldycke/maildir-deduplicate/badges/quality-score.png?b=develop
+            :target: https://scrutinizer-ci.com/g/kdeldycke/maildir-deduplicate/?branch=develop
+            :alt: Code Quality
+        
+        
+        Features
+        --------
+        
+        * Duplicate detection based on cherry-picked mail headers.
+        * Source mails from multiple maildirs.
+        * Multiple removal strategies based on size, timestamp or file path.
+        * Dry-run mode.
+        * Protection against false-positives by checking for size and content
+          differences.
+        
+        
+        Installation
+        ------------
+        
+        This package is `available on PyPi
+        <https://pypi.python.org/pypi/maildir-deduplicate>`_, so you can install the
+        latest stable release and its dependencies with a simple ``pip`` call:
+        
+        .. code-block:: shell-session
+        
+            $ pip install maildir-deduplicate
+        
+        
+        Documentation
+        -------------
+        
+        Docs are `hosted on Read the Docs
+        <https://maildir-deduplicate.readthedocs.io>`_.
+        
+        
+        `Changes for v2.2.0 (2020-09-03) <https://github.com/kdeldycke/maildir-deduplicate/compare/v2.1.0...v2.2.0>`_
+        -------------------------------------------------------------------------------------------------------------
+        
+        * Add disclaimer to prepare project name change.
+        * Fix Header being object instead of string (#61).
+        * Make body_lines conversion more reliable.
+        * Fix bugs in counter statistics (#45, #57).
+        * Add Message-ID as a header to check.
+        * Fix ``UnicodeDecodeError``. Closes #53 and #55.
+        * Bump requirement to ``click_log >= 0.2.0``. Closes #58, #59 and #60.
+        * Replace ``nose`` by ``pytest``.
+        * Only notify by mail of test failures.
+        * Drop support of Python 3.3.
+        
+        
+        `Full changelog <https://maildir-deduplicate.readthedocs.io/en/develop/changelog.html#changelog>`_.
+Keywords: CLI,mail,email,maildir,deduplicate
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Communications :: Email
+Classifier: Topic :: Utilities
+Requires-Python: >= 2.7, != 3.0.*, != 3.1.*, != 3.2.*, != 3.3.*
+Provides-Extra: docs
+Provides-Extra: tests
+Provides-Extra: develop
