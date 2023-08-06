@@ -1,0 +1,15 @@
+numpy
+imjoy-rpc>=0.2.23
+jupyter>=1.0.0
+imjoy-elfinder[jupyter]
+ipykernel>=5.1.4
+imjoy-jupyter-extension
+
+[:python_version < "3.4"]
+pathlib
+
+[socketio]
+python-socketio[asyncio_client]
+pyyaml
+aiohttp
+aiohttp_cors
