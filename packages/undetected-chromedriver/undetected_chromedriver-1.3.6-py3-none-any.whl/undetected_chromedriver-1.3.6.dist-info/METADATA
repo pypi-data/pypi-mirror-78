@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: undetected-chromedriver
+Version: 1.3.6
+Summary: 
+                Optimized Selenium/Chromedriver drop-in replacement for selenium.webdriver, using the same interface for Chrome and ChromeOptions, but which does NOT trigger anti-bot services like Distil / Imperva / DataDome and such.
+                All required anti-detection settings are built-in, yet overridable if you'd really want. Be aware: any customization in settings could potentially trigger detection,
+                For more information check out the README.
+Home-page: https://github.com/ultrafunkamsterdam/undetected_chromedriver
+Author: UltrafunkAmsterdam
+Author-email: info@blackhat-security.nl
+License: GPL-3.0
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: selenium
+
+README.md
+
+
