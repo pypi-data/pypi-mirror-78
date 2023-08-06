@@ -1,0 +1,82 @@
+{
+  "mappings": {
+    "eitem-v1.0.0": {
+      "date_detection": false,
+      "numeric_detection": false,
+      "properties": {
+        "$schema": {
+          "type": "keyword"
+        },
+        "_created": {
+          "type": "date"
+        },
+        "_updated": {
+          "type": "date"
+        },
+        "bucket_id": {
+          "type": "keyword"
+        },
+        "description": {
+          "type": "text"
+        },
+        "document": {
+          "properties": {
+            "edition": {
+              "type": "text"
+            },
+            "pid": {
+              "type": "keyword"
+            },
+            "publication_year": {
+              "type": "keyword"
+            },
+            "title": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              }
+            }
+          },
+          "type": "object"
+        },
+        "document_pid": {
+          "type": "keyword"
+        },
+        "files": {
+          "properties": {
+            "bucket": {
+              "type": "keyword"
+            },
+            "checksum": {
+              "type": "keyword"
+            },
+            "id": {
+              "type": "keyword"
+            },
+            "key": {
+              "type": "keyword"
+            },
+            "size": {
+              "type": "keyword"
+            },
+            "version_id": {
+              "type": "keyword"
+            }
+          },
+          "type": "object"
+        },
+        "internal_notes": {
+          "type": "text"
+        },
+        "open_access": {
+          "type": "boolean"
+        },
+        "pid": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
