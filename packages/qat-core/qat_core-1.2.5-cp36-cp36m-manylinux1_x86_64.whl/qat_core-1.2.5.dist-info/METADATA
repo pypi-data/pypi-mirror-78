@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: qat-core
+Version: 1.2.5
+Summary: Module qat-core [f58026e] - Compiled by Atos
+Home-page: https://atos.net/en/lp/myqlm
+Author: Atos Quantum Lab
+Author-email: UNKNOWN
+License: Atos myQLM EULA
+Keywords: Quantum,myQLM,QLM,Atos
+Platform: Operating System :: POSIX :: Linux
+Requires-Dist: thrift (==0.10.0)
+Requires-Dist: numpy
+Requires-Dist: bitstring
+Requires-Dist: wand
+Requires-Dist: dill
+Requires-Dist: matplotlib
+Requires-Dist: Pillow
+Requires-Dist: svgwrite
+Requires-Dist: qat-comm
+
+UNKNOWN
+
+
