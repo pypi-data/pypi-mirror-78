@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: VideoTracking
+Version: 0.0.16
+Summary: Video Tracking Annotation Tool
+Home-page: https://github.com/silviogiancola/VideoTracking/
+Author: Silvio Giancola
+Author-email: silvio.giancola@kaust.edu.sa
+License: MIT license
+Keywords: TCPClient
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.0.0
+Requires-Dist: pyqt5
+Requires-Dist: numpy
+Requires-Dist: opencv-contrib-python (==3.4.5.20)
+Requires-Dist: scikit-video
+
+# VideoTracking
+User Interface for Single Object Tracking on Videos
+
+## Environment
+
+```bash
+conda create -y -n VideoTracking python=3.7
+conda activate VideoTracking
+pip install lxml pyqt5 numpy pandas requests opencv-python==4.1.1.26 #3.4.11.41
+pip install scikit-video decord
+pip install torch torchvision
+# conda install -c conda-forge gst-python
+# opencv-python==4.1.1.26
+# opencv-contrib-python==3.4.5.20
+# pip install lxml pyqt5 numpy pandas requests openpyxl opencv-python==4.1.1.26 matplotlib pynput
+```
+
+
+## Run 
+
+pyuic5 src/mainwindow.ui -o src/ui_mainwindow.py; python VideoTracking.py
+
+
+
