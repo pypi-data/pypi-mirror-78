@@ -1,0 +1,16 @@
+README.md
+setup.py
+async_translate/__init__.py
+async_translate/abc.py
+async_translate/async_translate.py
+async_translate/caseinsensitivedict.py
+async_translate/errors.py
+async_translate/flags.py
+async_translate.egg-info/PKG-INFO
+async_translate.egg-info/SOURCES.txt
+async_translate.egg-info/dependency_links.txt
+async_translate.egg-info/requires.txt
+async_translate.egg-info/top_level.txt
+async_translate/providers/__init__.py
+async_translate/providers/azure.py
+async_translate/providers/google.py
