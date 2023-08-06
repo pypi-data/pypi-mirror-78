@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: aoirint-miyadaiku-theme-blog
+Version: 0.1.0
+Summary: Blog theme for miyadaiku static site generator
+Home-page: https://aoirint.com
+Author: aoirint
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Requires-Dist: miyadaiku (>=1.0.0)
+Requires-Dist: miyadaiku-theme-fontawesome (>=1.0.0.post1)
+
+# aoirint_miyadaiku_theme_blog
+
+
