@@ -1,0 +1,24 @@
+Metadata-Version: 1.2
+Name: schemaperfect
+Version: 0.4.0
+Summary: schemaperfect: generate Python APIs from JSONSchema specifications
+Home-page: http://github.com/jwilson8767/schemaperfect
+Author: Joshua Wilson
+Author-email: jwilson8767@gmail.com
+Maintainer: Joshua Wilson
+Maintainer-email: jwilson8767@gmail.com
+License: BSD
+Description: 
+        JSONSchema API Generator
+        ========================
+        The schemaperfect_ package provides tools for auto-generation of Python
+        APIs from JSONSchema_ specifications.
+        
+        See more information in the README_.
+        
+        .. _README: https://github.com/jwilson8767/schemaperfect/blob/master/README.md
+        .. _JSONSchema: http://json-schema.org/
+        .. _schemaperfect: https://github.com/jwilson8767/schemaperfect
+        
+Platform: OS Independent
+Requires-Python: >3.6
