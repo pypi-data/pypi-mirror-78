@@ -1,0 +1,10 @@
+{% extends "page.html" %}
+
+{% block meta %}
+    {{ super() }}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+{% endblock %}
+
+{% set pkg = c.pkg_dict %}
+
+<h1>BIG CHART</h1>
