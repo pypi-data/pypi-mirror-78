@@ -1,0 +1,68 @@
+[tool.poetry]
+name = "edgeql-queries"
+version = "0.0.5"
+description = "Simple EdgeQL in Python."
+authors = ["Nik Sidnev <sidnev.nick@gmail.com>"]
+repository = "https://github.com/nsidnev/edgeql-queries"
+documentation = "https://nsidnev.github.io/edgeql-queries/"
+readme = "README.md"
+license = "FreeBSD"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+edgedb = ">= 0.9.0"
+
+[tool.poetry.dev-dependencies]
+# common tasks
+nox = "^2020.5.24"
+# formatters
+black = "^20.8b1"
+isort = "^4.3.21" # TODO: update after support in WPS
+autoflake = "^1.3.1"
+add-trailing-comma = "^2.0.1"
+# linters
+wemake-python-styleguide = "^0.14.1"
+mypy = "^0.782"
+flake8-pytest-style = "^1.3.0"
+# tests
+pytest = "^6.0.1"
+pytest-cov = "^2.10.0"
+pytest-asyncio = "^0.14.0"
+pytest-env = "^0.6.2"
+# docs
+mkdocs = "^1.1.2"
+mkdocs-material = "^5.5.12"
+mkdocstrings = "^0.13.0"
+markdown-include = "^0.6.0"
+# check support for aiosql
+aiosql = "^3.1.2"
+
+[tool.black]
+target_version = ['py37', 'py38']
+include = '\.pyi?$'
+exclude = '''
+/(\.git/
+  |\.eggs
+  |\.hg
+  |__pycache__
+  |\.cache
+  |\.ipynb_checkpoints
+  |\.mypy_cache
+  |\.pytest_cache
+  |\.tox
+  |\.venv
+  |node_modules
+  |_build
+  |buck-out
+  |build
+  |dist
+  |media
+  |infrastructure
+  |templates
+  |locale
+)/
+'''
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.masonry.api"
