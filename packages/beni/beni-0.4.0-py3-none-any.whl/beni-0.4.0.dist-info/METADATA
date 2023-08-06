@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: beni
+Version: 0.4.0
+Summary: Generate environment.yml from pyproject.toml
+Home-page: https://github.com/quansight-labs/beni
+License: UNKNOWN
+Author: Saul Shanabrook
+Author-email: s.shanabrook@gmail.com
+Requires-Python: >=3.8
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: pyyaml
+Requires-Dist: typeguard
+Requires-Dist: packaging
+Requires-Dist: tqdm
+Requires-Dist: flit-core >=2,<4
+Requires-Dist: black ; extra == "dev"
+Requires-Dist: ipython ; extra == "dev"
+Requires-Dist: mypy ; extra == "dev"
+Requires-Dist: pytest ; extra == "test"
+Provides-Extra: dev
+Provides-Extra: test
