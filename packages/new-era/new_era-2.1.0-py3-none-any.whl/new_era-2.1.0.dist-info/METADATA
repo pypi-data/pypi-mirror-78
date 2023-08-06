@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: new-era
+Version: 2.1.0
+Summary: Package to control New Era pumps
+Home-page: https://gitlab.com/heingroup/new_era
+Author: Veronica Lai // Hein Group
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pyserial
+
+# new_era
+
+Library to control New Era pumps
+
+### Example usage
+
+
+```
+import time
+from new_era.peristaltic_pump import PeristalticPump
+
+pump_port = 'COM3'  # check on your own system
+ne_pump = PeristalticPump(port=pump_port)
+# diameter_numerator = 3
+# diameter_denominator = 16
+# ne_pump.set_diameter(diameter_numerator , diameter_denominator)  # set tubing inner diameter in numerator/denominator inches
+
+ne_pump.set_rate(5)  # in ml/min
+current_rate = ne_pump.get_rate() 
+
+ne_pump.set_direction('dispense')
+ne_pump.set_direction('withdraw')
+ne_pump.set_direction('reverse')  # reverse the direction
+current_direction = ne_pump.get_direction()
+
+ne_pump.start()  # start the pump
+time.sleep(5)
+ne_pump.stop()  # stop the pump
+
+# pump for a certain time; script will be paused until entire action is complete
+pump_time = 5  # seconds
+pump_direction = 'dispense'
+pump_rate = current_rate
+ne_pump.pump(pump_time=pump_time,
+             direction=pump_direction,
+             rate=pump_rate,  # not required
+             )
+```
+
+
