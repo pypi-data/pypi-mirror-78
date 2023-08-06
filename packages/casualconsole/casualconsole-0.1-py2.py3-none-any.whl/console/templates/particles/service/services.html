@@ -1,0 +1,15 @@
+{%extends 'particles/particle_wrapper.html'%}
+{%block title%}Services{%endblock%}
+
+{%block particle_head%}Services: {{services|length}} ({{total}}) {%endblock%}
+{%block particle%}
+
+{%include 'particles/service/service_filters.html'%}
+
+
+<div class="card">
+
+  {% include 'particles/service/services_table.html' %}
+</div>
+
+{%endblock%}

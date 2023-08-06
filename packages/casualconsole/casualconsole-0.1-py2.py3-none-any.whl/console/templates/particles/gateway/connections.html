@@ -1,0 +1,56 @@
+<div class="card slim">
+  <div class="card-head">
+    <span>
+    </span>
+  </div>
+  <div class="card-body">
+    <div class="particle-table">
+      
+      <div class="row particle-table-head">
+        <div class="col col-2">name</div>
+        <div class="col col-3">id</div>
+        <div class="col col-1">bound</div>
+        <div class="col col-1">runlevel</div>
+        <div class="col col-2">local</div>
+        <div class="col col-3">peer</div>
+      </div>
+      {%for connection in connections%}
+      
+      <div class="row particle-list-item {{'dark' if loop.index % 2 == 0}}">
+        <div class="col col-2">{{ connection.remote.name }}</div>
+        <div class="col col-3">{{ connection.remote.id|base64ToUuid }}</div>
+        <div class="col col-1">{{ connection.bound }}</div>
+        <div class="col col-1">{{ connection.runlevel }}</div>
+        <div class="col col-2">{{ connection.address.local }}</div>
+        <div class="col col-3">{{ connection.address.peer }}</div>
+      </div>
+      
+      {%endfor%}
+    </div>
+    
+    <!--table class="particle-table">
+    <thead>
+        <tr>
+          <th>name</th>
+          <th>id</th>
+          <th>bound</th>
+          <th>runlevel</th>
+          <th>local</th>
+          <th>peer</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for connection in connections%}
+        <tr class="particle-list-item">
+          <td>{{ connection.remote.name }}</td>
+          <td>{{ connection.remote.id|base64ToUuid }}</td>
+          <td>{{ connection.bound }}</td>
+          <td>{{ connection.runlevel }}</td>
+          <td>{{ connection.address.local }}</td>
+          <td>{{ connection.address.peer }}</td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table-->
+  </div>
+</div>

@@ -1,0 +1,55 @@
+{%block sidenav%}
+<div id="sidenav-nav" class="collapsable {{'collapsed' if collapse}}">
+  <div class="logo">
+    <a href={{url_for("b_routes.console")}}>
+      <span id="logo-icon"></span>
+    </a>
+  </div>
+  <ul id="sidenav-list">
+    <li class="sidenav-list-item">
+      <a href={{url_for("b_routes.groups")}}>
+        <div class="side-nav-icon" id="groups"></div>
+        <span>Groups</span>
+      </a>
+    </li>
+    <li class="sidenav-list-item">
+      <a href={{url_for("b_routes.servers")}}>
+        <div class="side-nav-icon" id="servers"></div>
+
+        <span id="servers">Servers</span>
+      </a>
+    </li>
+    <li class="sidenav-list-item">
+        <a href={{url_for("b_routes.get_executables")}}>
+          <div class="side-nav-icon" id="executables"></div>
+
+          <span id="executables">Executables</span>
+        </a>
+      </li>
+    <li class="sidenav-list-item">
+      <a href="/services">
+        <div class="side-nav-icon" id="services"></div>
+
+        <span id="services">Services</span>
+      </a>
+    </li>
+    <li class="sidenav-list-item">
+      <a href="/gateways">
+        <div class="side-nav-icon" id="gateways"></div>
+
+        <span id="gateways">Gateways</span>
+      </a>
+    </li>
+    <li class="sidenav-list-item">
+      <a href="/transactions">
+        <div class="side-nav-icon" id="transactions"></div>
+
+        <span id="transactions">Transactions</span>
+      </a>
+    </li>
+  </ul>
+  <button class="button collapse " onclick="collapse()">
+    <span class="collapse-icon collapsable {{'collapsed' if collapse}}" id="collapse-icon"></span>
+  </button>
+</div>
+{%endblock%}

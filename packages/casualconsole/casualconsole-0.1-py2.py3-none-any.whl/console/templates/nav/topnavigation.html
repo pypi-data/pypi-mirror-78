@@ -1,0 +1,16 @@
+<div id="topnav">
+  <!--div class="logo" @click="goHome">
+    <img src="@/assets/img/casual_left_BW.svg" />
+  </div-->
+  <div id="console-head-line">
+    <b>Casual Console</b>
+    <p id="version">Casual version: {{casual_version}}</p>
+  </div>
+
+  {%if 'logged_in_user' in session %}
+  <span>User: {{session['logged_in_user']}}</span>
+  <a href="{{url_for('b_open.logout')}}" class="button button--text logout">Log out</a>
+  {%else%}
+  <div>Not logged in</div>
+  {%endif%}
+</div>

@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-head">connections</div>
+</div>
+<div class="card-stack child">
+
+  {%if connections|length > 0%}
+
+
+  {%with connections=connections %}
+  {% include 'particles/gateway/connections.html'%}
+  {%endwith%}
+  {%else%}
+  <div class="card slim">
+    <div class="card-head">No connections</div>
+  </div>
+  {%endif%}
+</div>

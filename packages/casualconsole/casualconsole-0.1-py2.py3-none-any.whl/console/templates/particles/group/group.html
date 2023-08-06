@@ -1,0 +1,75 @@
+{%extends 'particles/particle_wrapper.html'%}
+{%block title%}Group | {{group.name}}{%endblock%}
+{%block particle_head%}Group{%endblock%}
+{%block particle%}
+
+<div class="card">
+  <div class="card-head">info</div>
+  <div class="card-body">
+    <div class="key-value-item">
+      <span>id:</span>
+      <span>{{ group.id }}</span>
+    </div>
+    <div class="key-value-item odd">
+      <span>name:</span>
+      <span>{{ group.name }}</span>
+    </div>
+    <br />
+  </div>
+</div>
+<div class="card">
+  <div class="card-head">dependencies</div>
+
+  
+  {%with groups = group.group_dependencies%}
+
+  {% if groups|length > 0 %}
+
+  {%include 'particles/group/groups_table.html'%}
+  {%else%}
+  <div>No dependencies</div>
+  {%endif%}
+
+  {%endwith%}
+</div>
+{%set servers = group.server_members%}
+{%set executables = group.executable_members%}
+<div class="card slim">
+  <div class="card-head">Members ({{servers|length + executables|length}})</div>
+
+</div>
+<div class="card-stack child">
+  {%if servers  | length > 0%}
+  <div class="card slim">
+    <div class="card-head">Servers
+    </div>
+    <div class="card-body">
+      {%include 'particles/group/members_table.html'%}
+    </div>
+  </div>
+  {%endif%}
+
+  {%if executables | length > 0%}
+  <div class="card slim">
+    <div class="card-head">Executables
+    </div>
+
+    <div class="card-body">
+      {%with servers = executables%}
+      {%include 'particles/group/members_table.html'%}
+
+      {%endwith%}
+    </div>
+  </div>
+  {%endif%}
+  {%if servers | length < 1 and executables| length < 1 %}
+  <div class="card">
+    <div class="card-head">No members</div>
+  </div>
+  {%endif%}
+</div>
+</div>
+</div>
+
+
+{%endblock%}

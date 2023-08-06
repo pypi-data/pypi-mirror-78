@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>{%block title%} Casual Console {%endblock%}</title>
+  <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}">
+
+  {% assets 'casual_css' %}
+  <link rel="stylesheet" href="{{ ASSET_URL }}">
+  {% endassets %}
+  {%assets "lib_js"%}
+  <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+  {% endassets %}
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  {% block css%} {% endblock %}
+</head>
+
+<body>
+  <div id="app">
+    {%block casual%}
+    <div class="casual">
+      {% include 'nav/sidenavigation.html' %}
+      {% block console %} base console {% endblock %}
+    </div>
+    {% endblock %}
+  </div>
+    {%assets "casual_js"%}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+</body>
+
+</html>

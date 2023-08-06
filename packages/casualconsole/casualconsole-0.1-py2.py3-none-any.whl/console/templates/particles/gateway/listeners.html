@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-head">listeners</div>
+</div>
+<div class="card-stack child">
+
+  {%if listeners|length > 0%}
+  {%for listener in listeners%}
+
+
+  <div class="card slim">
+    <div class="card-head"> limit</div>
+    <div class="card-body">
+      <div class="key-value-item">
+        <span>size</span>
+        <span>{{listener.limit.size}}</span>
+      </div>
+      <div class="key-value-item odd">
+        <span>messages</span>
+        <span>{{listener.limit.messages}}</span>
+      </div>
+    </div>
+    <div class="card-head">address</div>
+    <div class="card-sub-body">
+      <div class="key-value-item">
+        <span>host</span>
+        <span>{{listener.address.host}}</span>
+      </div>
+      <div class="key-value-item odd">
+        <span>port</span>
+        <span>{{listener.address.port}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+{%endfor%}
+{%else%}
+<div class="card slim">
+  <div class="card-head">No listeners</div>
+</div>
+{%endif%}
+</div>
+</div>
+</div>

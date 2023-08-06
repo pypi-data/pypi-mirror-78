@@ -1,0 +1,27 @@
+  <table class="particle-table">
+    <thead>
+      <tr class="particle-table-head">
+        <th>name</th>
+        <th>note</th>
+        <th>members</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for item in groups%}
+      <tr class="particle-list-item  {{'dark' if loop.index % 2 == 0}}">
+        <td>
+          <a class="particle-link" href={{url_for("b_routes.get_group", name=item.name)}}>
+            {{item.name}}
+          </a>
+        </td>
+        <td>
+          {{item.note}}
+        </td>
+        <td>
+          {{item.membercount}}
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  

@@ -1,0 +1,111 @@
+<div class="card" id="environment">
+  <div class="card-head">environment</div>
+  <div class="card-body">
+    <div class="row environment-list-header">
+      <div class="col col-5">Key</div>
+      <div class="col col-5">Value</div>
+    </div>
+    <form id="environment-form">
+      <div id="env-list">
+
+        {%include 'particles/server/environment_part.html'%}
+
+      </div>
+      <div class="row environment-variable-add">
+        <button class="button button--text left" type="button" onclick="addVar()">
+          <span>New environment variable</span>
+        </button>
+      </div>
+      <div class="card-foot">
+        <div class="row environment-variable-save">
+          <button class="button" type="submit">Save</button>
+          <div style="margin: auto 0; font-size:10pt;"></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+
+  function submitForm(e) {
+    e.preventDefault();
+    console.log(e);
+    console.log(typeof ($(e.data)));
+    //let formData = new FormData($('form#environment-form')[0]);
+    let formData = new FormData($('form#environment-form')[0]);
+    let fdata = $().serialize();
+    console.log(fdata);
+    //$(".enviroment-form")
+    //$.ajax({
+    //  type: 'POST',
+    //  url: "/console/api/v1/server/environment/set",
+    //  data: formData,
+    //  success: function(response) {
+    //    console.log(response);
+    //    //window.location.reload();
+    //  }
+    //});
+    //window.location.reload();
+  }
+
+  function getFormData(formArray) {
+
+    let returnArray = [];
+    for (let i = 0; i < formArray.length; i += 2) {
+      if (formArray[i]['value'] !== "") {
+        returnArray.push(
+          {
+            "key" : formArray[i]['value'],
+            "value" : formArray[i + 1]['value']
+          });
+      }
+    }
+    return returnArray;
+
+  }
+
+  $('#environment-form').submit(function (event) {
+
+    event.preventDefault();
+
+    const server = "{{server.alias}}"
+
+    let fdata = $(this).serializeArray();
+    
+    let formDataJson = {};
+    formDataJson.variables = getFormData(fdata);
+    formDataJson.alias = "{{server.alias}}";
+
+    
+    console.log(JSON.stringify(formDataJson, null,1));
+
+    $.ajax({
+      type: 'POST',
+      contentType: 'application/json',
+      url: "/console/api/v1/server/environment/set",
+      data: JSON.stringify(formDataJson),
+      success: function (response) {
+        window.location.reload();
+      }
+    });
+
+
+  });
+
+  $(document).ready(function () {
+
+
+    $.ajax({
+      type: 'GET',
+      url: "/console/api/v1/server/environment/get?type={{type}}&alias={{server.alias}}",
+      success: function (success) {
+        populateEnv(success);
+      }
+    })
+
+
+
+  });
+
+</script>

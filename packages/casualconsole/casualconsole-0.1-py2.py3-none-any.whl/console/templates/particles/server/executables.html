@@ -1,0 +1,16 @@
+{% extends 'particles/particle_wrapper.html'%}
+{%block title%}Executables{%endblock%}
+
+{%block particle_head%}Executables ({{executables|length}}){%endblock%}
+{%block particle%}
+<div class="card">
+
+  {%with servers = executables%}
+
+  {%include 'particles/server/executables_table.html'%}
+  {%endwith%}
+  <!--li class="particle-item" v-for="(server, index) in servers" :key="index">
+
+</li-->
+</div>
+{%endblock%}

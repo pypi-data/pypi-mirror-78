@@ -1,0 +1,35 @@
+{%extends 'particles/particle_wrapper.html'%}
+
+
+{% block title %}Executable | {{server.alias}}{%endblock%}
+
+{% block particle %}
+
+    {%with server_type='b_routes.get_executable'%}
+    {%include 'particles/server/servertabs.html'%}
+    {%endwith%}
+    <!--domain-configuration :/-->
+
+    {% if activeTab == 'conf'%}
+    {%include 'particles/server/serverconfiguration.html'%}
+
+    {%elif activeTab == 'env'%}
+    {%with type='executable'%}
+    {%include 'particles/server/environmentvar.html'%}
+    {%endwith%}
+
+    {%elif activeTab == 'mem'%}
+
+    <div class="card">
+      <div class="card-head">Member of</div>
+      {%with groups = server.memberof%}
+      {% include 'particles/server/memberof_table.html' %}
+
+      {%endwith%}
+      
+    </div>
+  {%else%}
+  <div class="card">No executable found</div>
+  {%endif%}
+
+{%endblock%}

@@ -1,0 +1,28 @@
+
+  <div class="particle-table">
+    <div class="row particle-table-head">
+        <div class="col col-3">alias</div>
+        <div class="col col-5">note</div>
+        <div class="col col-3">Member of</div>
+    </div>
+      {%for item in executables%}
+      <div class="particle-list-item row {{'dark' if loop.index % 2 == 0}}">
+        <div class="col col-3">
+          <a class="particle-link" href={{url_for('b_routes.get_executable', alias=item.alias)}}>{{item.alias}}</a>
+        </div>
+        <div class="col col-5">{{item.note}}</div>
+
+        <div>
+          <div class="col col-3">
+
+            {%for member in item.memberof%}
+            <a class="particle-link" href={{url_for("b_routes.get_group", name=member.name)}}>
+              {{member.name}}
+            </a>
+          </div>
+          {%endfor%}
+        </td>
+      </div>
+    </div>
+      {%endfor%}
+  </div>

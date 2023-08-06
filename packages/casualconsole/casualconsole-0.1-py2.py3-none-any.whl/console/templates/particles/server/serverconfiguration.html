@@ -1,0 +1,32 @@
+<div class="card" id="configuration">
+  <div class="card-head">info</div>
+  <div class="card-body">
+    <div class="key-value-item">
+      <span>alias:</span> <span>{{ server.alias }}</span>
+    </div>
+    <div class="key-value-item odd">
+      <span>id: </span><span>{{ server.id }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head">note</div>
+  <div class="card-body">{{server.note}}</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    config
+  </div>
+  <div class="card-body">
+    <div class="key-value-item wide">
+
+      <span>path:</span> <span>{{server.path}}</span>
+    </div>
+
+    <div class="key-value-item odd ">
+      <span>arguments:</span> <span>{{server.arguments | join(' ') if server.arguments|length > 0 else 'No arguments'}}</span>
+    </div>
+  </div>
+</div>

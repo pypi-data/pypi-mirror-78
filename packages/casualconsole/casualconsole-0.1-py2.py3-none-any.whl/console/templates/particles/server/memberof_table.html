@@ -1,0 +1,16 @@
+
+  <div class="particle-table">
+      <div class="row particle-table-head">
+        <div class="col col-4">alias</div>
+        <div class="col col-8">note</div>
+      </div>
+      {%for item in groups%}
+      <div class="particle-list-item row {{'dark' if loop.index % 2 == 0}}">
+        <div class="col col-4">
+          <a class="particle-link" href={{url_for("b_routes.get_group", name=item.name)}}>{{item.name}}</a>
+        </div>
+        <div class="col col-8">{{item.note}}</div>
+
+      </div>
+      {%endfor%}
+    </div>

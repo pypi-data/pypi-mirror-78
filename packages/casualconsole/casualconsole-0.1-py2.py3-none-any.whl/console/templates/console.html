@@ -1,0 +1,25 @@
+{%extends 'layout.html'%}
+{%block console%}
+<div class="casual-content collapsable {{'collapsed' if collapse}}">
+
+  {%include 'nav/topnavigation.html'%}
+
+  {%block content%}
+
+
+  <div class="particle">
+    <div class="particle-head"><span>Casual Console</span></div>
+    <div class="particle-body">
+
+      <div id="loader" style="margin:auto;">
+        <img src={{url_for('static', filename="img/casual_symbol_BW.svg")}} alt="" class="rotating">
+      </div>
+      <p style="margin:auto;">Casual Admin Console powered by Python</p>
+    </div>
+  </div>
+
+
+  {%endblock%}
+
+
+  {%endblock%}

@@ -1,0 +1,76 @@
+{%set count = service.metric.invoked.count%}
+{%set pending_count = service.metric.pending.count%}
+{%set total = service.metric.invoked.total/billion%}
+{%set pending_total = service.metric.pending.total/billion%}
+{%set min = service.metric.invoked.limit.min/billion %}
+{%set max = service.metric.invoked.limit.max/billion %}
+{%set pending_min = service.metric.pending.limit.min/billion %}
+{%set pending_max = service.metric.pending.limit.max/billion %}
+{%set avg = ((total / count) / billion) if count > 0 else 0%}
+{%set pending_avg = ((pendin_total / pending_count) / billion) if pending_count > 0 else 0%}
+{%set last = service.metric.last / billion%}
+
+<div class="card">
+  <div class="card-head">
+    metrics
+  </div>
+  <div class="card-body">
+    <div class="key-value-item">
+      <span>last</span>
+      <span>{{last | epochToDate}}</span>
+    </div>
+    <div class="key-value-item odd">
+      <span>remote </span>
+      <span>{{service.metric.remote}}</span>
+    </div>
+  </div>
+</div>
+<div class="card-stack child">
+  <div class="card">
+    <div class="card-head">
+      invoked
+    </div>
+    <div class="card-body">
+      <div class="key-value-item ">
+        <span>count:</span>
+        <span>{{count}}</span>
+      </div>
+      <div class="key-value-item odd">
+        <span>total:</span>
+        <span>{{total | formatMicroSec }}</span>
+      </div>
+    </div>
+    <div class="key-value-item ">
+      <span>min:</span>
+      <span>{{min | formatMicroSec }}</span>
+    </div>
+    <div class="key-value-item odd">
+      <span>max:</span>
+      <span>{{max | formatMicroSec }}</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head">
+      pending
+    </div>
+    <div class="card-body">
+      <div class="key-value-item">
+        <span>count:</span>
+        <span>{{pending_count}}</span>
+      </div>
+      <div class="key-value-item odd">
+        <span>total:</span>
+        <span>{{pending_total | formatMicroSec }}</span>
+      </div>
+      <div class="key-value-item">
+        <span>min:</span>
+        <span>{{pending_min | formatMicroSec}}</span>
+      </div>
+      <div class="key-value-item odd">
+        <span>max:</span>
+        <span>{{pending_max | formatMicroSec }}</span>
+      </div>
+    </div>
+
+  </div>
+</div>

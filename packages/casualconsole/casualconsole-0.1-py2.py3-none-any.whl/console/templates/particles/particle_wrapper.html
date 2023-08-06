@@ -1,0 +1,13 @@
+{%extends 'console.html'%}
+{%set billion = 1000 * 1000 * 1000%}
+{%block content%}
+<div class="particle">
+  <div class="particle-head">
+    <span>{%block particle_head%}{%endblock%}</span>
+  </div>
+  <div class="particle-body">
+    {%block particle%}{%endblock%}
+
+  </div>
+</div>
+{%endblock%}

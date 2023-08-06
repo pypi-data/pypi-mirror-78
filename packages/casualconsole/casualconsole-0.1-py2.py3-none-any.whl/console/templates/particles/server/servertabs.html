@@ -1,0 +1,17 @@
+<div class="card card--hori slim">
+  <div class="button-group tabs">
+    {%for tab in tabs%}
+
+
+    <a class="button button--text tab {{'active' if tab.short == activeTab}}" href={{url_for(server_type, alias=server.alias, tab=tab.short)}}
+      id="{{tab.short}}">
+      <span>
+        {{tab.title}}
+      </span>
+    </a>
+    {%endfor%}
+  </div>
+</div>
+<script>
+  //onclick="setActiveTab('{{"tab.short"}}')"
+</script>

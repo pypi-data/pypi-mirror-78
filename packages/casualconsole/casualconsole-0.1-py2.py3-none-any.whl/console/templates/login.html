@@ -1,0 +1,44 @@
+{%extends 'layout.html'%}
+{%include 'nav/topnavigation.html'%}
+{%block casual%}
+
+
+<div class="casual">
+  <div class="login-container">
+    <div class="login-card card">
+      <div class="login-logo"><span id="logo-icon"></span></div>
+
+      <div class="login-body card-body">
+        <form class="login-form" method="POST" action="{{url_for('b_open.login_post')}}">
+          <div class="login username">
+            <label for="username">Username</label>
+            <input name="username" type="text" class="login-input username" maxlength="25" id="uname" autocomplete="off"
+              autocapitalize="none" />
+          </div>
+          <div class="login password">
+            <label for="password">Password</label>
+            <input name="password" type="password" class="login-input password" maxlength="25" id="pw" />
+          </div>
+          <button type="submit" class="button form">Log in</button>
+
+          {% with messages = get_flashed_messages(category_filter=["login_error"]) %}
+          {% if messages %}
+          <ul class=flashes>
+            {% for message in messages %}
+            <li class="error-message">{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% endwith %}
+          {%block login_message%}
+          <div class="error-input" v-if="wrong">{{error_message}}</div>
+          {%endblock%}
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+{%endblock%}

@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: casualconsole
+Version: 0.1
+Summary: Web console for Casual
+Home-page: UNKNOWN
+Author: Mikael Ivarsson
+Author-email: mikael.ivarsson4@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >2.7
+Description-Content-Type: text/markdown
+Requires-Dist: asgiref (==3.2.3)
+Requires-Dist: click (==7.1.1)
+Requires-Dist: Flask (==1.1.2)
+Requires-Dist: Flask-Assets (==2.0)
+Requires-Dist: Flask-Cors (==3.0.8)
+Requires-Dist: itsdangerous (==1.1.0)
+Requires-Dist: Jinja2 (==2.11.2)
+Requires-Dist: jsmin (==2.2.2)
+Requires-Dist: libsass (==0.19.4)
+Requires-Dist: MarkupSafe (==1.1.1)
+Requires-Dist: pytz (==2019.3)
+Requires-Dist: six (==1.14.0)
+Requires-Dist: sqlparse (==0.3.1)
+Requires-Dist: webassets (==2.0)
+Requires-Dist: Werkzeug (==1.0.1)
+Requires-Dist: waitress (==1.4.4)
+
+Here there will soon be some information that you will be able to read.
+
+

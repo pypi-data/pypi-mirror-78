@@ -1,0 +1,45 @@
+
+  <table class="particle-table">
+    <thead>
+      <tr class="particle-table-head">
+        <th>name</th>
+        <th>category</th>
+        <th>call</th>
+        <th>average</th>
+        <th>min</th>
+        <th>max</th>
+        <th>pending</th>
+        <th>pending avg</th>
+        <th>last</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for service in services%}
+      
+      {%set count = service.metric.invoked.count%}
+      {%set pending_count = service.metric.pending.count%}
+      {%set total = service.metric.invoked.total%}
+      {%set pending_total = service.metric.pending.total%}
+      {%set min = service.metric.invoked.limit.min/billion %}
+      {%set max = service.metric.invoked.limit.max/billion %}
+      {%set avg = ((total / count) / billion) if count > 0 else 0%}
+      {%set pending_avg = ((pending_total / pending_count) / billion) if pending_count > 0 else 0%}
+      
+      {%set last = service.metric.last / billion%}
+      
+      
+      <tr class="particle-list-item {{'dark' if loop.index % 2 == 0}}">
+        <td><a href={{url_for("b_routes.get_service", name=service.name)}} class="particle-link">{{service.name}}</a>
+        </td>
+        <td>{{service.category}}</td>
+        <td>{{service.metric.invoked.count}}</td>
+        <td>{{avg | formatMicroSec}}</td>
+        <td>{{min | formatMicroSec}}</td>
+        <td>{{max | formatMicroSec}}</td>
+        <td>{{pending_count}}</td>
+        <td>{{pending_avg | formatMicroSec}}</td>
+        <td>{{last | epochToDate}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>

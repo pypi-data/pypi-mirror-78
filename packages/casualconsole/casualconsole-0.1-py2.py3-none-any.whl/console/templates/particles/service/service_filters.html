@@ -1,0 +1,63 @@
+<div class="card">
+  <div class="row" id="service-filters">
+    <div class="col select">
+      Category: <select name="sort" id="filter-category">
+        <option value="all">Show all</option>
+        {% for category in categories %}
+        <option value="{{category}}">
+          {{category}}
+        </option>
+        {%endfor%}
+      </select>
+    </div>
+    <div class="col select">
+      Rows: <select name="rows" id="filter-rows">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="1000">1000</option>
+      </select>
+    </div>
+    <div class="col">
+      Page: <ul id="filter-page">
+
+        {%for page in range(pages) %}
+        <div class="button button--text h-no-margin-vert" onclick='gotoPage("{{page+1}}")'><span>{{page+1}}</span></div>
+        {%endfor%}
+      </ul>
+    </div>
+    <div class="col">
+      <div class="button button--small right" onclick="resetFilters()"><span>Reset filters</span></div>
+      <div class="button button--small right" onclick="applyFilters()"><span>Apply</span></div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+  function setSelect() {
+
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('category');
+    const rows = params.get('rows');
+    const page = params.get('page');
+    if (category) {
+      let categorySelect = document.getElementById("filter-category");
+      categorySelect.value = category;
+    }
+    if (rows) {
+      let rowsSelect = document.getElementById("filter-rows");
+      rowsSelect.value = rows;
+    }
+    if(page) {
+      
+      let pageSelect = document.getElementById("filter-page");
+      pageSelect.value = page;
+    }
+
+  }
+  setSelect();
+
+</script>

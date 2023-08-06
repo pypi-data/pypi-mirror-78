@@ -1,0 +1,61 @@
+{%extends 'particles/particle_wrapper.html'%}
+{%block title%}Transactions{%endblock%}
+
+{%block particle_head%}Transactions{%endblock%}
+{%block particle%}
+
+<div class="card-stack">
+  <div class="card">
+    <div class="card-head">resources</div>
+    <div class="card-body">{{ transactions.resources }}</div>
+  </div>
+  <div class="card">
+    <div class="card-head">transaction</div>
+    <div class="card-body">{{ transactions.transactions }}</div>
+  </div>
+  <div class="card">
+    <div class="card-head">pending</div>
+  </div>
+  <div class="card-stack child">
+    <div class="card">
+      <div class="card-head">requests</div>
+      <div class="card-body">{{ transactions.pending.persistent.replies }}</div>
+    </div>
+    <div class="card">
+      <div class="card-head">persistent</div>
+    </div>
+    <div class="card-stack child">
+
+      <div class="card">
+        <div class="card-head">requests</div>
+        <div class="card-body">{{ transactions.pending.persistent.requests }}</div>
+      </div>
+      <div class="card">
+        <div class="card-head">replies</div>
+        <div class="card-body">{{ transactions.pending.persistent.replies }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head">log</div>
+    <div class="card-body">
+      <div class="key-value-item">
+        <span>update prepare</span><span>{{transactions.log["update"].prepare}}</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="key-value-item odd">
+        <span>update remove</span><span>{{ transactions.log["update"].remove}}</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="key-value-item">
+        <span>writes</span><span>{{ transactions.log.writes }}</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+{%endblock%}
