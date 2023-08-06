@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: psorus
+Version: 0.1
+Summary: A Graph Autoencoder Library for tensorflow and keras
+Home-page: https://github.com/psorus/grapa/
+Author: Simon Klüttermann
+Author-email: Simon.Kluettermann@gmx.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Grapa
+
+This is a simple Package providing Layers for a Graph Neuronal Network written in Tensorflow and Keras, allowing you to chance the size of the Graph in various ways.
+
+Take a look at the [documentation](https://grapa.readthedocs.io/en/latest/)
+
+
+
