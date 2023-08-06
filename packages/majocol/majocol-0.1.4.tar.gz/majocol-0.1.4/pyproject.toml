@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "majocol"
+version = "0.1.4"
+description = "pick major colors from image"
+
+license = "MIT"
+
+authors = ["suzukey <suzukey28@gmail.com>"]
+
+readme = 'README.md'
+
+repository = "https://github.com/suzukey/majocol"
+homepage = "https://github.com/suzukey/majocol"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+numpy = "^1.19.1"
+scikit-learn = "^0.23.2"
+Pillow = "^7.2.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
