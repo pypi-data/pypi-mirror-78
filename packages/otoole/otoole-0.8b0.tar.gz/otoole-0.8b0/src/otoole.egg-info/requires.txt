@@ -1,0 +1,16 @@
+xlrd
+pyyaml
+pydot
+datapackage<2,>=1.9
+pandas
+amply
+networkx
+flatten_dict
+pandas_datapackage_reader
+
+[:python_version < "3.7"]
+importlib_resources
+
+[testing]
+pytest
+pytest-cov
