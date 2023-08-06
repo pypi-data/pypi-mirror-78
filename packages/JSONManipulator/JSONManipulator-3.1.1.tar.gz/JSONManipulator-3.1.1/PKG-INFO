@@ -1,0 +1,153 @@
+Metadata-Version: 1.2
+Name: JSONManipulator
+Version: 3.1.1
+Summary: A Python package to manipulate objects in JSON files.
+Home-page: https://github.com/pandrey2003/JSONManipulator
+Author: Andrew Polukhin
+Author-email: andrewmathematics2003@gmail.com
+License: MIT
+Description: JSONManipulator
+        ===============
+        .. image:: https://travis-ci.com/pandrey2003/JSONManipulator.svg?branch=master
+            :target: https://travis-ci.com/pandrey2003/JSONManipulator
+        .. image:: https://coveralls.io/repos/github/pandrey2003/JSONManipulator/badge.svg?branch=master
+            :target: https://coveralls.io/github/pandrey2003/JSONManipulator?branch=master
+        .. image:: https://www.codefactor.io/repository/github/pandrey2003/jsonmanipulator/badge
+            :target: https://www.codefactor.io/repository/github/pandrey2003/jsonmanipulator
+            :alt: CodeFactor
+        .. image:: https://pyup.io/repos/github/pandrey2003/JSONManipulator/shield.svg
+            :target: https://pyup.io/repos/github/pandrey2003/JSONManipulator/
+            :alt: Updates
+        .. image:: https://pyup.io/repos/github/pandrey2003/JSONManipulator/python-3-shield.svg
+            :target: https://pyup.io/repos/github/pandrey2003/JSONManipulator/
+            :alt: Python 3
+        .. image:: https://readthedocs.org/projects/jsonmanipulator/badge/?version=latest
+            :target: https://jsonmanipulator.readthedocs.io/en/latest/?badge=latest
+            :alt: Documentation Status
+        .. image:: https://pepy.tech/badge/jsonmanipulator
+            :target: https://pepy.tech/project/jsonmanipulator
+        
+        
+        JSONManipulator is a Python package to retrieve, add, delete, change and store objects in JSON files.
+        
+        Installation
+        ------------
+        
+        Use the package manager `pip <https://pip.pypa.io/en/stable/>`_ to install JSONManipulator.
+        
+        .. code-block:: bash
+        
+           pip install JSONManipulator
+        
+        Usage
+        -----
+        
+        Firstly, you need to set up your initial JSON file.
+        
+        .. code-block:: python
+        
+           from JSONManipulator import set_up
+        
+           set_up(
+               full_path="enter/full/path/to/your/file/here"
+           )
+        
+        Functionality
+        -------------
+        
+        As soon as you set up your file, you can use classes of the package:
+        
+        #. **GetInformation** (retrieve information about particular objects in the file).
+        #. **ChangeValue** (change values of particular objects in the file).
+        #. **ChangeAllValues** (change values of all objects in the file).
+        #. **DeleteObject** (delete particular objects in the file).
+        #. **AddObject** (add a new object to the file).
+        #. **AddKey** (add a new key to each object in the file).
+        
+        More detailed information about the usage of the package can be found in the ``examples`` and ``docs`` folders.
+        
+        Contributing
+        ------------
+        
+        Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+        
+        License
+        -------
+        
+        `MIT <https://choosealicense.com/licenses/mit/>`_
+        
+        
+        =======
+        History
+        =======
+        
+        1.0 (2020-07-8)
+        ------------------
+        
+        * The first release of ``JSONManipulator``.
+        
+        
+        1.1 (2020-07-12)
+        ------------------
+        
+        * Added docstrings to the package and the ``examples`` directory.
+        
+        
+        2.0 (2020-07-12)
+        ------------------
+        
+        * Made more out-of-the-box functionality of the package.
+        * Minor optimization of the core module.
+        
+        
+        3.0 (2020-07-17)
+        ------------------
+        
+        * Added Pytests.
+        * Added documentation (using sphinx-documentation).
+        * Added Tox support.
+        * Tested code coverage - 92%.
+        * Enabled Travis CI.
+        * Resolved 1 bug with the deletion of one book.
+        * Optimized ``cap_sentence()``, making it non-static.
+        * Shortened the relevant lines of code by applying the knowledge of the copy function.
+        * Deployed ``__slots__``, saving RAM when using the package.
+        
+        
+        3.0.1 (2020-07-18)
+        ------------------
+        
+        * Created more tests which resulted in code coverage of 97.3%.
+        * Minor optimization of the core module.
+        
+        
+        3.0.2 (2020-07-20)
+        ------------------
+        
+        * Resolved date misprint in HISTORY.rst.
+        * Created more advanced structure for requirements.
+        * Made requirements for installations the package more rigorous.
+        * Deployed EditorConfig for better code consistency.
+        * Added Makefile in the root directory.
+        * Made use of the pyup bot (checks dependencies).
+        
+        
+        3.1 (2020-08-07)
+        ------------------
+        
+        * Used try/except in ``tests`` instead of ``sys.exit(0)`` in ``core`` module.
+        * The package is now easy-to-use in Python terminal (the programme will not be aborted).
+        
+        
+        3.1.1 (2020-09-04)
+        ------------------
+        
+        * Split ``core`` module to separate files, which resulted in a better readable code.
+        
+Keywords: Python JSON Objects
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Requires-Python: ~=3.6
