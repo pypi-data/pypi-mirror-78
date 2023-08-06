@@ -1,0 +1,17 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "pytest_forward_compatability"
+dist-name = "pytest-forward-compatability"
+author = "Thomas Grainger"
+author-email = "pytest-forward-compatability@graingert.co.uk"
+home-page = "https://github.com/graingert/pytest-forward-compatability"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+]
+requires = ["pytest-forward-compatibility"]
+
+[tool.isort]
+profile = "black"
