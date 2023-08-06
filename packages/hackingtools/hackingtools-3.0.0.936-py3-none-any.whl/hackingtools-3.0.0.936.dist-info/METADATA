@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: hackingtools
+Version: 3.0.0.936
+Summary: All Hacking Tools in this Python with Manually Created Modules
+Home-page: http://github.com/ConnorXploit/hackingtools-py
+Author: Connor
+Author-email: cgehminecraft@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: beautifulsoup4
+Requires-Dist: certifi
+Requires-Dist: scikit-build
+Requires-Dist: colorama
+Requires-Dist: Django
+Requires-Dist: eyed3
+Requires-Dist: Flask
+Requires-Dist: gitpython
+Requires-Dist: html5lib
+Requires-Dist: keyring
+Requires-Dist: lxml
+Requires-Dist: mechanize
+Requires-Dist: pandas
+Requires-Dist: paramiko
+Requires-Dist: pdfrw
+Requires-Dist: Pillow
+Requires-Dist: Pycco
+Requires-Dist: pycryptodome
+Requires-Dist: Pygments
+Requires-Dist: pylint
+Requires-Dist: PyPDF2
+Requires-Dist: pyngrok
+Requires-Dist: pyreadline
+Requires-Dist: pyshorteners
+Requires-Dist: python-nmap
+Requires-Dist: r2pipe
+Requires-Dist: requests
+Requires-Dist: requests-html
+Requires-Dist: scp
+Requires-Dist: scapy
+Requires-Dist: shodan
+Requires-Dist: six
+Requires-Dist: python-slugify
+Requires-Dist: pysia
+Requires-Dist: twine
+Requires-Dist: typed-ast
+Requires-Dist: urllib3
+Requires-Dist: virustotal-python
+Requires-Dist: xlsxwriter
+
+UNKNOWN
+
+
