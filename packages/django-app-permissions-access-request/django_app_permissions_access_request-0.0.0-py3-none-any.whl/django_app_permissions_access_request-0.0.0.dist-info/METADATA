@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: django-app-permissions-access-request
+Version: 0.0.0
+Summary: App level authentication management for django, with access requests and approvals
+Home-page: https://github.com/amp89/django-app-permissions-access-request
+Author: Alex Peterson
+Author-email: contact@alexpeterson.tech
+License: MIT
+Download-URL: https://github.com/amp89/django-app-permissions-access-request/blob/master/dist/django-app-permissions-access-request-0.0.0.tar.gz
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: django
+Requires-Dist: djangorestframework
+Requires-Dist: django-drf-advanced-token
+Requires-Dist: django-app-permissions
+
+https://github.com/amp89/django-app-permissions-access-request
+
+
