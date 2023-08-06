@@ -1,0 +1,15 @@
+func_adl==1.1.0b10
+
+[complete]
+coverage
+flake8
+pytest
+pytest-cov
+twine
+
+[develop]
+pytest
+pytest-cov
+flake8
+coverage
+twine
