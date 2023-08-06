@@ -1,0 +1,241 @@
+This file has been dedicated to the public domain, to the extent
+possible under applicable law, via CC0. See
+http://creativecommons.org/publicdomain/zero/1.0/ for more
+information. This file is offered as-is, without any warranty.
+
+========================================================================
+
+1.2
+------------------------------------------------------------------------
+
+Misc changes:
+* Added outline options to MenuWindow.from_text.
+* Added selection_prefix and selection_suffix options to
+  MenuWindow.from_text for easy colorblind accessibility.
+
+
+1.1.1
+------------------------------------------------------------------------
+
+Misc changes:
+* Removed Python 2 support.
+
+Bugfixes:
+- Chance of crash from a user going through too many recursive dialogs
+
+
+1.1
+------------------------------------------------------------------------
+
+Additions:
++ xsge_gui.DecorativeWidget
+
+Bugfixes:
+- Some unclear and inaccurate documentation
+- Modal menu windows staying visible for too long
+
+
+1.0.4
+------------------------------------------------------------------------
+
+Misc changes:
+* Updated and simplified the readme.
+
+Bugfixes:
+- Invalid colors in fallback graphics
+
+
+1.0.3
+------------------------------------------------------------------------
+
+Skipped due to a mistake in one of the collective xSGE releases.
+
+
+1.0.2
+------------------------------------------------------------------------
+
+Bugfixes:
+- Slight text offset in menus
+
+
+1.0.1
+------------------------------------------------------------------------
+
+Bugfixes:
+- Possibility of accidentally triggering wrong key events
+
+
+0.10
+------------------------------------------------------------------------
+
+Additions:
++ xsge_gui.next_window_keys
++ xsge_gui.previous_window_keys
++ xsge_gui.next_widget_keys
++ xsge_gui.previous_widget_keys
++ xsge_gui.left_keys
++ xsge_gui.right_keys
++ xsge_gui.up_keys
++ xsge_gui.down_keys
++ xsge_gui.enter_keys
++ xsge_gui.escape_keys
++ xsge_gui.next_window_joystick_events
++ xsge_gui.previous_window_joystick_events
++ xsge_gui.next_widget_joystick_events
++ xsge_gui.previous_widget_joystick_events
++ xsge_gui.left_joystick_events
++ xsge_gui.right_joystick_events
++ xsge_gui.up_joystick_events
++ xsge_gui.down_joystick_events
++ xsge_gui.enter_joystick_events
++ xsge_gui.escape_joystick_events
++ xsge_gui.Window.event_change_keyboard_focus
++ xsge_gui.Window.event_joystick
++ xsge_gui.Window.event_global_joystick
++ xsge_gui.Window.event_press_left
++ xsge_gui.Window.event_press_right
++ xsge_gui.Window.event_press_up
++ xsge_gui.Window.event_press_down
++ xsge_gui.Window.event_press_enter
++ xsge_gui.Window.event_press_escape
++ xsge_gui.Window.event_release_left
++ xsge_gui.Window.event_release_right
++ xsge_gui.Window.event_release_up
++ xsge_gui.Window.event_release_down
++ xsge_gui.Window.event_release_enter
++ xsge_gui.Window.event_release_escape
++ xsge_gui.Widget.event_joystick
++ xsge_gui.Widget.event_global_joystick
++ xsge_gui.Widget.event_press_left
++ xsge_gui.Widget.event_press_right
++ xsge_gui.Widget.event_press_up
++ xsge_gui.Widget.event_press_down
++ xsge_gui.Widget.event_press_enter
++ xsge_gui.Widget.event_press_escape
++ xsge_gui.Widget.event_release_left
++ xsge_gui.Widget.event_release_right
++ xsge_gui.Widget.event_release_up
++ xsge_gui.Widget.event_release_down
++ xsge_gui.Widget.event_release_enter
++ xsge_gui.Widget.event_release_escape
+
+Removals:
+- xsge_gui.MenuWindow.event_change_selection
+
+Misc changes:
+* MenuWindow no longer uses the arrow keys for navigation. To get this
+  behavior again, simply assign the arrow keys to next_widget_keys and
+  previous_widget_keys.
+* Updated to SGE 0.23.
+
+Bugfixes:
+- Releasing hat causing menu entry to move down
+
+
+0.9.1
+------------------------------------------------------------------------
+
+Bugfixes:
+- Incorrect handling of joystick hats for navigating menus
+
+
+0.9
+------------------------------------------------------------------------
+
+Additions:
++ xsge_gui.MenuWindow.event_change_selection
++ xsge_gui.ProgressiveLabel
+
+Bugfixes:
+- Pressing escape in a menu causing an error
+- References to "xsge.gui" remaining in the documentation
+- "items" argument of MenuWindow.from_text not being documented
+- "default" argument of get_menu_selection being ignored (!)
+- Keyboard focused window not always being completely destroyed
+- joystick_threshold not being defined or documented
+- Joystick events not working in dialogs
+
+
+0.8
+------------------------------------------------------------------------
+
+Misc changes:
+* Renamed from xsge.gui to xsge_gui.
+
+
+0.6
+------------------------------------------------------------------------
+
+Additions:
++ xsge.gui.Window.event_joystick_axis_move
++ xsge.gui.Window.event_joystick_hat_move
++ xsge.gui.Window.event_joystick_trackball_move
++ xsge.gui.Window.event_joystick_button_press
++ xsge.gui.Window.event_joystick_button_release
++ xsge.gui.Window.event_global_joystick_axis_move
++ xsge.gui.Window.event_global_joystick_hat_move
++ xsge.gui.Window.event_global_joystick_trackball_move
++ xsge.gui.Window.event_global_joystick_button_press
++ xsge.gui.Window.event_global_joystick_button_release
++ xsge.gui.Widget.event_joystick_axis_move
++ xsge.gui.Widget.event_joystick_hat_move
++ xsge.gui.Widget.event_joystick_trackball_move
++ xsge.gui.Widget.event_joystick_button_press
++ xsge.gui.Widget.event_joystick_button_release
++ xsge.gui.Widget.event_global_joystick_axis_move
++ xsge.gui.Widget.event_global_joystick_hat_move
++ xsge.gui.Widget.event_global_joystick_trackball_move
++ xsge.gui.Widget.event_global_joystick_button_press
++ xsge.gui.Widget.event_global_joystick_button_release
++ xsge.gui.MenuItem
++ xsge.gui.MenuWindow
++ xsge.gui.MenuDialog
++ xsge.gui.get_menu_selection
+
+Misc changes:
+* Modal dialogs now project screenshots of what came before them, to
+  preserve projections that were there at the time.
+* When no xsge.gui window has keyboard focus, the topmost window
+  automatically gains keyboard focus.
+
+Bugfixes:
+- Tab key deselecting everything when reaching the end in xsge.gui
+- Borderless windows being offset by the border size
+
+
+0.4
+------------------------------------------------------------------------
+
+Misc changes:
+* Made Six an external dependency.
+
+
+0.3.0
+------------------------------------------------------------------------
+
+Additions:
++ "default" argument for xsge.gui message boxes
+
+Misc changes:
+* Arguments for xsge.gui message boxes and text entry dialogs reordered.
+* Height for dialog boxes can be set to None to size automatically.
+* Python 2 compatibility is now better and more explicit.
+
+Bugfixes:
+- Incomplete __all__ specification in xsge.gui
+
+
+0.2.0
+------------------------------------------------------------------------
+
+Misc changes:
+* Arguments for xsge.gui.show_message and xsge.gui.get_text_entry reordered.
+* Setting ``parent`` in xsge.gui.show_message and
+  xsge.gui.get_text_entry to None now creates a handler automatically.
+  This is now the default value of ``parent``.
+
+
+0.1.0
+------------------------------------------------------------------------
+
+First release.

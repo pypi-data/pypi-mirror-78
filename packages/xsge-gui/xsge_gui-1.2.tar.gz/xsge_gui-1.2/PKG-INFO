@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: xsge_gui
+Version: 1.2
+Summary: xSGE GUI Toolkit
+Home-page: https://python-sge.github.io
+Author: Layla Marchant
+Author-email: diligentcircle@riseup.net
+License: GNU General Public License
+Description: xSGE is a collection of extensions for the SGE licensed under the GNU
+        General Public License.  They are designed to give additional features
+        to free/libre software games which aren't necessary, but are nice to
+        have.
+        
+        xSGE extensions are not dependent on any particular SGE implementation.
+        They should work with any implementation that follows the specification.
+        
+        This extension provides a simple toolkit for adding GUIs to a SGE game
+        as well as support for modal dialog boxes.
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: DFSG approved
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Software Development
+Requires: sge (>=1.7, <2.0)
+Provides: xsge_gui

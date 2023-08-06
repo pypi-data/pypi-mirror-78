@@ -1,0 +1,1846 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>xSGE GUI Toolkit &#8212; xSGE GUI Toolkit 1.2 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="xsge-gui-toolkit">
+<h1><a class="toc-backref" href="#id1">xSGE GUI Toolkit</a><a class="headerlink" href="#xsge-gui-toolkit" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#xsge-gui-toolkit" id="id1">xSGE GUI Toolkit</a><ul>
+<li><a class="reference internal" href="#xsge-gui-classes" id="id2">xsge_gui Classes</a><ul>
+<li><a class="reference internal" href="#xsge-gui-handler" id="id3">xsge_gui.Handler</a><ul>
+<li><a class="reference internal" href="#xsge-gui-handler-methods" id="id4">xsge_gui.Handler Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xsge-gui-window" id="id5">xsge_gui.Window</a><ul>
+<li><a class="reference internal" href="#xsge-gui-window-methods" id="id6">xsge_gui.Window Methods</a></li>
+<li><a class="reference internal" href="#xsge-gui-window-event-methods" id="id7">xsge_gui.Window Event Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xsge-gui-dialog" id="id8">xsge_gui.Dialog</a><ul>
+<li><a class="reference internal" href="#xsge-gui-dialog-methods" id="id9">xsge_gui.Dialog Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xsge-gui-menuwindow" id="id10">xsge_gui.MenuWindow</a><ul>
+<li><a class="reference internal" href="#xsge-gui-menuwindow-methods" id="id11">xsge_gui.MenuWindow Methods</a></li>
+<li><a class="reference internal" href="#xsge-gui-menuwindow-event-methods" id="id12">xsge_gui.MenuWindow Event Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xsge-gui-menudialog" id="id13">xsge_gui.MenuDialog</a></li>
+<li><a class="reference internal" href="#xsge-gui-messagedialog" id="id14">xsge_gui.MessageDialog</a></li>
+<li><a class="reference internal" href="#xsge-gui-textentrydialog" id="id15">xsge_gui.TextEntryDialog</a></li>
+<li><a class="reference internal" href="#xsge-gui-widget" id="id16">xsge_gui.Widget</a><ul>
+<li><a class="reference internal" href="#xsge-gui-widget-methods" id="id17">xsge_gui.Widget Methods</a></li>
+<li><a class="reference internal" href="#xsge-gui-widget-event-methods" id="id18">xsge_gui.Widget Event Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xsge-gui-decorativewidget" id="id19">xsge_gui.DecorativeWidget</a></li>
+<li><a class="reference internal" href="#xsge-gui-label" id="id20">xsge_gui.Label</a></li>
+<li><a class="reference internal" href="#xsge-gui-progressivelabel" id="id21">xsge_gui.ProgressiveLabel</a><ul>
+<li><a class="reference internal" href="#xsge-gui-progressivelabel-event-methods" id="id22">xsge_gui.ProgressiveLabel Event Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xsge-gui-button" id="id23">xsge_gui.Button</a><ul>
+<li><a class="reference internal" href="#xsge-gui-button-event-methods" id="id24">xsge_gui.Button Event Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xsge-gui-checkbox" id="id25">xsge_gui.CheckBox</a><ul>
+<li><a class="reference internal" href="#xsge-gui-checkbox-event-methods" id="id26">xsge_gui.CheckBox Event Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xsge-gui-radiobutton" id="id27">xsge_gui.RadioButton</a><ul>
+<li><a class="reference internal" href="#xsge-gui-radiobutton-event-methods" id="id28">xsge_gui.RadioButton Event Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xsge-gui-progressbar" id="id29">xsge_gui.ProgressBar</a></li>
+<li><a class="reference internal" href="#xsge-gui-textbox" id="id30">xsge_gui.TextBox</a><ul>
+<li><a class="reference internal" href="#xsge-gui-textbox-event-methods" id="id31">xsge_gui.TextBox Event Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xsge-gui-menuitem" id="id32">xsge_gui.MenuItem</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xsge-gui-functions" id="id33">xsge_gui Functions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<span class="target" id="module-xsge_gui"></span><p>xSGE is a collection of extensions for the SGE licensed under the GNU
+General Public License.  They are designed to give additional features
+to free/libre software games which aren't necessary, but are nice to
+have.</p>
+<p>xSGE extensions are not dependent on any particular SGE implementation.
+They should work with any implementation that follows the specification.</p>
+<p>This extension provides a simple toolkit for adding GUIs to a SGE game
+as well as support for modal dialog boxes.</p>
+<p>To use this extension, you must call <a class="reference internal" href="#xsge_gui.init" title="xsge_gui.init"><code class="xref py py-func docutils literal notranslate"><span class="pre">xsge_gui.init()</span></code></a> sometime
+between the creation of the <code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Game</span></code> object and the start
+of the game.</p>
+<dl class="data">
+<dt id="xsge_gui.window_background_color">
+<code class="descclassname">xsge_gui.</code><code class="descname">window_background_color</code><a class="headerlink" href="#xsge_gui.window_background_color" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.keyboard_focused_box_color">
+<code class="descclassname">xsge_gui.</code><code class="descname">keyboard_focused_box_color</code><a class="headerlink" href="#xsge_gui.keyboard_focused_box_color" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.text_color">
+<code class="descclassname">xsge_gui.</code><code class="descname">text_color</code><a class="headerlink" href="#xsge_gui.text_color" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.button_text_color">
+<code class="descclassname">xsge_gui.</code><code class="descname">button_text_color</code><a class="headerlink" href="#xsge_gui.button_text_color" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.textbox_text_color">
+<code class="descclassname">xsge_gui.</code><code class="descname">textbox_text_color</code><a class="headerlink" href="#xsge_gui.textbox_text_color" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.textbox_text_selected_color">
+<code class="descclassname">xsge_gui.</code><code class="descname">textbox_text_selected_color</code><a class="headerlink" href="#xsge_gui.textbox_text_selected_color" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.textbox_highlight_color">
+<code class="descclassname">xsge_gui.</code><code class="descname">textbox_highlight_color</code><a class="headerlink" href="#xsge_gui.textbox_highlight_color" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.title_text_color">
+<code class="descclassname">xsge_gui.</code><code class="descname">title_text_color</code><a class="headerlink" href="#xsge_gui.title_text_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>The colors used by this module.  They can be safely changed, but be
+sure to call <code class="xref py py-meth docutils literal notranslate"><span class="pre">redraw()</span></code> on all windows and widgets that would be
+affected; some changes might not become visible until you do.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.default_font">
+<code class="descclassname">xsge_gui.</code><code class="descname">default_font</code><a class="headerlink" href="#xsge_gui.default_font" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.button_font">
+<code class="descclassname">xsge_gui.</code><code class="descname">button_font</code><a class="headerlink" href="#xsge_gui.button_font" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.textbox_font">
+<code class="descclassname">xsge_gui.</code><code class="descname">textbox_font</code><a class="headerlink" href="#xsge_gui.textbox_font" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.title_font">
+<code class="descclassname">xsge_gui.</code><code class="descname">title_font</code><a class="headerlink" href="#xsge_gui.title_font" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fonts used by this module.  They can be safely changed, but be
+sure to call <code class="xref py py-meth docutils literal notranslate"><span class="pre">redraw()</span></code> on all windows and widgets that would be
+affected; some changes might not become visible until you do.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.button_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">button_sprite</code><a class="headerlink" href="#xsge_gui.button_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.button_left_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">button_left_sprite</code><a class="headerlink" href="#xsge_gui.button_left_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.button_right_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">button_right_sprite</code><a class="headerlink" href="#xsge_gui.button_right_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.button_pressed_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">button_pressed_sprite</code><a class="headerlink" href="#xsge_gui.button_pressed_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.button_pressed_left_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">button_pressed_left_sprite</code><a class="headerlink" href="#xsge_gui.button_pressed_left_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.button_pressed_right_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">button_pressed_right_sprite</code><a class="headerlink" href="#xsge_gui.button_pressed_right_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.button_selected_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">button_selected_sprite</code><a class="headerlink" href="#xsge_gui.button_selected_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.button_selected_left_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">button_selected_left_sprite</code><a class="headerlink" href="#xsge_gui.button_selected_left_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.button_selected_right_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">button_selected_right_sprite</code><a class="headerlink" href="#xsge_gui.button_selected_right_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.checkbox_off_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">checkbox_off_sprite</code><a class="headerlink" href="#xsge_gui.checkbox_off_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.checkbox_on_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">checkbox_on_sprite</code><a class="headerlink" href="#xsge_gui.checkbox_on_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.progressbar_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">progressbar_sprite</code><a class="headerlink" href="#xsge_gui.progressbar_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.progressbar_left_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">progressbar_left_sprite</code><a class="headerlink" href="#xsge_gui.progressbar_left_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.progressbar_right_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">progressbar_right_sprite</code><a class="headerlink" href="#xsge_gui.progressbar_right_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.progressbar_container_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">progressbar_container_sprite</code><a class="headerlink" href="#xsge_gui.progressbar_container_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.progressbar_container_left_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">progressbar_container_left_sprite</code><a class="headerlink" href="#xsge_gui.progressbar_container_left_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.progressbar_container_right_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">progressbar_container_right_sprite</code><a class="headerlink" href="#xsge_gui.progressbar_container_right_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.radiobutton_off_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">radiobutton_off_sprite</code><a class="headerlink" href="#xsge_gui.radiobutton_off_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.radiobutton_on_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">radiobutton_on_sprite</code><a class="headerlink" href="#xsge_gui.radiobutton_on_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.textbox_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">textbox_sprite</code><a class="headerlink" href="#xsge_gui.textbox_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.textbox_left_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">textbox_left_sprite</code><a class="headerlink" href="#xsge_gui.textbox_left_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.textbox_right_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">textbox_right_sprite</code><a class="headerlink" href="#xsge_gui.textbox_right_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.window_border_left_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">window_border_left_sprite</code><a class="headerlink" href="#xsge_gui.window_border_left_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.window_border_right_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">window_border_right_sprite</code><a class="headerlink" href="#xsge_gui.window_border_right_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.window_border_bottom_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">window_border_bottom_sprite</code><a class="headerlink" href="#xsge_gui.window_border_bottom_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.window_border_bottomleft_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">window_border_bottomleft_sprite</code><a class="headerlink" href="#xsge_gui.window_border_bottomleft_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.window_border_bottomright_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">window_border_bottomright_sprite</code><a class="headerlink" href="#xsge_gui.window_border_bottomright_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.window_border_top_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">window_border_top_sprite</code><a class="headerlink" href="#xsge_gui.window_border_top_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.window_border_topleft_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">window_border_topleft_sprite</code><a class="headerlink" href="#xsge_gui.window_border_topleft_sprite" title="Permalink to this definition">¶</a></dt>
+<dt id="xsge_gui.window_border_topright_sprite">
+<code class="descclassname">xsge_gui.</code><code class="descname">window_border_topright_sprite</code><a class="headerlink" href="#xsge_gui.window_border_topright_sprite" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sprites used by this module.  They can be safely changed, but be
+sure to call <code class="xref py py-meth docutils literal notranslate"><span class="pre">redraw()</span></code> on all windows and widgets that would be
+affected; some changes might not become visible until you do.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.next_window_keys">
+<code class="descclassname">xsge_gui.</code><code class="descname">next_window_keys</code><a class="headerlink" href="#xsge_gui.next_window_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of keys which, when pressed, will give keyboard focus to the
+next available window.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.previous_window_keys">
+<code class="descclassname">xsge_gui.</code><code class="descname">previous_window_keys</code><a class="headerlink" href="#xsge_gui.previous_window_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of keys which, when pressed, will give keyboard focus to the
+previous available window.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.next_widget_keys">
+<code class="descclassname">xsge_gui.</code><code class="descname">next_widget_keys</code><a class="headerlink" href="#xsge_gui.next_widget_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of keys which, when pressed, will give keyboard focus to the
+next available widget on the window which has keyboard focus.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[&quot;tab&quot;]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.previous_widget_keys">
+<code class="descclassname">xsge_gui.</code><code class="descname">previous_widget_keys</code><a class="headerlink" href="#xsge_gui.previous_widget_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of keys which, when pressed, will give keyboard focus to the
+previous available widget on the window which has keyboard focus.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.left_keys">
+<code class="descclassname">xsge_gui.</code><code class="descname">left_keys</code><a class="headerlink" href="#xsge_gui.left_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of keys to treat as left arrows.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[&quot;left&quot;]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.right_keys">
+<code class="descclassname">xsge_gui.</code><code class="descname">right_keys</code><a class="headerlink" href="#xsge_gui.right_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of keys to treat as right arrows.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[&quot;right&quot;]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.up_keys">
+<code class="descclassname">xsge_gui.</code><code class="descname">up_keys</code><a class="headerlink" href="#xsge_gui.up_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of keys to treat as up arrows.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[&quot;up&quot;]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.down_keys">
+<code class="descclassname">xsge_gui.</code><code class="descname">down_keys</code><a class="headerlink" href="#xsge_gui.down_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of keys to treat as down arrows.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[&quot;down&quot;]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.enter_keys">
+<code class="descclassname">xsge_gui.</code><code class="descname">enter_keys</code><a class="headerlink" href="#xsge_gui.enter_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of keys to treat as Enter keys.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[&quot;enter&quot;,</span> <span class="pre">&quot;kp_enter&quot;]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.escape_keys">
+<code class="descclassname">xsge_gui.</code><code class="descname">escape_keys</code><a class="headerlink" href="#xsge_gui.escape_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of keys to treat as Escape keys.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[&quot;escape&quot;]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.next_window_joystick_events">
+<code class="descclassname">xsge_gui.</code><code class="descname">next_window_joystick_events</code><a class="headerlink" href="#xsge_gui.next_window_joystick_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tuples indicating joystick events which will give keyboard
+focus to the next available window.</p>
+<p>The tuples should contain, in order, the following values:</p>
+<ol class="arabic simple">
+<li>The number of the joystick, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the first joystick.</li>
+<li>The type of event.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickEvent</span></code> for more information.</li>
+<li>The number of the joystick control, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the first
+control of its type on the joystick.</li>
+</ol>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.previous_window_joystick_events">
+<code class="descclassname">xsge_gui.</code><code class="descname">previous_window_joystick_events</code><a class="headerlink" href="#xsge_gui.previous_window_joystick_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tuples indicating joystick events which will give keyboard
+focus to the previous available window.</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.next_window_joystick_events" title="xsge_gui.next_window_joystick_events"><code class="xref py py-attr docutils literal notranslate"><span class="pre">next_window_joystick_events</span></code></a> for
+more information.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.next_widget_joystick_events">
+<code class="descclassname">xsge_gui.</code><code class="descname">next_widget_joystick_events</code><a class="headerlink" href="#xsge_gui.next_widget_joystick_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tuples indicating joystick events which will give keyboard
+focus to the next available widget on the window which has keyboard
+focus.</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.next_window_joystick_events" title="xsge_gui.next_window_joystick_events"><code class="xref py py-attr docutils literal notranslate"><span class="pre">next_window_joystick_events</span></code></a> for
+more information.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[(0,</span> <span class="pre">&quot;button&quot;,</span> <span class="pre">8)]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.previous_widget_joystick_events">
+<code class="descclassname">xsge_gui.</code><code class="descname">previous_widget_joystick_events</code><a class="headerlink" href="#xsge_gui.previous_widget_joystick_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tuples indicating joystick events which will give keyboard
+focus to the previous available widget on the window which has
+keyboard focus.</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.next_window_joystick_events" title="xsge_gui.next_window_joystick_events"><code class="xref py py-attr docutils literal notranslate"><span class="pre">next_window_joystick_events</span></code></a> for
+more information.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.left_joystick_events">
+<code class="descclassname">xsge_gui.</code><code class="descname">left_joystick_events</code><a class="headerlink" href="#xsge_gui.left_joystick_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tuples indicating joystick events to treat as left arrows.</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.next_window_joystick_events" title="xsge_gui.next_window_joystick_events"><code class="xref py py-attr docutils literal notranslate"><span class="pre">next_window_joystick_events</span></code></a> for
+more information.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[(0,</span> <span class="pre">&quot;axis-&quot;,</span> <span class="pre">0),</span> <span class="pre">(0,</span> <span class="pre">&quot;hat_left&quot;,</span> <span class="pre">0)]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.right_joystick_events">
+<code class="descclassname">xsge_gui.</code><code class="descname">right_joystick_events</code><a class="headerlink" href="#xsge_gui.right_joystick_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tuples indicating joystick events to treat as right arrows.</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.next_window_joystick_events" title="xsge_gui.next_window_joystick_events"><code class="xref py py-attr docutils literal notranslate"><span class="pre">next_window_joystick_events</span></code></a> for
+more information.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[(0,</span> <span class="pre">&quot;axis+&quot;,</span> <span class="pre">0),</span> <span class="pre">(0,</span> <span class="pre">&quot;hat_right&quot;,</span> <span class="pre">0)]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.up_joystick_events">
+<code class="descclassname">xsge_gui.</code><code class="descname">up_joystick_events</code><a class="headerlink" href="#xsge_gui.up_joystick_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tuples indicating joystick events to treat as up arrows.</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.next_window_joystick_events" title="xsge_gui.next_window_joystick_events"><code class="xref py py-attr docutils literal notranslate"><span class="pre">next_window_joystick_events</span></code></a> for
+more information.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[(0,</span> <span class="pre">&quot;axis-&quot;,</span> <span class="pre">1),</span> <span class="pre">(0,</span> <span class="pre">&quot;hat_up&quot;,</span> <span class="pre">0)]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.down_joystick_events">
+<code class="descclassname">xsge_gui.</code><code class="descname">down_joystick_events</code><a class="headerlink" href="#xsge_gui.down_joystick_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tuples indicating joystick events to treat as down arrows.</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.next_window_joystick_events" title="xsge_gui.next_window_joystick_events"><code class="xref py py-attr docutils literal notranslate"><span class="pre">next_window_joystick_events</span></code></a> for
+more information.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[(0,</span> <span class="pre">&quot;axis+&quot;,</span> <span class="pre">1),</span> <span class="pre">(0,</span> <span class="pre">&quot;hat_down&quot;,</span> <span class="pre">0)]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.enter_joystick_events">
+<code class="descclassname">xsge_gui.</code><code class="descname">enter_joystick_events</code><a class="headerlink" href="#xsge_gui.enter_joystick_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tuples indicating joystick events to treat as Enter keys.</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.next_window_joystick_events" title="xsge_gui.next_window_joystick_events"><code class="xref py py-attr docutils literal notranslate"><span class="pre">next_window_joystick_events</span></code></a> for
+more information.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[(0,</span> <span class="pre">&quot;button&quot;,</span> <span class="pre">9)]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.escape_joystick_events">
+<code class="descclassname">xsge_gui.</code><code class="descname">escape_joystick_events</code><a class="headerlink" href="#xsge_gui.escape_joystick_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tuples indicating joystick events to treat as Escape keys.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xsge_gui.joystick_threshold">
+<code class="descclassname">xsge_gui.</code><code class="descname">joystick_threshold</code><a class="headerlink" href="#xsge_gui.joystick_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of tilt on a joystick that should be considered
+&quot;triggered&quot; for the purpose of navigating menus.</p>
+</dd></dl>
+
+<div class="section" id="xsge-gui-classes">
+<h2><a class="toc-backref" href="#id2">xsge_gui Classes</a><a class="headerlink" href="#xsge-gui-classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="xsge-gui-handler">
+<h3><a class="toc-backref" href="#id3">xsge_gui.Handler</a><a class="headerlink" href="#xsge-gui-handler" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.Handler">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">Handler</code><a class="headerlink" href="#xsge_gui.Handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object of this class needs to exist in any room where windows are
+to be used.  It feeds SGE events to the windows so they can react to
+user input.  It also refreshes all windows every frame.</p>
+<dl class="attribute">
+<dt id="xsge_gui.Handler.windows">
+<code class="descname">windows</code><a class="headerlink" href="#xsge_gui.Handler.windows" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of all windows that are currently handled by this handler.</p>
+<p>You don't need to modify this list manually.  Instead, use
+<a class="reference internal" href="#xsge_gui.Window.show" title="xsge_gui.Window.show"><code class="xref py py-meth docutils literal notranslate"><span class="pre">xsge_gui.Window.show()</span></code></a> and <a class="reference internal" href="#xsge_gui.Window.hide" title="xsge_gui.Window.hide"><code class="xref py py-meth docutils literal notranslate"><span class="pre">xsge_gui.Window.hide()</span></code></a> to
+add and remove windows from this list, respectively.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Handler.keyboard_focused_window">
+<code class="descname">keyboard_focused_window</code><a class="headerlink" href="#xsge_gui.Handler.keyboard_focused_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>The window that currently has keyboard focus, or <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> if
+no window has focus.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="xsge-gui-handler-methods">
+<h4><a class="toc-backref" href="#id4">xsge_gui.Handler Methods</a><a class="headerlink" href="#xsge-gui-handler-methods" title="Permalink to this headline">¶</a></h4>
+<dl class="method">
+<dt id="xsge_gui.Handler.get_mouse_focused_window">
+<code class="descclassname">Handler.</code><code class="descname">get_mouse_focused_window</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Handler.get_mouse_focused_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the window that currently has mouse focus.  The window
+with mouse focus is the one which is closest to the front that
+is touching the mouse cursor.</p>
+<p>Return <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> if no window has focus.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="xsge-gui-window">
+<h3><a class="toc-backref" href="#id5">xsge_gui.Window</a><a class="headerlink" href="#xsge-gui-window" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.Window">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">Window</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>title=''</em>, <em>background_color=None</em>, <em>border=True</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Window objects are used to contain widgets.  They can be moved
+around the game window by the user.</p>
+<dl class="attribute">
+<dt id="xsge_gui.Window.parent">
+<code class="descname">parent</code><a class="headerlink" href="#xsge_gui.Window.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>A weak reference to this window's parent handler object, which is
+used to display it when it is supposed to be visible.</p>
+<p>If a strong reference is assigned to this attribute, it will
+automatically be changed to a weak reference.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Window.x">
+<code class="descname">x</code><a class="headerlink" href="#xsge_gui.Window.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The horizontal position of the window relative to the game
+window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Window.y">
+<code class="descname">y</code><a class="headerlink" href="#xsge_gui.Window.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertical position of the window relative to the game window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Window.width">
+<code class="descname">width</code><a class="headerlink" href="#xsge_gui.Window.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Window.height">
+<code class="descname">height</code><a class="headerlink" href="#xsge_gui.Window.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>The height of the window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Window.title">
+<code class="descname">title</code><a class="headerlink" href="#xsge_gui.Window.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>The text that shows up in the title bar of the window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Window.background_color">
+<code class="descname">background_color</code><a class="headerlink" href="#xsge_gui.Window.background_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>The color of this window's background.  If set to <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>,
+it becomes the same value as
+<a class="reference internal" href="#xsge_gui.window_background_color" title="xsge_gui.window_background_color"><code class="xref py py-data docutils literal notranslate"><span class="pre">xsge_gui.window_background_color</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Window.border">
+<code class="descname">border</code><a class="headerlink" href="#xsge_gui.Window.border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not the window has a border.  If this is
+<code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code>, the window cannot be moved or resized by the
+user, and <a class="reference internal" href="#xsge_gui.Window.title" title="xsge_gui.Window.title"><code class="xref py py-attr docutils literal notranslate"><span class="pre">title</span></code></a> will not be displayed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Window.widgets">
+<code class="descname">widgets</code><a class="headerlink" href="#xsge_gui.Window.widgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of this window's widgets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Window.keyboard_focused_widget">
+<code class="descname">keyboard_focused_widget</code><a class="headerlink" href="#xsge_gui.Window.keyboard_focused_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>The widget which currently has keyboard focus within this window,
+or <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> if no widget has keyboard focus within this
+window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Window.sprite">
+<code class="descname">sprite</code><a class="headerlink" href="#xsge_gui.Window.sprite" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sprite this window currently displays as itself.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="xsge-gui-window-methods">
+<h4><a class="toc-backref" href="#id6">xsge_gui.Window Methods</a><a class="headerlink" href="#xsge-gui-window-methods" title="Permalink to this headline">¶</a></h4>
+<dl class="method">
+<dt id="xsge_gui.Window.show">
+<code class="descclassname">Window.</code><code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add this window to its parent handler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.hide">
+<code class="descclassname">Window.</code><code class="descname">hide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.hide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove this window from its parent handler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.move_to_front">
+<code class="descclassname">Window.</code><code class="descname">move_to_front</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.move_to_front" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move this window in front of all other windows.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.move_to_back">
+<code class="descclassname">Window.</code><code class="descname">move_to_back</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.move_to_back" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move this window behind all other windows.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.destroy">
+<code class="descclassname">Window.</code><code class="descname">destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias for <a class="reference internal" href="#xsge_gui.Window.hide" title="xsge_gui.Window.hide"><code class="xref py py-meth docutils literal notranslate"><span class="pre">xsge_gui.Window.hide()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.redraw">
+<code class="descclassname">Window.</code><code class="descname">redraw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.redraw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Re-draw this window's sprite.</p>
+<p>Call this method if you change any variables that should affect
+this window's appearance. For performance reasons, the changes
+won't show up in an existing window until this method is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.refresh">
+<code class="descclassname">Window.</code><code class="descname">refresh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Project this window onto the game window.</p>
+<p>This method must be called every frame for the window to be
+visible.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.get_mouse_on_titlebar">
+<code class="descclassname">Window.</code><code class="descname">get_mouse_on_titlebar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.get_mouse_on_titlebar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether or not the mouse is on the title bar.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.get_mouse_focused_widget">
+<code class="descclassname">Window.</code><code class="descname">get_mouse_focused_widget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.get_mouse_focused_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the widget in this window with mouse focus.  The widget
+with mouse focus is the one which is closest to the front that
+is touching the mouse cursor.</p>
+<p>Return <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> if no widget has focus.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="xsge-gui-window-event-methods">
+<h4><a class="toc-backref" href="#id7">xsge_gui.Window Event Methods</a><a class="headerlink" href="#xsge-gui-window-event-methods" title="Permalink to this headline">¶</a></h4>
+<dl class="method">
+<dt id="xsge_gui.Window.event_step">
+<code class="descclassname">Window.</code><code class="descname">event_step</code><span class="sig-paren">(</span><em>time_passed</em>, <em>delta_mult</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called once every frame, before refreshing.  See the
+documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.dsp.Game.event_step()</span></code> for more
+information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_change_keyboard_focus">
+<code class="descclassname">Window.</code><code class="descname">event_change_keyboard_focus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_change_keyboard_focus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when <a class="reference internal" href="#xsge_gui.Window.keyboard_focused_widget" title="xsge_gui.Window.keyboard_focused_widget"><code class="xref py py-attr docutils literal notranslate"><span class="pre">keyboard_focused_widget</span></code></a> changes as a result
+of a key or joystick event being pressed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_key_press">
+<code class="descclassname">Window.</code><code class="descname">event_key_press</code><span class="sig-paren">(</span><em>key</em>, <em>char</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_key_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key is pressed while this window has keyboard
+focus.  See the documentation for <code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyPress</span></code>
+for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_key_release">
+<code class="descclassname">Window.</code><code class="descname">event_key_release</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_key_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key is released while this window has keyboard
+focus.  See the documentation for <code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyRelease</span></code>
+for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_mouse_button_press">
+<code class="descclassname">Window.</code><code class="descname">event_mouse_button_press</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_mouse_button_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a mouse button is pressed while this window has
+mouse focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.MouseButtonPress</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_mouse_button_release">
+<code class="descclassname">Window.</code><code class="descname">event_mouse_button_release</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_mouse_button_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a mouse button is released while this window has
+mouse focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.MouseButtonRelease</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_joystick_axis_move">
+<code class="descclassname">Window.</code><code class="descname">event_joystick_axis_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>axis</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_joystick_axis_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick axis is moved while this window has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickAxisMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_joystick_hat_move">
+<code class="descclassname">Window.</code><code class="descname">event_joystick_hat_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>hat</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_joystick_hat_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick hat is moved while this window has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickHatMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_joystick_trackball_move">
+<code class="descclassname">Window.</code><code class="descname">event_joystick_trackball_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>ball</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_joystick_trackball_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick trackball is moved while this window has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickTrackballMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_joystick_button_press">
+<code class="descclassname">Window.</code><code class="descname">event_joystick_button_press</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_joystick_button_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick button is pressed while this window has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickButtonPress</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_joystick_button_release">
+<code class="descclassname">Window.</code><code class="descname">event_joystick_button_release</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_joystick_button_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick button is released while this window has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickButtonRelease</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_joystick">
+<code class="descclassname">Window.</code><code class="descname">event_joystick</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>input_type</em>, <em>input_id</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_joystick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick event occurs while this window has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.inputJoystickEvent</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_press_left">
+<code class="descclassname">Window.</code><code class="descname">event_press_left</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_press_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.left_keys" title="xsge_gui.left_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">left_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.left_joystick_events" title="xsge_gui.left_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">left_joystick_events</span></code></a> is pressed while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_press_right">
+<code class="descclassname">Window.</code><code class="descname">event_press_right</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_press_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.right_keys" title="xsge_gui.right_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">right_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.right_joystick_events" title="xsge_gui.right_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">right_joystick_events</span></code></a> is pressed while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_press_up">
+<code class="descclassname">Window.</code><code class="descname">event_press_up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_press_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.up_keys" title="xsge_gui.up_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">up_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.up_joystick_events" title="xsge_gui.up_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">up_joystick_events</span></code></a> is pressed while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_press_down">
+<code class="descclassname">Window.</code><code class="descname">event_press_down</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_press_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.down_keys" title="xsge_gui.down_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">down_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.down_joystick_events" title="xsge_gui.down_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">down_joystick_events</span></code></a> is pressed while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_press_enter">
+<code class="descclassname">Window.</code><code class="descname">event_press_enter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_press_enter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.enter_keys" title="xsge_gui.enter_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.enter_joystick_events" title="xsge_gui.enter_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_joystick_events</span></code></a> is pressed while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_press_escape">
+<code class="descclassname">Window.</code><code class="descname">event_press_escape</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_press_escape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.escape_keys" title="xsge_gui.escape_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">escape_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.enter_joystick_events" title="xsge_gui.enter_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_joystick_events</span></code></a> is pressed while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_release_left">
+<code class="descclassname">Window.</code><code class="descname">event_release_left</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_release_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.left_keys" title="xsge_gui.left_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">left_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.left_joystick_events" title="xsge_gui.left_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">left_joystick_events</span></code></a> is released while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_release_right">
+<code class="descclassname">Window.</code><code class="descname">event_release_right</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_release_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.right_keys" title="xsge_gui.right_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">right_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.right_joystick_events" title="xsge_gui.right_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">right_joystick_events</span></code></a> is released while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_release_up">
+<code class="descclassname">Window.</code><code class="descname">event_release_up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_release_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.up_keys" title="xsge_gui.up_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">up_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.up_joystick_events" title="xsge_gui.up_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">up_joystick_events</span></code></a> is released while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_release_down">
+<code class="descclassname">Window.</code><code class="descname">event_release_down</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_release_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.down_keys" title="xsge_gui.down_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">down_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.down_joystick_events" title="xsge_gui.down_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">down_joystick_events</span></code></a> is released while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_release_enter">
+<code class="descclassname">Window.</code><code class="descname">event_release_enter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_release_enter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.enter_keys" title="xsge_gui.enter_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.enter_joystick_events" title="xsge_gui.enter_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_joystick_events</span></code></a> is released while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_release_escape">
+<code class="descclassname">Window.</code><code class="descname">event_release_escape</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_release_escape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.escape_keys" title="xsge_gui.escape_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">escape_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.enter_joystick_events" title="xsge_gui.enter_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_joystick_events</span></code></a> is released while this window has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_titlebar_mouse_button_press">
+<code class="descclassname">Window.</code><code class="descname">event_titlebar_mouse_button_press</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_titlebar_mouse_button_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a mouse button is pressed on top of this window's
+title bar (top border).  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.MouseButtonPress</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_titlebar_mouse_button_release">
+<code class="descclassname">Window.</code><code class="descname">event_titlebar_mouse_button_release</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_titlebar_mouse_button_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a mouse button is released on top of this window's
+title bar (top border).  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.MouseButtonRelease</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_global_key_press">
+<code class="descclassname">Window.</code><code class="descname">event_global_key_press</code><span class="sig-paren">(</span><em>key</em>, <em>char</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_global_key_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key is pressed, regardless of which window has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyPress</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_global_key_release">
+<code class="descclassname">Window.</code><code class="descname">event_global_key_release</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_global_key_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key is released, regardless of which window has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyRelease</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_global_mouse_button_press">
+<code class="descclassname">Window.</code><code class="descname">event_global_mouse_button_press</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_global_mouse_button_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a mouse button is pressed, regardless of which
+window has mouse focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.MouseButtonPress</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_global_mouse_button_release">
+<code class="descclassname">Window.</code><code class="descname">event_global_mouse_button_release</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_global_mouse_button_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a mouse button is released, regardless of which
+window has mouse focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.MouseButtonRelease</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_global_joystick_axis_move">
+<code class="descclassname">Window.</code><code class="descname">event_global_joystick_axis_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>axis</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_global_joystick_axis_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick axis is moved, regardless of which window
+has keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickAxisMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_global_joystick_hat_move">
+<code class="descclassname">Window.</code><code class="descname">event_global_joystick_hat_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>hat</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_global_joystick_hat_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick hat is moved, regardless of which window
+has keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickHatMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_global_joystick_trackball_move">
+<code class="descclassname">Window.</code><code class="descname">event_global_joystick_trackball_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>ball</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_global_joystick_trackball_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick trackball is moved, regardless of which
+window has keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickTrackballMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_global_joystick_button_press">
+<code class="descclassname">Window.</code><code class="descname">event_global_joystick_button_press</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_global_joystick_button_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick button is pressed, regardless of which
+window has keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickButtonPress</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_global_joystick_button_release">
+<code class="descclassname">Window.</code><code class="descname">event_global_joystick_button_release</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_global_joystick_button_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick button is released, regardless of which
+window has keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickButtonRelease</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_global_joystick">
+<code class="descclassname">Window.</code><code class="descname">event_global_joystick</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>input_type</em>, <em>input_id</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_global_joystick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick event occurs, regardless of which window
+has keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.inputJoystickEvent</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Window.event_close">
+<code class="descclassname">Window.</code><code class="descname">event_close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Window.event_close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the &quot;X&quot; button in the top-right corner of the window
+is pressed.</p>
+<p>By default, this calls <a class="reference internal" href="#xsge_gui.Window.destroy" title="xsge_gui.Window.destroy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">xsge_gui.Window.destroy()</span></code></a>.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="xsge-gui-dialog">
+<h3><a class="toc-backref" href="#id8">xsge_gui.Dialog</a><a class="headerlink" href="#xsge-gui-dialog" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.Dialog">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">Dialog</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>title=''</em>, <em>background_color=None</em>, <em>border=True</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dialog class.</p>
+<p>Dialogs are windows with their own loops, also called modal windows.
+They are used for tasks that must be completed before the main
+program continues, such as pop-up messages.</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.Window" title="xsge_gui.Window"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Window</span></code></a> for more
+information.</p>
+</dd></dl>
+
+<div class="section" id="xsge-gui-dialog-methods">
+<h4><a class="toc-backref" href="#id9">xsge_gui.Dialog Methods</a><a class="headerlink" href="#xsge-gui-dialog-methods" title="Permalink to this headline">¶</a></h4>
+<p>In addition to methods inherited from <a class="reference internal" href="#xsge_gui.Window" title="xsge_gui.Window"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Window</span></code></a>, the
+following methods are also available:</p>
+<dl class="method">
+<dt id="xsge_gui.Dialog.show">
+<code class="descclassname">Dialog.</code><code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Dialog.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show this dialog and start its loop.</p>
+<p>Like <a class="reference internal" href="#xsge_gui.Window.show" title="xsge_gui.Window.show"><code class="xref py py-meth docutils literal notranslate"><span class="pre">xsge_gui.Window.show()</span></code></a>, this method adds the dialog
+to its parent.  It then starts this dialog's loop.  Call
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">xsge_gui.Dialog.hide()</span></code> on this dialog to end the loop.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="xsge-gui-menuwindow">
+<h3><a class="toc-backref" href="#id10">xsge_gui.MenuWindow</a><a class="headerlink" href="#xsge-gui-menuwindow" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.MenuWindow">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">MenuWindow</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>title=''</em>, <em>background_color=sge.gfx.Color(&quot;#00000000&quot;)</em>, <em>border=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.MenuWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Meant to  be used with <a class="reference internal" href="#xsge_gui.MenuItem" title="xsge_gui.MenuItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.MenuItem</span></code></a> widgets to create
+keyboard-navigated menus.  Has no border by default.  If one of the
+keys in <a class="reference internal" href="#xsge_gui.enter_keys" title="xsge_gui.enter_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_keys</span></code></a> or one of the joystick events in
+<a class="reference internal" href="#xsge_gui.enter_joystick_events" title="xsge_gui.enter_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_joystick_events</span></code></a> is pressed, <a class="reference internal" href="#xsge_gui.MenuWindow.choice" title="xsge_gui.MenuWindow.choice"><code class="xref py py-attr docutils literal notranslate"><span class="pre">choice</span></code></a> is set to
+the index within <code class="xref py py-attr docutils literal notranslate"><span class="pre">widgets</span></code> of the widget which currently has
+keyboard focus, the window is closed, and <a class="reference internal" href="#xsge_gui.MenuWindow.event_choose" title="xsge_gui.MenuWindow.event_choose"><code class="xref py py-meth docutils literal notranslate"><span class="pre">event_choose()</span></code></a> is
+called.  If one of the keys in <a class="reference internal" href="#xsge_gui.escape_keys" title="xsge_gui.escape_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">escape_keys</span></code></a> or one of the
+joystick events in <a class="reference internal" href="#xsge_gui.escape_joystick_events" title="xsge_gui.escape_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">escape_joystick_events</span></code></a> is pressed, the
+window is closed and <a class="reference internal" href="#xsge_gui.MenuWindow.event_choose" title="xsge_gui.MenuWindow.event_choose"><code class="xref py py-meth docutils literal notranslate"><span class="pre">event_choose()</span></code></a> is called.</p>
+<dl class="attribute">
+<dt id="xsge_gui.MenuWindow.choice">
+<code class="descname">choice</code><a class="headerlink" href="#xsge_gui.MenuWindow.choice" title="Permalink to this definition">¶</a></dt>
+<dd><p>The menu item chosen.  If no menu item has been chosen, it is set
+to <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.Window" title="xsge_gui.Window"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Window</span></code></a> for more
+information.</p>
+</dd></dl>
+
+<div class="section" id="xsge-gui-menuwindow-methods">
+<h4><a class="toc-backref" href="#id11">xsge_gui.MenuWindow Methods</a><a class="headerlink" href="#xsge-gui-menuwindow-methods" title="Permalink to this headline">¶</a></h4>
+<p>In addition to the methods inherited from <a class="reference internal" href="#xsge_gui.Window" title="xsge_gui.Window"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Window</span></code></a>, the
+following methods are also available:</p>
+<dl class="classmethod">
+<dt id="xsge_gui.MenuWindow.from_text">
+<em class="property">classmethod </em><code class="descclassname">MenuWindow.</code><code class="descname">from_text</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>items</em>, <em>font_normal=None</em>, <em>color_normal=None</em>, <em>font_selected=None</em>, <em>color_selected=None</em>, <em>background_color=sge.gfx.Color(&quot;#00000000&quot;)</em>, <em>height=None</em>, <em>margin=0</em>, <em>halign='left'</em>, <em>valign='top'</em>, <em>outline_normal=None</em>, <em>outline_selected=None</em>, <em>outline_thickness_normal=0</em>, <em>outline_thickness_selected=0</em>, <em>selection_prefix=''</em>, <em>selection_suffix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.MenuWindow.from_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a menu created automatically from a list of strings.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The horizontal location of the window within the
+room.  Affected by <code class="docutils literal notranslate"><span class="pre">halign</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">y</span></code> -- The vertical location of the window within the room.
+Affected by <code class="docutils literal notranslate"><span class="pre">valign</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">items</span></code> -- A list of strings to use as the menu's items.</li>
+<li><code class="docutils literal notranslate"><span class="pre">font_normal</span></code> -- The default font to use.</li>
+<li><code class="docutils literal notranslate"><span class="pre">color_normal</span></code> -- The default color to use.</li>
+<li><code class="docutils literal notranslate"><span class="pre">font_selected</span></code> -- The font to use for the currently
+selected item.  If set to <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>, the default font will
+be used.</li>
+<li><code class="docutils literal notranslate"><span class="pre">color_selected</span></code> -- The color to use for the currently
+selected item.  If set to <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>, the default color
+will be used.</li>
+<li><code class="docutils literal notranslate"><span class="pre">height</span></code> -- The height of the menu.  If set to
+<code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>, it will be the sum of the items' height.</li>
+<li><code class="docutils literal notranslate"><span class="pre">margin</span></code> -- The size of the margin around the menu.</li>
+<li><code class="docutils literal notranslate"><span class="pre">halign</span></code> -- The horizontal alignment of the menu.  See the
+documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code> for more
+information.</li>
+<li><code class="docutils literal notranslate"><span class="pre">valign</span></code> -- The vertical alignment of the menu.  See the
+documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code> for more
+information.</li>
+<li><code class="docutils literal notranslate"><span class="pre">outline_normal</span></code> -- The default outline color to use.  See
+the documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code> for
+more information.</li>
+<li><code class="docutils literal notranslate"><span class="pre">outline_selected</span></code> -- The outline color to use for the
+currently selected item.  See the documentation for
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code> for more information.</li>
+<li><code class="docutils literal notranslate"><span class="pre">outline_thickness_normal</span></code> -- The default outline thickness
+to use. See the documentation for
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code> for more information.</li>
+<li><code class="docutils literal notranslate"><span class="pre">outline_thickness_selected</span></code> -- The outline thickness to use
+for the currently selected item. See the documentation for
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code> for more information.</li>
+<li><code class="docutils literal notranslate"><span class="pre">selection_prefix</span></code> -- A prefix to prepend to the text of the
+current selection.  Useful for colorblind accessibility.</li>
+<li><code class="docutils literal notranslate"><span class="pre">selection_suffix</span></code> -- A suffix to append to the text of the
+current selection.  Useful for colorblind accessibility.</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="xsge-gui-menuwindow-event-methods">
+<h4><a class="toc-backref" href="#id12">xsge_gui.MenuWindow Event Methods</a><a class="headerlink" href="#xsge-gui-menuwindow-event-methods" title="Permalink to this headline">¶</a></h4>
+<p>In addition to the event methods inherited from
+<a class="reference internal" href="#xsge_gui.Window" title="xsge_gui.Window"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Window</span></code></a>, the following event methods are also
+available:</p>
+<dl class="method">
+<dt id="xsge_gui.MenuWindow.event_choose">
+<code class="descclassname">MenuWindow.</code><code class="descname">event_choose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.MenuWindow.event_choose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a menu item is chosen.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="xsge-gui-menudialog">
+<h3><a class="toc-backref" href="#id13">xsge_gui.MenuDialog</a><a class="headerlink" href="#xsge-gui-menudialog" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.MenuDialog">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">MenuDialog</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>title=''</em>, <em>background_color=sge.gfx.Color(&quot;#00000000&quot;)</em>, <em>border=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.MenuDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits both <a class="reference internal" href="#xsge_gui.MenuWindow" title="xsge_gui.MenuWindow"><code class="xref py py-class docutils literal notranslate"><span class="pre">MenuWindow</span></code></a> and <a class="reference internal" href="#xsge_gui.Dialog" title="xsge_gui.Dialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dialog</span></code></a>.</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.Dialog" title="xsge_gui.Dialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Dialog</span></code></a> for more
+information.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="xsge-gui-messagedialog">
+<h3><a class="toc-backref" href="#id14">xsge_gui.MessageDialog</a><a class="headerlink" href="#xsge-gui-messagedialog" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.MessageDialog">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">MessageDialog</code><span class="sig-paren">(</span><em>parent</em>, <em>message=''</em>, <em>title='Message'</em>, <em>buttons=('Ok'</em>, <em>)</em>, <em>default=-1</em>, <em>width=320</em>, <em>height=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.MessageDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>This dialog shows a message box and accepts button input.  All
+buttons cause the dialog to close and set <a class="reference internal" href="#xsge_gui.MessageDialog.choice" title="xsge_gui.MessageDialog.choice"><code class="xref py py-attr docutils literal notranslate"><span class="pre">choice</span></code></a> to the
+button pressed.</p>
+<dl class="attribute">
+<dt id="xsge_gui.MessageDialog.choice">
+<code class="descname">choice</code><a class="headerlink" href="#xsge_gui.MessageDialog.choice" title="Permalink to this definition">¶</a></dt>
+<dd><p>The button clicked.  If a button hasn't been clicked (i.e. the
+dialog hasn't yet been closed or was closed by clicking on the
+close button), it is set to <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.Dialog" title="xsge_gui.Dialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Dialog</span></code></a> for more
+information.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="xsge-gui-textentrydialog">
+<h3><a class="toc-backref" href="#id15">xsge_gui.TextEntryDialog</a><a class="headerlink" href="#xsge-gui-textentrydialog" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.TextEntryDialog">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">TextEntryDialog</code><span class="sig-paren">(</span><em>parent</em>, <em>message=''</em>, <em>title='Text Entry'</em>, <em>text=''</em>, <em>width=320</em>, <em>height=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.TextEntryDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>This dialog shows a message and has the user enter some text.  Two
+buttons are shown: a &quot;Cancel&quot; button that closes the dialog, and an
+&quot;Ok&quot; button that sets <a class="reference internal" href="#xsge_gui.TextEntryDialog.text" title="xsge_gui.TextEntryDialog.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a> to the text entered and then
+closes the dialog.</p>
+<dl class="attribute">
+<dt id="xsge_gui.TextEntryDialog.text">
+<code class="descname">text</code><a class="headerlink" href="#xsge_gui.TextEntryDialog.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>The text entered after the &quot;Ok&quot; button is clicked.  If the &quot;Ok&quot;
+button hasn't been clicked, this is <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.Dialog" title="xsge_gui.Dialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Dialog</span></code></a> for more
+information.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="xsge-gui-widget">
+<h3><a class="toc-backref" href="#id16">xsge_gui.Widget</a><a class="headerlink" href="#xsge-gui-widget" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.Widget">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">Widget</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>sprite=None</em>, <em>index=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Widget objects are things like controls and decorations that exist
+on windows.</p>
+<dl class="attribute">
+<dt id="xsge_gui.Widget.parent">
+<code class="descname">parent</code><a class="headerlink" href="#xsge_gui.Widget.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>A weak reference to this widget's parent window.</p>
+<p>If a strong reference is assigned to this attribute, it will
+automatically be changed to a weak reference.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Widget.x">
+<code class="descname">x</code><a class="headerlink" href="#xsge_gui.Widget.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The horizontal position of the widget relative to its parent
+window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Widget.y">
+<code class="descname">y</code><a class="headerlink" href="#xsge_gui.Widget.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertical position of the widget relative to its parent
+window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Widget.z">
+<code class="descname">z</code><a class="headerlink" href="#xsge_gui.Widget.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Z-axis position of the widget.  Widgets with a higher Z-axis
+value are in front of widgets with a lower Z-axis value.  This
+value is not connected in any way to Z-axis values in the SGE.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Widget.sprite">
+<code class="descname">sprite</code><a class="headerlink" href="#xsge_gui.Widget.sprite" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sprite this widget displays as itself.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Widget.index">
+<code class="descname">index</code><a class="headerlink" href="#xsge_gui.Widget.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the &quot;position&quot; this widget is in for the purposes of
+tab-focusing.  Smaller indexes are first on the window's list of
+widgets.  Set to <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> to use <a class="reference internal" href="#xsge_gui.Widget.z" title="xsge_gui.Widget.z"><code class="xref py py-attr docutils literal notranslate"><span class="pre">z</span></code></a> for this purpose.
+Widgets with smaller indexes are inserted earlier in the parent
+window's <code class="xref py py-attr docutils literal notranslate"><span class="pre">widgets</span></code> list, and this positioning is what
+actually determines the ordering of tab-focusing.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This attribute does not <em>precisely</em> control the index of the
+widget within the parent widget's <code class="xref py py-attr docutils literal notranslate"><span class="pre">widgets</span></code> list. It
+only controls where the widget is in the list relative to
+other widgets.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Widget.tab_focus">
+<code class="descname">tab_focus</code><a class="headerlink" href="#xsge_gui.Widget.tab_focus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class attribute indicating whether or not the widget should be
+considered for focusing when the Tab key is pressed.</p>
+<p>Default value: <code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="xsge-gui-widget-methods">
+<h4><a class="toc-backref" href="#id17">xsge_gui.Widget Methods</a><a class="headerlink" href="#xsge-gui-widget-methods" title="Permalink to this headline">¶</a></h4>
+<dl class="method">
+<dt id="xsge_gui.Widget.destroy">
+<code class="descclassname">Widget.</code><code class="descname">destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy this widget.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.redraw">
+<code class="descclassname">Widget.</code><code class="descname">redraw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.redraw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Re-draw this widget's sprite.</p>
+<p>Call this method if you change any variables that should affect
+this widget's appearance.  This method automatically makes any
+changes necessary to <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.sprite</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.refresh">
+<code class="descclassname">Widget.</code><code class="descname">refresh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Project this widget onto the game window.</p>
+<p>This method must be called every frame for the widget to be
+visible.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="xsge-gui-widget-event-methods">
+<h4><a class="toc-backref" href="#id18">xsge_gui.Widget Event Methods</a><a class="headerlink" href="#xsge-gui-widget-event-methods" title="Permalink to this headline">¶</a></h4>
+<dl class="method">
+<dt id="xsge_gui.Widget.event_step">
+<code class="descclassname">Widget.</code><code class="descname">event_step</code><span class="sig-paren">(</span><em>time_passed</em>, <em>delta_mult</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called once every frame, before refreshing.  See the
+documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.dsp.Game.event_step()</span></code> for more
+information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_key_press">
+<code class="descclassname">Widget.</code><code class="descname">event_key_press</code><span class="sig-paren">(</span><em>key</em>, <em>char</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_key_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key is pressed while this widget has keyboard
+focus.  See the documentation for <code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyPress</span></code>
+for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_key_release">
+<code class="descclassname">Widget.</code><code class="descname">event_key_release</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_key_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key is released while this widget has keyboard
+focus.  See the documentation for <code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyRelease</span></code>
+for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_mouse_button_press">
+<code class="descclassname">Widget.</code><code class="descname">event_mouse_button_press</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_mouse_button_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a mouse button is pressed while this widget has
+mouse focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.MouseButtonPress</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_mouse_button_release">
+<code class="descclassname">Widget.</code><code class="descname">event_mouse_button_release</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_mouse_button_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a mouse button is released while this widget has
+mouse focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.MouseButtonRelease</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_joystick_axis_move">
+<code class="descclassname">Widget.</code><code class="descname">event_joystick_axis_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>axis</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_joystick_axis_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick axis is moved while this widget has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickAxisMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_joystick_hat_move">
+<code class="descclassname">Widget.</code><code class="descname">event_joystick_hat_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>hat</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_joystick_hat_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick hat is moved while this widget has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickHatMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_joystick_trackball_move">
+<code class="descclassname">Widget.</code><code class="descname">event_joystick_trackball_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>ball</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_joystick_trackball_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick trackball is moved while this widget has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickTrackballMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_joystick_button_press">
+<code class="descclassname">Widget.</code><code class="descname">event_joystick_button_press</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_joystick_button_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick button is pressed while this widget has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickButtonPress</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_joystick_button_release">
+<code class="descclassname">Widget.</code><code class="descname">event_joystick_button_release</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_joystick_button_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick button is released while this widget has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickButtonRelease</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_joystick">
+<code class="descclassname">Widget.</code><code class="descname">event_joystick</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>input_type</em>, <em>input_id</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_joystick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick event occurs while this widget has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickEvent</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_press_left">
+<code class="descclassname">Widget.</code><code class="descname">event_press_left</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_press_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.left_keys" title="xsge_gui.left_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">left_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.left_joystick_events" title="xsge_gui.left_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">left_joystick_events</span></code></a> is pressed while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_press_right">
+<code class="descclassname">Widget.</code><code class="descname">event_press_right</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_press_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.right_keys" title="xsge_gui.right_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">right_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.right_joystick_events" title="xsge_gui.right_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">right_joystick_events</span></code></a> is pressed while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_press_up">
+<code class="descclassname">Widget.</code><code class="descname">event_press_up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_press_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.up_keys" title="xsge_gui.up_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">up_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.up_joystick_events" title="xsge_gui.up_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">up_joystick_events</span></code></a> is pressed while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_press_down">
+<code class="descclassname">Widget.</code><code class="descname">event_press_down</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_press_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.down_keys" title="xsge_gui.down_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">down_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.down_joystick_events" title="xsge_gui.down_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">down_joystick_events</span></code></a> is pressed while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_press_enter">
+<code class="descclassname">Widget.</code><code class="descname">event_press_enter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_press_enter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.enter_keys" title="xsge_gui.enter_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.enter_joystick_events" title="xsge_gui.enter_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_joystick_events</span></code></a> is pressed while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_press_escape">
+<code class="descclassname">Widget.</code><code class="descname">event_press_escape</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_press_escape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.escape_keys" title="xsge_gui.escape_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">escape_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.enter_joystick_events" title="xsge_gui.enter_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_joystick_events</span></code></a> is pressed while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_release_left">
+<code class="descclassname">Widget.</code><code class="descname">event_release_left</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_release_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.left_keys" title="xsge_gui.left_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">left_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.left_joystick_events" title="xsge_gui.left_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">left_joystick_events</span></code></a> is released while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_release_right">
+<code class="descclassname">Widget.</code><code class="descname">event_release_right</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_release_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.right_keys" title="xsge_gui.right_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">right_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.right_joystick_events" title="xsge_gui.right_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">right_joystick_events</span></code></a> is released while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_release_up">
+<code class="descclassname">Widget.</code><code class="descname">event_release_up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_release_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.up_keys" title="xsge_gui.up_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">up_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.up_joystick_events" title="xsge_gui.up_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">up_joystick_events</span></code></a> is released while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_release_down">
+<code class="descclassname">Widget.</code><code class="descname">event_release_down</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_release_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.down_keys" title="xsge_gui.down_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">down_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.down_joystick_events" title="xsge_gui.down_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">down_joystick_events</span></code></a> is released while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_release_enter">
+<code class="descclassname">Widget.</code><code class="descname">event_release_enter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_release_enter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.enter_keys" title="xsge_gui.enter_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.enter_joystick_events" title="xsge_gui.enter_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_joystick_events</span></code></a> is released while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_release_escape">
+<code class="descclassname">Widget.</code><code class="descname">event_release_escape</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_release_escape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key in <a class="reference internal" href="#xsge_gui.escape_keys" title="xsge_gui.escape_keys"><code class="xref py py-data docutils literal notranslate"><span class="pre">escape_keys</span></code></a> or a joystick event in
+<a class="reference internal" href="#xsge_gui.enter_joystick_events" title="xsge_gui.enter_joystick_events"><code class="xref py py-data docutils literal notranslate"><span class="pre">enter_joystick_events</span></code></a> is released while this widget has
+keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_global_key_press">
+<code class="descclassname">Widget.</code><code class="descname">event_global_key_press</code><span class="sig-paren">(</span><em>key</em>, <em>char</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_global_key_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key is pressed, regardless of which widget has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyPress</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_global_key_release">
+<code class="descclassname">Widget.</code><code class="descname">event_global_key_release</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_global_key_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a key is released, regardless of which widget has
+keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyRelease</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_global_mouse_button_press">
+<code class="descclassname">Widget.</code><code class="descname">event_global_mouse_button_press</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_global_mouse_button_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a mouse button is pressed, regardless of which
+widget has mouse focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.MouseButtonPress</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_global_mouse_button_release">
+<code class="descclassname">Widget.</code><code class="descname">event_global_mouse_button_release</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_global_mouse_button_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a mouse button is released, regardless of which
+widget has mouse focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.MouseButtonRelease</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_global_joystick_axis_move">
+<code class="descclassname">Widget.</code><code class="descname">event_global_joystick_axis_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>axis</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_global_joystick_axis_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick axis is moved, regardless of which widget
+has keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickAxisMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_global_joystick_hat_move">
+<code class="descclassname">Widget.</code><code class="descname">event_global_joystick_hat_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>hat</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_global_joystick_hat_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick hat is moved, regardless of which widget
+has keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickHatMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_global_joystick_trackball_move">
+<code class="descclassname">Widget.</code><code class="descname">event_global_joystick_trackball_move</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>ball</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_global_joystick_trackball_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick trackball is moved, regardless of which
+widget has keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickTrackballMove</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_global_joystick_button_press">
+<code class="descclassname">Widget.</code><code class="descname">event_global_joystick_button_press</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_global_joystick_button_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick button is pressed, regardless of which
+widget has keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickButtonPress</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xsge_gui.Widget.event_global_joystick_button_release">
+<code class="descclassname">Widget.</code><code class="descname">event_global_joystick_button_release</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Widget.event_global_joystick_button_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a joystick button is released, regardless of which
+widget has keyboard focus.  See the documentation for
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.JoystickButtonRelease</span></code> for more information.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="xsge-gui-decorativewidget">
+<h3><a class="toc-backref" href="#id19">xsge_gui.DecorativeWidget</a><a class="headerlink" href="#xsge-gui-decorativewidget" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.DecorativeWidget">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">DecorativeWidget</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>sprite=None</em>, <em>index=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.DecorativeWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identical to <a class="reference internal" href="#xsge_gui.Widget" title="xsge_gui.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">Widget</span></code></a>, except that <code class="xref py py-attr docutils literal notranslate"><span class="pre">tab_focus</span></code> is
+<code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code> by default.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="xsge-gui-label">
+<h3><a class="toc-backref" href="#id20">xsge_gui.Label</a><a class="headerlink" href="#xsge-gui-label" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.Label">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">Label</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>text</em>, <em>font=None</em>, <em>width=None</em>, <em>height=None</em>, <em>color=None</em>, <em>halign='left'</em>, <em>valign='top'</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Label" title="Permalink to this definition">¶</a></dt>
+<dd><p>This widget simply displays some text.</p>
+<dl class="attribute">
+<dt id="xsge_gui.Label.text">
+<code class="descname">text</code><a class="headerlink" href="#xsge_gui.Label.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>The text this label should display.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Label.font">
+<code class="descname">font</code><a class="headerlink" href="#xsge_gui.Label.font" title="Permalink to this definition">¶</a></dt>
+<dd><p>The font this label's text should be rendered with.  If set to
+<code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>, the value of <a class="reference internal" href="#xsge_gui.default_font" title="xsge_gui.default_font"><code class="xref py py-data docutils literal notranslate"><span class="pre">xsge_gui.default_font</span></code></a> is
+used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Label.width">
+<code class="descname">width</code><a class="headerlink" href="#xsge_gui.Label.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the imaginary rectangle the text is drawn in.  See
+the documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code> for more
+information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Label.height">
+<code class="descname">height</code><a class="headerlink" href="#xsge_gui.Label.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>The height of the imaginary rectangle the text is drawn in.  See
+the documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code> for more
+information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Label.halign">
+<code class="descname">halign</code><a class="headerlink" href="#xsge_gui.Label.halign" title="Permalink to this definition">¶</a></dt>
+<dd><p>The horizontal alignment of the text.  See the documentation for
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code> for more information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Label.valign">
+<code class="descname">valign</code><a class="headerlink" href="#xsge_gui.Label.valign" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertical alignment of the text.  See the documentation for
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code> for more information.</p>
+</dd></dl>
+
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.Widget" title="xsge_gui.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Widget</span></code></a> for more
+information.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="xsge-gui-progressivelabel">
+<h3><a class="toc-backref" href="#id21">xsge_gui.ProgressiveLabel</a><a class="headerlink" href="#xsge-gui-progressivelabel" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.ProgressiveLabel">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">ProgressiveLabel</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>full_text</em>, <em>font=None</em>, <em>width=None</em>, <em>height=None</em>, <em>color=None</em>, <em>halign='left'</em>, <em>valign='top'</em>, <em>rate=1000</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.ProgressiveLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This widget is a version of <a class="reference internal" href="#xsge_gui.Label" title="xsge_gui.Label"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Label</span></code></a> which
+progressively builds <code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code> one character at a time, making it
+look like the text is being typed in real-time.</p>
+<dl class="attribute">
+<dt id="xsge_gui.ProgressiveLabel.full_text">
+<code class="descname">full_text</code><a class="headerlink" href="#xsge_gui.ProgressiveLabel.full_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value that <code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code> progressively becomes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.ProgressiveLabel.rate">
+<code class="descname">rate</code><a class="headerlink" href="#xsge_gui.ProgressiveLabel.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rate at which <code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code> is built in characters per minute.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="xsge-gui-progressivelabel-event-methods">
+<h4><a class="toc-backref" href="#id22">xsge_gui.ProgressiveLabel Event Methods</a><a class="headerlink" href="#xsge-gui-progressivelabel-event-methods" title="Permalink to this headline">¶</a></h4>
+<p>In addition to the event methods inherited from
+<a class="reference internal" href="#xsge_gui.Widget" title="xsge_gui.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Widget</span></code></a>, the following event methods are also
+available:</p>
+<dl class="method">
+<dt id="xsge_gui.ProgressiveLabel.event_add_character">
+<code class="descclassname">ProgressiveLabel.</code><code class="descname">event_add_character</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.ProgressiveLabel.event_add_character" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a character is added to <code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code>.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="xsge-gui-button">
+<h3><a class="toc-backref" href="#id23">xsge_gui.Button</a><a class="headerlink" href="#xsge-gui-button" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.Button">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">Button</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>text</em>, <em>width=None</em>, <em>halign='center'</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Button" title="Permalink to this definition">¶</a></dt>
+<dd><p>This widget contains some text and can be clicked on by the user.</p>
+<dl class="attribute">
+<dt id="xsge_gui.Button.text">
+<code class="descname">text</code><a class="headerlink" href="#xsge_gui.Button.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>The text contained in the button.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Button.width">
+<code class="descname">width</code><a class="headerlink" href="#xsge_gui.Button.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the button.  If set to <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>, the width is
+chosen based on the width of the rendered text.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.Button.halign">
+<code class="descname">halign</code><a class="headerlink" href="#xsge_gui.Button.halign" title="Permalink to this definition">¶</a></dt>
+<dd><p>The horizontal alignment of the text.  See the documentation for
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code> for more information.</p>
+</dd></dl>
+
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.Widget" title="xsge_gui.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Widget</span></code></a> for more
+information.</p>
+</dd></dl>
+
+<div class="section" id="xsge-gui-button-event-methods">
+<h4><a class="toc-backref" href="#id24">xsge_gui.Button Event Methods</a><a class="headerlink" href="#xsge-gui-button-event-methods" title="Permalink to this headline">¶</a></h4>
+<p>In addition to the event methods inherited from
+<a class="reference internal" href="#xsge_gui.Widget" title="xsge_gui.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Widget</span></code></a>, the following event methods are also
+available:</p>
+<dl class="method">
+<dt id="xsge_gui.Button.event_press">
+<code class="descclassname">Button.</code><code class="descname">event_press</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.Button.event_press" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when this button is clicked on, or when the Enter key is
+pressed while this button is selected.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="xsge-gui-checkbox">
+<h3><a class="toc-backref" href="#id25">xsge_gui.CheckBox</a><a class="headerlink" href="#xsge-gui-checkbox" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.CheckBox">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">CheckBox</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>enabled=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.CheckBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>This widget can be toggled &quot;on&quot; or &quot;off&quot; by clicking on it.</p>
+<dl class="attribute">
+<dt id="xsge_gui.CheckBox.enabled">
+<code class="descname">enabled</code><a class="headerlink" href="#xsge_gui.CheckBox.enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not the checkbox is on.</p>
+</dd></dl>
+
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.Widget" title="xsge_gui.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Widget</span></code></a> for more
+information.</p>
+</dd></dl>
+
+<div class="section" id="xsge-gui-checkbox-event-methods">
+<h4><a class="toc-backref" href="#id26">xsge_gui.CheckBox Event Methods</a><a class="headerlink" href="#xsge-gui-checkbox-event-methods" title="Permalink to this headline">¶</a></h4>
+<p>In addition to the event methods inherited from
+<a class="reference internal" href="#xsge_gui.Widget" title="xsge_gui.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Widget</span></code></a>, the following event methods are also
+available:</p>
+<dl class="method">
+<dt id="xsge_gui.CheckBox.event_toggle">
+<code class="descclassname">CheckBox.</code><code class="descname">event_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.CheckBox.event_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the state of the checkbox is toggled by the user.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="xsge-gui-radiobutton">
+<h3><a class="toc-backref" href="#id27">xsge_gui.RadioButton</a><a class="headerlink" href="#xsge-gui-radiobutton" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.RadioButton">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">RadioButton</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>enabled=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.RadioButton" title="Permalink to this definition">¶</a></dt>
+<dd><p>This widget is mostly like <a class="reference internal" href="#xsge_gui.CheckBox" title="xsge_gui.CheckBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.CheckBox</span></code></a>, but clicking
+on it while it is on will not turn it off, and only one radio button
+can be on at any given time (i.e. enabling one radio button on a
+window will disable all others on the same window).</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.CheckBox" title="xsge_gui.CheckBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.CheckBox</span></code></a> for more
+information.</p>
+</dd></dl>
+
+<div class="section" id="xsge-gui-radiobutton-event-methods">
+<h4><a class="toc-backref" href="#id28">xsge_gui.RadioButton Event Methods</a><a class="headerlink" href="#xsge-gui-radiobutton-event-methods" title="Permalink to this headline">¶</a></h4>
+<p>In addition to the event methods inherited from
+<a class="reference internal" href="#xsge_gui.Widget" title="xsge_gui.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Widget</span></code></a>, the following event methods are also
+available:</p>
+<dl class="method">
+<dt id="xsge_gui.RadioButton.event_toggle">
+<code class="descclassname">RadioButton.</code><code class="descname">event_toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.RadioButton.event_toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the state of the radiobutton is toggled by the user.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="xsge-gui-progressbar">
+<h3><a class="toc-backref" href="#id29">xsge_gui.ProgressBar</a><a class="headerlink" href="#xsge-gui-progressbar" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.ProgressBar">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">ProgressBar</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>width=128</em>, <em>progress=0</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.ProgressBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>This widget displays a bar which can be used to show progress (e.g.
+of some task being done).</p>
+<dl class="attribute">
+<dt id="xsge_gui.ProgressBar.width">
+<code class="descname">width</code><a class="headerlink" href="#xsge_gui.ProgressBar.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the progress bar.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.ProgressBar.progress">
+<code class="descname">progress</code><a class="headerlink" href="#xsge_gui.ProgressBar.progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>The progress indicated by the progress bar as a factor (i.e.
+<code class="docutils literal notranslate"><span class="pre">0</span></code> is no completion, <code class="docutils literal notranslate"><span class="pre">1</span></code> is full completion, and <code class="docutils literal notranslate"><span class="pre">0.5</span></code> is
+half completion).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="xsge-gui-textbox">
+<h3><a class="toc-backref" href="#id30">xsge_gui.TextBox</a><a class="headerlink" href="#xsge-gui-textbox" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.TextBox">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">TextBox</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>width=32</em>, <em>text=''</em>, <em>text_limit=1000</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.TextBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>This widget provides a place for the user to enter text.</p>
+<dl class="attribute">
+<dt id="xsge_gui.TextBox.width">
+<code class="descname">width</code><a class="headerlink" href="#xsge_gui.TextBox.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the text box.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.TextBox.text">
+<code class="descname">text</code><a class="headerlink" href="#xsge_gui.TextBox.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>The text in the text box.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.TextBox.text_limit">
+<code class="descname">text_limit</code><a class="headerlink" href="#xsge_gui.TextBox.text_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of characters allowed in the text box.</p>
+</dd></dl>
+
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.Widget" title="xsge_gui.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Widget</span></code></a> for more
+information.</p>
+</dd></dl>
+
+<div class="section" id="xsge-gui-textbox-event-methods">
+<h4><a class="toc-backref" href="#id31">xsge_gui.TextBox Event Methods</a><a class="headerlink" href="#xsge-gui-textbox-event-methods" title="Permalink to this headline">¶</a></h4>
+<p>In addition to the event methods inherited from
+<a class="reference internal" href="#xsge_gui.Widget" title="xsge_gui.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Widget</span></code></a>, the following event methods are also
+available:</p>
+<dl class="method">
+<dt id="xsge_gui.TextBox.event_change_text">
+<code class="descclassname">TextBox.</code><code class="descname">event_change_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.TextBox.event_change_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change text event.</p>
+<p>Called when the user changes the text in the textbox.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="xsge-gui-menuitem">
+<h3><a class="toc-backref" href="#id32">xsge_gui.MenuItem</a><a class="headerlink" href="#xsge-gui-menuitem" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xsge_gui.MenuItem">
+<em class="property">class </em><code class="descclassname">xsge_gui.</code><code class="descname">MenuItem</code><span class="sig-paren">(</span><em>parent</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>sprite_normal=None</em>, <em>sprite_selected=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.MenuItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>This widget has two sprites: one for when it is selected, and one
+for when it is unselected.  Meant to be used with
+<a class="reference internal" href="#xsge_gui.MenuWindow" title="xsge_gui.MenuWindow"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.MenuWindow</span></code></a> or <a class="reference internal" href="#xsge_gui.MenuDialog" title="xsge_gui.MenuDialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.MenuDialog</span></code></a>.</p>
+<dl class="attribute">
+<dt id="xsge_gui.MenuItem.sprite_normal">
+<code class="descname">sprite_normal</code><a class="headerlink" href="#xsge_gui.MenuItem.sprite_normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sprite to use as <code class="xref py py-attr docutils literal notranslate"><span class="pre">sprite</span></code> when this widget is
+unselected.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xsge_gui.MenuItem.sprite_selected">
+<code class="descname">sprite_selected</code><a class="headerlink" href="#xsge_gui.MenuItem.sprite_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sprite to use as <code class="xref py py-attr docutils literal notranslate"><span class="pre">sprite</span></code> when this widget is selected.</p>
+</dd></dl>
+
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.Widget" title="xsge_gui.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.Widget</span></code></a> for more
+information.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="xsge-gui-functions">
+<h2><a class="toc-backref" href="#id33">xsge_gui Functions</a><a class="headerlink" href="#xsge-gui-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="xsge_gui.init">
+<code class="descclassname">xsge_gui.</code><code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare this module for use.  This function in particular creates
+the sprites and fonts it uses for windows and widgets.  Because of
+this, it must not be called until after a <code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Game</span></code>
+object has been created.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xsge_gui.show_message">
+<code class="descclassname">xsge_gui.</code><code class="descname">show_message</code><span class="sig-paren">(</span><em>parent=None</em>, <em>message=''</em>, <em>title='Message'</em>, <em>buttons=('Ok'</em>, <em>)</em>, <em>default=-1</em>, <em>width=320</em>, <em>height=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.show_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a message and return the button pressed.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">parent</span></code> -- The parent handler of the
+<a class="reference internal" href="#xsge_gui.MessageDialog" title="xsge_gui.MessageDialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.MessageDialog</span></code></a> object created.  Set to
+<code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> to create a new handler and then destroy it after
+the dialog is shown.</li>
+<li><code class="docutils literal notranslate"><span class="pre">message</span></code> -- The message shown to the user.</li>
+<li><code class="docutils literal notranslate"><span class="pre">title</span></code> -- The window title of the
+<a class="reference internal" href="#xsge_gui.MessageDialog" title="xsge_gui.MessageDialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.MessageDialog</span></code></a> object created.</li>
+<li><code class="docutils literal notranslate"><span class="pre">buttons</span></code> -- A list of strings to put inside the buttons, from
+left to right.</li>
+<li><code class="docutils literal notranslate"><span class="pre">default</span></code> -- The index of the default button selected by the
+keyboard (i.e. the default choice).</li>
+<li><code class="docutils literal notranslate"><span class="pre">width</span></code> -- The width of the <a class="reference internal" href="#xsge_gui.MessageDialog" title="xsge_gui.MessageDialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.MessageDialog</span></code></a>
+object created.</li>
+<li><code class="docutils literal notranslate"><span class="pre">height</span></code> -- The height of the <a class="reference internal" href="#xsge_gui.MessageDialog" title="xsge_gui.MessageDialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.MessageDialog</span></code></a>
+object created.  If set to <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>, set the height
+automatically based on the space needed for the text.</li>
+</ul>
+<p>Value returned is the index of the button pressed, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is
+the leftmost button, or <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> if no button was pressed (i.e.
+the close button on the window frame was pressed instead).</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.MessageDialog" title="xsge_gui.MessageDialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.MessageDialog</span></code></a> for more
+information.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xsge_gui.get_text_entry">
+<code class="descclassname">xsge_gui.</code><code class="descname">get_text_entry</code><span class="sig-paren">(</span><em>parent=None</em>, <em>message=''</em>, <em>title='Text Entry'</em>, <em>text=''</em>, <em>width=320</em>, <em>height=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.get_text_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return text entered by the user.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">parent</span></code> -- The parent handler of the
+<a class="reference internal" href="#xsge_gui.MessageDialog" title="xsge_gui.MessageDialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.MessageDialog</span></code></a> object created.  Set to
+<code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> to create a new handler and then destroy it after
+the dialog is shown.</li>
+<li><code class="docutils literal notranslate"><span class="pre">message</span></code> -- The message shown to the user.</li>
+<li><code class="docutils literal notranslate"><span class="pre">title</span></code> -- The window title of the
+<a class="reference internal" href="#xsge_gui.TextEntryDialog" title="xsge_gui.TextEntryDialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.TextEntryDialog</span></code></a> object created.</li>
+<li><code class="docutils literal notranslate"><span class="pre">text</span></code> -- The text in the text box by default.</li>
+<li><code class="docutils literal notranslate"><span class="pre">width</span></code> -- The width of the <a class="reference internal" href="#xsge_gui.TextEntryDialog" title="xsge_gui.TextEntryDialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.TextEntryDialog</span></code></a>
+object created.</li>
+<li><code class="docutils literal notranslate"><span class="pre">height</span></code> -- The height of the <a class="reference internal" href="#xsge_gui.TextEntryDialog" title="xsge_gui.TextEntryDialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.TextEntryDialog</span></code></a>
+object created.  If set to <code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code>, set the height
+automatically based on the space needed for the text.</li>
+</ul>
+<p>Value returned is the text entered if the &quot;Ok&quot; button is pressed, or
+<code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> otherwise.</p>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.TextEntryDialog" title="xsge_gui.TextEntryDialog"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.TextEntryDialog</span></code></a> for more
+information.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xsge_gui.get_menu_selection">
+<code class="descclassname">xsge_gui.</code><code class="descname">get_menu_selection</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>items</em>, <em>parent=None</em>, <em>default=0</em>, <em>font_normal=None</em>, <em>color_normal=None</em>, <em>font_selected=None</em>, <em>color_selected=None</em>, <em>background_color=sge.gfx.Color(&quot;#00000000&quot;)</em>, <em>height=None</em>, <em>margin=0</em>, <em>halign='left'</em>, <em>valign='top'</em>, <em>outline_normal=None</em>, <em>outline_selected=None</em>, <em>outline_thickness_normal=0</em>, <em>outline_thickness_selected=0</em>, <em>selection_prefix=''</em>, <em>selection_suffix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#xsge_gui.get_menu_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a menu and return the index of the menu item selected.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">parent</span></code> -- The parent handler of the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.TextMenuDialog</span></code> object created.  Set to
+<code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code> to create a new handler and then destroy it after
+the dialog is shown.</li>
+<li><code class="docutils literal notranslate"><span class="pre">default</span></code> -- The index of the item to select by default.</li>
+</ul>
+<p>See the documentation for <a class="reference internal" href="#xsge_gui.MenuWindow.from_text" title="xsge_gui.MenuWindow.from_text"><code class="xref py py-class docutils literal notranslate"><span class="pre">xsge_gui.MenuWindow.from_text</span></code></a> for
+more information.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/xsge_logo_alpha_black.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="#">xSGE GUI Toolkit</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
