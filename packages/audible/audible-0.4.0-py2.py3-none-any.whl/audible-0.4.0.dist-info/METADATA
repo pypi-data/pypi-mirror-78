@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: audible
+Version: 0.4.0
+Summary: A(Sync) Interface for internal Audible API written in 
+Home-page: https://github.com/mkb79/audible
+Author: mkb79
+Author-email: mkb79@hackitall.de
+License: AGPL
+Project-URL: Documentation, https://audible.readthedocs.io/
+Project-URL: Source, https://github.com/mkb79/Audible
+Keywords: Audible,API,async
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: beautifulsoup4
+Requires-Dist: httpcore
+Requires-Dist: httpx (==0.13.*)
+Requires-Dist: pbkdf2
+Requires-Dist: Pillow
+Requires-Dist: pyaes
+Requires-Dist: rsa
+
+# Audible
+
+[![image](https://img.shields.io/pypi/v/audible.svg)](https://pypi.org/project/audible/)
+[![image](https://img.shields.io/pypi/l/audible.svg)](https://pypi.org/project/audible/)
+[![image](https://img.shields.io/pypi/pyversions/audible.svg)](https://pypi.org/project/audible/)
+[![image](https://img.shields.io/pypi/status/audible.svg)](https://pypi.org/project/audible/)
+[![image](https://img.shields.io/pypi/wheel/audible.svg)](https://pypi.org/project/audible/)
+[![Travis](https://img.shields.io/travis/mkb79/audible/master.svg?logo=travis)](https://travis-ci.org/mkb79/audible)
+[![CodeFactor](https://www.codefactor.io/repository/github/mkb79/audible/badge)](https://www.codefactor.io/repository/github/mkb79/audible)
+[![image](https://img.shields.io/pypi/dm/audible.svg)](https://pypi.org/project/audible/)
+
+**Sync/Async Interface for internal Audible API written in pure Python.**
+
+Code and README are forked from omarroth‘s fantastic [audible.cr](https://github.com/omarroth/audible.cr) API written in crystal.
+The whole code is written with Pythonista for iOS.
+
+For a command line interface take a look on my [audible-cli](https://github.com/mkb79/audible-cli) package.
+
+## Requirements
+
+- Python >= 3.6
+- depends on following packages:
+	- beautifulsoup4
+	- httpx
+	- pbkdf2
+	- Pillow
+	- pyaes
+	- rsa
+	- httpcore
+
+## Installation
+
+`pip install audible`
+
+## Read the Doc
+
+The documentation can be found at [Read the Docs](https://audible.readthedocs.io/en/latest)
+
+
