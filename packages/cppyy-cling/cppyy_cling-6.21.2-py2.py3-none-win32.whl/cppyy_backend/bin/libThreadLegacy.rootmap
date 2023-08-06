@@ -1,0 +1,28 @@
+{ decls }
+namespace CppyyLegacy {  }
+
+[ libThreadLegacy.dll ]
+# List of selected classes
+class CppyyLegacy::TCondition
+class CppyyLegacy::TConditionImp
+class CppyyLegacy::TMutex
+class CppyyLegacy::TMutexImp
+class CppyyLegacy::TSpinMutex
+class CppyyLegacy::TThread
+class CppyyLegacy::TThreadFactory
+class CppyyLegacy::TThreadImp
+class CppyyLegacy::TWin32Condition
+class CppyyLegacy::TWin32Mutex
+class CppyyLegacy::TWin32Thread
+class CppyyLegacy::TWin32ThreadFactory
+header TCondition.h
+header TConditionImp.h
+header TMutex.h
+header TMutexImp.h
+header TThread.h
+header TThreadFactory.h
+header TThreadImp.h
+header TWin32Condition.h
+header TWin32Mutex.h
+header TWin32Thread.h
+header TWin32ThreadFactory.h
