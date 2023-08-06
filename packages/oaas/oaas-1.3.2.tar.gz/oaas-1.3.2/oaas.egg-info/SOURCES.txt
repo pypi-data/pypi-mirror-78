@@ -1,0 +1,17 @@
+README.rst
+setup.cfg
+setup.py
+oaas/__init__.py
+oaas/_registrations.py
+oaas/client_definition.py
+oaas/client_provider.py
+oaas/py.typed
+oaas/server_provider.py
+oaas/service_definition.py
+oaas.egg-info/PKG-INFO
+oaas.egg-info/SOURCES.txt
+oaas.egg-info/dependency_links.txt
+oaas.egg-info/top_level.txt
+test/__init__.py
+test/local_serialization_provider.py
+test/test_registrations.py
