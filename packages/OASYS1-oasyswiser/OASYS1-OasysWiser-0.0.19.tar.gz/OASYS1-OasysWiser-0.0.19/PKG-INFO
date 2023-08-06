@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: OASYS1-OasysWiser
+Version: 0.0.19
+Summary: Wiser in Python
+Home-page: https://github.com/oasys-elettra-kit/OasysWiser
+Author: Michele Manfredda, Lorenzo Raimondi, Luca Rebuffi, Aljosa Hafner
+Author-email: michele.manfredda@elettra.eu
+License: GPLv3
+Download-URL: https://github.com/oasys-elettra-kit/OasysWiser
+Description: Wiser for OASYS
+        
+        OasysWiser is the GUI part of Wiser in Oasys. It is a reboot of OASYS1-WISE2.
+        
+        Hierarchy:
+        * LibWiser - Python implementation of WISE (numerical integration using Huygens integral)
+        * WofryWiser - intermediate layer, taking care of compatibility with the rest of Oasys packages
+        * OasysWiser - GUI part, calling WofryWiser intermediate routines
+        
+        Work in progress
+        
+        * Everything
+        
+        Installing
+        
+        OasysWiser will be pip installable (https://pip.pypa.io/) by:
+        
+            pip install oasyswiser
+        
+        to install it.
+        
+        
+Keywords: waveoptics,simulator,oasys1
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Environment :: Console
+Classifier: Environment :: Plugins
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Science/Research
+Description-Content-Type: text/markdown
