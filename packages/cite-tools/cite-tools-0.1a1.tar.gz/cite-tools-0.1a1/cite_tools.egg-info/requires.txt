@@ -1,0 +1,7 @@
+lxml<5,>=4.5.2
+
+[dev]
+black==19.10b0
+flake8<4,>=3.7
+flake8-quotes<3,>=2.1.1
+isort<5,>=4.3.21
