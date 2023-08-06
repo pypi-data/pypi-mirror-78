@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+basemodels/__init__.py
+basemodels/via.py
+basemodels/manifest/__init__.py
+basemodels/manifest/manifest.py
+basemodels/manifest/data/__init__.py
+basemodels/manifest/data/groundtruth.py
+basemodels/manifest/data/taskdata.py
+hmt_basemodels.egg-info/PKG-INFO
+hmt_basemodels.egg-info/SOURCES.txt
+hmt_basemodels.egg-info/dependency_links.txt
+hmt_basemodels.egg-info/requires.txt
+hmt_basemodels.egg-info/top_level.txt
+hmt_basemodels.egg-info/zip-safe
