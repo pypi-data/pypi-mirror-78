@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "gapo-feed-utilities"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <nguyentrongphan@gapo.com.vn>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+logzero = "^1.5.0"
+pydantic = "^1.6.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.scripts]
+poetry = 'poetry.console:run'
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.masonry.api"
