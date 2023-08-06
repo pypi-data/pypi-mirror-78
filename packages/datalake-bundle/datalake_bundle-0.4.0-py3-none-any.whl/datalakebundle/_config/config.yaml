@@ -1,0 +1,54 @@
+parameters:
+  datalakebundle:
+    table:
+      nameTemplate: '%kernel.environment%_{identifier}'
+    tables:
+
+services:
+  datalakebundle.hdfs.HdfsDelete:
+
+  datalakebundle.hdfs.HdfsExists:
+
+  datalakebundle.table.config.TablesConfigManager:
+    arguments:
+      - '%datalakebundle.tables%'
+
+  datalakebundle.table.schema.SchemaGetter:
+
+  datalakebundle.table.MissingTablesCreatorCommand:
+    arguments:
+      - '@consolebundle.logger'
+    tags:
+      - 'console.command'
+
+  datalakebundle.table.TableCreator:
+
+  datalakebundle.table.TableCreatorCommand:
+    arguments:
+      - '@consolebundle.logger'
+    tags:
+      - 'console.command'
+
+  datalakebundle.table.TableDeleterCommand:
+    arguments:
+      - '@consolebundle.logger'
+    tags:
+      - 'console.command'
+
+  datalakebundle.table.TableExistenceChecker:
+
+  datalakebundle.table.TableNames:
+    arguments:
+      - '%datalakebundle.table.nameTemplate%'
+
+  datalakebundle.table.TablesOptimizerCommand:
+    arguments:
+      - '@consolebundle.logger'
+    tags:
+      - 'console.command'
+
+  datalakebundle.table.TableWriter:
+    arguments:
+      - '@consolebundle.logger'
+
+  datalakebundle.table.identifier.IdentifierParser:

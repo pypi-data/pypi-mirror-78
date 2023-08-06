@@ -1,0 +1,22 @@
+parameters:
+  datalake:
+    basePath: '/foo/bar'
+
+  datalakebundle:
+    table:
+      nameTemplate: '%kernel.environment%_{identifier}'
+      defaults:
+        encrypted: !expr 'dbIdentifier[-1:] == "e"'
+        dbIdentifierBase: !expr 'dbIdentifier[:dbIdentifier.find("_")]'
+        targetPath:
+          resolverClass: 'datalakebundle.test.TargetPathResolver'
+          resolverArguments:
+            - '%datalake.basePath%'
+
+    tables:
+      mydatabase_e.my_table:
+        schemaPath: 'datalakebundle.test.TestSchema'
+
+      mydatabase_p.another_table:
+        schemaPath: 'datalakebundle.test.AnotherSchema'
+        partitionBy: ['date']
