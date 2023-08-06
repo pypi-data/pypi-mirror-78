@@ -1,0 +1,4 @@
+[keystoneauth1.plugin]
+v3oidc = keystoneauth_oidc.loading:OpenIDConnect
+v3oidccode = keystoneauth_oidc.loading:OpenIDConnectAuthorizationCode
+
