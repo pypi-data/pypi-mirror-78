@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: axis
+Version: 35
+Summary: A Python library for communicating with devices from Axis Communications
+Home-page: https://github.com/Kane610/axis
+Author: Robert Svensson
+Author-email: Kane610@users.noreply.github.com
+License: MIT
+Download-URL: https://github.com/Kane610/axis/archive/v35.tar.gz
+Keywords: axis,vapix,onvif,event stream,homeassistant
+Platform: UNKNOWN
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: attrs
+Requires-Dist: requests
+Requires-Dist: xmltodict
+
+UNKNOWN
+
+
