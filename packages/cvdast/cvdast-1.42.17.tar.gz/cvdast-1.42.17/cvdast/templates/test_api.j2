@@ -1,0 +1,99 @@
+import requests
+import json
+import os
+from jinja2 import Template
+import pytest
+import assertions
+import curlify
+#HOST_URL = {{ host_url }}
+extra_vars = {}
+
+def get_extra_vars(*args):
+    uid = []
+    for each in args:
+        uid.append(id(each))
+    custom_response = extra_vars.get(uid[0],{}).get("custom_response")
+    test_id = extra_vars.get(uid[0],{}).get("test_id")
+    print(custom_response, test_id)
+    return custom_response, test_id
+
+def _create_curl_request(url,method,headers,payloads):
+    # construct the curl command from request
+    command = "curl -v -H {headers} {data} -X {method} {uri}"
+    data = ""
+    if payloads:
+        payloads = json.loads(payloads)
+        payload_list = ['"{0}":"{1}"'.format(k,v) for k,v in payloads.items()]
+        data = " -d '{" + ", ".join(payload_list) + "}'"
+    header_list = ['"{0}: {1}"'.format(k, v) for k, v in headers.items()]
+    header = " -H ".join(header_list)
+    return command.format(method=method, headers=header, data=data, uri=url)
+
+def _trigger_requests(req_method, url, header, data, proxies=None):
+    print("\n\nRegenerating traffic from CloudVector events....")
+    return requests.request(method=req_method, url=url, proxies=proxies, headers=header, data=data, verify=False)
+
+{% set api_name = api_name | replace("{","") | replace("}","") %}
+{% for method, api_info in apis_metadata.items() %}
+def test_{{ method | lower }}_{{ api_name | lower | replace("-","9i9")}}({{ api_info.get("params",[])|join(", ") }}, update_headers):
+    data = {}
+    {% for param in api_info.get("params",[]) %}{% if (param not in ('host', 'access_token','url_prefix')) %}data["{{ param }}"] = {{ param }}{% endif %}
+    {% endfor %}
+    req = {
+             "data": data,
+             "headers": {{ api_info.get("header") }}
+          }
+    req["headers"] = update_headers(headers=req["headers"], api="{{ api_info.get("url") }}", method="{{ method }}")
+    if "Authorization" in req["headers"] and req["headers"]["Authorization"] is None:
+        req["headers"]["Authorization"] = os.environ.get("CVDAST_ACCESS_TOKEN")
+    if access_token:
+        req["headers"]["Authorization"] = access_token
+    print("for debugging:"+str(req))
+    url = Template(host+url_prefix+"{{ api_info.get("url") | replace("//","/")}}").render(**data)
+    resp = _trigger_requests("{{ method }}", url,
+                      header=req["headers"],
+                      data=json.dumps(data))
+    print(resp.status_code)
+    print(resp.text)
+    print("\n---------------------------------\n")
+    print("CURL command to retry: \n"+str(_create_curl_request(resp.request.url,resp.request.method,resp.request.headers,resp.request.body)))
+    print("\n---------------------------------\n")
+    assertions.assert_for_{{ api_name | lower | replace("-","9i9")}}(req,resp)
+{% endfor %}
+
+{% if STATUS_CODES %}
+{% set api_name = api_name | replace("{","") | replace("}","") %}
+{% for method, api_info in apis_metadata.items() %}
+{% for status_code in STATUS_CODES.get(method) %}
+{% if status_code not in [ "200", "201"] %}
+def test_{{ method | lower }}_{{ api_name | lower | replace("-","9i9") }}_for_{{ status_code }}_code({{ api_info.get("params",[])|join(", ") }}, update_headers):
+    data = {}
+    {% for param in api_info.get("params",[]) %}{% if (param not in ('host', 'access_token','url_prefix')) %}data["{{ param }}"] = {{ param }}{% endif %}
+    {% endfor %}
+    req = {
+             "data": data,
+             "headers": {{ api_info.get("header") }}
+          }
+    if "Authorization" in req["headers"] and req["headers"]["Authorization"] is None:
+        req["headers"]["Authorization"] = os.environ.get("CVDAST_ACCESS_TOKEN")
+    if access_token:
+        req["headers"]["Authorization"] = access_token
+    req["headers"] = update_headers(headers=req["headers"], api="{{ api_info.get("url").split("?")[0] }}", status_code="{{ status_code }}", method="{{ method }}")
+    print("for debugging:"+str(req))
+    url = Template(host+url_prefix+"{{ api_info.get("url") | replace("//","/") }}").render(**data)
+    resp = _trigger_requests("{{ method }}", url,
+                      header=req["headers"],
+                      data=json.dumps(data))
+    print(resp.status_code)
+    print(resp.text)
+    print("\n---------------------------------\n")
+    print("CURL command to retry: \n"+str(_create_curl_request(resp.request.url,resp.request.method,resp.request.headers,resp.request.body)))
+    print("\n---------------------------------\n")
+    assertions.assert_for_respcodes(req, resp, {{ status_code }}, None)
+    custom_response, test_id = get_extra_vars({{ api_info.get("params",[]) | join(", ") }})
+    if custom_response:
+        assertions.assert_for_custom_response(req, resp, custom_response)
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}
