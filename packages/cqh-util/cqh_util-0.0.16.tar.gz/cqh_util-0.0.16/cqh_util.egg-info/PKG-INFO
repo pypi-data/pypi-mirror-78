@@ -1,0 +1,64 @@
+Metadata-Version: 1.2
+Name: cqh-util
+Version: 0.0.16
+Summary: cqh utils function
+Home-page: https://github.com/chen19901225/cqh_util
+Author: chenqinghe
+Author-email: 1832866299@qq.com
+License: UNKNOWN
+Description: cqh_util
+        ==============================================================
+        
+        
+        一些util
+        --------------------------------------------------------------
+        
+        
+        
+        主要
+        
+        * invoke_util
+        
+            invoke 脚本用到的一些东西
+        
+        * mixin
+        
+            AsssertMixin 用于单元测试
+        
+        * ansible_util
+        
+            一些ansible相关的东西
+        
+        * jinaj2_util
+        
+            jinja2的MemoryCache
+        
+        changes
+        ---------------------------------------------------------
+        
+        0.0.7
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        
+        * 添加mod_util
+        
+        0.0.8
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        
+        * 添加 common_util
+        
+        
+        0.0.15
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        
+        * 添加jinaj2_util
+        
+        
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Requires-Python: >=3.6
