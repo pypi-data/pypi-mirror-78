@@ -1,0 +1,12 @@
+Flask
+spacy
+editdistance
+pytest
+torch
+transformers
+
+# Required for Japanese Language
+mecab-python3==0.996.5
+ipadic==1.0.0
+unidic-lite==1.0.6
+
