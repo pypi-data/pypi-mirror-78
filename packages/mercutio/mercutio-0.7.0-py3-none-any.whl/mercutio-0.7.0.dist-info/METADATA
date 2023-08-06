@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: mercutio
+Version: 0.7.0
+Summary: yet another character creation engine
+Home-page: https://github.com/signebedi/mercutio
+Author: Sig Janoska-Bedi
+Author-email: signe@siftingwinnowing.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: attrs (==20.1.0)
+Requires-Dist: iniconfig (==1.0.1)
+Requires-Dist: more-itertools (==8.4.0)
+Requires-Dist: numpy (==1.19.1)
+Requires-Dist: packaging (==20.4)
+Requires-Dist: pandas (==1.1.1)
+Requires-Dist: pluggy (==0.13.1)
+Requires-Dist: py (==1.9.0)
+Requires-Dist: pyparsing (==2.4.7)
+Requires-Dist: pytest (==6.0.1)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: pytz (==2020.1)
+Requires-Dist: six (==1.15.0)
+Requires-Dist: toml (==0.10.1)
+
+![cropped dragon gif](docs/cropped.gif)
+
+# mercutio
+
+[![Build Status](https://travis-ci.org/signebedi/mercutio.svg?branch=master)](https://travis-ci.org/signebedi/mercutio)
+[![Inline docs](https://readthedocs.org/projects/pip/badge/?version=latest&style=flat)](https://mercutio.readthedocs.io/en/latest/)
+[![PyPI](https://img.shields.io/pypi/v/mercutio?color=%230080)](https://pypi.org/project/mercutio/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?color=%230080)](LICENSE)
+[![Requirements Status](https://requires.io/github/signebedi/mercutio/requirements.svg?branch=master&style=flat)](https://requires.io/github/signebedi/mercutio/requirements/?branch=master)
+
+yet another character creation engine
+
+Read the docs at [mercutio.readthedocs.io/en/latest/](https://mercutio.readthedocs.io/en/latest/).
+
+---
+Copyright (c) 2020 Signe Janoska-Bedi
+
+
