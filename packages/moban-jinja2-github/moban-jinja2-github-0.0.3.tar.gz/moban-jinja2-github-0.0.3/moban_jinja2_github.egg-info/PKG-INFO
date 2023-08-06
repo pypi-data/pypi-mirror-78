@@ -1,0 +1,146 @@
+Metadata-Version: 1.1
+Name: moban-jinja2-github
+Version: 0.0.3
+Summary: Github specific filters, tests and globals
+Home-page: https://github.com/moremoban/moban-jinja2-github
+Author: chfw
+Author-email: info@moremoban.org
+License: newbsd
+Download-URL: https://github.com/moremoban/moban-jinja2-github/archive/0.0.3.tar.gz
+Description: ================================================================================
+        moban-jinja2-github
+        ================================================================================
+        
+        .. image:: https://api.travis-ci.org/moremoban/moban-jinja2-github.svg
+           :target: http://travis-ci.org/moremoban/moban-jinja2-github
+        
+        .. image:: https://codecov.io/github/moremoban/moban-jinja2-github/coverage.png
+           :target: https://codecov.io/github/moremoban/moban-jinja2-github
+        .. image:: https://badge.fury.io/py/moban-jinja2-github.svg
+           :target: https://pypi.org/project/moban-jinja2-github
+        
+        .. image:: https://pepy.tech/badge/moban-jinja2-github/month
+           :target: https://pepy.tech/project/moban-jinja2-github/month
+        
+        .. image:: https://img.shields.io/github/stars/moremoban/moban-jinja2-github.svg?style=social&maxAge=3600&label=Star
+            :target: https://github.com/moremoban/moban-jinja2-github/stargazers
+        
+        .. image:: https://dev.azure.com/moremoban/moban-jinja2-github/_apis/build/status/moremoban.moban-jinja2-github?branchName=master
+           :target: https://dev.azure.com/moremoban/moban-jinja2-github/_build/latest?definitionId=2&branchName=master
+        
+        
+        Installation
+        ================================================================================
+        
+        
+        You can install moban-jinja2-github via pip:
+        
+        .. code-block:: bash
+        
+            $ pip install moban-jinja2-github
+        
+        
+        or clone it and install it:
+        
+        .. code-block:: bash
+        
+            $ git clone https://github.com/moremoban/moban-jinja2-github.git
+            $ cd moban-jinja2-github
+            $ python setup.py install
+        
+        Change log
+        ================================================================================
+        
+        0.0.3 - 02.09.2020
+        --------------------------------------------------------------------------------
+        
+        **added**
+        
+        #. moban.plugins.jinja2.filters.github is moved here
+        
+        0.0.2 - 28.08.2020
+        --------------------------------------------------------------------------------
+        
+        **first release**
+        
+        #. cope with new born project where github link is not ready. contributors list
+           will be empty.
+        
+        0.0.1 - 23.08.2020
+        --------------------------------------------------------------------------------
+        
+        **first release**
+        
+        #. first moban jinja2 globals
+        
+           * g
+           * e
+           * t
+           *  
+           * c
+           * o
+           * n
+           * t
+           * r
+           * i
+           * b
+           * u
+           * t
+           * o
+           * r
+           * s
+           * (
+           * m
+           * i
+           * n
+           * u
+           * s
+           *  
+           * a
+           * u
+           * t
+           * h
+           * o
+           * r
+           * )
+           *  
+           * f
+           * r
+           * o
+           * m
+           *  
+           * g
+           * i
+           * t
+           * h
+           * u
+           * b
+           * .
+           *  
+           * W
+           * h
+           * a
+           * t
+           *  
+           * a
+           *  
+           * f
+           * e
+           * a
+           * t
+           * !
+        
+        
+Keywords: python
+Platform: UNKNOWN
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
