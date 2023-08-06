@@ -1,0 +1,11 @@
+django
+python-gnupg
+
+[dev]
+check-manifest
+sphinx-me
+twine
+
+[test]
+coverage
+flake8
