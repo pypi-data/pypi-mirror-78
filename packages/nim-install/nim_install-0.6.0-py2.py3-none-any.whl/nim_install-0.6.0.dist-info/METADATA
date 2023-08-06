@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: nim-install
+Version: 0.6.0
+Summary: install nim compiler in Linux virtualenv assumes gcc
+Home-page: https://sourceforge.net/p/nim-install/code/ci/default/tree
+Author: Anthon van der Neut
+Author-email: a.van.der.neut@ruamel.eu
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Description-Content-Type: text/x-rst
+Requires-Dist: backports.lzma ; python_version<="3.3"
+
+
+This package can be used to install the nim compiler in a virtualenv::
+
+   virtualenv /your/venv
+   source /your/venv/bin/activate
+   pip install nim-install
+   nim_install
+   nim --version
+
+installs nim version 1.2.6, nimble, nimgrep and nimsuggest
+
+If you want to install a different version run e.g.:
+
+   nim_install 1.0.8
+
+The compilation of nim is executed in parallel. Total installation time is about
+40 seconds on my machine (including download time).
+
+
