@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: mkdocs-mermaid2-plugin
+Version: 0.4.2
+Summary: A MkDocs plugin for including mermaid graphs in markdown sources
+Home-page: https://github.com/fralau/mkdocs-mermaid2-plugin
+Author: pugong, Fralau
+Author-email: pugong.liu@gmail.com, fralau2035@yahoo.com
+License: MIT
+Keywords: mkdocs python markdown mermaid
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Requires-Dist: setuptools (>=18.5)
+Requires-Dist: beautifulsoup4 (>=4.6.3)
+Requires-Dist: mkdocs (>=1.0.4)
+Requires-Dist: jsbeautifier
+Requires-Dist: pyyaml
+Requires-Dist: mkdocs-material
+Requires-Dist: requests
+Requires-Dist: termcolor
+Requires-Dist: pymdown-extensions (>=8.0)
+
+A mkdocs plugin that interprets mermaid graphs in the markdown file.To install, please follow instructions in the readme file.This is a fork of the Pugong Liu's excellent project, which is no longer maintained.
+
+
