@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: pystapler
+Version: 1.0.2
+Summary: A Motif Hash Based Method for Matching Staples/Crosslinks into Peptides and Proteins
+Home-page: https://github.com/atom-moyer/stapler
+Author: Adam Moyer
+Author-email: atom.moyer@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: C++
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Description-Content-Type: text/markdown
+Requires-Dist: pyrosetta
+Requires-Dist: xbin
+Requires-Dist: numpy
+Requires-Dist: getpy
+
+# stapler
+A Motif Hash Based Method for Matching Crosslinkers into Peptides and Proteins for PyRosetta
+
+### Installation
+`pip install pystapler`
+
+### Example
+```python
+import pyrosetta
+pyrosetta.init()
+
+from pyrosetta.rosetta.core.select.residue_selector import TrueResidueSelector
+from pyrosetta.rosetta.core.select.residue_selector import ChainSelector
+
+from stapler import NativeDisulfideStapler
+
+default_residue_selectors = [TrueResidueSelector(), TrueResidueSelector()]
+ab_residue_selectors = [ChainSelector('A'), ChainSelector('B')]
+aa_or_ab_residue_selectors = [ChainSelector('A'), ChainSelector('A,B')]
+
+native_disulfide_stapler = NativeDisulfideStapler(
+    residue_selectors=default_residue_selectors,
+    minimum_sequence_distance=4
+)
+
+pose = pyrosetta.pose_from_file('input.pdb')
+
+for i, stapled_pose in enumerate(native_disulfide_stapler.apply(pose)):
+    stapled_pose.dump_pdb(f'output_{i}.pdb')
+```
+
+![Protein/Disulfide Example Image](/image1.png)
+
+
