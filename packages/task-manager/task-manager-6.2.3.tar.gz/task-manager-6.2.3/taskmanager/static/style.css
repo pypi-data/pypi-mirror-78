@@ -1,0 +1,121 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+/* in bootstrap 4.x dl-horizontal is removed, this is a copy of the bootstrap css as a kind of backport */
+@media (min-width: 768px) {
+    .dl-horizontal dt {
+      float: left;
+      width: 160px;
+      clear: left;
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .dl-horizontal dd {
+      margin-left: 180px;
+    }
+  }
+
+.dl-horizontal dd:before,
+.dl-horizontal dd:after {
+  display: table;
+  content: " ";
+}
+
+.dl-horizontal dd:after {
+    clear: both;
+}
+/* end of the dl-horizontal fix */
+
+/* place the anchor just above the element you want to link to */
+.anchor {
+    position: relative;
+    top: -50px;
+}
+
+h1 {
+    margin-top: 35px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-header .fa {
+  transition: .3s transform ease-in-out;
+}
+.card-header .collapsed .fa {
+  transform: rotate(90deg);
+}
+
+
+.toollist { display: table; }
+.toollistrow { display: table-row; }
+.tool {
+    display: table-cell;
+    border-width: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+
+.filler {
+    min-height: 2000px;
+}
+
+.affix {
+    top: 50px;
+    width: 100%;
+    background-color: white;
+}
+
+#nav-lower {
+    padding-top: 0;
+}
+#nav-lower > h1 {
+    margin-top: 0;
+}
+
+.panel-heading a:after {
+    font-family:'Glyphicons Halflings';
+    content:"\e114";
+    float: right;
+    color: grey;
+}
+.panel-heading a.collapsed:after {
+    content:"\e080";
+}
+
+.login-form {
+    width: 340px;
+    margin: 50px auto;
+}
+.login-form form {
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.login-form h2 {
+    margin: 0 0 15px;
+}
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.btn {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,.7);
+}
+
+.navbar {
+    background-color: #305eab;
+    background-image: linear-gradient(to bottom right, #7a9eda, #305eab 40%);
+}

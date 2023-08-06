@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% from "_macros.html" import collapse_card_start, collapse_card_end, card_link_by_title %}
+
+{% block content %}
+
+<h1>Group {{data.name}} </h1>
+{{ collapse_card_start("Group Information", show=True) }}
+      <dl class="dl-horizontal">
+        <dt>id</dt>
+        <dd>{{ data.id }}</dd>
+
+        <dt>groupname</dt>
+        <dd>{{ data.groupname }}</dd>
+
+        <dt>name</dt>
+        <dd>{{ data.name }}</dd>
+
+        <dt>create time</dt>
+        <dd>{{ data.create_time }}</dd>
+      </dl>
+{{ collapse_card_end("Group Information") }}
+
+{% if data.users %}
+{{ collapse_card_start("Group Members", show=True, data_count=data.users|length) }}
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th></th>
+          <th>name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in data.users|sort(attribute='id') %}
+        <tr>
+          <td>
+            {{user.id}}
+          </td>
+          <td>
+            <a href="{{url_for('web.user', id=user.id)}}">{{user.name}}</a>
+          </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{{ collapse_card_end("Group Members") }}
+{% endif %}
+
+{% if data.tasks %}
+{{ collapse_card_start("Tasks Assigned to Group", show=True, data_count=data.tasks|length) }}
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>status</th>
+          <th>lock</th>
+          <th>project</th>
+          <th>create time</th>
+          <th>update time</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for d in data.tasks|sort(attribute='id') %}
+        <tr>
+          <td>
+            <a href="{{url_for('web.task', id=d.id) }}">
+              {{d.id}}
+            </a>
+          </td>
+          <td>{{d.status}}</td>
+          <td>
+            {% if d.lock %}
+            <a href="{{url_for('web.user', id=d.lock.id)}}">{{d.lock.name}}</a>
+            {% endif %}
+          </td>
+          <td>{{d.project}}</td>
+          <td>{{d.create_time}}</td>
+          <td>{{d.update_time}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{{ collapse_card_end("Tasks Assigned to Group") }}
+{% endif %}
+
+{% endblock %}

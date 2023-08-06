@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% from "_macros.html" import collapse_card_start, collapse_card_end, card_link_by_title %}
+
+{% block content %}
+
+<h1>Group Overview</h1>
+{{ collapse_card_start("Groups", show=True, data_count=data|length) }}
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>groupname</th>
+          <th>name</th>
+          <th># of users</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for d in data %}
+        <tr>
+          <td>
+            <a href="{{url_for('web.group', id=d.id) }}">
+              {{d.id}}
+            </a>
+          </td>
+          <td>
+            <a href="{{url_for('web.group', id=d.id) }}">
+              {{d.groupname}}
+            </a>
+          </td>
+          <td>
+            <a href="{{url_for('web.group', id=d.id) }}">
+              {{d.name}}
+            </a>
+          </td>
+          <td>
+            {{ card_link_by_title(title="Group Members", prefix=url_for('web.group', id=d.id)) }}
+              <span class="badge badge-secondary">
+                {{d.users | length}}
+              </span>
+            </a>
+          </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{{ collapse_card_end("Groups") }}
+
+{% endblock %}

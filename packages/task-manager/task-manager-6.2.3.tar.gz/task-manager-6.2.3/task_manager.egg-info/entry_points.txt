@@ -1,0 +1,13 @@
+[console_scripts]
+taskmanager-add-task = taskmanager.__main__:add_task
+taskmanager-add-template = taskmanager.__main__:add_template
+taskmanager-add-user = taskmanager.__main__:add_user
+taskmanager-config = taskmanager.__main__:config_from_file
+taskmanager-db-clean = taskmanager.__main__:db_clean
+taskmanager-db-init = taskmanager.__main__:db_init
+taskmanager-db-reload = taskmanager.__main__:reload_data
+taskmanager-manager = taskmanager.__main__:flask_manager
+taskmanager-test-taskgroup = taskmanager.__main__:create_random_test_taskgroup
+taskmanager-test-tasks = taskmanager.__main__:create_random_test_tasks
+taskmanager-update-template = taskmanager.__main__:update_template
+

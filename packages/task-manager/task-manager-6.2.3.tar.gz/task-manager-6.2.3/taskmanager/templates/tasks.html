@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% from "_macros.html" import collapse_card_start, collapse_card_end %}
+
+{% block content %}
+
+
+<h1>Tasks Overview</h1>
+  {{ collapse_card_start("Tasks", show=True) }}
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>status</th>
+          <th>lock</th>
+          <th>project</th>
+          <th>application name</th>
+          <th>application version</th>
+          <th>template</th>
+          <th>create time</th>
+          <th>update time</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for d in data %}
+        <tr>
+          <td>
+            <a href="{{url_for('web.task', id=d.id) }}">
+              {{d.id}}
+            </a>
+          </td>
+          <td>{{d.status}}</td>
+          <td>
+              {% if d.lock %}
+                  <a href="{{url_for('web.user', id=d.lock.id)}}">{{d.lock.name}}</a>
+              {% endif %}
+          </td>
+          <td>{{d.project}}</td>
+          <td>{% if d.application_name %} {{d.application_name}} {% endif %}</td>
+          <td>{% if d.application_version %} {{d.application_version}} {% endif %}</td>
+          <td>
+            {% if d.template %}
+              <a href="{{ url_for('web.template', id=d.template.id) }}">{{d.template.label}}</a>
+            {% endif %}
+          </td>
+          <td>{{d.create_time}}</td>
+          <td>{{d.update_time}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+  {{ collapse_card_end("Tasks") }}
+
+{% endblock %}

@@ -1,0 +1,3 @@
+gunicorn==20.0.4
+gevent==20.5.0
+raven[flask]==6.10.0

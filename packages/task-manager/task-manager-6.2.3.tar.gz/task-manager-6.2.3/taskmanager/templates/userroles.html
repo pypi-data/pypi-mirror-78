@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% from "_macros.html" import collapse_card_start, collapse_card_end, card_link_by_title %}
+
+{% block content %}
+
+<script>
+  const url_base = "{{url_for('api_v1.userrole', user_id='USER_ID', role_id='ROLE_ID')}}";
+
+  function addRole(role, user) {
+    var url = url_base.replace('ROLE_ID', role).replace('USER_ID', user);
+    axios.put(url).then(function (response) {
+      console.log(response);
+      document.getElementById("user_role_" + role + "_" + user).innerHTML = "<button type=\"button\" class=\"btn btn-success\" onclick=\"removeRole('" + role + "', " + user + ")\">" + role + "</button>";
+    })
+    .catch(function (error) {
+      console.log(error);
+      document.getElementById("error-placeholder").innerHTML = "<div class=\"alert alert-danger\" role=\"alert\">\n" + error + "</div>";
+    });
+  }
+
+  function removeRole(role, user) {
+    var url = url_base.replace('ROLE_ID', role).replace('USER_ID', user);
+    axios.delete(url).then(function (response) {
+      console.log(response);
+      document.getElementById("user_role_" + role + "_" + user).innerHTML = "<button type=\"button\" class=\"btn btn-outline-danger\" onclick=\"addRole('" + role + "', " + user + ")\">" + role + "</button>";
+    })
+            .catch(function (error) {
+              console.log(error);
+              document.getElementById("error-placeholder").innerHTML = "<div class=\"alert alert-danger\" role=\"alert\">\n" + error + "</div>";
+            });
+  }
+</script>
+<ul class="nav nav-tabs justify-content-end">
+  {% if current_user.has_permission('user_read_all') %}
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('web.users') }}">User overview</a>
+  </li>
+  {% endif %}
+  <li class="nav-item">
+    <a class="nav-link active" href="#">User roles</a>
+  </li>
+</ul>
+
+<h1>User role management</h1>
+<div id="error-placeholder">
+</div>
+
+{{ collapse_card_start("user roles", show=True, data_count=data|length) }}
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>username</th>
+          <th>name</th>
+          <th>email</th>
+          {% for r in roles %}
+            <th>{{r.name}}</th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for d in data %}
+        <tr>
+          <td>
+            <a href="{{url_for('web.user', id=d.id) }}">
+              {{d.id}}
+            </a>
+          </td>
+          <td>
+            <a href="{{url_for('web.user', id=d.id) }}">
+              {{d.username}}
+            </a>
+          </td>
+          <td>
+            <a href="{{url_for('web.user', id=d.id) }}">
+              {{d.name}}
+            </a>
+          </td>
+          <td>
+            <a href="mailto:{{ d.email }}">
+              {{d.email}}
+            </a>
+          </td>
+          {% for r in roles %}
+          <td id="user_role_{{r.name}}_{{d.id}}" >
+            {% if r in d.roles %}
+              <button type="button" class="btn btn-success" onclick="removeRole('{{r.name}}', {{d.id}})">{{r.name}}</button>
+            {% else %}
+              <button type="button" class="btn btn-outline-danger" onclick="addRole('{{r.name}}', {{d.id}})">{{r.name}}</button>
+            {% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{{ collapse_card_end("Template Information") }}
+
+
+{% endblock %}

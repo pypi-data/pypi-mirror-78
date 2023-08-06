@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% from "_macros.html" import collapse_card_start, collapse_card_end, card_link_by_title %}
+{% block content %}
+
+
+<h1>Task Groups Overview</h1>
+{{ collapse_card_start("Task Groups", show=True, data_count=data|length) }}
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>label</th>
+          <th>status</th>
+          <th># of tasks</th>
+          <th># of queued tasks</th>
+          <th>callback called</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for d in data %}
+        <tr>
+          <td>
+            <a href="{{url_for('web.taskgroup', id=d.id) }}">
+              {{d.id}}
+            </a>
+          </td>
+          <td>{{d.label}}</td>
+          <td>{{d.status}}</td>
+          <td>
+            {{ card_link_by_title(title="Tasks", prefix=url_for('web.taskgroup', id=d.id))}}
+            <span class="badge badge-secondary">
+              {{d.tasks | length}}
+            </span>
+            </a>
+          </td>
+          <td>
+            {{ card_link_by_title(title="Tasks", prefix=url_for('web.taskgroup', id=d.id))}}
+            <span class="badge badge-secondary">
+              {{d.tasks | selectattr("status", "equalto", "queued") | list | length}}
+            </span>
+            </a>
+          </td>
+          <td>
+            <span class="badge badge-{{ 'success' if data.callback_fired else 'danger' }}">
+              {{d.callback_fired}}
+            </span>
+          </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{{ collapse_card_end("Task Groups") }}
+
+
+{% endblock %}

@@ -1,0 +1,136 @@
+Changelog
+=========
+
+All notable changes to this project will be documented in this file.
+
+The format is based on `Keep a Changelog <http://keepachangelog.com/>`_  
+and this project adheres to `Semantic Versioning <http://semver.org/>`_
+
+6.2.3 - 2020-09-04
+------------------
+
+Fixed
+~~~~~
+
+- Error of the template field in the task summary
+- Inconsistency of the url/uri field in the task summary
+
+Improved
+~~~~~~~~
+
+- The server-side task filtering has been improved
+
+6.2.2 - 2020-08-10
+------------------
+
+Fixed
+~~~~~
+
+- BIG-1137 Fixes locking problem for users with elevated rights
+
+
+
+6.2.1 - 2020-07-03
+------------------
+
+Fixed
+~~~~~
+
+- Fixes an issue in the task template concerning callback content.
+
+
+
+6.2.0 - 2020-07-02
+------------------
+
+Added
+~~~~~
+
+- Kubernetes manifests
+- Data migration scripts
+
+
+Changed
+~~~~~~~
+
+- JSON to YAML support for configurations, template and task content
+- The docker stuff organization
+- The docker container now runs gunicorn instead of the flask debug server
+
+
+6.1.0 - 2020-03-27
+------------------
+
+Added
+~~~~~
+
+- Diagram of database layout
+
+Changed
+~~~~~~~
+
+- Update requirements
+
+6.0.0 - 2020-01-27
+------------------
+
+Added
+~~~~~
+
+- Adds Role Based access and user management, please see the documentation.
+- Added support for python 3.6 or greater
+- Added health metric end-points
+- Added api versioning
+- Testing using pytest and tox
+- Migrations
+- Automatically generated docker images available on https://gitlab.com/radiology/infrastructure/task-manager/container_registry
+- CI on Gitlab
+
+
+Changed
+~~~~~
+
+- Refactored the api to make use of blueprints for versioning and portability
+- Refactored the config to make use of ``python-dotenv`` for configuration via ``.env`` files
+- Refactored the config to make use of environment variables prefixed with ``TASKMAN``, ``FLASK`` or ``SQLALCHEMY``
+- Refactored the app creation process by injecting the app into the extensions on create time instead of on import time.
+- Changed the way the app is loaded by making use of ``.env`` and ``.flaskenv`` files. Run the app from now on via ``flask run``.
+- jinja2_highlight is replaced by prism
+- Moved the repository to Gitlab
+
+
+Fixed
+~~~~~
+
+- Switched to using pymysql as mysql backed for sqlalchemy
+- Fixed bugs in task view template 
+
+
+Removed
+~~~~~
+
+- Removed support for python 3.5 or lesser.
+
+
+
+
+1.0.0 - 2018-10-24
+----------
+
+Added
+~~~~~
+
+- Web frontend
+- Swagger documentation for REST API 
+- Sentry.io support
+- Allow users to retrieve by username (the id has precedence, so if a user
+  with username 1 and id 1 exists, it will look up by id)
+
+Fixed
+~~~~~
+
+- Added Flask-Script to the requirements in order for the flask manager to work.
+- Fixed zero devision problem in task distribution by querying users who have an assignment_weight > 0.
+- Some urls returned from post requests were invalid
+
+

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+        <h1>Forbidden</h1>
+        <p>You don't have the permission to access the requested resource.
+            It is either read-protected or not readable by the server.</p>
+    </div>
+</div>
+
+<img src="{{ url_for('static', filename='img/benjamin_franklin.jpg') }}"
+     class="img-fluid"
+     alt="Benjamin Franklin">
+<blockquote class="blockquote text-right">
+    <p class="mb-0">“Vicious actions are not hurtful because they are forbidden,
+        but forbidden because they are hurtful.”</p>
+    <footer class="blockquote-footer">Benjamin Franklin</footer>
+</blockquote>
+
+{% endblock %}
