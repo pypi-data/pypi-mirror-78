@@ -1,0 +1,14 @@
+tap_mysql/__init__.py,sha256=CkagcRz9yeHsKGuC_zCToR-147Xdi12utmzlPiLQ6lg,16284
+tap_mysql/connection.py,sha256=2A6X2KsalFsR6CHvIHWVH_sAoVvqT8yxhpQ3QDtGClA,5685
+tap_mysql/discover_utils.py,sha256=JIg9jPScfwL0gm10AWn3m1JT3fnxgjrJgh1HiKeKSPg,11109
+tap_mysql/stream_utils.py,sha256=gUWD8rn79n9qSyYRmXYmPQoI9bVxvd9JcdIsjvkneVA,1045
+tap_mysql/sync_strategies/binlog.py,sha256=Hm64IhRdoHw5Jjj8gL3nN24-bM9L2EL8GD000XZbYGM,21242
+tap_mysql/sync_strategies/common.py,sha256=ENO2kxXwi_zW0eFG0LFkFkP9Bff-JssObF93V0wZtmI,7522
+tap_mysql/sync_strategies/full_table.py,sha256=xTu_ZblZ0siv_NQcAvL3SRpnilmbPZ1kWp58dU8z3iY,6855
+tap_mysql/sync_strategies/incremental.py,sha256=mW8VDm3K9Xgrm3n6BcFOPZYoVDF57AZQpCb22qVSZWo,3064
+pipelinewise_tap_mysql-1.3.7.dist-info/LICENSE,sha256=xNuDgLmykYhajKZueHKWS9ZgnCFZ47hzbPCyI5-hs9c,32393
+pipelinewise_tap_mysql-1.3.7.dist-info/METADATA,sha256=it4MIRvk953WAI-8InCU9JpixwmdCZuyEPvMIQm2oYo,15177
+pipelinewise_tap_mysql-1.3.7.dist-info/WHEEL,sha256=EVRjI69F5qVjm_YgqcTXPnTAv3BfSUr0WVAHuSP3Xoo,92
+pipelinewise_tap_mysql-1.3.7.dist-info/entry_points.txt,sha256=TU3uAXmQ12RKDFeXDqksej1AxSyPCfyQdNCxNsWLFJ8,70
+pipelinewise_tap_mysql-1.3.7.dist-info/top_level.txt,sha256=anz_Ao_6Iv6JXnJuYCuyu-PCWQFiRHnkBTAWRUeEEE0,10
+pipelinewise_tap_mysql-1.3.7.dist-info/RECORD,,
