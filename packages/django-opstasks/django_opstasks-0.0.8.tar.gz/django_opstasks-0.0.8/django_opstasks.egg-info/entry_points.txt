@@ -1,0 +1,4 @@
+[celery.result_backends]
+opstasks-backends = django_opstasks.backends:DatabaseBackend
+opstasks-cache = django_opstasks.backends:CacheBackend
+
