@@ -1,0 +1,2 @@
+
+SENSITIVE_WORDS = ("你老母",)
