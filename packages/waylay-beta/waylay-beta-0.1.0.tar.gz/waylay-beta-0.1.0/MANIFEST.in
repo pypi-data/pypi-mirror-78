@@ -1,0 +1,6 @@
+include versioneer.py
+include waylay/_version.py
+exclude doc/**
+exclude bin/**
+prune test
+prune my_notes
