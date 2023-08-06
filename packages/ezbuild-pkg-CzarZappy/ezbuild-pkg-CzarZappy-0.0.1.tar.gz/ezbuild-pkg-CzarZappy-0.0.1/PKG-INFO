@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: ezbuild-pkg-CzarZappy
+Version: 0.0.1
+Summary: A tool to help game developers build and publish their games
+Home-page: https://github.com/CzarZappy/EZBuild
+Author: CzarZappy
+Author-email: zappy@ravenheartgames.com
+License: UNKNOWN
+Description: # Introduction 
+        EZBuild is a python build system meant to help Unity developers generate multi-platform builds and upload those builds to 
+        storefronts, like Itch.io and Steam.
+        
+        # Getting Started
+        TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
+        1.	Installation process
+        2.	Software dependencies
+        3.	Latest releases
+        4.	API references
+        
+        # Build and Test
+        ``source venv/bin/activate
+        python ezbuild
+        `` 
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
