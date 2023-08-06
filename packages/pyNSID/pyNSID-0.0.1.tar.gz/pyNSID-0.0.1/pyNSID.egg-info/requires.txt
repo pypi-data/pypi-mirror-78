@@ -1,0 +1,17 @@
+numpy>=1.10
+toolz
+cytoolz
+dask>=0.10
+h5py>=2.6.0
+six
+sidpy>=0.0.2
+ipywidgets>=5.2.2
+
+[:python_version < "3.3"]
+ipython<6,>=5.1.0
+
+[:python_version >= "3.3"]
+ipython>=6.0
+
+[MPI]
+mpi4py
