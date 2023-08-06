@@ -1,0 +1,59 @@
+#
+# Copyright (c) 2020, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+#
+
+## Input files
+noisybw: "None"
+cleanbw: "None"
+cleanpeakfile: "None"
+read_buffer: 1000
+pad: 5000
+
+# Data Pre-processing parameters
+interval_size: 50000
+val_chrom: "None"
+holdout_chrom: "None"
+genome: "hg19"
+nonpeak: "None"
+
+# Experiment args
+task: 'both'
+batch_size: 64
+num_workers: 4
+weights_path: "None"
+seed: 42
+
+# Data processing args
+pad: 5000
+layers: "None"
+
+# Train args
+checkpoint_fname: "checkpoint.pth.tar"
+
+#Learning args
+lr: 0.0002 
+epochs: 10
+mse_weight: 0.0005 
+pearson_weight: 1
+poisson_weight: 0
+
+# Validation args
+val_files: "None"
+best_metric_choice: "AUROC"
+threshold: 0.5
+
+#Advanced torch distributed args
+dist-url: 'tcp://127.0.0.1:4321'
+dist-backend: 'gloo'
+
+#ADVANCED OPTIONS
+layersbw: "None"
+layers: "None"
+train_h5_files: "None"
+val_h5_files: "None"
