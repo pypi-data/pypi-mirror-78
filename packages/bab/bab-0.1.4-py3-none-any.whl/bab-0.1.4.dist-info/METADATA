@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: bab
+Version: 0.1.4
+Summary: Bayesian estimation for A / B testing
+Home-page: https://github.com/volkale/bab
+Author: Alexander Volkmann
+Author-email: alexv@gmx.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: numpy (==1.16.3)
+Requires-Dist: pandas (==0.25.1)
+Requires-Dist: pystan (==2.19.1.1)
+Requires-Dist: scipy (==1.2.1)
+Requires-Dist: matplotlib (==3.1.0)
+Requires-Dist: arviz (==0.6.1)
+
+UNKNOWN
+
+
