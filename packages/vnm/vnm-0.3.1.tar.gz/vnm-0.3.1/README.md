@@ -1,0 +1,124 @@
+# vnm - Virtual eNvironment Manager
+*A half-assed Python virtual environment package manager.*
+
+This tool simplifies management and installation of packages in self-contained
+`venv` virtual environments.  Think of it like `composer`, `yarn`, or similar,
+but for Python 3.
+
+With this tool, developers don't have to use `venv` and `pip` directly to
+configure their environment for a self-contained program, and the tool uses a
+simple YAML configuration file.
+
+[[_TOC_]]
+
+## Installation
+Prerequisites:
+
+* Python >= 3.6
+  * pip (usually bundled with Python)
+  * venv (usually bundled with Python)
+  * setuptools (usually bundled with Python)
+  * wheel - This may be included with pip or on some distros of Linux.
+* git
+* sudo (Linux only)
+
+**Note:** In the below examples, replace python3 and pip3 with the Python you plan to use.
+For example, if you're on Windows, you might use just `python` and `pip`, and don't need `sudo`.
+
+### Simple
+
+#### Linux
+```shell
+# This may be needed on (K|X)Ubuntu:
+sudo python3 install --force-reinstall wheel
+# Install venom with pip
+sudo pip3 install vnm
+```
+
+#### Windows
+```batch
+pip3 install vnm
+```
+
+### Messy
+```shell
+# This may be needed on (K|X)Ubuntu:
+sudo python3 install --force-reinstall wheel
+# Clone from gitlab
+git clone https://gitlab.com/N3X15/vnm.git vnm
+# Change Directory: vnm
+cd vnm
+# Install to OS
+sudo python setup.py install
+```
+
+## Usage
+
+```shell
+# Set up an empty venv environment and an empty vnm.yml
+vnm init
+# Activate venv environment (changes shell variables and stuff)
+vnm activate
+# Add and install packages toml, requests, and pyyaml (version greater than or equal to 5.2)
+# (same general spec syntax as pip)
+vnm add toml requests "pyyaml>=5.2"
+# Install all packages, as defined in vnm.yml
+vnm install
+# Upgrade all packages to newest version, restricting to the constraints in vnm.yml.
+vnm upgrade
+```
+
+## Example YAML
+```yaml
+version: 3
+packages:
+  beautifulsoup4: {}
+  cfscrape: {}
+  chardet: {}
+  Jinja2: {}
+  lxml: {}
+  mysqlclient: {}
+  Pillow: {}
+  psutil: {}
+  pygit2: {}
+  pyparsing: {}
+  pyswagger: {}
+  python-json-logger: {}
+  pyyaml: {}
+  pyzmq: {}
+  requests: {}
+  sqlalchemy: {}
+  toml: {}
+  tqdm: {}
+  Twisted: {}
+  deluge-client:
+    repo:
+      type: git
+      uri: https://github.com/JohnDoee/deluge-client.git
+      branch: develop
+dev-packages:
+  pybuildtools: {}
+```
+
+## Naming and History
+The name of this tool was originally going to be called `hyss`, but it turns out
+that there's a game by that name on Steam.  Then I briefly tried `snek`, but
+that was in use by another project on pypi.
+
+The current name is unlikely to be copyrighted, and is short and succinct, and
+according to Google, has no uses outside of unrelated academic articles.
+
+`vnm` was originally designed to make management of chanman-bot dependencies
+easier, but it ended up being useful in other projects, as well.
+
+## Caveats
+
+* **`vnm` is still in early development.  You are welcome to use it, but it may have issues.**
+* `vnm` currently doesn't support any VCS systems other than git, for the simple
+reason that I haven't needed them. Please file a bug if you need another VCS,
+like svn or mercurial.
+* When activating the environment (`vnm activate`), a child shell is launched,
+since a child process (`vnm`) cannot affect the parent process (the shell
+launching `vnm`), but that child *can* affect *its* children. Currently, the
+launched shell is `/bin/bash` on Linux and `cmd.exe` on Windows. A mechanism for
+changing the shell is in the works. Support for wrappers, like `mosh`, is unlikely.
