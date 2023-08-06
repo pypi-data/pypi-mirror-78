@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: tello-python
+Version: 1.0.0
+Summary: Control DJI Tello drone with Python 3
+Home-page: https://github.com/cocpy/Tello-Python
+Author: C灵C
+Author-email: c0c@cocpy.com
+License: UNKNOWN
+Description: # Tello-Python
+        
+        Control DJI Tello drone with python
+        
+        # Installation
+        
+            pip install tello-python
+        
+        # Examples
+        
+        
+        from tello-python import tello
+        
+        drone = tello.Tello()
+        
+        drone.takeoff()
+        
+        drone.forward(100)
+        
+        drone.cw(90)
+        
+        drone.flip('l')
+        
+        drone.streamon()
+        
+        drone.land()
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
