@@ -1,0 +1,84 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 4096 (0x1000)
+    Signature Algorithm: ecdsa-with-SHA384
+        Issuer: C=IN, ST=HAR, L=Gurgaon, O=Soket Labs, OU=Soket Labs Root CA/emailAddress=ca@soket.in
+        Validity
+            Not Before: Feb 17 15:19:47 2020 GMT
+            Not After : Dec 26 15:19:47 2029 GMT
+        Subject: C=IN, ST=HAR, O=Soket Labs, OU=Soket Labs Intermediary CA, CN=int.pravah.io/emailAddress=ca@soket.in
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (384 bit)
+                pub: 
+                    04:4b:cd:6e:1a:6a:95:83:c7:20:ee:67:9f:87:f0:
+                    14:99:22:44:72:ed:2b:64:1e:56:27:dd:66:78:7f:
+                    e6:db:1a:22:4d:3b:ce:f3:46:68:0e:11:04:17:bb:
+                    24:4f:df:ec:3b:1d:b9:f2:10:99:5d:1a:56:b9:35:
+                    33:b0:dc:2b:59:75:af:42:94:9e:47:bd:92:04:54:
+                    a7:2e:34:11:97:4e:c3:d5:bb:78:a0:3a:86:0c:90:
+                    8e:b5:2d:a9:27:9b:7c
+                ASN1 OID: secp384r1
+                NIST CURVE: P-384
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                B1:C6:04:D3:7F:5A:B4:CE:2D:03:8E:4E:E7:20:17:7E:C6:2B:B8:7F
+            X509v3 Authority Key Identifier: 
+                keyid:4B:44:11:24:A9:88:94:55:80:40:2A:49:3C:E7:4E:69:47:12:91:03
+
+            X509v3 Basic Constraints: critical
+                CA:TRUE, pathlen:0
+            X509v3 Key Usage: critical
+                Digital Signature, Certificate Sign, CRL Sign
+            X509v3 CRL Distribution Points: 
+
+                Full Name:
+                  URI:http://ca.pravah.io/list.crl
+
+            Authority Information Access: 
+                CA Issuers - URI:http://ca.pravah.io/root.crt
+                OCSP - URI:http://ocsp.pravah.io/
+
+    Signature Algorithm: ecdsa-with-SHA384
+         30:66:02:31:00:ec:2a:c9:95:c8:83:47:b7:b2:0c:3e:e0:f8:
+         7b:49:b2:87:67:17:9a:d6:de:10:f9:d8:45:76:aa:7a:b3:aa:
+         64:02:e5:f7:c9:70:d7:a7:ac:1a:61:7f:17:e4:f9:cd:b7:02:
+         31:00:bd:8d:81:2b:d8:f4:9d:92:64:b4:eb:89:9b:a2:22:ac:
+         15:6e:2b:b8:39:19:c7:c1:82:aa:7a:85:d9:33:a5:6a:1f:ad:
+         13:02:bb:12:b2:37:9f:fb:66:da:81:cc:52:fe
+-----BEGIN CERTIFICATE-----
+MIIDKDCCAq2gAwIBAgICEAAwCgYIKoZIzj0EAwMwezELMAkGA1UEBhMCSU4xDDAK
+BgNVBAgMA0hBUjEQMA4GA1UEBwwHR3VyZ2FvbjETMBEGA1UECgwKU29rZXQgTGFi
+czEbMBkGA1UECwwSU29rZXQgTGFicyBSb290IENBMRowGAYJKoZIhvcNAQkBFgtj
+YUBzb2tldC5pbjAeFw0yMDAyMTcxNTE5NDdaFw0yOTEyMjYxNTE5NDdaMIGJMQsw
+CQYDVQQGEwJJTjEMMAoGA1UECAwDSEFSMRMwEQYDVQQKDApTb2tldCBMYWJzMSMw
+IQYDVQQLDBpTb2tldCBMYWJzIEludGVybWVkaWFyeSBDQTEWMBQGA1UEAwwNaW50
+LnByYXZhaC5pbzEaMBgGCSqGSIb3DQEJARYLY2FAc29rZXQuaW4wdjAQBgcqhkjO
+PQIBBgUrgQQAIgNiAARLzW4aapWDxyDuZ5+H8BSZIkRy7StkHlYn3WZ4f+bbGiJN
+O87zRmgOEQQXuyRP3+w7HbnyEJldGla5NTOw3CtZda9ClJ5HvZIEVKcuNBGXTsPV
+u3igOoYMkI61Laknm3yjgfQwgfEwHQYDVR0OBBYEFLHGBNN/WrTOLQOOTucgF37G
+K7h/MB8GA1UdIwQYMBaAFEtEESSpiJRVgEAqSTznTmlHEpEDMBIGA1UdEwEB/wQI
+MAYBAf8CAQAwDgYDVR0PAQH/BAQDAgGGMC0GA1UdHwQmMCQwIqAgoB6GHGh0dHA6
+Ly9jYS5wcmF2YWguaW8vbGlzdC5jcmwwXAYIKwYBBQUHAQEEUDBOMCgGCCsGAQUF
+BzAChhxodHRwOi8vY2EucHJhdmFoLmlvL3Jvb3QuY3J0MCIGCCsGAQUFBzABhhZo
+dHRwOi8vb2NzcC5wcmF2YWguaW8vMAoGCCqGSM49BAMDA2kAMGYCMQDsKsmVyINH
+t7IMPuD4e0myh2cXmtbeEPnYRXaqerOqZALl98lw16esGmF/F+T5zbcCMQC9jYEr
+2PSdkmS064mboiKsFW4ruDkZx8GCqnqF2TOlah+tEwK7ErI3n/tm2oHMUv4=
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+MIICjTCCAhOgAwIBAgIJAI5hB9KSJVh9MAoGCCqGSM49BAMDMHsxCzAJBgNVBAYT
+AklOMQwwCgYDVQQIDANIQVIxEDAOBgNVBAcMB0d1cmdhb24xEzARBgNVBAoMClNv
+a2V0IExhYnMxGzAZBgNVBAsMElNva2V0IExhYnMgUm9vdCBDQTEaMBgGCSqGSIb3
+DQEJARYLY2FAc29rZXQuaW4wHhcNMjAwMjE3MTUwOTE3WhcNMjAwMzE4MTUwOTE3
+WjB7MQswCQYDVQQGEwJJTjEMMAoGA1UECAwDSEFSMRAwDgYDVQQHDAdHdXJnYW9u
+MRMwEQYDVQQKDApTb2tldCBMYWJzMRswGQYDVQQLDBJTb2tldCBMYWJzIFJvb3Qg
+Q0ExGjAYBgkqhkiG9w0BCQEWC2NhQHNva2V0LmluMHYwEAYHKoZIzj0CAQYFK4EE
+ACIDYgAEI13909lXq3mcGKNbgunQYtcZxQveWT8lfIE78DWlybf6+VR/vSXA0vtP
+6JLBnuqRaxkrdSTexgIDki2p+G/fyLIzNimu3Aofhxz8iEYMWfNzxpwgCxC5ws9A
+de2xob4Yo2MwYTAdBgNVHQ4EFgQUS0QRJKmIlFWAQCpJPOdOaUcSkQMwHwYDVR0j
+BBgwFoAUS0QRJKmIlFWAQCpJPOdOaUcSkQMwDwYDVR0TAQH/BAUwAwEB/zAOBgNV
+HQ8BAf8EBAMCAYYwCgYIKoZIzj0EAwMDaAAwZQIxALoX2iSVdrZ05wfakG/3VALW
+oyOV6J1ovmPKh/ZtGmBZpS2/MS946uGXeTUCbecX/gIwffUHxL+gzham2u8qTczX
+mhK9pAFlb1+eI5PA97syJO4RuJtbxhiKbiJzetl3VrQg
+-----END CERTIFICATE-----
