@@ -1,0 +1,16 @@
+pandas>=0.25.3
+numpy
+distro
+
+[dev]
+pytest
+flake8
+black
+isort
+
+[doc]
+sphinx
+sphinx_rtd_theme
+
+[test]
+pytest
