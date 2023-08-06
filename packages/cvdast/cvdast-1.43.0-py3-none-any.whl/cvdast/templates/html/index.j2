@@ -1,0 +1,316 @@
+
+
+
+<html>
+<head>
+    <link href="https://unpkg.com/tabulator-tables@4.1.4/dist/css/tabulator.min.css" rel="stylesheet">
+    <link href="http://tabulator.info/css/tabulator/4.8/tabulator_site.css" rel="stylesheet">
+    <link href="http://tabulator.info/css/tabulator/4.8/tabulator.css" rel="stylesheet">
+    <link href="http://tabulator.info/css/tabulator/4.8/tabulator_midnight.css" rel="stylesheet">
+    <link href="http://tabulator.info/css/tabulator/4.8/tabulator_modern.css" rel="stylesheet">
+    <link href="http://tabulator.info/css/tabulator/4.8/tabulator_simple.css" rel="stylesheet">
+    <link href="http://tabulator.info/css/tabulator/4.8/bootstrap/tabulator_bootstrap.css" rel="stylesheet">
+    <link href="http://tabulator.info/css/tabulator/4.8/bootstrap/tabulator_bootstrap4.css" rel="stylesheet">
+    <link href="http://tabulator.info/css/tabulator/4.8/semantic-ui/tabulator_semantic-ui.css" rel="stylesheet">
+    <link href="http://tabulator.info/css/tabulator/4.8/bulma/tabulator_bulma.css" rel="stylesheet">
+    <link href="http://tabulator.info/js/docsearchbackup/docsearch.css" rel="stylesheet">
+    <link href="http://tabulator.info/css/jquery-ui.theme.min.css" rel="stylesheet">
+    <link href="http://tabulator.info/js/docsearchbackup/docsearch.css" rel="stylesheet">
+    <link href="http://tabulator.info/css/tabulator/4.8/materialize/tabulator_materialize.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:800,400,700,400italic,700italic|Bevan' rel='stylesheet' type='text/css'>
+    <link href='http://tabulator.info/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='http://tabulator.info/css/app.css?id=3b50b414b7323ca0ee48' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.1.4/dist/js/tabulator.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.5/jspdf.plugin.autotable.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://tabulator.info/js/faker.js"></script>
+    <script type="text/javascript" src="http://tabulator.info/js/touchpunch.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js"></script>
+    <script type="text/javascript" src="http://tabulator.info/js/sparkline.js"></script>
+
+    <style>
+                    * {
+              box-sizing: border-box;
+            }
+
+            body {
+              font-family: Arial, Helvetica, sans-serif;
+            }
+
+            /* Float four columns side by side */
+            .column {
+              float: left;
+              width: 25%;
+              padding: 0 10px;
+            }
+
+            /* Remove extra left and right margins, due to padding */
+            .row {margin: 0 -5px;}
+
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+
+            /* Responsive columns */
+            @media screen and (max-width: 600px) {
+              .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+              }
+            }
+
+            /* Style the counter cards */
+            .card {
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+              padding: 16px;
+              text-align: center;
+              background-color: #f1f1f1;
+            }
+                <style type="text/css">
+            #apis-table .tabulator-header .tabulator-cell{
+                color:#000;
+            }
+                    /*Theme the Tabulator element*/
+        #example-table-theme{
+            background-color:#ccc;
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
+        /*Theme the header*/
+        #example-table-theme .tabulator-header {
+            background-color:#333;
+            color:#fff;
+        }
+
+        /*Allow column header names to wrap lines*/
+        #example-table-theme .tabulator-header .tabulator-col,
+        #example-table-theme .tabulator-header .tabulator-col-row-handle {
+            white-space: normal;
+        }
+
+        /*Color the table rows*/
+        #example-table-theme .tabulator-tableHolder .tabulator-table .tabulator-row{
+            color:#fff;
+            background-color: #666;
+        }
+
+        /*Color even rows*/
+        #example-table-theme .tabulator-tableHolder .tabulator-table .tabulator-row:nth-child(even) {
+            background-color: #444;
+        }
+
+
+        #example-table-theme-bootstrap4 .tabulator-header{
+            font-size:14px !important;
+        }
+
+        #example-table-theme-bootstrap4 .tabulator-row .tabulator-cell{
+            font-size:14px !important;
+        }
+
+        #example-table-theme-simple{
+            border:1px solid #ddd;
+        }
+
+
+        .bootstrap.tabulator{
+            border-bottom:none !important;
+        }
+
+        .bootstrap.tabulator .tabulator-header{
+            background:#fff !important;
+            color:#000 !important;
+        }
+
+        .bootstrap .tabulator-header .tabulator-col{
+            background:#fff !important;
+            color:#000 !important;
+            border-left:none !important;
+            border-right:none !important;
+        }
+
+        .bootstrap .tabulator-row{
+            border-bottom:1px solid #ddd !important;
+        }
+
+        .bootstrap .tabulator-cell{
+            background:#fff !important;
+            color:#000 !important;
+            border-left:none !important;
+            border-right:none !important;
+        }
+
+        .tabulator .tabulator-row .tabulator-responsive-collapse table{
+            border: none !important;
+            width:auto !important;
+        }
+
+        .tabulator .tabulator-row .tabulator-responsive-collapse table tr{
+            position: relative !important;
+            border: none !important;
+        }
+
+        .tabulator .tabulator-row .tabulator-responsive-collapse table tr td{
+            position: relative !important;
+            border: none !important;
+        }
+
+        .tabulator .tabulator-row .tabulator-responsive-collapse table tr td:first-of-type{
+            padding-right:10px !important;
+        }
+
+        .example-table.intertable{
+            display: inline-block;
+            width:40%;
+        }
+    </style>
+
+    <script>
+                    var apidata = {{ api_data }};
+                    var fuzzdata = {{ fuzz_data }};
+    </script>
+</head>
+<body>
+<h1><center>CVIAST Test Report</center></h1><br><br>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <h3>APIs Scanned</h3>
+      <p>{{ total_apis }}</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>Vulnerabilities found</h3>
+      {% if total_vulnerabilities | int > 0 %}
+      <p><font color="red">{{ total_vulnerabilities}}</font></p>
+      {% else %}
+      <p><font color="green">{{ total_vulnerabilities}}</font></p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>APIs skipped</h3>
+      <p>0</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>Tested On</h3>
+      <p>{{ test_time }}</p>
+    </div>
+  </div>
+</div><br><br>
+<h2>&nbsp;&nbsp;&nbsp;Summary by APIs: </h2>
+    <style type="text/css">
+#apis-table .tabulator-header .tabulator-cell{
+	color:#000;
+}
+</style>
+<div id="apis-table">
+    <script type="text/javascript">
+    //Formatter to generate line chart
+var lineFormatter = function(cell, formatterParams, onRendered){
+    onRendered(function(){ //instantiate sparkline after the cell element has been aded to the DOM
+        $(cell.getElement()).sparkline(cell.getValue(), {width:"100%", type:"line", disableTooltips:true});
+    });
+};
+            var table = new Tabulator("#apis-table", {
+	height:"311px",
+	layout:"fitColumns",
+	data:apidata,
+	columns:[
+	{title:"Summary", field:"progress", sorter:"number", hozAlign:"center", formatter:"tickCross", width:100},
+	{title:"API Endpoint", field:"name", width:550},
+	{title:"Method", field:"method", width:100},
+	{title:"Test Duration", field:"line", width:160, formatter:lineFormatter},
+	{title:"App name", field:"app", width:150},
+	{title:"Host", field:"host", width:220},
+	{title:"Spec File", field:"spec", width:150},
+	{//create column group
+        title:"\tTest Coverage", columnVertAlign:"center", hozAlign:"center",
+        columns:[
+        {title:"Total tests", field:"total_tests", width:120},
+        {title:"Success", field:"success_tests", width:140},
+        {title:"Failures", field:"failed_tests", hozAlign:"center", sorter:"date", width:130},
+        ],
+    }
+	],
+	dataLoaded:function(data){ //freeze first row on data load
+		var firstRow = this.getRows()[0];
+
+		if(firstRow){
+			firstRow.freeze();
+		}
+	}
+});
+    </script>
+</div>
+
+
+<h2>&nbsp;&nbsp;&nbsp;Summary by Scan types: </h2>
+    <style type="text/css">
+#fuzz-table .tabulator-header .tabulator-cell{
+	color:#000;
+}
+</style>
+
+<div id="fuzz-table">
+    <script type="text/javascript">
+    //Formatter to generate line chart
+var lineFormatter = function(cell, formatterParams, onRendered){
+    onRendered(function(){ //instantiate sparkline after the cell element has been aded to the DOM
+        $(cell.getElement()).sparkline(cell.getValue(), {width:"100%", type:"line", disableTooltips:true});
+    });
+};
+            var table = new Tabulator("#fuzz-table", {
+	height:"311px",
+	layout:"fitColumns",
+	data:fuzzdata,
+	columns:[
+	{title:"Summary", field:"progress", sorter:"number", hozAlign:"center", formatter:"tickCross", width:100},
+	{title:"Fuzz type", field:"fuzz_type", width:550},
+		{//create column group
+        title:"\tAPI Coverage", columnVertAlign:"center", hozAlign:"center",
+        columns:[
+        {title:"Total APIs", field:"total_apis", width:120},
+        {title:"Success", field:"success_apis", width:140},
+        {title:"Failures", field:"failed_apis", hozAlign:"center", sorter:"date", width:130},
+        ],
+    },
+	{//create column group
+        title:"\tTest Coverage", columnVertAlign:"center", hozAlign:"center",
+        columns:[
+        {title:"Total tests", field:"total_tests", width:120},
+        {title:"Success", field:"success_tests", width:140},
+        {title:"Failures", field:"failed_tests", hozAlign:"center", sorter:"date", width:130},
+        ],
+    }
+	],
+	dataLoaded:function(data){ //freeze first row on data load
+		var firstRow = this.getRows()[0];
+
+		if(firstRow){
+			firstRow.freeze();
+		}
+	}
+});
+    </script>
+</div>
+</body>
+</html>
