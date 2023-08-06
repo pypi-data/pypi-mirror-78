@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pyground
+Version: 0.0.7
+Summary: Support for my Jupyter Notebooks
+Home-page: https://github.com/chbrown/pyground
+Author: Christopher Brown
+Author-email: io@henrian.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: cytoolz (>=0.8)
+Requires-Dist: filesystemlib
+Requires-Dist: hvac (>=0.9)
+Requires-Dist: ipython (>=7.8)
+Requires-Dist: numpy (>=1.17)
+Requires-Dist: pandas (>=0.25)
+Requires-Dist: pyperclip (>=1.7.0)
+Requires-Dist: requests (>=2.20.0)
+Requires-Dist: smart-open (>=1.8.1)
+Requires-Dist: vdom (>=0.6)
+Requires-Dist: xattr (>=0.9.0)
+
+# `pyground`
+
+[![Latest version on PyPI](https://badge.fury.io/py/pyground.svg)](https://pypi.org/project/pyground/)
+
+Library providing code shared across multiple Jupyter Notebooks.
+
+
+## License
+
+Copyright 2019–2020 Christopher Brown.
+[MIT Licensed](https://chbrown.github.io/licenses/MIT/#2019-2020).
+
+
