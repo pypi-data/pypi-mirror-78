@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "git-name"
+version = "0.1.0"
+description = "a cli and python package for naming hashes"
+authors = ["CircArgs <quebecname@gmail.com>"]
+license = "GPL-3.0"
+
+readme = 'README.md'
+
+repository = "https://github.com/CircArgs/git-name"
+homepage = "https://github.com/CircArgs/git-name"
+
+keywords = ['git', 'commit', 'hash', "naming"]
+
+[tool.poetry.dependencies]
+python = "^3.5"
+inflect = "^4.1.0"
+
+[tool.poetry.dev-dependencies]
+dephell = "^0.8.3"
+black = "^19.10b0"
+pytest = "^6.0.1"
+
+[tool.poetry.scripts]
+git-name = 'git_name.cli:main'
+
+[tool.dephell.main]
+from = {format = "poetry", path = "pyproject.toml"}
+to = {format = "setuppy", path = "setup.py"}
