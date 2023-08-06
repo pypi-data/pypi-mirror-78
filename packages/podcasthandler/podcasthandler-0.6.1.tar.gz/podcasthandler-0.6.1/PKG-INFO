@@ -1,0 +1,134 @@
+Metadata-Version: 2.1
+Name: podcasthandler
+Version: 0.6.1
+Summary: Easily play podcasts
+Home-page: https://github.com/fnt400/podcasthandler
+Author: Claudio Barca
+Author-email: claudio@barca.mi.it
+License: UNKNOWN
+Description: # Podcast Handler
+        
+        A simple tool to play and keep track of your podcasts.
+        
+        It consist in a simple command-line script and a simple ncurses gui to listen to your podcasts in streaming, without downloading them.
+        
+        It saves the current elapsed time, so you can stop listening and than continue later restarting from the correct position.
+        
+        You can manually insert the url of the audio file in the command line, or set it as the default player in your favourite podcast aggregator (I use [newsboat](https://newsboat.org/), more info above)
+        
+        ## Requirements
+        
+        1. Python >= 3.0 
+        2. Music Player Daemon ([link](https://www.musicpd.org/))
+        
+        ## Install
+        
+        To install the package use the python package installer pip:
+        
+        ```
+        $ pip install podcasthandler
+        ```
+        
+        Please note that the music server [mpd](https://www.musicpd.org/) should be running in your computer, in order to use the program.
+        
+        You can also download the [source code](https://gitlab.com/fnt400/podcasthandler) from GitLab:
+        
+        ```
+        $ git clone https://gitlab.com/fnt400/podcasthandler.git
+        ```
+        
+        
+        ## Usage
+        
+        
+        Here's the help file:
+        
+        ```
+        usage: podcasthandler [-h] [-H HOST] [-u URL] [-p POSITION] [-g] command
+        
+        positional arguments:
+          command               play, stop, status, restart, gui, version
+        
+        optional arguments:
+          -h, --help            show this help message and exit
+          -H HOST, --host HOST  set mpd host (default localhost)
+          -u URL, --url URL     set podcast episode url
+          -p POSITION, --position POSITION
+                                set podcast position (mm:ss)
+          -g, --gui             start with curses gui
+        ```
+        
+        And here's the available commands:
+        
+        ### Play
+        
+        Play a specified url. Without the URL argument, it continues the last played url.
+        
+        With the POSITION argument, it starts playing from a specific position (minutes:seconds)
+        
+        You can set the mpd host (if you have other mpd instances in your local network), the next time, if not specified, it will use the same host.
+        
+        Examples:
+        
+        ```
+        $ podcasthandler play
+        ```
+        With this command it will continue playing the last file you listened to, from the correct position in the last mpd server you used (probably your own computer, so "localhost").
+        
+        ```
+        $ podcasthandler play -u "https://www.buzzsprout.com/1263722/5071877-unfettered-freedom-ep-3-facebook-zoom-appimage-kdenlive-new-linux-users.mp3?blob_id=20355212" -H 192.168.1.50 -p 5:24
+        ```
+        
+        With this command it will start playing that audio file address in the computer at 192.168.1.50 from 5 minutes and 24 seconds.
+        
+        
+        ### Stop
+        
+        Stop playing.
+        
+        ### Status
+        
+        It displays generic information about what you are listening to or what you listened the last time.
+        
+        ### Restart
+        
+        Restart from the beginning of the file.
+        
+        ### Gui
+        
+        Start the ncurses gui.
+        
+        ### Version
+        
+        Print version and exit.
+        
+        # Podcast aggregator
+        
+        Podcasthandler can be used as stand alone audio player manually inserting the correct audio file url. However, it could be simpler to use a podcast aggregator! 
+        
+        You can set it as the default audio player using the ncurses gui.
+        Please note that ncurses is a terminal interface, so if you are using a graphical software, you should always start the program in a terminal window, with a command like that:
+        
+        ```
+        $ xterm -e podcasthandler play -g -H localhost -u
+        ```
+        
+        ### Newsboat
+        
+        If your are using Newsboat, you can add this line to the config file (usually in ~/.config/newsboat/config):
+        
+        ```
+        browser "podcasthandler play -g -H localhost -u %u"
+        ```
+        
+        You can select the playable file within the article, pushing the key "1".
+        
+        # Known Bugs
+        
+        - gui crashes on window resize
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
