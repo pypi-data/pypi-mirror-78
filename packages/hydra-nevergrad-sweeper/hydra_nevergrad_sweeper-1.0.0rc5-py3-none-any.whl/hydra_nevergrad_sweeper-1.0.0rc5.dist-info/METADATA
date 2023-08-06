@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: hydra-nevergrad-sweeper
+Version: 1.0.0rc5
+Summary: Hydra Nevergrad Sweeper plugin
+Home-page: https://github.com/facebookresearch/hydra/
+Author: Jeremy Rapin, Omry Yadan
+Author-email: jrapin@fb.com, omry@fb.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Description-Content-Type: text/markdown
+Requires-Dist: hydra-core (>=1.0.0)
+Requires-Dist: nevergrad (>=0.4.1.post4)
+
+# Hydra Nevergrad Sweeper plugin
+
+Provides a mechanism for Hydra applications to use [Nevergrad](https://github.com/facebookresearch/nevergrad) algorithms for the optimization of the parameters of any experiment.
+
+See [website](https://hydra.cc/docs/next/plugins/nevergrad_sweeper) for more information
+
