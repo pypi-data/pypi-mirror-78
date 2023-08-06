@@ -1,0 +1,126 @@
+Changelog MySimpleGUI
+=====================
+vs 1.1.7  2020-09-06
+--------------------
+In PySimpleGUI the target in several Button functions (like FilesBrowse and FolderBrowse) defaults to the
+(ThisRow, -1). When you want it to point to the button itself, you have to specify a target that is equal
+to key, k or button_text. In order support the DRY (don't repeat yourself) principle, MySimpleGUI now automatically
+points to 'itself' if the target parameter is the null string or None.
+
+Awaiting a bug fix in PySimpleGUI, MySimpleGUI now correctly returns the null string upon pressing
+<Cancel> in FileBrowse, FilesBrowse and FolderBrowse.
+
+vs 1.1.6  2020-08-30
+--------------------
+MySimpleGUI now supports pretty printing of elements, colums and windows. This can be very helpful
+in debugging complex layouts.
+This is implemented via a __repr__ method of the Element and Window classes.
+Printing can be done with an ordinary print.
+
+Note that attributes that are None or (None, None) are suppressed from the output.
+
+In previous versions keys that were equal to one of the internal attributes of the Window class.
+like "Rows", "read", "AllKeysDict" were not allowed in MySimpleGUI. That limitation does not exist
+anymore.
+
+Technical detail:
+    If a key is also used as an internal attribute of Window, e.g. modal,
+        window.modal will return the element associated with "modal"
+    If the internal attribute is required in that case, so
+        window.internal.modal will return the value of the internal attribute window.
+    If an internal attribute of a window is not defined as a key of any element in that window,
+    e.g. (under the assumption that 'saw_00' is not used as a key)
+        window.saw_00 and window.internal.saw_00 will be equivalent.
+    In practice however, internal will hardly ever have to be used.    
+
+Internal change: more stable method of detecting which class we are parsing.
+
+vs 1.1.5  2020-08-28
+--------------------
+The functions to get/set global variables, like sg.message_box_line_width() and sg.button_color() now
+provide context manager functionality to temporarily set a global variable, e.g.
+    with sg.message_box_line_width(20):
+        sg.Popup("Hey, this is much more narrow than usual!")
+    sg.Popup("And now it's back to the usual 60 characters width, isn't it?")
+
+Without a parameter, a function still returns the current value:
+    print(sg.message_box_line_width())
+And you can still set a global variable with
+    sg.message_box_line_width(100)
+    
+Implementation detail: A function with a parameter like sg.message_box_line_width(100) now returns a
+TemporaryChange object instead of the current value.
+
+Some minor bug fixes.
+
+
+vs 1.1.4  2020-08-24
+--------------------
+Normally, a traceback will just show line numbers and not the line itself in the patched PySimpleGUI source, like:
+    Traceback (most recent call last):
+      File "c:\Users\Ruud\Dropbox (Personal)\Apps\Python Ruud\MySimpleGUI\test pysimplegui.py", line 23, in <module>
+        window.Number14.update("Hallo")
+      File "<string>", line 7115, in __getattr__
+    AttributeError: 'Number14'
+With this version it is possible to get full traceback when an exception is raised, like:
+    Traceback (most recent call last):
+      File "c:\Users\Ruud\Dropbox (Personal)\Apps\Python Ruud\MySimpleGUI\test pysimplegui.py", line 23, in <module>
+        window.Number14.update("Hallo")
+      File "c:\Users\Ruud\Dropbox (Personal)\Apps\Python Ruud\MySimpleGUI\PySimpleGUI_patched.py", line 7115, in __getattr__
+        raise AttributeError(e) from None
+    AttributeError: 'Number14'
+
+This is done by saving a file PySimpleGUI_patched. This way of importing MySimpleGUI is slightly slower.
+To enable full traceback, the environment variable MySimpleGUI_full_traceback has to be set to a value
+other than the null string.
+The easiest way to do that is by putting
+    import os
+    os.environ["MySimpleGUI_full_traceback"] = "1"
+before
+    import MySimpleGUI as sg 
+
+Some minor bug fixes.
+
+vs 1.1.3  2020-08-23
+--------------------
+window.read() now returns also the contents of Text elements in values. Note that this might affect
+the numbering of elements that don't have a key.
+
+When a duplicate key is found in a layout, a KeyError will be raised, instead of printing
+a warning and substituting the key.
+
+vs 1.1.2  2020-08-22
+--------------------
+The text 'PySimpleGUI' was printed incorrectly. Fixed.
+
+vs 1.1.1  2020-08-20
+--------------------
+All warnings.warn messages are now either suppressed (if followed by a PopupError) or 
+will raise a RuntimeError Exception with the original message.
+
+vs 1.1.0  2020-08-13
+--------------------
+Complete change of code. Instead of importing PySimpleGUI, the complete source code is now read from
+PySimpleGUI, parsed and patched where required. This is a much more flexible approach that also allows for
+future patches to be applied relatively easy.
+
+SUPPRESS_ERROR_POPUPS is now always False, even if you try and set it.
+
+Exception and PopupError handling included.
+
+The generated code can be run as a separate (forked) package, if required.
+
+vs 1.0.1  2020-08-06
+--------------------
+Renamed to MySimpleGUI
+
+Added functionality:
+- functions to get/set the global variables as used in SetOptions
+- The function ChangeLookAndFeel or change_look_and_feel as well theme now raises a ValueError
+  if a non existing theme is given
+- MultiLine now supports ANSI colors and can be used as a file.
+
+
+vs 1.0.0  2020-07-28
+--------------------
+Initial version called PySimpleGUI_attributes
