@@ -1,0 +1,6 @@
+[console_scripts]
+walt-dhcp-event = walt.server.dhcpevent:run
+walt-net-config = walt.server.netconfig:run
+walt-server-daemon = walt.server.daemon:run
+walt-server-setup = walt.server.setup:run
+

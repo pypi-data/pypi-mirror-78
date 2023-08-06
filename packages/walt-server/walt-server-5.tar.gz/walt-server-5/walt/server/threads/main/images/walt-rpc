@@ -1,0 +1,32 @@
+#!/bin/sh
+
+func_call=$1
+NC_FIFO="/tmp/nc-$$.fifo"
+busybox mkfifo $NC_FIFO
+
+{
+    cat << EOF
+REQ_API_SESSION
+NSAPI
+('API_CALL', '$func_call', (), {})
+EOF
+    read feedback < $NC_FIFO
+    echo "('CLOSE')"
+} | busybox nc %(server_ip)s %(walt_server_rpc_port)s | {
+    read server_version
+    read response_word1 response_rest
+    word2=$(echo -n "$response_rest" | sed -e 's/.$//')
+    if [ "$response_word1" = "('RESULT'," ]
+    then
+        echo $word2
+        echo DONE > $NC_FIFO
+        return 0
+    else
+        echo $word2 >&2
+        echo ISSUE > $NC_FIFO
+        return 1  # exception
+    fi
+}
+exit_code=$?
+rm $NC_FIFO
+exit $exit_code
