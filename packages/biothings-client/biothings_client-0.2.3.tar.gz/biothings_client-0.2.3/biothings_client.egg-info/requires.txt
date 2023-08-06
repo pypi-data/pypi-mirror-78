@@ -1,0 +1,11 @@
+requests>=2.3.0
+nose
+
+[caching]
+requests_cache>=0.4.13
+
+[dataframe]
+pandas>=0.18.0
+
+[jsonld]
+PyLD>=0.7.2
