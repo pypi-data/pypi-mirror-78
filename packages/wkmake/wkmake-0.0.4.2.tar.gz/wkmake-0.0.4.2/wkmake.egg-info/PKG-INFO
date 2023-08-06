@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: wkmake
+Version: 0.0.4.2
+Summary: Some simple tools for building python projects.
+Home-page: https://github.com/Peiiii/wk-make
+Author: Wang Pei
+Author-email: 1535376447@qq.com
+License: UNKNOWN
+Description: # wkmake
+        Some simple python project build tools.
+        
+        # Install
+        `pip3 install wkmake`
+        
+        # Usage
+        ```shell script
+        # quick start
+        wkmake make cfg.json
+        # comstomize
+        wkmake make --src=python_pacakge --dst='./output' --cfg=cfg.json 
+        ```
+        Check out the result in folder `demo`
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
