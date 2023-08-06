@@ -1,0 +1,17 @@
+.coveragerc
+LICENSE
+MANIFEST.in
+README.rst
+VERSION
+cfgs.py
+requirements.txt
+setup.cfg
+setup.py
+test_requirements.txt
+tox.ini
+cfgs.egg-info/PKG-INFO
+cfgs.egg-info/SOURCES.txt
+cfgs.egg-info/dependency_links.txt
+cfgs.egg-info/top_level.txt
+test/__init__.py
+test/cfgs_test.py
