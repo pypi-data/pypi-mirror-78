@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: parquery
+Version: 0.1.15
+Summary: A query and aggregation framework for Parquet
+Home-page: https://github.com/visualfabriq/parquery
+Author: Carst Vaartjes
+Author-email: cvaartjes@visualfabriq.com
+Maintainer: Carst Vaartjes
+Maintainer-email: cvaartjes@visualfabriq.com
+License: MIT
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+Requires-Dist: numexpr (==2.7.1)
+Requires-Dist: numpy (==1.16.6)
+Requires-Dist: pandas (==0.24.2)
+Requires-Dist: pyarrow (==0.16.0)
+Provides-Extra: optional
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
+ParQuery
+======
+
+ParQuery is a query and aggregation framework for parquery, with a similar syntax as bQuery
+
+
