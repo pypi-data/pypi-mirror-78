@@ -1,0 +1,19 @@
+Metadata-Version: 1.2
+Name: pypolona
+Version: 1.1.1
+Summary: Image downloader for the polona.pl website of the Polish National Library
+Home-page: https://twardoch.github.io/pypolona/
+Author: Adam Twardoch
+Author-email: adam+github@twardoch.com
+License: MIT
+Project-URL: Source, https://github.com/twardoch/pypolona
+Description: # pypolona
+        Image downloader for the polona.pl website of the Polish National Library
+        
+Keywords: polona jpeg downloader cli
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
