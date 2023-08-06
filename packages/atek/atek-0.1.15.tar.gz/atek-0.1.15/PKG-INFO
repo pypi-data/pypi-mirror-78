@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: atek
+Version: 0.1.15
+Summary: 
+Author: JediHero
+Author-email: hansen.rusty@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: cytoolz (>=0.10.1,<0.11.0)
+Requires-Dist: openpyxl (>=3.0.4,<4.0.0)
+Requires-Dist: pandas (>=1.1.0,<2.0.0)
+Requires-Dist: pydantic (>=1.6.1,<2.0.0)
+Requires-Dist: pydomo (>=0.2.3,<0.3.0)
+Requires-Dist: pymysql (>=0.10.0,<0.11.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Requires-Dist: sshtunnel (>=0.1.5,<0.2.0)
+Requires-Dist: tabulate (>=0.8.7,<0.9.0)
