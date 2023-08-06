@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pipcook-tvm
+Version: 0.7.dev1
+Summary: TVM: An End to End Tensor IR/DSL Stack for Deep Learning Systems
+Home-page: https://github.com/apache/incubator-tvm
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: decorator
+Requires-Dist: attrs
+Requires-Dist: psutil
+Provides-Extra: extra_feature
+Requires-Dist: tornado ; extra == 'extra_feature'
+Requires-Dist: psutil ; extra == 'extra_feature'
+Requires-Dist: xgboost (>=1.1.0) ; extra == 'extra_feature'
+Requires-Dist: mypy ; extra == 'extra_feature'
+Requires-Dist: orderedset ; extra == 'extra_feature'
+Provides-Extra: test
+Requires-Dist: pillow (<7) ; extra == 'test'
+Requires-Dist: matplotlib ; extra == 'test'
+
+UNKNOWN
+
+
