@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: googlenewspy
+Version: 0.0.3
+Summary: Scraping google news
+Home-page: https://github.com/fernandoarrj/googlenewspy
+Author: Fernando Rodrigues
+Author-email: fernandoarrj@gmail.com
+License: UNKNOWN
+Description: # Google News Py
+        
+        Search news with python in google news.
+        
+        
+        ## What's necessary
+        python >=3.6
+        
+        ## Instaling
+        
+        > pip install googlenewspy
+        
+        ## Using
+        
+        from googlenewspy import Search\
+        search = Search()\
+        text = 'Python'\
+        search.news(text)
+        
+        ## Features
+        You can specify witch country and host language in Search object, for better results.
+        Ex:
+        > search = Search(host_language='en-US', geolocation='US')\
+        > search.news('Python')
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
