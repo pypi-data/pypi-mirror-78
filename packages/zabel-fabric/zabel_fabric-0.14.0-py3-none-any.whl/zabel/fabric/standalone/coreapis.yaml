@@ -1,0 +1,317 @@
+# ResourceLists are available through the discovery API
+#
+# /api/v1 or /apis/apiextensions.k8s.io/v1 or ...
+#
+# foo = requests.get('https://foo.example.com/apis/apps/v1', verify=False)
+---
+'kind': 'APIResourceList'
+'groupVersion': 'v1'
+'resources': [
+    {
+        'name': 'namespaces',
+        'singularName': '',
+        'namespaced': False,
+        'kind': 'Namespace',
+        'verbs': [
+            'create',
+            'delete',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch',
+        ],
+        'shortNames': ['ns']
+    },
+    {
+        'name': 'namespaces/finalize',
+        'singularName': '',
+        'namespaced': False,
+        'kind': 'Namespace',
+        'verbs': ['update']
+    },
+    {
+        'name': 'namespaces/status',
+        'singularName': '',
+        'namespaced': False,
+        'kind': 'Namespace',
+        'verbs': ['get', 'patch', 'update']
+    },
+    {
+        'name': 'secrets',
+        'singularName': '',
+        'namespaced': True,
+        'kind': 'Secret',
+        'verbs': [
+            'create',
+            'delete',
+            'deletecollection',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch'
+        ]
+    },
+    {
+        'name': 'events',
+        'singularName': '',
+        'namespaced': True,
+        'kind': 'Event',
+        'verbs': [
+            'create',
+            'delete',
+            'deletecollection',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch',
+        ],
+        'shortNames': ['ev'],
+    },
+    {
+        'name': 'serviceaccounts',
+        'singularName': '',
+        'namespaced': True,
+        'kind': 'ServiceAccount',
+        'verbs': [
+            'create',
+            'delete',
+            'deletecollection',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch',
+        ],
+        'shortNames': ['sa'],
+    },
+    {
+        'name': 'services',
+        'singularName': '',
+        'namespaced': True,
+        'kind': 'Service',
+        'verbs': [
+            'create',
+            'delete',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch',
+        ],
+        'shortNames': ['svc'],
+        'categories': ['all'],
+    },
+    {
+        'name': 'services/status',
+        'singularName': '',
+        'namespaced': True,
+        'kind': 'Service',
+        'verbs': ['get', 'patch', 'update'],
+    },
+    {
+        'name': 'pods',
+        'singularName': '',
+        'namespaced': True,
+        'kind': 'Pod',
+        'verbs': [
+            'create',
+            'delete',
+            'deletecollection',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch',
+        ],
+        'shortNames': ['po'],
+        'categories': ['all'],
+    },
+]
+
+---
+'kind': 'APIResourceList'
+'apiVersion': 'v1'
+'groupVersion': 'apiregistration.k8s.io/v1'
+'resources': [
+    {
+        'name': 'apiservices',
+        'singularName': '',
+        'namespaced': False,
+        'kind': 'APIService',
+        'verbs': [
+            'create',
+            'delete',
+            'deletecollection',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch',
+        ],
+    },
+    {
+        'name': 'apiservices/status',
+        'singularName': '',
+        'namespaced': False,
+        'kind': 'APIService',
+        'verbs': ['get', 'patch', 'update'],
+    }
+]
+
+---
+'kind': 'APIResourceList'
+'apiVersion': 'v1'
+'groupVersion': 'apiextensions.k8s.io/v1'
+'resources': [
+    {
+        'name': 'customresourcedefinitions',
+        'singularName': '',
+        'namespaced': False,
+        'kind': 'CustomResourceDefinition',
+        'verbs': [
+            'create',
+            'delete',
+            'deletecollection',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch'
+        ],
+        'shortNames': ['crd', 'crds']
+    },
+    {
+        'name': 'customresourcedefinitions/status',
+        'singularName': '',
+        'namespaced': False,
+        'kind': 'CustomResourceDefinition',
+        'verbs': ['get', 'patch', 'update']
+    }
+]
+
+---
+'kind': 'APIResourceList'
+'apiVersion': 'v1'
+'groupVersion': 'rbac.authorization.k8s.io/v1'
+'resources': [
+    {
+        'name': 'clusterrolebindings',
+        'singularName': '',
+        'namespaced': False,
+        'kind': 'ClusterRoleBinding',
+        'verbs': [
+            'create',
+            'delete',
+            'deletecollection',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch'
+        ]
+    },
+    {
+        'name': 'clusterroles',
+        'singularName': '',
+        'namespaced': False,
+        'kind': 'ClusterRole',
+        'verbs': [
+            'create',
+            'delete',
+            'deletecollection',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch'
+        ]
+    },
+    {
+        'name': 'rolebindings',
+        'singularName': '',
+        'namespaced': True,
+        'kind': 'RoleBinding',
+        'verbs': [
+            'create',
+            'delete',
+            'deletecollection',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch'
+        ]
+    },
+    {
+        'name': 'roles',
+        'singularName': '',
+        'namespaced': True,
+        'kind': 'Role',
+        'verbs': [
+            'create',
+            'delete',
+            'deletecollection',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch'
+        ]
+    }
+]
+
+---
+'apiVersion': 'v1'
+'groupVersion': 'apps/v1'
+'kind': 'APIResourceList'
+'resources': [
+    {
+        'name': 'deployments',
+        'kind': 'Deployment',
+        'namespaced': True,
+        'shortNames': ['deploy'],
+        'singularName': '',
+        'verbs': [
+            'create',
+            'delete',
+            'deletecollection',
+            'get',
+            'list',
+            'patch',
+            'update',
+            'watch'
+        ]
+    }
+]
+
+---
+apiVersion: v1
+groupVersion: networking.k8s.io/v1beta1
+kind: APIResourceList
+resources:
+- kind: Ingress
+  name: ingresses
+  namespaced: true
+  shortNames:
+  - ing
+  singularName: ''
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- kind: Ingress
+  name: ingresses/status
+  namespaced: true
+  singularName: ''
+  verbs:
+  - get
+  - patch
+  - update

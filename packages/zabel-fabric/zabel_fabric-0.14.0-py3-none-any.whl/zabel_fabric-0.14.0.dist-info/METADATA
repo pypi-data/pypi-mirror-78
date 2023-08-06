@@ -1,0 +1,146 @@
+Metadata-Version: 2.1
+Name: zabel-fabric
+Version: 0.14.0
+Summary: The Zabel Fabric
+Home-page: https://github.com/engie-group/zabel
+Author: Martin Lafaix
+Author-email: martin.lafaix@external.engie.com
+License: Eclipse Public License 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Eclipse Public License 2.0 (EPL-2.0)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >= 3.6.5
+Description-Content-Type: text/markdown
+Requires-Dist: requests (>=2.23)
+Requires-Dist: bottle (>=0.12)
+Requires-Dist: zabel-commons (>=1.3)
+Requires-Dist: PyJWT (>=1.7.1)
+Requires-Dist: PyYAML (>=5.3)
+
+# zabel-fabric
+
+## Overview
+
+**Please note that this library is not feature-complete yet.**
+
+This is part of the Zabel platform.  The **zabel-fabric** package defines _fabrics_.
+
+A fabric is what host a Zabel platform.  A given fabric can host more than one
+Zabel platform, and it can also host other applications.
+
+A fabric provides foundations for the applications and platforms it hosts to build
+upon.  Those foundations include isolation, access control, secret management, as
+well as deployments, persistence, and discovery services.
+
+Zabel's fabrics are not the first attempt to offer such foundations for applications.
+They will not be the last either.
+
+What fabrics do is that they (try to) provide a (very) small, coherent subset of what
+Kubernetes clusters offer.
+
+An application that can be deployed on a fabric can be deployed as-is on a Kubernetes
+cluster, if the _images_ it uses are converted to proper containers and they
+preserve encapsulation.
+
+Images, in Zabel, are plain classes with a constructor matching a known signature
+and a `run` method, so they can easily be converted to containers.
+
+It does not mean any Python application can be automagically converted to a cloud-native
+application, and it of course does not imply that you can deploy your existing Kubernetes
+applications on a Zabel fabric.
+
+What it means is that if your Python application has been designed to work on a Zabel
+fabric, it can be deployed on a full-fledged Kubernetes cluster, should the need arise.
+
+What it also means is that you can use existing tools (such as `kubectl` or your favorite
+editor extension) to explore or change the state of a running fabric or to deploy new
+resources.
+
+## Example
+
+Here is a simple Hello World example.
+
+Assuming the following class in a `hello.py` file:
+
+```python
+import os
+from time import sleep
+
+from zabel.commons.interfaces import Image
+
+
+class HelloWorld(Image):
+    def __init__(self):
+        self.name = os.environ.get('NAME', 'World')
+
+    def run(self):
+        print(f'hello {self.name}')
+        sleep(15)
+        print('good bye')
+```
+
+And the following `pod.yaml` manifest:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello
+spec:
+  restartPolicy: Never
+  containers:
+  - name: Hello
+    image: hello/HelloWorld
+    env:
+      - name: NAME
+        value: 'Alice'
+```
+
+We can deploy it as follow:
+
+```bash
+kubectl apply -f pod.yaml
+```
+
+On your Zabel fabric console, the following should be displayed:
+
+```txt
+hello Alice
+...
+good bye
+```
+
+## Resources
+
+The following resources are available, at least partially, on fabrics:
+
+- v1/Events
+- v1/Namespace
+- v1/Pod
+- v1/Secret
+- v1/Service
+- v1/ServiceAccount
+- v1.apiextensions.k8s.io/CustomResourceDefinition
+- v1.apps/Deployment
+- v1.rbac.authorization.k8s.io/ClusterRole
+- v1.rbac.authorization.k8s.io/ClusterRoleBinding
+- v1.rbac.authorization.k8s.io/Role
+- v1.rbac.authorization.k8s.io/RoleBinding
+- v1beta1.networking.k8s.io/Ingress
+
+## License
+
+```text
+Copyright (c) 2019-2020 Martin Lafaix (martin.lafaix@external.engie.com) and others
+
+This program and the accompanying materials are made
+available under the terms of the Eclipse Public License 2.0
+which is available at https://www.eclipse.org/legal/epl-2.0/
+
+SPDX-License-Identifier: EPL-2.0
+```
+
+
