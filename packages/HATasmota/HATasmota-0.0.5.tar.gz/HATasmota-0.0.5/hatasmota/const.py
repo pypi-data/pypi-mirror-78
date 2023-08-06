@@ -1,0 +1,31 @@
+"""Tasmota constants."""
+CONF_DEVICENAME = "dn"
+CONF_FRIENDLYNAME = "fn"
+CONF_FULLTOPIC = "t_f"
+CONF_HOSTNAME = "hn"
+CONF_ID = "id"
+CONF_LIGHT = "li"
+CONF_MODEL = "md"
+CONF_OFFLINE = "ofl"
+CONF_ONLINE = "onl"
+CONF_PREFIX = "t_p"
+CONF_SENSOR = "se"
+CONF_STATE = "state"
+CONF_RELAY = "rl"
+CONF_SW_VERSION = "sw"
+CONF_TOPIC = "t"
+CONF_VERSION = "ver"
+
+CONF_MANUFACTURER = "manufacturer"
+CONF_NAME = "name"
+
+PREFIX_CMND = 0
+PREFIX_STAT = 1
+PREFIX_TELE = 2
+
+RSLT_POWER = "POWER"
+
+STATE_OFF = 0
+STATE_ON = 1
+STATE_TOGGLE = 2
+STATE_HOLD = 3
