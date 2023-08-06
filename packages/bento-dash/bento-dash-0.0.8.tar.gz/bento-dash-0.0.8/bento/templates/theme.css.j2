@@ -1,0 +1,75 @@
+/* ---- Buttons ---- */
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	padding: 0 30px;
+	color: {{color__on_primary}};
+	background-color: transparent;
+	border-color: {{color__on_primary}};
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 4px;
+}
+
+
+/* ---- DatePicker ---- */
+.bento-theme [class*="Calendar"]:not([class*="blocked"]),
+.bento-theme [class*="DayPicker"],
+.bento-theme [class*="DateInput"] {
+	color: {{color__on_surface}}; /* Something indicating optionality */
+	background-color: {{color__surface}};
+}
+
+.bento-theme .SingleDatePickerInput__withBorder {
+	border-color: {{color__on_surface}};
+	border-width: 1px;
+	border-style: solid;
+}
+
+.bento-theme [class*="blocked"] {
+	color: {{color__on_surface_dark}} !important; /* Darker as it can't be used */
+	background-color: {{color__surface}} !important;
+}
+
+/* ---- Dropdown ---- */
+/* Handles the Select box attributes for the dropdowns */
+.bento-theme .Select-control,
+.bento-theme .Select-menu-outer {
+	color: {{color__on_surface}}; /* Something indicating optionality */
+	/* note there seems to be some stylesheets that try to override this */
+	background-color: {{color__surface}} !important;
+	background-clip: padding-box;
+	border-color: {{color__on_surface}};
+	border-width: 1px;
+	border-style: solid;
+}
+
+
+/* Selected values should be bolder */
+.bento-theme .Select.has-value.Select--single > .Select-control,
+.bento-theme .Select-value,
+.bento-theme .Select-input>input,
+.bento-theme .Select-value-label {
+	/* note there seems to be some stylesheets that try to override this */
+	color: {{color__on_surface}} !important;
+}
+
+/* ---- Data Table ---- */
+/* This will deal with the table cells */
+/* NOTE Dash_table seems to load a bunch of CSS that will override anything here
+ * unless you set them as important */
+.bento-theme .dash-cell {
+	color: {{color__on_surface}} !important;
+	background-color: {{color__surface}} !important;
+	border: {{color__border}} !important;
+}
+
+/* This covers the headers/filters */
+.bento-theme th,
+.bento-theme th > input {
+	color: {{color__on_surface}} !important;
+	background-color: {{color__surface}} !important;
+	border: {{color__border}} !important;
+}
