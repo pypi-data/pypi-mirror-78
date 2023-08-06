@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-01 21:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\django_mailcenter\admin.py:64
+msgid "Reset Mail Status"
+msgstr "重置邮件状态"
+
+#: .\django_mailcenter\admin.py:75
+msgid "Simple Task Information"
+msgstr "简易任务信息"
+
+#: .\django_mailcenter\apps.py:6
+msgid "Django Mail Center"
+msgstr "邮件服务中心"
+
+#: .\django_mailcenter\models.py:18 .\django_mailcenter\models.py:67
+msgid "Name"
+msgstr "名称"
+
+#: .\django_mailcenter\models.py:19 .\django_mailcenter\models.py:68
+msgid "Code"
+msgstr "代码"
+
+#: .\django_mailcenter\models.py:20
+msgid "Fallback Server"
+msgstr "是否应急服务器"
+
+#: .\django_mailcenter\models.py:20
+msgid ""
+"If mail's smpt server is not set, then the fallback server willbe used for "
+"delivering."
+msgstr "如果邮件未指定发件服务器，则使用应急服务器进行发送。"
+
+#: .\django_mailcenter\models.py:21
+msgid "Order"
+msgstr "优先级"
+
+#: .\django_mailcenter\models.py:22 .\django_mailcenter\models.py:69
+msgid "Enable"
+msgstr "是否启用"
+
+#: .\django_mailcenter\models.py:23 .\django_mailcenter\models.py:70
+msgid "Enabled Time"
+msgstr "启用时间"
+
+#: .\django_mailcenter\models.py:24 .\django_mailcenter\models.py:71
+msgid "Disabled Time"
+msgstr "禁用时间"
+
+#: .\django_mailcenter\models.py:25 .\django_mailcenter\models.py:72
+msgid "Add Time"
+msgstr "添加时间"
+
+#: .\django_mailcenter\models.py:26 .\django_mailcenter\models.py:73
+msgid "Modify Time"
+msgstr "修改时间"
+
+#: .\django_mailcenter\models.py:27 .\django_mailcenter\models.py:105
+msgid "Sender"
+msgstr "发件人"
+
+#: .\django_mailcenter\models.py:28
+msgid "Smtp Server Options"
+msgstr "服务器设置"
+
+#: .\django_mailcenter\models.py:32 .\django_mailcenter\models.py:100
+msgid "Smtp Server"
+msgstr "发件服务器"
+
+#: .\django_mailcenter\models.py:33
+msgid "Smtp Servers"
+msgstr "发件服务器"
+
+#: .\django_mailcenter\models.py:56
+msgid "Options Can Be Parsed"
+msgstr "设置解析正常"
+
+#: .\django_mailcenter\models.py:74 .\django_mailcenter\models.py:101
+msgid "Subject"
+msgstr "标题"
+
+#: .\django_mailcenter\models.py:75 .\django_mailcenter\models.py:102
+msgid "Body"
+msgstr "正文"
+
+#: .\django_mailcenter\models.py:79 .\django_mailcenter\models.py:103
+msgid "Mail Template"
+msgstr "邮件模板"
+
+#: .\django_mailcenter\models.py:80
+msgid "Mail Templates"
+msgstr "邮件模板"
+
+#: .\django_mailcenter\models.py:104
+msgid "Variables"
+msgstr "模板变量"
+
+#: .\django_mailcenter\models.py:106
+msgid "Recipient"
+msgstr "收件人"
+
+#: .\django_mailcenter\models.py:110
+msgid "Mail For Delivery"
+msgstr "待发送邮件"
+
+#: .\django_mailcenter\models.py:111
+msgid "Mails For Delivery"
+msgstr "待发送邮件"
+
+#: .\django_mailcenter\models.py:113
+msgid "Can reset mail status"
+msgstr "允许重置邮件状态"
+
+#: .\django_mailcenter\models.py:158
+msgid "Mail"
+msgstr "邮件"
+
+#: .\django_mailcenter\models.py:159
+msgid "File"
+msgstr "文件"
+
+#: .\django_mailcenter\models.py:160
+msgid "Filename"
+msgstr "文件名"
+
+#: .\django_mailcenter\models.py:164
+msgid "Attachment Of Mail For Delivery"
+msgstr "待发送邮件附件"
+
+#: .\django_mailcenter\models.py:165
+msgid "Attachments Of Mail For Delivery"
+msgstr "待发送邮件附件"
