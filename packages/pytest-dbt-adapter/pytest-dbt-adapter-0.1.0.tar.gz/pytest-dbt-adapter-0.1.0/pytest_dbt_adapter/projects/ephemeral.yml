@@ -1,0 +1,28 @@
+name: ephemeral
+paths:
+    data/base.csv: files.seeds.base
+    models/ephemeral.sql: files.models.ephemeral
+    models/view_model.sql: files.models.ephemeral_view
+    models/table_model.sql: files.models.ephemeral_table
+    models/schema.yml: files.schemas.base
+facts:
+    seed:
+        length: 1
+        names:
+            - base
+    run:
+        length: 2
+        names:
+            - view_model
+            - table_model
+    catalog:
+        nodes:
+            length: 3
+        sources:
+            length: 1
+    persisted_relations:
+        - base
+        - view_model
+        - table_model
+    base:
+        rowcount: 10
