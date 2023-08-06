@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+weblate_vpatch/__init__.py
+weblate_vpatch/admin.py
+weblate_vpatch/apps.py
+weblate_vpatch/context_processors.py
+weblate_vpatch/models.py
+weblate_vpatch/tests.py
+weblate_vpatch/views.py
+weblate_vpatch.egg-info/PKG-INFO
+weblate_vpatch.egg-info/SOURCES.txt
+weblate_vpatch.egg-info/dependency_links.txt
+weblate_vpatch.egg-info/top_level.txt
+weblate_vpatch/migrations/__init__.py
