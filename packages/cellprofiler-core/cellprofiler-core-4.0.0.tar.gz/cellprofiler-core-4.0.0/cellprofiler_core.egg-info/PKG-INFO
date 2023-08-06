@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: cellprofiler-core
+Version: 4.0.0
+Summary: UNKNOWN
+Home-page: https://github.com/CellProfiler/core
+Author: Allen Goodman
+Author-email: allen.goodman@icloud.com
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8, <4
+Provides-Extra: dev
+Provides-Extra: test
+Provides-Extra: wx
