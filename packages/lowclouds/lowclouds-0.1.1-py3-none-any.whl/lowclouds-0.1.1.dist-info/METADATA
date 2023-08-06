@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: lowclouds
+Version: 0.1.1
+Summary: The lowclouds is a shortcut library for the following cloud service libraries.
+License: Apache-2.0
+Author: rhoboro
+Author-email: rhoboro@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: bigquery
+Requires-Dist: google-cloud-bigquery (>=1.27.2,<2.0.0); extra == "bigquery"
+Requires-Dist: google-cloud-bigquery-storage (>=1.0.0,<2.0.0); extra == "bigquery"
+Requires-Dist: grpcio (>=1.31.0,<2.0.0); extra == "bigquery"
+Description-Content-Type: text/markdown
+
+# lowclouds
+
+The lowclouds is a shortcut library for several cloud service libraries.
+
+It is designed for processes with short lifetimes, not for processes with long lifetimes.
+
+
