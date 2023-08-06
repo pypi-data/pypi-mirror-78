@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: argufy
+Version: 0.1.1.dev10
+Summary: Inspection based parser based on argparse.
+Author: Jesse P. Johnson
+Author-email: jpj6652@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: argparse_color_formatter (>=1.2.2,<2.0.0)
+Requires-Dist: docstring-parser (>=0.7.2,<0.8.0)
