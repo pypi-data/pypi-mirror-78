@@ -1,0 +1,8 @@
+datasette
+sqlite-dump>=0.1.1
+
+[test]
+pytest
+pytest-asyncio
+httpx
+sqlite-utils
