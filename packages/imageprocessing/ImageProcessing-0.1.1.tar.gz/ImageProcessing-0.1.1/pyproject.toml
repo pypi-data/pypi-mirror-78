@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ImageProcessing"
+version = "0.1.1"
+description = "This is a package that will allow you to remove the background of any image and replace it with another"
+authors = ["Raviish Panicker <panicker.raviish2@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
