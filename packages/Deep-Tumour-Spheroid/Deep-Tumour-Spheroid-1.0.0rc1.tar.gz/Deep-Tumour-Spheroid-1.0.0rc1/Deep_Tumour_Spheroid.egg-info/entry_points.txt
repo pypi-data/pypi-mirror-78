@@ -1,0 +1,5 @@
+[console_scripts]
+deep-tumour = deep_tumour_spheroid.cli:main
+deep-tumour-spheroid = deep_tumour_spheroid.cli:main
+dts = deep_tumour_spheroid.cli:main
+
