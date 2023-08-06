@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: reusable
+Version: 0.0.1
+Summary: Python reusable code and utility classes
+Home-page: https://github.com/ohidurbappy/reusable
+Author: Ohidur Rahman Bappy
+Author-email: ohidurbappy+reusable@gmail.com
+License: UNKNOWN
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+
+# reusable
+Python reusable code, utility functions and time saver.
+
+## Overview
+Python `reusable` library contains a handful of reusable functions and utility class
+
+### Install
+
+```bash
+pip install -U reusable
+```
+
+## Usage
+### Loading Configuration files as class attributes
+
+```python
+from reusable import AppConfig
+config=AppConfig('config.json')
+mykey=config.my_key
+```
+### Load config file accessible via class methods
+
+```python
+from reusable import Config
+config=Config('config.json')
+mykey=config.get('my_key')
+```
+
+
+
+
+
+
+
