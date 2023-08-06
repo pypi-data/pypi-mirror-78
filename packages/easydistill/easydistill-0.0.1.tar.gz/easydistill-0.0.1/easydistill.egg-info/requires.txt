@@ -1,0 +1,9 @@
+numpy
+sklearn
+sentencepiece
+
+[tf]
+tensorflow==1.12
+
+[tf_gpu]
+tensorflow-gpu==1.12
