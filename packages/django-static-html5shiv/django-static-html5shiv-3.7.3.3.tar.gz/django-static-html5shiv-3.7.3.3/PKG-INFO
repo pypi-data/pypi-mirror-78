@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: django-static-html5shiv
+Version: 3.7.3.3
+Summary: Django application contain html5shiv static files.
+Home-page: https://github.com/zencore-cn/zencore-issues
+Author: zencore
+Author-email: dobetter@zencore.cn
+License: MIT
+Description: # django-static-html5shiv
+        
+        
+        Django application contain html5shiv static files.
+        
+        
+        ## Install
+        
+        ```
+        pip install django-static-html5shiv
+        ```
+        
+        ## About static resources of html5shiv
+        
+        - We get all static resources of html5shiv from https://github.com/aFarkas/html5shiv/releases without any changes.
+        - The license about all the static resources of html5shiv obey html5shiv's license.
+        - We don't guarantee the latest html5shiv version.
+        
+        ## Settings
+        
+        ```
+        INSTALLED_APPS = [
+            ...
+            "django_static_html5shiv",
+            ...
+        ]
+        ```
+        
+        ## Use static resource
+        
+        ```
+        {% load staticfiles %}
+        
+        <script src="{% static "html5shiv/html5shiv.min.js" %}"></script>
+        <script src="{% static "html5shiv/html5shiv-printshiv.min.js" %}"></script>
+        ```
+        
+        ## About package version
+        
+        - django-static-html5shiv Uses version number like v3.7.3.1.
+        - The first three numbers are the version number of html5shiv.
+        - the fourth number is our release number.
+        
+        ## Releases
+        
+        ### v3.7.3.3 2020/09/02
+        
+        - No depends on django.
+        - Turn to the package as a pure static wrapper package.
+        
+        ### v3.7.3.2 2020/03/09
+        
+        - Use python standard package structure.
+        - Use markdown for README.md.
+        
+        ### v3.7.3.1 2018/03/28
+        
+        - First release.
+        
+Keywords: django-static-html5shiv
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
