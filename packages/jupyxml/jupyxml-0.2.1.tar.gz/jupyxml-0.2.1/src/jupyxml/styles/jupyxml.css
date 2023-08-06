@@ -1,0 +1,21 @@
+
+
+.card {
+    border: 1px solid black;
+    box-shadow: grey 2px 2px;
+    padding: 8pt;
+    margin: 4pt 4pt 4pt 8pt
+}
+
+.card-header{
+    font-size: 1.3em;
+}
+
+.card-body{
+    padding-left: 8pt;
+}
+
+.leaf_node{
+    border: 1px solid grey;
+    padding: 8pt;
+}
