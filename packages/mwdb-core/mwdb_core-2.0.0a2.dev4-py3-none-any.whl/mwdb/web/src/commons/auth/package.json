@@ -1,0 +1,10 @@
+{
+  "name": "@malwarefront/auth",
+  "main": "auth.js",
+  "private": true,
+  "peerDependencies": {
+    "connected-react-router": "*",
+    "lodash": "*",
+    "@malwarefront/api": "*"
+  }
+}
