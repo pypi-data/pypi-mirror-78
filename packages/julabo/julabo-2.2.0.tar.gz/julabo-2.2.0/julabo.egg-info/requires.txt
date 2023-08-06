@@ -1,0 +1,9 @@
+pyserial
+sockio>=0.10
+serialio>=2
+
+[simulator]
+sinstruments>=1
+
+[tango]
+pytango
