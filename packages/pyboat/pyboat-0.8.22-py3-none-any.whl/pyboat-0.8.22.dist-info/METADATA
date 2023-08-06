@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: pyboat
+Version: 0.8.22
+Summary: pyBOAT - A Biological Oscillations Analysis Toolkit 
+Home-page: https://github.com/tensionhead/pyBOAT
+License: UNKNOWN
+Author: Gregor Mönke
+Author-email: gregor.moenke@embl.de
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: numpy >=1.18
+Requires-Dist: scipy >=1.4
+Requires-Dist: matplotlib >=3.1
+Requires-Dist: pandas >=0.25
+Requires-Dist: PyQt5 >=5.9.5
+
+## pyBOAT - A Biological Oscillations Analysis Toolkit ##
+
+
+Tools for time-frequency analysis with Morlet Wavelets
+Inspired by 'A Practical Guide to Wavelet Analysis' (Torrence
+and Compo 1998), 'Identification of Chirps with Continuous Wavelet Transform'
+(Carmona, Hwang and Torresani 1995)
+and [The Scientist and Engineer's Guide to Digital Signal Processing](http://www.dspguide.com/).
+
+Version 0.7 April 2020, Frieda Sorgenfrei and Gregor Mönke. 
+
+Questions etc. please to gregor.moenke@embl.de.
+
+**Contributers are welcome!**
+
+### Features ###
+
+* Optimal sinc filter
+* Fourier analysis
+* Wavelet analysis 
+* Ridge detection
+* Phase extraction
+* Amplitude estimation
+* Synthetic signal generator
+
