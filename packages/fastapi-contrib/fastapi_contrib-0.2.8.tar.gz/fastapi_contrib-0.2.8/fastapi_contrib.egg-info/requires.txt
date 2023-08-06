@@ -1,0 +1,25 @@
+fastapi>=0.52.0
+pydantic>=1.4
+
+[:python_version < "3.7"]
+contextvars
+
+[all]
+motor>=2.0.0
+ujson<2.0.0
+pytz
+jaeger-client>=4.1.0
+opentracing>=2.2.0
+
+[jaegertracing]
+jaeger-client>=4.1.0
+opentracing>=2.2.0
+
+[mongo]
+motor>=2.0.0
+
+[pytz]
+pytz
+
+[ujson]
+ujson<2.0.0
