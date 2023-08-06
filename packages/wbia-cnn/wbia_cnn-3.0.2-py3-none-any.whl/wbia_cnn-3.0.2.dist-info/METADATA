@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: wbia-cnn
+Version: 3.0.2
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: Apache
+Platform: UNKNOWN
+Requires-Dist: scikit-learn (>=0.16.1)
+Requires-Dist: theano
+Requires-Dist: wbia-utool
+Requires-Dist: wbia-vtool
+Requires-Dist: requests (>=0.8.2) ; python_version < "3"
+Provides-Extra: all
+Requires-Dist: setuptools (>=42) ; extra == 'all'
+Requires-Dist: wbia-utool ; extra == 'all'
+Requires-Dist: wheel ; extra == 'all'
+Requires-Dist: scikit-learn (>=0.16.1) ; extra == 'all'
+Requires-Dist: theano ; extra == 'all'
+Requires-Dist: wbia-vtool ; extra == 'all'
+Requires-Dist: requests (>=0.8.2) ; (python_version < "3") and extra == 'all'
+Provides-Extra: build
+Requires-Dist: setuptools (>=42) ; extra == 'build'
+Requires-Dist: wbia-utool ; extra == 'build'
+Requires-Dist: wheel ; extra == 'build'
+Provides-Extra: runtime
+Requires-Dist: scikit-learn (>=0.16.1) ; extra == 'runtime'
+Requires-Dist: theano ; extra == 'runtime'
+Requires-Dist: wbia-utool ; extra == 'runtime'
+Requires-Dist: wbia-vtool ; extra == 'runtime'
+Requires-Dist: requests (>=0.8.2) ; (python_version < "3") and extra == 'runtime'
+
+# wbia_cnn
+Convolutional Neural Network (CNN) plugin code for the IBEIS Project
+
+# Prerequisites
+* CUDA toolkit
+* CUDA =>3.0 compatible NVIDIA graphics card
+* Python 2.7.x
+* numpy
+* pandas
+* matplotlib
+* scikit-learn
+* Remaining: pip install -r https://raw.githubusercontent.com/dnouri/kfkd-tutorial/master/requirements.txt
+
+
