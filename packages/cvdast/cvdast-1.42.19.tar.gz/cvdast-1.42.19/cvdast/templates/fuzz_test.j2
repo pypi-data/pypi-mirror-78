@@ -1,0 +1,137 @@
+import requests
+import json
+import pytest
+import assertions
+import os
+from jinja2 import Template
+import curlify
+from collections import OrderedDict
+from conftest import get_params_from_file
+import itertools
+import random
+
+HOST_URL = "{{ host_url }}"
+
+responses_recieved = []
+
+def _prep_data_for_fuzzing(api, method, fuzz_dict_path, params_list):
+    fuzz_values = []
+    values = []
+    for (root, dirs, files) in os.walk(fuzz_dict_path, topdown=True):
+        print(files)
+        for file in files:
+            with open(os.path.join(fuzz_dict_path, file), encoding="iso-8859-15") as fobj:
+                values += [str(_).replace("\n", "") for _ in fobj.readlines()]
+
+    MAX_VALUES_TO_FUZZ = int(os.environ.get("CVIAST_MAX_VALUES_TO_FUZZ", 100))
+    if len(values) < MAX_VALUES_TO_FUZZ:
+        MAX_VALUES_TO_FUZZ = len(values)
+    values = random.sample(values, MAX_VALUES_TO_FUZZ)
+
+    params_to_fuzz = OrderedDict()
+    for param in params_list:
+        param = param.replace("_arg", "")
+        values_to_trigger_success = get_params_from_file(param, api, method)
+        print(values_to_trigger_success)
+        if values_to_trigger_success:
+            params_to_fuzz[param] = values_to_trigger_success[-1]
+        else:
+            params_to_fuzz[param] = []
+
+    #print(
+    #    "Values to use to trigger success before fuzzing: " +
+    #    str(params_to_fuzz))
+
+    success_values = list(params_to_fuzz.values())
+    if len(success_values) == 1:
+        fuzz_values.append(success_values[0])
+    else:
+        fuzz_values.append(success_values)
+
+    for _ in values:
+        for i in range(1, len(success_values) + 1):
+            for selected in itertools.combinations(
+                    range(len(success_values)), i):
+
+                res = success_values[:]
+                for n in selected:
+                    res[n] = _
+                if len(res) == 1:
+                    fuzz_values.append(res[0])
+                else:
+                    fuzz_values.append(res)
+    #print("Fuzz values for " + str(fuzz_dict_path) + ": " + str(fuzz_values))
+    return fuzz_values
+
+def _trigger_requests(req_method, url, header, data, proxies=None):
+    print("\n\nRegenerating traffic from CloudVector events....")
+    return requests.request(method=req_method, url=url, proxies=proxies, headers=header, data=data, verify=False)
+
+def _create_curl_request(url,method,headers,payloads):
+    # construct the curl command from request
+    command = "curl -v -H {headers} {data} -X {method} {uri}"
+    data = ""
+    if payloads:
+        payloads = json.loads(payloads)
+        payload_list = ['"{0}":"{1}"'.format(k,v) for k,v in payloads.items()]
+        data = " -d '{" + ", ".join(payload_list) + "}'"
+    header_list = ['"{0}: {1}"'.format(k, v) for k, v in headers.items()]
+    header = " -H ".join(header_list)
+    return command.format(method=method, headers=header, data=data, uri=url)
+
+
+{% for fuzz_info in fuzzing_details %}
+{% set api_name = api_name | replace("{","") | replace("}","") %}
+{% for method, api_info in apis_metadata.items() %}
+{% set params_covered = [] %}
+{% for param in api_info.get("params",[]) %}
+{%- if param not in ['host','access_token', 'url_prefix'] %}
+{%- set params_covered = params_covered.append(param+"_arg") -%}
+{% endif -%}
+{% endfor %}
+create_fuzz_state = True
+@pytest.mark.parametrize("{{ params_covered|join(", ") }}", _prep_data_for_fuzzing("/{{ api_name | replace("__","/") }}","{{ method }}","{{ fuzz_info.get("path") }}", {{ params_covered }}))
+def test_{{ method | lower }}_{{ api_name | lower | replace("-","9i9")}}_for_{{ fuzz_info.get("fuzz_type") }}({{ params_covered|join(", ") }}{% if params_covered %},{% endif %} host, access_token, url_prefix, update_headers):
+    data = {}
+    {% for param in api_info.get("params",[]) %}{% if (param not in ('host', 'access_token','url_prefix')) %}data["{{ param }}"] = {{ param }}_arg{% endif %}
+    {% endfor %}
+    global create_fuzz_state
+    req = {
+             "data": data,
+             "headers": {{ api_info.get("header") }}
+          }
+    req["headers"] = update_headers(headers=req["headers"], api="{{ api_info.get("url") }}")
+    req["headers"]["cv-fuzzed-event"] = "1"
+    if "Authorization" in req["headers"] and req["headers"]["Authorization"] is None:
+        req["headers"]["Authorization"] = os.environ.get("CVDAST_ACCESS_TOKEN")
+    if access_token:
+        req["headers"]["Authorization"] = access_token
+    print("for debugging:"+str(req))
+    url = Template(host+url_prefix+"{{ api_info.get("url") | replace("//","/") }}").render(**data)
+    resp = _trigger_requests("{{ method }}", url,
+                      header=req["headers"],
+                      data=json.dumps(data))
+    responses_recieved.append(resp)
+    print("\n---------------------------------\n")
+    print("CURL command to retry: \n"+str(_create_curl_request(resp.request.url,resp.request.method,resp.request.headers,resp.request.body)))
+    print("\n---------------------------------\n")
+    if create_fuzz_state:
+        assertions.assert_for_{{ api_name | lower | replace("-","9i9")}}(req, resp)
+        create_fuzz_state = False
+    else:
+        assertions.assert_for_negative_scenarios(req, resp)
+{% endfor %}
+{% endfor %}
+
+#def test_for_anomalies():
+#    pattern_observed = {"status_code": [], "resp_size": [], "request":[], "fuzz_type": "{{ fuzz_type }}"}
+#    for resp in responses_recieved:
+#        pattern_observed["status_code"].append(resp.status_code)
+#        pattern_observed["resp_size"].append(len(resp.content))
+#        #pattern_observed["request"].append(_create_curl_request(resp.request.url,resp.request.method,resp.request.headers,resp.request.body))
+#        pattern_observed["request"].append(curlify.to_curl(resp.request))
+#    if len(pattern_observed["status_code"]) > 1:
+#        assertions.assert_for_anomalies(pattern_observed)
+#    else:
+#        assert False
+
