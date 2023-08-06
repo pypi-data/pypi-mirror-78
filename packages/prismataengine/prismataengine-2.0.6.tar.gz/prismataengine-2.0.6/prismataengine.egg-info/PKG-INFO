@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: prismataengine
+Version: 2.0.6
+Summary: This package provides access to the GameState object and supporting methods from Prismata
+Home-page: https://github.com/smkravec/prismataengine
+Author: Shauna Kravec
+Author-email: smkravec@celest.ai
+License: UNKNOWN
+Description: # prismataengine
+        
+        This is a package that provides access to Dave Churchill's Prismata Engine from Python.
+        
+        # Requirements
+        
+        - Boost-Python
+        
+        # Install
+        The usual way:
+        ```
+        pip install prismataengine
+        ```
+        
+        Or from source:
+        ```
+        hub clone --recurse-submodules smkravec/prismataengine
+        cd prismataengine
+        python setup.py install
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
