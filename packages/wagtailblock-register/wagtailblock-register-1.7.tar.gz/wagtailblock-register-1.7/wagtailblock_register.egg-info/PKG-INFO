@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: wagtailblock-register
+Version: 1.7
+Summary: Register wagtailblocks with a simple decorator
+Home-page: https://github.com/thomasBisseling/wagtailblock-register
+Author: Thomas Bisseling
+Author-email: thomasbisselinghall@gmail.com
+License: BSD
+Description: # Wagtailblock Register
+        
+        ## Usage
+        
+        Add in settings.py.
+        
+        ``` 
+        # Default WAGTAILBLOCK_COLLECTOR = "blocks"
+        WAGTAILBLOCK_COLLECTOR = "itemblocks"
+        ```
+        
+        String in ```WAGTAILBLOCK_COLLECTOR```
+        is a file. Default collector file is blocks.py.
+        
+        Wagtailblock register will search for the file.
+        
+        ### Add block to collector
+        
+        Above each block in the collectors file add ```@register_block```
+        
+        Example:
+        
+        ```python
+        from wagtailblock_register import register_block
+        from wagtail.core import blocks
+        from wagtail.images.blocks import ImageChooserBlock
+        
+        @register_block
+        class ImageTextBlock(blocks.StructBlock):
+            ...
+        
+        ```
+        
+        ### Call all blocks in models.py
+        
+        Example:
+        
+        ```python
+        from wagtail.core.models import Page
+        from wagtail.core.fields import StreamField
+        
+        from wagtailblock_register import call_blocks
+        
+        
+        class ContentPage(Page):
+            body = StreamField(call_blocks(), null=True)
+            ...
+        ```
+        
+        ### Group blocks
+        Add `list_group` with a group name to the block.
+        This property will group your blocks in diffrent groups. The block will be in the group you defined. Default group is `default`.
+        This property is usefull if you want to use multiple streamfields.
+        
+        Example:
+        
+        ```python
+        from wagtailblock_register import register_block
+        from wagtail.core import blocks
+        from wagtail.images.blocks import ImageChooserBlock
+        
+        @register_block
+        class ImageTextBlock(blocks.StructBlock):
+            list_group = "first"
+            ...
+        
+        ```
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Classifier: Framework :: Wagtail
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
+Description-Content-Type: text/markdown
