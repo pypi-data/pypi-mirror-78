@@ -1,0 +1,12 @@
+attrs>18.1
+aionursery
+
+[tests]
+pytest>3.6.4
+pytest-aiohttp
+pytest-cov<2.6
+coveralls
+pytest-mock
+asynctest
+aiohttp
+defusedxml
