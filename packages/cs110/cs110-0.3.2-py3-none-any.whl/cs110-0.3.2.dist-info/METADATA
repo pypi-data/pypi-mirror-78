@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: cs110
+Version: 0.3.2
+Summary: simple grading tool that connects to a custom web backend
+Home-page: UNKNOWN
+Author: Adrian de Freitas
+Author-email: adrian.defreitas@afacademy.af.edu
+License: Unlicense
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Description-Content-Type: text/x-rst
+Requires-Dist: requests
+
+===========
+CS110
+===========
+
+CS110 is a simple autograding library.
+
+
+
+License
+=======
+
+This material is a United States government work (prepared by officers and
+employees of the U.S. Government as part of their official duties) and is not
+protected by copyright in the U.S. (17 U.S.C. Section 105) and may be used
+without obtaining permission.
+
+
+
