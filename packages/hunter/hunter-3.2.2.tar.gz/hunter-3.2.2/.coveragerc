@@ -1,0 +1,9 @@
+[run]
+branch = true
+source = src
+parallel = true
+plugins = Cython.Coverage
+
+[report]
+show_missing = true
+precision = 2

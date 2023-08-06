@@ -1,0 +1,31 @@
+# To install the git pre-commit hook run:
+#   pre-commit install
+# To update the pre-commit hooks run:
+#   pre-commit install-hooks
+exclude: '^(.tox/|ci/templates/|src/hunter.(pth|embed)$|src/hunter/vendor/|.bumpversion.cfg$|.*\.c$)'
+repos:
+  - repo: meta
+    hooks:
+      - id: check-useless-excludes
+      - id: check-hooks-apply
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: master
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: double-quote-string-fixer
+        exclude: '^tests/'
+      - id: mixed-line-ending
+        args: [--fix=lf]
+  - repo: https://github.com/timothycrosley/isort
+    rev: master
+    hooks:
+      - id: isort
+        types: [python]
+      - id: isort
+        types: [cython]
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: master
+    hooks:
+      - id: flake8
+        exclude: '^tests/'
