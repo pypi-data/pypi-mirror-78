@@ -1,0 +1,14 @@
+README
+setup.cfg
+setup.py
+commit_message_validator/__init__.py
+commit_message_validator/message_validator.py
+commit_message_validator.egg-info/PKG-INFO
+commit_message_validator.egg-info/SOURCES.txt
+commit_message_validator.egg-info/dependency_links.txt
+commit_message_validator.egg-info/entry_points.txt
+commit_message_validator.egg-info/top_level.txt
+commit_message_validator/validators/GerritMessageValidator.py
+commit_message_validator/validators/GitHubMessageValidator.py
+commit_message_validator/validators/GlobalMessageValidator.py
+commit_message_validator/validators/__init__.py
