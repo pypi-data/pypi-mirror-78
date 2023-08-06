@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: samdata-terminal-dev
+Version: 2.4.8
+Summary: Samdata terminal Python SDK
+Home-page: http://gitlab.supwin.com/Matrixdata/QuantLab.BitCoin.Terminal.SDK.Python.git
+Author: Cheasy
+Author-email: cheasy.wong@supwin.com
+License: UNKNOWN
+Keywords: samdata,termimal
+Platform: UNKNOWN
+Requires-Dist: pymysql
+Requires-Dist: SQLALchemy
+Requires-Dist: DBUtils
+Requires-Dist: pg8000
+Requires-Dist: websocket-client
+Requires-Dist: pika
+
+UNKNOWN
+
+
