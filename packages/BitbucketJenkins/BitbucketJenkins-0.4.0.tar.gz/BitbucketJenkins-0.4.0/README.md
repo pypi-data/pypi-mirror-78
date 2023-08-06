@@ -1,0 +1,1 @@
+A package for create Bitbucket project that integrate with Jenkins using Bitbucket team/project plugin
