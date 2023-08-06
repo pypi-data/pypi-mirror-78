@@ -1,0 +1,12 @@
+ansible>=2.8
+pyyaml
+rich
+
+[:python_version < "3.7"]
+ruamel.yaml<1,>=0.15.34
+
+[:python_version < "3.8"]
+typing-extensions
+
+[:python_version >= "3.7"]
+ruamel.yaml<1,>=0.15.37
