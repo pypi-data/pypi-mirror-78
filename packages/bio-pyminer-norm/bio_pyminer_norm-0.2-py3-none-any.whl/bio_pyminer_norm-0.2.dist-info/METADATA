@@ -1,0 +1,269 @@
+Metadata-Version: 2.1
+Name: bio-pyminer-norm
+Version: 0.2
+Summary: PyMINEr Norm: A normalization package for scRNAseq
+Home-page: https://scottyler892@bitbucket.org/scottyler892/pyminer_norm
+Author: Scott Tyler
+Author-email: scottyler89@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: seaborn (>=0.8.1)
+Requires-Dist: numpy (>=1.16.0)
+Requires-Dist: sklearn
+Requires-Dist: h5py (>=2.9.0)
+Requires-Dist: matplotlib (>=3.0.2)
+Requires-Dist: scipy (>=1.2.0)
+Requires-Dist: ray (>=0.8.0)
+
+# README #
+
+## What is this repository for? ##
+
+* This package is to scalably downsample count matricies such that all column sums are equivalent across samples.
+
+
+## How do I get set up? ##
+
+* This library is pip installable:
+
+	`python3 -m pip install bio-pyminer-norm`
+
+
+## Usage ##
+* This library primarily takes in tab delimited .tsv files. If you have a chromium .h5 file, you can convert it to tsv as shown below. Note that you'll also need to download and unzip [Chromium's software](https://support.10xgenomics.com/single-cell-gene-expression/software/downloads/latest), and use the -cell_ranger_cmd argument to tell the software where the chromium software is located.:
+
+
+```
+python3 -m pyminer_norm.process_chromium_h5 -i "infile_1.h5" -cell_ranger_cmd "~/bin/cellranger-3.0.2/cellranger"
+```
+
+
+* The first thing you'll want to do is look at the distributions of the number of observed genes and total number of UMI counts.
+
+
+```
+python3 -m pyminer_norm.combine_col_sums_counts -i ~/Downloads/infile_1.tsv ~/Downloads/infile_2.tsv ~/Downloads/infile_3.tsv -o ~/Downloads/output_stats_dir
+```
+
+
+* Note that you can do all this for just a single dataset as well - just only feed in the one dataset!
+* If you don't want to use this tool's full command line interface, you can also just use the downsample function directly programmatically. This is more hands-on though; to do that, have a look at some of the "Programatic" tutorials below. More detailed tutorials are below with specific examples using Chromium files, tsvs, and some of the Chan-Zukerberg Institute (CZI) hdf5 format.
+
+## Command-line: Chromium Example ##
+#### If you already have .tsv files, you can skip to the 'Analyze and downsample tsv files' section below! ####
+* Let's download two Chromium datasets to downsample and integrate. (Download the "Feature / cell matrix HDF5 (filtered)" files).
+
+* [1k PBMC V2](https://support.10xgenomics.com/single-cell-gene-expression/datasets/3.0.0/pbmc_1k_v2)
+* [1k PBMC V3](https://support.10xgenomics.com/single-cell-gene-expression/datasets/3.0.0/pbmc_1k_v3)
+
+### Command-line: Chromium h5 to tsv ###
+First, we'll convert them to tsv format:
+
+```
+python3 -m pyminer_norm.process_chromium_h5 -i ~/Downloads/chromium_example/1k_v2/pbmc_1k_v2_filtered_feature_bc_matrix.h5 \
+                                            --cellranger_cmd ~/bin/cellranger-3.0.2/cellranger
+```
+
+
+and now for the other file:
+
+```
+python3 -m pyminer_norm.process_chromium_h5 -i ~/Downloads/chromium_example/1k_v3/pbmc_1k_v3_filtered_feature_bc_matrix.h5 
+                                            --cellranger_cmd ~/bin/cellranger-3.0.2/cellranger
+```
+
+### Command-line: Analyze and downsample tsv files ###
+Run the analysis for the total UMI counts and the total number of observed genes 
+
+```
+python3 -m pyminer_norm.combine_col_sums_counts -i ~/Downloads/chromium_example/1k_v2/pbmc_1k_v2_filtered_feature_bc_matrix.tsv \
+                                                   ~/Downloads/chromium_example/1k_v3/pbmc_1k_v3_filtered_feature_bc_matrix.tsv \
+                                                   --out ~/Downloads/chromium_example/combined_stats
+```
+
+
+Now look in the output plots in the "~/Downloads/chromium_example/combined_stats/" folder that was created. The scatter and violin plots should guide you on what some good cutoffs are that could work for both datasets. Cutoffs that seemed reasonable to me were:
+
+
+ * sum UMI: 2512,17782
+ * gene count: 631,3981
+
+Beyond those were extreme tails. Note that you can also use 'inf' or '-inf' in the command line below if you want no upper or lower bounds respectively.
+
+```
+python3 -m pyminer_norm.filter_count_sums_ds_merge_log -i ~/Downloads/chromium_example/1k_v2/pbmc_1k_v2_filtered_feature_bc_matrix.tsv \
+                                                          ~/Downloads/chromium_example/1k_v3/pbmc_1k_v3_filtered_feature_bc_matrix.tsv \
+                                                          --sum_range 2512,17782 \
+                                                          --count_range 631,3981 \
+                                                          --out ~/Downloads/chromium_example/combined_pbmcs/combined_pbmcs
+```
+
+
+This generates 4 files:
+
+ * *combined_pbmcs.hdf5*: downsampled count matrix
+ * *combined_pbmcs_log2.hdf5*: log2 transformed downsampled count matrix
+ * *ID_list.txt*: row-names (i.e.: genes in this case)
+ * *column_IDs.txt*: cell names (+ a header a line)
+
+
+You can use these files directly with PyMINEr, or load them into python or R using the appropriate hdf5 reading package. For python3, you can load it in as follows:
+
+```
+## dependencies
+import h5py
+import os
+
+out_h5_file = os.path.expanduser('~/Downloads/chromium_example/combined_pbmcs/combined_pbmcs_log2.hdf5')
+h5_in = h5py.File(out_h5_file,'r')## note that this is in read-only format, use 'r+' to be able to edit it as well. I'd recommend making a backup of the file first, so that you will always be able to go back to that, and only edit a 'disposable' version of the dataset.
+norm_mat = h5_in['infile']
+## note that this is just he matrix, the cell and gene labels are the same as they were in the input. For analysis in [PyMINEr]() (my totally unbiased preference), you'll want to save those in new-line
+```
+
+## Programatic Usage (i.e.: Within python3) ##
+### Programmatic (python3): tsv inputs ###
+* Here, you'll need .tsv files with your inputs already filtered and ready to be downsampled and integrated. If you don't have any on hand, try using the chromium ones from the example above. That's what we'll use in this demo.
+
+```
+## import the dependencies from the package
+import os
+from pyminer_norm.combine_col_sums_counts import get_col_sums_counts
+from pyminer_norm.filter_count_sums_ds_merge_log import process
+
+## make a list variable that holds the path to the tsvs you want to integrate and downsample.
+list_of_tsv_to_integrate = ["~/Downloads/chromium_example/1k_v2/pbmc_1k_v2_filtered_feature_bc_matrix.tsv","~/Downloads/chromium_example/1k_v3/pbmc_1k_v3_filtered_feature_bc_matrix.tsv"]
+
+## expand the ~ to be the full path
+list_of_tsv_to_integrate = [os.path.expanduser(f) for f in list_of_tsv_to_integrate]
+
+## first you'll want to look at the distribution of UMI counts 
+## as well as the number of observed genes in each cell from your datasets
+output_dir_for_plots = os.path.expanduser("~/Downloads/chromium_example/combined_stats")
+get_col_sums_counts(list_of_tsv_to_integrate, output_dir_for_plots)
+
+## now you'll want to check out those plots in the output directory and come up
+## with a cutoff that will clip off most of the the tails of those distirbutions
+## especially at the low end. You can also clip off the top, as these might be doublets.
+sum_range = "2512,17782"
+count_range = "631,3981"
+
+## define the output file prefix (note: this is just the prefix that will be used to generate 4 files)
+##   including the dowsampled count file: prefix.hdf5
+##   log2 transformed downsampled counts: prefix_log2.hdf5
+##                              gene ids: ID_list.txt
+##                              cell ids: column_IDs.txt
+out_prefix = os.path.expanduser("~/Downloads/chromium_example/combined_pbmcs/combined_pbmcs")
+
+## call the downsampling function (in the style for input .tsv files)
+process(list_of_tsv_to_integrate, sum_range, count_range, out_prefix)
+```
+
+
+### Programmatic (python3): Bone-marrow atlas (40,000) CZI-h5 format ###
+* This tutorial is for downsampling a single, very large dataset
+* First, download the hdf5 file (you will need an aws account for this):
+* https://s3.console.aws.amazon.com/s3/object/czb-tabula-muris-senis/Data-objects/tabula-muris-senis-droplet-processed-official-annotations-Marrow.h5ad?region=us-west-2&tab=overview
+
+
+```
+## import the dependencies
+import numpy as np
+import os
+from matplotlib import pyplot as plt
+import seaborn as sns
+from pyminer_norm.common_functions import read_cz_h5
+from pyminer_norm.downsample import downsample
+
+## read in the bone marrow hdf5 file
+mat, genes, cells = read_cz_h5( os.path.expanduser('~/Downloads/tabula-muris-senis-droplet-processed-official-annotations-Marrow.h5ad') ) ## or wherever you downloaded it to
+## for the sake of this demonstration, we'll just floor these - in reality, they had transformed it into a log(TPM) like unit, but this is just for illustrative purposes so we'll just make these integers to represent counts
+mat.data = np.round(mat.data)
+
+## first we'll have to figure out what level to downsample to. First by looking at the total UMI in each cell
+total_umi_per_cell = np.array(np.sum(mat,axis=0))[0]
+sns.distplot(total_umi_per_cell)
+plt.show()
+sns.distplot(np.log10(total_umi_per_cell))
+plt.show()
+
+## and take a look at the total number of observed genes
+num_genes_per_cell = np.array(np.sum(mat!=0,axis=0))[0]
+sns.distplot(num_genes_per_cell)
+plt.show()
+sns.distplot(np.log10(num_genes_per_cell))
+plt.show()
+
+## now that you've looked at those distributions, you should make the call on what your total-UMI downsampling cutoff should be.
+min_total_UMI = 2500
+min_num_genes_expressed = 850
+keep_cell_indices = np.where((total_umi_per_cell >= min_total_UMI) * (num_genes_per_cell >= min_num_genes_expressed))[0] ## multiply the two booleans for whether or not a cell passed each cutoff. It'll only be true if it passed both
+cells = np.array(cells)[keep_cell_indices].tolist()
+mat = mat[:,keep_cell_indices]
+
+## now we'll downsample the matrix to that level
+# note that the first and third arguments are None because those are for when you're working on tsv files rather than a matrix you've already read in
+norm_mat = downsample(None, min_total_UMI, None, full_dataset = mat, gene_ids = genes, cols = cells)
+```
+
+
+### Programmatic (python3): Whole Organism (245,000 cells) CZI-h5 format ###
+* This tutorial is for downsampling a single, very, very large dataset
+* First, download the hdf5 file (you will need an aws account for this):
+* https://s3.console.aws.amazon.com/s3/object/czb-tabula-muris-senis/Data-objects/tabula-muris-senis-droplet-official-raw-obj.h5ad?region=us-west-2&tab=overview
+
+
+```
+## import the dependencies
+import numpy as np
+import seaborn as sns
+import os
+from matplotlib import pyplot as plt
+from pyminer_norm.common_functions import read_cz_h5
+from pyminer_norm.downsample import downsample_out_of_memory
+
+## read in the file
+mat, genes, cells = read_cz_h5( os.path.expanduser('~/Downloads/tabula-muris-senis-droplet-official-raw-obj.h5ad')) ## or wherever you put the downloaded file
+
+## calculate the total number of umi in each cell and plot it
+total_umi_per_cell = np.sum(mat,axis=0)
+sns.distplot(total_umi_per_cell)
+plt.show()
+sns.distplot(np.log10(total_umi_per_cell))
+plt.show()
+
+# believe it or not, it's faster to re-load this file as a binary matrix than to do the mat!=0 comparison
+binary_mat, genes, cells = read_cz_h5( os.path.expanduser('~/Downloads/tabula-muris-senis-droplet-official-raw-obj.h5ad'), load_binary=True) ## or wherever you put the downloaded file
+num_genes_per_cell = np.sum(binary_mat,axis=0)
+sns.distplot(num_genes_per_cell)
+plt.show()
+sns.distplot(np.log10(num_genes_per_cell))
+plt.show()
+
+## Notice that in this case, the authors had already filtered out anything with less than 2500 counts, so no need to filter based on that.
+print(np.min(total_umi_per_cell))
+min_num_genes_expressed = 850
+keep_cell_indices = np.where(num_genes_per_cell >= min_num_genes_expressed)[0] 
+cells = np.array(cells)[keep_cell_indices].tolist()
+mat = mat[:,keep_cell_indices]
+
+## now downsample it. Note that if you have a solid state drive or something fast, or a different temp directory that you'd like to use (either for speed or space), use the 'temp_dir' argument. Otherwise, this defaults to the system-wide temp direcotry
+out_h5_file = downsample_out_of_memory(full_dataset = mat, gene_ids = genes, cols = cells, num_transcripts=2500, out_h5_file = os.path.expanduser('~/Downloads/tabula-muris-senis-droplet-processed-official-annotations-Marrow_temp_ds2500.hdf5'))
+
+## here, the function returns the path of the hdf5 file that was generated. You can read it in like so:
+import h5py
+h5_in = h5py.File(out_h5_file,'r')## note that this is in read-only format, use 'r+' to be able to edit it as well. I'd recommend making a backup of the file first, so that you will always be able to go back to that, and only edit a 'disposable' version of the dataset.
+norm_mat = h5_in['infile']
+## note that this is just the matrix, the cell and gene labels are the same as they were in the input. For analysis in pyminer (my totally unbiased preference), you'll want to save those in new-line
+```
+
+
+And that's it - really the only think you have to do is figure out which cells you want to keep or discard. Note, that there can be some other good heuristics that you might want to use as well such as MALAT gene expression, or fraction of mitochondrial genes, etc to filter out other cells/debris. What you'd like to do with the matrix from here forward is up to you though!
+
+### Who do I talk to? ###
+
+* Scott Tyler: scottyler89@gmail.com
+
