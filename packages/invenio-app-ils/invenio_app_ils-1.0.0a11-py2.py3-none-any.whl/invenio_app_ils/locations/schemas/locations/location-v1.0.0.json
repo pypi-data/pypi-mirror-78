@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Schema for Location",
+  "type": "object",
+  "required": ["$schema", "pid", "name"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "pid": {
+      "type": "string",
+      "title": "The persistent identifier of this Location"
+    },
+    "legacy_id": {
+      "type": "string",
+      "title": "The legacy id of this Location"
+    },
+    "name": {
+      "type": "string",
+      "title": "The name of this Location"
+    },
+    "address": {
+      "type": "string",
+      "title": "The address of this Location"
+    },
+    "email": {
+      "type": "string",
+      "title": "A contact email"
+    },
+    "phone": {
+      "type": "string",
+      "title": "A contact phone"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Extra notes"
+    }
+  }
+}
