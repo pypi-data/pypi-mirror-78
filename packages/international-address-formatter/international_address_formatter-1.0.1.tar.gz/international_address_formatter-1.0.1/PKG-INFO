@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: international_address_formatter
+Version: 1.0.1
+Summary: International address formatter
+Home-page: https://github.com/dunkelstern/international_address_formatter
+Author: Johannes Schriewer
+Author-email: hallo@dunkelstern.de
+License: LICENSE.txt
+Description: 
+        This is a address formatter that can format addresses in multiple formats that are common in different countries.
+        
+        For formatting the addresses the `worldwide.yml` from [OpenCageData address-formatting repository](https://github.com/OpenCageData/address-formatting) is used to format the address according to customs in the country that is been encoded.
+        
+        See `README.md` in the [repository](https://github.com/dunkelstern/international_address_formatter) for more information.
+                
+Keywords: address formatting,international
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
