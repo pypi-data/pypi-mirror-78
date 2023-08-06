@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: peridot-periscope
+Version: 1.0.0
+Summary: Unit testing framework for the Peri.dot Programming Language
+License: BSD-3-Clause
+Author: Totobird
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: peridot (>=1.1.1,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Periscope (1.1)
+
+![Periscope Logo](https://raw.githubusercontent.com/toto-bird/Periscope/master/logo.png)
+
+### Usage:
+Peri.dot
+```
+var periscope = include('periscope')
+
+var pscope_add() -> Null {
+    return(periscope.skip(
+        'Out of date'
+    ))
+}
+
+var pscope_sub() -> Null {
+    assert(10 - 5 == 5)
+
+    return(Null)
+}
+
+var pscope_mul() -> Null {
+    assert(10 - 1 == 10, 'Hmm. Somethings not right')
+
+    return(Null)
+}
+```
+
+Bash
+```bash
+# Test files
+periscope peritests/*
+
+# More help
+periscope -h
+```
+
