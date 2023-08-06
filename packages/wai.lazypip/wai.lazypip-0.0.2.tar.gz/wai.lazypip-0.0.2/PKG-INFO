@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: wai.lazypip
+Version: 0.0.2
+Summary: Allows installation of additional packages (from within virtual environments) at runtime.
+Home-page: https://github.com/waikato-ufdl/wai-lazypip
+Author: Peter Reutemann
+Author-email: fracpete@waikato.ac.nz
+License: Apache 2.0 License
+Description: Allows installation of additional packages at runtime (from within virtual environments).
+        Uses `pip` underneath the hood for installing the packages.
+        
+        See project page for more details and examples.
+        
+        Changelog
+        =========
+        
+        0.0.2 (2020-09-04)
+        ------------------
+        
+        - the `install_packages` method now backs up the root logger before calling `pip.main`
+          and restores it afterwards again
+        
+        
+        0.0.1 (2020-07-29)
+        ------------------
+        
+        - initial release
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3
