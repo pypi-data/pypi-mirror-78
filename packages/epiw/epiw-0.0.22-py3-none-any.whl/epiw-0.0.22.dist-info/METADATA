@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: epiw
+Version: 0.0.22
+Summary: Python package for weather query
+Home-page: UNKNOWN
+Author: Park Joo-hyeon
+Author-email: www.jrr.kr@gmail.com
+License: UNKNOWN
+Keywords: weather,asos,aws
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3
+Requires-Dist: geopandas
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: rasterio
+
+UNKNOWN
+
+
