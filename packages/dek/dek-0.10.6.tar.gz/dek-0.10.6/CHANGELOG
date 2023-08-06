@@ -1,0 +1,39 @@
+## v0.10.6 - 20/09/06
+
+* Add MANIFEST.in
+* Simplify and clarify code
+
+## v0.10.5 - 20/07/22
+
+* Replace clod with xmod
+* Test an edge condition
+
+## v0.10.4 - 20/07/11
+
+* Use clod to load the function as a module
+* Add clod to requirements.txt
+* Allow the dek module to be called directly
+* More documentation
+
+## v0.10.3 - 20/07/07
+
+* Better handling of methods parameter
+* Fix dek.__all__ to be a tuple
+
+## v0.10.2 - 20/07/06
+
+* Rename and negate `is_simple` to `defer`
+* New methods parameter
+
+## v0.10.1 - 20/07/06
+
+* Do not use functools.update_wrapper() on types
+* Update documentation
+
+## v0.10.0 - 20/07/05
+
+* Use functools.partial to pass calls
+
+## v0.9.0 - 20/07/05
+
+* First release
