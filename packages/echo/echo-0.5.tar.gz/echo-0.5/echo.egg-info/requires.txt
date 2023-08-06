@@ -1,0 +1,15 @@
+numpy
+qtpy
+
+[docs]
+sphinx
+sphinx-automodapi
+numpydoc
+sphinx-rtd-theme
+
+[qt]
+PyQt5>=5.9
+
+[test]
+pytest
+pytest-cov
