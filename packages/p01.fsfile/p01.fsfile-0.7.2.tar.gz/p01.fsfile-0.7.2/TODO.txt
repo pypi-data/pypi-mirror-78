@@ -1,0 +1,13 @@
+====
+TODO
+====
+
+fix openfile_windows.txt test. It seems that Windows 10 is better in handling
+removed files. Adjust the test which is failing right now.
+
+- use the same code for FSPathStorageBase.removeGhostFiles and GhostFiles.removeGhostFiles
+
+- implement FSFileRemoveTransaction which is able to abort a remove transaction
+  by revert isGhost status
+
+- up test coverage to 100% or ditch unused code
