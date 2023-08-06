@@ -1,0 +1,88 @@
+# Curia Python SDK
+Curia Python SDK is a library for training and using risk & impactability models on Curia.
+
+For detailed documenation, including the API reference, see our TODO - link to docs.
+
+### Installing the Curia Python SDK
+The Curia Python SDK is built to PyPi and can be installed with pip as follows:
+```
+pip install curia
+```
+
+You can install from source by cloning this repository and running a pip install command in the root directory of the repository:
+```
+git clone https://github.com/FoundryAI/curia-python-sdk.git
+cd curia-python-sdk
+pip install .
+```
+
+##### Supported Operating Systems
+Curia Python SDK supports Unix/Linux and Mac.
+
+##### Supported Python Versions
+Curia Python SDK is tested on:
+- Python 3.6
+- Python 3.7
+- Python 3.8
+
+##### Curia Permissions
+Curia Python SDK will utilize the Curia Platform when training models and generating predictions. 
+You will need access to the platform with appropriate permissions to fully utilize the SDK.
+
+##### Running tests
+Curia Python SDK has unit tests.
+To run the tests:
+```
+python setup.py pytest
+```
+
+##### Building Sphinx docs
+Curia Python SDK has Sphinx docs.
+To build the docs run:
+```
+cd doc
+make html
+```
+
+To preview the site with a Python web server:
+```
+cd docs/_build/html
+python -m http.server 8000
+```
+View the docs by visiting http://localhost:8080
+
+### Curia API Token
+To use the Curia Python SDK you will need a Curia API Token. To access your API Token visit https://app.curia.ai/settings.
+
+### Using the Curia Python SDK
+```python
+from curia.session import Session
+from curia.risk import RiskModel
+from curia.synthetic_data import generate_data
+
+# Create synthetic data (demo/testing purposes only)
+(X_train, X_test, _, _, y_train, y_test, _, _, _, _) = generate_data(binary_outcome=True)
+
+# Create a session
+curia_session = Session(api_token="YOUR_API_TOKEN")
+
+# Instantiate a model
+model = RiskModel(
+    session=curia_session, 
+    name="your-model-name",
+    project_id="YOUR_PROJECT_ID"
+)
+
+# Train a model on the Curia Platform
+model.train(features=X_train, label=y_train)
+
+# Get predictions from your model on the Curia Platform
+predictions = model.predict(features=X_test)
+```
+
+
+
+## TODO 
+- pypi badge
+- python badge
+- docs badge
