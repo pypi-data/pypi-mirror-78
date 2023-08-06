@@ -1,0 +1,15 @@
+[invenio_base.api_apps]
+invenio_drafts_resources = invenio_drafts_resources:InvenioDraftsResources
+
+[invenio_base.apps]
+invenio_drafts_resources = invenio_drafts_resources:InvenioDraftsResources
+
+[invenio_config.module]
+invenio_drafts_resources = invenio_drafts_resources.config
+
+[invenio_db.models]
+invenio_drafts_resources = invenio_drafts_resources.drafts.models
+
+[invenio_i18n.translations]
+messages = invenio_drafts_resources
+
