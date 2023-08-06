@@ -1,0 +1,29 @@
+Metadata-Version: 1.2
+Name: layerstack
+Version: 0.3.0
+Summary: Python package for assembling, sharing, and running workflows, especially those associated with modifying, running, and analyzing simulation models
+Home-page: https://github.com/Smart-DS/layerstack
+Author: Elaine Hale, Michael Rossol
+Author-email: elaine.hale@nrel.gov
+License: UNKNOWN
+Description: layerstack: Python package for assembling, sharing, and running workflows, especially those associated with modifying, running, and analyzing simulation models
+        
+        INSTALL
+        
+        pip install layerstack
+        
+        USE
+        
+        https://smart-ds.github.io/layerstack/
+        
+        UNINSTALL
+        
+        pip uninstall layerstack
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
