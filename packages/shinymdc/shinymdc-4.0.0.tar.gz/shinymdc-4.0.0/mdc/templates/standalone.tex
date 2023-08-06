@@ -1,0 +1,59 @@
+\documentclass[preview,varwidth=100in]{standalone}
+
+\usepackage[T1]{fontenc}
+\usepackage[no-math]{fontspec}
+\usepackage[babel=true,protrusion=true,expansion=true]{microtype}
+\usepackage[american]{babel}
+\usepackage{cfr-lm}
+\usepackage[unicode=true,hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{footnote}
+\usepackage{acronym}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{mleftright}
+\usepackage{bm}
+\usepackage{algpseudocode}
+\usepackage{subcaption}
+\usepackage{pgf}
+
+% Pandoc mods
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\makesavenoteenv{longtable}
+
+% Configure acronyms
+\renewcommand*{\acsfont}[1]{{\addfontfeature{LetterSpace=10.0}\scshape\textsmaller{#1}}}
+
+% Use mleftright
+\renewcommand\left\mleft
+\renewcommand\right\mright
+
+% Automatically use \left and \right with parentheses
+\makeatletter
+\def\resetMathstrut@{%
+  \setbox\z@\hbox{%
+    \mathchardef\@tempa\mathcode`\[\relax
+    \mathchardef\@tempc\mathcode`\]\relax
+    \def\@tempb##1"##2##3{\the\textfont"##3\char"}%
+    \expandafter\@tempb\meaning\@tempa \relax
+  }%
+  \ht\Mathstrutbox@\ht\z@ \dp\Mathstrutbox@\dp\z@}
+\makeatother
+\begingroup
+  \catcode`(\active \xdef({\left\string(}
+  \catcode`)\active \xdef){\right\string)}
+\endgroup
+\mathcode`(="8000 \mathcode`)="8000
+
+$for(include-before)$$include-before$$endfor$
+
+\begin{document}
+
+$body$
+
+\end{document}
