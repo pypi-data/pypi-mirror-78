@@ -1,0 +1,24 @@
+#!/bin/bash
+set -ex
+
+# This script file starts up DistKV.
+
+if test "$(distkv dump cfg connect.host)" != "127.0.0.1"; then
+    echo "Server is not localhost: not starting."
+    exit 42  # mark as succeeded
+fi
+
+if test "$MODE" = "master" ; then
+    /usr/lib/distkv/current "$TEMP"
+fi
+
+if test ! -v NAME ; then
+    echo "NAME is not set. Exiting." >&2
+    exit 1
+fi
+
+if test -s "$TEMP" ; then
+    exec distkv -c /etc/distkv.cfg server -a -l "$TEMP" "$NAME"
+else
+    exec distkv -c /etc/distkv.cfg server "$NAME"
+fi
