@@ -1,0 +1,93 @@
+Metadata-Version: 2.0
+Name: threedidepth
+Version: 0.1
+Summary: Calculate waterdepths for 3Di results.
+Home-page: https://github.com/nens/threedidepth
+Author: Arjan Verkerk
+Author-email: arjan.verkerk@nelen-schuurmans.nl
+License: BSD license
+Keywords: threedidepth
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.5
+Provides-Extra: test
+Requires-Dist: threedigrid
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: h5py
+Provides-Extra: test
+Requires-Dist: flake8; extra == 'test'
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+
+threedidepth
+============
+
+Calculate waterdepths for 3Di results.
+
+* Interpolated or gridcell-constant waterlevels
+* Interfaces with threediresults via `threedigrid`
+* Progress indicator support
+* Low memory consumption
+
+
+Installation
+------------
+
+Make sure GDAL is available as (`from osgeo import gdal`)
+
+$ pip install threedidepth  # TODO, we're not yet on pypi
+
+
+Usage
+-----
+
+From the cli::
+
+    $ threedidepth gridadmin.h5 results_3di.nc dem.tif waterdepth.tif
+
+
+Or python::
+
+    >>> threedidepth.calculate_waterdepth(...)
+
+
+Development installation with docker-compose
+--------------------------------------------
+
+For development, you can use a docker-compose setup::
+
+    $ docker-compose build --build-arg uid=`id -u` --build-arg gid=`id -g` lib
+    $ docker-compose up --no-start
+    $ docker-compose start
+    $ docker-compose exec lib bash
+
+(Re)create & activate a virtualenv::
+
+    (docker)$ rm -rf .venv
+    (docker)$ virtualenv .venv --system-site-packages
+    (docker)$ source .venv/bin/activate
+
+Install dependencies & package and run tests::
+
+    (docker)(virtualenv)$ pip install -r requirements.txt
+    (docker)(virtualenv)$ pip install -e .[test]
+    (docker)(virtualenv)$ pytest
+
+
+Changelog of threedidepth
+=========================
+
+
+0.1 (2020-09-03)
+----------------
+
+- First version.
+
+
