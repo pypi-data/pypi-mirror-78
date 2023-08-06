@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: dashmips
+Version: 0.1.8
+Summary: Mips Interpreter
+Home-page: https://github.com/nbbeeken/dashmips
+License: MIT
+Author: Neal Beeken
+Author-email: nbbeeken@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Assembly
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Assemblers
+Requires-Dist: dataclasses (>=0.6,<0.7); python_version == "3.6"
+Requires-Dist: typing-extensions (==3.7.4.2)
+Project-URL: Repository, https://github.com/nbbeeken/dashmips
+Description-Content-Type: text/markdown
+
+# Dashmips
+
+<img src="https://roadkillco.gallerycdn.vsassets.io/extensions/roadkillco/dashmips-debugger/0.1.2/1567790555112/Microsoft.VisualStudio.Services.Icons.Default" height="128" align="right" alt="dashmips icon">
+
+`dashmips` is a Mips Interpreter CLI program.
+
+## [Documentation](https://github.com/nbbeeken/dashmips/wiki)
+
+You can reference [this repository's wiki page](https://github.com/nbbeeken/dashmips/wiki) for CLI usage, debugging, and more!
+
+<sub>Happy coding!</sub>
+
