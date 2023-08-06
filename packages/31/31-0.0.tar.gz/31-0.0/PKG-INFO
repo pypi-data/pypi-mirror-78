@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: 31
+Version: 0.0
+Summary: Runs code in a specified environment in the background and notifies you when it is done.
+Home-page: https://github.com/kavigupta/31
+Author: Kavi Gupta
+Author-email: 31@kavigupta.org
+License: UNKNOWN
+Description: 
+        # 31
+        
+        31 is a simple tool you can use to run code in the background on a server.
+        
+        For example
+        
+        ```
+        31 -c 'sleep 100; echo 2'
+        ```
+        
+        runs the command `sleep 100; echo 2` then sends you an email with the output of the command once it is complete.
+        
+        ## Setup
+        
+        Install 31 by running
+        
+        ```
+        pip install 31
+        ```
+        
+        Then set up your email address by running
+        
+        ```
+        31 --config email youremail@example.com
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
