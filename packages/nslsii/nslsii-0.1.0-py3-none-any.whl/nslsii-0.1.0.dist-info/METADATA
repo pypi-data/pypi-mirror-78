@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: nslsii
+Version: 0.1.0
+Summary: Tools for data collection and analysis at NSLS-II
+Home-page: UNKNOWN
+Author: Brookhaven National Laboratory
+License: BSD (3-clause)
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: appdirs
+Requires-Dist: bluesky
+Requires-Dist: bluesky-kafka
+Requires-Dist: caproto
+Requires-Dist: databroker
+Requires-Dist: ipython
+Requires-Dist: ipywidgets
+Requires-Dist: matplotlib
+Requires-Dist: msgpack (>=1.0.0)
+Requires-Dist: msgpack-numpy
+Requires-Dist: numpy
+Requires-Dist: ophyd
+Requires-Dist: psutil
+Requires-Dist: pyolog
+
+# NSLS-II
+
+Repository of tools used for both data collection and analysis at NSLS-II.
+
+This is a home for facility-wide tools: code that is generalized for use at
+multiple beamlines but not necessarily generalized for use at multiple
+facilties.
+
+For an overview of the NSLS-II software see the
+[NSLS2 software overview](http://nsls-ii.github.io).
+
+
