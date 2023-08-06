@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: thickly-plugins
+Version: 1.0.18
+Summary: Useful plugins/extensions for Locust
+Home-page: https://github.com/SvenskaSpel/locust-plugins
+Author: Lars Holmberg
+License: Apache-2.0
+Platform: UNKNOWN
+Classifier: Topic :: Software Development :: Testing :: Traffic Generation
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Requires-Python: >=3.6, <4
+Requires-Dist: psycogreen
+Requires-Dist: psycopg2-binary
+Requires-Dist: websocket-client
+Requires-Dist: python-dateutil
+Requires-Dist: pymongo
+Requires-Dist: confluent-kafka
+Requires-Dist: selenium
+Requires-Dist: lxml
+
+https://github.com/SvenskaSpel/locust-plugins
+
+
