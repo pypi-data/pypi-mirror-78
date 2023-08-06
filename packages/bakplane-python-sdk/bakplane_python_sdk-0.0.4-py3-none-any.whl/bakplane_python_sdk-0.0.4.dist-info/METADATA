@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: bakplane-python-sdk
+Version: 0.0.4
+Summary: A Python Client for Bakplane
+Home-page: https://github.com/openaristos/bakplane-python-sdk
+Author: Aristos Data, LLC.
+Author-email: hello@openaristos.io
+License: SSPL
+Keywords: open aristos
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: grpcio (==1.30.0)
+Requires-Dist: grpcio-tools (==1.30.0)
+Requires-Dist: grpclib (==0.3.2)
+Requires-Dist: h2 (==3.2.0)
+Requires-Dist: hpack (==3.0.0)
+Requires-Dist: hyperframe (==5.2.0)
+Requires-Dist: multidict (==4.7.6)
+Requires-Dist: protobuf (==3.12.4)
+Requires-Dist: six (==1.15.0)
+Requires-Dist: pre-commit (==2.2.0)
+
+# Bakplane Client for Python
+Bakplane is the orchestration backbone for Dominus, FinFlo, and Fabrik.
+
+## Installation
+Installing the bakplane python client takes just a few seconds:
+```bash
+pip install bakplane-python-sdk
+```
+
+Copyright (C) 2020 Aristos Data, LLC
+
