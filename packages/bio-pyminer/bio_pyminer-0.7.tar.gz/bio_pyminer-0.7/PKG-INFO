@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: bio_pyminer
+Version: 0.7
+Summary: PyMINEr: automated biologic insights from large datasets.
+Home-page: https://scottyler892@bitbucket.org/scottyler892/pyminer
+Author: Scott Tyler
+Author-email: scottyler89@gmail.com
+License: UNKNOWN
+Description: # README #
+        
+        ### Tutorials ###
+        
+        I've made some videos that walk you through the outputs as well as how to install and use PyMINEr here:
+        www.ScienceScott.com/pyminer
+        
+        ### What is this repository for? ###
+        
+        * cell type identification using novel clustering algorithms that outperform some competitors when applied to both real-world and synthetic datasets
+        * basic statistics & enrichment analyses
+        * pathway analyses
+        * Spearman correlation-based expression graphs that enable analyses by graph theory 
+        * creation of in silico predicted autocrine/paracrine signaling networks within and across cell types
+        * creation of publication-ready visuals based on these analyses
+        * generation of a web page explaining the results of the run
+        
+        * Future releases will contain updated clustering methods that work for reconstructing single cell lineages, among other cool functions _stay tuned_
+        
+        ### How do I get set up? ###
+        
+        * If you're on Ubuntu, simply run:
+        *** sudo bash PyMINEr_install.sh ***
+        * If you're using a different Linux distribution, it's possible to develop some errors downstream with dependency installations. If this is the case, it may be useful to first install Anaconda from here: https://www.anaconda.com/download/. After successfully installing Anaconda, then run:
+        *** sudo bash PyMINEr_install.sh ***
+        * Dependencies (these should be installed automatically): NumPy, SciPy, Matplotlib, scikit-learn, gprofiler, and some others that are optional.
+        
+        ### How do I run PyMINEr? ###
+        PyMINEr takes as input a tab delimited 2D matrix text file. For biologic datasets, you'll want to have the genes (or whatever variables we're dealing with), in the first column, followed by your samples in all subsequent columns. For example:
+        
+            |genes  |cell_1  |cell_2  |...|
+            |ACTB   |5.3012	 |6.3102  |...|
+            |...    |...     |...     |...|
+        You can feed this text file into PyMINEr in the command line:
+        
+        `pyminer.py -i expression.txt`
+        
+        That's about it. There are some other interesting things you can do though, like if you are working with something that isn't human, you should be able to pass in the argument -s or -species, 
+        followed by a species code that is taken by gProfiler. This will automate tons of pathway analyses, so long as the variables you're working with can be mapped over to Ensembl gene IDs by gProfiler.
+        
+        A list of the gProfiler accepted species codes is listed here: https://biit.cs.ut.ee/gprofiler/help.cgi#help_id_2
+        
+        ### License ###
+        For non-commercial use, PyMINEr is available via the AGPLv3 license. Commercial entities should inquire with scottyler89@gmail.com
+        
+        ### Who do I talk to? ###
+        
+        * Repo owner/admin: scottyler89+bitbucket@gmail.com
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
