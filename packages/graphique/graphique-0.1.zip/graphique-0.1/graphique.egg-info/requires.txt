@@ -1,0 +1,9 @@
+pyarrow>=1
+strawberry-graphql>=0.30
+
+[docs]
+recommonmark
+sphinx
+
+[timestamp]
+pytz
