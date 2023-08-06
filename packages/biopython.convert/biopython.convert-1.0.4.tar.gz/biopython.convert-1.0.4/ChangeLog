@@ -1,0 +1,56 @@
+CHANGES
+=======
+
+v1.0.4
+------
+
+* Update dependencies. Biopython now outputs correct line lengths, updated test hashes
+* Wrap biopython iterator in type generator
+* Update LICENCE.rst
+* Update CONTRIBUTING
+* Update CONTRIBUTING
+* Update CONTRIBUTING
+
+v1.0.3
+------
+
+* Fix missing variable init
+* Patch around https://github.com/daler/gffutils/pull/144
+* Add test for gff output
+
+v1.0.2
+------
+
+* fix: gff support adapter interface incorrect and gffutils from\_seqfeature cant know about record information
+* fix: PBR required at runtime for version info
+* fix: package name passed to version info incorrect
+* Update package names
+
+v1.0.0
+------
+
+* Update README
+* Update LICENCE.rst
+* Update licence
+* Update licence
+* Use pbr for version
+* Add if name==main block
+* Add main() function for setuptools
+* Change to pbr
+* Fix dependency loop when loading version
+* Add manual install method to readme
+* Fix licence citation
+* Prepare for packaging
+* Fix info header output
+* Move \_\_main\_\_ code to \_\_main\_\_.py
+* Fix test path and make setup.py executable
+* Allow executing module
+* Restructure code to eliminate misuse of SeqIO.write
+* Elaborate on JMESPath query
+* Include test data in package, add tests and classifiers
+* Add tests
+* Add test data
+* Add contributing documentation
+* Format licence file and add readme
+* Clean up code and comments
+* Initial commit
