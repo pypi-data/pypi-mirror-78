@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: karvi
+Version: 0.4.0
+Summary: A small package with custom resources for Django projects.
+Home-page: https://gitlab.com/aranofacundo/karvi
+License: GPL-3.0-only
+Author: Facundo Arano
+Author-email: aranofacundo@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Django :: 2.2
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: django (>=2.2,<2.3)
+Project-URL: Repository, https://gitlab.com/aranofacundo/karvi
+Description-Content-Type: text/markdown
+
+# Karvi
+
+A small package with some custom templates and scripts for Django projects.
+
+## Requirements
+
+-   [Python](https://www.python.org) 3.6
+-   [Django](https://www.djangoproject.com) 2.2
+
+## Projects in use
+
+-   [Bulma](https://bulma.io) 0.9
+-   [TypeScript](https://www.typescriptlang.org) 3.2
+-   [Laravel Mix](https://github.com/JeffreyWay/laravel-mix) 4.0
+-   [Yarn](https://yarnpkg.com)
+-   [Poetry](https://python-poetry.org)
+
