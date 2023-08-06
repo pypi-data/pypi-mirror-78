@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: bloptools
+Version: 0.0.1
+Summary: Beamline Optimization Tools
+Home-page: https://github.com/NSLS-II/bloptools
+Author: Brookhaven National Lab
+Author-email: Dama@bnl.gov
+License: BSD (3-clause)
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Requires-Dist: bluesky (>=1.6.1)
+Requires-Dist: databroker
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: ophyd
+Requires-Dist: sirepo-bluesky
+
+=========
+Bloptools
+=========
+
+.. image:: https://img.shields.io/travis/NSLS-II/bloptools.svg
+        :target: https://travis-ci.org/NSLS-II/bloptools
+
+.. image:: https://img.shields.io/pypi/v/bloptools.svg
+        :target: https://pypi.python.org/pypi/bloptools
+
+
+Beamline Optimization Tools
+
+* Free software: 3-clause BSD license
+* Documentation: (COMING SOON!) https://NSLS-II.github.io/bloptools.
+
+Features
+--------
+
+* TODO
+
+
