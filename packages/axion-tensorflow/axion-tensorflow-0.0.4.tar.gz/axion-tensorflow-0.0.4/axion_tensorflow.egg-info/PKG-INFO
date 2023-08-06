@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: axion-tensorflow
+Version: 0.0.4
+Summary: axion for TensorFlow >=2.2.
+Home-page: https://github.com/aixin-chip/axion-tensorflow-models
+Author: axion
+Author-email:  axion@aixin-chip.com
+License: Apache License 2.0
+Description: ## Introduction
+        
+        This is an implementation of axion for TensorFlow >=2.2.
+        
+        Current version provides quantized conv2d & dense layer. More layers are about to come.
+        
+        ## Installing & Usage
+        
+        To install current release:
+        
+        `pip install axion-tensorflow`
+        
+        To use axion layer in your model, do
+        
+        `import axion_tensorflow as axion`
+        
+        Then you can use `axion.layers.Conv2D` & `axion.layers.Dense`
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
