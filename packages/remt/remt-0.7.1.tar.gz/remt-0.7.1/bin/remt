@@ -1,0 +1,115 @@
+#!/usr/bin/env python3
+#
+# remt - reMarkable tablet command-line tools
+#
+# Copyright (C) 2018-2020 by Artur Wroblewski <wrobell@riseup.net>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+import argparse
+import asyncio
+
+import remt.cmd
+from remt.error import RemtError
+
+desc = 'remt {} - reMarkable tablet command-line tools'.format(
+    remt.__version__
+)
+
+parser = argparse.ArgumentParser(description=desc)
+main_parser = parser.add_subparsers(dest='subcmd', title='subcommands')
+
+# command: ls
+sub_parser = main_parser.add_parser('ls', help='list files on the tablet')
+sub_parser.add_argument(
+    '-l',
+    dest='long',
+    action='store_true',
+    default=False,
+    help='Use long listing format',
+)
+sub_parser.add_argument(
+    '-R',
+    dest='recursive',
+    action='store_true',
+    default=False,
+    help='List subdirectories recursively',
+)
+sub_parser.add_argument(
+    'path', nargs='?',
+    help='Starting path (%%i for interactive selection)'
+)
+
+# command: mkdir
+sub_parser = main_parser.add_parser(
+    'mkdir',
+    help='create a directory on the tablet',
+)
+sub_parser.add_argument('path', help='Directory to create')
+
+# command: export
+sub_parser = main_parser.add_parser(
+    'export',
+    help='export a notebook or an annotated PDF file from the tablet',
+)
+sub_parser.add_argument(
+    '-r', '--renderer',
+    choices=['remt', 'remarkable'],
+    default='remt',
+    help='Change between remt project or reMarkable tablet renderer for' \
+            ' document drawing'
+)
+sub_parser.add_argument(
+    'input',
+    help='Path of file to export (%%i for interactive selection)'
+)
+sub_parser.add_argument('output', help='Output filename')
+
+# command: import
+sub_parser = main_parser.add_parser(
+    'import',
+    help='import a number of PDF files onto the tablet',
+)
+sub_parser.add_argument('input', nargs='+', help='List of files to import')
+sub_parser.add_argument(
+    'output',
+    help='Target directory (%%i for interactive selection)'
+)
+
+# command: index
+sub_parser = main_parser.add_parser(
+    'index',
+    help='create index of PDF file annotations',
+)
+sub_parser.add_argument(
+    'input',
+    help='Path of file to index (use %%i for interactive selection)'
+)
+
+args = parser.parse_args()
+
+cmd = remt.cmd.COMMANDS.get(args.subcmd)
+if cmd is None:
+    parser.print_usage()
+    parser.exit()
+
+loop = asyncio.get_event_loop()
+try:
+    loop.run_until_complete(cmd(args))
+except RemtError as ex:
+    msg = 'remt: {}\n'.format(ex)
+    parser.exit(1, msg)
+
+# vim: sw=4:et:ai

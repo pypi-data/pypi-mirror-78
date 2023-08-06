@@ -1,0 +1,5 @@
+-r requirements.txt
+
+pytest-asyncio
+pytest-cov>=2.6.0
+pytest-timeout

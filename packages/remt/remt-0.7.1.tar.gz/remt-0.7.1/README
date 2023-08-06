@@ -1,0 +1,103 @@
+`remt` - reMarkable tablet command-line tools.
+
+Features
+========
+`remt` project features are
+
+- reMarkable tablet operations
+
+  - list files and directories
+  - create directories
+  - export a notebook as PDF file using reMarkable tablet renderer or
+    `remt` project renderer
+  - export an annotated PDF document using reMarkable tablet renderer or
+    `remt` project renderer
+  - import a PDF document
+  - create index of PDF file annotations
+  - interactive selection of files on a tablet using `fzf` command
+
+- cache of reMarkable tablet metadata to speed up tablet operations;
+  caching supports multiple devices
+- `remt` project renderer
+
+  - supports export of large files and usually produces smaller PDF files
+    comparing to the reMarkable tablet renderer
+  - multi-page notebooks and PDF files
+  - drawing tools (non-implemented drawing tool stroke is shown as a dotted
+    line)
+
+    - ballpoint (no brush supported yet)
+    - fineliner
+    - sharp pencil with pencil brush
+    - highlighter
+    - eraser
+    - erase area
+
+- `remt` project can be used as a library for UI applications
+
+What does not work yet
+
+- marker
+- tilt pencil
+- brush
+- pencil brush should be more like the one on reMarkable tablet
+- ballpoint brush should be more like the one on reMarkable tablet
+
+Please, use reMarkable firmware version 2.0 or later.
+
+Installation
+============
+Create configuration file `~/.config/remt.ini` with contents::
+
+    [connection]
+    host=10.11.99.1
+    user=root
+    password=<your reMarkable tablet password if not using ssh key>
+
+Install `remt` project with `pip`, i.e.:
+
+    $ pip install remt
+
+Usage
+=====
+Use `remt` command to execute commands on a reMarkable tablet device. The
+summary of the commands can be obtained with `--help` option, i.e.::
+
+    $ remt --help
+    usage: remt [-h] {ls,mkdir,export,import,index} ...
+
+    remt 0.7.1 - reMarkable tablet command-line tools
+
+    optional arguments:
+      -h, --help            show this help message and exit
+
+    subcommands:
+      {ls,mkdir,export,import,index}
+        ls                  list files on the tablet
+        mkdir               create a directory on the tablet
+        export              export a notebook or an annotated PDF file from
+                            the tablet
+        import              import a number of PDF files onto the tablet
+        index               create index of PDF file annotations
+
+Acknowledgements
+================
+Kudos to
+
+- https://github.com/phil777/maxio
+- https://github.com/reHackable/maxio
+- https://github.com/reHackable/scripts
+- https://plasma.ninja/blog/devices/remarkable/binary/format/2017/12/26/reMarkable-lines-file-format.html
+- https://github.com/Samathy/pdfcommentextractor
+
+Disclaimer
+==========
+This project is *not* an official project of the reMarkable company.
+
+License
+=======
+The `remt` project is licensed under terms of GPL license, version 3, see
+COPYING file for details. As stated in the license, there is no warranty,
+so any usage is on your own risk.
+
+.. image:: examples/rm.png
