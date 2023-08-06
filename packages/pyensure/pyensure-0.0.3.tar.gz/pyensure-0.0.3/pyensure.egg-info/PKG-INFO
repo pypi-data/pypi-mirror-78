@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: pyensure
+Version: 0.0.3
+Summary: UNKNOWN
+Home-page: https://github.com/csm10495/pyensure
+Author: csm10495
+Author-email: csm10495@gmail.com
+License: MIT License
+Description: # pyensure
+        An odd solution to auto-download missing imports.
+        
+        This is more of a proof-of-concept than a good idea.
+        
+        ## Installation
+        ```
+        pip install pyensure
+        ```
+        
+        ## Usage
+        
+        ```
+        from pyensure import hook, ensure_package
+        
+        pytest = ensure_package('pytest') # will install pytest via pip to a temp location of missing
+        
+        # or if you want to do something a bit more scary
+        
+        hook()
+        
+        import requests # will install requests via pip to a temp location of missing
+        
+        # Note that hook() will actually overwrite the base __import__() method to ensure the package exists
+        
+        # or if you just want to run a .py script and not worry  (as much) about depends
+        python -m pyensure <script> <args to script... >
+        ```
+        
+        
+        ## License
+        MIT License - Charles Machalow
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
