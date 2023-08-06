@@ -1,0 +1,76 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "",
+    "Parameters": {
+        "ProjectName": {
+            "Type": "String",
+            "Description": "Project name.",
+            "Default": ""
+        },
+        "ClusterName": {
+            "Type": "String",
+            "Description": "Name of cluster used for deployment.",
+            "Default": ""
+        },
+        "ServiceName": {
+            "Type": "String",
+            "Description": "Service name.",
+            "Default": ""
+        },
+        "RetentionInDays": {
+            "Type": "Number",
+            "Description": "Cloud watch retention",
+            "Default": 7
+        },
+        "LoadBalancerBlue": {
+            "Type": "String",
+            "Description": "The ARN of Blue load balancer.",
+            "Default": ""
+        },
+        "LoadBalancerGreen": {
+            "Type": "String",
+            "Description": "The ARN of Green load balancer.",
+            "Default": ""
+        },
+        "Region": {
+            "Type": "String",
+            "Description": "Amazon Web Services Region to deploy.",
+            "Default": ""
+        },
+        "Environment": {
+            "Type": "String",
+            "Description": "Environment to deploy.",
+            "Default": ""
+        },
+        "Route53RecordetSetTTL": {
+            "Type": "Number",
+            "Description": "TTL for Route53 recordset.",
+            "Default": 60
+        }
+    },
+    "Resources": {
+        "CloudWatchLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+                "LogGroupName": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "/aws/ecs/",
+                            {
+                                "Ref": "ClusterName"
+                            },
+                            "/service/",
+                            {
+                                "Ref": "ServiceName"
+                            }
+                        ]
+                    ]
+                },
+                "RetentionInDays": {
+                    "Ref": "RetentionInDays"
+                }
+            }
+        }
+    }
+}
