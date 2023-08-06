@@ -1,0 +1,73 @@
+[relay]
+addresses_filepath = "addresses.json"
+
+[relay.gas_price_computation]
+method = "rpc"
+gas_price = 0
+
+[trustline_index]
+enable = true
+full_sync_interval = 300
+
+[tx_relay]
+enable = true
+
+[exchange]
+enable = true
+
+[node_rpc]
+## Possible values for connection type are ipc, http, websocket. Default: http
+## type = websocket
+port = 8545
+host = "localhost"
+use_ssl = false
+## or use an uri to automatically detect the correct provider. Example for ipc:
+# uri = "file:///path-to-file.ipc"
+
+[faucet]
+enable = false
+
+[push_notification]
+enable = false
+firebase_credentials_path = "firebaseAccountKey.json"
+
+[rest]
+port = 5000
+host = ""
+
+[messaging]
+enable = true
+
+[delegate]
+enable = true
+enable_deploy_identity = true
+## The list of accepted fees for delegating a meta-tx
+## Below is an example for accepting 0 fees. Other keys are 'currency_network' and 'fee_recipient'
+fees = [
+# {'base_fee'=0, 'gas_price'=0}
+]
+## Set the maximum allowed gas usage per delegated meta transaction
+max_gas_limit = 1_000_000
+## Supported gas price methods are rpc, fixed, bound
+## rpc: Ask node for gas price
+## fixed: Use fixed value 'gas_price'
+## bound:  Use gas price from node if in bounds ('min_gas_price', 'max_gas_price'), otherwise use bounds
+# gas_price_method = "fixed"
+# gas_price = 1_000_000_000
+
+
+# [account]
+# keystore_path = "path-to-keystor"
+# keystore_password_path = "path-to-password"
+
+# [sentry]
+# dsn = "..."
+
+# [logging]
+# level = "INFO"
+
+# [logging.loggers."api.resources"]
+# level = "DEBUG"
+
+# [logging.loggers.node]
+# level = "DEBUG"
