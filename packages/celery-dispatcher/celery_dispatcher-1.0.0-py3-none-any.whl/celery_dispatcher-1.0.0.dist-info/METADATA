@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: celery-dispatcher
+Version: 1.0.0
+Summary: Support a large number of subtasks for celery framework
+Home-page: https://github.com/gsfish/celery-dispatcher
+Author: gsfish
+Author-email: root@grassfish.net
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# celery-dispatcher
+
+## Installation
+
+```
+pip install celery-dispatcher
+```
+
+## Usage
+
+```
+from celery import 
+from celery_dispatcher import dispatch
+
+def handle_result(root_id, task_id, retval, **kwargs):
+    print(retval)
+
+@shared_task
+def sqrt(i):
+    return i * i
+
+@dispatch(receiver=handle_result)
+@shared_task
+def calc():
+    for i in range(10):
+        yield sqrt, (i,)
+```
+
+
