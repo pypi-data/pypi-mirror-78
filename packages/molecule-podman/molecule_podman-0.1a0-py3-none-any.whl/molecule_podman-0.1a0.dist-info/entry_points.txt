@@ -1,0 +1,3 @@
+[molecule.driver]
+podman = molecule_podman.driver:Podman
+
