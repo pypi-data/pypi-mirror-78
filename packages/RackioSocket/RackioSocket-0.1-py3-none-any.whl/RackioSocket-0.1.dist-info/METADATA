@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: RackioSocket
+Version: 0.1
+Summary: A Rackio extension to add a WebSocket Server to Rackio
+Home-page: https://github.com/rack-io/rackio-socket
+Author: Nelson Carrasquel
+Author-email: rackio.framework@outlook.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: eventlet
+
+# rackio-socket
+A Rackio extension to add a WebSocket Server to Rackio
+
+## Installation
+
+```
+pip install RackioSocket
+```
+
+## Usage
+
+```python
+from rackio import Rackio
+from rackio_socket import RackioSocket
+
+app = Rackio()
+
+RackioSocket(app, 5005)
+
+app.run(8028)
+```
+
+## Swagger UI
+
+After running your application it will serve the socket through the *5005* port.
+
+```
+ws://localhost:5005
+```
+
+
