@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: toxopy
+Version: 0.4.2.1
+Summary: Object-specific python package to run automated tasks in the Chase Lab.
+Home-page: https://github.com/bchaselab/toxopy
+License: UNKNOWN
+Author: fcatus
+Author-email: f.catus@pm.me
+Requires-Python: >=3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: pandas
+Requires-Dist: dlcu
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: tqdm
+Requires-Dist: scipy
+Requires-Dist: seaborn
