@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: mkignore
+Version: 0.1.5
+Summary: Generate .gitignore files from templates
+Home-page: https://github.com/EClaesson/mkignore
+Author: Emanuel Claesson
+Author-email: emanuel.claesson@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: dload (>=0.6)
+
+# mkignore
+**Generate .gitignore from templates**
+
+### Installation
+`pip install mkignore`
+
+### Usage
+```shell script
+mkignore [-h] [-g, --generate] [-u, --update] [-l, --list] [TEMPLATES [TEMPLATES ...]]
+
+Generate .gitignore files
+
+positional arguments:
+  TEMPLATES
+
+optional arguments:
+  -h, --help      show this help message and exit
+
+  -g, --generate  Generate .gitignore
+
+  -u, --update    Update available .gitignore templates
+
+  -l, --list      List available .gitignore templates
+```
+
+### Example
+Generate a .gitignore for a C++ project in a JetBrains IDE.
+
+`mkignore -g c++ jetbrains > .gitignore`
+
