@@ -1,0 +1,35 @@
+<registry>
+
+  <record name="plone.types_not_searched"
+          interface="Products.CMFPlone.interfaces.controlpanel.ISearchSchema"
+          field="types_not_searched">
+    <value>
+      <element>ftw.events.EventListingBlock</element>
+    </value>
+  </record>
+
+  <record name="plone.displayed_types">
+    <value purge="false">
+      <element>ftw.events.EventFolder</element>
+    </value>
+  </record>
+
+  <records interface="Products.CMFPlone.interfaces.controlpanel.IImagingSchema"
+           prefix="plone">
+    <value key="allowed_sizes" purge="false">
+      <element>events_listing_image 480:480</element>
+    </value>
+  </records>
+
+  <records prefix="plone.bundles/ftw-events-resources"
+           interface="Products.CMFPlone.interfaces.IBundleRegistry">
+    <value key="enabled">True</value>
+    <value key="depends">plone</value>
+    <value key="stub_js_modules">jquery</value>
+    <value key="compile">False</value>
+    <value key="jscompilation">++resource++ftw.events.resources/events-compiled.js</value>
+    <value key="last_compilation">2019-12-10 09:00:00</value>
+    <value key="merge_with">default</value>
+  </records>
+
+</registry>

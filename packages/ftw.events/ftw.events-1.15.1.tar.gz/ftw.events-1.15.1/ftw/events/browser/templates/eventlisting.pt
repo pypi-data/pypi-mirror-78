@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="ftw.events">
+
+  <metal:title fill-slot="content-title">
+    <h1 class="documentFirstHeading" tal:content="view/title"/>
+  </metal:title>
+
+  <metal:description fill-slot="content-description">
+    <metal:comment>
+      <div class="documentDescription description"
+           tal:condition="view/description"
+           tal:content="view/description" />
+    </metal:comment>
+  </metal:description>
+
+  <metal:main fill-slot="content-core" tal:define="batch view/batch">
+
+    <div class="events-listing">
+      <p tal:condition="not:nocall:batch" class="no-events" i18n:translate="events_listing_no_content_text">
+        No content available
+      </p>
+
+      <ul tal:condition="nocall:batch">
+        <tal:batch repeat="brain batch">
+          <li tal:define="item python:view.get_event_page_dict(brain)" tal:attributes="class string:event-item ${item/has_image_class}">
+            <a tal:attributes="href item/url">
+
+              <h2 tal:content="item/title" class="event-title" />
+
+              <div tal:attributes="class string:event-image ${item/has_image_class}">
+                <img tal:condition="item/image_tag" tal:replace="structure item/image_tag" />
+              </div>
+
+              <div class="event-byline">
+                <span class="event-date" tal:condition="item/date_snippet" tal:content="structure item/date_snippet" />
+                <span class="event-location" tal:condition="item/location" tal:content="item/location" />
+              </div>
+
+              <p class="event-description" tal:content="item/description" tal:condition="item/description" />
+
+            </a>
+          </li>
+        </tal:batch>
+      </ul>
+
+      <div metal:use-macro="context/batch_macros/macros/navigation" />
+    </div>
+
+  </metal:main>
+</html>

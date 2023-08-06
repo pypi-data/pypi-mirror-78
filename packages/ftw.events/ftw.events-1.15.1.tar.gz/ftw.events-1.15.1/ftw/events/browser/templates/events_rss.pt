@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel tal:define="items view/get_items">
+        <atom:link tal:attributes="href string:${view/context/absolute_url}/${view/__name__}"
+                   rel="self"
+                   type="application/rss+xml" />
+        <title tal:content="view/title" />
+        <tal:link tal:replace="structure view/link">link</tal:link>
+        <description tal:content="view/description" />
+        <item tal:repeat='item items'>
+            <title tal:content="item/Title" />
+            <tal:link tal:replace="structure python:view.get_item_link(item.getURL())">link</tal:link>
+            <description tal:content="item/Description" />
+            <guid tal:content="item/getURL" />
+            <lastBuildDate tal:content="item/modified/rfc822" />
+            <pubDate tal:define="start item/start"
+                     tal:condition="start"
+                     tal:content="python: view.get_rfc822_datetime(start)" />
+            <dc:subject tal:repeat="subject item/Subject">
+                <tal:subject replace="subject" />
+            </dc:subject>
+            <dc:type tal:content="item/portal_type" />
+        </item>
+    </channel>
+</rss>

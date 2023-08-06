@@ -1,0 +1,207 @@
+@include portal-type-font-awesome-icon(ftw-events-eventfolder, calendar);
+@include portal-type-font-awesome-icon(ftw-events-eventpage, calendar-o);
+@include portal-type-font-awesome-icon(ftw-events-eventlistingblock, calendar-o);
+@include portal-type-font-awesome-icon(ftw-events-mapmarker, map-marker);
+
+$leadimage-max-width: 200px !default;
+$events-listing-image-size: 360px !default;
+$events-listing-image-padding: $padding-vertical !default;
+$events-listing-image-border: 1px solid $color-disabled !default;
+$events-listing-item-vertical-paddding: $margin-vertical !default;
+$events-listing-separator: 1px solid $color-disabled !default;
+$events-listing-byline-color: $color-text-light !default;
+$events-listing-byline-font-size: inherit !default;
+
+.event-listingblock-moreitemslink {
+  @extend .fa-icon;
+  @extend .fa-caret-right;
+  display: block;
+}
+
+.event-details {
+  .when {
+    ul {
+      @include list;
+
+      abbr[title] {
+        text-decoration: none;
+        border-bottom: none;
+      }
+    }
+  }
+  i.link-https {
+    display: none;
+  }
+}
+
+.event-row {
+  @include list();
+  margin-bottom: $margin-vertical;
+
+  > li:last-child .event-item {
+    margin-bottom: 0;
+  }
+
+  .event-item {
+    @include no-link();
+    @include clearfix();
+    padding: 0;
+    margin-bottom: $margin-vertical;
+
+    &:hover {
+      background-color: $color-gray-light;
+    }
+
+    .image {
+      @include screen-small() {
+        float: right;
+        > img {
+          max-width: $leadimage-max-width;
+        }
+      }
+
+      min-width: $leadimage-max-width;
+      min-height: $leadimage-max-width;
+
+      > img {
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+
+      &.no-image {
+        display: none;
+
+        & +.body {
+          padding-right: 0;
+        }
+      }
+    }
+
+    .body {
+
+      &.show-image {
+        @include screen-small() {
+          padding-right: em($leadimage-max-width) + $padding-horizontal;
+        }
+      }
+
+      .event-more {
+        display: inline;
+        &:before {
+          min-width: 0;
+        }
+      }
+    }
+
+    .byline {
+      display: block;
+      font-size: $font-size-small;
+      color: $color-text-light;
+    }
+
+    .title {
+      font-size: 1rem;
+      font-weight: bold;
+      display: block;
+    }
+  }
+}
+
+.ics-export {
+    @extend .fa-icon;
+    @extend .fa-calendar;
+    display: block;
+    float: right;
+}
+
+.google-maps-link {
+    @extend .fa-icon;
+    @extend .fa-map-marker;
+    display: block;
+    float: right;
+}
+
+
+
+// Hide empty event listing block for anonymous users.
+.portlet.SimplelayoutPortlet .ftw-events-eventlistingblock.hidden {
+  display: none;
+}
+
+// Add special border to empty listing block for authenticated users.
+body.userrole-authenticated .portlet.SimplelayoutPortlet .ftw-events-eventlistingblock.hidden {
+  @include boxshadow(0 0 20px 0 $color-warning);
+  display: block;
+}
+
+// Add RSS icon to rss link in eventlisting block
+.events-rss {
+  @extend .fa-icon;
+  @extend .fa-rss;
+}
+
+div.events-listing {
+  .no-events {
+    text-align: center;
+  }
+
+  > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li.event-item {
+    @include clearfix();
+    padding-top: $events-listing-item-vertical-paddding;
+    padding-bottom: $events-listing-item-vertical-paddding;
+    margin-bottom: 0;
+    border-bottom: $events-listing-separator;
+    &:last-child {
+      border-bottom: none;
+    }
+
+    > a {
+      @include no-link();
+      display: block;
+
+      .event-image.has-image {
+        width: 100%;
+        padding: 0;
+        padding-bottom: $events-listing-image-padding;
+        margin: 0;
+        text-align: center;
+        @include screen-medium() {
+          float: right;
+          width: $events-listing-image-size;
+          padding: $events-listing-image-padding;
+          margin:  $events-listing-image-padding;
+          border: $events-listing-image-border;
+        }
+        img {
+          display: block;
+        }
+      }
+      .event-image.no-image {
+        display: none;
+      }
+
+      .event-byline {
+        margin-bottom: $margin-heading-vertical;
+        .event-date, .event-location {
+          font-size: $events-listing-byline-font-size;
+          color: $events-listing-byline-color;
+          display: block;
+        }
+        .event-date abbr {
+          text-decoration: none;
+          border-bottom: none;
+        }
+      }
+
+      .event-description {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
