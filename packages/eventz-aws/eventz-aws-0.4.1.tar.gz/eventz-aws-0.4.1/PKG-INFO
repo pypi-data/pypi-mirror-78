@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: eventz-aws
+Version: 0.4.1
+Summary: AWS additions for Eventz framework.
+Author: Dan Ballance
+Author-email: work@danballance.uk
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: boto3 (>=1.14.16,<2.0.0)
+Requires-Dist: eventz (>=0.3.0,<0.4.0)
+Requires-Dist: immutables (>=0.14,<0.15)
