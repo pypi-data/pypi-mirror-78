@@ -1,0 +1,781 @@
+This file has been dedicated to the public domain, to the extent
+possible under applicable law, via CC0. See
+http://creativecommons.org/publicdomain/zero/1.0/ for more
+information. This file is offered as-is, without any warranty.
+
+========================================================================
+
+1.7
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.gfx.Font.linesize
+- sge.gfx.Sprite.size
+
+Specification misc changes:
+* Added an outline and outline_thickness argument to
+  sge.gfx.Sprite.draw_text and related methods.
+* Added use of an argument by the pixelate transition to control rate
+  of pixelation updates.
+* Specified that extending sge.s with additional string variables is
+  allowed.
+* Removed the warning about use of MP3 files in the documentation since
+  MP3 patents expired a couple years ago.
+
+Specification bugfixes:
+- Missing documentation for sge.gfx.Sprite.get_spritelist
+- Missing documentation for sge.gfx.Color.__init__
+- sge.gfx.Sprite.scale docs talking about rotation rather than scaling
+
+
+1.6
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.s.isometric
++ sge.s.orthogonal
++ sge.gfx.Sprite.get_spritelist
+
+Specification misc changes:
+* Full name changed from "SGE Game Engine" to "Seclusion Game Engine"
+
+Specification bugfixes:
+- Misspelling of "backgrounds" as "bckgrounds"
+
+
+1.5
+------------------------------------------------------------------------
+
+Specification misc changes:
+* Changed the way keys are handled to be more generalized and
+  flexible, in particular allowing for extra keys and removing some
+  odd keys which had been inherited from Pygame from the standard list.
+  The main reason I did this is because typing with input methods was
+  broken as it was before.
+
+Specification bugfixes:
+- Typo in the documentation for sge.gfx.Sprite.swap_color
+
+
+1.4.2
+------------------------------------------------------------------------
+
+Specification bugfixes:
+- Failure to import os in the "Better Pong" tutorial.
+
+
+1.4
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.gfx.Sprite.swap_color
+
+Specification misc changes:
+* Replaced uses of IOError with uses of OSError.
+
+Specification bugfixes:
+- Universal joystick events not being listed in generated documentation
+
+
+1.3
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.dsp.Object.image_width
++ sge.dsp.Object.image_height
++ sge.dsp.Object.image_left
++ sge.dsp.Object.image_right
++ sge.dsp.Object.image_xcenter
++ sge.dsp.Object.image_top
++ sge.dsp.Object.image_bottom
++ sge.dsp.Object.image_ycenter
++ sge.snd.Sound.parent
+
+Specification misc changes:
+* sge.gfx.Sprite.from_tween now supports all blend modes.
+* sge.gfx.Font.from_sprite now offers an alternative, more fine-tuned
+  way to map characters to the sprite's frames.
+* It is now possible to specify a fallback character for sprite fonts
+  for use when the character is not available in the font.
+* sge.snd.Sound.play now supports the "force" argument to control
+  whether or not the sound should play anyway if the maximum number of
+  instances is playing (overriding existing instances).
+
+
+1.2
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.dsp.Object.image_blend_mode
+
+Specification misc changes:
+* When a sprite is specified as transparent, the SGE no longer tries to
+  check whether or not the actual image file has transparency and apply
+  arbitrary colorkey transparency otherwise.  This system was just too
+  prone to errors caused by tools like Trimage removing alpha channels,
+  and caused a bug in the Pygame SGE that could not be fixed.
+
+
+1.1
+------------------------------------------------------------------------
+
+Specification misc changes:
+* Removed the docstring section discussing implementation details.
+  Instead, these details should now be discussed in a README
+  accompanying the implementation.
+
+
+1.0
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.s
++ sge.SCALE_METHODS
++ sge.dsp.Game.scale_method
+
+Specification removals:
+- sge.dsp.Game.scale_smooth
+
+Specification misc changes:
+* All drawing and projecting methods now support blend modes.
+
+
+0.24
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.gfx.TileGrid
++ sge.gfx.Sprite.get_pixel
++ sge.gfx.Sprite.get_pixels
++ sge.gfx.Sprite.scale
++ sge.gfx.Sprite.from_tween
++ sge.gfx.Sprite.resize_canvas
++ sge.gfx.Sprite.extend
++ sge.snd.stop_all
+
+Specification removals:
+- sge.snd.Sound.stop_all
+
+Specification misc changes:
+* sge.dsp.Game.scale is now defined to suggest what resolution to use in
+  fullscreen mode.
+* Mirroring, flipping, and rotation of sprites can now be done on a
+  specific frame.
+* sge.gfx.Sprite.transparent can now be set to a color, in which case it
+  defines the colorkey to use.
+
+
+0.23
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.joystick.get_value
++ sge.input.JoystickEvent
++ sge.Game.event_joystick
++ sge.Game.event_paused_joystick
++ sge.Room.event_joystick
++ sge.Room.event_paused_joystick
++ sge.Object.event_joystick
++ sge.Object.event_paused_joystick
+
+Specification misc changes:
+* Moved sge.Color, sge.Sprite, sge.Font, sge.BackgroundLayer, and
+  sge.Background to the new sge.gfx module.
+* Changed the default text color in text drawing and projection methods
+  to white.
+* Moved sge.Game, sge.Room, sge.View, and sge.Object to the new sge.dsp
+  module.
+* Moved sge.Sound and sge.Music to the new sge.snd module.
+* Rotation is now clockwise instead of counter-clockwise.
+* Sound and music volumes are now from 0 to 1, not 0 to 100.
+
+
+0.22
+------------------------------------------------------------------------
+
+Specification misc changes:
+* Added a warning about certain methods' interaction with certain lists.
+* Clarified how colorkeys are chosen in the documentation.
+
+Specification bugfixes:
+- "Hello world" tutorial being outdated
+
+
+0.21
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Game.delta_max
+
+Specification misc changes:
+* Window projections now have Z-axis values.  These Z-axis values are
+  independent of all others.
+* sge.game.mouse.z is now used to determine the Z-axis value of the
+  mouse projection.
+* As a consequence of the Z-axis value introduction to window
+  projections, it's possible to make window projections obscure the
+  mouse cursor.
+
+
+0.20
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Room.object_area_width
++ sge.Room.object_area_height
++ sge.Room.object_areas
++ sge.Room.object_area_void
++ sge.Room.get_objects_at
+
+Specification removals:
+- sge.Object.event_inactive_step
+- sge.Object.event_inactive_key_press
+- sge.Object.event_inactive_key_release
+- sge.Object.event_inactive_mouse_move
+- sge.Object.event_inactive_mouse_button_press
+- sge.Object.event_inactive_mouse_button_release
+- sge.Object.event_inactive_joystick_axis_move
+- sge.Object.event_inactive_joystick_hat_move
+- sge.Object.event_inactive_joystick_trackball_move
+- sge.Object.event_inactive_joystick_button_press
+- sge.Object.event_inactive_joystick_button_release
+
+Specification misc changes:
+* Objects with the same Z-axis value are now positioned based on
+  creation time (like the Pygame SGE).
+
+Specification bugfixes:
+- Remaining references to "sge.StellarClass" in docstrings
+
+
+0.19
+------------------------------------------------------------------------
+
+Specification misc changes:
+* Negative frame rates now indicate reversed animation.
+* Added "transition_arg" argument to sge.Room.start, for special
+  transition variations.  Currently, this allows control over the
+  position of iris in and iris out transitions, and the size of the
+  rectangles in the matrix wipe transition.
+
+
+0.18
+------------------------------------------------------------------------
+
+Specification misc changes:
+* Improved the method of deceleration (the old one was quite buggy).
+* The order of event_create calls is now defined to be the same as the
+  order in which the objects were added to the room. (It was previously
+  undefined.)
+
+0.17
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Object.xacceleration
++ sge.Object.yacceleration
++ sge.Object.xdeceleration
++ sge.Object.ydeceleration
++ sge.Object.move_x
++ sge.Object.move_y
+
+Specification removals:
+- sge.Object.event_collision_left
+- sge.Object.event_collision_right
+- sge.Object.event_collision_top
+- sge.Object.event_collision_bottom
+- sge.Game.event_mouse_collision_left
+- sge.Game.event_mouse_collision_right
+- sge.Game.event_mouse_collision_top
+- sge.Game.event_mouse_collision_bottom
+
+Specification misc changes:
+* sge.Object.event_collision now has arguments indicating direction, to
+  replace the old directional collision events.
+* Default implementation of sge.Object.event_update_position now includes
+  handling of acceleration and deceleration, when applicable.
+
+
+0.16
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Sprite.copy
++ sge.Sprite.from_text
++ sge.Sprite.mirror
++ sge.Sprite.flip
++ sge.Sprite.rotate
+
+Specification removals:
+- sge.ALIGN_LEFT
+- sge.ALIGN_RIGHT
+- sge.ALIGN_CENTER
+- sge.ALIGN_TOP
+- sge.ALIGN_BOTTOM
+- sge.ALIGN_MIDDLE
+- sge.Game.event_game_start
+- sge.Game.event_game_end
+- sge.Room.resume
+
+Specification misc changes:
+* Methods that previously used the "ALIGN" constants now use simple
+  string representations ("left", "right", "center", "up", "down",
+  "middle").
+* xrepeat and yrepeat of sge.BackgroundLayer changed to repeat_left,
+  repeat_right, repeat_up, and repeat_down.
+* Background layers do not repeat by default.
+* sge.Room.start no longer restarts the room.  This behavior was very
+  difficult to maintain, and considering it can be achieved by just
+  creating a new room, it isn't worth it.
+* sge.Game.start no longer has a secondary function of restarting the
+  game.  This effect can be achieved easily enough just by starting the
+  first room.
+
+
+0.15
+------------------------------------------------------------------------
+
+Specification removals:
+- sge.image_directories
+- sge.font_directories
+- sge.sound_directories
+- sge.music_directories
+
+Specification misc changes:
+* Images loaded for sge.Sprite objects are now loaded from a directory
+  specified by the new "directory" argument.
+* Fonts, sounds, and music now have their exact path names specified,
+  rather than implicitly searching a certain set of directories.
+* sge.Color now supports indicating alpha values in HTML-style hex
+  strings.
+
+
+0.14
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Sprite.draw_polygon
++ sge.Game.project_polygon
++ sge.Room.project_polygon
++ sge.Background.rd
++ sge.BackgroundLayer.rd
++ sge.Font.rd
++ sge.Music.rd
++ sge.Object.rd
++ sge.Room.rd
++ sge.Sound.rd
++ sge.Sprite.rd
++ sge.View.rd
++ sge.Game.start_room
++ sge.Game.alarm
++ sge.Room.alarm
++ sge.Object.alarm
+
+Specification removals:
+- sge.Game.sprites
+- sge.Game.background_layers
+- sge.Game.backgrounds
+- sge.Game.fonts
+- sge.Game.sounds
+- sge.Game.music
+- sge.Game.objects
+- sge.Sprite.id
+- sge.BackgroundLayer.id
+- sge.Background.id
+- sge.Font.id
+- sge.Sound.id
+- sge.Music.id
+- sge.Object.id
+- sge.Sprite.destroy
+- sge.BackgroundLayer.destroy
+- sge.Background.destroy
+- sge.Font.destroy
+- sge.Sound.destroy
+- sge.Music.destroy
+- sge.Object.alive
+- sge.Game.rooms
+- sge.Room.room_number
+- sge.Room.end
+- sge.Game.registered_classes
+- sge.Game.register_class
+- sge.Room.objects_by_class
+- sge.Game.set_alarm
+- sge.Game.get_alarm
+- sge.Room.set_alarm
+- sge.Room.get_alarm
+- sge.Object.set_alarm
+- sge.Object.get_alarm
+
+Specification misc changes:
+* sge.Object.destroy now simply removes the object from the current room.
+* Definition of sge.Object.event_create made more explicit.
+* sge.Object.event_destroy is now only called when the object is removed
+  from the current room.
+* "Naming Conventions" from "SGE Concepts" removed; it is now obsolete.
+* The starting room is no longer implicitly the first one which was
+  created.  Instead, you must assign the starting room explicitly to
+  sge.game.start_room.
+* sge.Room.start and sge.Room.resume now support transitions.
+
+
+0.13
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Object.alive
++ sge.Room.remove
+
+Specification misc changes:
+* Clarified that the create and destroy events occur right after
+  creation and destruction of the object.
+
+
+0.12
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.View.wport
++ sge.View.hport
++ sge.mouse.set_x
++ sge.mouse.set_y
+
+Specification misc changes:
+* sge.game.mouse is not used for as many jobs as it was previously.
+* Mouse position attributes are -1 if the mouse is in relative mode.
+
+
+0.11
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Color
+
+Specification misc changes:
+* Colors are specified by objects of the new sge.Color class rather than
+  arbitrary kinds of values.
+* sge.StellarClass renamed to sge.Object.
+* Name changed from "Stellar Game Engine" to "SGE Game Engine".
+
+
+0.10
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Game.set_alarm
++ sge.Game.get_alarm
++ sge.Game.event_alarm
++ sge.Room.set_alarm
++ sge.Room.get_alarm
++ sge.Room.event_alarm
++ sge.Sprite.draw_erase
++ sge.StellarClass.checks_collisions
++ sge.StellarClass.tangible
++ sge.Game.collision_events_enabled
++ sge.keyboard.get_pressed
++ sge.keyboard.get_modifier
++ sge.keyboard.get_focused
++ sge.keyboard.set_repeat
++ sge.keyboard.get_repeat_enabled
++ sge.keyboard.get_repeat_interval
++ sge.keyboard.get_repeat_delay
++ sge.mouse.get_pressed
++ sge.joystick.get_axis
++ sge.joystick.get_hat_x
++ sge.joystick.get_hat_y
++ sge.joystick.get_pressed
++ sge.joystick.get_joysticks
++ sge.joystick.get_name
++ sge.joystick.get_id
++ sge.joystick.get_axes
++ sge.joystick.get_hats
++ sge.joystick.get_trackballs
++ sge.joystick.get_buttons
++ sge.mouse.get_x
++ sge.mouse.get_y
++ sge.Game.input_events
++ sge.Game.pump_input
++ sge.Game.regulate_speed
++ sge.Game.refresh
++ sge.input.KeyPress
++ sge.input.KeyRelease
++ sge.input.MouseMove
++ sge.input.MouseButtonPress
++ sge.input.MouseButtonRelease
++ sge.input.JoystickAxisMove
++ sge.input.JoystickHatMove
++ sge.input.JoystickTrackballMove
++ sge.input.JoystickButtonPress
++ sge.input.JoystickButtonRelease
++ sge.input.KeyboardFocusGain
++ sge.input.KeyboardFocusLose
++ sge.input.MouseFocusGain
++ sge.input.MouseFocusLose
++ sge.input.QuitRequest
++ sge.Sprite.draw_lock
++ sge.Sprite.draw_unlock
++ sge.Font.get_width
++ sge.Font.get_height
++ sge.joystick.refresh
+
+Specification removals:
+- sge.StellarClass.detects_collisions
+- sge.get_key_pressed
+- sge.get_mouse_button_pressed
+- sge.get_joystick_axis
+- sge.get_joystick_hat
+- sge.get_joystick_id
+- sge.get_joystick_axes
+- sge.get_joystick_hats
+- sge.get_joystick_trackballs
+- sge.get_joystick_buttons
+- sge.Font.get_size
+- sge.show_message
+- sge.get_text_entry
+
+Specification misc changes:
+* sge.Room.event_room_resume no longer calls sge.Room.event_room_start by default.
+* "name" and "ID" arguments for joystick events renamed to "js_name" and
+  "js_id", respectively.
+* IMPLEMENTATION set to "SGE Specification" instead of "SGE Template".
+
+
+0.9
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.collision.rectangles_collide
++ sge.collision.masks_collide
++ sge.StellarClass.regulate_origin
++ sge.StellarClass.image_origin_x
++ sge.StellarClass.image_origin_y
++ sge.StellarClass.mask
++ sge.StellarClass.mask_x
++ sge.StellarClass.mask_y
++ sge.StellarClass.collision
++ sge.collision.rectangle
++ sge.collision.ellipse
++ sge.collision.circle
++ sge.collision.line
++ sge.StellarClass.event_update_position
+
+Specification removals:
+- sge.StellarClass.collides
+
+Specification misc changes:
+* Rotation and scaling are no longer relative to the origin unless the
+  new regulate_origin attribute is True.
+* New attributes added to sge.StellarClass.__init__'s arguments.
+* transparent argument moved in front of origin_x argument in sge.Sprite.__init__.
+* Step events now have a "delta_mult" argument.
+
+
+0.8
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Sprite.frames
++ sge.Sprite.append_frame
++ sge.Sprite.insert_frame
++ sge.Sprite.delete_frame
++ sge.Sprite.from_tileset
++ sge.Sprite.destroy
++ sge.BackgroundLayer.destroy
++ sge.Background.destroy
++ sge.Sound.destroy
++ sge.Music.destroy
++ sge.Room.destroy
++ sge.Room.move
++ sge.Game.project_dot
++ sge.Game.project_line
++ sge.Game.project_rectangle
++ sge.Game.project_ellipse
++ sge.Game.project_circle
++ sge.Game.project_sprite
++ sge.Game.project_text
+
+Specification misc changes:
+* room_number argument added to sge.Room.__init__
+
+
+0.7
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.get_joystick_name
++ sge.get_joystick_id
++ sge.get_joystick_trackballs
++ sge.Game.register_class
++ sge.Game.registered_classes
++ sge.Room.objects_by_class
++ sge.StellarClass.event_begin_step
++ sge.StellarClass.event_end_step
++ sge.StellarClass.event_inactive_end_step
++ sge.Sprite.speed
++ sge.StellarClass.image_speed
+
+Specification misc changes:
+* Joystick handling functions now accept joystick names for "joystick" argument.
+* Joystick events' "joystick" argument renamed to "ID".
+* Joystick events now have a "name" argument indicating the joystick name.
+* sge.Room.objects changed from a tuple to a list.
+* xprevious and yprevious of StellarClass now indicate the x and y
+  values of the previous frame rather than the last x and y values
+  different from the current ones.
+* Changing sge.Sprite.width and sge.Sprite.height is now officially destructive.
+
+
+0.6
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Font.from_sprite
++ sge.Room.event_room_resume
+
+Specification misc changes:
+* sge.Sprite.draw_sprite and sge.Room.project_sprite now support blend modes.
+* sge.Sound.play and sge.Music.play "loops" argument tweaked.
+
+Specification bugfixes:
+- Argument for Font.__init__ being the old "id_" rather than "ID"
+- Small problems with the documentation
+
+
+0.5
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Game.event_gain_keyboard_focus
++ sge.Game.event_lose_keyboard_focus
++ sge.Game.event_gain_mouse_focus
++ sge.Game.event_lose_mouse_focus
++ sge.Game.event_paused_gain_keyboard_focus
++ sge.Game.event_paused_lose_keyboard_focus
++ sge.Game.event_paused_gain_mouse_focus
++ sge.Game.event_paused_lose_mouse_focus
++ sge.Room.event_gain_keyboard_focus
++ sge.Room.event_lose_keyboard_focus
++ sge.Room.event_gain_mouse_focus
++ sge.Room.event_lose_mouse_focus
++ sge.Room.event_paused_gain_keyboard_focus
++ sge.Room.event_paused_lose_keyboard_focus
++ sge.Room.event_paused_gain_mouse_focus
++ sge.Room.event_paused_lose_mouse_focus
+
+Specification misc changes:
+* Documentation reformatted.
+* "id"/"id_" argument in many constructor methods changed to "ID".
+
+
+0.4
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Sprite.from_screenshot
++ sge.Sprite.save
++ sge.show_message
++ sge.get_text_entry
++ sge.Room.background_x
++ sge.Room.background_y
++ sge.Sprite.id
++ sge.BackgroundLayer.id
++ sge.Font.id
++ sge.Sound.id
++ sge.Music.id
+
+Specification removals:
+- sge.Music.stop_all (replaced by sge.Music.stop, now a static method)
+- sge.Music.balance (nonsensical; should be controlled by the music file)
+- sge.Sound.balance (replaced by a balance argument when the sound is played)
+- sge.Background.x (replaced by sge.Room.background_x)
+- sge.Background.y (replaced by sge.Room.background_y)
+
+Specification misc changes:
+* bbox_x and bbox_y of sge.Sprite now default to the top-left of the image.
+* sge.Music.stop is now a static method.
+* sge.Music.pause is now a static method.
+* sge.Music.unpause is now a static method.
+* Key press events now have a third argument, char.
+* sge.Sound.play now has a balance argument.
+* Docstrings reformatted to reStructuredText.
+* sge.Sprite.__init__ now has an id attribute.
+* sge.BackgroundLayer.__init__ now has an id attribute.
+* sge.Font.__init__ now has an id attribute.
+* Sprites can be referenced by id rather than by name now.
+* Background layers can be referenced by id rather than by sprite name now.
+* Fonts can be referenced by id rather than by name now.
+
+Specification misc changes:
+* Released to the public domain via CC0.
+
+
+0.3
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Room.project_dot
++ sge.Room.project_line
++ sge.Room.project_rectangle
++ sge.Room.project_ellipse
++ sge.Room.project_circle
++ sge.Room.project_sprite
++ sge.Room.project_text
++ sge.Background.x
++ sge.Background.y
++ Trackball support
++ sge.StellarClass.active
+
+Specification misc changes:
+* Trying to load invalid sound files now raises an exception.
+* The file name for sounds and music can now be set to None for null sounds.
+* Mouse buttons are now identified by strings instead of constants.
+
+
+0.2.1
+------------------------------------------------------------------------
+
+Specification misc changes:
+* sge.Game.window_icon is now a file name instead of a sprite.
+* The default room size is now the game window size.
+
+
+0.2.0
+------------------------------------------------------------------------
+
+Specification additions:
++ sge.Sprite.draw_dot
++ sge.Sprite.draw_line
++ sge.Sprite.draw_rectangle
++ sge.Sprite.draw_ellipse
++ sge.Sprite.draw_circle
++ sge.Sprite.draw_text
++ sge.Sprite.draw_clear
++ sge.Game.grab_input
++ sge.Sprite.draw_sprite
++ sge.Music.clear_queue
++ sge.Music.stop_all
++ sge.Sound.stop_all
++ sge.StellarClass.create
++ sge.Game.window_text
++ sge.Game.window_icon
+
+Specification removals:
+- sge.Game.draw_dot (replaced by sge.Sprite.draw_dot)
+- sge.Game.draw_line (replaced by sge.Sprite.draw_line)
+- sge.Game.draw_rectangle (replaced by sge.Sprite.draw_rectangle)
+- sge.Game.draw_ellipse (replaced by sge.Sprite.draw_ellipse)
+- sge.Game.draw_circle (replaced by sge.Sprite.draw_circle)
+- sge.Game.sound_stop_all (replaced by sge.sound_stop_all)
+
+Specification misc changes:
+* A list or tuple of possible font choices can now be specified.
+* Sprites now use a transparent image by default, not a black image.
+* Added arguments to sge.Room.end.
+* Implementations no longer required to support Ogg Vorbis and WAV.
+* Removed unnecessary arguments from sge.Font.get_size.
+* Split SGE in to multiple files.
+
+
+0.1.0
+------------------------------------------------------------------------
+
+First release

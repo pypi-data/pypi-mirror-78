@@ -1,0 +1,758 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tutorial 3: Better Pong &#8212; Seclusion Game Engine 1.7 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="sge.input" href="input.html" />
+    <link rel="prev" title="Tutorial 2: Pong" href="pong.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tutorial-3-better-pong">
+<h1><a class="toc-backref" href="#id1">Tutorial 3: Better Pong</a><a class="headerlink" href="#tutorial-3-better-pong" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#tutorial-3-better-pong" id="id1">Tutorial 3: Better Pong</a><ul>
+<li><a class="reference internal" href="#adding-scoring" id="id2">Adding Scoring</a><ul>
+<li><a class="reference internal" href="#making-enter-restart-the-game" id="id3">Making Enter Restart the Game</a></li>
+<li><a class="reference internal" href="#giving-points-to-the-players" id="id4">Giving Points to the Players</a></li>
+<li><a class="reference internal" href="#displaying-the-scores" id="id5">Displaying the Scores</a><ul>
+<li><a class="reference internal" href="#new-resources" id="id6">New Resources</a></li>
+<li><a class="reference internal" href="#drawing-the-hud" id="id7">Drawing the HUD</a></li>
+<li><a class="reference internal" href="#displaying-the-hud" id="id8">Displaying the HUD</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#giving-victory" id="id9">Giving Victory</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adding-sounds" id="id10">Adding Sounds</a><ul>
+<li><a class="reference internal" href="#getting-the-sounds" id="id11">Getting the Sounds</a></li>
+<li><a class="reference internal" href="#loading-the-sounds" id="id12">Loading the Sounds</a></li>
+<li><a class="reference internal" href="#playing-the-sounds" id="id13">Playing the Sounds</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adding-joystick-support" id="id14">Adding Joystick Support</a><ul>
+<li><a class="reference internal" href="#axis-movement" id="id15">Axis Movement</a></li>
+<li><a class="reference internal" href="#trackball-movement" id="id16">Trackball Movement</a></li>
+<li><a class="reference internal" href="#applying-the-joystick-controls" id="id17">Applying the Joystick Controls</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-final-result" id="id18">The Final Result</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>In the last tutorial, we made a simple Pong game that was kind of
+boring.  We're going to make it better by adding scores, sounds, and
+joystick support.</p>
+<div class="section" id="adding-scoring">
+<h2><a class="toc-backref" href="#id2">Adding Scoring</a><a class="headerlink" href="#adding-scoring" title="Permalink to this headline">¶</a></h2>
+<p>Adding a score system will make our Pong game feel more like a game and
+less like a toy.  Every time a player wins a round, they will get one
+point.  When a player gets ten points, they will win the game, and a new
+game can be started by pressing the Enter key.</p>
+<div class="section" id="making-enter-restart-the-game">
+<h3><a class="toc-backref" href="#id3">Making Enter Restart the Game</a><a class="headerlink" href="#making-enter-restart-the-game" title="Permalink to this headline">¶</a></h3>
+<p>We are going to need a new global variable: <code class="xref py py-data docutils literal notranslate"><span class="pre">game_in_progress</span></code>.
+This variable will indicate whether or not a game is currently going and
+will be used to determine whether to start a new game or pause when the
+Enter key is pressed.  Set it to <code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code> by default.</p>
+<p>To make pressing Enter start a new game, we will check
+<code class="xref py py-data docutils literal notranslate"><span class="pre">game_in_progress</span></code>.  If a game is in progress, we will pause the
+game, as we had it do previously.  Otherwise, we will set
+<code class="xref py py-data docutils literal notranslate"><span class="pre">game_in_progress</span></code> to <code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code> and restart the room.</p>
+<p>If you look through the documentation for <a class="reference internal" href="dsp.html#sge.dsp.Room" title="sge.dsp.Room"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Room</span></code></a>, you may
+notice that no &quot;restart&quot; method exists. In fact, this is a design
+choice; earlier versions of the SGE did have a method to restart rooms,
+but it was removed because this feature is overly difficult to maintain
+properly.  But how do we restart the room, then? Well, we technically
+don't.  Instead, we create a new room which is exactly like the one we
+wanted to restart, and immediately start it.  We will put the creation
+of the room into a new function, <code class="xref py py-func docutils literal notranslate"><span class="pre">create_room()</span></code>.  Our definition of
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">Game.event_key_press()</span></code> becomes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">event_key_press</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">char</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">game_in_progress</span>
+
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;f8&#39;</span><span class="p">:</span>
+        <span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Sprite</span><span class="o">.</span><span class="n">from_screenshot</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;screenshot.jpg&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;f11&#39;</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fullscreen</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">fullscreen</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;escape&#39;</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_close</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;enter&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">game_in_progress</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pause</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">game_in_progress</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">create_room</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now, we need to define <code class="xref py py-func docutils literal notranslate"><span class="pre">create_room()</span></code>.  This is very simple; we
+just copy and paste the code we used at the bottom to create the room
+into it, but specify that <code class="xref py py-data docutils literal notranslate"><span class="pre">player</span></code> and <code class="xref py py-data docutils literal notranslate"><span class="pre">player2</span></code> are global.
+Our function is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_room</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">player1</span>
+    <span class="k">global</span> <span class="n">player2</span>
+    <span class="n">player1</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">player2</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ball</span> <span class="o">=</span> <span class="n">Ball</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">sge</span><span class="o">.</span><span class="n">dsp</span><span class="o">.</span><span class="n">Room</span><span class="p">([</span><span class="n">player1</span><span class="p">,</span> <span class="n">player2</span><span class="p">,</span> <span class="n">ball</span><span class="p">],</span> <span class="n">background</span><span class="o">=</span><span class="n">background</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Of course, this makes the identical code at the bottom redundant, so we
+will replace it with a call to <code class="xref py py-func docutils literal notranslate"><span class="pre">create_room()</span></code>.</p>
+</div>
+<div class="section" id="giving-points-to-the-players">
+<h3><a class="toc-backref" href="#id4">Giving Points to the Players</a><a class="headerlink" href="#giving-points-to-the-players" title="Permalink to this headline">¶</a></h3>
+<p>We now need to add score attributes to the <code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code> objects.  We
+will initialize the new attribute, <code class="xref py py-attr docutils literal notranslate"><span class="pre">score</span></code>, in
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">Player.event_create()</span></code> as <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>Now, in <code class="xref py py-meth docutils literal notranslate"><span class="pre">Ball.event_step()</span></code>, add lines to increase
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">player1.score</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">player2.score</span></code> whenever the respective
+player wins a round.</p>
+</div>
+<div class="section" id="displaying-the-scores">
+<h3><a class="toc-backref" href="#id5">Displaying the Scores</a><a class="headerlink" href="#displaying-the-scores" title="Permalink to this headline">¶</a></h3>
+<p>The players have points, but can't see the score!  We need to add a HUD
+(heads-up display) to show the score to the players.</p>
+<p>There are a couple of ways we can do this.  Most obviously, we can use
+<a class="reference internal" href="dsp.html#sge.dsp.Game.project_text" title="sge.dsp.Game.project_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.dsp.Game.project_text()</span></code></a> or <a class="reference internal" href="dsp.html#sge.dsp.Room.project_text" title="sge.dsp.Room.project_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.dsp.Room.project_text()</span></code></a>.
+However, there is a much better way: have a dynamically generated sprite
+that represents the look of the HUD at any given time, and displaying
+that sprite.</p>
+<div class="section" id="new-resources">
+<h4><a class="toc-backref" href="#id6">New Resources</a><a class="headerlink" href="#new-resources" title="Permalink to this headline">¶</a></h4>
+<p>We need to add a new global variable called <code class="xref py py-data docutils literal notranslate"><span class="pre">hud_sprite</span></code>.  Assign
+a new sprite to this variable with a <code class="xref py py-attr docutils literal notranslate"><span class="pre">width</span></code> of <code class="docutils literal notranslate"><span class="pre">320</span></code>, a
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">height</span></code> of <code class="docutils literal notranslate"><span class="pre">120</span></code>, an <code class="xref py py-attr docutils literal notranslate"><span class="pre">origin_x</span></code> of <code class="docutils literal notranslate"><span class="pre">160</span></code>, and an
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">origin_y</span></code> of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>To draw text, we need a font.  Create a new <a class="reference internal" href="gfx.html#sge.gfx.Font" title="sge.gfx.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Font</span></code></a> object
+and assign it to <code class="xref py py-data docutils literal notranslate"><span class="pre">hud_font</span></code>.  For now, we will use a system font.
+I am choosing <code class="docutils literal notranslate"><span class="pre">&quot;Droid</span> <span class="pre">Sans</span> <span class="pre">Mono&quot;</span></code>, but you can choose whatever font
+you prefer.  Pass your choice as the first argument to
+<a class="reference internal" href="gfx.html#sge.gfx.Font.__init__" title="sge.gfx.Font.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Font.__init__()</span></code></a>.  Set the <code class="docutils literal notranslate"><span class="pre">size</span></code> keyword argument to
+<code class="docutils literal notranslate"><span class="pre">48</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We are using system fonts for simplicity, but it is generally a bad
+idea to rely on them.  There is no standard for what fonts are
+available on the system, and the set of fonts available on the system
+varies widely.  In real projects, it is better to distribute a font
+file with the game and use that.</p>
+</div>
+</div>
+<div class="section" id="drawing-the-hud">
+<h4><a class="toc-backref" href="#id7">Drawing the HUD</a><a class="headerlink" href="#drawing-the-hud" title="Permalink to this headline">¶</a></h4>
+<p>There are a few times we need to redraw the HUD: when the game starts,
+when player 1 scores, and when player 2 scores.  Therefore, we will put
+the redrawing code into a function, <code class="xref py py-func docutils literal notranslate"><span class="pre">refresh_hud()</span></code>.  This function
+needs to clear the HUD sprite, draw Player 1's score, and then draw
+Player 2's score.</p>
+<p>Another constant is needed: <code class="xref py py-const docutils literal notranslate"><span class="pre">TEXT_OFFSET</span></code>, which we will define
+as <code class="docutils literal notranslate"><span class="pre">16</span></code>.</p>
+<p>We clear the HUD sprite with <a class="reference internal" href="gfx.html#sge.gfx.Sprite.draw_clear" title="sge.gfx.Sprite.draw_clear"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_clear()</span></code></a>.</p>
+<p>To draw the text, we use <a class="reference internal" href="gfx.html#sge.gfx.Sprite.draw_text" title="sge.gfx.Sprite.draw_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code></a>.  Both calls
+have a few arguments in common: <code class="docutils literal notranslate"><span class="pre">font</span></code> is set to <code class="docutils literal notranslate"><span class="pre">hud_font</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>
+is set to <code class="docutils literal notranslate"><span class="pre">TEXT_OFFSET</span></code>, <code class="docutils literal notranslate"><span class="pre">color</span></code> is set to white, and <code class="docutils literal notranslate"><span class="pre">valign</span></code> is
+set to <code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code>.</p>
+<p>The rest of the arguments are different between the two.  <code class="docutils literal notranslate"><span class="pre">text</span></code> is
+set to the respective player's score, converted to a string.  <code class="docutils literal notranslate"><span class="pre">x</span></code> is
+set to <code class="docutils literal notranslate"><span class="pre">hud_sprite.width</span> <span class="pre">/</span> <span class="pre">2</span> <span class="pre">-</span> <span class="pre">TEXT_OFFSET</span></code> for player 1's score, and
+<code class="docutils literal notranslate"><span class="pre">hud_sprite.width</span> <span class="pre">/</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">TEXT_OFFSET</span></code> for player 2's score.  <code class="docutils literal notranslate"><span class="pre">halign</span></code>
+is set to <code class="docutils literal notranslate"><span class="pre">&quot;right&quot;</span></code> for player 1's score, and <code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code> for
+player 2's score.</p>
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">refresh_hud()</span></code> ends up something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">refresh_hud</span><span class="p">():</span>
+    <span class="c1"># This fixes the HUD sprite so that it displays the correct score.</span>
+    <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_clear</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">hud_sprite</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="n">hud_font</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">player1</span><span class="o">.</span><span class="n">score</span><span class="p">),</span> <span class="n">x</span> <span class="o">-</span> <span class="n">TEXT_OFFSET</span><span class="p">,</span>
+                         <span class="n">TEXT_OFFSET</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                         <span class="n">halign</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+    <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="n">hud_font</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">player2</span><span class="o">.</span><span class="n">score</span><span class="p">),</span> <span class="n">x</span> <span class="o">+</span> <span class="n">TEXT_OFFSET</span><span class="p">,</span>
+                         <span class="n">TEXT_OFFSET</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                         <span class="n">halign</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Add calls to <code class="xref py py-func docutils literal notranslate"><span class="pre">refresh_hud()</span></code> in the three places where a
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">Player.score</span></code> value changes, right after the change.  These
+places are in <code class="xref py py-meth docutils literal notranslate"><span class="pre">Player.event_create()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">Ball.event_step()</span></code>.</p>
+<p>we have one more problem.  <code class="xref py py-func docutils literal notranslate"><span class="pre">refresh_hud()</span></code> requires <code class="xref py py-data docutils literal notranslate"><span class="pre">player1</span></code>
+and <code class="xref py py-data docutils literal notranslate"><span class="pre">player2</span></code> to each have an attribute called <code class="xref py py-attr docutils literal notranslate"><span class="pre">score</span></code>, but
+the first time it is called, one of the player objects has not had a
+chance to initialize this attribute.  To work around this, add a class
+attribute to <code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code> called <code class="xref py py-attr docutils literal notranslate"><span class="pre">score</span></code>, and set it to <code class="docutils literal notranslate"><span class="pre">0</span></code>.
+This will cause <code class="xref py py-attr docutils literal notranslate"><span class="pre">player1.score</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">player2.score</span></code> to be
+<code class="docutils literal notranslate"><span class="pre">0</span></code> in the event that the respective object's <code class="xref py py-attr docutils literal notranslate"><span class="pre">score</span></code> has not
+been initialized yet.</p>
+</div>
+<div class="section" id="displaying-the-hud">
+<h4><a class="toc-backref" href="#id8">Displaying the HUD</a><a class="headerlink" href="#displaying-the-hud" title="Permalink to this headline">¶</a></h4>
+<p>At this point, we have our HUD, but it isn't displayed.  We will fix
+this simply by adding a step event to <code class="xref py py-class docutils literal notranslate"><span class="pre">Game</span></code> which projects the
+HUD sprite onto the screen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">event_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_passed</span><span class="p">,</span> <span class="n">delta_mult</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">project_sprite</span><span class="p">(</span><span class="n">hud_sprite</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Unlike <a class="reference internal" href="dsp.html#sge.dsp.Room" title="sge.dsp.Room"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Room</span></code></a> projections, <a class="reference internal" href="dsp.html#sge.dsp.Game" title="sge.dsp.Game"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Game</span></code></a>
+projections are relative to the screen.  Additionally, these projections
+are always on top of everything else on the screen.  This is usually how
+we want a HUD to be displayed, which is why we are using a
+<a class="reference internal" href="dsp.html#sge.dsp.Game" title="sge.dsp.Game"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Game</span></code></a> projection instead of a <a class="reference internal" href="dsp.html#sge.dsp.Room" title="sge.dsp.Room"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Room</span></code></a>
+projection or <a class="reference internal" href="dsp.html#sge.dsp.Object" title="sge.dsp.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Object</span></code></a> object.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may notice that, when you pause the game, the HUD disappears.
+This is <em>not</em> a bug! This happens because the step event doesn't
+occur while the game is paused.  If you want the HUD to show up while
+the game is paused, project it in the paused step event, defined by
+<a class="reference internal" href="dsp.html#sge.dsp.Game.event_paused_step" title="sge.dsp.Game.event_paused_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.dsp.Game.event_paused_step()</span></code></a>, as well.</p>
+</div>
+</div>
+</div>
+<div class="section" id="giving-victory">
+<h3><a class="toc-backref" href="#id9">Giving Victory</a><a class="headerlink" href="#giving-victory" title="Permalink to this headline">¶</a></h3>
+<p>At this point, we have scores, but no one ever officially wins.  We need
+to end the game when someone gets 10 points.  We will go a little
+further and replace the scores with text that says &quot;WIN&quot; and &quot;LOSE&quot; for
+the winner and loser, respectively.</p>
+<p>Define a new constant called <code class="xref py py-const docutils literal notranslate"><span class="pre">POINTS_TO_WIN</span></code> as <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
+<p>In our case, the most convenient place to check for victory is within
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">Ball.serve()</span></code>.  Specifically, put the code that sets the speed of
+the ball under a conditional that checks whether the <code class="xref py py-attr docutils literal notranslate"><span class="pre">score</span></code>
+values of both players are less than <code class="xref py py-const docutils literal notranslate"><span class="pre">POINTS_TO_WIN</span></code>.  Add an
+<code class="docutils literal notranslate"><span class="pre">else</span></code> block below that.  This is where a player has won the game.</p>
+<p>Since the game is over, stop the movement of the ball by setting
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">xvelocity</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">yvelocity</span></code> to <code class="docutils literal notranslate"><span class="pre">0</span></code>.  We don't want any
+more scoring to happen.</p>
+<p>Now, draw the new text onto the HUD.  We do this using the same call to
+<a class="reference internal" href="gfx.html#sge.gfx.Sprite.draw_text" title="sge.gfx.Sprite.draw_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code></a> we used in <code class="xref py py-func docutils literal notranslate"><span class="pre">refresh_hud()</span></code>, except
+instead of drawing the scores converted to strings, we draw <code class="docutils literal notranslate"><span class="pre">&quot;WIN&quot;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&quot;LOSE&quot;</span></code> depending on whether or not the respective player's score is
+greater than the other player's score.</p>
+<p>Finally, set <code class="xref py py-data docutils literal notranslate"><span class="pre">game_in_progress</span></code> to <code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code>.  Don't forget
+to declare it with <code class="docutils literal notranslate"><span class="pre">global</span></code> first.</p>
+<p>The new <code class="xref py py-meth docutils literal notranslate"><span class="pre">Ball.serve()</span></code> looks something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">serve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">game_in_progress</span>
+
+    <span class="k">if</span> <span class="n">direction</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xstart</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ystart</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">player1</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">POINTS_TO_WIN</span> <span class="ow">and</span>
+            <span class="n">player2</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">POINTS_TO_WIN</span><span class="p">):</span>
+        <span class="c1"># Next round</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xvelocity</span> <span class="o">=</span> <span class="n">BALL_START_SPEED</span> <span class="o">*</span> <span class="n">direction</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Game Over!</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xvelocity</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_clear</span><span class="p">()</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">hud_sprite</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">p1text</span> <span class="o">=</span> <span class="s2">&quot;WIN&quot;</span> <span class="k">if</span> <span class="n">player1</span><span class="o">.</span><span class="n">score</span> <span class="o">&gt;</span> <span class="n">player2</span><span class="o">.</span><span class="n">score</span> <span class="k">else</span> <span class="s2">&quot;LOSE&quot;</span>
+        <span class="n">p2text</span> <span class="o">=</span> <span class="s2">&quot;WIN&quot;</span> <span class="k">if</span> <span class="n">player2</span><span class="o">.</span><span class="n">score</span> <span class="o">&gt;</span> <span class="n">player1</span><span class="o">.</span><span class="n">score</span> <span class="k">else</span> <span class="s2">&quot;LOSE&quot;</span>
+        <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="n">hud_font</span><span class="p">,</span> <span class="n">p1text</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">TEXT_OFFSET</span><span class="p">,</span>
+                             <span class="n">TEXT_OFFSET</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                             <span class="n">halign</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+        <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="n">hud_font</span><span class="p">,</span> <span class="n">p2text</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">TEXT_OFFSET</span><span class="p">,</span>
+                             <span class="n">TEXT_OFFSET</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                             <span class="n">halign</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+        <span class="n">game_in_progress</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-sounds">
+<h2><a class="toc-backref" href="#id10">Adding Sounds</a><a class="headerlink" href="#adding-sounds" title="Permalink to this headline">¶</a></h2>
+<p>We have a complete Pong game now, but it's still a little quiet.  Let's
+make it more lively by adding some sounds.</p>
+<div class="section" id="getting-the-sounds">
+<h3><a class="toc-backref" href="#id11">Getting the Sounds</a><a class="headerlink" href="#getting-the-sounds" title="Permalink to this headline">¶</a></h3>
+<p>I would normally go to a database like <a class="reference external" href="http://opengameart.org">OpenGameArt</a> for sound effects, but in this case, we are
+instead going to use a nice free/libre program called <a class="reference external" href="http://www.drpetter.se/project_sfxr.html">Sfxr</a>.  This program makes it
+easy to generate retro-sounding sound effects, so it's perfect for Pong
+sounds.  Generate three sounds: one for the ball bouncing off a paddle
+(&quot;bounce.wav&quot;), one for the ball bouncing off a wall
+(&quot;bounce_wall.wav&quot;), and one for the ball passing by a player
+(&quot;score.wav&quot;).  Alternatively, you can copy the sounds I generated from
+examples/data.  Create a folder in your project directory with the name
+&quot;data&quot; and put your sounds in this folder.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Some file systems, like FAT32 and NTFS, are case-insensitive and will
+allow you to treat &quot;bounce.wav&quot; and &quot;Bounce.wav&quot; as if they are the
+same file name, but some, such as pretty much every Linux file
+system, are case-sensitive, meaning that &quot;bounce.wav&quot; and
+&quot;Bounce.wav&quot; are two completely different names; requesting one will
+never give you the other.  If you have a case-insensitive file
+system, be careful to not get the case wrong, or some people who play
+the game will face a crash that will be completely invisible to you!</p>
+</div>
+</div>
+<div class="section" id="loading-the-sounds">
+<h3><a class="toc-backref" href="#id12">Loading the Sounds</a><a class="headerlink" href="#loading-the-sounds" title="Permalink to this headline">¶</a></h3>
+<p>Sounds in the SGE are stored in <a class="reference internal" href="snd.html#sge.snd.Sound" title="sge.snd.Sound"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.snd.Sound</span></code></a> objects.  As the
+only argument, indicate the full path to the file.  There are two ways
+to indicate the path: using the current working directory as a base, and
+using the directory of pong.py as a base.  Both of methods require the
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code> module, so be sure to add this to your list of imports.</p>
+<p>The easiest way to get the path of the file is to use the current
+working directory as a base, on the assumption that the current working
+directory is also the directory that the &quot;data&quot; folder is located in.
+This method is very simple; assuming we want the file called &quot;spam.wav&quot;,
+we would use this code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;spam.wav&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, it is not always the case that the current working directory is
+the appropriate location to search for the &quot;data&quot; folder.  It could be
+that the current working directory is the user's home directory, for
+instance.  To prevent the game from crashing in this case, define a
+constant called <code class="xref py py-const docutils literal notranslate"><span class="pre">DATA</span></code>, indicating the &quot;data&quot; directory relative
+to the location of pong.py:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DATA</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;data&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="xref py py-data docutils literal notranslate"><span class="pre">__file__</span></code> is a special variable indicating the full path to the
+current file, i.e. pong.py in this case.  By getting the directory name
+of the current file, we can be certain of where to look for the &quot;data&quot;
+folder.  <code class="xref py py-const docutils literal notranslate"><span class="pre">DATA</span></code> now indicates the appropriate path to the &quot;data&quot;
+folder, so from now on, if we want a file called &quot;spam.wav&quot; located in
+this directory, we use this code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA</span><span class="p">,</span> <span class="s2">&quot;spam.wav&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Assign the appropriate <a class="reference internal" href="snd.html#sge.snd.Sound" title="sge.snd.Sound"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.snd.Sound</span></code></a> objects to
+<code class="xref py py-data docutils literal notranslate"><span class="pre">bounce_sound</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">bounce_wall_sound</span></code>, and
+<code class="xref py py-data docutils literal notranslate"><span class="pre">score_sound</span></code>.</p>
+</div>
+<div class="section" id="playing-the-sounds">
+<h3><a class="toc-backref" href="#id13">Playing the Sounds</a><a class="headerlink" href="#playing-the-sounds" title="Permalink to this headline">¶</a></h3>
+<p>Sounds are played with <a class="reference internal" href="snd.html#sge.snd.Sound.play" title="sge.snd.Sound.play"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.snd.Sound.play()</span></code></a>.  Call this method in
+the appropriate places: when a player scores, when the ball bounces off
+an edge of the screen, and when the ball hits a paddle.  There are five
+places in total.</p>
+<p>With that, our Pong game now has sound effects.</p>
+</div>
+</div>
+<div class="section" id="adding-joystick-support">
+<h2><a class="toc-backref" href="#id14">Adding Joystick Support</a><a class="headerlink" href="#adding-joystick-support" title="Permalink to this headline">¶</a></h2>
+<p>Joystick support is a nice thing to have in a game, so we are going to
+add it.  We are going to support analog sticks and trackballs.  Mouse
+control would actually be even better, but this would put one of the
+players at an unfair advantage.</p>
+<p>First, we will add an attribute to <code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code> indicating what
+joystick to use, called <code class="xref py py-attr docutils literal notranslate"><span class="pre">joystick</span></code>.  Set it to <code class="docutils literal notranslate"><span class="pre">0</span></code> (which is the
+first joystick) for player 1, and <code class="docutils literal notranslate"><span class="pre">1</span></code> (which is the second joystick)
+for player 2.</p>
+<div class="section" id="axis-movement">
+<h3><a class="toc-backref" href="#id15">Axis Movement</a><a class="headerlink" href="#axis-movement" title="Permalink to this headline">¶</a></h3>
+<p>Adding movement based on a joystick axis is easy.  For this, we use
+<a class="reference internal" href="joystick.html#sge.joystick.get_axis" title="sge.joystick.get_axis"><code class="xref py py-func docutils literal notranslate"><span class="pre">sge.joystick.get_axis()</span></code></a> in the step event of <code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code>.
+Pass <code class="docutils literal notranslate"><span class="pre">self.joystick</span></code> as the first argument, and <code class="docutils literal notranslate"><span class="pre">1</span></code> (which is the
+Y-axis) as the second argument.  Assign it to a variable called
+<code class="docutils literal notranslate"><span class="pre">axis_motion</span></code>.  Later, we will be modifying the code that sets
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">yvelocity</span></code> so that it is chosen based on axis position, trackball
+movement, or key presses, whichever one would cause it to move fastest.</p>
+</div>
+<div class="section" id="trackball-movement">
+<h3><a class="toc-backref" href="#id16">Trackball Movement</a><a class="headerlink" href="#trackball-movement" title="Permalink to this headline">¶</a></h3>
+<p>Since trackball motion is relative, it is a little trickier.  We need to
+store the amount of movement it makes each frame.  We will use an
+attribute called <code class="xref py py-attr docutils literal notranslate"><span class="pre">trackball_motion</span></code> for that; initialize it as
+<code class="docutils literal notranslate"><span class="pre">0</span></code> in the create event.</p>
+<p>We now need to define the trackball move event, which is defined by
+<a class="reference internal" href="dsp.html#sge.dsp.Object.event_joystick_trackball_move" title="sge.dsp.Object.event_joystick_trackball_move"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.dsp.Object.event_joystick_trackball_move()</span></code></a>.  Within this
+event, if the <code class="docutils literal notranslate"><span class="pre">joystick</span></code> argument is the same as <code class="docutils literal notranslate"><span class="pre">self.joystick</span></code>,
+add <code class="docutils literal notranslate"><span class="pre">y</span></code> to <code class="docutils literal notranslate"><span class="pre">self.trackball_motion</span></code>.  We are adding to it, rather
+than replacing it, because the trackball might move multiple times in
+the same frame.</p>
+</div>
+<div class="section" id="applying-the-joystick-controls">
+<h3><a class="toc-backref" href="#id17">Applying the Joystick Controls</a><a class="headerlink" href="#applying-the-joystick-controls" title="Permalink to this headline">¶</a></h3>
+<p>Currently, we have this line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span> <span class="o">=</span> <span class="n">key_motion</span> <span class="o">*</span> <span class="n">PADDLE_SPEED</span>
+</pre></div>
+</div>
+<p>This line uses the state of the keys to determine how to move the
+paddle.  We need to change this so that the joystick controls we defined
+can be used as well.  It will be replaced with the following:</p>
+<ul class="simple">
+<li>If the absolute value of <code class="docutils literal notranslate"><span class="pre">axis_motion</span></code> is greater than the absolute
+value of both <code class="docutils literal notranslate"><span class="pre">key_motion</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">trackball_motion</span></code>, set
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">yvelocity</span></code> to <code class="docutils literal notranslate"><span class="pre">axis_motion</span> <span class="pre">*</span> <span class="pre">PADDLE_SPEED</span></code>.</li>
+<li>Otherwise, if <code class="xref py py-attr docutils literal notranslate"><span class="pre">trackball_motion</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">key_motion</span></code>,
+set <code class="xref py py-attr docutils literal notranslate"><span class="pre">yvelocity</span></code> to <code class="docutils literal notranslate"><span class="pre">self.trackball_motion</span> <span class="pre">*</span> <span class="pre">PADDLE_SPEED</span></code></li>
+<li>Otherwise, use the line we have been using up until this point.</li>
+</ul>
+<p>After this, we must set <code class="xref py py-attr docutils literal notranslate"><span class="pre">trackball_motion</span></code> to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</div>
+</div>
+<div class="section" id="the-final-result">
+<h2><a class="toc-backref" href="#id18">The Final Result</a><a class="headerlink" href="#the-final-result" title="Permalink to this headline">¶</a></h2>
+<p>Our final Pong game now has scores, sounds, and even joystick support:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="c1"># Pong Example</span>
+<span class="c1">#</span>
+<span class="c1"># To the extent possible under law, the author(s) have dedicated all</span>
+<span class="c1"># copyright and related and neighboring rights to this software to the</span>
+<span class="c1"># public domain worldwide. This software is distributed without any</span>
+<span class="c1"># warranty.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the CC0 Public Domain Dedication</span>
+<span class="c1"># along with this software. If not, see</span>
+<span class="c1"># &lt;http://creativecommons.org/publicdomain/zero/1.0/&gt;.</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">import</span> <span class="nn">sge</span>
+
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">PADDLE_XOFFSET</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">PADDLE_SPEED</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">PADDLE_VERTICAL_FORCE</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">12</span>
+<span class="n">BALL_START_SPEED</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">BALL_ACCELERATION</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">BALL_MAX_SPEED</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">POINTS_TO_WIN</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">TEXT_OFFSET</span> <span class="o">=</span> <span class="mi">16</span>
+
+<span class="n">game_in_progress</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="k">class</span> <span class="nc">Game</span><span class="p">(</span><span class="n">sge</span><span class="o">.</span><span class="n">dsp</span><span class="o">.</span><span class="n">Game</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">event_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_passed</span><span class="p">,</span> <span class="n">delta_mult</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">project_sprite</span><span class="p">(</span><span class="n">hud_sprite</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">event_key_press</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">char</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">game_in_progress</span>
+
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;f8&#39;</span><span class="p">:</span>
+            <span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Sprite</span><span class="o">.</span><span class="n">from_screenshot</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;screenshot.jpg&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;f11&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fullscreen</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">fullscreen</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;escape&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">event_close</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;enter&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">game_in_progress</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pause</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">game_in_progress</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">current_room</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">event_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">event_paused_key_press</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">char</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;escape&#39;</span><span class="p">:</span>
+            <span class="c1"># This allows the player to still exit while the game is</span>
+            <span class="c1"># paused, rather than having to unpause first.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">event_close</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unpause</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">event_paused_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># This allows the player to still exit while the game is paused,</span>
+        <span class="c1"># rather than having to unpause first.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_close</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Player</span><span class="p">(</span><span class="n">sge</span><span class="o">.</span><span class="n">dsp</span><span class="o">.</span><span class="n">Object</span><span class="p">):</span>
+
+    <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">player</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">joystick</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">up_key</span> <span class="o">=</span> <span class="s2">&quot;w&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">down_key</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">PADDLE_XOFFSET</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hit_direction</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">joystick</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">up_key</span> <span class="o">=</span> <span class="s2">&quot;up&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">down_key</span> <span class="o">=</span> <span class="s2">&quot;down&quot;</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">PADDLE_XOFFSET</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hit_direction</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="n">y</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sprite</span><span class="o">=</span><span class="n">paddle_sprite</span><span class="p">,</span> <span class="n">checks_collisions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">event_create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">refresh_hud</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trackball_motion</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">event_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_passed</span><span class="p">,</span> <span class="n">delta_mult</span><span class="p">):</span>
+        <span class="c1"># Movement</span>
+        <span class="n">key_motion</span> <span class="o">=</span> <span class="p">(</span><span class="n">sge</span><span class="o">.</span><span class="n">keyboard</span><span class="o">.</span><span class="n">get_pressed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">down_key</span><span class="p">)</span> <span class="o">-</span>
+                      <span class="n">sge</span><span class="o">.</span><span class="n">keyboard</span><span class="o">.</span><span class="n">get_pressed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">up_key</span><span class="p">))</span>
+        <span class="n">axis_motion</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">joystick</span><span class="o">.</span><span class="n">get_axis</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">joystick</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">axis_motion</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">key_motion</span><span class="p">)</span> <span class="ow">and</span>
+                <span class="nb">abs</span><span class="p">(</span><span class="n">axis_motion</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trackball_motion</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span> <span class="o">=</span> <span class="n">axis_motion</span> <span class="o">*</span> <span class="n">PADDLE_SPEED</span>
+        <span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trackball_motion</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">key_motion</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trackball_motion</span> <span class="o">*</span> <span class="n">PADDLE_SPEED</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span> <span class="o">=</span> <span class="n">key_motion</span> <span class="o">*</span> <span class="n">PADDLE_SPEED</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">trackball_motion</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Keep the paddle inside the window</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox_top</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bbox_top</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox_bottom</span> <span class="o">&gt;</span> <span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">current_room</span><span class="o">.</span><span class="n">height</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bbox_bottom</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">current_room</span><span class="o">.</span><span class="n">height</span>
+
+    <span class="k">def</span> <span class="nf">event_joystick_trackball_move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joystick</span><span class="p">,</span> <span class="n">ball</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">joystick</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">joystick</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trackball_motion</span> <span class="o">+=</span> <span class="n">y</span>
+
+
+<span class="k">class</span> <span class="nc">Ball</span><span class="p">(</span><span class="n">sge</span><span class="o">.</span><span class="n">dsp</span><span class="o">.</span><span class="n">Object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sprite</span><span class="o">=</span><span class="n">ball_sprite</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">event_create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serve</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">event_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_passed</span><span class="p">,</span> <span class="n">delta_mult</span><span class="p">):</span>
+        <span class="c1"># Scoring</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox_right</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">player2</span><span class="o">.</span><span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">refresh_hud</span><span class="p">()</span>
+            <span class="n">score_sound</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">serve</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox_left</span> <span class="o">&gt;</span> <span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">current_room</span><span class="o">.</span><span class="n">width</span><span class="p">:</span>
+            <span class="n">player1</span><span class="o">.</span><span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">refresh_hud</span><span class="p">()</span>
+            <span class="n">score_sound</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">serve</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Bouncing off of the edges</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox_bottom</span> <span class="o">&gt;</span> <span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">current_room</span><span class="o">.</span><span class="n">height</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bbox_bottom</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">current_room</span><span class="o">.</span><span class="n">height</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span> <span class="o">=</span> <span class="o">-</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span><span class="p">)</span>
+            <span class="n">bounce_wall_sound</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox_top</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bbox_top</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span><span class="p">)</span>
+            <span class="n">bounce_wall_sound</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">event_collision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">xdirection</span><span class="p">,</span> <span class="n">ydirection</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Player</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">hit_direction</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bbox_left</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">bbox_right</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bbox_right</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">bbox_left</span> <span class="o">-</span> <span class="mi">1</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">xvelocity</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xvelocity</span><span class="p">)</span> <span class="o">+</span> <span class="n">BALL_ACCELERATION</span><span class="p">,</span>
+                                 <span class="n">BALL_MAX_SPEED</span><span class="p">)</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">hit_direction</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span> <span class="o">+=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">PADDLE_VERTICAL_FORCE</span>
+            <span class="n">bounce_sound</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">serve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">game_in_progress</span>
+
+        <span class="k">if</span> <span class="n">direction</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">direction</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xstart</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ystart</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">player1</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">POINTS_TO_WIN</span> <span class="ow">and</span>
+                <span class="n">player2</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">POINTS_TO_WIN</span><span class="p">):</span>
+            <span class="c1"># Next round</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">xvelocity</span> <span class="o">=</span> <span class="n">BALL_START_SPEED</span> <span class="o">*</span> <span class="n">direction</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Game Over!</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">xvelocity</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">yvelocity</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_clear</span><span class="p">()</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">hud_sprite</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">p1text</span> <span class="o">=</span> <span class="s2">&quot;WIN&quot;</span> <span class="k">if</span> <span class="n">player1</span><span class="o">.</span><span class="n">score</span> <span class="o">&gt;</span> <span class="n">player2</span><span class="o">.</span><span class="n">score</span> <span class="k">else</span> <span class="s2">&quot;LOSE&quot;</span>
+            <span class="n">p2text</span> <span class="o">=</span> <span class="s2">&quot;WIN&quot;</span> <span class="k">if</span> <span class="n">player2</span><span class="o">.</span><span class="n">score</span> <span class="o">&gt;</span> <span class="n">player1</span><span class="o">.</span><span class="n">score</span> <span class="k">else</span> <span class="s2">&quot;LOSE&quot;</span>
+            <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="n">hud_font</span><span class="p">,</span> <span class="n">p1text</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">TEXT_OFFSET</span><span class="p">,</span>
+                                 <span class="n">TEXT_OFFSET</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                                 <span class="n">halign</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+            <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="n">hud_font</span><span class="p">,</span> <span class="n">p2text</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">TEXT_OFFSET</span><span class="p">,</span>
+                                 <span class="n">TEXT_OFFSET</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                                 <span class="n">halign</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+            <span class="n">game_in_progress</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">create_room</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">player1</span>
+    <span class="k">global</span> <span class="n">player2</span>
+    <span class="n">player1</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">player2</span> <span class="o">=</span> <span class="n">Player</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ball</span> <span class="o">=</span> <span class="n">Ball</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">sge</span><span class="o">.</span><span class="n">dsp</span><span class="o">.</span><span class="n">Room</span><span class="p">([</span><span class="n">player1</span><span class="p">,</span> <span class="n">player2</span><span class="p">,</span> <span class="n">ball</span><span class="p">],</span> <span class="n">background</span><span class="o">=</span><span class="n">background</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">refresh_hud</span><span class="p">():</span>
+    <span class="c1"># This fixes the HUD sprite so that it displays the correct score.</span>
+    <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_clear</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">hud_sprite</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="n">hud_font</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">player1</span><span class="o">.</span><span class="n">score</span><span class="p">),</span> <span class="n">x</span> <span class="o">-</span> <span class="n">TEXT_OFFSET</span><span class="p">,</span>
+                         <span class="n">TEXT_OFFSET</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                         <span class="n">halign</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+    <span class="n">hud_sprite</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="n">hud_font</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">player2</span><span class="o">.</span><span class="n">score</span><span class="p">),</span> <span class="n">x</span> <span class="o">+</span> <span class="n">TEXT_OFFSET</span><span class="p">,</span>
+                         <span class="n">TEXT_OFFSET</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">),</span>
+                         <span class="n">halign</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">valign</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Create Game object</span>
+<span class="n">Game</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">480</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">window_text</span><span class="o">=</span><span class="s2">&quot;Pong&quot;</span><span class="p">)</span>
+
+<span class="c1"># Load sprites</span>
+<span class="n">paddle_sprite</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span> <span class="n">origin_x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">origin_y</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">ball_sprite</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">origin_x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">origin_y</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">paddle_sprite</span><span class="o">.</span><span class="n">draw_rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">paddle_sprite</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">paddle_sprite</span><span class="o">.</span><span class="n">height</span><span class="p">,</span>
+                             <span class="n">fill</span><span class="o">=</span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">))</span>
+<span class="n">ball_sprite</span><span class="o">.</span><span class="n">draw_rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ball_sprite</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">ball_sprite</span><span class="o">.</span><span class="n">height</span><span class="p">,</span>
+                           <span class="n">fill</span><span class="o">=</span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">))</span>
+<span class="n">hud_sprite</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">origin_x</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span> <span class="n">origin_y</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Load backgrounds</span>
+<span class="n">layers</span> <span class="o">=</span> <span class="p">[</span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">BackgroundLayer</span><span class="p">(</span><span class="n">paddle_sprite</span><span class="p">,</span> <span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10000</span><span class="p">,</span>
+                                  <span class="n">repeat_up</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">repeat_down</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+<span class="n">background</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Background</span><span class="p">(</span><span class="n">layers</span><span class="p">,</span> <span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">))</span>
+
+<span class="c1"># Load fonts</span>
+<span class="n">hud_font</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Font</span><span class="p">(</span><span class="s2">&quot;Droid Sans Mono&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">48</span><span class="p">)</span>
+
+<span class="c1"># Load sounds</span>
+<span class="n">bounce_sound</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">snd</span><span class="o">.</span><span class="n">Sound</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA</span><span class="p">,</span> <span class="s1">&#39;bounce.wav&#39;</span><span class="p">))</span>
+<span class="n">bounce_wall_sound</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">snd</span><span class="o">.</span><span class="n">Sound</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA</span><span class="p">,</span> <span class="s1">&#39;bounce_wall.wav&#39;</span><span class="p">))</span>
+<span class="n">score_sound</span> <span class="o">=</span> <span class="n">sge</span><span class="o">.</span><span class="n">snd</span><span class="o">.</span><span class="n">Sound</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA</span><span class="p">,</span> <span class="s1">&#39;score.wav&#39;</span><span class="p">))</span>
+
+<span class="c1"># Create rooms</span>
+<span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">start_room</span> <span class="o">=</span> <span class="n">create_room</span><span class="p">()</span>
+
+<span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">mouse</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">sge</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/sge_logo_alpha_black.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">Seclusion Game Engine</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sge.html">SGE Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hello_world.html">Tutorial 1: Hello, world!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pong.html">Tutorial 2: Pong</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 3: Better Pong</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">sge.input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsp.html">sge.dsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gfx.html">sge.gfx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snd.html">sge.snd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">sge.collision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joystick.html">sge.joystick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keyboard.html">sge.keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">sge.mouse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s.html">sge.s</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="pong.html" title="previous chapter">Tutorial 2: Pong</a></li>
+      <li>Next: <a href="input.html" title="next chapter">sge.input</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/pong_better.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,1974 @@
+sge.dsp
+*******
+
+
+Contents
+^^^^^^^^
+
+* sge.dsp
+
+  * sge.dsp Classes
+
+    * sge.dsp.Game
+
+      * sge.dsp.Game Methods
+
+      * sge.dsp.Game Event Methods
+
+    * sge.dsp.Room
+
+      * sge.dsp.Room Methods
+
+      * sge.dsp.Room Event Methods
+
+    * sge.dsp.View
+
+    * sge.dsp.Object
+
+      * sge.dsp.Object Methods
+
+      * sge.dsp.Object Event Methods
+
+This module provides classes related to the graphical display.
+
+
+sge.dsp Classes
+===============
+
+
+sge.dsp.Game
+------------
+
+class sge.dsp.Game(width=640, height=480, fullscreen=False, scale=None, scale_proportional=True, scale_method=None, fps=60, delta=False, delta_min=15, delta_max=None, grab_input=False, window_text=None, window_icon=None, collision_events_enabled=True)
+
+   This class handles most parts of the game which operate on a global
+   scale, such as global game events.  Before anything else is done
+   with the SGE, an object either of this class or of a class derived
+   from it must be created.
+
+   When an object of this class is created, it is automatically
+   assigned to "sge.game".
+
+   Note: This class is designed to be used as a singleton.  Do not
+     create multiple "sge.dsp.Game" objects.  Doing so is unsupported
+     and may cause errors.
+
+   width
+
+      The width of the game's display.
+
+   height
+
+      The height of the game's display.
+
+   fullscreen
+
+      Whether or not the game should be in fullscreen mode.
+
+   scale
+
+      A number indicating a fixed scale factor (e.g. "1" for no
+      scaling, "2" for doubled size).  If set to "None" or "0",
+      scaling is automatic (causes the game to fit the window or
+      screen).
+
+      If a fixed scale factor is defined and the game is in fullscreen
+      mode, the scale factor multiplied by "width" and "height" is
+      used to suggest what resolution to use.
+
+   scale_proportional
+
+      If set to "True", scaling is always proportional.  If set to
+      "False", the image will be distorted to completely fill the game
+      window or screen.  This has no effect unless "scale" is "None"
+      or "0".
+
+   scale_method
+
+      A string indicating the type of scaling method to use.  Can be
+      one of the following:
+
+      * ""noblur"" -- Request a non-blurry scale method, generally
+        optimal for pixel art.
+
+      * ""smooth"" -- Request a smooth scale method, generally
+        optimal for images other than pixel art.
+
+      Alternatively, this attribute can be set to one of the values in
+      "sge.SCALE_METHODS" to request an exact scale method to use.
+
+      The value of this attribute is only a request.  If this value is
+      either an unsupported value or "None", the fastest available
+      scale method is chosen.
+
+   fps
+
+      The rate the game should run in frames per second.
+
+      Note: This is only the maximum; if the computer is not fast
+        enough, the game may run more slowly.
+
+   delta
+
+      Whether or not delta timing should be used.  Delta timing
+      affects object speeds, animation rates, and alarms.
+
+   delta_min
+
+      Delta timing can cause the game to be choppy.  This attribute
+      limits this by pretending that the frame rate is never lower
+      than this amount, resulting in the game slowing down like normal
+      if it is.
+
+   delta_max
+
+      Indicates a higher frame rate cap than "fps" to allow the game
+      to reach by using delta timing to slow object speeds, animation
+      rates, and alarms down.  If set to "None", this feature is
+      disabled and the game will not be permitted to run faster than
+      "fps".
+
+      This attribute has no effect unless "delta" is "True".
+
+   grab_input
+
+      Whether or not all input should be forcibly grabbed by the game.
+      If this is "True" and "sge.mouse.visible" is "False", the mouse
+      will be in relative mode.  Otherwise, the mouse will be in
+      absolute mode.
+
+   window_text
+
+      The text for the OS to display as the window title, e.g. in the
+      frame of the window.  If set to "None", the SGE chooses the
+      text.
+
+   window_icon
+
+      The path to the image file to use as the window icon.  If set to
+      "None", the SGE chooses the icon.  If the file specified does
+      not exist, "FileNotFoundError" is raised.
+
+   collision_events_enabled
+
+      Whether or not collision events should be executed.  Setting
+      this to "False" will improve performence if collision events are
+      not needed.
+
+   alarms
+
+      A dictionary containing the global alarms of the game.  Each
+      value decreases by 1 each frame (adjusted for delta timing if it
+      is enabled).  When a value is at or below 0,
+      "sge.dsp.Game.event_alarm()" is executed with "alarm_id" set to
+      the respective key, and the item is deleted from this
+      dictionary.
+
+   input_events
+
+      A list containing all input event objects which have not yet
+      been handled, in the order in which they occurred.
+
+      Note: If you handle input events manually, be sure to delete
+        them from this list, preferably by getting them with
+        "list.pop()". Otherwise, the event will be handled more than
+        once, which is usually not what you want.
+
+   start_room
+
+      The room which becomes active when the game first starts and
+      when it restarts.  Must be set exactly once, before the game
+      first starts, and should not be set again afterwards.
+
+   current_room
+
+      The room which is currently active.  (Read-only)
+
+   mouse
+
+      A "sge.dsp.Object" object which represents the mouse cursor.
+      Its bounding box is a one-pixel square.  It is automatically
+      added to every room's default list of objects.
+
+      Some of this object's attributes control properties of the
+      mouse. See the documentation for "sge.mouse" for more
+      information.
+
+      (Read-only)
+
+Game.__init__(width=640, height=480, fullscreen=False, scale=None, scale_proportional=True, scale_method=None, fps=60, delta=False, delta_min=15, delta_max=None, grab_input=False, window_text=None, window_icon=None, collision_events_enabled=True)
+
+   Arguments set the respective initial attributes of the game. See
+   the documentation for "sge.dsp.Game" for more information.
+
+   The created "sge.dsp.Game" object is automatically assigned to
+   "sge.game".
+
+
+sge.dsp.Game Methods
+~~~~~~~~~~~~~~~~~~~~
+
+Game.start()
+
+   Start the game.  Should only be called once; the effect of any
+   further calls is undefined.
+
+Game.end()
+
+   Properly end the game.
+
+Game.pause(sprite=None)
+
+   Pause the game.
+
+   Arguments:
+
+   * "sprite" -- The sprite to show in the center of the screen
+     while the game is paused.  If set to "None", the SGE chooses the
+     image.
+
+   Normal events are not executed while the game is paused. Instead,
+   events with the same name, but prefixed with "event_paused_"
+   instead of "event_" are executed.  Note that not all events have
+   these alternative "paused" events associated with them.
+
+Game.unpause()
+
+   Unpause the game.
+
+Game.pump_input()
+
+   Cause the SGE to recieve input from the OS.
+
+   This method needs to be called periodically for the SGE to recieve
+   events from the OS, such as key presses and mouse movement, as well
+   as to assure the OS that the program is not locked up.
+
+   Upon calling this, each event is translated into the appropriate
+   class in "sge.input" and the resulting object is appended to
+   "input_events".
+
+   You normally don't need to use this function directly.  It is
+   called automatically in each frame of the SGE's main loop.  You
+   only need to use this function directly if you take control away
+   from the SGE's main loop, e.g. to create your own loop.
+
+Game.regulate_speed(fps=None)
+
+   Regulate the SGE's running speed and return the time passed.
+
+   Arguments:
+
+   * "fps" -- The target frame rate in frames per second.  Set to
+     "None" to target the current value of "fps".
+
+   When this method is called, the program will sleep long enough so
+   that the game runs at "fps" frames per second, then return the
+   number of milliseconds that passed between the previous call and
+   the current call of this method.
+
+   You normally don't need to use this function directly.  It is
+   called automatically in each frame of the SGE's main loop.  You
+   only need to use this function directly if you want to create your
+   own loop.
+
+Game.refresh()
+
+   Refresh the screen.
+
+   This method needs to be called for changes to the screen to be seen
+   by the user.  It should be called every frame.
+
+   You normally don't need to use this function directly.  It is
+   called automatically in each frame of the SGE's main loop.  You
+   only need to use this function directly if you take control away
+   from the SGE's main loop, e.g. to create your own loop.
+
+Game.project_dot(x, y, color, z=0, blend_mode=None)
+
+   Project a single-pixel dot onto the game window.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the window to
+     project the dot.
+
+   * "y" -- The vertical location relative to the window to project
+     the dot.
+
+   * "z" -- The Z-axis position of the projection in relation to
+     other window projections.
+
+   Window projections are projections made directly onto the game
+   window, independent of the room or any views.
+
+   Note: The Z-axis position of a window projection does not
+     correlate with the Z-axis position of anything positioned within
+     the room, such as room projections and "sge.dsp.Object" objects.
+     Window projections are always positioned in front of such things.
+
+   See the documentation for "sge.gfx.Sprite.draw_dot()" for more
+   information.
+
+Game.project_line(x1, y1, x2, y2, color, z=0, thickness=1, anti_alias=False, blend_mode=None)
+
+   Project a line segment onto the game window.
+
+   Arguments:
+
+   * "x1" -- The horizontal location relative to the window of the
+     first endpoint of the projected line segment.
+
+   * "y1" -- The vertical location relative to the window of the
+     first endpoint of the projected line segment.
+
+   * "x2" -- The horizontal location relative to the window of the
+     second endpoint of the projected line segment.
+
+   * "y2" -- The vertical location relative to the window of the
+     second endpoint of the projected line segment.
+
+   * "z" -- The Z-axis position of the projection in relation to
+     other window projections.
+
+   See the documentation for "sge.gfx.Sprite.draw_line()" and
+   "sge.dsp.Game.project_dot()" for more information.
+
+Game.project_rectangle(x, y, width, height, z=0, fill=None, outline=None, outline_thickness=1, blend_mode=None)
+
+   Project a rectangle onto the game window.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the window to
+     project the rectangle.
+
+   * "y" -- The vertical location relative to the window to project
+     the rectangle.
+
+   * "z" -- The Z-axis position of the projection in relation to
+     other window projections.
+
+   See the documentation for "sge.gfx.Sprite.draw_rectangle()" and
+   "sge.dsp.Game.project_dot()" for more information.
+
+Game.project_ellipse(x, y, width, height, z=0, fill=None, outline=None, outline_thickness=1, anti_alias=False, blend_mode=None)
+
+   Project an ellipse onto the game window.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the window to
+     position the imaginary rectangle containing the ellipse.
+
+   * "y" -- The vertical location relative to the window to position
+     the imaginary rectangle containing the ellipse.
+
+   * "z" -- The Z-axis position of the projection in relation to
+     other window projections.
+
+   * "width" -- The width of the ellipse.
+
+   * "height" -- The height of the ellipse.
+
+   * "outline_thickness" -- The thickness of the outline of the
+     ellipse.
+
+   * "anti_alias" -- Whether or not anti-aliasing should be used.
+
+   See the documentation for "sge.gfx.Sprite.draw_ellipse()" and
+   "sge.dsp.Game.project_dot()" for more information.
+
+Game.project_circle(x, y, radius, z=0, fill=None, outline=None, outline_thickness=1, anti_alias=False, blend_mode=None)
+
+   Project a circle onto the game window.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the window to
+     position the center of the circle.
+
+   * "y" -- The vertical location relative to the window to position
+     the center of the circle.
+
+   * "z" -- The Z-axis position of the projection in relation to
+     other window projections.
+
+   See the documentation for "sge.gfx.Sprite.draw_circle()" and
+   "sge.dsp.Game.project_dot()" for more information.
+
+Game.project_polygon(points, z=0, fill=None, outline=None, outline_thickness=1, anti_alias=False, blend_mode=None)
+
+   Draw a polygon on the sprite.
+
+   Arguments:
+
+   * "points" -- A list of points relative to the room to position
+     each of the polygon's angles.  Each point should be a tuple in
+     the form "(x, y)", where x is the horizontal location and y is
+     the vertical location.
+
+   * "z" -- The Z-axis position of the projection in relation to
+     other window projections.
+
+   See the documentation for "sge.gfx.Sprite.draw_polygon()" and
+   "sge.dsp.Game.project_dot()" for more information.
+
+Game.project_sprite(sprite, image, x, y, z=0, blend_mode=None)
+
+   Project a sprite onto the game window.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the window to
+     project "sprite".
+
+   * "y" -- The vertical location relative to the window to project
+     "sprite".
+
+   * "z" -- The Z-axis position of the projection in relation to
+     other window projections.
+
+   See the documentation for "sge.gfx.Sprite.draw_sprite()" and
+   "sge.dsp.Game.project_dot()" for more information.
+
+Game.project_text(font, text, x, y, z=0, width=None, height=None, color=sge.gfx.Color("white"), halign='left', valign='top', anti_alias=True, blend_mode=None, outline=None, outline_thickness=0)
+
+   Project text onto the game window.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the window to
+     project the text.
+
+   * "y" -- The vertical location relative to the window to project
+     the text.
+
+   * "z" -- The Z-axis position of the projection in relation to
+     other window projections.
+
+   See the documentation for "sge.gfx.Sprite.draw_text()" and
+   "sge.dsp.Game.project_dot()" for more information.
+
+
+sge.dsp.Game Event Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Game.event_step(time_passed, delta_mult)
+
+   Called once each frame.
+
+   Arguments:
+
+   * "time_passed" -- The number of milliseconds that have passed
+     during the last frame.
+
+   * "delta_mult" -- What speed and movement should be multiplied by
+     this frame due to delta timing.  If "delta" is "False", this is
+     always "1".
+
+Game.event_alarm(alarm_id)
+
+   Called when the value of an alarm reaches 0.
+
+   See the documentation for "sge.dsp.Game.alarms" for more
+   information.
+
+Game.event_key_press(key, char)
+
+   See the documentation for "sge.input.KeyPress" for more
+   information.
+
+Game.event_key_release(key)
+
+   See the documentation for "sge.input.KeyRelease" for more
+   information.
+
+Game.event_mouse_move(x, y)
+
+   See the documentation for "sge.input.MouseMove" for more
+   information.
+
+Game.event_mouse_button_press(button)
+
+   See the documentation for "sge.input.MouseButtonPress" for more
+   information.
+
+Game.event_mouse_button_release(button)
+
+   See the documentation for "sge.input.MouseButtonRelease" for more
+   information.
+
+Game.event_joystick(js_name, js_id, input_type, input_id, value)
+
+   See the documentation for "sge.input.JoystickEvent" for more
+   information.
+
+Game.event_joystick_axis_move(js_name, js_id, axis, value)
+
+   See the documentation for "sge.input.JoystickAxisMove" for more
+   information.
+
+Game.event_joystick_hat_move(js_name, js_id, hat, x, y)
+
+   See the documentation for "sge.input.JoystickHatMove" for more
+   information.
+
+Game.event_joystick_trackball_move(js_name, js_id, ball, x, y)
+
+   See the documentation for "sge.input.JoystickTrackballMove" for
+   more information.
+
+Game.event_joystick_button_press(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonPress" for more
+   information.
+
+Game.event_joystick_button_release(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonRelease" for
+   more information.
+
+Game.event_gain_keyboard_focus()
+
+   See the documentation for "sge.input.KeyboardFocusGain" for more
+   information.
+
+Game.event_lose_keyboard_focus()
+
+   See the documentation for "sge.input.KeyboardFocusLose" for more
+   information.
+
+Game.event_gain_mouse_focus()
+
+   See the documentation for "sge.input.MouseFocusGain" for more
+   information.
+
+Game.event_lose_mouse_focus()
+
+   See the documentation for "sge.input.MouseFocusLose" for more
+   information.
+
+Game.event_close()
+
+   See the documentation for "sge.input.QuitRequest" for more
+   information.
+
+   This is always called after any "sge.dsp.Room.event_close()"
+   occurring at the same time.
+
+Game.event_mouse_collision(other, xdirection, ydirection)
+
+   Proxy for "sge.game.mouse.event_collision()".  See the
+   documentation for "sge.dsp.Object.event_collision()" for more
+   information.
+
+Game.event_paused_step(time_passed, delta_mult)
+
+   See the documentation for "sge.dsp.Game.event_step()" for more
+   information.
+
+Game.event_paused_key_press(key, char)
+
+   See the documentation for "sge.input.KeyPress" for more
+   information.
+
+Game.event_paused_key_release(key)
+
+   See the documentation for "sge.input.KeyRelease" for more
+   information.
+
+Game.event_paused_mouse_move(x, y)
+
+   See the documentation for "sge.input.MouseMove" for more
+   information.
+
+Game.event_paused_mouse_button_press(button)
+
+   See the documentation for "sge.input.MouseButtonPress" for more
+   information.
+
+Game.event_paused_mouse_button_release(button)
+
+   See the documentation for "sge.input.MouseButtonRelease" for more
+   information.
+
+Game.event_paused_joystick(js_name, js_id, input_type, input_id, value)
+
+   See the documentation for "sge.input.JoystickEvent" for more
+   information.
+
+Game.event_paused_joystick_axis_move(js_name, js_id, axis, value)
+
+   See the documentation for "sge.input.JoystickAxisMove" for more
+   information.
+
+Game.event_paused_joystick_hat_move(js_name, js_id, hat, x, y)
+
+   See the documentation for "sge.input.JoystickHatMove" for more
+   information.
+
+Game.event_paused_joystick_trackball_move(js_name, js_id, ball, x, y)
+
+   See the documentation for "sge.input.JoystickTrackballMove" for
+   more information.
+
+Game.event_paused_joystick_button_press(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonPress" for more
+   information.
+
+Game.event_paused_joystick_button_release(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonRelease" for
+   more information.
+
+Game.event_paused_gain_keyboard_focus()
+
+   See the documentation for "sge.input.KeyboardFocusGain" for more
+   information.
+
+Game.event_paused_lose_keyboard_focus()
+
+   See the documentation for "sge.input.KeyboardFocusLose" for more
+   information.
+
+Game.event_paused_gain_mouse_focus()
+
+   See the documentation for "sge.input.MouseFocusGain" for more
+   information.
+
+Game.event_paused_lose_mouse_focus()
+
+   See the documentation for "sge.input.MouseFocusLose" for more
+   information.
+
+Game.event_paused_close()
+
+   See the documentation for "sge.dsp.Game.event_close()" for more
+   information.
+
+
+sge.dsp.Room
+------------
+
+class sge.dsp.Room(objects=(), width=None, height=None, views=None, background=None, background_x=0, background_y=0, object_area_width=None, object_area_height=None)
+
+   This class stores the settings and objects found in a room.  Rooms
+   are used to create separate parts of the game, such as levels and
+   menu screens.
+
+   width
+
+      The width of the room in pixels.  If set to "None",
+      "sge.game.width" is used.
+
+   height
+
+      The height of the room in pixels.  If set to "None",
+      "sge.game.height" is used.
+
+   views
+
+      A list containing all "sge.dsp.View" objects in the room.
+
+   background
+
+      The "sge.gfx.Background" object used.
+
+   background_x
+
+      The horizontal position of the background in the room.
+
+   background_y
+
+      The vertical position of the background in the room.
+
+   object_area_width
+
+      The width of this room's object areas in pixels.  If set to
+      "None", "sge.game.width" is used.  For optimum performance, this
+      should generally be about the average width of objects in the
+      room which check for collisions.
+
+   object_area_height
+
+      The height of this room's object areas in pixels.  If set to
+      "None", "sge.game.height" is used.  For optimum performance,
+      this should generally be about the average height of objects in
+      the room which check for collisions.
+
+   alarms
+
+      A dictionary containing the alarms of the room.  Each value
+      decreases by 1 each frame (adjusted for delta timing if it is
+      enabled).  When a value is at or below 0, "event_alarm()" is
+      executed with "alarm_id" set to the respective key, and the item
+      is deleted from this dictionary.
+
+   objects
+
+      A list containing all "sge.dsp.Object" objects in the room.
+      (Read-only)
+
+   object_areas
+
+      A 2-dimensional list of object areas, indexed in the following
+      way:
+
+         object_areas[x][y]
+
+      Where "x" is the horizontal location of the left edge of the
+      area in the room divided by "object_area_width", and "y" is the
+      vertical location of the top edge of the area in the room
+      divided by "object_area_height".
+
+      For example, if "object_area_width" is "32" and
+      "object_area_height" is "48", then "object_areas[2][4]"
+      indicates the object area with an x location of 64 and a y
+      location of 192.
+
+      Each object area is a set containing "sge.dsp.Object" objects
+      whose sprites or bounding boxes reside within the object area.
+
+      Object areas are only created within the room, i.e. the
+      horizontal location of an object area will always be less than
+      "width", and the vertical location of an object area will always
+      be less than "height".  Depending on the size of collision areas
+      and the size of the room, however, the last row and/or the last
+      column of collision areas may partially reside outside of the
+      room.
+
+      Note: It is generally easier to use "get_objects_at()" than to
+        access this list directly.
+
+   object_area_void
+
+      A set containing "sge.dsp.Object" objects whose sprites or
+      bounding boxes reside within any area not covered by the room's
+      object area.
+
+      Note: Depending on the size of object areas and the size of
+        the room, the "void" area may not include the entirety of the
+        outside of the room.  There may be some space to the right of
+        and/or below the room which is covered by collision areas.
+
+   rd
+
+      Reserved dictionary for internal use by the SGE.  (Read-only)
+
+Room.__init__(objects=(), width=None, height=None, views=None, background=None, background_x=0, background_y=0, object_area_width=None, object_area_height=None)
+
+   Arguments:
+
+   * "views" -- A list containing all "sge.dsp.View" objects in the
+     room.  If set to "None", a new view will be created with "x=0",
+     "y=0", and all other arguments unspecified, which will become the
+     first view of the room.
+
+   * "background" -- The "sge.gfx.Background" object used. If set to
+     "None", a new background will be created with no layers and the
+     color set to black.
+
+   All other arguments set the respective initial attributes of the
+   room.  See the documentation for "sge.dsp.Room" for more
+   information.
+
+
+sge.dsp.Room Methods
+~~~~~~~~~~~~~~~~~~~~
+
+Room.add(obj)
+
+   Add an object to the room.
+
+   Arguments:
+
+   * "obj" -- The "sge.dsp.Object" object to add.
+
+   Warning: This method modifies the contents of "objects".  Do not
+     call this method during a loop through "objects"; doing so may
+     cause problems with the loop. To get around this, you can create
+     a shallow copy of "objects" to iterate through instead, e.g.:
+
+        for obj in self.objects[:]:
+            self.add(obj.friend)
+
+Room.remove(obj)
+
+   Remove an object from the room.
+
+   Arguments:
+
+   * "obj" -- The "sge.dsp.Object" object to remove.
+
+   Warning: This method modifies the contents of "objects".  Do not
+     call this method during a loop through "objects"; doing so may
+     cause problems with the loop. To get around this, you can create
+     a shallow copy of "objects" to iterate through instead, e.g.:
+
+        for obj in self.objects[:]:
+            self.remove(obj)
+
+Room.start(transition=None, transition_time=1500, transition_arg=None)
+
+   Start the room.
+
+   Arguments:
+
+   * "transition" -- The type of transition to use.  Should be one
+     of the following:
+
+     * "None" (no transition)
+
+     * ""fade"" (fade to black)
+
+     * ""dissolve""
+
+     * ""pixelate""
+
+     * ""wipe_left"" (wipe right to left)
+
+     * ""wipe_right"" (wipe left to right)
+
+     * ""wipe_up"" (wipe bottom to top)
+
+     * ""wipe_down"" (wipe top to bottom)
+
+     * ""wipe_upleft"" (wipe bottom-right to top-left)
+
+     * ""wipe_upright"" (wipe bottom-left to top-right)
+
+     * ""wipe_downleft"" (wipe top-right to bottom-left)
+
+     * ""wipe_downright"" (wipe top-left to bottom-right)
+
+     * ""wipe_matrix""
+
+     * ""iris_in""
+
+     * ""iris_out""
+
+     If an unsupported value is given, default to "None".
+
+   * "transition_time" -- The time the transition should take in
+     milliseconds.  Has no effect if "transition" is "None".
+
+   * "transition_arg" -- An arbitrary argument that can be used by
+     the following transitions:
+
+     * ""pixelate"" -- The time in miliseconds in between each
+       pixelation update.  Larger values can reduce jitter, but will
+       result in a less smooth transition.  Default is 0 (as little
+       time as possible).
+
+     * ""wipe_matrix"" -- The size of each square in the matrix
+       transition as a tuple in the form "(w, h)", where "w" is the
+       width and "h" is the height.  Default is "(4, 4)".
+
+     * ""iris_in"" and ""iris_out"" -- The position of the center of
+       the iris as a tuple in the form "(x, y)", where "x" is the
+       horizontal location relative to the window and "y" is the
+       vertical location relative to the window. Default is the center
+       of the window.
+
+Room.get_objects_at(x, y, width, height)
+
+   Return a set of objects near a particular area.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the room of the left
+     edge of the area.
+
+   * "y" -- The vertical location relative to the room of the top
+     edge of the area.
+
+   * "width" -- The width of the area in pixels.
+
+   * "height" -- The height of the area in pixels.
+
+   Note: This function does not ensure that objects returned are
+     actually *within* the given area.  It simply combines all object
+     areas that need to be checked into a single set.  To ensure that
+     an object is actually within the area, you must check the object
+     manually, or use "sge.collision.rectangle()" instead.
+
+Room.project_dot(x, y, z, color, blend_mode=None)
+
+   Project a single-pixel dot onto the room.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the room to project
+     the dot.
+
+   * "y" -- The vertical location relative to the room to project
+     the dot.
+
+   * "z" -- The Z-axis position of the projection in the room.
+
+   See the documentation for "sge.gfx.Sprite.draw_dot()" for more
+   information.
+
+Room.project_line(x1, y1, x2, y2, z, color, thickness=1, anti_alias=False, blend_mode=None)
+
+   Project a line segment onto the room.
+
+   Arguments:
+
+   * "x1" -- The horizontal location relative to the room of the
+     first endpoint of the projected line segment.
+
+   * "y1" -- The vertical location relative to the room of the first
+     endpoint of the projected line segment.
+
+   * "x2" -- The horizontal location relative to the room of the
+     second endpoint of the projected line segment.
+
+   * "y2" -- The vertical location relative to the room of the
+     second endpoint of the projected line segment.
+
+   * "z" -- The Z-axis position of the projection in the room.
+
+   See the documentation for "sge.gfx.Sprite.draw_line()" for more
+   information.
+
+Room.project_rectangle(x, y, z, width, height, fill=None, outline=None, outline_thickness=1, blend_mode=None)
+
+   Project a rectangle onto the room.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the room to project
+     the rectangle.
+
+   * "y" -- The vertical location relative to the room to project
+     the rectangle.
+
+   * "z" -- The Z-axis position of the projection in the room.
+
+   See the documentation for "sge.gfx.Sprite.draw_rectangle()" for
+   more information.
+
+Room.project_ellipse(x, y, z, width, height, fill=None, outline=None, outline_thickness=1, anti_alias=False, blend_mode=None)
+
+   Project an ellipse onto the room.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the room to position
+     the imaginary rectangle containing the ellipse.
+
+   * "y" -- The vertical location relative to the room to position
+     the imaginary rectangle containing the ellipse.
+
+   * "z" -- The Z-axis position of the projection in the room.
+
+   * "width" -- The width of the ellipse.
+
+   * "height" -- The height of the ellipse.
+
+   * "outline_thickness" -- The thickness of the outline of the
+     ellipse.
+
+   * "anti_alias" -- Whether or not anti-aliasing should be used.
+
+   See the documentation for "sge.gfx.Sprite.draw_ellipse()" for more
+   information.
+
+Room.project_circle(x, y, z, radius, fill=None, outline=None, outline_thickness=1, anti_alias=False, blend_mode=None)
+
+   Project a circle onto the room.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the room to position
+     the center of the circle.
+
+   * "y" -- The vertical location relative to the room to position
+     the center of the circle.
+
+   * "z" -- The Z-axis position of the projection in the room.
+
+   See the documentation for "sge.gfx.Sprite.draw_circle()" for more
+   information.
+
+Room.project_polygon(points, z, fill=None, outline=None, outline_thickness=1, anti_alias=False, blend_mode=None)
+
+   Draw a polygon on the sprite.
+
+   Arguments:
+
+   * "points" -- A list of points relative to the room to position
+     each of the polygon's angles.  Each point should be a tuple in
+     the form "(x, y)", where x is the horizontal location and y is
+     the vertical location.
+
+   * "z" -- The Z-axis position of the projection in the room.
+
+   See the documentation for "sge.gfx.Sprite.draw_polygon()" for more
+   information.
+
+Room.project_sprite(sprite, image, x, y, z, blend_mode=None)
+
+   Project a sprite onto the room.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the room to project
+     "sprite".
+
+   * "y" -- The vertical location relative to the room to project
+     "sprite".
+
+   * "z" -- The Z-axis position of the projection in the room.
+
+   See the documentation for "sge.gfx.Sprite.draw_sprite()" for more
+   information.
+
+Room.project_text(font, text, x, y, z, width=None, height=None, color=sge.gfx.Color("white"), halign='left', valign='top', anti_alias=True, blend_mode=None, outline=None, outline_thickness=0)
+
+   Project text onto the room.
+
+   Arguments:
+
+   * "x" -- The horizontal location relative to the room to project
+     the text.
+
+   * "y" -- The vertical location relative to the room to project
+     the text.
+
+   * "z" -- The Z-axis position of the projection in the room.
+
+   See the documentation for "sge.gfx.Sprite.draw_text()" for more
+   information.
+
+
+sge.dsp.Room Event Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Room.event_room_start()
+
+   Called when the room is started for the first time.  It is always
+   called after any "sge.dsp.Game.event_game_start()" and before any
+   "sge.dsp.Object.event_create" occurring at the same time.
+
+Room.event_room_resume()
+
+   Called when the room is started after it has already previously
+   been started.  It is always called before any
+   "sge.dsp.Object.event_create()" occurring at the same time.
+
+Room.event_room_end()
+
+   Called when another room is started or the game ends while this
+   room is the current room.  It is always called before any
+   "sge.dsp.Game.event_game_end()" occurring at the same time.
+
+Room.event_step(time_passed, delta_mult)
+
+   See the documentation for "sge.dsp.Game.event_step()" for more
+   information.
+
+Room.event_alarm(alarm_id)
+
+   See the documentation for "sge.dsp.Room.alarms" for more
+   information.
+
+Room.event_key_press(key, char)
+
+   See the documentation for "sge.input.KeyPress" for more
+   information.
+
+Room.event_key_release(key)
+
+   See the documentation for "sge.input.KeyRelease" for more
+   information.
+
+Room.event_mouse_move(x, y)
+
+   See the documentation for "sge.input.MouseMove" for more
+   information.
+
+Room.event_mouse_button_press(button)
+
+   Mouse button press event.
+
+   See the documentation for "sge.input.MouseButtonPress" for more
+   information.
+
+Room.event_mouse_button_release(button)
+
+   See the documentation for "sge.input.MouseButtonRelease" for more
+   information.
+
+Room.event_joystick(js_name, js_id, input_type, input_id, value)
+
+   See the documentation for "sge.input.JoystickEvent" for more
+   information.
+
+Room.event_joystick_axis_move(js_name, js_id, axis, value)
+
+   See the documentation for "sge.input.JoystickAxisMove" for more
+   information.
+
+Room.event_joystick_hat_move(js_name, js_id, hat, x, y)
+
+   See the documentation for "sge.input.JoystickHatMove" for more
+   information.
+
+Room.event_joystick_trackball_move(js_name, js_id, ball, x, y)
+
+   See the documentation for "sge.input.JoystickTrackballMove" for
+   more information.
+
+Room.event_joystick_button_press(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonPress" for more
+   information.
+
+Room.event_joystick_button_release(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonRelease" for
+   more information.
+
+Room.event_gain_keyboard_focus()
+
+   See the documentation for "sge.input.KeyboardFocusGain" for more
+   information.
+
+Room.event_lose_keyboard_focus()
+
+   See the documentation for "sge.input.KeyboardFocusLose" for more
+   information.
+
+Room.event_gain_mouse_focus()
+
+   See the documentation for "sge.input.MouseFocusGain" for more
+   information.
+
+Room.event_lose_mouse_focus()
+
+   See the documentation for "sge.input.MouseFocusLose" for more
+   information.
+
+Room.event_close()
+
+   This is always called before any "sge.dsp.Game.event_close()"
+   occurring at the same time.
+
+   See the documentation for "sge.input.QuitRequest" for more
+   information.
+
+Room.event_paused_step(time_passed, delta_mult)
+
+   See the documentation for "sge.dsp.Game.event_step()" for more
+   information.
+
+Room.event_paused_key_press(key, char)
+
+   See the documentation for "sge.input.KeyPress" for more
+   information.
+
+Room.event_paused_key_release(key)
+
+   See the documentation for "sge.input.KeyRelease" for more
+   information.
+
+Room.event_paused_mouse_move(x, y)
+
+   See the documentation for "sge.input.MouseMove" for more
+   information.
+
+Room.event_paused_mouse_button_press(button)
+
+   See the documentation for "sge.input.MouseButtonPress" for more
+   information.
+
+Room.event_paused_mouse_button_release(button)
+
+   See the documentation for "sge.input.MouseButtonRelease" for more
+   information.
+
+Room.event_paused_joystick(js_name, js_id, input_type, input_id, value)
+
+   See the documentation for "sge.input.JoystickEvent" for more
+   information.
+
+Room.event_paused_joystick_axis_move(js_name, js_id, axis, value)
+
+   See the documentation for "sge.input.JoystickAxisMove" for more
+   information.
+
+Room.event_paused_joystick_hat_move(js_name, js_id, hat, x, y)
+
+   See the documentation for "sge.input.JoystickHatMove" for more
+   information.
+
+Room.event_paused_joystick_trackball_move(js_name, js_id, ball, x, y)
+
+   See the documentation for "sge.input.JoystickTrackballMove" for
+   more information.
+
+Room.event_paused_joystick_button_press(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonPress" for more
+   information.
+
+Room.event_paused_joystick_button_release(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonRelease" for
+   more information.
+
+Room.event_paused_gain_keyboard_focus()
+
+   See the documentation for "sge.input.KeyboardFocusGain" for more
+   information.
+
+Room.event_paused_lose_keyboard_focus()
+
+   See the documentation for "sge.input.KeyboardFocusLose" for more
+   information.
+
+Room.event_paused_gain_mouse_focus()
+
+   See the documentation for "sge.input.MouseFocusGain" for more
+   information.
+
+Room.event_paused_lose_mouse_focus()
+
+   See the documentation for "sge.input.MouseFocusLose" for more
+   information.
+
+Room.event_paused_close()
+
+   See the documentation for "sge.dsp.Room.event_close()" for more
+   information.
+
+
+sge.dsp.View
+------------
+
+class sge.dsp.View(x, y, xport=0, yport=0, width=None, height=None, wport=None, hport=None)
+
+   This class controls what the player sees in a room at any given
+   time.  Multiple views can exist in a room, and this can be used to
+   create a split-screen effect.
+
+   x
+
+      The horizontal position of the view in the room.  When set, if
+      it brings the view outside of the room it is in, it will be re-
+      adjusted so that the view is completely inside the room.
+
+   y
+
+      The vertical position of the view in the room.  When set, if it
+      brings the view outside of the room it is in, it will be re-
+      adjusted so that the view is completely inside the room.
+
+   xport
+
+      The horizontal position of the view port on the window.
+
+   yport
+
+      The vertical position of the view port on the window.
+
+   width
+
+      The width of the view.  When set, if it results in the view
+      being outside of the room it is in, "x" will be adjusted so that
+      the view is completely inside the room.
+
+   height
+
+      The height of the view.  When set, if it results in the view
+      being outside the room it is in, "y" will be adjusted so that
+      the view is completely inside the room.
+
+   wport
+
+      The width of the view port.  Set to "None" to make it the same
+      as "width".  If this value differs from "width", the image will
+      be horizontally scaled so that it fills the port.
+
+   hport
+
+      The height of the view port.  Set to "None" to make it the same
+      as "height".  If this value differs from "height", the image
+      will be vertically scaled so that it fills the port.
+
+   rd
+
+      Reserved dictionary for internal use by the SGE.  (Read-only)
+
+View.__init__(x, y, xport=0, yport=0, width=None, height=None, wport=None, hport=None)
+
+   Arguments:
+
+   * "width" -- The width of the view.  If set to "None", it will
+     become "sge.game.width - xport".
+
+   * "height" -- The height of the view.  If set to "None", it will
+     become "sge.game.height - yport".
+
+   All other arugments set the respective initial attributes of the
+   view.  See the documentation for "sge.dsp.View" for more
+   information.
+
+
+sge.dsp.Object
+--------------
+
+class sge.dsp.Object(x, y, z=0, sprite=None, visible=True, active=True, checks_collisions=True, tangible=True, bbox_x=None, bbox_y=None, bbox_width=None, bbox_height=None, regulate_origin=False, collision_ellipse=False, collision_precise=False, xvelocity=0, yvelocity=0, xacceleration=0, yacceleration=0, xdeceleration=0, ydeceleration=0, image_index=0, image_origin_x=None, image_origin_y=None, image_fps=None, image_xscale=1, image_yscale=1, image_rotation=0, image_alpha=255, image_blend=None, image_blend_mode=None)
+
+   This class is used for game objects, such as the player, enemies,
+   bullets, and the HUD.  Generally, each type of object has its own
+   subclass of "sge.dsp.Object".
+
+   x
+
+      The horizontal position of the object in the room.
+
+   y
+
+      The vertical position of the object in the room.
+
+   z
+
+      The Z-axis position of the object in the room.
+
+   sprite
+
+      The sprite currently in use by this object.  Can be either a
+      "sge.gfx.Sprite" object or a "sge.gfx.TileGrid" object.  Set to
+      "None" for no sprite.
+
+   visible
+
+      Whether or not the object's sprite should be projected onto the
+      screen.
+
+   active
+
+      Indicates whether the object is active ("True") or inactive
+      ("False").  While the object is active, it will exhibit normal
+      behavior; events will be executed normally as will any other
+      automatic functionality, such as adding "xvelocity" and
+      "yvelocity" to "x" and "y".  If "active" is "False", automatic
+      functionality and normal events will be disabled.
+
+      Note: Inactive "sge.dsp.Object" objects are still visible by
+        default and continue to be involved in collisions.  In
+        addition, collision events and destroy events still occur even
+        if the object is inactive.  If you wish for the object to not
+        be visible, set "visible" to "False".  If you wish for the
+        object to not perform collision events, set "tangible" to
+        "False".
+
+   checks_collisions
+
+      Whether or not the object should check for collisions
+      automatically and cause collision events.  If an object is not
+      using collision events, setting this to "False" will give a
+      boost in performance.
+
+      Note: This will not prevent automatic collision detection by
+        other objects from detecting this object, and it will also not
+        prevent this object's collision events from being executed. If
+        you wish to disable collision detection entirely, set
+        "tangible" to "False".
+
+   tangible
+
+      Whether or not collisions involving the object can be detected.
+      Setting this to "False" can improve performance if the object
+      doesn't need to be involved in collisions.
+
+      Depending on the game, a useful strategy to boost performance
+      can be to exclude an object from collision detection while it is
+      outside the view.  If you do this, you likely want to set
+      "active" to "False" as well so that the object doesn't move in
+      undesireable ways (e.g. through walls).
+
+      Note: If this is "False", "checks_collisions" is implied to be
+        "False" as well regardless of its actual value.  This is
+        because checking for collisions which can't be detected is
+        meaningless.
+
+   bbox_x
+
+      The horizontal location of the bounding box relative to the
+      object's position.  If set to "None", the value recommended by
+      the sprite is used.
+
+   bbox_y
+
+      The vertical location of the bounding box relative to the
+      object's position.  If set to "None", the value recommended by
+      the sprite is used.
+
+   bbox_width
+
+      The width of the bounding box in pixels.  If set to "None", the
+      value recommended by the sprite is used.
+
+   bbox_height
+
+      The height of the bounding box in pixels.  If set to "None", the
+      value recommended by the sprite is used.
+
+   regulate_origin
+
+      If set to "True", the origin is automatically adjusted to be the
+      location of the pixel recommended by the sprite after
+      transformation.  This will cause rotation to be about the origin
+      rather than being about the center of the image.
+
+      Note: The value of this attribute has no effect on the
+        bounding box. If you wish for the bounding box to be adjusted
+        as well, you must do so manually.  As an alternative, you may
+        want to consider using precise collision detection instead.
+
+   collision_ellipse
+
+      Whether or not an ellipse (rather than a rectangle) should be
+      used for collision detection.
+
+   collision_precise
+
+      Whether or not precise (pixel-perfect) collision detection
+      should be used.  Note that this can be inefficient and does not
+      work well with animated sprites.
+
+   bbox_left
+
+      The position of the left side of the bounding box in the room
+      (same as "x" + "bbox_x").
+
+   bbox_right
+
+      The position of the right side of the bounding box in the room
+      (same as "bbox_left" + "bbox_width").
+
+   bbox_top
+
+      The position of the top side of the bounding box in the room
+      (same as "y" + "bbox_y").
+
+   bbox_bottom
+
+      The position of the bottom side of the bounding box in the room
+      (same as "bbox_top" + "bbox_height").
+
+   xvelocity
+
+      The velocity of the object toward the right in pixels per frame.
+
+   yvelocity
+
+      The velocity of the object toward the bottom in pixels per
+      frame.
+
+   speed
+
+      The total (directional) speed of the object in pixels per frame.
+
+   move_direction
+
+      The direction of the object's movement in degrees, with "0"
+      being directly to the right and rotation in a positive direction
+      being clockwise.
+
+   xacceleration
+
+      The acceleration of the object to the right in pixels per frame.
+      If non-zero, movement as a result of "xvelocity" will be
+      adjusted based on the kinematic equation, "v[f]^2 = v[i]^2 +
+      2*a*d".
+
+   yacceleration
+
+      The acceleration of the object downward in pixels per frame.  If
+      non-zero, movement as a result of "yvelocity" will be adjusted
+      based on the kinematic equation, "v[f]^2 = v[i]^2 + 2*a*d".
+
+   xdeceleration
+
+      Like "xacceleration", but its sign is ignored and it always
+      causes the absolute value of "xvelocity" to decrease.
+
+   ydeceleration
+
+      Like "yacceleration", but its sign is ignored and it always
+      causes the absolute value of "yvelocity" to decrease.
+
+   image_index
+
+      The animation frame currently being displayed, with "0" being
+      the first one.
+
+   image_origin_x
+
+      The horizontal location of the origin relative to the left edge
+      of the images.  If set to "None", the value recommended by the
+      sprite is used.
+
+   image_origin_y
+
+      The vertical location of the origin relative to the top edge of
+      the images.  If set to "None", the value recommended by the
+      sprite is used.
+
+   image_fps
+
+      The animation rate in frames per second.  Can be negative, in
+      which case animation will be reversed.  If set to "None", the
+      value recommended by the sprite is used.
+
+   image_speed
+
+      The animation rate as a factor of "sge.game.fps".  Can be
+      negative, in which case animation will be reversed.  If set to
+      "None", the value recommended by the sprite is used.
+
+   image_xscale
+
+      The horizontal scale factor of the sprite.  If this is negative,
+      the sprite will also be mirrored horizontally.
+
+   image_yscale
+
+      The vertical scale factor of the sprite.  If this is negative,
+      the sprite will also be flipped vertically.
+
+   image_rotation
+
+      The rotation of the sprite in degrees, with rotation in a
+      positive direction being clockwise.
+
+      If "regulate_origin" is "True", the image is rotated about the
+      origin.  Otherwise, the image is rotated about its center.
+
+   image_alpha
+
+      The alpha value applied to the entire image, where "255" is the
+      original image, "128" is half the opacity of the original image,
+      "0" is fully transparent, etc.
+
+   image_blend
+
+      A "sge.gfx.Color" object representing the color to blend with
+      the sprite (using RGBA Multiply blending).  Set to "None" for no
+      color blending.
+
+   image_blend_mode
+
+      The blend mode to use with "image_blend".  Possible blend modes
+      are:
+
+      * "sge.BLEND_NORMAL"
+
+      * "sge.BLEND_RGBA_ADD"
+
+      * "sge.BLEND_RGBA_SUBTRACT"
+
+      * "sge.BLEND_RGBA_MULTIPLY"
+
+      * "sge.BLEND_RGBA_SCREEN"
+
+      * "sge.BLEND_RGBA_MINIMUM"
+
+      * "sge.BLEND_RGBA_MAXIMUM"
+
+      * "sge.BLEND_RGB_ADD"
+
+      * "sge.BLEND_RGB_SUBTRACT"
+
+      * "sge.BLEND_RGB_MULTIPLY"
+
+      * "sge.BLEND_RGB_SCREEN"
+
+      * "sge.BLEND_RGB_MINIMUM"
+
+      * "sge.BLEND_RGB_MAXIMUM"
+
+      "None" is treated as "sge.BLEND_RGB_MULTIPLY".
+
+   image_left
+
+      The horizontal position of the left edge of the object's sprite
+      in the room.
+
+   image_right
+
+      The horizontal position of the right edge of the object's sprite
+      in the room.
+
+   image_xcenter
+
+      The horizontal position of the center of the object's sprite in
+      the room.
+
+   image_top
+
+      The vertical position of the top edge of the object's sprite in
+      the room.
+
+   image_bottom
+
+      The vertical position of the bottom edge of the object's sprite
+      in the room.
+
+   image_ycenter
+
+      The vertical position of the center of the object's sprite in
+      the room.
+
+   alarms
+
+      A dictionary containing the alarms of the object.  Each value
+      decreases by 1 each frame (adjusted for delta timing if it is
+      enabled).  When a value is at or below 0, "event_alarm()" is
+      executed with "alarm_id" set to the respective key, and the item
+      is deleted from this dictionary.
+
+   image_width
+
+      The total width of the object's displayed image as it appears on
+      the screen, including the effects of scaling and rotation.
+      (Read-only)
+
+   image_height
+
+      The total height of the object's displayed image as it appears
+      on the screen, including the effects of scaling and rotation.
+      (Read-only)
+
+   mask
+
+      The current mask used for non-rectangular collision detection.
+      See the documentation for "sge.collision.masks_collide()" for
+      more information.  (Read-only)
+
+   xstart
+
+      The initial value of "x" when the object was created. (Read-
+      only)
+
+   ystart
+
+      The initial value of "y" when the object was created. (Read-
+      only)
+
+   xprevious
+
+      The value of "x" at the end of the previous frame. (Read-only)
+
+   yprevious
+
+      The value of "y" at the end of the previous frame. (Read-only)
+
+   mask_x
+
+      The horizontal location of the mask in the room.  (Read-only)
+
+   mask_y
+
+      The vertical location of the mask in the room.  (Read-only)
+
+   rd
+
+      Reserved dictionary for internal use by the SGE.  (Read-only)
+
+Object.__init__(x, y, z=0, sprite=None, visible=True, active=True, checks_collisions=True, tangible=True, bbox_x=None, bbox_y=None, bbox_width=None, bbox_height=None, regulate_origin=False, collision_ellipse=False, collision_precise=False, xvelocity=0, yvelocity=0, xacceleration=0, yacceleration=0, xdeceleration=0, ydeceleration=0, image_index=0, image_origin_x=None, image_origin_y=None, image_fps=None, image_xscale=1, image_yscale=1, image_rotation=0, image_alpha=255, image_blend=None, image_blend_mode=None)
+
+   Arugments set the respective initial attributes of the object. See
+   the documentation for "sge.dsp.Object" for more information.
+
+
+sge.dsp.Object Methods
+~~~~~~~~~~~~~~~~~~~~~~
+
+Object.move_x(move)
+
+   Move the object horizontally.  This method can be overridden to
+   conveniently define a particular way movement should be handled.
+   Currently, it is used in the default implementation of
+   "event_update_position()".
+
+   Arguments:
+
+   * "move" -- The amount to add to "x".
+
+   The default behavior of this method is the following code:
+
+      self.x += move
+
+Object.move_y(move)
+
+   Move the object vertically.  This method can be overridden to
+   conveniently define a particular way movement should be handled.
+   Currently, it is used in the default implementation of
+   "event_update_position()".
+
+   Arguments:
+
+   * "move" -- The amount to add to "y".
+
+   The default behavior of this method is the following code:
+
+      self.y += move
+
+Object.collision(other=None, x=None, y=None)
+
+   Return a list of objects colliding with this object.
+
+   Arguments:
+
+   * "other" -- What to check for collisions with.  Can be one of
+     the following:
+
+     * A "sge.dsp.Object" object.
+
+     * A list of "sge.dsp.Object" objects.
+
+     * A class derived from "sge.dsp.Object".
+
+     * "None": Check for collisions with all objects.
+
+   * "x" -- The horizontal position to pretend this object is at for
+     the purpose of the collision detection.  If set to "None", "x"
+     will be used.
+
+   * "y" -- The vertical position to pretend this object is at for
+     the purpose of the collision detection.  If set to "None", "y"
+     will be used.
+
+Object.destroy()
+
+   Remove the object from the current room.  "foo.destroy()" is
+   identical to "sge.game.current_room.remove(foo)".
+
+classmethod Object.create(*args, **kwargs)
+
+   Create an object of this class and add it to the current room.
+
+   "args" and "kwargs" are passed to the constructor method of "cls"
+   as arguments.  Calling "obj = cls.create(*args, **kwargs)" is the
+   same as:
+
+      obj = cls(*args, **kwargs)
+      sge.game.current_room.add(obj)
+
+
+sge.dsp.Object Event Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Object.event_create()
+
+   Called in the following cases:
+
+   * Right after the object is added to the current room.
+
+   * Right after a room starts for the first time after the object
+     was added to it, if and only if the object was added to the room
+     while it was not the current room.  In this case, this event is
+     called for each appropriate object after the respective room
+     start event or room resume event, in the same order that the
+     objects were added to the room.
+
+Object.event_destroy()
+
+   Called right after the object is removed from the current room.
+
+   Note: If the object is removed from a room while it is not the
+     current room, this method will not be called.
+
+Object.event_step(time_passed, delta_mult)
+
+   Called each frame after automatic updates to objects (such as the
+   effects of the speed variables), but before collision events.
+
+   See the documentation for "sge.dsp.Game.event_step()" for more
+   information.
+
+Object.event_alarm(alarm_id)
+
+   See the documentation for "sge.dsp.Object.alarms" for more
+   information.
+
+Object.event_animation_end()
+
+   Called when an animation cycle ends.
+
+Object.event_key_press(key, char)
+
+   See the documentation for "sge.input.KeyPress" for more
+   information.
+
+Object.event_key_release(key)
+
+   See the documentation for "sge.input.KeyRelease" for more
+   information.
+
+Object.event_mouse_move(x, y)
+
+   See the documentation for "sge.input.MouseMove" for more
+   information.
+
+Object.event_mouse_button_press(button)
+
+   See the documentation for "sge.input.MouseButtonPress" for more
+   information.
+
+Object.event_mouse_button_release(button)
+
+   See the documentation for "sge.input.MouseButtonRelease" for more
+   information.
+
+Object.event_joystick(js_name, js_id, input_type, input_id, value)
+
+   See the documentation for "sge.input.JoystickEvent" for more
+   information.
+
+Object.event_joystick_axis_move(js_name, js_id, axis, value)
+
+   See the documentation for "sge.input.JoystickAxisMove" for more
+   information.
+
+Object.event_joystick_hat_move(js_name, js_id, hat, x, y)
+
+   See the documentation for "sge.input.JoystickHatMove" for more
+   information.
+
+Object.event_joystick_trackball_move(js_name, js_id, ball, x, y)
+
+   See the documentation for "sge.input.JoystickTrackballMove" for
+   more information.
+
+Object.event_joystick_button_press(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonPress" for more
+   information.
+
+Object.event_joystick_button_release(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonRelease" for
+   more information.
+
+Object.event_update_position(delta_mult)
+
+   Called when it's time to update the position of the object. This
+   method handles this functionality, so defining this will override
+   the default behavior and allow you to handle the speed variables in
+   a special way.
+
+   The default behavior of this method is the following code:
+
+      if delta_mult:
+          vi = self.xvelocity
+          vf = vi + self.xacceleration * delta_mult
+          dc = abs(self.xdeceleration) * delta_mult
+          if abs(vf) > dc:
+              vf -= math.copysign(dc, vf)
+          else:
+              vf = 0
+          self.xvelocity = vf
+          self.move_x(((vi + vf) / 2) * delta_mult)
+
+          vi = self.yvelocity
+          vf = vi + self.yacceleration * delta_mult
+          dc = abs(self.ydeceleration) * delta_mult
+          if abs(vf) > dc:
+              vf -= math.copysign(dc, vf)
+          else:
+              vf = 0
+          self.yvelocity = vf
+          self.move_y(((vi + vf) / 2) * delta_mult)
+
+   See the documentation for "sge.dsp.Game.event_step()" for more
+   information.
+
+Object.event_collision(other, xdirection, ydirection)
+
+   Called when this object collides with another object.
+
+   Arguments:
+
+   * "other" -- The other object which was collided with.
+
+   * "xdirection" -- The horizontal direction of the collision from
+     the perspective of this object.  Can be "-1" (left), "1" (right),
+     or "0" (no horizontal direction).
+
+   * "ydirection" -- The vertical direction of the collision from
+     the perspective of this object.  Can be "-1" (up), "1" (down), or
+     "0" (no vertical direction).
+
+   Directionless "collisions" (ones with both an xdirection and
+   ydirection of "0") are possible.  These are typically collisions
+   which were already occurring in the previous frame (continuous
+   collisions).
+
+Object.event_paused_step(time_passed, delta_mult)
+
+   See the documentation for "sge.dsp.Game.event_step()" for more
+   information.
+
+Object.event_paused_key_press(key, char)
+
+   See the documentation for "sge.input.KeyPress" for more
+   information.
+
+Object.event_paused_key_release(key)
+
+   See the documentation for "sge.input.KeyRelease" for more
+   information.
+
+Object.event_paused_mouse_move(x, y)
+
+   See the documentation for "sge.input.MouseMove" for more
+   information.
+
+Object.event_paused_mouse_button_press(button)
+
+   See the documentation for "sge.input.MouseButtonPress" for more
+   information.
+
+Object.event_paused_mouse_button_release(button)
+
+   See the documentation for "sge.input.MouseButtonRelease" for more
+   information.
+
+Object.event_paused_joystick(js_name, js_id, input_type, input_id, value)
+
+   See the documentation for "sge.input.JoystickEvent" for more
+   information.
+
+Object.event_paused_joystick_axis_move(js_name, js_id, axis, value)
+
+   See the documentation for "sge.input.JoystickAxisMove" for more
+   information.
+
+Object.event_paused_joystick_hat_move(js_name, js_id, hat, x, y)
+
+   See the documentation for "sge.input.JoystickHatMove" for more
+   information.
+
+Object.event_paused_joystick_trackball_move(js_name, js_id, ball, x, y)
+
+   See the documentation for "sge.input.JoystickTrackballMove" for
+   more information.
+
+Object.event_paused_joystick_button_press(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonPress" for more
+   information.
+
+Object.event_paused_joystick_button_release(js_name, js_id, button)
+
+   See the documentation for "sge.input.JoystickButtonRelease" for
+   more information.

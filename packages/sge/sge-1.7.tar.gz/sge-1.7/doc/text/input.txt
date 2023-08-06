@@ -1,0 +1,251 @@
+sge.input
+*********
+
+
+Contents
+^^^^^^^^
+
+* sge.input
+
+  * Input Event Classes
+
+This module provides input event classes.  Input event objects are
+used to consolidate all necessary information about input events in a
+clean way.
+
+You normally don't need to use input event objects directly.  Input
+events are handled automatically in each frame of the SGE's main loop.
+You only need to use input event objects directly if you take control
+away from the SGE's main loop, e.g. to create your own loop.
+
+
+Input Event Classes
+===================
+
+class sge.input.KeyPress(key, char)
+
+   This input event represents a key on the keyboard being pressed.
+
+   key
+
+      The identifier string of the key that was pressed.  See the
+      table in the documentation for "sge.keyboard".
+
+   char
+
+      The unicode string associated with the key press, or an empty
+      unicode string if no text is associated with the key press. See
+      the table in the documentation for "sge.keyboard".
+
+class sge.input.KeyRelease(key)
+
+   This input event represents a key on the keyboard being released.
+
+   key
+
+      The identifier string of the key that was released.  See the
+      table in the documentation for "sge.input.KeyPress".
+
+class sge.input.MouseMove(x, y)
+
+   This input event represents the mouse being moved.
+
+   x
+
+      The horizontal relative movement of the mouse.
+
+   y
+
+      The vertical relative movement of the mouse.
+
+class sge.input.MouseButtonPress(button)
+
+   This input event represents a mouse button being pressed.
+
+   button
+
+      The identifier string of the mouse button that was pressed.  See
+      the table below.
+
+   +------------------------+-------------------+
+   | Mouse Button Name      | Identifier String |
+   +========================+===================+
+   | Left mouse button      | ""left""          |
+   +------------------------+-------------------+
+   | Right mouse button     | ""right""         |
+   +------------------------+-------------------+
+   | Middle mouse button    | ""middle""        |
+   +------------------------+-------------------+
+   | Mouse wheel up         | ""wheel_up""      |
+   +------------------------+-------------------+
+   | Mouse wheel down       | ""wheel_down""    |
+   +------------------------+-------------------+
+   | Mouse wheel tilt left  | ""wheel_left""    |
+   +------------------------+-------------------+
+   | Mouse wheel tilt right | ""wheel_right""   |
+   +------------------------+-------------------+
+
+class sge.input.MouseButtonRelease(button)
+
+   This input event represents a mouse button being released.
+
+   button
+
+      The identifier string of the mouse button that was released.
+      See the table in the documentation for
+      "sge.input.MouseButtonPress".
+
+class sge.input.JoystickAxisMove(js_name, js_id, axis, value)
+
+   This input event represents a joystick axis moving.
+
+   js_name
+
+      The name of the joystick.
+
+   js_id
+
+      The number of the joystick, where "0" is the first joystick.
+
+   axis
+
+      The number of the axis that moved, where "0" is the first axis
+      on the joystick.
+
+   value
+
+      The tilt of the axis as a float from "-1" to "1", where "0" is
+      centered, "-1" is all the way to the left or up, and "1" is all
+      the way to the right or down.
+
+class sge.input.JoystickHatMove(js_name, js_id, hat, x, y)
+
+   This input event represents a joystick hat moving.
+
+   js_name
+
+      The name of the joystick.
+
+   js_id
+
+      The number of the joystick, where "0" is the first joystick.
+
+   hat
+
+      The number of the hat that moved, where "0" is the first axis on
+      the joystick.
+
+   x
+
+      The horizontal position of the hat, where "0" is centered, "-1"
+      is left, and "1" is right.
+
+   y
+
+      The vertical position of the hat, where "0" is centered, "-1" is
+      up, and "1" is down.
+
+class sge.input.JoystickTrackballMove(js_name, js_id, ball, x, y)
+
+   This input event represents a joystick trackball moving.
+
+   js_name
+
+      The name of the joystick.
+
+   js_id
+
+      The number of the joystick, where "0" is the first joystick.
+
+   ball
+
+      The number of the trackball that moved, where "0" is the first
+      trackball on the joystick.
+
+   x
+
+      The horizontal relative movement of the trackball.
+
+   y
+
+      The vertical relative movement of the trackball.
+
+class sge.input.JoystickButtonPress(js_name, js_id, button)
+
+   This input event represents a joystick button being pressed.
+
+   js_name
+
+      The name of the joystick.
+
+   js_id
+
+      The number of the joystick, where "0" is the first joystick.
+
+   button
+
+      The number of the button that was pressed, where "0" is the
+      first button on the joystick.
+
+class sge.input.JoystickButtonRelease(js_name, js_id, button)
+
+   This input event represents a joystick button being released.
+
+   js_name
+
+      The name of the joystick.
+
+   js_id
+
+      The number of the joystick, where "0" is the first joystick.
+
+   button
+
+      The number of the button that was released, where "0" is the
+      first button on the joystick.
+
+class sge.input.KeyboardFocusGain
+
+   This input event represents the game window gaining keyboard focus.
+   Keyboard focus is normally needed for keyboard input to be
+   received.
+
+   Note: On some window systems, such as the one used by Windows, no
+     distinction is made between keyboard and mouse focus, but on some
+     other window systems, such as the X Window System, a distinction
+     is made: one window can have keyboard focus while another has
+     mouse focus.  Be careful to observe the difference; failing to do
+     so may result in annoying bugs, and you won't notice these bugs
+     if you are testing on a window manager that doesn't recognize the
+     difference.
+
+class sge.input.KeyboardFocusLose
+
+   This input event represents the game window losing keyboard focus.
+   Keyboard focus is normally needed for keyboard input to be
+   received.
+
+   Note: See the note in the documentation for
+     "sge.input.KeyboardFocusGain".
+
+class sge.input.MouseFocusGain
+
+   This input event represents the game window gaining mouse focus.
+   Mouse focus is normally needed for mouse input to be received.
+
+   Note: See the note in the documentation for
+     "sge.input.KeyboardFocusGain".
+
+class sge.input.MouseFocusLose
+
+   This input event represents the game window losing mouse focus.
+   Mouse focus is normally needed for mouse input to be received.
+
+   Note: See the note in the documentation for
+     "sge.input.KeyboardFocusGain".
+
+class sge.input.QuitRequest
+
+   This input event represents the OS requesting for the program to
+   close (e.g. when the user presses a "close" button on the window
+   border).

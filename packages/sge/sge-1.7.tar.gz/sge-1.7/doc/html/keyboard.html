@@ -1,0 +1,790 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>sge.keyboard &#8212; Seclusion Game Engine 1.7 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="sge.mouse" href="mouse.html" />
+    <link rel="prev" title="sge.joystick" href="joystick.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sge-keyboard">
+<h1><a class="toc-backref" href="#id1">sge.keyboard</a><a class="headerlink" href="#sge-keyboard" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#sge-keyboard" id="id1">sge.keyboard</a><ul>
+<li><a class="reference internal" href="#sge-keyboard-functions" id="id2">sge.keyboard Functions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<span class="target" id="module-sge.keyboard"></span><p>This module provides functions related to keyboard input.</p>
+<p>As a general rule, any key press has two strings associated with it: an
+identifier string, and a unicode string.  The identifier string is a
+consistent identifier for what the key is, consisting only of
+alphanumeric ASCII text.  The unicode string is the text associated with
+the key press; typically this is an ASCII character printed on the key,
+but in some cases (e.g. when an input method is used), it could be any
+kind of text.  As a general rule, the unicode string should always be
+used for text entry, while the identifier string should be used for all
+other purposes.</p>
+<p>The table below lists all standard keys along with their corresponding
+identifier and unicode strings.  Note that SGE implementations are not
+necessarily required to support recognizing all of them, although they
+are strongly encouraged to do so. Any key not found on this table, if
+detected, will be arbitrarily but consistently assigned an identifier
+string beginning with <code class="docutils literal notranslate"><span class="pre">&quot;undef_&quot;</span></code>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="40%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Key Name</th>
+<th class="head">Identifier String</th>
+<th class="head">Unicode String</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;2&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;2&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;3&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;3&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;4&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;4&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;5&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;5&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;6&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;6&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>7</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;7&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;7&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>8</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;8&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;8&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>9</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;9&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;9&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>A</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>B</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>C</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>D</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;d&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;d&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>E</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;e&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;e&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>G</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;g&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;g&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>H</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;h&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;h&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>I</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;i&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;i&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>J</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;j&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;j&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>K</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;k&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;k&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>L</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;l&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;l&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>M</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;m&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;m&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;o&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>P</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;p&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;p&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Q</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;q&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;q&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>R</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>S</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;s&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;s&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>T</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;t&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;t&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>U</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;u&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;u&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>V</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;v&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;v&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>W</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>X</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Y</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Z</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Period</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;period&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Comma</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;comma&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;,&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Less Than</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;less_than&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&lt;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Greater Than</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;greater_than&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&gt;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Forward Slash</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;slash&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;/&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Question Mark</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;question&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;?&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Apostrophe</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;apostrophe&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;'&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Quotation Mark</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;quote&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">'&quot;'</span></code></td>
+</tr>
+<tr class="row-even"><td>Colon</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;colon&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;:&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Semicolon</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;semicolon&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Exclamation Point</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;exclamation&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;!&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>At</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;at&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&#64;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Hash</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;hash&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;#&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Dollar Sign</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;dollar&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;$&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Percent Sign</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;percent&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;%&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Carat</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;carat&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;^&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Ampersand</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;ampersand&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&amp;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Asterisk</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;asterisk&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Left Parenthesis</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;parenthesis_left&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;(&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Right Parenthesis</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;parenthesis_right&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;)&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Hyphen</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;hyphen&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Underscore</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;underscore&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;_&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Plus Sign</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;plus&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;+&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Equals Sign</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;equals&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;=&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Left Bracket</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;bracket_left&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;[&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Right Bracket</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;bracket_right&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;]&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Left Brace</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;brace_left&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;{&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Right Brace</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;brace_right&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;}&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Backslash</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;backslash&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;\\&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Backtick</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;backtick&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;`&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Euro</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;euro&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;\u20ac&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Keypad 0</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_0&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Keypad 1</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_1&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Keypad 2</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_2&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;2&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Keypad 3</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_3&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;3&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Keypad 4</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_4&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;4&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Keypad 5</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_5&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;5&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Keypad 6</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_6&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;6&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Keypad 7</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_7&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;7&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Keypad 8</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_8&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;8&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Keypad 9</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_9&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;9&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Keypad Decimal Point</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_point&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Keypad Plus</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_plus&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;+&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Keypad Minus</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_minus&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Keypad Multiply</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_multiply&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Keypad Divide</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_divide&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;/&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Keypad Equals</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_equals&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;=&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Keypad Enter</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;kp_enter&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Left Arrow</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Right Arrow</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;right&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Up Arrow</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;up&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Down Arrow</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;down&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Home</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;home&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>End</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;end&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Page Up</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;pageup&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Page Down</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;pagedown&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Tab</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;tab&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Space Bar</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;space&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Enter/Return</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;enter&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Backspace</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;backspace&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;\b&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Delete</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;delete&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Left Shift</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;shift_left&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Right Shift</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;shift_right&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Left Ctrl</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;ctrl_left&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Right Ctrl</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;ctrl_right&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Left Alt</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;alt_left&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Right Alt</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;alt_right&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Left Meta</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;meta_left&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Right Meta</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;meta_right&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Caps Lock</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;caps_lock&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Esc</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;escape&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Num Lock</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;num_lock&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Scroll Lock</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;scroll_lock&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Break</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;break&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Insert</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;insert&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Pause</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;pause&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Print Screen</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;print_screen&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>SysRq</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;sysrq&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>F1</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f1&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>F2</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f2&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>F3</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f3&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>F4</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f4&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>F5</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f5&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>F6</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f6&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>F7</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f7&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>F8</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f8&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>F9</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f9&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>F10</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f10&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>F11</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f11&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>F12</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;f12&quot;</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="sge-keyboard-functions">
+<h2><a class="toc-backref" href="#id2">sge.keyboard Functions</a><a class="headerlink" href="#sge-keyboard-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="sge.keyboard.get_pressed">
+<code class="descclassname">sge.keyboard.</code><code class="descname">get_pressed</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.keyboard.get_pressed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether or not a key is pressed.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">key</span></code> -- The identifier string of the modifier key to check; see
+the table in the documentation for <a class="reference internal" href="#module-sge.keyboard" title="sge.keyboard"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sge.keyboard</span></code></a>.</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="sge.keyboard.get_modifier">
+<code class="descclassname">sge.keyboard.</code><code class="descname">get_modifier</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.keyboard.get_modifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether or not a modifier key is being held.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">key</span></code> -- The identifier string of the modifier key to check; see
+the table below.</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Modifier Key Name</th>
+<th class="head">Identifier String</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Alt</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;alt&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Left Alt</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;alt_left&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Right Alt</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;alt_right&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Ctrl</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;ctrl&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Left Ctrl</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;ctrl_left&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Right Ctrl</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;ctrl_right&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Meta</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;meta&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Left Meta</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;meta_left&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Right Meta</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;meta_right&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Shift</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;shift&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Left Shift</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;shift_left&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Right Shift</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;shift_right&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Mode</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;mode&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Caps Lock</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;caps_lock&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Num Lock</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;num_lock&quot;</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sge.keyboard.get_focused">
+<code class="descclassname">sge.keyboard.</code><code class="descname">get_focused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sge.keyboard.get_focused" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether or not the game has keyboard focus.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sge.keyboard.set_repeat">
+<code class="descclassname">sge.keyboard.</code><code class="descname">set_repeat</code><span class="sig-paren">(</span><em>enabled=True</em>, <em>interval=0</em>, <em>delay=0</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.keyboard.set_repeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set repetition of key press events.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">enabled</span></code> -- Whether or not to enable repetition of key press
+events.</li>
+<li><code class="docutils literal notranslate"><span class="pre">interval</span></code> -- The time in milliseconds in between each repeated
+key press event.</li>
+<li><code class="docutils literal notranslate"><span class="pre">delay</span></code> -- The time in milliseconds to wait after the first key
+press event before repeating key press events.</li>
+</ul>
+<p>If <code class="docutils literal notranslate"><span class="pre">enabled</span></code> is set to true, this causes a key being held down to
+generate additional key press events as long as it remains held
+down.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sge.keyboard.get_repeat_enabled">
+<code class="descclassname">sge.keyboard.</code><code class="descname">get_repeat_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sge.keyboard.get_repeat_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether or not repetition of key press events is enabled.</p>
+<p>See the documentation for <a class="reference internal" href="#sge.keyboard.set_repeat" title="sge.keyboard.set_repeat"><code class="xref py py-func docutils literal notranslate"><span class="pre">sge.keyboard.set_repeat()</span></code></a> for more
+information.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sge.keyboard.get_repeat_interval">
+<code class="descclassname">sge.keyboard.</code><code class="descname">get_repeat_interval</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sge.keyboard.get_repeat_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the interval in between each repeated key press event.</p>
+<p>See the documentation for <a class="reference internal" href="#sge.keyboard.set_repeat" title="sge.keyboard.set_repeat"><code class="xref py py-func docutils literal notranslate"><span class="pre">sge.keyboard.set_repeat()</span></code></a> for more
+information.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sge.keyboard.get_repeat_delay">
+<code class="descclassname">sge.keyboard.</code><code class="descname">get_repeat_delay</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sge.keyboard.get_repeat_delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the delay before repeating key press events.</p>
+<p>See the documentation for <a class="reference internal" href="#sge.keyboard.set_repeat" title="sge.keyboard.set_repeat"><code class="xref py py-func docutils literal notranslate"><span class="pre">sge.keyboard.set_repeat()</span></code></a> for more
+information.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/sge_logo_alpha_black.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">Seclusion Game Engine</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sge.html">SGE Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hello_world.html">Tutorial 1: Hello, world!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pong.html">Tutorial 2: Pong</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pong_better.html">Tutorial 3: Better Pong</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">sge.input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsp.html">sge.dsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gfx.html">sge.gfx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snd.html">sge.snd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">sge.collision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joystick.html">sge.joystick</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">sge.keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">sge.mouse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s.html">sge.s</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="joystick.html" title="previous chapter">sge.joystick</a></li>
+      <li>Next: <a href="mouse.html" title="next chapter">sge.mouse</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/keyboard.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

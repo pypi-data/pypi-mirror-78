@@ -1,0 +1,240 @@
+SGE Fundamentals
+****************
+
+
+Contents
+^^^^^^^^
+
+* SGE Fundamentals
+
+  * SGE Concepts
+
+    * Events
+
+    * Position
+
+    * Z-Axis
+
+    * The Game Loop
+
+  * Global Variables and Constants
+
+The Seclusion Game Engine ("SGE") is a general-purpose 2-D game
+engine. It takes care of several details for you so you can focus on
+the game itself.  This makes more rapid game development possible, and
+it also makes the SGE easy to learn.
+
+The SGE is libre open source software, and the SGE documentation
+(including all docstrings) is released to the public domain via CC0.
+
+Although it isn't required, please consider releasing your games' code
+under a libre software license, such as the GNU General Public License
+or the Apache License.  Doing so is easy and typically does not
+negatively affect you.  It's also just a real great thing to do.
+
+
+SGE Concepts
+============
+
+
+Events
+------
+
+The SGE uses an event-based system.  When an event occurs, a certain
+event method (with a name that begins with "event_") is called. To
+define actions triggered by events, simply override the appropriate
+event method.
+
+At a lower level, it is possible to read "input events" from
+"sge.game.input_events" and handle them manually.  See the
+documentation for "sge.input" for more information.  This is not
+recommended, however, unless you are running your own loop for some
+reason (in which case it is necessary to do this in order to get input
+from the user).
+
+
+Position
+--------
+
+In all cases of positioning for the SGE, it is based on a two-
+dimensional graph with each unit being a pixel.  This graph is not
+quite like regular graphs.  The horizontal direction, normally called
+"x", is the same as the x-axis on a regular graph; "0" is the origin,
+positive numbers are to the right of the origin, and negative numbers
+are to the left of the origin.  However, in the vertical direction,
+normally called "y", "0" is the origin, positive numbers are below the
+origin, and negative numbers are above the origin.  While slightly
+jarring if you are used to normal graphs, this is in fact common in
+2-D game development and is also how pixels in most image formats are
+indexed.
+
+Except where otherwise specified, the origin is always located at the
+top-leftmost position of an object.
+
+In addition to integers, position variables are allowed by the SGE to
+be floating-point numbers.
+
+
+Z-Axis
+------
+
+The SGE uses a Z-axis to determine where objects are placed in the
+third dimension.  Objects with a higher Z value are considered to be
+closer to the viewer and thus will be placed over objects which have a
+lower Z value.  Note that the Z-axis does not allow 3-D gameplay or
+effects; it is only used to tell the SGE what to do with objects that
+overlap.  For example, if an object called "spam" has a Z value of "5"
+while an object called "eggs" has a Z value of "2", "spam" will
+obscure part or all of "eggs" when the two objects overlap.
+
+If two objects with the same Z-axis value overlap, the object which
+was most recently added to the room is placed in front.
+
+
+The Game Loop
+-------------
+
+There can occasionally be times where you want to run your own loop,
+independent of the SGE's main loop.  This is not recommended in
+general, but if you must (to freeze the game, for example), you should
+know the general game loop structure:
+
+   while True:
+       # Input events
+       sge.game.pump_input()
+       while sge.game.input_events:
+           event = sge.game.input_events.pop(0)
+
+           # Handle event
+
+       # Regulate speed
+       time_passed = sge.game.regulate_speed()
+
+       # Logic (e.g. collision detection and step events)
+
+       # Refresh
+       sge.game.refresh()
+
+"sge.dsp.Game.pump_input()" should be called frequently at all times
+regardless of whether or not user input is needed.  This means it
+should be called every frame.  It also means that should any task halt
+the loop for any noticeable period of time, arrangements should be
+made to call this  method frequently during that time. Failing to call
+this method for a substantial period of time will cause the queue to
+build up, but more importantly, the OS may decide that the program has
+locked up if you wait for too long.
+
+"sge.dsp.Game.regulate_speed()" limits the frame rate of the game and
+tells you how much time has passed since the last frame.  It is not
+technically necessary, but using it is highly recommended; otherwise,
+the CPU will be working harder than it needs to and if things are
+moving, their speed will be irregular.
+
+"sge.dsp.Game.refresh()" is necessary for any changes to the screen to
+be seen by the user.  This includes new objects, removed objects, new
+projections, discontinued projections, etc.
+
+
+Global Variables and Constants
+==============================
+
+sge.IMPLEMENTATION
+
+   A string indicating the name of the SGE implementation.
+
+sge.SCALE_METHODS
+
+   A list of specific scale methods supported by the SGE
+   implementation.
+
+   Note: This list does not include the generic scale methods,
+     ""noblur"" and ""smooth"".  It is also possible for this list to
+     be empty.
+
+sge.BLEND_NORMAL
+
+   Flag indicating normal blending.
+
+sge.BLEND_RGBA_ADD
+
+   Flag indicating RGBA Addition blending: the red, green, blue, and
+   alpha color values of the source are added to the respective color
+   values of the destination, to a maximum of 255.
+
+sge.BLEND_RGBA_SUBTRACT
+
+   Flag indicating RGBA Subtract blending: the red, green, blue, and
+   alpha color values of the source are subtracted from the respective
+   color values of the destination, to a minimum of 0.
+
+sge.BLEND_RGBA_MULTIPLY
+
+   Flag indicating RGBA Multiply blending: the red, green, blue, and
+   alpha color values of the source and destination are converted to
+   values between 0 and 1 (divided by 255), the resulting destination
+   color values are multiplied by the respective resulting source
+   color values, and these results are converted back into values
+   between 0 and 255 (multiplied by 255).
+
+sge.BLEND_RGBA_SCREEN
+
+   Flag indicating RGBA Screen blending: the red, green, blue, and
+   alpha color values of the source and destination are inverted
+   (subtracted from 255) and converted to values between 0 and 1
+   (divided by 255), the resulting destination color values are
+   multiplied by the respective resulting source color values, and
+   these results are converted back into values between 0 and 255
+   (multiplied by 255) and inverted again (subtracted from 255).
+
+sge.BLEND_RGBA_MINIMUM
+
+   Flag indicating RGBA Minimum (Darken Only) blending: the smallest
+   respective red, green, blue, and alpha color values out of the
+   source and destination are used.
+
+sge.BLEND_RGBA_MAXIMUM
+
+   Flag indicating RGBA Maximum (Lighten Only) blending: the largest
+   respective red, green, blue, and alpha color values out of the
+   source and destination are used.
+
+sge.BLEND_RGB_ADD
+
+   Flag indicating RGB Addition blending: the same thing as RGBA
+   Addition blending (see "sge.BLEND_RGBA_ADD") except the
+   destination's alpha values are not changed.
+
+sge.BLEND_RGB_SUBTRACT
+
+   Flag indicating RGB Subtract blending: the same thing as RGBA
+   Subtract blending (see "sge.BLEND_RGBA_SUBTRACT") except the
+   destination's alpha values are not changed.
+
+sge.BLEND_RGB_MULTIPLY
+
+   Flag indicating RGB Multiply blending: the same thing as RGBA
+   Multiply blending (see "sge.BLEND_RGBA_MULTIPLY") except the
+   destination's alpha values are not changed.
+
+sge.BLEND_RGB_SCREEN
+
+   Flag indicating RGB Screen blending: the same thing as RGBA Screen
+   blending (see "sge.BLEND_RGBA_SCREEN") except the destination's
+   alpha values are not changed.
+
+sge.BLEND_RGB_MINIMUM
+
+   Flag indicating RGB Minimum (Darken Only) blending: the same thing
+   as RGBA Minimum blending (see "sge.BLEND_RGBA_MINIMUM") except the
+   destination's alpha values are not changed.
+
+sge.BLEND_RGB_MAXIMUM
+
+   Flag indicating RGB Maximum (Lighten Only) blending: the same thing
+   as RGBA Maximum blending (see "sge.BLEND_RGBA_MAXIMUM") except the
+   destination's alpha values are not changed.
+
+sge.game
+
+   Stores the current "sge.dsp.Game" object.  If there is no
+   "sge.dsp.Game" object currently, this variable is set to "None".

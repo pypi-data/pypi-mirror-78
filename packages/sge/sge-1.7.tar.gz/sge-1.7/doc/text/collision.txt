@@ -1,0 +1,142 @@
+sge.collision
+*************
+
+
+Contents
+^^^^^^^^
+
+* sge.collision
+
+  * sge.collision Functions
+
+This module provides easy-to-use collision detection functions, from
+basic rectangle-based collision detection to shape-based collision
+detection.
+
+
+sge.collision Functions
+=======================
+
+sge.collision.rectangles_collide(x1, y1, w1, h1, x2, y2, w2, h2)
+
+   Return whether or not two rectangles collide.
+
+   Arguments:
+
+   * "x1" -- The horizontal position of the first rectangle.
+
+   * "y1" -- The vertical position of the first rectangle.
+
+   * "w1" -- The width of the first rectangle.
+
+   * "h1" -- The height of the first rectangle.
+
+   * "x2" -- The horizontal position of the second rectangle.
+
+   * "y2" -- The vertical position of the second rectangle.
+
+   * "w2" -- The width of the second rectangle.
+
+   * "h2" -- The height of the second rectangle.
+
+sge.collision.masks_collide(x1, y1, mask1, x2, y2, mask2)
+
+   Return whether or not two masks collide.
+
+   Arguments:
+
+   * "x1" -- The horizontal position of the first mask.
+
+   * "y1" -- The vertical position of the first mask.
+
+   * "mask1" -- The first mask (see below).
+
+   * "x2" -- The horizontal position of the second mask.
+
+   * "y2" -- The vertical position of the second mask.
+
+   * "mask2" -- The second mask (see below).
+
+   "mask1" and "mask2" are both lists of lists of boolean values. Each
+   value in the mask indicates whether or not a pixel is counted as a
+   collision; the masks collide if at least one pixel at the same
+   location is "True" for both masks.
+
+   Masks are indexed as "mask[x][y]", where "x" is the column and "y"
+   is the row.
+
+sge.collision.rectangle(x, y, w, h, other=None)
+
+   Return a list of objects colliding with a rectangle.
+
+   Arguments:
+
+   * "x" -- The horizontal position of the rectangle.
+
+   * "y" -- The vertical position of the rectangle.
+
+   * "w" -- The width of the rectangle.
+
+   * "h" -- The height of the rectangle.
+
+   * "other" -- What to check for collisions with.  See the
+     documentation for "sge.dsp.Object.collision()" for more
+     information.
+
+sge.collision.ellipse(x, y, w, h, other=None)
+
+   Return a list of objects colliding with an ellipse.
+
+   Arguments:
+
+   * "x" -- The horizontal position of the imaginary rectangle
+     containing the ellipse.
+
+   * "y" -- The vertical position of the imaginary rectangle
+     containing the ellipse.
+
+   * "w" -- The width of the ellipse.
+
+   * "h" -- The height of the ellipse.
+
+   * "other" -- What to check for collisions with.  See the
+     documentation for "sge.dsp.Object.collision()" for more
+     information.
+
+sge.collision.circle(x, y, radius, other=None)
+
+   Return a list of objects colliding with a circle.
+
+   Arguments:
+
+   * "x" -- The horizontal position of the center of the circle.
+
+   * "y" -- The vertical position of the center of the circle.
+
+   * "radius" -- The radius of the circle.
+
+   * "other" -- What to check for collisions with.  See the
+     documentation for "sge.dsp.Object.collision()" for more
+     information.
+
+sge.collision.line(x1, y1, x2, y2, other=None)
+
+   Return a list of objects colliding with a line segment.
+
+   Arguments:
+
+   * "x1" -- The horizontal position of the first endpoint of the
+     line segment.
+
+   * "y1" -- The vertical position of the first endpoint of the line
+     segment.
+
+   * "x2" -- The horizontal position of the second endpoint of the
+     line segment.
+
+   * "y2" -- The vertical position of the second endpoint of the
+     line segment.
+
+   * "other" -- What to check for collisions with.  See the
+     documentation for "sge.dsp.Object.collision()" for more
+     information.

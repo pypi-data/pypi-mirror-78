@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: sge
+Version: 1.7
+Summary: Seclusion Game Engine (Pygame implementation)
+Home-page: https://python-sge.github.io
+Author: Layla Marchant
+Author-email: diligentcircle@riseup.net
+License: GNU Lesser General Public License
+Description: The Seclusion Game Engine ("SGE") is a general-purpose 2-D game engine.
+        It takes care of several details for you so you can focus on the game
+        itself.  This makes more rapid game development possible, and it also
+        makes the SGE easy to learn.
+        
+        This implementation of the SGE uses Pygame as a backend.
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: DFSG approved
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Software Development
+Requires: pygame (>=1.9.1)
+Requires: uniseg
+Provides: sge

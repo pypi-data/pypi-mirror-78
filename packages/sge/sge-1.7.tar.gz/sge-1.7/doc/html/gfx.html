@@ -1,0 +1,1554 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>sge.gfx &#8212; Seclusion Game Engine 1.7 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="sge.snd" href="snd.html" />
+    <link rel="prev" title="sge.dsp" href="dsp.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sge-gfx">
+<h1><a class="toc-backref" href="#id1">sge.gfx</a><a class="headerlink" href="#sge-gfx" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#sge-gfx" id="id1">sge.gfx</a><ul>
+<li><a class="reference internal" href="#sge-gfx-classes" id="id2">sge.gfx Classes</a><ul>
+<li><a class="reference internal" href="#sge-gfx-color" id="id3">sge.gfx.Color</a></li>
+<li><a class="reference internal" href="#sge-gfx-sprite" id="id4">sge.gfx.Sprite</a><ul>
+<li><a class="reference internal" href="#sge-gfx-sprite-methods" id="id5">sge.gfx.Sprite Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sge-gfx-font" id="id6">sge.gfx.Font</a><ul>
+<li><a class="reference internal" href="#sge-gfx-font-methods" id="id7">sge.gfx.Font Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sge-gfx-backgroundlayer" id="id8">sge.gfx.BackgroundLayer</a></li>
+<li><a class="reference internal" href="#sge-gfx-background" id="id9">sge.gfx.Background</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<span class="target" id="module-sge.gfx"></span><p>This module provides classes related to rendering graphics.</p>
+<div class="section" id="sge-gfx-classes">
+<h2><a class="toc-backref" href="#id2">sge.gfx Classes</a><a class="headerlink" href="#sge-gfx-classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sge-gfx-color">
+<h3><a class="toc-backref" href="#id3">sge.gfx.Color</a><a class="headerlink" href="#sge-gfx-color" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sge.gfx.Color">
+<em class="property">class </em><code class="descclassname">sge.gfx.</code><code class="descname">Color</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Color" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class stores color information.</p>
+<p>Objects of this class can be converted to iterables indicating the
+object's <a class="reference internal" href="#sge.gfx.Color.red" title="sge.gfx.Color.red"><code class="xref py py-attr docutils literal notranslate"><span class="pre">red</span></code></a>, <a class="reference internal" href="#sge.gfx.Color.green" title="sge.gfx.Color.green"><code class="xref py py-attr docutils literal notranslate"><span class="pre">green</span></code></a>, <a class="reference internal" href="#sge.gfx.Color.blue" title="sge.gfx.Color.blue"><code class="xref py py-attr docutils literal notranslate"><span class="pre">blue</span></code></a>, and <a class="reference internal" href="#sge.gfx.Color.alpha" title="sge.gfx.Color.alpha"><code class="xref py py-attr docutils literal notranslate"><span class="pre">alpha</span></code></a>
+values, respectively; to integers which can be interpreted as a
+hexadecimal representation of the color, excluding alpha
+transparency; and to strings which indicate the English name of the
+color (in all lowercase) if possible, and <a class="reference internal" href="#sge.gfx.Color.hex_string" title="sge.gfx.Color.hex_string"><code class="xref py py-attr docutils literal notranslate"><span class="pre">hex_string</span></code></a>
+otherwise.</p>
+<dl class="attribute">
+<dt id="sge.gfx.Color.red">
+<code class="descname">red</code><a class="headerlink" href="#sge.gfx.Color.red" title="Permalink to this definition">¶</a></dt>
+<dd><p>The red component of the color as an integer, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+indicates no red intensity and <code class="docutils literal notranslate"><span class="pre">255</span></code> indicates full red
+intensity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Color.green">
+<code class="descname">green</code><a class="headerlink" href="#sge.gfx.Color.green" title="Permalink to this definition">¶</a></dt>
+<dd><p>The green component of the color as an integer, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+indicates no green intensity and <code class="docutils literal notranslate"><span class="pre">255</span></code> indicates full green
+intensity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Color.blue">
+<code class="descname">blue</code><a class="headerlink" href="#sge.gfx.Color.blue" title="Permalink to this definition">¶</a></dt>
+<dd><p>The blue component of the color as an integer, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+indicates no blue intensity and <code class="docutils literal notranslate"><span class="pre">255</span></code> indicates full blue
+intensity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Color.alpha">
+<code class="descname">alpha</code><a class="headerlink" href="#sge.gfx.Color.alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>The alpha transparency of the color as an integer, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+indicates full transparency and <code class="docutils literal notranslate"><span class="pre">255</span></code> indicates full opacity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Color.hex_string">
+<code class="descname">hex_string</code><a class="headerlink" href="#sge.gfx.Color.hex_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>An HTML hex string representation of the color.  (Read-only)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Color.__init__">
+<code class="descclassname">Color.</code><code class="descname">__init__</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Color.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">value</span></code> -- The value indicating the color represented by
+this object.  Should be one of the following:<ul>
+<li>One of the 16 HTML color names (case-insensitive).</li>
+<li>An HTML-style hex string containing 3, 4, 6, or 8 digits
+which indicate the red, green, blue, and alpha components of
+the color, respectively, as pairs of hexadecimal digits.  If
+the string contains 3 or 4 digits, each digit is duplicated;
+for example, <code class="docutils literal notranslate"><span class="pre">&quot;#F80&quot;</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">&quot;#FF8800&quot;</span></code>.</li>
+<li>An integer which, when written as a hexadecimal number,
+specifies the components of the color in the same way as an
+HTML-style hex string containing 6 digits.</li>
+<li>A list or tuple indicating the red, green, and blue
+components, and optionally the alpha component, in that
+order.</li>
+</ul>
+</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="sge-gfx-sprite">
+<h3><a class="toc-backref" href="#id4">sge.gfx.Sprite</a><a class="headerlink" href="#sge-gfx-sprite" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sge.gfx.Sprite">
+<em class="property">class </em><code class="descclassname">sge.gfx.</code><code class="descname">Sprite</code><span class="sig-paren">(</span><em>name=None</em>, <em>directory=''</em>, <em>width=None</em>, <em>height=None</em>, <em>transparent=True</em>, <em>origin_x=0</em>, <em>origin_y=0</em>, <em>fps=60</em>, <em>bbox_x=None</em>, <em>bbox_y=None</em>, <em>bbox_width=None</em>, <em>bbox_height=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class stores images and information about how the SGE is to use
+those images.</p>
+<p>What image formats are supported depends on the implementation of
+the SGE, but image formats that are generally a good choice are PNG
+and JPEG.  See the implementation-specific information for a full
+list of supported formats.</p>
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.width">
+<code class="descname">width</code><a class="headerlink" href="#sge.gfx.Sprite.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the sprite.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changing this attribute will cause the sprite to be scaled
+horizontally.  This is a destructive transformation: it can
+result in loss of pixel information, especially if it is done
+repeatedly.  Because of this, it is advised that you do not
+adjust this value for routine scaling.  Use the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">image_xscale</span></code> attribute of a <a class="reference internal" href="dsp.html#sge.dsp.Object" title="sge.dsp.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Object</span></code></a>
+object instead.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.height">
+<code class="descname">height</code><a class="headerlink" href="#sge.gfx.Sprite.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>The height of the sprite.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changing this attribute will cause the sprite to be scaled
+vertically.  This is a destructive transformation: it can
+result in loss of pixel information, especially if it is done
+repeatedly.  Because of this, it is advised that you do not
+adjust this value for routine scaling.  Use the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">image_yscale</span></code> attribute of a <a class="reference internal" href="dsp.html#sge.dsp.Object" title="sge.dsp.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Object</span></code></a>
+object instead.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.size">
+<code class="descname">size</code><a class="headerlink" href="#sge.gfx.Sprite.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>A two-part tuple containing the width and height, respectively,
+of the sprite.  Each value in the tuple functions the same as
+<a class="reference internal" href="#sge.gfx.Sprite.width" title="sge.gfx.Sprite.width"><code class="xref py py-attr docutils literal notranslate"><span class="pre">width</span></code></a> and <a class="reference internal" href="#sge.gfx.Sprite.height" title="sge.gfx.Sprite.height"><code class="xref py py-attr docutils literal notranslate"><span class="pre">height</span></code></a>, but assigning to this value
+will set both to the desired size at the same time, scaling the
+image in one operation rather than two.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Changing this attribute will cause the sprite to be scaled.
+This is a destructive transformation: it can result in loss of
+pixel information, especially if it is done repeatedly.
+Because of this, it is advised that you do not adjust this
+value for routine scaling.  Use the <code class="xref py py-attr docutils literal notranslate"><span class="pre">image_xscale</span></code> and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">image_yscale</span></code> attributes of a <a class="reference internal" href="dsp.html#sge.dsp.Object" title="sge.dsp.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Object</span></code></a>
+object instead.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.transparent">
+<code class="descname">transparent</code><a class="headerlink" href="#sge.gfx.Sprite.transparent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not the image should be partially transparent, based
+on the image's alpha channel.  If this is <code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code>, all
+pixels in the image will be treated as fully opaque regardless
+of what the image file says their opacity should be.</p>
+<p>This can also be set to a <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object, which
+will cause the indicated color to be used as a colorkey.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.origin_x">
+<code class="descname">origin_x</code><a class="headerlink" href="#sge.gfx.Sprite.origin_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The suggested horizontal location of the origin relative to the
+left edge of the images.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.origin_y">
+<code class="descname">origin_y</code><a class="headerlink" href="#sge.gfx.Sprite.origin_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The suggested vertical location of the origin relative to the top
+edge of the images.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.fps">
+<code class="descname">fps</code><a class="headerlink" href="#sge.gfx.Sprite.fps" title="Permalink to this definition">¶</a></dt>
+<dd><p>The suggested rate in frames per second to animate the image at.
+Can be negative, in which case animation will be reversed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.speed">
+<code class="descname">speed</code><a class="headerlink" href="#sge.gfx.Sprite.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>The suggested rate to animate the image at as a factor of
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">sge.game.fps</span></code>.  Can be negative, in which case animation
+will be reversed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.bbox_x">
+<code class="descname">bbox_x</code><a class="headerlink" href="#sge.gfx.Sprite.bbox_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The horizontal location relative to the sprite of the suggested
+bounding box to use with it.  If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, it will become
+equal to <code class="docutils literal notranslate"><span class="pre">-origin_x</span></code> (which is always the left edge of the
+image).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.bbox_y">
+<code class="descname">bbox_y</code><a class="headerlink" href="#sge.gfx.Sprite.bbox_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertical location relative to the sprite of the suggested
+bounding box to use with it.  If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, it will become
+equal to <code class="docutils literal notranslate"><span class="pre">-origin_y</span></code> (which is always the top edge of the
+image).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.bbox_width">
+<code class="descname">bbox_width</code><a class="headerlink" href="#sge.gfx.Sprite.bbox_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the suggested bounding box.  If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, it
+will become equal to <code class="docutils literal notranslate"><span class="pre">width</span> <span class="pre">-</span> <span class="pre">bbox_x</span></code> (which is always
+everything on the image to the right of <a class="reference internal" href="#sge.gfx.Sprite.bbox_x" title="sge.gfx.Sprite.bbox_x"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bbox_x</span></code></a>).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.bbox_height">
+<code class="descname">bbox_height</code><a class="headerlink" href="#sge.gfx.Sprite.bbox_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>The height of the suggested bounding box.  If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, it
+will become equal to <code class="docutils literal notranslate"><span class="pre">height</span> <span class="pre">-</span> <span class="pre">bbox_y</span></code> (which is always
+everything on the image below <a class="reference internal" href="#sge.gfx.Sprite.bbox_y" title="sge.gfx.Sprite.bbox_y"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bbox_y</span></code></a>).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.name">
+<code class="descname">name</code><a class="headerlink" href="#sge.gfx.Sprite.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the sprite given when it was created.  (Read-only)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.frames">
+<code class="descname">frames</code><a class="headerlink" href="#sge.gfx.Sprite.frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of animation frames in the sprite.  (Read-only)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Sprite.rd">
+<code class="descname">rd</code><a class="headerlink" href="#sge.gfx.Sprite.rd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reserved dictionary for internal use by the SGE.  (Read-only)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.__init__">
+<code class="descclassname">Sprite.</code><code class="descname">__init__</code><span class="sig-paren">(</span><em>name=None</em>, <em>directory=''</em>, <em>width=None</em>, <em>height=None</em>, <em>transparent=True</em>, <em>origin_x=0</em>, <em>origin_y=0</em>, <em>fps=60</em>, <em>bbox_x=None</em>, <em>bbox_y=None</em>, <em>bbox_width=None</em>, <em>bbox_height=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">name</span></code> -- The base name of the image files, used to find all
+individual image files that make up the sprite's animation`.
+One of the following rules will be used to find the images:</p>
+<ul class="simple">
+<li>The base name plus a valid image extension.  If this rule is
+used, the image will be loaded as a single-frame sprite.</li>
+<li>The base name and an integer separated by either a hyphen
+(<code class="docutils literal notranslate"><span class="pre">-</span></code>) or an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>) and followed by a valid
+image extension.  If this rule is used, all images with
+names like this are loaded and treated as an animation, with
+the lower-numbered images being earlier frames.</li>
+<li>The base name and an integer separated by either <code class="docutils literal notranslate"><span class="pre">-strip</span></code>
+or <code class="docutils literal notranslate"><span class="pre">_strip</span></code> and followed by a valid image extension.  If
+this rule is used, the image will be treated as an animation
+read as a horizontal reel from left to right, split into the
+number of frames indicated by the integer.</li>
+<li>If the base name is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the sprite will be a fully
+transparent rectangle at the specified size (with both
+<code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> defaulting to 32 if they are set to
+<code class="docutils literal notranslate"><span class="pre">None</span></code>).  The SGE decides what to assign to the sprite's
+<a class="reference internal" href="#sge.gfx.Sprite.name" title="sge.gfx.Sprite.name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code></a> attribute in this case, but it will always be a
+string.</li>
+</ul>
+<p>If none of the above rules can be used,
+<code class="xref py py-exc docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> is raised.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">directory</span></code> -- The directory to search for image files in.</p>
+</li>
+</ul>
+<p>All other arguments set the respective initial attributes of the
+sprite.  See the documentation for <a class="reference internal" href="#sge.gfx.Sprite" title="sge.gfx.Sprite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></a> for more
+information.</p>
+</dd></dl>
+
+<div class="section" id="sge-gfx-sprite-methods">
+<h4><a class="toc-backref" href="#id5">sge.gfx.Sprite Methods</a><a class="headerlink" href="#sge-gfx-sprite-methods" title="Permalink to this headline">¶</a></h4>
+<dl class="method">
+<dt id="sge.gfx.Sprite.append_frame">
+<code class="descclassname">Sprite.</code><code class="descname">append_frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.append_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a new blank frame to the end of the sprite.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.insert_frame">
+<code class="descclassname">Sprite.</code><code class="descname">insert_frame</code><span class="sig-paren">(</span><em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.insert_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a new blank frame into the sprite.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to insert the new frame
+in front of, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the first frame.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.extend">
+<code class="descclassname">Sprite.</code><code class="descname">extend</code><span class="sig-paren">(</span><em>sprite</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.extend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend this sprite with the frames of another sprite.</p>
+<p>If the size of the frames added is different from the size of
+this sprite, they are scaled to this sprite's size.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">sprite</span></code> -- The sprite to add the frames of to this sprite.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.delete_frame">
+<code class="descclassname">Sprite.</code><code class="descname">delete_frame</code><span class="sig-paren">(</span><em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.delete_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a frame from the sprite.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to delete, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is
+the first frame.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.get_pixel">
+<code class="descclassname">Sprite.</code><code class="descname">get_pixel</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.get_pixel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object indicating the color of a
+particular pixel on the sprite.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The horizontal location relative to the sprite of the
+pixel to check.</li>
+<li><code class="docutils literal notranslate"><span class="pre">y</span></code> -- The vertical location relative to the sprite of the
+pixel to check.</li>
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to check, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is
+the first frame.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.get_pixels">
+<code class="descclassname">Sprite.</code><code class="descname">get_pixels</code><span class="sig-paren">(</span><em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.get_pixels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a two-dimensional list of :class`sge.gfx.Color` objects
+indicating the colors of a particular frame's pixels.</p>
+<p>A returned list given the name <code class="docutils literal notranslate"><span class="pre">pixels</span></code> is indexed as
+<code class="docutils literal notranslate"><span class="pre">pixels[x][y]</span></code>, where <code class="docutils literal notranslate"><span class="pre">x</span></code> is the horizontal location of the
+pixel and <code class="docutils literal notranslate"><span class="pre">y</span></code> is the vertical location of the pixel.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to check, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is
+the first frame.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_dot">
+<code class="descclassname">Sprite.</code><code class="descname">draw_dot</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>color</em>, <em>frame=None</em>, <em>blend_mode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a single-pixel dot on the sprite.</p>
+<p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The horizontal location relative to the sprite to
+draw the dot.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">y</span></code> -- The vertical location relative to the sprite to draw
+the dot.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">color</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing the
+color of the dot.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to draw on, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+is the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to draw on all frames.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">blend_mode</span></code> -- The blend mode to use.  Possible blend modes
+are:</p>
+<ul class="simple">
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MAXIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MAXIMUM</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> is treated as <code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_line">
+<code class="descclassname">Sprite.</code><code class="descname">draw_line</code><span class="sig-paren">(</span><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>color</em>, <em>thickness=1</em>, <em>anti_alias=False</em>, <em>frame=None</em>, <em>blend_mode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a line segment on the sprite.</p>
+<p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">x1</span></code> -- The horizontal location relative to the sprite of
+the first end point of the line segment.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">y1</span></code> -- The vertical location relative to the sprite of the
+first end point of the line segment.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">x2</span></code> -- The horizontal location relative to the sprite of
+the second end point of the line segment.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">y2</span></code> -- The vertical location relative to the sprite of the
+second end point of the line segment.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">color</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing the
+color of the line segment.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">thickness</span></code> -- The thickness of the line segment.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">anti_alias</span></code> -- Whether or not anti-aliasing should be used.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to draw on, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+is the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to draw on all frames.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">blend_mode</span></code> -- The blend mode to use.  Possible blend modes
+are:</p>
+<ul class="simple">
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MAXIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MAXIMUM</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> is treated as <code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_rectangle">
+<code class="descclassname">Sprite.</code><code class="descname">draw_rectangle</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>fill=None</em>, <em>outline=None</em>, <em>outline_thickness=1</em>, <em>frame=None</em>, <em>blend_mode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a rectangle on the sprite.</p>
+<p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The horizontal location relative to the sprite to
+draw the rectangle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">y</span></code> -- The vertical location relative to the sprite to draw
+the rectangle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">width</span></code> -- The width of the rectangle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">height</span></code> -- The height of the rectangle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">fill</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing the
+color of the fill of the rectangle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">outline</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing
+the color of the outline of the rectangle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">outline_thickness</span></code> -- The thickness of the outline of the
+rectangle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to draw on, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+is the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to draw on all frames.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">blend_mode</span></code> -- The blend mode to use.  Possible blend modes
+are:</p>
+<ul class="simple">
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MAXIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MAXIMUM</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> is treated as <code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_ellipse">
+<code class="descclassname">Sprite.</code><code class="descname">draw_ellipse</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>fill=None</em>, <em>outline=None</em>, <em>outline_thickness=1</em>, <em>anti_alias=False</em>, <em>frame=None</em>, <em>blend_mode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_ellipse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw an ellipse on the sprite.</p>
+<p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The horizontal location relative to the sprite to
+position the imaginary rectangle containing the ellipse.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">y</span></code> -- The vertical location relative to the sprite to
+position the imaginary rectangle containing the ellipse.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">width</span></code> -- The width of the ellipse.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">height</span></code> -- The height of the ellipse.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">fill</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing the
+color of the fill of the ellipse.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">outline</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing
+the color of the outline of the ellipse.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">outline_thickness</span></code> -- The thickness of the outline of the
+ellipse.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">anti_alias</span></code> -- Whether or not anti-aliasing should be used.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to draw on, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+is the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to draw on all frames.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">blend_mode</span></code> -- The blend mode to use.  Possible blend modes
+are:</p>
+<ul class="simple">
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MAXIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MAXIMUM</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> is treated as <code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_circle">
+<code class="descclassname">Sprite.</code><code class="descname">draw_circle</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>radius</em>, <em>fill=None</em>, <em>outline=None</em>, <em>outline_thickness=1</em>, <em>anti_alias=False</em>, <em>frame=None</em>, <em>blend_mode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a circle on the sprite.</p>
+<p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The horizontal location relative to the sprite to
+position the center of the circle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">y</span></code> -- The vertical location relative to the sprite to
+position the center of the circle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">radius</span></code> -- The radius of the circle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">fill</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing the
+color of the fill of the circle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">outline</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing
+the color of the outline of the circle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">outline_thickness</span></code> -- The thickness of the outline of the
+circle.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">anti_alias</span></code> -- Whether or not anti-aliasing should be used.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to draw on, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+is the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to draw on all frames.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">blend_mode</span></code> -- The blend mode to use.  Possible blend modes
+are:</p>
+<ul class="simple">
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MAXIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MAXIMUM</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> is treated as <code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_polygon">
+<code class="descclassname">Sprite.</code><code class="descname">draw_polygon</code><span class="sig-paren">(</span><em>points</em>, <em>fill=None</em>, <em>outline=None</em>, <em>outline_thickness=1</em>, <em>anti_alias=False</em>, <em>frame=None</em>, <em>blend_mode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a polygon on the sprite.</p>
+<p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">points</span></code> -- A list of points relative to the sprite to
+position each of the polygon's angles.  Each point should be a
+tuple in the form <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code>, where x is the horizontal
+location and y is the vertical location.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">fill</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing the
+color of the fill of the polygon.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">outline</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing
+the color of the outline of the polygon.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">outline_thickness</span></code> -- The thickness of the outline of the
+polygon.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">anti_alias</span></code> -- Whether or not anti-aliasing should be used.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to draw on, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+is the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to draw on all frames.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">blend_mode</span></code> -- The blend mode to use.  Possible blend modes
+are:</p>
+<ul class="simple">
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MAXIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MAXIMUM</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> is treated as <code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_sprite">
+<code class="descclassname">Sprite.</code><code class="descname">draw_sprite</code><span class="sig-paren">(</span><em>sprite</em>, <em>image</em>, <em>x</em>, <em>y</em>, <em>frame=None</em>, <em>blend_mode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_sprite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw another sprite on the sprite.</p>
+<p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">sprite</span></code> -- The <a class="reference internal" href="#sge.gfx.Sprite" title="sge.gfx.Sprite"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Sprite</span></code></a> or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.TileGrid</span></code> object to draw with.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">image</span></code> -- The frame of <code class="docutils literal notranslate"><span class="pre">sprite</span></code> to draw with, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+is the first frame.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The horizontal location relative to <code class="docutils literal notranslate"><span class="pre">self</span></code> to
+position the origin of <code class="docutils literal notranslate"><span class="pre">sprite</span></code>.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">y</span></code> -- The vertical location relative to <code class="docutils literal notranslate"><span class="pre">self</span></code> to
+position the origin of <code class="docutils literal notranslate"><span class="pre">sprite</span></code>.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to draw on, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+is the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to draw on all frames.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">blend_mode</span></code> -- The blend mode to use.  Possible blend modes
+are:</p>
+<ul class="simple">
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MAXIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MAXIMUM</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> is treated as <code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code>.</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_text">
+<code class="descclassname">Sprite.</code><code class="descname">draw_text</code><span class="sig-paren">(</span><em>font</em>, <em>text</em>, <em>x</em>, <em>y</em>, <em>width=None</em>, <em>height=None</em>, <em>color=sge.gfx.Color(&quot;white&quot;)</em>, <em>halign='left'</em>, <em>valign='top'</em>, <em>anti_alias=True</em>, <em>frame=None</em>, <em>blend_mode=None</em>, <em>outline=None</em>, <em>outline_thickness=0</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw text on the sprite.</p>
+<p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">font</span></code> -- The font to use to draw the text.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">text</span></code> -- The text (as a string) to draw.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The horizontal location relative to the sprite to
+draw the text.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">y</span></code> -- The vertical location relative to the sprite to draw
+the text.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">width</span></code> -- The width of the imaginary rectangle the text is
+drawn in; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to make the rectangle as wide as
+needed to contain the text without additional line breaks.  If
+set to something other than <code class="docutils literal notranslate"><span class="pre">None</span></code>, a line which does not
+fit will be automatically split into multiple lines that do
+fit.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">height</span></code> -- The height of the imaginary rectangle the text
+is drawn in; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to make the rectangle as tall as
+needed to contain the text.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">color</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing the
+color of the text.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">halign</span></code> -- The horizontal alignment of the text and the
+horizontal location of the origin of the imaginary rectangle
+the text is drawn in.  Can be set to one of the following:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code> -- Align the text to the left of the imaginary
+rectangle the text is drawn in.  Set the origin of the
+imaginary rectangle to its left edge.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;center&quot;</span></code> -- Align the text to the center of the
+imaginary rectangle the text is drawn in.  Set the origin of
+the imaginary rectangle to its center.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;right&quot;</span></code> -- Align the text to the right of the imaginary
+rectangle the text is drawn in.  Set the origin of the
+imaginary rectangle to its right edge.</li>
+</ul>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">valign</span></code> -- The vertical alignment of the text and the
+vertical location of the origin of the imaginary rectangle the
+text is drawn in.  Can be set to one of the following:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&quot;top&quot;</span></code> -- Align the text to the top of the imaginary
+rectangle the text is drawn in.  Set the origin of the
+imaginary rectangle to its top edge.  If the imaginary
+rectangle is not tall enough to contain all of the text, cut
+text off from the bottom.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;middle&quot;</span></code> -- Align the the text to the middle of the
+imaginary rectangle the text is drawn in.  Set the origin of
+the imaginary rectangle to its middle.  If the imaginary
+rectangle is not tall enough to contain all of the text, cut
+text off equally from the top and bottom.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;bottom&quot;</span></code> -- Align the text  to the bottom of the
+imaginary rectangle the text is drawn in.  Set the origin of
+the imaginary rectangle to its top edge.  If the imaginary
+rectangle is not tall enough to contain all of the text, cut
+text off from the top.</li>
+</ul>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">anti_alias</span></code> -- Whether or not anti-aliasing should be used.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to draw on, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+is the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to draw on all frames.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">blend_mode</span></code> -- The blend mode to use.  Possible blend modes
+are:</p>
+<ul class="simple">
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MAXIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MAXIMUM</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> is treated as <code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code>.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">outline</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing the
+color of the text's outline.  Set to <code class="docutils literal notranslate"><span class="pre">None</span></code> for no outline.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">outline_thickness</span></code> -- The thickness of the outline in
+pixels.  A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> means no outline will be drawn.</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_erase">
+<code class="descclassname">Sprite.</code><code class="descname">draw_erase</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_erase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erase part of the sprite.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The horizontal location relative to the sprite of the
+area to erase.</li>
+<li><code class="docutils literal notranslate"><span class="pre">y</span></code> -- The vertical location relative to the sprite of the
+area to erase.</li>
+<li><code class="docutils literal notranslate"><span class="pre">width</span></code> -- The width of the area to erase.</li>
+<li><code class="docutils literal notranslate"><span class="pre">height</span></code> -- The height of the area to erase.</li>
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to erase from, where
+<code class="docutils literal notranslate"><span class="pre">0</span></code> is the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to erase from all
+frames.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_clear">
+<code class="descclassname">Sprite.</code><code class="descname">draw_clear</code><span class="sig-paren">(</span><em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erase everything from the sprite.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to clear, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is
+the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to clear all frames.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_lock">
+<code class="descclassname">Sprite.</code><code class="descname">draw_lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_lock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock the sprite for continuous drawing.</p>
+<p>Use this method to &quot;lock&quot; the sprite for being drawn on several
+times in a row.  What exactly this does depends on the
+implementation and it may even do nothing at all, but calling
+this method before doing several draw actions on the sprite in a
+row gives the SGE a chance to make the drawing more efficient.</p>
+<p>After you are done with continuous drawing, call
+<a class="reference internal" href="#sge.gfx.Sprite.draw_unlock" title="sge.gfx.Sprite.draw_unlock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">draw_unlock()</span></code></a> to let the SGE know that you are done
+drawing.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not cause a sprite to be used while it's locked.  For
+example, don't leave it locked for the duration of a frame,
+and don't draw it or project it on anything.  The effect of
+using a locked sprite could be as minor as graphical errors
+and as severe as crashing the program, depending on the SGE
+implementation.  Always call <a class="reference internal" href="#sge.gfx.Sprite.draw_unlock" title="sge.gfx.Sprite.draw_unlock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">draw_unlock()</span></code></a> immediately
+after you're done drawing for a while.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.draw_unlock">
+<code class="descclassname">Sprite.</code><code class="descname">draw_unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.draw_unlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlock the sprite.</p>
+<p>Use this method to &quot;unlock&quot; the sprite after it has been
+&quot;locked&quot; for continuous drawing by <a class="reference internal" href="#sge.gfx.Sprite.draw_lock" title="sge.gfx.Sprite.draw_lock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">draw_lock()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.mirror">
+<code class="descclassname">Sprite.</code><code class="descname">mirror</code><span class="sig-paren">(</span><em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.mirror" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mirror the sprite horizontally.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to mirror, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is
+the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to mirror all frames.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.flip">
+<code class="descclassname">Sprite.</code><code class="descname">flip</code><span class="sig-paren">(</span><em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.flip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flip the sprite vertically.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to flip, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is
+the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to flip all frames.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.resize_canvas">
+<code class="descclassname">Sprite.</code><code class="descname">resize_canvas</code><span class="sig-paren">(</span><em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.resize_canvas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize the sprite by adding empty space instead of scaling.</p>
+<p>After resizing the canvas:</p>
+<ol class="arabic simple">
+<li>The horizontal location of the origin is multiplied by the
+new width divided by the old width.</li>
+<li>The vertical location of the origin is multiplied by the new
+height divided by the old height.</li>
+<li>All frames are repositioned within the sprite such that their
+position relative to the origin is the same as before.</li>
+</ol>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">width</span></code> -- The width to set the sprite to.</li>
+<li><code class="docutils literal notranslate"><span class="pre">height</span></code> -- The height to set the sprite to.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.scale">
+<code class="descclassname">Sprite.</code><code class="descname">scale</code><span class="sig-paren">(</span><em>xscale=1</em>, <em>yscale=1</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale the sprite to a different size.</p>
+<p>Unlike changing <a class="reference internal" href="#sge.gfx.Sprite.width" title="sge.gfx.Sprite.width"><code class="xref py py-attr docutils literal notranslate"><span class="pre">width</span></code></a> and <a class="reference internal" href="#sge.gfx.Sprite.height" title="sge.gfx.Sprite.height"><code class="xref py py-attr docutils literal notranslate"><span class="pre">height</span></code></a>, this function
+does not result in the actual size of the sprite changing.
+Instead, any scaled frames are repositioned so that the pixel
+which was at the origin before scaling remains at the origin.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">xscale</span></code> -- The horizontal scale factor.</li>
+<li><code class="docutils literal notranslate"><span class="pre">yscale</span></code> -- The vertical scale factor.</li>
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to scale, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is
+the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to scale all frames.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a destructive transformation: it can result in loss
+of pixel information, especially if it is done repeatedly.
+Because of this, it is advised that you do not adjust this
+value for routine scaling.  Use the <code class="xref py py-attr docutils literal notranslate"><span class="pre">image_xscale</span></code> and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">image_yscale</span></code> attributes of a <a class="reference internal" href="dsp.html#sge.dsp.Object" title="sge.dsp.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Object</span></code></a>
+object instead.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Because this function does not alter the actual size of the
+sprite, scaling up may result in some parts of the image
+being cropped off.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.rotate">
+<code class="descclassname">Sprite.</code><code class="descname">rotate</code><span class="sig-paren">(</span><em>x</em>, <em>adaptive_resize=True</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate the sprite about the center.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The rotation amount in degrees, with rotation in a
+positive direction being clockwise.</li>
+<li><code class="docutils literal notranslate"><span class="pre">adaptive_resize</span></code> -- Whether or not the sprite should be
+resized to accomodate rotation.  If this is <code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code>,
+rotation amounts other than multiples of 180 will result in
+the size of the sprite being adapted to fit the whole rotated
+image.  The origin and any frames which have not been rotated
+will also be moved so that their location relative to the
+rotated image(s) is the same.</li>
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to rotate, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is
+the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to rotate all frames.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a destructive transformation: it can result in loss
+of pixel information, especially if it is done repeatedly.
+Because of this, it is advised that you do not adjust this
+value for routine rotation.  Use the <code class="xref py py-attr docutils literal notranslate"><span class="pre">image_rotation</span></code>
+attribute of a <a class="reference internal" href="dsp.html#sge.dsp.Object" title="sge.dsp.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.dsp.Object</span></code></a> object instead.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.swap_color">
+<code class="descclassname">Sprite.</code><code class="descname">swap_color</code><span class="sig-paren">(</span><em>old_color</em>, <em>new_color</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.swap_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change all pixels of one color to another color.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">old_color</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object indicating
+the color of pixels to change.</li>
+<li><code class="docutils literal notranslate"><span class="pre">new_color</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object indicating
+the color to change the pixels to.</li>
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- The frame of the sprite to modify, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is
+the first frame; set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to modify all frames.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">While this method can be used on any image, it is likely to
+be most efficient when used on images based on palettes
+(such as 8-bit images).  The SGE cannot implicitly convert
+high bit depth images to low bit depths, so if you plan on
+using this method frequently, you should ensure that you
+save your images in a low bit depth.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.copy">
+<code class="descclassname">Sprite.</code><code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the sprite.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.get_spritelist">
+<code class="descclassname">Sprite.</code><code class="descname">get_spritelist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.get_spritelist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of sprites based on this one.</p>
+<p>The list returns one sprite for each of this sprite's frames,
+containing only said frame.  This effectively splits an animated
+sprite into several stillframe sprites.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Sprite.save">
+<code class="descclassname">Sprite.</code><code class="descname">save</code><span class="sig-paren">(</span><em>fname</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the sprite to an image file.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">fname</span></code> -- The path of the file to save the sprite to.  If
+it is not a path that can be saved to, <code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code> is
+raised.</li>
+</ul>
+<p>If the sprite has multiple frames, the image file saved will be
+a horizontal reel of each of the frames from left to right with
+no space in between the frames.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sge.gfx.Sprite.from_tween">
+<em class="property">classmethod </em><code class="descclassname">Sprite.</code><code class="descname">from_tween</code><span class="sig-paren">(</span><em>sprite</em>, <em>frames</em>, <em>fps=None</em>, <em>xscale=None</em>, <em>yscale=None</em>, <em>rotation=None</em>, <em>blend=None</em>, <em>bbox_x=None</em>, <em>bbox_y=None</em>, <em>bbox_width=None</em>, <em>bbox_height=None</em>, <em>blend_mode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.from_tween" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a sprite based on tweening an existing sprite.</p>
+<p>&quot;Tweening&quot; refers to creating an animation from gradual
+transformations to an image.  For example, this can be used to
+generate an animation of an object growing to a particular size.
+The animation generated is called a &quot;tween&quot;.</p>
+<p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">sprite</span></code> -- The sprite to base the tween on.  If the sprite
+includes multiple frames, all frames will be used in sequence
+until the end of the tween.</p>
+<p>The tween's origin is derived from this sprite's origin,
+adjusted appropriately to accomodate any size changes made.
+Whether or not the tween is transparent is also determined by
+whether or not this sprite is transparent.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">frames</span></code> -- The number of frames the to make the tween take
+up.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">fps</span></code> -- The suggested rate of animation for the tween in
+frames per second.  If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, the suggested
+animation rate of the base sprite is used.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">xscale</span></code> -- The horizontal scale factor at the end of the
+tween.  If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, horizontal scaling will not be
+included in the tweening process.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">yscale</span></code> -- The vertical scale factor at the end of the
+tween.  If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, vertical scaling will not be
+included in the tweening process.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">rotation</span></code> -- The total clockwise rotation amount in degrees
+at the end of the tween.  Can be negative to indicate
+counter-clockwise rotation instead.  If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>,
+rotation will not be included in the tweening process.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">blend</span></code> -- A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing the
+color to blend with the sprite at the end of the tween.  If
+set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, color blending will not be included in the
+tweening process.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">blend_mode</span></code> -- The blend mode to use with <code class="docutils literal notranslate"><span class="pre">blend</span></code>.
+Possible blend modes are:</p>
+<ul class="simple">
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_NORMAL</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MAXIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_ADD</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SUBTRACT</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MULTIPLY</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_SCREEN</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MINIMUM</span></code></li>
+<li><code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGB_MAXIMUM</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> is treated as <code class="xref py py-data docutils literal notranslate"><span class="pre">sge.BLEND_RGBA_MULTIPLY</span></code>.</p>
+</li>
+</ul>
+<p>All other arguments set the respective initial attributes of the
+tween.  See the documentation for <a class="reference internal" href="#sge.gfx.Sprite" title="sge.gfx.Sprite"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Sprite</span></code></a> for
+more information.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sge.gfx.Sprite.from_text">
+<em class="property">classmethod </em><code class="descclassname">Sprite.</code><code class="descname">from_text</code><span class="sig-paren">(</span><em>font</em>, <em>text</em>, <em>width=None</em>, <em>height=None</em>, <em>color=sge.gfx.Color(&quot;white&quot;)</em>, <em>halign='left'</em>, <em>valign='top'</em>, <em>anti_alias=True</em>, <em>outline=None</em>, <em>outline_thickness=0</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.from_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a sprite, draw the given text on it, and return the
+sprite.  See the documentation for
+<a class="reference internal" href="#sge.gfx.Sprite.draw_text" title="sge.gfx.Sprite.draw_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code></a> for more information.</p>
+<p>The sprite's origin is set based on <code class="docutils literal notranslate"><span class="pre">halign</span></code> and <code class="docutils literal notranslate"><span class="pre">valign</span></code>.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sge.gfx.Sprite.from_tileset">
+<em class="property">classmethod </em><code class="descclassname">Sprite.</code><code class="descname">from_tileset</code><span class="sig-paren">(</span><em>fname</em>, <em>x=0</em>, <em>y=0</em>, <em>columns=1</em>, <em>rows=1</em>, <em>xsep=0</em>, <em>ysep=0</em>, <em>width=1</em>, <em>height=1</em>, <em>origin_x=0</em>, <em>origin_y=0</em>, <em>transparent=True</em>, <em>fps=0</em>, <em>bbox_x=None</em>, <em>bbox_y=None</em>, <em>bbox_width=None</em>, <em>bbox_height=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.from_tileset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sprite based on the tiles in a tileset.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">fname</span></code> -- The path to the image file containing the
+tileset.</li>
+<li><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The horizontal location relative to the image of the
+top-leftmost tile in the tileset.</li>
+<li><code class="docutils literal notranslate"><span class="pre">y</span></code> -- The vertical location relative to the image of the
+top-leftmost tile in the tileset.</li>
+<li><code class="docutils literal notranslate"><span class="pre">columns</span></code> -- The number of columns in the tileset.</li>
+<li><code class="docutils literal notranslate"><span class="pre">rows</span></code> -- The number of rows in the tileset.</li>
+<li><code class="docutils literal notranslate"><span class="pre">xsep</span></code> -- The spacing between columns in the tileset.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ysep</span></code> -- The spacing between rows in the tileset.</li>
+<li><code class="docutils literal notranslate"><span class="pre">width</span></code> -- The width of the tiles.</li>
+<li><code class="docutils literal notranslate"><span class="pre">height</span></code> -- The height of the tiles.</li>
+</ul>
+<p>For all other arguments, see the documentation for
+<a class="reference internal" href="#sge.gfx.Sprite.__init__" title="sge.gfx.Sprite.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Sprite.__init__()</span></code></a>.</p>
+<p>Each tile in the tileset becomes a subimage of the returned
+sprite, ordered first from left to right and then from top to
+bottom.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sge.gfx.Sprite.from_screenshot">
+<em class="property">classmethod </em><code class="descclassname">Sprite.</code><code class="descname">from_screenshot</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em>, <em>width=None</em>, <em>height=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Sprite.from_screenshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current display on the screen as a sprite.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">x</span></code> -- The horizontal location of the rectangular area to
+take a screenshot of.</li>
+<li><code class="docutils literal notranslate"><span class="pre">y</span></code> -- The vertical location of the rectangular area to take
+a screenshot of.</li>
+<li><code class="docutils literal notranslate"><span class="pre">width</span></code> -- The width of the area to take a screenshot of;
+set to None for all of the area to the right of <code class="docutils literal notranslate"><span class="pre">x</span></code> to be
+included.</li>
+<li><code class="docutils literal notranslate"><span class="pre">height</span></code> -- The height of the area to take a screenshot of;
+set to <code class="docutils literal notranslate"><span class="pre">None</span></code> for all of the area below <code class="docutils literal notranslate"><span class="pre">y</span></code> to be
+included.</li>
+</ul>
+<p>If you only wish to save a screenshot (of the entire screen) to
+a file, the easiest way to do that is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sge</span><span class="o">.</span><span class="n">gfx</span><span class="o">.</span><span class="n">Sprite</span><span class="o">.</span><span class="n">from_screenshot</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;foo.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="sge-gfx-font">
+<h3><a class="toc-backref" href="#id6">sge.gfx.Font</a><a class="headerlink" href="#sge-gfx-font" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sge.gfx.Font">
+<em class="property">class </em><code class="descclassname">sge.gfx.</code><code class="descname">Font</code><span class="sig-paren">(</span><em>name=None</em>, <em>size=12</em>, <em>underline=False</em>, <em>bold=False</em>, <em>italic=False</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Font" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class stores a font for use by text drawing methods.</p>
+<p>Note that bold and italic rendering could be ugly.  It is better to
+choose a bold or italic font rather than enabling bold or italic
+rendering, if possible.</p>
+<dl class="attribute">
+<dt id="sge.gfx.Font.size">
+<code class="descname">size</code><a class="headerlink" href="#sge.gfx.Font.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The height of the font in pixels.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Font.underline">
+<code class="descname">underline</code><a class="headerlink" href="#sge.gfx.Font.underline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not underlined rendering is enabled.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Font.bold">
+<code class="descname">bold</code><a class="headerlink" href="#sge.gfx.Font.bold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not bold rendering is enabled.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using this option can be ugly.  It is better to choose a bold
+font rather than enabling bold rendering, if possible.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Font.italic">
+<code class="descname">italic</code><a class="headerlink" href="#sge.gfx.Font.italic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not italic rendering is enabled.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using this option can be ugly.  It is better to choose an
+italic font rather than enabling italic rendering, if
+possible.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Font.linesize">
+<code class="descname">linesize</code><a class="headerlink" href="#sge.gfx.Font.linesize" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of a line of text, i.e. the distance between the top of
+one line and the top of the line that follows it.  (Read-only)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Font.name">
+<code class="descname">name</code><a class="headerlink" href="#sge.gfx.Font.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the font as specified when it was created.
+(Read-only)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Font.rd">
+<code class="descname">rd</code><a class="headerlink" href="#sge.gfx.Font.rd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reserved dictionary for internal use by the SGE.  (Read-only)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Font.__init__">
+<code class="descclassname">Font.</code><code class="descname">__init__</code><span class="sig-paren">(</span><em>name=None</em>, <em>size=12</em>, <em>underline=False</em>, <em>bold=False</em>, <em>italic=False</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Font.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">name</span></code> -- The name of the font.  Can be one of the
+following:</p>
+<ul class="simple">
+<li>A string indicating the path to the font file.</li>
+<li>A string indicating the case-insensitive name of a system
+font, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;Liberation</span> <span class="pre">Serif&quot;</span></code>.</li>
+<li>A list or tuple of strings indicating either a font file or
+a system font to choose from in order of preference.</li>
+</ul>
+<p>If none of the above methods return a valid font, the SGE will
+choose the font.</p>
+</li>
+</ul>
+<p>All other arguments set the respective initial attributes of the
+font.  See the documentation for <a class="reference internal" href="#sge.gfx.Font" title="sge.gfx.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Font</span></code></a> for more
+information.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is generally not a good practice to rely on system fonts.
+There are no standard fonts; a font which you have on your
+system is probably not on everyone's system.  Rather than
+relying on system fonts, choose a font which is under a libre
+license (such as the GNU General Public License or the SIL
+Open Font License) and distribute it with your game; this
+will ensure that everyone sees text rendered the same way you
+do.</p>
+</div>
+</dd></dl>
+
+<div class="section" id="sge-gfx-font-methods">
+<h4><a class="toc-backref" href="#id7">sge.gfx.Font Methods</a><a class="headerlink" href="#sge-gfx-font-methods" title="Permalink to this headline">¶</a></h4>
+<dl class="method">
+<dt id="sge.gfx.Font.get_width">
+<code class="descclassname">Font.</code><code class="descname">get_width</code><span class="sig-paren">(</span><em>text</em>, <em>width=None</em>, <em>height=None</em>, <em>outline_thickness=0</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Font.get_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the width of a certain string of text when rendered.</p>
+<p>See the documentation for <a class="reference internal" href="#sge.gfx.Sprite.draw_text" title="sge.gfx.Sprite.draw_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code></a> for
+more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Font.get_height">
+<code class="descclassname">Font.</code><code class="descname">get_height</code><span class="sig-paren">(</span><em>text</em>, <em>width=None</em>, <em>height=None</em>, <em>outline_thickness=0</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Font.get_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the height of a certain string of text when rendered.</p>
+<p>See the documentation for <a class="reference internal" href="#sge.gfx.Sprite.draw_text" title="sge.gfx.Sprite.draw_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sge.gfx.Sprite.draw_text()</span></code></a> for
+more information.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sge.gfx.Font.from_sprite">
+<em class="property">classmethod </em><code class="descclassname">Font.</code><code class="descname">from_sprite</code><span class="sig-paren">(</span><em>sprite</em>, <em>chars</em>, <em>hsep=0</em>, <em>vsep=0</em>, <em>size=12</em>, <em>underline=False</em>, <em>bold=False</em>, <em>italic=False</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Font.from_sprite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a font derived from a sprite.</p>
+<p>Arguments:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">sprite</span></code> -- The <a class="reference internal" href="#sge.gfx.Sprite" title="sge.gfx.Sprite"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Sprite</span></code></a> object to derive the
+font from.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">chars</span></code> -- A dictionary mapping each supported text
+character to the corresponding frame of the sprite.  For
+example, <code class="docutils literal notranslate"><span class="pre">{'A':</span> <span class="pre">0,</span> <span class="pre">'B':</span> <span class="pre">1,</span> <span class="pre">'C':</span> <span class="pre">2}</span></code> would assign the letter
+&quot;A' to the first frame, the letter &quot;B&quot; to the second frame,
+and the letter &quot;C&quot; to the third frame.</p>
+<p>Alternatively, this can be given as a list of characters to
+assign to the frames corresponding to the characters' indexes
+within the list.  For example, <code class="docutils literal notranslate"><span class="pre">['A',</span> <span class="pre">'B',</span> <span class="pre">'C']</span></code> would
+assign the letter &quot;A&quot; to the first frame, the letter &quot;B&quot; to
+the second frame, and the letter &quot;C&quot; to the third frame.</p>
+<p>Any character not explicitly mapped to a frame will be
+rendered as its differently-cased counterpart if possible
+(e.g. &quot;A&quot; as &quot;a&quot;). Otherwise, it will be rendered using the
+frame mapped to <code class="docutils literal notranslate"><span class="pre">None</span></code>.  If <code class="docutils literal notranslate"><span class="pre">None</span></code> has not been explicitly
+mapped to a frame, it is implied to be a blank space.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">hsep</span></code> -- The amount of horizontal space to place between
+characters when text is rendered.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">vsep</span></code> -- The amount of vertical space to place between
+lines when text is rendered.</p>
+</li>
+</ul>
+<p>All other arguments set the respective initial attributes of the
+font.  See the documentation for <a class="reference internal" href="#sge.gfx.Font" title="sge.gfx.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Font</span></code></a> for more
+information.</p>
+<p>The font's <a class="reference internal" href="#sge.gfx.Font.name" title="sge.gfx.Font.name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code></a> attribute will be set to the name of the
+sprite the font is derived from.</p>
+<p>The font's <a class="reference internal" href="#sge.gfx.Font.size" title="sge.gfx.Font.size"><code class="xref py py-attr docutils literal notranslate"><span class="pre">size</span></code></a> attribute will indicate the height of
+the characters in pixels.  The width of the characters will be
+adjusted proportionally.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="sge-gfx-backgroundlayer">
+<h3><a class="toc-backref" href="#id8">sge.gfx.BackgroundLayer</a><a class="headerlink" href="#sge-gfx-backgroundlayer" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sge.gfx.BackgroundLayer">
+<em class="property">class </em><code class="descclassname">sge.gfx.</code><code class="descname">BackgroundLayer</code><span class="sig-paren">(</span><em>sprite</em>, <em>x</em>, <em>y</em>, <em>z=0</em>, <em>xscroll_rate=1</em>, <em>yscroll_rate=1</em>, <em>repeat_left=False</em>, <em>repeat_right=False</em>, <em>repeat_up=False</em>, <em>repeat_down=False</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.BackgroundLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class stores a sprite and certain information for a layer of a
+background.  In particular, it stores the location of the layer,
+whether the layer tiles horizontally, vertically, or both, and the
+rate at which it scrolls.</p>
+<dl class="attribute">
+<dt id="sge.gfx.BackgroundLayer.sprite">
+<code class="descname">sprite</code><a class="headerlink" href="#sge.gfx.BackgroundLayer.sprite" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sprite used for this layer.  It will be animated normally if
+it contains multiple frames.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.BackgroundLayer.x">
+<code class="descname">x</code><a class="headerlink" href="#sge.gfx.BackgroundLayer.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The horizontal location of the layer relative to the background.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.BackgroundLayer.y">
+<code class="descname">y</code><a class="headerlink" href="#sge.gfx.BackgroundLayer.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertical location of the layer relative to the background.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.BackgroundLayer.z">
+<code class="descname">z</code><a class="headerlink" href="#sge.gfx.BackgroundLayer.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Z-axis position of the layer in the room.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.BackgroundLayer.xscroll_rate">
+<code class="descname">xscroll_rate</code><a class="headerlink" href="#sge.gfx.BackgroundLayer.xscroll_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The horizontal rate that the layer scrolls as a factor of the
+additive inverse of the horizontal movement of the view.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.BackgroundLayer.yscroll_rate">
+<code class="descname">yscroll_rate</code><a class="headerlink" href="#sge.gfx.BackgroundLayer.yscroll_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertical rate that the layer scrolls as a factor of the
+additive inverse of the vertical movement of the view.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.BackgroundLayer.repeat_left">
+<code class="descname">repeat_left</code><a class="headerlink" href="#sge.gfx.BackgroundLayer.repeat_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not the layer should be repeated (tiled) to the left.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.BackgroundLayer.repeat_right">
+<code class="descname">repeat_right</code><a class="headerlink" href="#sge.gfx.BackgroundLayer.repeat_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not the layer should be repeated (tiled) to the right.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.BackgroundLayer.repeat_up">
+<code class="descname">repeat_up</code><a class="headerlink" href="#sge.gfx.BackgroundLayer.repeat_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not the layer should be repeated (tiled) upwards.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.BackgroundLayer.repeat_down">
+<code class="descname">repeat_down</code><a class="headerlink" href="#sge.gfx.BackgroundLayer.repeat_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not the layer should be repeated (tiled) downwards.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.BackgroundLayer.rd">
+<code class="descname">rd</code><a class="headerlink" href="#sge.gfx.BackgroundLayer.rd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reserved dictionary for internal use by the SGE.  (Read-only)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.BackgroundLayer.__init__">
+<code class="descclassname">BackgroundLayer.</code><code class="descname">__init__</code><span class="sig-paren">(</span><em>sprite</em>, <em>x</em>, <em>y</em>, <em>z=0</em>, <em>xscroll_rate=1</em>, <em>yscroll_rate=1</em>, <em>repeat_left=False</em>, <em>repeat_right=False</em>, <em>repeat_up=False</em>, <em>repeat_down=False</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.BackgroundLayer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments set the respective initial attributes of the layer.
+See the documentation for <a class="reference internal" href="#sge.gfx.BackgroundLayer" title="sge.gfx.BackgroundLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.BackgroundLayer</span></code></a> for
+more information.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="sge-gfx-background">
+<h3><a class="toc-backref" href="#id9">sge.gfx.Background</a><a class="headerlink" href="#sge-gfx-background" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sge.gfx.Background">
+<em class="property">class </em><code class="descclassname">sge.gfx.</code><code class="descname">Background</code><span class="sig-paren">(</span><em>layers</em>, <em>color</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Background" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class stores the layers that make up the background (which
+contain the information about what images to use and where) as well
+as the color to use where no image is shown.</p>
+<dl class="attribute">
+<dt id="sge.gfx.Background.layers">
+<code class="descname">layers</code><a class="headerlink" href="#sge.gfx.Background.layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list containing all <a class="reference internal" href="#sge.gfx.BackgroundLayer" title="sge.gfx.BackgroundLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.BackgroundLayer</span></code></a> objects
+used in this background.  (Read-only)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Background.color">
+<code class="descname">color</code><a class="headerlink" href="#sge.gfx.Background.color" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#sge.gfx.Color" title="sge.gfx.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Color</span></code></a> object representing the color used in
+parts of the background where no layer is shown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.gfx.Background.rd">
+<code class="descname">rd</code><a class="headerlink" href="#sge.gfx.Background.rd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reserved dictionary for internal use by the SGE.  (Read-only)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="sge.gfx.Background.__init__">
+<code class="descclassname">Background.</code><code class="descname">__init__</code><span class="sig-paren">(</span><em>layers</em>, <em>color</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.gfx.Background.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments set the respective initial attributes of the
+background.  See the documentation for
+<a class="reference internal" href="#sge.gfx.Background" title="sge.gfx.Background"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.gfx.Background</span></code></a> for more information.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/sge_logo_alpha_black.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">Seclusion Game Engine</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sge.html">SGE Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hello_world.html">Tutorial 1: Hello, world!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pong.html">Tutorial 2: Pong</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pong_better.html">Tutorial 3: Better Pong</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">sge.input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsp.html">sge.dsp</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">sge.gfx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snd.html">sge.snd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">sge.collision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joystick.html">sge.joystick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keyboard.html">sge.keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">sge.mouse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s.html">sge.s</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="dsp.html" title="previous chapter">sge.dsp</a></li>
+      <li>Next: <a href="snd.html" title="next chapter">sge.snd</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/gfx.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,143 @@
+sge.joystick
+************
+
+
+Contents
+^^^^^^^^
+
+* sge.joystick
+
+  * sge.joystick Functions
+
+This module provides functions related to joystick input.
+
+
+sge.joystick Functions
+======================
+
+sge.joystick.refresh()
+
+   Refresh the SGE's knowledge of joysticks.
+
+   Call this method to allow the SGE to use joysticks that were
+   plugged in while the game was running.
+
+sge.joystick.get_axis(joystick, axis)
+
+   Return the position of a joystick axis as a float from "-1" to "1",
+   where "0" is centered, "-1" is all the way to the left or up, and
+   "1" is all the way to the right or down.  Return "0" if the
+   requested joystick or axis does not exist.
+
+   Arguments:
+
+   * "joystick" -- The number of the joystick to check, where "0" is
+     the first joystick, or the name of the joystick to check.
+
+   * "axis" -- The number of the axis to check, where "0" is the
+     first axis of the joystick.
+
+sge.joystick.get_hat_x(joystick, hat)
+
+   Return the horizontal position of a joystick hat (d-pad).  Can be
+   "-1" (left), "0" (centered), or "1" (right).  Return "0" if the
+   requested joystick or hat does not exist.
+
+   Arguments:
+
+   * "joystick" -- The number of the joystick to check, where "0" is
+     the first joystick, or the name of the joystick to check.
+
+   * "hat" -- The number of the hat to check, where "0" is the first
+     hat of the joystick.
+
+sge.joystick.get_hat_y(joystick, hat)
+
+   Return the vertical position of a joystick hat (d-pad).  Can be
+   "-1" (up), "0" (centered), or "1" (down).  Return "0" if the
+   requested joystick or hat does not exist.
+
+   Arguments:
+
+   * "joystick" -- The number of the joystick to check, where "0" is
+     the first joystick, or the name of the joystick to check.
+
+   * "hat" -- The number of the hat to check, where "0" is the first
+     hat of the joystick.
+
+sge.joystick.get_pressed(joystick, button)
+
+   Return whether or not a joystick button is pressed, or "False" if
+   the requested joystick or button does not exist.
+
+   Arguments:
+
+   * "joystick" -- The number of the joystick to check, where "0" is
+     the first joystick, or the name of the joystick to check.
+
+   * "button" -- The number of the button to check, where "0" is the
+     first button of the joystick.
+
+sge.joystick.get_joysticks()
+
+   Return the number of joysticks available.
+
+sge.joystick.get_name(joystick)
+
+   Return the name of a joystick, or "None" if the requested joystick
+   does not exist.
+
+   Arguments:
+
+   * "joystick" -- The number of the joystick to check, where "0" is
+     the first joystick, or the name of the joystick to check.
+
+sge.joystick.get_id(joystick)
+
+   Return the number of a joystick, where "0" is the first joystick,
+   or "None" if the requested joystick does not exist.
+
+   Arguments:
+
+   * "joystick" -- The number of the joystick to check, where "0" is
+     the first joystick, or the name of the joystick to check.
+
+sge.joystick.get_axes(joystick)
+
+   Return the number of axes available on a joystick, or "0" if the
+   requested joystick does not exist.
+
+   Arguments:
+
+   * "joystick" -- The number of the joystick to check, where "0" is
+     the first joystick, or the name of the joystick to check.
+
+sge.joystick.get_hats(joystick)
+
+   Return the number of hats (d-pads) available on a joystick, or "0"
+   if the requested joystick does not exist.
+
+   Arguments:
+
+   * "joystick" -- The number of the joystick to check, where "0" is
+     the first joystick, or the name of the joystick to check.
+
+sge.joystick.get_trackballs(joystick)
+
+   Return the number of trackballs available on a joystick, or "0" if
+   the requested joystick does not exist.
+
+   Arguments:
+
+   * "joystick" -- The number of the joystick to check, where "0" is
+     the first joystick, or the name of the joystick to check.
+
+sge.joystick.get_buttons(joystick)
+
+   Return the number of buttons available on a joystick, or "0" if the
+   requested joystick does not exist.
+
+   Arguments:
+
+   * "joystick" -- The number of the joystick to check, where "0" is
+     the first joystick, or the name of the joystick to check.

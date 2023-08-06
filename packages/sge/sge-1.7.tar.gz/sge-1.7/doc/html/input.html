@@ -1,0 +1,468 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>sge.input &#8212; Seclusion Game Engine 1.7 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="sge.dsp" href="dsp.html" />
+    <link rel="prev" title="Tutorial 3: Better Pong" href="pong_better.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sge-input">
+<h1><a class="toc-backref" href="#id1">sge.input</a><a class="headerlink" href="#sge-input" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#sge-input" id="id1">sge.input</a><ul>
+<li><a class="reference internal" href="#input-event-classes" id="id2">Input Event Classes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<span class="target" id="module-sge.input"></span><p>This module provides input event classes.  Input event objects are used
+to consolidate all necessary information about input events in a clean
+way.</p>
+<p>You normally don't need to use input event objects directly.  Input
+events are handled automatically in each frame of the SGE's main loop.
+You only need to use input event objects directly if you take control
+away from the SGE's main loop, e.g. to create your own loop.</p>
+<div class="section" id="input-event-classes">
+<h2><a class="toc-backref" href="#id2">Input Event Classes</a><a class="headerlink" href="#input-event-classes" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="sge.input.KeyPress">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">KeyPress</code><span class="sig-paren">(</span><em>key</em>, <em>char</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.input.KeyPress" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents a key on the keyboard being pressed.</p>
+<dl class="attribute">
+<dt id="sge.input.KeyPress.key">
+<code class="descname">key</code><a class="headerlink" href="#sge.input.KeyPress.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The identifier string of the key that was pressed.  See the
+table in the documentation for <a class="reference internal" href="keyboard.html#module-sge.keyboard" title="sge.keyboard"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sge.keyboard</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.KeyPress.char">
+<code class="descname">char</code><a class="headerlink" href="#sge.input.KeyPress.char" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unicode string associated with the key press, or an empty
+unicode string if no text is associated with the key press.
+See the table in the documentation for <a class="reference internal" href="keyboard.html#module-sge.keyboard" title="sge.keyboard"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sge.keyboard</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.KeyRelease">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">KeyRelease</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.input.KeyRelease" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents a key on the keyboard being released.</p>
+<dl class="attribute">
+<dt id="sge.input.KeyRelease.key">
+<code class="descname">key</code><a class="headerlink" href="#sge.input.KeyRelease.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The identifier string of the key that was released.  See the
+table in the documentation for <a class="reference internal" href="#sge.input.KeyPress" title="sge.input.KeyPress"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyPress</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.MouseMove">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">MouseMove</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.input.MouseMove" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents the mouse being moved.</p>
+<dl class="attribute">
+<dt id="sge.input.MouseMove.x">
+<code class="descname">x</code><a class="headerlink" href="#sge.input.MouseMove.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The horizontal relative movement of the mouse.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.MouseMove.y">
+<code class="descname">y</code><a class="headerlink" href="#sge.input.MouseMove.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertical relative movement of the mouse.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.MouseButtonPress">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">MouseButtonPress</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.input.MouseButtonPress" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents a mouse button being pressed.</p>
+<dl class="attribute">
+<dt id="sge.input.MouseButtonPress.button">
+<code class="descname">button</code><a class="headerlink" href="#sge.input.MouseButtonPress.button" title="Permalink to this definition">¶</a></dt>
+<dd><p>The identifier string of the mouse button that was pressed.  See
+the table below.</p>
+</dd></dl>
+
+<table border="1" class="docutils">
+<colgroup>
+<col width="56%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Mouse Button Name</th>
+<th class="head">Identifier String</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Left mouse button</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Right mouse button</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;right&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Middle mouse button</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;middle&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Mouse wheel up</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;wheel_up&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Mouse wheel down</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;wheel_down&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>Mouse wheel tilt left</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;wheel_left&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>Mouse wheel tilt right</td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;wheel_right&quot;</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.MouseButtonRelease">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">MouseButtonRelease</code><span class="sig-paren">(</span><em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.input.MouseButtonRelease" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents a mouse button being released.</p>
+<dl class="attribute">
+<dt id="sge.input.MouseButtonRelease.button">
+<code class="descname">button</code><a class="headerlink" href="#sge.input.MouseButtonRelease.button" title="Permalink to this definition">¶</a></dt>
+<dd><p>The identifier string of the mouse button that was released.  See
+the table in the documentation for
+<a class="reference internal" href="#sge.input.MouseButtonPress" title="sge.input.MouseButtonPress"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.MouseButtonPress</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.JoystickAxisMove">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">JoystickAxisMove</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>axis</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.input.JoystickAxisMove" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents a joystick axis moving.</p>
+<dl class="attribute">
+<dt id="sge.input.JoystickAxisMove.js_name">
+<code class="descname">js_name</code><a class="headerlink" href="#sge.input.JoystickAxisMove.js_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickAxisMove.js_id">
+<code class="descname">js_id</code><a class="headerlink" href="#sge.input.JoystickAxisMove.js_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the joystick, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the first joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickAxisMove.axis">
+<code class="descname">axis</code><a class="headerlink" href="#sge.input.JoystickAxisMove.axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the axis that moved, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the first axis
+on the joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickAxisMove.value">
+<code class="descname">value</code><a class="headerlink" href="#sge.input.JoystickAxisMove.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>The tilt of the axis as a float from <code class="docutils literal notranslate"><span class="pre">-1</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code>, where <code class="docutils literal notranslate"><span class="pre">0</span></code>
+is centered, <code class="docutils literal notranslate"><span class="pre">-1</span></code> is all the way to the left or up, and <code class="docutils literal notranslate"><span class="pre">1</span></code>
+is all the way to the right or down.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.JoystickHatMove">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">JoystickHatMove</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>hat</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.input.JoystickHatMove" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents a joystick hat moving.</p>
+<dl class="attribute">
+<dt id="sge.input.JoystickHatMove.js_name">
+<code class="descname">js_name</code><a class="headerlink" href="#sge.input.JoystickHatMove.js_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickHatMove.js_id">
+<code class="descname">js_id</code><a class="headerlink" href="#sge.input.JoystickHatMove.js_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the joystick, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the first joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickHatMove.hat">
+<code class="descname">hat</code><a class="headerlink" href="#sge.input.JoystickHatMove.hat" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the hat that moved, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the first axis
+on the joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickHatMove.x">
+<code class="descname">x</code><a class="headerlink" href="#sge.input.JoystickHatMove.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The horizontal position of the hat, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is centered,
+<code class="docutils literal notranslate"><span class="pre">-1</span></code> is left, and <code class="docutils literal notranslate"><span class="pre">1</span></code> is right.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickHatMove.y">
+<code class="descname">y</code><a class="headerlink" href="#sge.input.JoystickHatMove.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertical position of the hat, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is centered, <code class="docutils literal notranslate"><span class="pre">-1</span></code>
+is up, and <code class="docutils literal notranslate"><span class="pre">1</span></code> is down.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.JoystickTrackballMove">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">JoystickTrackballMove</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>ball</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.input.JoystickTrackballMove" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents a joystick trackball moving.</p>
+<dl class="attribute">
+<dt id="sge.input.JoystickTrackballMove.js_name">
+<code class="descname">js_name</code><a class="headerlink" href="#sge.input.JoystickTrackballMove.js_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickTrackballMove.js_id">
+<code class="descname">js_id</code><a class="headerlink" href="#sge.input.JoystickTrackballMove.js_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the joystick, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the first joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickTrackballMove.ball">
+<code class="descname">ball</code><a class="headerlink" href="#sge.input.JoystickTrackballMove.ball" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the trackball that moved, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the first
+trackball on the joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickTrackballMove.x">
+<code class="descname">x</code><a class="headerlink" href="#sge.input.JoystickTrackballMove.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The horizontal relative movement of the trackball.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickTrackballMove.y">
+<code class="descname">y</code><a class="headerlink" href="#sge.input.JoystickTrackballMove.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertical relative movement of the trackball.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.JoystickButtonPress">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">JoystickButtonPress</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.input.JoystickButtonPress" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents a joystick button being pressed.</p>
+<dl class="attribute">
+<dt id="sge.input.JoystickButtonPress.js_name">
+<code class="descname">js_name</code><a class="headerlink" href="#sge.input.JoystickButtonPress.js_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickButtonPress.js_id">
+<code class="descname">js_id</code><a class="headerlink" href="#sge.input.JoystickButtonPress.js_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the joystick, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the first joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickButtonPress.button">
+<code class="descname">button</code><a class="headerlink" href="#sge.input.JoystickButtonPress.button" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the button that was pressed, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the
+first button on the joystick.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.JoystickButtonRelease">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">JoystickButtonRelease</code><span class="sig-paren">(</span><em>js_name</em>, <em>js_id</em>, <em>button</em><span class="sig-paren">)</span><a class="headerlink" href="#sge.input.JoystickButtonRelease" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents a joystick button being released.</p>
+<dl class="attribute">
+<dt id="sge.input.JoystickButtonRelease.js_name">
+<code class="descname">js_name</code><a class="headerlink" href="#sge.input.JoystickButtonRelease.js_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickButtonRelease.js_id">
+<code class="descname">js_id</code><a class="headerlink" href="#sge.input.JoystickButtonRelease.js_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the joystick, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the first joystick.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sge.input.JoystickButtonRelease.button">
+<code class="descname">button</code><a class="headerlink" href="#sge.input.JoystickButtonRelease.button" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the button that was released, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the
+first button on the joystick.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.KeyboardFocusGain">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">KeyboardFocusGain</code><a class="headerlink" href="#sge.input.KeyboardFocusGain" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents the game window gaining keyboard focus.
+Keyboard focus is normally needed for keyboard input to be received.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">On some window systems, such as the one used by Windows, no
+distinction is made between keyboard and mouse focus, but on
+some other window systems, such as the X Window System, a
+distinction is made: one window can have keyboard focus while
+another has mouse focus.  Be careful to observe the
+difference; failing to do so may result in annoying bugs,
+and you won't notice these bugs if you are testing on a
+window manager that doesn't recognize the difference.</p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.KeyboardFocusLose">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">KeyboardFocusLose</code><a class="headerlink" href="#sge.input.KeyboardFocusLose" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents the game window losing keyboard focus.
+Keyboard focus is normally needed for keyboard input to be received.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the note in the documentation for
+<a class="reference internal" href="#sge.input.KeyboardFocusGain" title="sge.input.KeyboardFocusGain"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyboardFocusGain</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.MouseFocusGain">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">MouseFocusGain</code><a class="headerlink" href="#sge.input.MouseFocusGain" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents the game window gaining mouse focus.
+Mouse focus is normally needed for mouse input to be received.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the note in the documentation for
+<a class="reference internal" href="#sge.input.KeyboardFocusGain" title="sge.input.KeyboardFocusGain"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyboardFocusGain</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.MouseFocusLose">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">MouseFocusLose</code><a class="headerlink" href="#sge.input.MouseFocusLose" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents the game window losing mouse focus.
+Mouse focus is normally needed for mouse input to be received.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See the note in the documentation for
+<a class="reference internal" href="#sge.input.KeyboardFocusGain" title="sge.input.KeyboardFocusGain"><code class="xref py py-class docutils literal notranslate"><span class="pre">sge.input.KeyboardFocusGain</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="sge.input.QuitRequest">
+<em class="property">class </em><code class="descclassname">sge.input.</code><code class="descname">QuitRequest</code><a class="headerlink" href="#sge.input.QuitRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>This input event represents the OS requesting for the program to
+close (e.g. when the user presses a &quot;close&quot; button on the window
+border).</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/sge_logo_alpha_black.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">Seclusion Game Engine</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sge.html">SGE Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hello_world.html">Tutorial 1: Hello, world!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pong.html">Tutorial 2: Pong</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pong_better.html">Tutorial 3: Better Pong</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">sge.input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsp.html">sge.dsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gfx.html">sge.gfx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snd.html">sge.snd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">sge.collision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joystick.html">sge.joystick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keyboard.html">sge.keyboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">sge.mouse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="s.html">sge.s</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="pong_better.html" title="previous chapter">Tutorial 3: Better Pong</a></li>
+      <li>Next: <a href="dsp.html" title="next chapter">sge.dsp</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/input.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

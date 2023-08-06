@@ -1,0 +1,257 @@
+sge.snd
+*******
+
+
+Contents
+^^^^^^^^
+
+* sge.snd
+
+  * sge.snd Classes
+
+    * sge.snd.Sound
+
+      * sge.snd.Sound Methods
+
+    * sge.snd.Music
+
+      * sge.snd.Music Methods
+
+  * sge.snd Functions
+
+This module provides classes related to the sound system.
+
+
+sge.snd Classes
+===============
+
+
+sge.snd.Sound
+-------------
+
+class sge.snd.Sound(fname, volume=1, max_play=1, parent=None)
+
+   This class stores and plays sound effects.  Note that this is
+   inefficient for large music files; for those, use "sge.snd.Music"
+   instead.
+
+   What sound formats are supported depends on the implementation of
+   the SGE, but sound formats that are generally a good choice are Ogg
+   Vorbis and uncompressed WAV.  See the implementation-specific
+   information for a full list of supported formats.
+
+   volume
+
+      The volume of the sound as a value from "0" to "1" ("0" for no
+      sound, "1" for maximum volume).
+
+   max_play
+
+      The maximum number of instances of this sound playing permitted.
+      If a sound is played while this number of the instances of the
+      same sound are already playing, one of the already playing
+      sounds will be stopped before playing the new instance.  Set to
+      "None" for no limit.
+
+   parent
+
+      Indicates another sound which is treated as being the same sound
+      as this one for the purpose of determining whether or not, and
+      how many times, the sound is playing.  Set to "None" for no
+      parent.
+
+      If the sound has a parent, "max_play" will have no effect and
+      instead the parent sound's "max_play" will apply to both the
+      parent sound and this sound.
+
+      Warning: It is acceptable for a sound to both be a parent and
+        have a parent.  However, there MUST be a parent at the top
+        which has no parent.  The behavior of circular parenting, such
+        as making two sounds parents of each other, is undefined.
+
+   fname
+
+      The file name of the sound given when it was created. (Read-
+      only)
+
+   length
+
+      The length of the sound in milliseconds.  (Read-only)
+
+   playing
+
+      The number of instances of this sound playing.  (Read-only)
+
+   rd
+
+      Reserved dictionary for internal use by the SGE.  (Read-only)
+
+Sound.__init__(fname, volume=1, max_play=1, parent=None)
+
+   Arguments:
+
+   * "fname" -- The path to the sound file.  If set to "None", this
+     object will not actually play any sound. If this is neither a
+     valid sound file nor "None", "FileNotFoundError" is raised.
+
+   All other arguments set the respective initial attributes of the
+   sound.  See the documentation for "sge.snd.Sound" for more
+   information.
+
+
+sge.snd.Sound Methods
+~~~~~~~~~~~~~~~~~~~~~
+
+Sound.play(loops=1, volume=1, balance=0, maxtime=None, fade_time=None, force=True)
+
+   Play the sound.
+
+   Arguments:
+
+   * "loops" -- The number of times to play the sound; set to "None"
+     or "0" to loop indefinitely.
+
+   * "volume" -- The volume to play the sound at as a factor of
+     "self.volume" ("0" for no sound, "1" for "self.volume").
+
+   * "balance" -- The balance of the sound effect on stereo speakers
+     as a float from "-1" to "1", where "0" is centered (full volume
+     in both speakers), "1" is entirely in the right speaker, and "-1"
+     is entirely in the left speaker.
+
+   * "maxtime" -- The maximum amount of time to play the sound in
+     milliseconds; set to "None" for no limit.
+
+   * "fade_time" -- The time in milliseconds over which to fade the
+     sound in; set to "None" or "0" to immediately play the sound at
+     full volume.
+
+   * "force" -- Whether or not the sound should be played even if it
+     is already playing the maximum number of times.  If set to "True"
+     and the sound is already playing the maximum number of times, one
+     of the instances of the sound already playing will be stopped.
+
+Sound.stop(fade_time=None)
+
+   Stop the sound.
+
+   Arguments:
+
+   * "fade_time" -- The time in milliseconds over which to fade the
+     sound out before stopping; set to "None" or "0" to immediately
+     stop the sound.
+
+Sound.pause()
+
+   Pause playback of the sound.
+
+Sound.unpause()
+
+   Resume playback of the sound if paused.
+
+
+sge.snd.Music
+-------------
+
+class sge.snd.Music(fname, volume=1)
+
+   This class stores and plays music.  Music is very similar to sound
+   effects, but only one music file can be played at a time, and it is
+   more efficient for larger files than "sge.snd.Sound".
+
+   What music formats are supported depends on the implementation of
+   the SGE, but Ogg Vorbis is generally a good choice.  See the
+   implementation-specific information for a full list of supported
+   formats.
+
+   volume
+
+      The volume of the music as a value from "0" to "1" ("0" for no
+      sound, "1" for maximum volume).
+
+   fname
+
+      The file name of the music given when it was created. (Read-
+      only)
+
+   length
+
+      The length of the music in milliseconds.  (Read-only)
+
+   playing
+
+      Whether or not the music is playing.  (Read-only)
+
+   position
+
+      The current position (time) playback of the music is at in
+      milliseconds.  (Read-only)
+
+   rd
+
+      Reserved dictionary for internal use by the SGE.  (Read-only)
+
+Music.__init__(fname, volume=1)
+
+   Arguments:
+
+   * "fname" -- The path to the sound file.  If set to "None", this
+     object will not actually play any music.  If this is neither a
+     valid sound file nor "None", "FileNotFoundError" is raised.
+
+   All other arguments set the respective initial attributes of the
+   music.  See the documentation for "sge.snd.Music" for more
+   information.
+
+
+sge.snd.Music Methods
+~~~~~~~~~~~~~~~~~~~~~
+
+Music.play(start=0, loops=1, maxtime=None, fade_time=None)
+
+   Play the music.
+
+   Arguments:
+
+   * "start" -- The number of milliseconds from the beginning to
+     start playing at.
+
+   See the documentation for "sge.snd.Sound.play()" for more
+   information.
+
+Music.queue(start=0, loops=1, maxtime=None, fade_time=None)
+
+   Queue the music for playback.
+
+   This will cause the music to be added to a list of music to play in
+   order, after the previous music has finished playing.
+
+   See the documentation for "sge.snd.Music.play()" for more
+   information.
+
+static Music.stop(fade_time=None)
+
+   Stop the currently playing music.
+
+   See the documentation for "sge.snd.Sound.stop()" for more
+   information.
+
+static Music.pause()
+
+   Pause playback of the currently playing music.
+
+static Music.unpause()
+
+   Resume playback of the currently playing music if paused.
+
+static Music.clear_queue()
+
+   Clear the music queue.
+
+
+sge.snd Functions
+=================
+
+sge.snd.stop_all()
+
+   Stop playback of all sounds.

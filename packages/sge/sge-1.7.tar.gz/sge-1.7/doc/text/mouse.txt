@@ -1,0 +1,90 @@
+sge.mouse
+*********
+
+
+Contents
+^^^^^^^^
+
+* sge.mouse
+
+  * sge.mouse Functions
+
+This module provides functions related to the mouse input.
+
+Some other mouse functionalities are provided through attributes of
+"sge.game.mouse".  These attributes are listed below.
+
+The mouse can be in either absolute or relative mode.  In absolute
+mode, the mouse has a position.  In relative mode, the mouse only
+moves. Which mode the mouse is in depends on the values of
+"sge.game.grab_input" and "sge.game.mouse.visible".
+
+sge.game.mouse.x
+sge.game.mouse.y
+
+   If the mouse is in absolute mode and within a view port, these
+   attributes indicate the position of the mouse in the room, based on
+   its proximity to the view it is in.  Otherwise, they will return
+   "-1".
+
+   These attributes can be assigned to safely, but doing so will not
+   have any effect.
+
+sge.game.mouse.z
+
+   The Z-axis position of the mouse cursor's projection in relation to
+   other window projections.  The default value is "10000".
+
+sge.game.mouse.sprite
+
+   Determines what sprite will be used to represent the mouse cursor.
+   Set to "None" for the default mouse cursor.
+
+sge.game.mouse.visible
+
+   Controls whether or not the mouse cursor is visible.  If this is
+   "False" and "sge.game.grab_input" is "True", the mouse will be in
+   relative mode.  Otherwise, the mouse will be in absolute mode.
+
+
+sge.mouse Functions
+===================
+
+sge.mouse.get_pressed(button)
+
+   Return whether or not a mouse button is pressed.
+
+   See the documentation for "sge.input.MouseButtonPress" for more
+   information.
+
+sge.mouse.get_x()
+
+   Return the horizontal location of the mouse cursor.
+
+   The location returned is relative to the window, excluding any
+   scaling, pillarboxes, and letterboxes.  If the mouse is in relative
+   mode, this function returns "None".
+
+sge.mouse.get_y()
+
+   Return the vertical location of the mouse cursor.
+
+   The location returned is relative to the window, excluding any
+   scaling, pillarboxes, and letterboxes.  If the mouse is in relative
+   mode, this function returns "None".
+
+sge.mouse.set_x(value)
+
+   Set the horizontal location of the mouse cursor.
+
+   The location returned is relative to the window, excluding any
+   scaling, pillarboxes, and letterboxes.  If the mouse is in relative
+   mode, this function has no effect.
+
+sge.mouse.set_y(value)
+
+   Set the vertical location of the mouse cursor.
+
+   The location returned is relative to the window, excluding any
+   scaling, pillarboxes, and letterboxes.  If the mouse is in relative
+   mode, this function has no effect.

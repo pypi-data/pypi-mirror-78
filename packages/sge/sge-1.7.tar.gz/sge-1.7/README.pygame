@@ -1,0 +1,109 @@
+This file has been dedicated to the public domain, to the extent
+possible under applicable law, via CC0. See
+http://creativecommons.org/publicdomain/zero/1.0/ for more
+information. This file is offered as-is, without any warranty.
+
+========================================================================
+
+This file details specifics of the Pygame SGE implementation which
+may be useful to know.
+
+
+FORMATS SUPPORT
+
+sge.gfx.Sprite supports the following image formats if Pygame is built
+with full image support:
+
+- PNG
+- JPEG
+- Non-animated GIF
+- BMP
+- PCX
+- Uncompressed Truevision TGA
+- TIFF
+- ILBM
+- Netpbm
+- X Pixmap
+
+If Pygame is built without full image support, sge.gfx.Sprite will only
+be able to load uncompressed BMP images.
+
+sge.snd.Sound supports the following audio formats:
+
+- Uncompressed WAV
+- Ogg Vorbis
+
+sge.snd.Music supports the following audio formats:
+
+- Ogg Vorbis
+- MOD
+- XM
+- MIDI
+
+MP3 is also supported on some systems, but not all.  On some systems,
+attempting to load an unsupported format can crash the game.  Since MP3
+support is not available on all systems, it is best to avoid using it;
+consider using Ogg Vorbis instead.
+
+For starting position in MOD files, the pattern order number is used
+instead of the number of milliseconds.
+
+The pygame.mixer module, which is used for all audio playback, is
+optional and depends on SDL_mixer; if pygame.mixer is unavailable,
+sounds and music will not play.
+
+
+MISSING FEATURES
+
+sge.gfx.Sprite.draw_line, sge.dsp.Room.project_line, and
+sge.dsp.Game.project_line support anti-aliasing for lines with a
+thickness of 1 only.  sge.gfx.Sprite.draw_polygon,
+sge.dsp.Room.project_polygon, and sge.dsp.Game.project_polygon support
+anti-aliasing for outlines of polygons with a thickness of 1 only.
+sge.gfx.Sprite.draw_text, sge.dsp.Room.project_text, and
+sge.dsp.Game.project_text support anti-aliasing in all cases.  No other
+drawing or projecting methods support anti-aliasing.  If anti-aliasing
+is unsupported for a particular case, the Pygame SGE will ignore the
+request for anti-aliasing.
+
+
+KEYBOARD LOCK-UP
+
+There is a bug seemingly in SDL 1.2 which sometimes causes keyboard
+input to stop working.  In Pygame programs such as this one, this occurs
+when pygame.display.set_mode is called multiple times, which in the
+Pygame SGE occurs any time either the size of the window or the video
+mode (windowed or fullscreen) changes.  See this bug report on the
+Pygame issue tracker for more information:
+
+https://bitbucket.org/pygame/pygame/issue/212/
+
+This is a particularly serious problem for anyone using the X Window
+System (e.g. pretty much any GNU/Linux user), or any other window system
+that gives complete control to fullscreen SDL applications.  On these
+systems, if the game requires keyboard input to either leave fullscreen
+or exit, the system will become unresponsive to everything that isn't
+sent directly to the kernel (such as the magic SysRq key in Linux
+systems).
+
+Hopefully the bug should go away with usage of SDL2 instead of SDL 1.2;
+Pygame 2 uses SDL2 by default.  In the meantime, you may want to work
+around this bug to ensure minimal frustration for users.  Luckily, the
+bug doesn't seem to affect mouse input, so if you provide some method of
+either exiting the game or exiting fullscreen with the mouse, that
+should at least prevent users from being forced to reboot.  This can be
+a button somewhere on the screen if the game uses the mouse cursor, or
+it can be a simple mouse button click otherwise.
+
+
+RESOLUTION INCONSISTENCIES
+
+Because of some shortcomings in the Pygame API, when sge.game.fullscreen
+is True and sge.game.scale is None, the resolution as it was at the time
+the game started will always be used, even if the user changes their
+resolution while the game is running. On some systems and in some
+situations, this can cause the game to crash when switching to
+fullscreen.  You should be mindful of this and avoid switching to and
+from fullscreen mode when a crash could lead to a loss of important
+data, e.g. by putting the option in a menu that can't be accessed during
+gameplay.
