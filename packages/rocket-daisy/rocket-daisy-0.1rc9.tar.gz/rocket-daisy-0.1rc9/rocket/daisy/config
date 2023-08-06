@@ -1,0 +1,17 @@
+[GPIO]
+[~GPIO]
+[SCRIPTS]
+myscript = /home/martin/rocket-pi-1.0a1/rocket/python/script.py
+[HTTP]
+enabled = true
+port = 8000
+doc-root = /home/martin/rocket-pi-1.0a1/rocket/html
+passwd-file = /etc/webiopi/passwd
+prompt = "WebIOPi"
+[COAP]
+enabled = true
+port = 5683
+multicast = true
+[DEVICES]
+[REST]
+[ROUTES]

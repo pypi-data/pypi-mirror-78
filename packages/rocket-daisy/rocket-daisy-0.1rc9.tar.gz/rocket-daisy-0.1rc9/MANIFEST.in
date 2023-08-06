@@ -1,0 +1,8 @@
+recursive-include rocket *.html *.so *.py *.bin *.css *.js *.sh config passwd *.deb *.conf motion
+recursive-include rocketlauncher Digger_Consumer_App
+recursive-include rocketlauncher *.sh *.service *.conf hostapd
+recursive-include rocket *.patch
+include README
+include README.md
+include LICENSE
+include gpl-3.0.txt
