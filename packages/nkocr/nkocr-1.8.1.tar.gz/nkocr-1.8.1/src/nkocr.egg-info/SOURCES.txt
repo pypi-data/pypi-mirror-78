@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+src/__init__.py
+src/auxiliary.py
+src/nkocr.py
+src/ocr_product.py
+src/ocr_table.py
+src/nkocr.egg-info/PKG-INFO
+src/nkocr.egg-info/SOURCES.txt
+src/nkocr.egg-info/dependency_links.txt
+src/nkocr.egg-info/requires.txt
+src/nkocr.egg-info/top_level.txt
+tests/fixtures/ocr.png
