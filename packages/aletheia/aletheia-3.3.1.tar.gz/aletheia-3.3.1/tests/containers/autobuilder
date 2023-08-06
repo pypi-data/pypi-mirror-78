@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+#
+# A handy way to build the containers locally.
+#
+
+CONTAINER_IMAGE="registry.gitlab.com/danielquinn/aletheia-python"
+
+cd $(dirname ${0})
+
+for container in $(find . -mindepth 1 -type d | sed -E 's#./##' | sort); do
+  docker build ${container}/ -t ${CONTAINER_IMAGE}:${container}
+done

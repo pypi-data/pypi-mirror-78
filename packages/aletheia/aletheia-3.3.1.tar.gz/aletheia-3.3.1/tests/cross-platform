@@ -1,0 +1,120 @@
+#!/bin/bash
+
+#
+# Attempts to run the test suite on a variety of operating systems and software
+# versions.  To run this thing, you'll need Docker installed locally and a few
+# gigabytes of disk space for the various containers it pulls down and/or
+# creates.
+#
+# To run one of these containers directly (to do tests in a specific
+# environment), you can just run something like:
+#
+#   docker run --rm -v $(pwd):/app -it danielquinn/aletheia:debian-3.5 /bin/bash
+#
+
+PROJECT_ROOT=$(readlink -f $(dirname $0)/..)
+
+
+function header {
+  echo
+  echo
+  echo
+  echo "${1}"
+  echo "===================================================================="
+  echo
+}
+
+function debian {
+
+  for p in 3.5 3.6 3.7; do
+
+    header "Debian9 ${p}"
+
+    docker run \
+      --rm \
+      -v ${PROJECT_ROOT}:/app \
+      -it registry.gitlab.com/danielquinn/aletheia-python:debian9-python${p} \
+      /app/tests/cross-platform inside -m 'not ffmpeg_min_version34'
+
+  done
+
+}
+
+
+function alpine {
+
+  for v in 3.5 3.6 3.7; do
+
+    header "Alpine ${v}"
+
+    docker run \
+      --rm \
+      -v ${PROJECT_ROOT}:/app \
+      -it registry.gitlab.com/danielquinn/aletheia-python:alpine-python${v} \
+      /app/tests/cross-platform inside
+
+  done
+
+}
+
+
+function arch {
+
+  header "Arch"
+
+  docker run \
+    --rm \
+    -v ${PROJECT_ROOT}:/app \
+    -it registry.gitlab.com/danielquinn/aletheia-python:arch \
+    /app/tests/cross-platform inside
+
+}
+
+
+function fedora {
+
+  for v in 26 27 28 29; do
+
+    header "Fedora ${v}"
+
+    # I can't figure out how to get the arguments to pass properly, so we have
+    # a little copypasta here.
+
+    if [[ ${v} = 26 || ${v} = 27 ]]; then
+
+      docker run \
+        --rm \
+        -v ${PROJECT_ROOT}:/app \
+        -it registry.gitlab.com/danielquinn/aletheia-python:fedora${v} \
+        /app/tests/cross-platform inside -m 'not ffmpeg_min_version34'
+
+    else
+
+      docker run \
+        --rm \
+        -v ${PROJECT_ROOT}:/app \
+        -it registry.gitlab.com/danielquinn/aletheia-python:fedora${v} \
+        /app/tests/cross-platform inside
+
+    fi
+
+  done
+
+}
+
+
+if [[ "${1}" = "inside" ]]; then
+
+  cd /app
+  pip3 install --quiet .
+  pytest -n auto "${@:2}"
+  rm -rf $(find . -name '__pycache__')
+
+else
+
+  alpine
+  debian
+  arch
+  fedora
+
+fi
