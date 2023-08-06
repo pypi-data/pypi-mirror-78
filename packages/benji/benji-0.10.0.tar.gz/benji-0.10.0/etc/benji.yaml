@@ -1,0 +1,125 @@
+configurationVersion: '1'
+
+#logFile: none
+#blockSize: 4194304
+#hashFunction: BLAKE2b,digest_bits=256
+#processName: benji
+#disallowRemoveWhenYounger: 6
+databaseEngine:
+defaultStorage:
+
+storages:
+#
+# All storage modules support these directives:
+#
+#      simultaneousReads: 1
+#      simultaneousWrites: 1
+#      simultaneousRemovals: 1
+#      bandwidthRead: 0
+#      bandwidthWrite: 0
+#      consistencyCheckWrites: false
+#      activeTransforms:
+#      readCache:
+#        directory:
+#        maximumSize:
+#        shards:
+#
+#  - name:
+#    module: file
+#    configuration:
+#      path:
+#
+#  - name:
+#    module: s3
+#    configuration:
+#      awsAccessKeyId:
+#      awsAccessKeyIdFile:
+#      awsSecretAccessKey:
+#      awsSecretAccessKeyFile:
+#      regionName:
+#      endpointUrl:
+#      signatureVersion:
+#      useSsl:
+#      bucketName:
+#      addressingStyle:
+#      disableEncodingType: false
+#
+# For Google S3 API use:
+#
+#      endpointUrl: https://storage.googleapis.com/
+#      addressingStyle: path
+#      disableEncodingType: true
+#
+#  - name:
+#    module: b2
+#    configuration:
+#      accountId:
+#      applicationKey:
+#      bucketName:
+#      accountInfoFile:
+#      readObjectAttempts: 3
+#      writeObjectAttempts: 3
+#      uploadAttempts: 5
+
+# transforms:
+#   - name:
+#     module: zstd
+#     configuration:
+#       level:
+#       dictDataFile:
+#
+#   - name:
+#     module: aes_256_gcm
+#     configuration:
+#       kdfSalt:
+#       kdfIterations:
+#       password:
+#      or
+#       masterKey:
+#
+#   - name:
+#     module: aes_256_gcm_ecc
+#     configuration:
+#       eccCurve:
+#       eccKey:
+
+io:
+#
+#   - name:
+#     module: file
+#     configuration:
+#       simultaneousReads: 3
+#       simultaneousWrites: 3
+#
+#   - name:
+#     module: rbd
+#     configuration:
+#       simultaneousReads: 3
+#       simultaneousWrites: 3
+#       cephConfigFile: /etc/ceph/ceph.conf
+#       clientIdentifier: admin
+#       newImageFeatures:
+#         - RBD_FEATURE_LAYERING
+#         - RBD_FEATURE_EXCLUSIVE_LOCK
+#         - RBD_FEATURE_STRIPINGV2
+#         - RBD_FEATURE_OBJECT_MAP
+#         - RBD_FEATURE_FAST_DIFF
+#         - RBD_FEATURE_DEEP_FLATTEN
+#
+#   - name:
+#     module: iscsi
+#     configuration:
+#       username:
+#       password:
+#       targetUsername:
+#       targetPassword:
+#       headerDigest: NONE_CRC32C
+#       initiatorName: iqn.2019-04.me.benji-backup:benji
+#       timeout: 0
+
+# nbd:
+#   blockCache:
+#     directory: /tmp/benji/nbd/block-cache
+#     maximumSize: 2126512128
+#   cowStore:
+#     directory: /tmp/benji/nbd/cow-store
