@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: MultiProcessingBenchmark
+Version: 0.1.3
+Summary: Benchmarking library single core vs multi core for common pandas functions
+Home-page: https://github.com/srivassid/MultiProcessingBenchmark
+Author: Siddharth Srivastava
+Author-email: s.srivas@hotmail.com
+License: MIT
+Platform: UNKNOWN
+
+# MultiProcessingBenchmark
+A benchmarking library to check how does your system fares with all the cores for simple statistical functions, utility
+functions and aggregation functions. 
+
+
