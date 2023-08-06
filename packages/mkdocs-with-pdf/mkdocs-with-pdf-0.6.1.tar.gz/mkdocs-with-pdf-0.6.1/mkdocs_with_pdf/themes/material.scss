@@ -1,0 +1,63 @@
+@media print {
+  .md-typeset {
+    // Tabbed code block container
+    .tabbed-set {
+      display: block;
+
+      // Hide radio buttons
+      >input {
+        &:checked+label {
+          color: #666;
+        }
+      }
+
+      >label {
+        background-color: rgba($color: #aaa, $alpha: 0.2);
+        padding: 0.2rem 2rem;
+        margin: 0;
+        border: none;
+        font-weight: 700;
+        color: #666;
+      }
+
+      >.tabbed-content {
+        display: block;
+        box-shadow: none;
+      }
+    }
+
+    // details
+    > details summary::after {
+        display: none;
+    }
+
+    // content indent
+    &>div,
+    &>div.admonition,
+    &>details,
+    &>div.tabbed-set,
+    &>blockquote,
+    &>mark,
+    &>table,
+    &>p {
+      margin-left: 0.7rem;
+    }
+    &>table.highlighttable {
+      margin: 0 0 0 0.7rem;
+    }
+    &>ul {
+      margin-left: 1.5rem;
+    }
+
+    &>h4,
+    &>h5,
+    &>h6 {
+      margin-left: 0.25rem;
+    }
+  }
+
+  #doc-toc .twemoji > img,
+  .md-typeset .twemoji > img {
+    height: 1rem;
+  }
+}
