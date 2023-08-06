@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: r6statsapi
+Version: 0.1.9
+Summary: Async Wrapper for R6 Stats API
+Home-page: https://github.com/flaree/r6statsapi
+Author: flare
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Requires-Dist: aiohttp (<3.6.3,>=3.5.4)
+Requires-Dist: typing-extensions (==3.7.4) ; python_version == "3.7"
+Provides-Extra: docs
+Requires-Dist: sphinx (<2.2.0,>=2.1.2) ; extra == 'docs'
+Requires-Dist: sphinxcontrib-trio (==1.1.0) ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme (<0.5.0,>=0.4.3) ; extra == 'docs'
+Provides-Extra: style
+Requires-Dist: black (==19.3b0) ; extra == 'style'
+
+# r6statsapi
+<p align="center">
+<a href="https://r6statsapi.readthedocs.io/en/latest/">
+    <img src="https://readthedocs.org/projects/r6statsapi/badge/">
+    </a>
+<a href="https://github.com/ambv/black">
+    <img src="https://img.shields.io/badge/code%20style-black-000000.svg">
+    </a>
+<a href="https://www.python.org">
+    <img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg">
+    </a>
+<a href="https://pypi.org/project/r6statsapi/">
+    <img src="https://badge.fury.io/py/r6statsapi.svg">
+    </a>
+<img src="https://github.com/flaree/r6statsapi/workflows/Black/badge.svg">
+</p>
+
+---
+
+## Docs 
+https://r6statsapi.readthedocs.io/en/latest/index.html
+---
+## Installation
+
+**Python 3.7 or higher is required**
+
+To install the library, you can just run the following command:
+
+```sh
+# Linux/Mac
+python3.7 -m pip install -U r6statsapi
+
+# Windows
+py -3.7 -m pip install -U r6statsapi
+```
+---
+## Example
+```py
+import r6statsapi
+import asyncio
+
+
+loop = asyncio.get_event_loop()
+
+client = r6statsapi.Client('TOKEN')
+players = loop.run_until_complete(
+    client.get_generic_stats("flareee", r6statsapi.Platform.uplay)
+)
+```
+
+
+
