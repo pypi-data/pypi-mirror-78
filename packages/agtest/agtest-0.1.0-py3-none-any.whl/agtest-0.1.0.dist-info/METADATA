@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: agtest
+Version: 0.1.0
+Summary: 
+Author: MrSuperbear
+Author-email: fraser.darrin@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: arrow (>=0.16.0,<0.17.0)
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: pandas (>=1.1.1,<2.0.0)
+Requires-Dist: parse (>=1.17.0,<2.0.0)
+Requires-Dist: regobj (>=0.2.2,<0.3.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
