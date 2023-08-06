@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: factionpy
+Version: 2020.9.7.dev0
+Summary: Common Library for Python based Faction services.
+Home-page: https://github.com/FactionC2/factionpy
+Author: The Faction Team
+Author-email: team@factionc2.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: bcrypt
+Requires-Dist: flask
+Requires-Dist: gql
+Requires-Dist: kubernetes
+Requires-Dist: pyjwt
+Requires-Dist: requests
+
+# FactionPy
+Python Library for Faction Services
+
+
