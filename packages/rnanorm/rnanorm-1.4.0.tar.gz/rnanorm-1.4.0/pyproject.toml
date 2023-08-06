@@ -1,0 +1,55 @@
+[build-system]
+requires = ["flit_core >=2,<3"]
+build-backend = "flit_core.buildapi"
+
+[tool.black]
+target-version = ["py38"]
+line-length = 119
+
+[tool.flit.metadata]
+module = "rnanorm"
+author = "Genialis, Inc."
+author-email = "miha@genialis.com"
+home-page="https://github.com/genialis/rnaseq-normalization/"
+description-file = "README.rst"
+requires-python=">=3.6, <3.9"
+requires = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "pybedtools",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+]
+
+[tool.flit.metadata.requires-extra]
+linters = [
+    "black",
+    "pydocstyle",
+    "isort",
+    "flake8",
+]
+test = [
+    "pytest",
+]
+
+[tool.flit.scripts]
+rnanorm = "rnanorm.__main__:main"
+
+[tool.isort]
+line_length = 119
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
