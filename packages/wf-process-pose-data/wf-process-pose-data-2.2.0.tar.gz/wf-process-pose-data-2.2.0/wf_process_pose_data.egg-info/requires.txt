@@ -1,0 +1,16 @@
+click>=7.1.2
+ffmpeg-python>=0.2.0
+matplotlib>=3.2.2
+networkx>=2.4
+numpy>=1.19.0
+opencv-python>=4.3.0.36
+pandas>=1.0.5
+python-slugify>=4.0.1
+seaborn>=0.10.1
+tqdm>=4.47.0
+wf-cv-utils>=0.5.4
+wf-geom-render>=0.3.0
+wf-minimal-honeycomb-python>=0.6.0
+wf-pose-tracking-3d>=0.1.0
+wf-smc-kalman>-0.1.0
+wf-video-io>=0.1.0
