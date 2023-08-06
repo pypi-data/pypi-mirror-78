@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "powerwiki/index.css" %}" type="text/css" />
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "powerwiki/index.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="powerwiki__container">
+    <div class="powerwiki__menu">
+        {% if breadcrumbs %}
+        <ul class="powerwiki__menu_breadcrumbs">
+            {% for crumb in breadcrumbs %}
+                {% if forloop.last %}
+                    <li>{{ crumb.title }}</li>
+                {% else %}
+                    <li><a href="{{ crumb.url }}">{{ crumb.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% block wiki_menu %}{% endblock %}
+    </div>
+
+    <div class="powerwiki__content">
+    {% block wiki_content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

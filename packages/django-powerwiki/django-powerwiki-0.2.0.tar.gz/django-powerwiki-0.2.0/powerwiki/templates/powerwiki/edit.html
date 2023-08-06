@@ -1,0 +1,34 @@
+{% extends "powerwiki/base.html" %}
+
+{% block wiki_menu %}
+    {% if show_url %}
+    <ul class="powerwiki__menu_options">
+    <li><a href="{{ show_url }}">Show page</a></li>
+    </ul>
+    {% endif %}
+{% endblock %}
+
+
+{% block wiki_content %}
+
+<form action="." method="POST" class="powerwiki__form-edit">
+    {% csrf_token %}
+
+    {{ form.wiki }}
+    {{ form.path }}
+    {{ form.non_field_errors }}
+
+    <div class="powerwiki__form-edit__title">
+        {{ form.title }}
+        <input type="submit" value="Save" id="powerwiki__form-edit__save"/>
+    </div>
+    {{ form.title.errors }}
+    <div class="powerwiki__form-edit__content">
+        {{ form.markup_engine }}
+        {{ form.content }}
+        {{ form.content.errors }}
+    </div>
+
+</form>
+
+{% endblock %}
