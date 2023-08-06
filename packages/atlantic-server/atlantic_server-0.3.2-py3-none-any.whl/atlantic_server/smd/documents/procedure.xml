@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmodule>
+  <identAndStatusSection>
+    <dmAddress>
+      <dmIdent>
+        <dmCode />
+        <language />
+        <issueInfo />
+      </dmIdent>
+      <dmAdressItems>
+        <issueDate />
+        <dmTitle />
+      </dmAdressItems>
+    </dmAddress>
+  </identAndStatusSection>
+  <content>
+    <procedure>
+      <mainProcedure>
+        <proceduralStep>
+          <para>Coucou</para>
+        </proceduralStep>
+      </mainProcedure>
+    </procedure>
+  </content>
+</dmodule>
