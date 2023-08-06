@@ -1,0 +1,120 @@
+Metadata-Version: 2.1
+Name: datasetinsights
+Version: 0.2.0rc2
+Summary: Synthetic dataset insights.
+License: Apache-2.0
+Author: Unity AI Perception Team
+Author-email: perception@unity3d.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Framework :: Jupyter
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Provides-Extra: docs
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: codetiming (>=1.2.0,<2.0.0)
+Requires-Dist: cython (>=0.29.14,<0.30.0)
+Requires-Dist: dash (==1.12.0)
+Requires-Dist: dask[complete] (>=2.14.0,<3.0.0)
+Requires-Dist: google-cloud-storage (>=1.24.1,<=1.28.1)
+Requires-Dist: jupyter (>=1.0.0,<2.0.0)
+Requires-Dist: kornia (>=0.1.4,<0.2.0)
+Requires-Dist: numpy (>=1.17,<1.18)
+Requires-Dist: nuscenes-devkit (>=1.0.2,<1.0.3)
+Requires-Dist: pandas (>=1.0.1,<2.0.0)
+Requires-Dist: plotly (>=4.4.1,<5.0.0)
+Requires-Dist: pycocotools (>=2.0.0,<3.0.0)
+Requires-Dist: pyquaternion (>=0.9.5,<0.10.0)
+Requires-Dist: pytorch-ignite (>=0.3.0,<0.4.0)
+Requires-Dist: tensorboardx (>=2.0,<3.0)
+Requires-Dist: tensorflow (>=2.2.0,<3.0.0)
+Requires-Dist: torch (>=1.4.0,<1.5.0)
+Requires-Dist: torchvision (>=0.5,<0.6)
+Requires-Dist: tqdm (>=4.45.0,<5.0.0)
+Requires-Dist: yacs (>=0.1.6,<0.2.0)
+Description-Content-Type: text/markdown
+
+Dataset Insights
+================
+This repo enables users to understand their synthetic datasets by exposing the metrics collected when the dataset
+was created e.g. object count, label distribution, etc. The easiest way to use Dataset Insights is
+to run our jupyter notebook provided in our docker image `unitytechnologies/datasetinsights`
+
+Requirements
+============
+
+The Dataset Insight notebooks assume that the user has already generated a synthetic dataset using the Unity Perception package.
+To learn how to create a synthetic dataset using Unity please see the
+[perception documentation](https://github.com/Unity-Technologies/com.unity.perception).
+
+
+## Running the Dataset Insights Jupyter Notebook Locally
+You can either run the notebook by installing our python package or by using our docker image.
+
+### Running a Notebook Locally Using Docker
+
+#### Requirements
+[Docker](https://docs.docker.com/get-docker/) installed.
+
+#### Steps
+1. Run notebook server using docker
+
+```bash
+docker run \
+  -p 8888:8888 \
+  -v $HOME/data:/data \
+  -t unitytechnologies/datasetinsights:latest
+```
+This command mounts directory `$HOME/data` in your local filesystem to `/data` inside the container.
+If you are loading a dataset generated locally from a Unity app, replace this path with the root of your app's persistent data folder.
+
+Example persistent data paths from [SynthDet](https://github.com/Unity-Technologies/synthdet):
+* OSX: `~/Library/Application\ Support/UnityTechnologies/SynthDet`
+* Linux: `$XDG_CONFIG_HOME/unity3d/UnityTechnologies/SynthDet`
+* Windows: `%userprofile%\AppData\LocalLow\UnityTechnologies\SynthDet`
+
+
+2. Go to `http://localhost:8888` in a web browser to open the Jupyter browser.
+3. Open and run the example notebook in `/datasetinsights/notebooks/` or create your own.
+   (todo replace docker container gcr.io/unity-ai-thea-test/thea with public links)
+
+## Running a Dataset Insights Jupyter Notebook via Google Cloud Platform (GCP)
+- To run the notebook on GCP's AI platform follow
+[these instructions](https://cloud.google.com/ai-platform/notebooks/docs/custom-container) and use the container `unitytechnologies/datasetinsights:latest`
+- Alternately, to run the notebook on kubeflow follow [these steps](https://www.kubeflow.org/docs/notebooks/setup/)
+
+### Download Dataset from Unity Simulation
+
+[Unity Simulation](https://unity.com/products/simulation) provides a powerful platform for running simulations at large scale. You can use the provided cli script to download Perception datasets generated in Unity Simulation:
+
+```bash
+python -m datasetinsights.scripts.usim_download \
+  --data-root=$HOME/data \
+  --run-execution-id=<run-execution-id> \
+  --auth-token=<xxx>
+```
+
+The `auth-token` can be generated using the Unity Simulation [CLI](https://github.com/Unity-Technologies/Unity-Simulation-Docs/blob/master/doc/cli.md#usim-inspect-auth). This script will download the synthetic dataset for the requested [run-execution-id](https://github.com/Unity-Technologies/Unity-Simulation-Docs/blob/master/doc/cli.md#argument-descriptions).
+
+If the `--include-binary` flag is present, the images will also be downloaded. This might take a long time, depending on the size of the generated dataset.
+
+### Download SynthDet Dataset
+
+Download SynthDet public dataset from GCS, including GroceriesReal and Synthetic dataset. You can use the provided cli script to download public dataset to reproduce our work.
+
+Here is the command line for GroceriesReal dataset download:
+
+```bash
+python -m datasetinsights.scripts.public_download \
+  --name=GroceriesReal \
+  --data-root=$HOME/data \
+```
+
