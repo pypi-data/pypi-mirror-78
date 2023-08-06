@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: fastapi_plus
+Version: 0.0.3.20200906
+Summary: This is a Python FastAPI project engineering library that includes tools and basic service classes.
+Home-page: https://github.com/zhenqiang-sun/fastapi_plus
+Author: Zhenqiang Sun
+Author-email: zhenqiang.sun@gmail.com
+License: UNKNOWN
+Description: #Fastapi Plus
+        这是一个Python FastAPI项目工程库，包含DB、Redis、MongoDB、JSON等工具和基础服务类。
+        
+        [Github: Fastapi Plus](https://github.com/zhenqiang-sun/fastapi_plus/)
+        
+        ### 组件：
+        - FastAPI: https://fastapi.tiangolo.com/
+        - uvicorn: https://www.uvicorn.org/
+        - SQLAlchemy: https://www.sqlalchemy.org/
+        - PyMySQL: https://pymysql.readthedocs.io/
+        - REDIS: https://github.com/andymccurdy/redis-py
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
