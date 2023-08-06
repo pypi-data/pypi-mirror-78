@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+soft404/__init__.py
+soft404/clf.joblib
+soft404/convert_to_text.py
+soft404/predict.py
+soft404/train.py
+soft404/utils.py
+soft_404.egg-info/PKG-INFO
+soft_404.egg-info/SOURCES.txt
+soft_404.egg-info/dependency_links.txt
+soft_404.egg-info/requires.txt
+soft_404.egg-info/top_level.txt
