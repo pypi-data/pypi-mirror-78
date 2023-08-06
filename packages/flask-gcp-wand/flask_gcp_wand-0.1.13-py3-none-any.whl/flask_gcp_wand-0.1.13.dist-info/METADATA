@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: flask-gcp-wand
+Version: 0.1.13
+Summary: Flask library on GCP - mainly on GAE.
+Home-page: http://github.com/skxeve/flask_gcp_wand
+Author: Shuhei Koike
+Author-email: skxeve@gmail.com
+License: MIT
+Keywords: Flask GCP GAE AppEngine PubSub
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Framework :: Flask
+Classifier: Environment :: Web Environment
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: Flask (>=1.0.2)
+
+Flask
+=====
+
+Simple Library to use Flask on Google Cloud Platform - mainly AppEngine.
+
+
+Documentation
+-------------
+
+Please read README on Github.
+
+Requirements
+------------
+
+This Library don't specify google libraries.
+If you need, install it yourself.
+
+
+A Simple Example
+----------------
+
+.. code-block:: python
+
+    from flask_gcp_wand.gae import create_gae_flask_app
+
+    """
+    Instead of "app = Flask(__name__)"
+    Flask(__name__) is executed in create_gae_flask_app
+    Automatically setup to use Cloud Logging.
+    """
+    app = create_gae_flask_app(__name__)
+
+    @app.route("/")
+    def hello():
+        return "Hello, World!"
+
+
+
+Links
+-----
+
+* Code: https://github.com/skxeve/flask_gcp_wand
+* Issue tracker: https://github.com/skxeve/flask_gcp_wand/issues
+
+
