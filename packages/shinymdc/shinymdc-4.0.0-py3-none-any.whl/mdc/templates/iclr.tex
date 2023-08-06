@@ -1,0 +1,100 @@
+\documentclass{article}
+
+\usepackage{$if(local)$iclr$else$$dotmdc$/iclr$endif$,times}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[babel=true,protrusion=true,expansion=true]{microtype}
+\usepackage[american]{babel}
+\usepackage{nowidow}
+\usepackage[unicode=true,hidelinks]{hyperref}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{footnote}
+\usepackage{acronym}
+\usepackage{relsize}
+\usepackage{upquote}
+\usepackage{fancyvrb}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mleftright}
+\usepackage{bm}
+
+% Pandoc mods
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\makesavenoteenv{longtable}
+\let\oldincgfx\includegraphics
+\renewcommand{\includegraphics}[1]{\makebox[\textwidth][c]{\oldincgfx{#1}}}
+
+% Use mleftright
+\renewcommand\left\mleft
+\renewcommand\right\mright
+
+% Automatically use \left and \right with parentheses
+\makeatletter
+\def\resetMathstrut@{%
+  \setbox\z@\hbox{%
+    \mathchardef\@tempa\mathcode`\[\relax
+    \mathchardef\@tempc\mathcode`\]\relax
+    \def\@tempb##1"##2##3{\the\textfont"##3\char"}%
+    \expandafter\@tempb\meaning\@tempa \relax
+  }%
+  \ht\Mathstrutbox@\ht\z@ \dp\Mathstrutbox@\dp\z@}
+\makeatother
+\begingroup
+  \catcode`(\active \xdef({\left\string(}
+  \catcode`)\active \xdef){\right\string)}
+\endgroup
+\mathcode`(="8000 \mathcode`)="8000
+
+% Put year in citet
+\newcommand*{\nolink}[1]{{\protect\NoHyper#1\protect\endNoHyper}}
+\renewcommand{\citet}[1]{\nolink{\citeauthor{#1} (\citeyear{#1})}\citep{#1}}
+
+% Configure acronyms
+\renewcommand*{\acsfont}[1]{\textsc{\textsmaller{#1}}}
+
+$for(include-before)$$include-before$$endfor$
+
+\title{$title$}
+
+\author{%
+$for(author)$%
+$author.name$$if(author.equalcontrib)$$if(skipequal)$$else$$$^\ast$$$endif$$endif$\\
+$author.affiliation.name$\\
+\texttt{$author.email$}
+$sep$\And$endfor$%
+}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+$if(submission)$$else$\iclrfinalcopy$endif$
+
+\begin{document}
+
+\maketitle
+
+$if(skipequal)$$else$\blfootnote{\textsuperscript{\ast}Equal contribution.}$endif$
+
+\begin{abstract}
+$abstract$
+\end{abstract}
+
+$body$
+
+\bibliography{$bibliography$}
+\bibliographystyle{$if(local)$iclr$else$$dotmdc$/iclr$endif$}
+
+$if(appendix)$
+\appendix
+\section{Appendix}
+\input{$appendix$}
+$endif$
+
+\end{document}

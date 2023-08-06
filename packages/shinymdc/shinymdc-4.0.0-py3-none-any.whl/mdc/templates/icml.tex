@@ -1,0 +1,108 @@
+\RequirePackage{luatex85}
+
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[babel=true,protrusion=true,expansion=true]{microtype}
+\usepackage[american]{babel}
+\usepackage{nowidow}
+\usepackage[unicode=true,hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{dblfloatfix}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{footnote}
+\usepackage{acronym}
+\usepackage{relsize}
+\usepackage{upquote}
+\usepackage{fancyvrb}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mleftright}
+\usepackage{bm}
+\usepackage$if(submission)$$else$[accepted]$endif${$if(local)$icml$else$$dotmdc$/icml$endif$}
+
+% Pandoc mods
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\makesavenoteenv{longtable}
+\let\oldincgfx\includegraphics
+\renewcommand{\includegraphics}[1]{\makebox[\textwidth][c]{\oldincgfx{#1}}}
+\renewenvironment{figure}{\begin{figure*}}{\end{figure*}}{}
+
+% Configure acronyms
+\renewcommand*{\acsfont}[1]{\textsc{\textsmaller{#1}}}
+
+% Use mleftright
+\renewcommand\left\mleft
+\renewcommand\right\mright
+
+% Automatically use \left and \right with parentheses
+\makeatletter
+\def\resetMathstrut@{%
+  \setbox\z@\hbox{%
+    \mathchardef\@tempa\mathcode`\[\relax
+    \mathchardef\@tempc\mathcode`\]\relax
+    \def\@tempb##1"##2##3{\the\textfont"##3\char"}%
+    \expandafter\@tempb\meaning\@tempa \relax
+  }%
+  \ht\Mathstrutbox@\ht\z@ \dp\Mathstrutbox@\dp\z@}
+\makeatother
+\begingroup
+  \catcode`(\active \xdef({\left\string(}
+  \catcode`)\active \xdef){\right\string)}
+\endgroup
+\mathcode`(="8000 \mathcode`)="8000
+
+$for(include-before)$$include-before$$endfor$
+
+\icmltitlerunning{$if(running-title)$$running-title$$else$$title$$endif$}
+
+\begin{document}
+
+\parindent=2em
+\setnowidow[2]
+
+\twocolumn[
+\icmltitle{$title$}
+
+\icmlsetsymbol{equal}{*}
+
+\begin{icmlauthorlist}
+$for(author)$
+\icmlauthor{$author.name$}{$if(author.equalcontrib)$equal,$endif$$author.affiliation.id$}
+$endfor$
+\end{icmlauthorlist}
+
+$for(institute)$
+\icmlaffiliation{$institute.id$}{$institute.name$}
+$endfor$
+
+$for(author)$
+$if(author.corresponding)$
+\icmlcorrespondingauthor{$author.name$}{$author.email$}
+$endif$
+$endfor$
+
+$if(keyword)$
+\icmlkeywords{$for(keyword)$$keyword$$sep$, $endfor$}
+$endif$
+
+\vskip 0.3in
+]
+
+$if(skipequal)$\printAffiliationsAndNotice{}$else$\printAffiliationsAndNotice{\icmlEqualContribution}$endif$
+
+\begin{abstract}
+$abstract$
+\end{abstract}
+
+$body$
+
+\bibliography{$bibliography$}
+\bibliographystyle{$if(local)$icml$else$.mdc/icml$endif$}
+
+\end{document}
