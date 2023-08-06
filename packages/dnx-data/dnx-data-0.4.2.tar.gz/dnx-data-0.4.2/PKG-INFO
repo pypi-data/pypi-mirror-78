@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: dnx-data
+Version: 0.4.2
+Summary: DNX data solution package
+Home-page: https://github.com/DNXLabs/dnx-data
+Author: DNX Solutions
+Author-email: contact@dnx.solutions
+License: UNKNOWN
+Description: # dnx-data
+        
+        This is the DNX data solution package.
+        
+        
+        ## Setup
+        
+        #### Dependencies
+        - Python 3
+        
+        #### Python Virtual Environment
+        ```bash
+        # Create environment
+        python3 -m venv env
+        
+        # To activate the environment
+        source env/bin/activate
+        
+        # When you finish you can exit typing
+        deactivate
+        ```
+        
+        #### Install and test module
+        ```bash
+        #### Install dependencies and module
+        pip3 install --editable .
+        ```
+        
+        ## Authors
+        
+        Module managed by [DNX Solutions](https://github.com/DNXLabs).
+        
+        ## License
+        
+        Apache 2 Licensed. See [LICENSE](https://github.com/DNXLabs/dnx-data/blob/master/LICENSE) for full details.
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
