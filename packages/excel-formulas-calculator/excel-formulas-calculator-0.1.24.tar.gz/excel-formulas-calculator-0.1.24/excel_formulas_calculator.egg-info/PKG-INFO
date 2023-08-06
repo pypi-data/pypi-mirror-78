@@ -1,0 +1,29 @@
+Metadata-Version: 1.2
+Name: excel-formulas-calculator
+Version: 0.1.24
+Summary: Library to calculate excel formulas
+Home-page: https://github.com/ulalka/excel-formulas-calculator
+Author: Gleb Orlov
+Author-email: orlovgb@mail.ru
+License: MIT
+Description: Quick start
+        ~~~~~~~~~~~~~
+        #. Inherit from efc.interface.BaseExcelInterface in your excel file class and implement methods. This class will be used to get data from excel file using any library you want.
+        #. Import from efc get_calculator and call it to get function with arguments "**formula**, **ws_name**, **source**". This function will be calculate your formulas.
+        
+        Functionality
+        ~~~~~~~~~~~~~
+        * Arithmetic: ``-, +, *, /, ^, ()``
+        * Comparison: ``<>, >, >=, <, <=, =``
+        * String concatenation: ``&``
+        * Functions: ``ABS, AND, AVERAGE, AVERAGEIFS, CONCATENATE, COUNT, COUNTA, COUNTIF, COUNTIFS, COUNTBLANK, IF, IFERROR, INDEX, ISBLANK, FLOOR, LARGE, LEFT, MAX, MATCH, MID, MIN, MOD, OFFSET, OR, SMALL, SUBSTITUTE, RIGHT, ROUND, ROUNDDOWN, SUM, SUMIF, SUMIFS, VLOOKUP``
+        * All variations of the spelling of the cell and range addresses (linked docs will be skipped)
+        * Formula cell offset - this can be useful when calculating shared formulas
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4
