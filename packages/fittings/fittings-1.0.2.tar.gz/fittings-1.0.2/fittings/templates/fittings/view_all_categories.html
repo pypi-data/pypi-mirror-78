@@ -1,0 +1,85 @@
+{% extends 'fittings/base.html' %}
+{% load i18n %}
+{% load humanize %}
+{% load filters %}
+
+
+{% block page_title %}{% trans "View All Categories" %}{% endblock %}
+
+{% block fittings_block %}
+    {% if msg %}
+            <div class="alert alert-{{ msg.0 }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                    {% if msg.0 != 'warning' %}<h4>{% if msg.0 == 'danger' %}Oh No!{% elif msg.0 == 'success' %}Success!{% endif %}</h4>{% endif %}
+                    <p>{{ msg.1 }}</p>
+                </div>
+        {% endif %}
+    <div class="container col-sm-12">
+        <h2>
+            Category List
+        </h2>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Fits
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover dataTable" id="fitTable">
+                    <thead>
+                        <th>Name</th>
+                        <th>Doctrines Assigned</th>
+                        <th>Fittings Assigned</th>
+                        {% if perms.fittings.manage %}
+                        <th>Groups Assigned</th>
+                        <th> </th>
+                        {% endif %}
+                    </thead>
+                    <tbody>
+                        {% if not cats %}
+                            <tr>
+                                <td colspan="4">
+                                    <div class="alert alert-warning" style="text-align: center"> No Categories Found </div>
+                                </td>
+                            </tr>
+                        {% else %}
+                            {% for cat in cats %}
+                                <tr>
+                                    <td> <span class="label" style="background-color: {{cat.color}}"><a href="{% url 'fittings:view_category' cat.pk %}" class="nostyle">{{cat.name}}</a></span> </td>
+                                    <td> {{ cat.doctrines_count }}</td>
+                                    <td> {{ cat.total_fits }} </td>
+                                    {% if perms.fittings.manage %}
+                                    <td> {{ cat.groups_count }}</td>
+                                    <td>
+                                        <a href="{% url 'fittings:view_category' cat.pk %}" type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="View Category">
+                                            <span class="fa fas fa-eye"></span>
+                                        </a>
+                                        <a href="{% url 'fittings:edit_category' cat.pk %}" type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Edit Category">
+                                            <span class="fa fas fa-pencil-alt"></span>
+                                        </a>
+                                        <a href="{% url 'fittings:delete_category' cat.pk %}" type="button" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Category">
+                                            <span class="fa fas fa-times"></span>
+                                        </a>
+                                    </td>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+                <h6><i><i class="fas fa-exclamation-triangle"></i>*Note: Fit counts may be inaccurate as fits marked independently of doctrines may be counted more than once.</i></h6>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_javascript %}
+    {% include 'bundles/datatables-js.html' %}
+{% endblock %}
+
+{% block extra_script %}
+    $(document).ready(function(){
+        $('#fitTable').DataTable();
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+{% endblock %}
