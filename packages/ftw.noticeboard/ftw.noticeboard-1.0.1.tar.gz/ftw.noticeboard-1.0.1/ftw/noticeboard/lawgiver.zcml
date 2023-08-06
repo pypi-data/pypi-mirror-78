@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:lawgiver="http://namespaces.zope.org/lawgiver"
+    i18n_domain="ftw.noticeboard">
+
+    <include package="ftw.lawgiver" file="meta.zcml" />
+
+    <lawgiver:map_permissions
+        action_group="add notices"
+        permissions="ftw.noticeboard: Add Notice"
+        />
+
+    <lawgiver:map_permissions
+        action_group="add notice images"
+        permissions="ftw.noticeboard: Add NoticeImage"
+        />
+
+    <lawgiver:map_permissions
+        action_group="manage noticeboards"
+        permissions="ftw.noticeboard: Add NoticeCategory,
+                     ftw.noticeboard: Add NoticeBoard"
+        />
+
+</configure>

@@ -1,0 +1,77 @@
+<html xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="ftw.noticeboard">
+
+
+    <head>
+        <div metal:fill-slot="javascript_head_slot" tal:omit-tag="">
+            <script type="text/javascript">
+                (function($){
+                    function open(head, content) {
+                        head.addClass('open').attr('aria-expanded', true).attr('aria-disabled', false);
+                        content.removeAttr('hidden');
+                    }
+
+                    function close(head, content) {
+                        head.removeClass('open').attr('aria-expanded', false).attr('aria-disabled', true);
+                        content.attr('hidden', 'hidden');
+                    }
+
+                    $(document).on('click', '.collapsible-head', function(){
+                        const head = $(this);
+                        const content = $(this).next();
+                        if (content.is(':visible')) {
+                            close(head, content);
+                        } else {
+                            open(head, content);
+                        }
+                    });
+                }(jQuery));
+            </script>
+        </div>
+    </head>
+
+
+    <metal:content-title fill-slot="content-title">
+        <h1 class="documentFirstHeading" tal:content="view/get_title" />
+    </metal:content-title>
+
+
+    <div metal:fill-slot="content-core">
+
+        <div class="my-notices" tal:condition="python: view.name == 'noticeboard_view'">
+            <a href="./my-notices" i18n:translate="label_my_notices">My Notices</a>
+        </div>
+
+        <ul tal:repeat="category view/get_categories_and_notices">
+            <li>
+                <div class="collapsible-head"
+                     aria-expanded="false"
+                     aria-disabled="true"
+                     tal:attributes="id category/id;
+                                     aria-controls string:content-${category/id}">
+                    <h2 tal:content="string:${category/title} (${category/amount})" />
+                    <span class="icon" />
+                </div>
+                <div class="collapsible-content"
+                     tal:attributes="aria-labelledby category/id;
+                                    id string:content-{category/id}"
+                     role="region" hidden>
+
+                     <tal:addlink condition="category/canadd">
+                        <a class="add-link" tal:attributes="href category/addview" i18n:translate="label_add_new_notice">Add new Notice to this categroy</a>
+                     </tal:addlink>
+
+                    <tal:notices repeat="notice category/notices">
+                        <div class="notice-wrapper">
+                            <span class="expiration-date" tal:content="notice/expires"/>
+                            <h3><a tal:attributes="href notice/url" tal:content="notice/title"/></h3>
+                        </div>
+                    </tal:notices>
+                </div>
+            </li>
+        </ul>
+    </div>
+</html>

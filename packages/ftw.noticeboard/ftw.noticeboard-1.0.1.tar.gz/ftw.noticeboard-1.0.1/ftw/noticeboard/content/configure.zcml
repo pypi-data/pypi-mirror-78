@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="ftw.noticeboard">
+
+    <adapter factory=".notice.AcceptedTermsAndConditions" />
+
+    <plone:behavior
+        title="Date range for Notices"
+        description="Adds effective date and expiration date fields to Notices"
+        provides=".behaviors.INoticePublication"
+        factory=".behaviors.NoticePublication"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
+</configure>

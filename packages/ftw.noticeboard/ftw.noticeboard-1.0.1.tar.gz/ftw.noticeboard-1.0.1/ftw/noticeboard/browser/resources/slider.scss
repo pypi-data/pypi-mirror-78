@@ -1,0 +1,30 @@
+.notice-image-slider.slick-slider {
+  // Buttons next/prev
+  > button {
+    min-height: 2em;
+    min-width: 2em;
+    font-size: 0;
+    z-index: 1;
+
+    &:before {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+
+    &:hover {
+      background-color: #fff;
+    }
+
+    &.slick-next {
+      margin-top: -2em;
+      top: calc(50% - 1rem);
+      right: 0;
+    }
+
+    &.slick-prev {
+      left: 0;
+      top: calc(50% - 1rem);
+      margin-top: -2em;
+    }
+  }
+}

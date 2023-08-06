@@ -1,0 +1,122 @@
+$noticebard-color-collapsible-head: $color-primary !default;
+$noticebard-bg-collapsible-head: #e6e6e6 !default;
+$noticebard-bg-collapsible-head-open: $color-primary !default;
+
+
+@include declare-variables(noticebard-color-collapsible-head,
+                           noticebard-bg-collapsible-head,
+                           noticebard-bg-collapsible-head-open);
+
+
+.template-noticeboard_view,
+.template-my-notices,
+.template-category_view {
+
+  .my-notices {
+    margin: $margin-vertical 0;
+  }
+
+  #content-core ul {
+    @include ul(plain);
+
+    li {
+      margin: $margin-vertical / 2 0;
+    }
+  }
+
+  .collapsible-head {
+    position: relative;
+    cursor: pointer;
+    padding: $padding-vertical $padding-horizontal;
+    background-color: $noticebard-bg-collapsible-head;
+    color: $noticebard-color-collapsible-head;
+
+    h2 {
+        margin: 0;
+    }
+
+    .icon {
+      display: block;
+      position: absolute;
+      top: 25%;
+      right: 0;
+      margin-right: $margin-horizontal;
+      @extend .fa-icon;
+      @extend .fa-plus-circle;
+    }
+    &.open {
+      background-color: $noticebard-bg-collapsible-head-open;
+      @include auto-text-color($noticebard-bg-collapsible-head-open);
+
+      .icon {
+        @extend .fa-minus-circle; 
+      }
+    }
+  }
+  .collapsible-content {
+    h3 {
+      margin: 0;
+    }
+    .notice-wrapper, .add-link {
+      display: block;
+      padding:$padding-vertical 0;
+      border-bottom: 1px solid $color-gray-dark;
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+.template-category_view {
+    .collapsible-head {
+      display: none;
+    }
+
+    .collabsible-content[hidden] {
+      display: block;
+      margin-top: $margin-horizontal;
+    }
+}
+
+.notice-detail-wrapper {
+
+  display: flex;
+  flex-wrap: nowrap;
+
+  .notice-image-slider {
+    width: 33%;
+    img {
+        width: 100%;
+        height: auto;
+    }
+  }
+
+  .notice-details {
+    display: block;
+    width: 67%;
+    padding-left: $padding-horizontal;
+  }
+
+  .notice-details.no-images {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .label {
+    font-weight: normal;
+    display: block
+  }
+
+  .value {
+    font-weight: bold;
+  }
+}
+
+.notice-description, .notice-text {
+  margin: $margin-vertical 0;
+}
+
+.notice-description {
+  font-weight: bold;
+}

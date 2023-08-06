@@ -1,0 +1,26 @@
+[Noticeboard Workflow]
+Description: Default and example workflow for the Noticeboard
+Initial Status: Visible
+
+Role mapping:
+  Owner => Owner
+  User => Authenticated
+  Site Administrator => Site Administrator
+  Manager => Manager
+
+
+Status Visible:
+  An Owner can always edit content.
+  An Owner can always delete content.
+  An Owner can always add notice images.
+
+  A User can add notices.
+  A User can add content.
+  A User can always view content.
+
+  A Site Administrator can manage noticeboards
+  An Site Administrator can always edit any content.
+  An Site Administrator can always delete any content.
+  A Site Administrator can always perform the same actions as a Owner.
+  A Site Administrator can always perform the same actions as a User.
+  A Manager can always perform the same actions as a Site Administrator.

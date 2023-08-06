@@ -1,0 +1,56 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="ftw.noticeboard">
+
+
+    <browser:page
+        for="ftw.noticeboard.content.notice.INotice"
+        name="terms-and-conditions"
+        permission="zope2.View"
+        class=".conditions.TermsAndConditions"
+        />
+
+    <browser:page
+        for="ftw.noticeboard.content.category.INoticeCategory"
+        name="terms-and-conditions"
+        permission="zope2.View"
+        class=".conditions.TermsAndConditions"
+        />
+
+    <browser:page
+        for="ftw.noticeboard.content.noticeboard.INoticeBoard"
+        name="noticeboard_view"
+        permission="zope2.View"
+        class=".noticeboard.NoticeBoardView"
+        template="templates/noticeboard.pt"
+        />
+
+    <browser:page
+        for="ftw.noticeboard.content.noticeboard.INoticeBoard"
+        name="my-notices"
+        permission="zope2.View"
+        class=".noticeboard.MyNoticesView"
+        template="templates/noticeboard.pt"
+        />
+
+    <browser:page
+        for="ftw.noticeboard.content.category.INoticeCategory"
+        name="category_view"
+        permission="zope2.View"
+        class=".category.NoticeCategoryView"
+        template="templates/noticeboard.pt"
+        />
+
+    <browser:page
+        for="ftw.noticeboard.content.notice.INotice"
+        name="notice_view"
+        permission="zope2.View"
+        class=".notice.NoticeView"
+        template="templates/notice.pt"
+        />
+
+
+</configure>

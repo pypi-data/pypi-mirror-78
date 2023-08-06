@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="ftw.noticeboard">
+
+    <permission
+        id="ftw.noticeboard.AddNotice"
+        title="ftw.noticeboard: Add Notice"
+        />
+
+    <permission
+        id="ftw.noticeboard.AddNoticeCategory"
+        title="ftw.noticeboard: Add NoticeCategory"
+        />
+
+    <permission
+        id="ftw.noticeboard.AddNoticeBoard"
+        title="ftw.noticeboard: Add NoticeBoard"
+        />
+
+    <permission
+        id="ftw.noticeboard.AddNoticeImage"
+        title="ftw.noticeboard: Add NoticeImage"
+        />
+</configure>

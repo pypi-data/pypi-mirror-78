@@ -1,0 +1,52 @@
+<html xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="ftw.noticeboard">
+
+    <head>
+        <div metal:fill-slot="javascript_head_slot" tal:omit-tag="">
+            <script type="text/javascript">
+              (function($){
+                const config = {
+                    adaptiveHeight: true,
+                }
+                $(document).ready(function(){
+                  $('.notice-image-slider').slick(config);
+                });
+              }(jQuery));
+            </script>
+        </div>
+    </head>
+
+    <div metal:fill-slot="main">
+        <div class="notice-detail-wrapper" tal:define="images context/listFolderContents">
+            <div class="notice-image-slider" tal:condition="images">
+                <tal:images repeat="image images">
+                    <div>
+                        <img tal:define="scales image/@@images"
+                             tal:replace="structure python:scales.scale('image', width=400, height=400, direction='down').tag()" />
+                    </div>
+                </tal:images>
+            </div>
+            <div class="notice-details" tal:attributes="class python:images and 'notice-details' or 'notice-details no-images'">
+                <span class="expiration-date" tal:content="view/get_localized_expiration_date"/>
+                <h1 class="documentFirstHeading">
+                    <tal:title replace="context/title"/>
+                    <a class="edit-notice" tal:condition="view/can_edit" tal:attributes="href python:context.absolute_url() + '/edit'" i18n:translate="edit">(Edit)</a>
+                </h1>
+
+                <div class="price">
+                    <span class="label" i18n:translate="label_price">Price</span>
+                    <span class="value" tal:content="context/price" />
+                </div>
+                <div class="contact">
+                    <span class="label" i18n:translate="label_contact">Contact</span>
+                    <span class="value" tal:content="context/email" />
+                </div>
+            </div>
+        </div>
+        <div class="notice-description" tal:condition="context/Description" tal:content="context/Description"/>
+        <div class="notice-text" tal:content="structure context/text/output | nothing"/>
+    </div>
+</html>

@@ -1,0 +1,45 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:profilehook="http://namespaces.zope.org/profilehook"
+    i18n_domain="ftw.noticeboard">
+
+    <five:registerPackage package="." initialize=".initialize" />
+    <i18n:registerTranslations directory="locales" />
+
+    <include file="permissions.zcml" />
+    <include package=".browser" />
+    <include package=".content" />
+    <include file="resources.zcml" />
+    <include file="lawgiver.zcml" />
+
+    <genericsetup:registerProfile
+        name="default"
+        title="ftw.noticeboard default"
+        directory="profiles/default"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <profilehook:hook
+        profile="ftw.noticeboard:default"
+        handler=".hooks.add_quickupload_portlet"
+        />
+
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="ftw.noticeboard:uninstall"
+        directory="profiles/uninstall"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        />
+
+    <include package="ftw.upgrade" file="meta.zcml" />
+    <upgrade-step:directory
+        profile="ftw.noticeboard:default"
+        directory="upgrades"
+        />
+
+</configure>
