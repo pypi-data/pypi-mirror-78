@@ -1,0 +1,60 @@
+Metadata-Version: 1.1
+Name: django-pycharm-breakpoint
+Version: 0.2.0
+Summary: App for Django to during development enter PyCharm debugger on uncaught exceptions
+Home-page: https://github.com/jlubcke/django-pycharm-breakpoint
+Author: Johan Lübcke
+Author-email: johan@lubcke.se
+License: BSD
+Description: ===============================
+        django-pycharm-breakpoint
+        ===============================
+        
+        .. image:: https://badge.fury.io/py/django-pycharm-breakpoint.png
+            :target: http://badge.fury.io/py/django-pycharm-breakpoint
+        
+        App for ``Django`` to enter PyCharm debugger on uncaught exceptions
+        
+        * Free software: BSD license
+        
+        Features
+        --------
+        
+        * Uncaught exceptions in django view implementations (and middlewares) will trigger the PyCharm
+          debugger
+        
+        
+        Installation
+        ------------
+        
+        You can install the plugin by running
+        
+            pip install django-pycharm-breakpoint
+        
+        In ``settings.py`` add  ``django-pycharm-breakpoint`` to your ``INSTALLED_APPS``
+        
+            INTALLED_APPS += ['django_pycharm_breakpoint']
+        
+        
+        Usage
+        -----
+        
+        When running in the PyCharm debugger and the package is installed and added to the ``INSTALLED_APPS``
+        django setting, any uncaught exception will trigger a breakpoint in PyCharm.
+        
+        
+Keywords: Django,pycharm
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
