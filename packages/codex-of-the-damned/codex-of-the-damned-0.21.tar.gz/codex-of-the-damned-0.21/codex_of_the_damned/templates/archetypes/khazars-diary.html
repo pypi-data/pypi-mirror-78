@@ -1,0 +1,119 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/khazars-diary.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-giovanni.svg') }}"> Khazar's Diary</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is an <em>allies toolbox</em> deck using multiple unique allies. The idea is to put
+    {{ card("Khazar's Diary (Endless Night)") }}
+    into play, breed a bit with {{ card("The Embrace") }},
+    defend by putting some allies into play and wait until
+    {{ card("Khazar's Diary") }}
+    triggers. At this point, the dead allies come back into play as wraith to stealth & bleed the
+    successive preys out of the game.
+</p>
+<p>
+    The high recursion using {{ card("Sudario Refraction") }}
+    is a strong point of the deck, allowing it to adapt its defence to the table context.
+    It is very passive in the game beginning and uses
+    {{ card("Deflection") }} and
+    {{ card("Delaying Tactics") }} to defend a much as possible.
+</p>
+<p>
+    The deck is focused on bringing as many minions into play as possible, and relies a lot on the allies
+    and their capacities. As such, it does have only limited combat, bleed or stealth modules.
+    However, it hopes to quickly bring into play good rush or intercept allies like
+    {{ card("Carlton Van Wyk") }},
+    {{ card("Ossian") }} and
+    {{ card("Shambling Hordes") }} to improve its defence.
+</p>
+<p>
+    {{ card("Shambling Hordes") }} is a particularily strong
+    rush minion: it is not <em>Unique</em> (and as such does not add a counter to
+    {{ card("Khazar's Diary") }}
+    when it burns), but it is strong enough a defence to be included nonetheless.
+    And given the rest of the deck mechanics and the numerous
+    {{ card("Liquidation") }},
+    it will easily find an ally in the ash heap.
+</p>
+<p>
+    {{ card("The Unmasking") }} and
+    {{ card("FBI Special Affairs Division") }} help
+    making all these allies stronger defenders when they come into play.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Jake Washington") }} is an excellent device in this deck
+    as burning him in any way will add one counter on
+    {{ card("Khazar's Diary") }} easily.
+</p>
+<p>
+    This variant uses {{ card("The Parthenon") }}
+    to get to play more masters and improve its bloat with
+    {{ card("Liquidation") }} and
+    {{ card("Vessel") }}.
+    Destroying some {{ card("Blood Doll") }} using
+    {{ card("Vessel") }} has a bit of value in this deck, as
+    {{ card("Gregory Winter") }} and
+    {{ card("Young Bloods") }} can stack over the rush allies
+    to bring a strong blood attrition to the table.
+</p>
+<p>
+    {{ card("Repo Man") }} is a cheap unique ally,
+    and, with his 1 life, dies pretty quickly if he blocks. Which is the point when one uses
+    {{ card("Khazar's Diary") }}.
+</p>
+<h2>Variants</h2>
+<p>
+    Minor variations exist, for example
+    {{ link("/deck-search", _("Iñaki Puigdollers's deck"), twda_id="2k9ecminiqsabadell") }} from 2009 uses
+    {{ card("Change of Target") }} to help protect the minions
+    — even the allies — from unforseen blocks. He also included some
+    {{ card("Tupdogs") }} in the crypt:
+    they can not undertake directed actions but they avoid repeating minions in the crypt,
+    they can still block, recruit an ally like the {{ card("Repo Man") }},
+    and provide one more minion to bring back as a wraith once
+    {{ card("Khazar's Diary") }}
+    kicks in.
+</p>
+<p>
+    The <strong>Anarch</strong> variant, as seen in
+    {{ link("/deck-search", _("Roberto Venturi's deck"), twda_id="2011itamassa") }} from 2011, uses
+    {{ card("Anarch Convert") }} for a better rotation and to make
+    all these Giovanni Anarch, so they can use
+    {{ card("Cry Wolf") }}, an exceptionnaly well suited ally for the
+    {{ card("Khazar's Diary") }}:
+    it is unique and burns automatically. It provides the same kind of rush defence
+    {{ card("Ossian") }} and
+    {{ card("Shambling Hordes") }} do in the example deck.
+</p>
+<p>
+    The <strong>Faeries</strong> variant was played in
+    {{ link("/deck-search", _("Enrico De Stefano's deck"), twda_id="2018eclcqwp") }} from 2018. It uses a dozen
+    {{ card("Draeven Softfoot") }} and their burn option
+    to quickly bring more allies into the ash heap, making it easier to get
+    {{ card("Shambling Hordes") }} into play.
+    It also uses more copies of {{ card("The Embrace") }} and
+    {{ card("Khazar's Diary") }}
+    as the idea is to trigger the Diary sooner, and bring all these
+    {{ card("Draeven Softfoot") }} back as wraith with the new born vampires,
+    for a faster, more aggressive version of the archetype.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'undecided' ) }}
+    {{ erratum.antheliostheredstar() }}
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/renegade-assault.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-gangrel.svg') }}"> Renegade Assault</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>rush</em> deck using {{ card("Renegade Garou") }}
+    and low capacity <i>j</i> vampires to take down other minions around the table.
+    {{ card("Tribute to the Master") }} is used to bloat and
+    naked bleed actions are used to deliver pool damage to the prey.
+</p>
+<p>
+    The combat module is strong and heavy, and
+    {{ card("Target Vitals") }} and
+    {{ card("Weighted Walking Stick") }} can be used
+    indistinctively by vampires or werewolves. {{ card("Fame") }} is used
+    for additional pool damage on the prey.
+<p>
+    If {{ card("Jacob Fermor") }} gets into play, werewolves
+    see their bleed boosted, which can be nice for the lunge.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("The Unmasking") }} transform the werewolves into
+    good blockers, which is always nice defensively.
+</p>
+<p>
+    {{ card("Poison Pill") }} is an alternative to
+    {{ card("Delaying Tactics") }}: it costs less blood and
+    can disable a damage dealing vote like {{ card("Reins of Power") }}.
+</p>
+<p>
+    {{ card("Direct Intervention") }} is a very effective counter
+    against anti-ally actions like {{ card("Entrancement") }}.
+</p>
+<p>
+    {{ card("Earth Meld") }} is an effective combat defence to protect
+    the low capacity vampires.
+</p>
+<h2>Variants</h2>
+<p>
+    The main variant includes more copies of {{ card("Jacob Fermor") }}
+    and {{ card("Renegade Garou") }} to make the most of the core
+    combination of the deck.
+    {{ link("/deck-search", _("Antti Tirilä's deck"), twda_id="2k9alastorsvilleins") }}
+    from 2009 is a good example.
+    It also includes {{ card("Dragonbound") }} and
+    {{ card("Camera Phone") }} to enhance pool damage.
+</p>
+{% endblock %}

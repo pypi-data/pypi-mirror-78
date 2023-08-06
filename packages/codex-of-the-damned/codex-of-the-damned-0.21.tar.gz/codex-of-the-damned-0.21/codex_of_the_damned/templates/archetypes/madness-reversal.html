@@ -1,0 +1,64 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/madness-reversal.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-malkavian.svg') }}"> Madness Reversal</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>special</em> deck using {{ card("Madness Network") }}
+    and {{ card("Reversal of Fortunes") }}.
+</p>
+<p>
+    The idea is to get some low capacity Malkavians out fast together with a
+    {{ card("Madness Network") }},
+    then play {{ card("Reversal of Fortunes") }}
+    during the prey's turn to play again, then again on the predator's turn to play again, etc.
+    playing twice as much as the opponents.
+</p>
+<p>
+    The first vampires get a bit locked in the combination, and the rest of the deck focuses on playing a lot
+    of Master cards,
+    {{ card("Brainwash") }} and
+    {{ card("Kaymakli Nightmares") }} to prevent the opponents
+    of even getting a vampire out.
+</p>
+<p>
+    The deck then kills with simple bleeds and
+    {{ card("Smiling Jack, The Anarch") }}.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    Rotation is tricky in this deck, and
+    {{ card("Dreams of the Sphinx") }},
+    {{ card("Specialization") }} and
+    {{ card("Heart of Nizchetus") }}
+    all help in this regard.
+</p>
+<p>
+    Although {{ card("Victor Pelletier") }} is not a Malkavian,
+    his ability is priceless in this deck, as
+    {{ card("Reversal of Fortunes") }}
+    needs some votes to get through.
+</p>
+<h2>Variants</h2>
+<p>
+    There are not many variants of this deck.
+    {{ link("/deck-search", _("Orian Gissler's deck"), twda_id="2k9battlefrenzypf") }} from 2009
+    was the original attempt.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'remove' ) }}
+</div>
+{% endblock %}

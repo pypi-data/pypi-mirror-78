@@ -1,0 +1,94 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/nananimalism.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-guruhi.svg') }}"> Nananimalism</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>rush</em> deck using {{ card("Deep Song") }} to rush
+    or bleed and a <i>i</i> combat module with
+    {{ card("Carrion Crows") }} and
+    {{ card("Aid from Bats") }}.
+</p>
+<p>
+    Using {{ card("Nana Buruku") }} allow to play a lot of
+    {{ card("Ashur Tablets") }} for a nice recursion.
+    This lets the deck adapt to the table context while bloating a bit.
+</p>
+<p>
+    {{ card("Fame") }} and
+    {{ card("Dragonbound") }} are used to improve pool damage.
+</p>
+<p>
+    Using low ad mid capacity vampires let the deck use a decent amout of naked "bleed for 1" actions or
+    inferior <i>i</i> {{ card("Deep Song") }}
+    to get some pool damage to its prey.
+</p>
+<p>
+    It is a very solid deck, with good defence against the predator and decent pool damage towards its prey.
+    Although it is not a very fast damage dealer, rush actions let it control the table nicely.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Powerbase: Luanda") }} and
+    {{ card("Well-Marked") }} are nice tools for a rush deck.
+    They can be used by both {{ card("Nana Buruku") }} and
+    {{ card("Fish") }}.
+</p>
+<p>
+    The deck does not have a lot of intercept, but plays
+    {{ card("Powerbase: Montreal") }} and
+    {{ card("The Rack") }} nonetheless, relying on the threat of
+    a retaliation rush to protect them.
+</p>
+<p>
+    Just including a bit of <em>wakes</em> and some intercept enhancers like
+    {{ card("Cats' Guidance") }} and
+    {{ card("Sense the Savage Way") }}
+    keep the other players guessing on wether the deck can block or not.
+</p>
+<p>
+    Getting {{ card("Wider View") }} at some point helps getting rid
+    of the spurious {{ card("Nana Buruku") }} in crypt.
+    She's also only played in 4 copies to avoid jamming the crypt too much; other minions are needed for the
+    deck to work well.
+</p>
+<h2>Variants</h2>
+<p>
+    The <strong>Anarch</strong> variant uses
+    {{ card("Anarch Convert") }} to make the vampires anarch,
+    along
+    {{ card("Anarch Revolt") }} to improve pool damage,
+    taking down any Anarch vampire on the prey side using rush actions.
+    {{ link("/deck-search", _("Orian Gissler's deck"), twda_id="2018fnclf") }} from the 2018 French NC
+    is a good example.
+</p>
+<p>
+    The <strong>Weenie ANI</strong> plays <i>i</i> without
+    {{ card("Nana Buruku") }} nor
+    {{ card("Ashur Tablets") }}.
+    {{ link("/deck-search", _("Kim Nilsson's deck"), twda_id="2016sncss") }} from the 2016 Swedish NC
+    is a good example.
+</p>
+<p>
+    The <strong>Toolbox</strong> variant includes more intercept, like
+    {{ link("/deck-search", _("Ádám Horváth's deck"), twda_id="2010hungarianecq") }} from 2010,
+    with {{ card("Aranthebes, The Immortal") }} and
+    {{ card("Raven Spy") }}.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'remove' ) }}
+</div>
+{% endblock %}

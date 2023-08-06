@@ -1,0 +1,61 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/mind-rape.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1>Mind Rape</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>special</em> deck using {{ card("Mind Rape") }}
+    alongside a big capacity vampire with <i>DO</i>, {{ card("Lucian") }} here.
+    The idea is to steal the opponents vampires and use
+    {{ card("Heidelberg Castle, Germany") }} to deprive them
+    of their blood and equipment.
+</p>
+<p>
+    Using Malkavian and {{ card("Madness Network") }} brings an
+    edge to this idea, as {{ card("Mind Rape") }} can be played on the
+    predator turn for example, to get control of the vampire in the immediately following turn.
+</p>
+<p>
+    The deck uses {{ card("Second Tradition: Domain") }}
+    for defence, together with
+    {{ card("Obedience") }} and
+    {{ card("Mental Maze") }} to avoid combat.
+</p>
+<p>
+    Bleed and votes are used to apply pool damage, in combination with a strong stealth module using <i>O</i>.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Scourge of the Enochians") }} is used as a counter
+    against breed constructs that can be overwhelming for this deck.
+</p>
+<p>
+    {{ card("Metro Underground") }} lets a vampire bleed or vote,
+    then unlock at the end of the turn, only to use
+    {{ card("Madness Network") }} for another action during another
+    Methusalah's turn.
+</p>
+<h2>Variants</h2>
+<p>
+    There is a Ventrue variant using {{ card("Arika") }} as a star.
+    {{ link("/deck-search", _("Erol Hammer's deck"), twda_id="2k9fcqnac") }} from 2009 is a good example.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'remove' ) }}
+    {{ erratum.parityshift() }}
+    {{ erratum.temptationofgreaterpower() }}
+</div>
+{% endblock %}

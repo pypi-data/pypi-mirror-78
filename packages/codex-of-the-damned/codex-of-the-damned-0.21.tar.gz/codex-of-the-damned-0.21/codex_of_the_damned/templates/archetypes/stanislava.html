@@ -1,0 +1,99 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/stanislava.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-gangrel.svg') }}"> Stanislava</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>stealth vote & bleed</em> deck with
+    {{ card("Stanislava") }} as a star. She uses
+    {{ card("Govern the Unaligned") }} to help get other
+    vampires out and {{ card("Villein") }} is used to get some pool
+    back. The second vampire should be a <em>Prince</em>,
+    preferrably {{ card("Ingrid Rossler") }},
+    to be able to play the numerous {{ card("Parity Shift") }}.
+</p>
+<p>
+    As the game progresses, more big capacity titled vampires get out and
+    {{ card("Parity Shift") }} is used both to deliver pool damage and to
+    bloat. Vampires begin to bleed, using <i>j</i> for stealth with
+    {{ card("Form of Mist") }},
+    {{ card("Earth Control") }} and
+    {{ card("Rapid Change") }}.
+<p>
+    {{ card("Deflection") }} is used for bleed defence, with some
+    {{ card("Sense the Savage Way") }} to unlock if need be.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Forced March") }} and
+    {{ card("Instantaneous Transformation") }} are
+    extremely versatile as they can be used both for stealth or additional action, allowing a vampire
+    to bleed and call a vote in the same turn.
+    {{ card("Stanislava") }} can use both,
+    but some other vampires in the crypt can use one or the other.
+</p>
+<p>
+    {{ card("Murmur of the False Will") }} can be used
+    both for bounces and bleed enhancement, depending on the context. However, they're not supposed to be used
+    with {{ card("Stanislava") }} herself, as bleeding for more than 3
+    would expose her to {{ card("Archon Investigation") }},
+    a chance one would be wary to take with this deck.
+</p>
+<p>
+    A <em>Prince</em> is required, not only for the
+    {{ card("Parity Shift") }}, but also for
+    {{ card("Papillon") }}, an excellent device to bring some blood
+    back on the vampires. {{ card("Jake Washington") }} is also a very
+    efficient tool to that effect.
+</p>
+<p>
+    The {{ card("Seal of Veddartha") }} is an excellent
+    equipment with this crypt, as most vampires miss either <i>D</i> or <i>F</i>. The +1 bleed bonus is nothing
+    to cast aside either.
+</p>
+<h2>Variants</h2>
+<p>
+    The archetype is very much known for <em>Martin Weinmayer's</em> build as he as been very successful with it
+    and retained the top seat in the international classment for some years.
+    The cards proportions may vary a little bit, some like to play some
+    {{ card("Guard Dogs") }},
+    {{ card("Kine Resources Contested") }},
+    {{ card("Vele's Hunt") }} and/or
+    {{ card("Claws of the Dead") }}.
+    {{ card("Ecoterrorists") }} is also a common inclusion.
+    Some alterations have been seen in the crypt too, like ditching
+    {{ card("Rachel Brandywine") }} for an additional
+    {{ card("Ingrid Rossler") }} or including
+    {{ card("Iliana") }} or
+    {{ card("Caitlin") }},
+    as they have excellent disciplines combination for a low pool,
+    although no title to support the political side of the deck.
+    {{ link("/deck-search", _("Janne Lönnqvist's deck"), twda_id="2016rfehf") }} from 2016 is a good example.
+</p>
+<p>
+    The <strong>Old School</strong> variant uses groups 1 and 2 in the crypt instead of the group 2-3 used here.
+    It provides {{ card("Angus the Unruled") }} and
+    {{ card("Don Cruez, The Idealist") }},
+    two justicars with a nice sets of disciplines. It allows for more Royalty cards like
+    {{ card("Second Tradition: Domain") }} and
+    {{ card("Fourth Tradition: The Accounting") }}.
+    {{ link("/deck-search", _("Giulio De Cicco's deck"), twda_id="2014gtdtigi") }} from 2014 is a good example.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'undecided' ) }}
+    {{ erratum.parityshift() }}
+</div>
+{% endblock %}

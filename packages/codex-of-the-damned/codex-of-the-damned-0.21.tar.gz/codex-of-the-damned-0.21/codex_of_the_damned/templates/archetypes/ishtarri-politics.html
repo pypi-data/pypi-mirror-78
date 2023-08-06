@@ -1,0 +1,83 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/ishtarri-politics.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-ishtarri.svg') }}"> Ishtarri Politics</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>political</em> deck using the Ishtarri clan and their <i>RFC</i> disciplines combination.
+</p>
+<p>
+    The deck uses <i>R</i> to bleed with {{ card("Enchant Kindred") }}
+    and {{ card("Public Trust") }}.
+    Political actions are used to deliver pool damage to the prey with
+    {{ card("Kine Resources Contested") }},
+    {{ card("Conservative Agitation") }} and
+    {{ card("Reins of Power") }}.
+</p>
+<p>
+    Bloat is done by {{ link("/strategy/fundamentals", _("leeching"), _anchor="leeching") }},
+    using {{ card("Villein") }} and getting blood
+    back on the vampires with {{ card("Voter Captivation") }},
+    plus a bit of political actions with
+    {{ card("Ancient Influence") }} and
+    {{ card("Political Stranglehold") }}.
+</p>
+<p>
+    The deck has a high {{ link("/strategy/fundamentals", _("A&B"), _anchor="AB") }}
+    with the <i>F</i> unlock modifiers
+    {{ card("Forced March") }} and
+    {{ card("Freak Drive") }}, but also
+    {{ card("Majesty") }} if an action is blocked and
+    {{ card("Mylan Horseed") }} if he is drawn.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Enchant Kindred") }} can be used in the game beginning
+    to get vampires out faster and cheaper.
+</p>
+<p>
+    {{ card("The Kiss of Ra") }} and
+    {{ card("Strange Day") }} are expensive but can be kept in hand
+    for a lunge action, be it a vote or a bleed.
+</p>
+<p>
+    {{ card("Scourge of the Enochians") }} is a counter
+    against breed decks, {{ card("Fear of Mekhet") }} against
+    Inner Circle decks. Both of a them are quite a threat to this archetype.
+</p>
+<h2>Variants</h2>
+<p>
+    Other card can easily be included in the deck:
+    {{ card("Falhu Shibaba") }} in the crypt
+    (although he does not have <i>o</i>), {{ card("Perfectionist") }}
+    to get some blood back on the vampires,
+    {{ card("Scalpel Tongue") }}
+    to help getting the votes through, and some <i>c</i> and <i>f</i> combat cards.
+    Some variants may be more toolboxy.
+    {{ card("No Secrets From the Magaji") }}
+    is an excellent defence card and is even included here, but it can be accompanied by a bit more equipments
+    and combat options, like {{ link("/deck-search", _("Adam Hulse's deck"), twda_id="2014won5co") }} from 2014.
+</p>
+<p>
+    An <strong>Anarch</strong> variant has also been played by
+    {{ link("/deck-search", _("Marcin Szybkowski"), twda_id="2k9bjpp") }} in 2009.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'remove' ) }}
+    {{ erratum.villein() }}
+    {{ erratum.lilithsblessing() }}
+</div>
+{% endblock %}

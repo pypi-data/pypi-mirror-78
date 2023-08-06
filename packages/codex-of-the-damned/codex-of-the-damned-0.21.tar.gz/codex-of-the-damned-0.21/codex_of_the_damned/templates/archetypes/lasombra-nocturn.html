@@ -1,0 +1,90 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/lasombra-nocturn.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-lasombra.svg') }}"> Lasombra Nocturn</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>stealth & bleed</em> deck using the Lasombra clan, with the <i>D£</i> disciplines.
+    During the beginning, it uses
+    {{ card("Govern the Unaligned") }}
+    to get vampires out faster and cheaper. When enough minions are into play, it switches to delivering
+    strong bleed actions using <i>£</i> for stealth.
+</p>
+<p>
+    The deck uses
+    {{ card("Nocturn") }} to protect its vampires
+    from agression, but also to deliver more bleed in a single turn. At some point,
+    {{ card("The Unmasking") }} comes into play and makes them even
+    better defenders.
+</p>
+<p>
+    Stealth is high, with 14 stealth modifiers and
+    {{ card("Elysian Fields") }} as a permanent enhancer.
+</p>
+<p>
+    {{ card("Deflection") }} and
+    {{ card("Delaying Tactics") }} defend against bleed and votes,
+    and the deck uses no combat card at all, relying entirely on the
+    {{ card("Nocturn") }} and stealth to avoid it.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    One or two {{ card("Nocturn") }} should be brought into play each turn.
+    Keeping one in hand just to make sure it can be brought into play the next turn makes sense.
+</p>
+<p>
+    {{ card("Pentex™ Subversion") }} can be used for the lunge
+    if the prey has a strong blocker.
+</p>
+<p>
+    {{ card("On the Qui Vive") }} can also be used by a
+    {{ card("Nocturn") }} so it can bleed <em>and</em> block a rush action.
+</p>
+<p>
+    {{ card("Zaire River Ferry") }} is an additional stealth
+    enhancer, plus it prevents rush actions: a nice combination.
+</p>
+<h2>Variants</h2>
+<p>
+    This example decklist uses an unusually high number of
+    {{ card("Nocturn") }}. The <strong>Standard</strong> variant
+    uses somewhere between 5 and 12 of them, and more
+    {{ card("Govern the Unaligned") }} and stealth modifiers.
+    {{ link("/deck-search", _("Sergio Gracia's deck"), twda_id="2k9fdsn") }} from 2009
+    is a good example. He even uses {{ card("Anarch Convert") }}
+    just to help rotate the crypt and make sure 4 different vampires get out fast.
+</p>
+<p>
+    In a sense, the
+    {{ link("/archetypes/kiasyd-stealth-bleed", _("Kiasyd Stealth & Bleed")) }} archetype can be seen as a variation of
+    this one.
+</p>
+<p>
+    The <strong>Black Hand</strong> variant uses groups 3 and 4 to include
+    {{ card("Henri Lavenant") }} alongside
+    {{ card("Ermenegildo, The Rake") }} and
+    {{ card("Banjoko") }}, so it can use Black Hand cards like
+    {{ card("Tattoo Signal") }},
+    {{ card("Watchtower: Four Ride Forth") }},
+    {{ card("Remover") }} and
+    {{ card("The Admonitions") }}.
+    {{ link("/deck-search", _("Csaba Greguss's deck"), twda_id="2k9budapesthcq") }} from 2009 is a good example.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'undecided' )}}
+    {{ erratum.antheliostheredstar() }}
+</div>
+{% endblock %}
