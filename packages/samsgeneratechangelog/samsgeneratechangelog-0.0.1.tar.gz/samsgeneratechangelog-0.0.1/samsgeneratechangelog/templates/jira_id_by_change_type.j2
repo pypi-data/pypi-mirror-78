@@ -1,0 +1,15 @@
+# {{header_text}}
+{%- for jira_id, jira_id_files in file_commits | groupby('jira_id') | sort(attribute='grouper')  %}
+
+## {{jira_id | default('No Jira ID in commit', true)}}
+{%- for change_type, change_type_files in jira_id_files | groupby('friendly_change_type') | sort(attribute='grouper') %}
+
+### {{change_type}}
+{% for file_path, file_path_files in change_type_files | groupby('file_path')  | sort(attribute='grouper')   %}
+{%- with %}
+{%- set last_commit = file_path_files | sort(attribute='committed_date') | last %}
+ - {{file_path}} - {{last_commit.author.name}} - {{last_commit.committed_date}}
+{%- endwith %}
+{%- endfor %}
+{%- endfor %}
+{%- endfor %}
