@@ -1,0 +1,12 @@
+PyYAML
+google-cloud-storage>=1.13.0
+kubernetes<12.0.0,>=8.0.0
+google-auth>=1.6.1
+requests_toolbelt>=0.8.0
+cloudpickle
+kfp-server-api<2.0.0,>=0.2.5
+jsonschema>=3.0.1
+tabulate
+click
+Deprecated
+strip-hints
