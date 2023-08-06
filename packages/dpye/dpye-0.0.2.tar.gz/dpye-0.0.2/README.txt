@@ -1,0 +1,1 @@
+discord.py-easy for easiest bot building.
