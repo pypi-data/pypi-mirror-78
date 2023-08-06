@@ -1,0 +1,151 @@
+#!/usr/bin/env python
+
+"""This module is for formatting input data into an object that stores
+primarily the wavelength and flux data, as well
+as any relevant target information. This object is then used by
+measure_aod.py to perform the measurements."""
+
+__author__ = "Camellia Magness"
+__email__ = "cmagness@stsci.edu"
+
+import os
+import sys
+import glob
+import logging
+
+import numpy as np
+from astropy import constants
+from astropy.io import fits
+from astropy.io import ascii
+
+from . import SETTINGS
+from .spectrum_classes import X1DSpectrum, ASCIISpectrum
+
+INPUTS = SETTINGS["inputs"]
+DATADIR = INPUTS["datadir"]
+PARAMETERS = SETTINGS["parameters"]
+DEFAULTS = SETTINGS["defaults"]
+LOGGER = logging.getLogger(__name__)
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+LOGGER.addHandler(console)
+
+C = constants.c.to('km/s').value  # km/s
+
+N = 3.768e14  # proportionality constant -> (m_e * c)/(pi * e**2)
+
+# at some point need to check and see if outdir (and datadir, really too)
+# exist. if not, create outdir
+# add logger instead of print statements
+
+# notes on class functionality:
+# add functionality to build fits files as a method of class objects
+
+
+# --------------------------------------------------------------------------- #
+
+
+def build_spectrum(datadir=DATADIR, ins=PARAMETERS["instrument"],
+                   file=PARAMETERS["filetype"], grating=PARAMETERS["grating"],
+                   redshift=PARAMETERS["redshift"]):
+    # this function should build and return the appropriate Spectrum object
+    # for measure_aod.py
+    # default inputs for instrument and file type are COS and X1D at the
+    # moment, for testing
+
+    spectrum = None
+    batch_mode = DEFAULTS["batch_table"]
+
+    # this might (?) need handling for other inputs other than just COS as
+    # well. at some point.
+    if ins == "COS":
+        if file == "X1DSUM":
+            if batch_mode:
+                x1dsums = [datadir]  # this will really be a path to one file
+            else:
+                x1dsums = glob.glob(datadir + "*x1dsum.fits")
+            for x1dsum in x1dsums:
+                with fits.open(x1dsum) as f:
+                    prhd = f["PRIMARY"].header
+                    opt_elem = prhd["OPT_ELEM"]
+                    # WHAT IF IT FINDS MULTIPLE X1DSUMS HERE?
+                    if opt_elem == grating:
+                        target_data = f["SCI"].data
+                        target = prhd["TARGNAME"]
+                        wave = np.array(target_data[
+                                            "WAVELENGTH"].ravel())
+                        # best way to do this, ravelling here?
+                        flux = np.array(target_data["FLUX"].ravel())
+                        error = np.array(target_data["ERROR"].ravel())
+                        spectrum = X1DSpectrum(x1dsum, target, wave, flux,
+                                               error, redshift)
+        elif file == "BART":
+            if batch_mode:
+                asciis = [datadir]  # same story as the x1dsums
+            else:
+                search_string = "_spec-{}".format(grating)
+                asciis = glob.glob(datadir + "*" + search_string)
+            for ascii_file in asciis:
+                basename = os.path.basename(ascii_file)
+                # this can be done better
+                target = basename.replace(search_string, "")
+                data = ascii.read(ascii_file, names=["wave", "flux", "error"])
+                if len(data.columns) > 3:
+                    raise IndexError("Too many columns")
+                    # choose a better error type?
+                wave = np.array(data.columns["wave"])
+                flux = np.array(data.columns["flux"])
+                error = np.array(data.columns["error"])
+                spectrum = ASCIISpectrum(target, wave, flux, error, redshift)
+        elif file == "BART-N":
+            if batch_mode:
+                asciis = [datadir]  # same story as the x1dsums
+            else:
+                search_string = "_spec-{}-N".format(grating)
+                asciis = glob.glob(datadir + "*" + search_string)
+            for ascii_file in asciis:
+                basename = os.path.basename(ascii_file)
+                # this can be done better
+                target = basename.replace(search_string, "")
+                data = ascii.read(ascii_file, names=["wave", "flux", "error"])
+                if len(data.columns) > 3:
+                    raise IndexError("Too many columns")
+                    # choose a better error type?
+                wave = np.array(data.columns["wave"])
+                flux = np.array(data.columns["flux"])
+                error = np.array(data.columns["error"])
+                spectrum = ASCIISpectrum(target, wave, flux, error, redshift)
+        elif file == "ASCII":
+            if batch_mode:
+                asciis = [datadir]  # same story as the x1dsums
+                # how do i get the target now??
+                target = ""
+                # ya don't, not in this hack. it'll be empty but batch mode
+                # will provide it
+            else:
+                target = DEFAULTS["target"]
+                asciis = glob.glob(datadir + "*" + target + "*")
+            for ascii_file in asciis:
+                data = ascii.read(ascii_file, names=["wave", "flux", "error"])
+                if len(data.columns) > 3:
+                    raise IndexError("Too many columns")
+                    # choose a better error type?
+                wave = np.array(data.columns["wave"])
+                flux = np.array(data.columns["flux"])
+                error = np.array(data.columns["error"])
+                spectrum = ASCIISpectrum(target, wave, flux, error, redshift)
+        else:
+            LOGGER.warning("Other file types are not yet supported at this "
+                           "time.")
+    else:
+        LOGGER.warning("This Instrument is not yet supported at this time.")
+
+    if not spectrum:
+        LOGGER.error("Spectrum object not built. Unable to proceed. "
+                     "Exiting...")
+        sys.exit()
+
+    return spectrum
+
+
+# --------------------------------------------------------------------------- #
