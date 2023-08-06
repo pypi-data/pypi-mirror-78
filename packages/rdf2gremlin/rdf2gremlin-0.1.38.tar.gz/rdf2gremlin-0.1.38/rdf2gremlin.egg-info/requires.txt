@@ -1,0 +1,13 @@
+uuid
+rdflib
+pathlib
+gremlinpython
+tornado
+sphinx
+sphinxcontrib-apidoc
+myst-parser
+
+[test]
+coverage
+pytest
+pytest-cov
