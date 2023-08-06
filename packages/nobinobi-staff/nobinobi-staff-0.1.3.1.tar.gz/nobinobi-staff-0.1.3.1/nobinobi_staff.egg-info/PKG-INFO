@@ -1,0 +1,114 @@
+Metadata-Version: 1.1
+Name: nobinobi-staff
+Version: 0.1.3.1
+Summary: Application staff for nobinobi
+Home-page: https://github.com/prolibre-ch/nobinobi-staff
+Author: Florian Alu
+Author-email: alu@prolibre.com
+License: UNKNOWN
+Description: =============================
+        Nobinobi Staff
+        =============================
+        
+        .. image:: https://badge.fury.io/py/nobinobi-staff.svg
+            :target: https://badge.fury.io/py/nobinobi-staff
+        
+        .. image:: https://travis-ci.org/prolibre-ch/nobinobi-staff.svg?branch=master
+            :target: https://travis-ci.org/prolibre-ch/nobinobi-staff
+        
+        .. image:: https://codecov.io/gh/prolibre-ch/nobinobi-staff/branch/master/graph/badge.svg
+            :target: https://codecov.io/gh/prolibre-ch/nobinobi-staff
+        
+        .. image:: https://pyup.io/repos/github/prolibre-ch/nobinobi-staff/shield.svg
+             :target: https://pyup.io/repos/github/prolibre-ch/nobinobi-staff/
+             :alt: Updates
+        
+        .. image:: https://pyup.io/repos/github/prolibre-ch/nobinobi-staff/python-3-shield.svg
+             :target: https://pyup.io/repos/github/prolibre-ch/nobinobi-staff/
+             :alt: Python 3
+        
+        Application staff for nobinobi
+        
+        Documentation
+        -------------
+        
+        The full documentation is at https://nobinobi-staff.readthedocs.io.
+        
+        Quickstart
+        ----------
+        
+        Install Nobinobi Staff::
+        
+            pip install nobinobi-staff
+        
+        Add it to your `INSTALLED_APPS`:
+        
+        .. code-block:: python
+        
+            INSTALLED_APPS = (
+                ...
+                'nobinobi_staff.apps.NobinobiStaffConfig',
+                ...
+            )
+        
+        Add Nobinobi Staff's URL patterns:
+        
+        .. code-block:: python
+        
+            from nobinobi_staff import urls as nobinobi_staff_urls
+        
+        
+            urlpatterns = [
+                ...
+                path('', include(nobinobi_staff_urls)),
+                ...
+            ]
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Running Tests
+        -------------
+        
+        Does the code actually work?
+        
+        ::
+        
+            source <YOURVIRTUALENV>/bin/activate
+            (myenv) $ pip install tox
+            (myenv) $ tox
+        
+        Credits
+        -------
+        
+        Tools used in rendering this package:
+        
+        *  Cookiecutter_
+        *  `cookiecutter-djangopackage`_
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`cookiecutter-djangopackage`: https://github.com/pydanny/cookiecutter-djangopackage
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2018-10-18)
+        ++++++++++++++++++
+        
+        * First release on PyPI.
+        
+Keywords: nobinobi-staff
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Django :: 3.1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
