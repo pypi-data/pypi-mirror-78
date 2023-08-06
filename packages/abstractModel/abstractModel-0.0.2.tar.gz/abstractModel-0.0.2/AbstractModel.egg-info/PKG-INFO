@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: abstractModel
+Version: 0.0.2
+Summary: An abstract model basic class
+Home-page: https://github.com/sgybupt/AbstractModel
+Author: Guoyao Su
+Author-email: sgybupt@foxmail.com
+License: UNKNOWN
+Description: ### Abstract Model Basic Class
+        - 只需要完整实现 **_load_model** 及 **_forward** 即可线程安全使用模型推理
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
