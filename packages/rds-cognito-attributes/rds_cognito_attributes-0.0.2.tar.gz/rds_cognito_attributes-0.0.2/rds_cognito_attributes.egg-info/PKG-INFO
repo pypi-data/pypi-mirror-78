@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: rds-cognito-attributes
+Version: 0.0.2
+Summary: A small package which can be used to query user information from both AWS Cognito and AWS Aurora RDS.
+Home-page: https://github.com/brandonrosenbloom/RDS_Cognito_attribute_alignment
+Author: Brandon Rosenbloom
+Author-email: brandonrosenbloom@gmail.com
+License: UNKNOWN
+Description: # RDS_Cognito_attribute_alignment
+        
+        Use this script to evaluate data between Cognito and Aurora RDS.
+        
+        To use, first install the code. Then update the settings.py file to include the appropriate values for your specific project.
+        
+        # settings.py
+        #### COGNITO_ATTRIBUTE: 
+        This is the specific name of the cognito attribute you would like the script to pull down for you.
+        
+        #### RDS_TABLE_COLUMN: 
+        This is the specific RDS column(s) which you would like to have the script pull down for you. This variable is primarily used in the QUERY_STRING variable as well as to generate the necessary files.
+        
+        #### QUERY_STRING: 
+        Use this variable to define the query you would like to run. Include the RDS_COLUMN attribute if you want.
+        
+        #### REGION: 
+        Use this variable to define the AWS region where your resources are stored.
+        
+        #### FOLDER_NAME:
+        Use this variable to define the specific folder name you would like to have any query results stored.
+         
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
