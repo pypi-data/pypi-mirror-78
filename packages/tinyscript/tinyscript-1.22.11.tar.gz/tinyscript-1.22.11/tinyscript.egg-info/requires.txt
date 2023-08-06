@@ -1,0 +1,27 @@
+asciistuff>=1.0.7
+bitstring
+codext
+coloredlogs
+colorful
+dicttoxml
+ipaddress
+json2html
+mdv
+netaddr
+netifaces
+patchy
+pathlib
+pip>=19.2
+plyer
+pynput
+pypandoc
+python-slugify
+pyyaml>=5.3.1
+six
+toml
+tqdm
+virtualenv
+xmltodict
+
+[:python_version >= "3.5"]
+weasyprint
