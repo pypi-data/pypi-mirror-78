@@ -1,0 +1,5 @@
+prune tests
+global-exclude __pycache__
+global-exclude *.pyo
+global-exclude *.pyc
+include VERSION
