@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: china-beancount-importers
+Version: 0.0.1
+Summary: A set of importers maybe useful for you in China.
+Home-page: https://github.com/Trim21/china-beancount-importers
+License: MIT
+Author: Trim21
+Author-email: i@trim21.me
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: beancount (>=2.3.0,<3.0.0,!=2.3.1)
+Project-URL: Repository, https://github.com/Trim21/china-beancount-importers
