@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: songmam
+Version: 1.1.0
+Summary: A production interface to facebook messenger api.
+Author: Nutchanon Ninyawee
+Author-email: me@nutchanon.org
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: autoname (>=0.1.2,<0.2.0)
+Requires-Dist: avajana (>=0.2.0,<0.3.0)
+Requires-Dist: cacheout (>=0.11.2,<0.12.0)
+Requires-Dist: furl (>=2.1.0,<3.0.0)
+Requires-Dist: httpx (>=0.13.3,<0.14.0)
+Requires-Dist: loguru (>=0.5.1,<0.6.0)
+Requires-Dist: parse (>=1.16.0,<2.0.0)
+Requires-Dist: path (>=15.0.0,<16.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Requires-Dist: starlette (>=0.13.4,<0.14.0)
