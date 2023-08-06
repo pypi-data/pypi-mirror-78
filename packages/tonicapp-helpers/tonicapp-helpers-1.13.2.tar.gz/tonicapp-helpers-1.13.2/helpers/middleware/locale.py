@@ -1,0 +1,29 @@
+from re import fullmatch
+
+from django.utils.translation import activate
+from django.http import HttpResponseBadRequest
+
+
+class LocaleMiddleware(object):
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+
+        accept_language = request.META.get('HTTP_ACCEPT_LANGUAGE')
+        if not accept_language:
+            return HttpResponseBadRequest(
+                'Add Accept-Language to the header. Example: Accept-Language: pt-PT'
+            )
+        if not fullmatch('^[a-z]{2}\-[A-Z]{2}$', accept_language):
+            return HttpResponseBadRequest(
+                'Incorrect Accept-Language. Example: Accept-Language: pt-PT'
+            )
+
+        activate(accept_language)
+        
+        request.locale = accept_language
+
+        response = self.get_response(request)
+
+        return response
