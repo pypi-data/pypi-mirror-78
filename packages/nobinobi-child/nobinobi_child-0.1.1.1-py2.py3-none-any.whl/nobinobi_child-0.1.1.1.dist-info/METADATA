@@ -1,0 +1,163 @@
+Metadata-Version: 2.1
+Name: nobinobi-child
+Version: 0.1.1.1
+Summary: Application Child for Nobinobi
+Home-page: https://github.com/prolibre-ch/nobinobi-child
+Author: Florian Alu
+Author-email: alu@prolibre.com
+License: UNKNOWN
+Keywords: nobinobi-child
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Django :: 3.1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: djangorestframework (==3.11.1)
+Requires-Dist: django (==3.1.1)
+Requires-Dist: django-model-utils (==4.0.0)
+Requires-Dist: django-phonenumber-field (==5.0.0)
+Requires-Dist: phonenumbers (==8.12.9)
+Requires-Dist: Pillow (==7.2.0)
+Requires-Dist: django-crispy-forms (==1.9.2)
+Requires-Dist: urllib3 (==1.25.10)
+Requires-Dist: django-select2 (==7.4.2)
+Requires-Dist: django-bootstrap-modal-forms (==2.0.0)
+Requires-Dist: django-widget-tweaks (==1.4.8)
+Requires-Dist: django-bootstrap-datepicker-plus (==3.0.5)
+Requires-Dist: django-simple-menu (==1.2.1)
+Requires-Dist: django-extensions (==3.0.8)
+Requires-Dist: djangorestframework-datatables (==0.5.2)
+Requires-Dist: django-weasyprint (==1.0.1)
+Requires-Dist: nobinobi-staff (==0.1.3.1)
+Requires-Dist: nobinobi-core (==0.1.0)
+
+=============================
+Nobinobi Child
+=============================
+
+.. image:: https://badge.fury.io/py/nobinobi-child.svg
+    :target: https://badge.fury.io/py/nobinobi-child
+
+.. image:: https://travis-ci.org/prolibre-ch/nobinobi-child.svg?branch=master
+    :target: https://travis-ci.org/prolibre-ch/nobinobi-child
+
+.. image:: https://codecov.io/gh/prolibre-ch/nobinobi-child/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/prolibre-ch/nobinobi-child
+
+.. image:: https://pyup.io/repos/github/prolibre-ch/nobinobi-child/shield.svg
+     :target: https://pyup.io/repos/github/prolibre-ch/nobinobi-child/
+     :alt: Updates
+
+.. image:: https://pyup.io/repos/github/prolibre-ch/nobinobi-child/python-3-shield.svg
+     :target: https://pyup.io/repos/github/prolibre-ch/nobinobi-child/
+     :alt: Python 3
+
+Application Child for Nobinobi
+
+Documentation
+-------------
+
+The full documentation is at https://nobinobi-child.readthedocs.io.
+
+Quickstart
+----------
+
+Install Nobinobi Child::
+
+    pip install nobinobi-child
+
+Add it to your `INSTALLED_APPS`:
+
+.. code-block:: python
+
+    INSTALLED_APPS = (
+        ...
+        'phonenumber_field',
+        'crispy_forms',
+        'django_extensions',
+        'rest_framework',
+        'rest_framework.authtoken',
+        'rest_framework_datatables',
+        'menu',
+        'bootstrap_modal_forms',
+        'widget_tweaks',
+        'django_select2',
+        'bootstrap_datepicker_plus',
+        'nobinobi_core',
+        'nobinobi_staff',
+        'nobinobi_child.apps.NobinobiChildConfig',
+        ...
+    )
+
+Add Nobinobi Child's URL patterns:
+
+.. code-block:: python
+
+    from nobinobi_core import urls as nobinobi_core_urls
+    from nobinobi_staff import urls as nobinobi_staff_urls
+    from nobinobi_child import urls as nobinobi_child_urls
+
+
+    urlpatterns = [
+        ...
+        path('', include(nobinobi_core_urls)),
+        path('', include(nobinobi_staff_urls)),
+        path('', include(nobinobi_child_urls)),
+        ...
+    ]
+
+Features
+--------
+
+* TODO
+
+Running Tests
+-------------
+
+Does the code actually work?
+
+::
+
+    source <YOURVIRTUALENV>/bin/activate
+    (myenv) $ pip install tox
+    (myenv) $ tox
+
+Credits
+-------
+
+Tools used in rendering this package:
+
+*  Cookiecutter_
+*  `cookiecutter-djangopackage`_
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`cookiecutter-djangopackage`: https://github.com/pydanny/cookiecutter-djangopackage
+
+
+
+
+History
+-------
+
+0.1.1.1 (2020-09-08)
+++++++++++++++++++++
+
+* Fix Manifest to add woff woff2 ttf ico
+* Add in requirements.txt and setup.py -> djangorestframework-datatables==0.5.2
+
+0.1.1 (2020-09-08)
+++++++++++++++++++
+
+* Fix manifest to include JSON and change setup.py publish and version system
+* Update Requirement
+
+0.1.0 (2020-08-28)
+++++++++++++++++++
+
+* First release on PyPI.
+
+
