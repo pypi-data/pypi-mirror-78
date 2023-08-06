@@ -1,0 +1,9 @@
+moban_file_spec_version: 1234
+configuration:
+  configuration_dir: "."
+  template_dir:
+    - ".moban.d"
+  configuration: data.yaml
+targets:
+  - README.rst: README.rst
+  - setup.py: setup.py

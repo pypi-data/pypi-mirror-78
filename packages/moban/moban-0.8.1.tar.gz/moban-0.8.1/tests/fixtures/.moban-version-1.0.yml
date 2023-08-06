@@ -1,0 +1,5 @@
+version: 1.0
+configuration:
+  configuration_dir: "commons/config"
+  template_dir:
+    - ".moban.d"
