@@ -1,0 +1,4 @@
+babel>=2.5.0
+
+[:python_version < "3.5"]
+typing>=3.6.0
