@@ -1,0 +1,11 @@
+coverage
+flake8
+pytest
+pytest-cov
+pytest-django
+pytest-mock
+django-fsm>=2.7
+django-model-utils>=3.2.0
+djangorestframework>=3.9
+pyyaml
+uritemplate
