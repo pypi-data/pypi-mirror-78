@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: sql-convertor
+Version: 0.0.8
+Summary: Convert SQL table definition to peewee/django/... model definition
+Home-page: https://github.com/zpoint/sql-convertor
+License: UNKNOWN
+Keywords: sql convertor peewee
+Author: zpoint
+Author-email: zp0int@qq.com
+Requires-Python: >=3.5.2
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: pyparsing
