@@ -1,0 +1,5 @@
+[console_scripts]
+gcat = gpta.cat:main
+gdump = gpta.dump:main
+gplot = gpta.plot:main
+
