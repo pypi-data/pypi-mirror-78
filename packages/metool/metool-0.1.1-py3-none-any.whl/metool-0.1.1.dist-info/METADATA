@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: metool
+Version: 0.1.1
+Summary: Command tool for work and study.
+License: MIT
+Author: Albert Chen
+Author-email: albert.chen.dao@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: uuid (>=1.30,<2.0)
