@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "solconfig"
+version = "0.1.2"
+description = "Backing Up and Restoring Solace PubSub+ Broker Configuration with SEMPv2 protocol"
+authors = ["flyisland <island.chen@outlook.com>"]
+readme = "README.md"
+homepage = "https://github.com/flyisland/solconfig"
+repository = "https://github.com/flyisland/solconfig"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+click = "^7.1.2"
+requests = "^2.24.0"
+jinja2 = "^2.11.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.scripts]
+ solconfig = 'solconfig.cmd:cli'
+ 
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
