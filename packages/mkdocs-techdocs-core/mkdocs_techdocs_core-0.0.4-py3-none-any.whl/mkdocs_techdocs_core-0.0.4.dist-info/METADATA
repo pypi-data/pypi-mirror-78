@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: mkdocs-techdocs-core
+Version: 0.0.4
+Summary: A Mkdocs package that contains TechDocs defaults
+Home-page: https://github.com/spotify/backstage
+Author: TechDocs Core
+Author-email: pulp-fiction@spotify.com
+License: Apache-2.0
+Keywords: mkdocs
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+Requires-Dist: mkdocs (>=1.1.2)
+Requires-Dist: mkdocs-material (==5.3.2)
+Requires-Dist: mkdocs-monorepo-plugin (==0.4.5)
+Requires-Dist: plantuml-markdown (==3.4.0)
+Requires-Dist: markdown-inline-graphviz-extension (==1.1)
+Requires-Dist: pygments (==2.6.1)
+Requires-Dist: pymdown-extensions (==7.1)
+
+UNKNOWN
+
+
