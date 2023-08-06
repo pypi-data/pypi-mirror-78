@@ -1,0 +1,31 @@
+six~=1.11
+setuptools
+wheel
+
+[:python_version < "3.4"]
+pathlib~=1.0.1
+
+[dev]
+coverage==4.3.4
+pytest-cov==2.4.0
+pytest==3.0.7
+py==1.4.33
+mock==2.0.0
+parameterized==0.6.1
+backports.tempfile==1.0
+
+[dev:python_version < "3.2.3"]
+futures==3.2.0
+
+[dev:python_version < "3.4"]
+pathlib2==2.3.2
+
+[dev:python_version < "3.8"]
+flake8==3.3.0
+astroid<2.1.0,>=1.5.8
+pylint==1.7.2
+isort<5,>=4.2.5
+
+[dev:python_version >= "3.8"]
+flake8==3.7.9
+pylint==2.4.4
