@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: tornado-widgets
+Version: 0.0.37
+Summary: Easier Tornado Web Application Development
+Home-page: https://github.com/AeGean-Studio/tornado_widgets
+Author: AeGean-Studio
+Author-email: wyqsmith@aegeanstudio.com
+License: BSD
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Requires-Dist: apispec-webframeworks
+Requires-Dist: chardet
+Requires-Dist: marshmallow (>=3)
+Requires-Dist: orjson
+Requires-Dist: python-dateutil
+Requires-Dist: sentry-sdk
+Requires-Dist: tornado (>=6.0)
+Requires-Dist: uvloop
+Provides-Extra: influxdb
+Requires-Dist: influxdb ; extra == 'influxdb'
+Provides-Extra: mysql
+Requires-Dist: databases[mysql] ; extra == 'mysql'
+Provides-Extra: postgres
+Requires-Dist: gino ; extra == 'postgres'
+Provides-Extra: redis
+Requires-Dist: aioredis ; extra == 'redis'
+
+UNKNOWN
+
+
