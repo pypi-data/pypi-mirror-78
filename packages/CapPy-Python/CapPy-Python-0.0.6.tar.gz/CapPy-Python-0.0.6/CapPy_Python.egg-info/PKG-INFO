@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: CapPy-Python
+Version: 0.0.6
+Summary: Python package for easy window capturing
+Home-page: https://github.com/GE0NE/CapPy
+Author: GEONE
+Author-email: geonegames@gmail.com
+License: UNKNOWN
+Description: # CapPy
+        A Pillow wrapper for easy window capturing and window data acquisition.
+        
+        Examples:
+        ```
+        import cappy as cpy
+        window = cpy.match_window('notepad.exe')
+        ```
+        ---
+        ```
+        import cappy as cpy
+        window = cpy.match_window('mspaint.exe')
+        print(window.process, window.pid, window.tid, window.hwnd)
+        >mspaint.exe 9024 6024 1048826
+        ```
+        ---
+        ```
+        import cappy as cpy
+        window = cpy.match_window('GTA5.exe')
+        while(window.alive):
+            cpy.cv2_record(window)
+        cpy.cv2_dispose()
+        ```
+        ---
+        ```
+        import cappy as cpy
+        windows_out = []
+        cpy.retrieve_windows(windows_out)
+        for window in windows_out:
+            print(window.name)
+        >Calculator
+        >Untitled - Notepad
+        >#general - Discord
+        >Google - Mozilla Firefox
+        >Steam
+        >...
+        ```
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: Microsoft :: Windows :: Windows 8.1
+Classifier: Operating System :: Microsoft :: Windows :: Windows 8
+Classifier: Operating System :: Microsoft :: Windows :: Windows 7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
