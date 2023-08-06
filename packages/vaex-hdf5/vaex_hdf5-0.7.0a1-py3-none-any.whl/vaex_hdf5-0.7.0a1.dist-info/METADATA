@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: vaex-hdf5
+Version: 0.7.0a1
+Summary: hdf5 file support for vaex
+Home-page: https://www.github.com/maartenbreddels/vaex
+Author: Maarten A. Breddels
+Author-email: maartenbreddels@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: vaex-core (<5,>=4.0.0-alpha.1)
+Requires-Dist: h5py (>=2.9)
+Requires-Dist: s3fs (<0.3)
+Requires-Dist: gcsfs (>=0.6.2)
+
+UNKNOWN
+
+
