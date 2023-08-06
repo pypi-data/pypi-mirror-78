@@ -1,0 +1,20 @@
+/**
+ * @brief Request the Unobservable Property ${property_id} from the server
+ *
+ * @return The value of the Property
+ */
+Get_${property_id}_Responses Get_${property_id}() const
+{
+    grpc::ClientContext Context;
+    Get_${property_id}_Responses Responses;
+
+    qInfo() << "--- Requesting Unobservable Property ${property_id}";
+    const auto Status =
+        m_${feature_identifier}Stub->Get_${property_id}(&Context, {}, &Responses);
+    if (!SiLA2::hasError(Status))
+    {
+        qInfo() << "Get_${property_id} Response:" << Responses;
+    }
+
+    return Responses;
+}

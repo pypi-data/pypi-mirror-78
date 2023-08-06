@@ -1,0 +1,9 @@
+using ${command_id}Command = SiLA2::CObservableCommandManager<
+    &C${feature_identifier}Impl::Request${command_id},
+    &C${feature_identifier}Impl::Request${command_id}_Info,
+    &C${feature_identifier}Impl::Request${command_id}_Result,
+    &C${feature_identifier}Impl::Request${command_id}_Intermediate>;
+using ${command_id}Wrapper = SiLA2::CObservableCommandWrapper<
+    ${feature_namespace}::${command_id}_Parameters,
+    ${feature_namespace}::${command_id}_Responses,
+    ${feature_namespace}::${command_id}_IntermediateResponses>;

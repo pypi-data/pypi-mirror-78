@@ -1,0 +1,12 @@
+${command_id}_Responses C${feature_identifier}Impl::${command_id}(${command_id}Wrapper* Command)
+{
+    const auto Request = Command->parameters();
+    qDebug() << "Request contains:" << Request;
+    // TODO: Validate request parameters...
+
+${implementation_logic}
+
+    auto Response = ${command_id}_Responses{};
+    // TODO: Fill the response fields
+    return Response;
+}

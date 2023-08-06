@@ -1,0 +1,16 @@
+/**
+ * @brief ${command_id} Command
+ *
+ * @details ${doc_wrap(82):trim(True,True):command_description}
+ *
+ * @param Command The current ${command_id} Command Execution Wrapper
+ * It contains the following Parameters:
+${parameters_description}
+ *
+ * @return ${command_id}_Responses The Command Response
+ * It contains the following fields:
+${responses_description}
+ *
+ * @throw Validation Error if the given Parameter(s) are invalid
+ */
+${feature_namespace}::${command_id}_Responses ${command_id}(${command_id}Wrapper* Command);

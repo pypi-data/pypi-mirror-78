@@ -1,0 +1,1 @@
+from ${feature_identifier}.${feature_identifier}_servicer import ${feature_identifier}

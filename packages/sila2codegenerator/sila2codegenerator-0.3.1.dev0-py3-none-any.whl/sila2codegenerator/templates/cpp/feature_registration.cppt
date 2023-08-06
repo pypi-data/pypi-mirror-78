@@ -1,0 +1,3 @@
+registerFeature(new C${feature_identifier}Impl{this},
+                SiLA2::CFeatureID{${feature_identifier}::service_full_name()},
+                C${feature_identifier}Impl::featureDefinition());

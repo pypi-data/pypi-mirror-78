@@ -1,0 +1,128 @@
+/**
+ ** This file is part of the sila_cpp project.
+ **
+ ** Permission is hereby granted, free of charge, to any person obtaining a copy
+ ** of this software and associated documentation files (the "Software"), to deal
+ ** in the Software without restriction, including without limitation the rights
+ ** to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ ** copies of the Software, and to permit persons to whom the Software is
+ ** furnished to do so, subject to the following conditions:
+ **
+ ** The above copyright notice and this permission notice shall be included in all
+ ** copies or substantial portions of the Software.
+ **
+ ** THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ ** IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ ** FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ ** AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ ** LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ ** OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ ** SOFTWARE.
+ **/
+
+//============================================================================
+/// \file    ${output_filename}
+/// \authors ${authors}
+/// \date    ${creation_date}
+/// \brief   ${service_name} client
+/// \note    ${note}
+//============================================================================
+
+//============================================================================
+//                                  INCLUDES
+//============================================================================
+#include <sila_cpp/client/SiLAClient.h>
+#include <sila_cpp/common/ServerAddress.h>
+#include <sila_cpp/common/logging.h>
+#include <sila_cpp/data_types.h>
+#include <sila_cpp/framework/error_handling/ClientError.h>
+
+${include_grpc}
+
+#include <QCommandLineParser>
+#include <QCoreApplication>
+
+#include <grpcpp/grpcpp.h>
+
+using namespace std;
+using namespace sila2::org::silastandard;
+${using_feature_namespaces}
+
+/**
+ * @brief ${trim(True,False):service_description}
+ */
+class ${service_name}Client : public SiLA2::CSiLAClient
+{
+public:
+    explicit ${service_name}Client(const SiLA2::CServerAddress& Address)
+        : SiLA2::CSiLAClient{Address},
+          // Create stub objects used to communicate with server
+${indent(10):stub_creation}
+    {}
+
+${indent(4):convenience_functions}
+${indent(4):command_calls}
+${indent(4):property_calls}
+
+private:
+${indent(4):stub_declaration}
+};
+
+/**
+ * @brief Looking for command line arguments
+ *
+ * @return CServerAddress The address of the SiLA server to connect with that was
+ * set on the command line
+ */
+SiLA2::CServerAddress parseCommandLine()
+{
+    QCommandLineParser Parser;
+    Parser.setApplicationDescription("A SiLA2 client: ${service_name}");
+    Parser.addHelpOption();
+    Parser.addVersionOption();
+    Parser.addOptions({{{"a", "server-ip-address"},
+                        "The IP address of the SiLA server to connect with",
+                        "ip-address",
+                        "${IP_address}"},
+                       {{"p", "server-port"},
+                        "The port on which the SiLA server should run",
+                        "port",
+                        "${communication_port}"}});
+
+    if (!Parser.parse(QCoreApplication::arguments()))
+    {
+        qCritical() << "Could not read server information from command line:"
+                    << Parser.errorText();
+        qWarning() << "Assuming default values for all command line options!";
+        return {};
+    }
+
+    if (Parser.isSet("help"))
+    {
+        Parser.showHelp();
+    }
+
+    if (Parser.isSet("version"))
+    {
+        Parser.showVersion();
+    }
+
+    return {Parser.value("server-ip-address"), Parser.value("server-port")};
+}
+
+//============================================================================
+int main(int argc, char* argv[])
+{
+    QCoreApplication App{argc, argv};
+    QCoreApplication::setApplicationName("${service_name}Client");
+    QCoreApplication::setApplicationVersion("${version}");
+
+    // Create and start the client
+    auto SiLAClient = ${service_name}Client{parseCommandLine()};
+
+    // TODO:
+    //  Write your further function calls here to run the client as a
+    //  standalone application.
+
+    return 0;
+}

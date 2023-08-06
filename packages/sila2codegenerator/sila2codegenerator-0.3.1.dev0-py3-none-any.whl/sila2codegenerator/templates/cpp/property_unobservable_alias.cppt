@@ -1,0 +1,2 @@
+using ${property_id}Property = SiLA2::CUnobservablePropertyWrapper<
+    ${underlying_type}, &C${feature_identifier}Impl::RequestGet_${property_id}>;

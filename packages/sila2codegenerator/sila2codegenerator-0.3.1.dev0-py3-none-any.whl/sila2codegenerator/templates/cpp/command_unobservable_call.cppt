@@ -1,0 +1,25 @@
+/**
+ * @brief Call the Unobservable command ${command_id} on the server
+ *
+ * @param Parameters The following Command Parameters:
+${parameters_description}
+ *
+ * @return ${command_id}_Responses The Command Response
+ * It contains the following fields:
+${responses_description}
+ */
+${command_id}_Responses ${command_id}(const ${command_id}_Parameters& Parameters = {}) const
+{
+    grpc::ClientContext Context;
+    ${command_id}_Responses Responses;
+
+    qInfo() << "--- Calling Unobservable Command ${command_id}";
+    const auto Status =
+        m_${feature_identifier}Stub->${command_id}(&Context, Parameters, &Responses);
+    if (!SiLA2::hasError(Status))
+    {
+        qInfo() << "${command_id} Response:" << Responses;
+    }
+
+    return Responses;
+}

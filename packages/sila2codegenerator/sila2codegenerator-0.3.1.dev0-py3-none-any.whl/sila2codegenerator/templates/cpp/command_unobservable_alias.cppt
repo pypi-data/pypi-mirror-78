@@ -1,0 +1,5 @@
+using ${command_id}Command =
+    SiLA2::CUnobservableCommandManager<&C${feature_identifier}Impl::Request${command_id}>;
+using ${command_id}Wrapper = SiLA2::CUnobservableCommandWrapper<
+    ${feature_namespace}::${command_id}_Parameters,
+    ${feature_namespace}::${command_id}_Responses>;

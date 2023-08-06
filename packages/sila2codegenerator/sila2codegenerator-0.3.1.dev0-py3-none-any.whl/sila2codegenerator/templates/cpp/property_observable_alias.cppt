@@ -1,0 +1,2 @@
+using ${property_id}Property = SiLA2::CObservablePropertyWrapper<
+    ${underlying_type}, &C${feature_identifier}Impl::RequestSubscribe_${property_id}>;

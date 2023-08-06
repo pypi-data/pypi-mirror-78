@@ -1,0 +1,18 @@
+/**
+ * @brief Subscribes to the Observable Property ${property_id} of the server
+ */
+void Subscribe_${property_id}() const
+{
+    grpc::ClientContext Context;
+    Subscribe_${property_id}_Responses Responses;
+
+    qInfo() << "--- Subscribing to Observable Property ${property_id}";
+    const auto Reader =
+        m_${feature_identifier}Stub->Subscribe_${property_id}(&Context, {});
+    while (Reader->Read(&Responses))
+    {
+        qInfo() << Responses;
+    }
+
+    SiLA2::hasError(Reader->Finish());
+}

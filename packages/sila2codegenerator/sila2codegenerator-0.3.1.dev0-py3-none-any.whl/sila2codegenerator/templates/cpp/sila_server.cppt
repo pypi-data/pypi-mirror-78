@@ -1,0 +1,132 @@
+/**
+ ** This file is part of the sila_cpp project.
+ **
+ ** Permission is hereby granted, free of charge, to any person obtaining a copy
+ ** of this software and associated documentation files (the "Software"), to deal
+ ** in the Software without restriction, including without limitation the rights
+ ** to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ ** copies of the Software, and to permit persons to whom the Software is
+ ** furnished to do so, subject to the following conditions:
+ **
+ ** The above copyright notice and this permission notice shall be included in all
+ ** copies or substantial portions of the Software.
+ **
+ ** THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ ** IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ ** FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ ** AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ ** LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ ** OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ ** SOFTWARE.
+ **/
+
+//============================================================================
+/// \file    ${output_filename}
+/// \authors ${authors}
+/// \date    ${creation_date}
+/// \brief   ${service_name} server
+/// \note    ${note}
+//============================================================================
+
+//============================================================================
+//                                  INCLUDES
+//============================================================================
+#include <sila_cpp/common/FeatureID.h>
+#include <sila_cpp/common/ServerAddress.h>
+#include <sila_cpp/common/ServerInformation.h>
+#include <sila_cpp/common/logging.h>
+#include <sila_cpp/server/SiLAServer.h>
+
+#include <QCommandLineParser>
+#include <QCoreApplication>
+
+${include_features}
+
+using namespace std;
+${using_feature_namespaces}
+
+/**
+ * @brief ${trim(True,False):service_description}
+ */
+class ${service_name}Server : public SiLA2::CSiLAServer
+{
+public:
+    /**
+     * @brief C'tor
+     */
+    ${service_name}Server(
+        const SiLA2::CServerInformation& ServerInfo, const SiLA2::CServerAddress& Address)
+        : SiLA2::CSiLAServer{ServerInfo, Address}
+    {
+        qDebug() << "Registering features...";
+${indent(8):feature_registration}
+    }
+};
+
+/**
+ * @brief Looking for command line arguments
+ *
+ * @return pair<CServerInformation, CServerAddress> A pair with the server
+ * information (name, type, ...) and the server's address (IP and port)
+ */
+pair<SiLA2::CServerInformation, const SiLA2::CServerAddress> parseCommandLine()
+{
+    QCommandLineParser Parser;
+    Parser.setApplicationDescription("A SiLA2 service: ${service_name}");
+    Parser.addHelpOption();
+    Parser.addVersionOption();
+    Parser.addOptions({{{"s", "server-name"},
+                        "The name of the SiLA server",
+                        "name",
+                        "${service_name}"},
+                       {{"t", "server-type"},
+                        "The type of the SiLA server",
+                        "type",
+                        "${service_type}"},
+                       {{"d", "description"},
+                        "The description of the SiLA server",
+                        "description text",
+                        "${service_description}"},
+                       {{"p", "server-port"},
+                        "The port on which the SiLA server should run",
+                        "port",
+                        "${communication_port}"}});
+
+    if (!Parser.parse(QCoreApplication::arguments()))
+    {
+        qCritical() << "Could not read server information from command line:"
+                    << Parser.errorText();
+        qWarning() << "Assuming default values for all command line options!";
+        return {};
+    }
+
+    if (Parser.isSet("help"))
+    {
+        Parser.showHelp();
+    }
+
+    if (Parser.isSet("version"))
+    {
+        Parser.showVersion();
+    }
+
+    return {{Parser.value("server-name"), Parser.value("server-type"),
+             Parser.value("description"), QCoreApplication::applicationVersion(),
+             "${vendor_url}"},
+            {"${IP_address}", Parser.value("server-port")}};
+}
+
+//============================================================================
+int main(int argc, char* argv[])
+{
+    QCoreApplication App{argc, argv};
+    QCoreApplication::setApplicationName("${service_name}Server");
+    QCoreApplication::setApplicationVersion("${version}");
+
+    const auto [ServerInfo, ServerAddress] = parseCommandLine();
+
+    auto SiLAServer = ${service_name}Server{ServerInfo, ServerAddress};
+    SiLAServer.run();
+
+    return 0;
+}

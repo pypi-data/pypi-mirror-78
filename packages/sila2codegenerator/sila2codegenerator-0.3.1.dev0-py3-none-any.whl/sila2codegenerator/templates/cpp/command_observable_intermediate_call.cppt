@@ -1,0 +1,99 @@
+/**
+ * @brief Request Execution of the Observable Command ${command_id}
+ * on the server. This function also automatically calls
+ * @a ${command_id}_Info after the Execution has been requested.
+ *
+ * @param Parameters The following Command Parameters:
+${parameters_description}
+ */
+void ${command_id}(const ${command_id}_Parameters& Parameters = {}) const
+{
+    grpc::ClientContext Context;
+    CommandConfirmation Confirmation;
+
+    qInfo() << "--- Calling Observable Command ${command_id}";
+    const auto Status = m_${feature_identifier}Stub->${command_id}(
+        &Context, Parameters, &Confirmation);
+    if (!SiLA2::hasError(Status))
+    {
+        qInfo() << Confirmation;
+    }
+    ${command_id}_Info(Confirmation.commandexecutionuuid());
+}
+
+/**
+ * @brief Subscribe to the Command Execution Info for the ${command_id}
+ * Command. This function also automatically calls
+ * @a ${command_id}_Result after the Execution finished successfully.
+ *
+ * @param UUID The UUID of the Command Execution
+ */
+void ${command_id}_Info(const CommandExecutionUUID& UUID) const
+{
+    grpc::ClientContext Context;
+    ExecutionInfo Info;
+
+    qInfo() << "--- Requesting status info about ${command_id} Command Execution";
+
+    const auto Reader =
+        m_${feature_identifier}Stub->${command_id}_Info(&Context, UUID);
+    while (Reader->Read(&Info))
+    {
+        qInfo() << Info;
+    }
+
+    const auto Status = Reader->Finish();
+    if (!SiLA2::hasError(Status))
+    {
+        ${command_id}_Result(UUID);
+    }
+}
+
+/**
+ * @brief Subscribe to the Intermediate Responses of the ${command_id}
+ * Command.
+ *
+ * @param UUID The UUID of the Command Execution
+ */
+void ${command_id}_Intermediate(const CommandExecutionUUID& UUID) const
+{
+    grpc::ClientContext Context;
+    ${command_id}_IntermediateResponses Result;
+
+    qInfo() << "--- Requesting Intermediate Result of ${command_id} Command Execution";
+
+    const auto Reader =
+        m_${feature_identifier}Stub->${command_id}_Intermediate(&Context, UUID);
+    while (Reader->Read(&Result))
+    {
+        qInfo() << Result;
+    }
+
+    SiLA2::hasError(Reader->Finish());
+}
+
+/**
+ * @brief Request the final result for the ${command_id} Command
+ *
+ * @param UUID The UUID of the Command Execution
+ *
+ * @return ${command_id}_Responses The Command Response
+ * It contains the following fields:
+${responses_description}
+ */
+${command_id}_Responses ${command_id}_Result(const CommandExecutionUUID& UUID) const
+{
+    grpc::ClientContext Context;
+    ${command_id}_Responses Responses;
+
+    qInfo() << "--- Requesting final result for ${command_id} Command Execution";
+
+    const auto Status =
+        m_${feature_identifier}Stub->${command_id}_Result(&Context, UUID, &Responses);
+    if (!SiLA2::hasError(Status))
+    {
+        qInfo() << Responses;
+    }
+
+    return Responses;
+}
