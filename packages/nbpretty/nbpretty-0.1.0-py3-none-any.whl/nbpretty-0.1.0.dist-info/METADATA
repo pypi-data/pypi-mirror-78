@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: nbpretty
+Version: 0.1.0
+Summary: 
+License: MIT
+Author: Matt Williams
+Author-email: matt@milliams.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: PyYAML (>=5.1,<6.0)
+Requires-Dist: nbconvert (>=5.6,<6.0)
