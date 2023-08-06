@@ -1,0 +1,9 @@
+singer-python==5.9.0
+backoff==1.8.0
+requests==2.22.0
+ijson==3.0.4
+
+[dev]
+ipdb
+pylint
+nose
