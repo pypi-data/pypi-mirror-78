@@ -1,0 +1,12 @@
+[console_scripts]
+vbmc = vbmc4vsphere.cmd.vbmc:main
+vbmcd = vbmc4vsphere.cmd.vbmcd:main
+
+[vbmc4vsphere]
+add = vbmc4vsphere.cmd.vbmc:AddCommand
+delete = vbmc4vsphere.cmd.vbmc:DeleteCommand
+list = vbmc4vsphere.cmd.vbmc:ListCommand
+show = vbmc4vsphere.cmd.vbmc:ShowCommand
+start = vbmc4vsphere.cmd.vbmc:StartCommand
+stop = vbmc4vsphere.cmd.vbmc:StopCommand
+
