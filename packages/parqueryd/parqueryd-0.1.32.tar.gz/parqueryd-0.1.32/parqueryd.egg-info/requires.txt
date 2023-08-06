@@ -1,0 +1,16 @@
+azure-storage-blob>=12.4.0
+boto3>=1.14.40
+configobj>=5.0.6
+netifaces>=0.10.9
+parquery>=0.1.15
+psutil>=5.7.2
+pyzmq>=19.0.2
+redis>=3.5.3
+smart_open>=1.11.1
+
+[optional]
+
+[test]
+codacy-coverage>=1.3.11
+pytest-cov>=2.10.0
+pytest>=4.6.11
