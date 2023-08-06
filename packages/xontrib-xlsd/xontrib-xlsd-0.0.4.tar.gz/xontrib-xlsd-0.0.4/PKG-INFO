@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: xontrib-xlsd
+Version: 0.0.4
+Summary: An improved ls for xonsh, inspired by lsd
+Home-page: https://github.com/cafehaine/xontrib-xlsd
+Author: CaféHaine
+Author-email: kilian.guillaume@gmail.com
+License: GPLv3
+Description: # xontrib-xlsd
+        # DISCLAIMER: This is really early software, it probably wont work on your system.
+        
+        An improved ls for xonsh, inspired by lsd
+        [![asciicast](https://asciinema.org/a/mxvzgiAT8tBldKsrxFusN2riY.svg)](https://asciinema.org/a/mxvzgiAT8tBldKsrxFusN2riY)
+        The asciinema demo isn't great as it doesn't seem to account for the emoji's cell width.
+        
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Environment :: Plugins
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
