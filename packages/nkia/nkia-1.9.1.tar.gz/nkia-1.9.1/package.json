@@ -1,0 +1,38 @@
+{
+  "name": "servicos-napkinn",
+  "version": "1.0.0",
+  "description": "Apenas pra usar as ferramentas de commitlint husky e commitizen",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/nksistemasdeinformacao/servicos-napkinn.git"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "author": "Fernando Silva Maransatto",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/nksistemasdeinformacao/servicos-napkinn#readme",
+  "devDependencies": {
+    "commitizen": "^4.0.3",
+    "commitlint": "^8.3.5",
+    "husky": "^4.2.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@commitlint/config-conventional": "^8.3.4"
+  }
+}

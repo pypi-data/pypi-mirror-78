@@ -1,0 +1,11 @@
+tensorflow==2.2.0
+numpy==1.19.1
+tensorflow-datasets==3.2.1
+Unidecode==1.1.1
+nltk==3.5
+gdown==3.12.0
+scikit-learn==0.23.2
+symspellpy==6.5.2
+
+[dev]
+pytest>=3.7
