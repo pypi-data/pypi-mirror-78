@@ -1,0 +1,1 @@
+from ibm_watson_machine_learning.workspace.workspace import WorkSpace
