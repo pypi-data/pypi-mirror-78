@@ -1,0 +1,23 @@
+language: python
+python:
+- '3.6'
+cache: pip
+install:
+- pip install -r requirements.txt
+- pip install .
+script: python setup.py test
+deploy:
+  provider: pypi
+  username: jkanche
+  user: jkanche
+  twine_version: 3.2.0
+  password:
+    secure: HpQud3rxQ2If/iHob6ztFqCOLwcL8/j3FoFmP2gmlgCHMLT95F3oOL2zqQ80RbOSDM0uTLeRl1MCXaV+B7MBa7iy+N3Ug78dY7e/SgUB/9cfucC1Vj449CjEJCP0DvNqlDuNDHzC0RaRUp6xUTaz31B3BpieyCIoY7aJhbeFZrPI/vHe/O4nPKbCiHnDg+KCP52VAex+Jm1cVpArOLysv/kCYFk6g1Kyrrb3H0ntVggdoSLIOV7oQgmMEwdcL7sbIKVCEPKv7TPt0LvWi8D8YTwIXW3diXoS68AO5cNxmwuDykJBDpb4+IAFWfysLeHplEmIT1eeRwUZ0cl/H8Uedy9xmTDqDBrCwWiQF4xJ3hYdgCLll1k+M7xyiVnpB8ilXHmluM1q5B2D9I8J8AqEXptQ6bfnoB+Lhhfs1iDVJ8wiaVHeSVUOW4lDRANqDzKxxT4bQcTUIxZxI9cCZD9UmXnk/qREp8h1LiGkEtinnWOBDjI9lruHZ8Am4H6CftODUsnZgHb9wDL242npAu8srrwP+dnw9xKBjPQDLpc1F+xHw1+uzF4ZNpB27mvgzEv5BuhEQIOgmG6T3VzmEUuEKjediSUL4ii8SAjnrzpFle35J7NR8TnxxhD9Y0/KYMBc3oh15BXN4MlYmlXmjlwDBgDil2nMAYaG+Z9ThOmLXZg=
+  on:
+    branch: master
+    tags: true
+    repo: epiviz/epivizFileServer
+    python: '3.6'
+  distributions: sdist bdist_wheel
+  skip_existing: true
+  skip_cleanup: true
