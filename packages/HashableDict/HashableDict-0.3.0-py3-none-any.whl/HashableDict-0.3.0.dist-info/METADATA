@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: HashableDict
+Version: 0.3.0
+Summary: A hashable immutable dictionary
+Home-page: https://github.com/IFcoltransG/HashableDict
+Author: IFcoltransG
+Author-email: IFcoltransG+PyPI@protonmail.ch
+License: unlicense
+Download-URL: https://github.com/IFcoltransG/HashableDict/archive/v0.3.0.tar.gz
+Keywords: dictionary,dict,frozen,hashable,immutable
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Public Domain
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# HashableDict
+A hashable immutable dictionary for Python. It lets you store dictionaries in sets or as keys to other dictionaries.
+## Usage
+```python
+from HashableDict import HashDict
+
+alive_list  = [("Ada Lovelace", False),
+               ("Douglas Adams", False),
+               ("Sylvia Plath", False),
+               ("Alan Turing", False),
+               ("you and your dreams", True)]
+
+alive_dict = HashDict(alive_list)
+
+if alive_dict["you and your dreams"]:
+    print("The dream is alive!")
+
+dict_within_dict = {alive_dict: None}
+print(dict_within_dict)
+```
+
+
