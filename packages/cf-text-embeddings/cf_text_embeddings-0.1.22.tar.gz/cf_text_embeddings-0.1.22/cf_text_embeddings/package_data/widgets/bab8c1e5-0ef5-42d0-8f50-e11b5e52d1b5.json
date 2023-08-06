@@ -1,0 +1,125 @@
+[
+  {
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "name": "LSI",
+      "action": "cf_text_embeddings_lsi",
+      "wsdl": "",
+      "wsdl_method": "",
+      "description": "A fast truncated SVD (Singular Value Decomposition). The SVD decomposition can be updated with new observations at any time, for an online, incremental, memory-efficient training.",
+      "category": "64066a04-05fe-4d9a-b380-f2627846a232",
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "interactive": false,
+      "interaction_view": "",
+      "post_interact_action": "",
+      "image": "",
+      "treeview_image": "",
+      "static_image": "",
+      "has_progress_bar": false,
+      "is_streaming": false,
+      "order": 1,
+      "uid": "bab8c1e5-0ef5-42d0-8f50-e11b5e52d1b5",
+      "package": "cf_text_embeddings",
+      "always_save_results": false,
+      "windows_queue": false
+    }
+  },
+  {
+    "model": "workflows.abstractinput",
+    "fields": {
+      "name": "Word tokens",
+      "short_name": "tok",
+      "description": "Documents tokenized to words [list of lists with str].",
+      "variable": "texts",
+      "widget": "bab8c1e5-0ef5-42d0-8f50-e11b5e52d1b5",
+      "required": true,
+      "parameter": false,
+      "multi": false,
+      "default": "",
+      "parameter_type": null,
+      "order": 1,
+      "uid": "3b9126f0-2987-4984-95b4-dd363032c736"
+    }
+  },
+  {
+    "model": "workflows.abstractinput",
+    "fields": {
+      "name": "Number of topics",
+      "short_name": "not",
+      "description": "The number of requested factors (latent dimensions). The number should be smaller or equal to the number of documents in the corpus.",
+      "variable": "num_topics",
+      "widget": "bab8c1e5-0ef5-42d0-8f50-e11b5e52d1b5",
+      "required": true,
+      "parameter": true,
+      "multi": false,
+      "default": "200",
+      "parameter_type": "text",
+      "order": 3,
+      "uid": "43ae7374-8bd3-49c7-b968-8ee500dd4449"
+    }
+  },
+  {
+    "model": "workflows.abstractinput",
+    "fields": {
+      "name": "Filter extemes",
+      "short_name": "fe",
+      "description": "Filter out tokens in the dictionary by their frequency. \r\nLess frequent than no_below documents (absolute number, e.g. 5) or\r\nMore frequent than no_above documents (fraction of the total corpus size, e.g. 0.3).\r\nAfter (1) and (2), keep only the first keep_n most frequent tokens (or keep all if keep_n=None).",
+      "variable": "filter_extremes",
+      "widget": "bab8c1e5-0ef5-42d0-8f50-e11b5e52d1b5",
+      "required": true,
+      "parameter": true,
+      "multi": false,
+      "default": "true",
+      "parameter_type": "checkbox",
+      "order": 6,
+      "uid": "dc55aefc-7f3d-49bb-a149-919842a75edb"
+    }
+  },
+  {
+    "model": "workflows.abstractinput",
+    "fields": {
+      "name": "Train on TF-IDF",
+      "short_name": "tdf",
+      "description": "TF-IDF vectors are constructed from Bag of Words. If unchecked LSI is trained on BOW",
+      "variable": "train_on_tfidf",
+      "widget": "bab8c1e5-0ef5-42d0-8f50-e11b5e52d1b5",
+      "required": true,
+      "parameter": true,
+      "multi": false,
+      "default": "true",
+      "parameter_type": "checkbox",
+      "order": 5,
+      "uid": "dd40fe7b-fac2-43c4-9d95-4e6e46832dc9"
+    }
+  },
+  {
+    "model": "workflows.abstractinput",
+    "fields": {
+      "name": "Decay",
+      "short_name": "dcy",
+      "description": "Weight of existing observations relatively to new ones.",
+      "variable": "decay",
+      "widget": "bab8c1e5-0ef5-42d0-8f50-e11b5e52d1b5",
+      "required": true,
+      "parameter": true,
+      "multi": false,
+      "default": "1",
+      "parameter_type": "text",
+      "order": 4,
+      "uid": "f3b35ba5-1b9c-4dee-be7c-14c1d38a32e1"
+    }
+  },
+  {
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "name": "Embeddings",
+      "short_name": "emb",
+      "description": "Embedding [numpy matrix of dimensions n_docs X n_features]",
+      "variable": "embeddings",
+      "widget": "bab8c1e5-0ef5-42d0-8f50-e11b5e52d1b5",
+      "order": 1,
+      "uid": "303dcd62-2d2a-4b0b-b75b-0831ea74de78"
+    }
+  }
+]
