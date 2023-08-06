@@ -1,0 +1,9 @@
+threedigrid
+numpy
+scipy
+h5py
+
+[test]
+flake8
+pytest
+pytest-cov
