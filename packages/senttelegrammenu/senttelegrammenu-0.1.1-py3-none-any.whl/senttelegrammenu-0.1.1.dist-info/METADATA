@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: senttelegrammenu
+Version: 0.1.1
+Summary: Superstructure over telebot which can show inline keyboard telegram menu
+Home-page: https://github.com/Senteris/SentTelegramMenu
+Author: Senteris
+Author-email: senteristeam@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pytelegrambotapi
+
+# Sent Telegram Menu
+Superstructure over [telebot](https://github.com/eternnoir/pyTelegramBotAPI)  which can show inline keyboard telegram menu
+![Alt text](images/basicusage.gif "Basic usage")
+## Examples
+- [Basic usage](examples/basic.py) 
+## Installing
+
+Install for development: `pipenv install --dev`
+
+
