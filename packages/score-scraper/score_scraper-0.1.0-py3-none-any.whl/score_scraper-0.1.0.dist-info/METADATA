@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: score-scraper
+Version: 0.1.0
+Summary: Package to scrape pre-game informations and scores from various websites
+Home-page: https://github.com/buddiman/score-scraper
+Author: Christopher Höllriegl
+Author-email: christopher@hoellriegl.me
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests (~=2.24.0)
+Requires-Dist: beautifulsoup4 (~=4.9.1)
+Requires-Dist: lxml (~=4.5.2)
+
+# score-scraper
+Scrape game informations and scores from:
+* flashscore
+* kicker
+
+Support planned for:
+* sofascore
+
+**Caution: No safety checks implemented.**
+
+## How to install
+```
+pip install score-scraper
+```
+
+## License
+MIT
+
+
+
+
