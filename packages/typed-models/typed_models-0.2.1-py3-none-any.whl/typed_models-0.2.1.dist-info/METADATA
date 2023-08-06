@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: typed-models
+Version: 0.2.1
+Summary: Strongly typed, lightweight, serializable models for Python
+Home-page: https://github.com/a2d24/typed-models
+License: MIT
+Keywords: models,serializable,typed
+Author: Imtiaz Mangerah
+Author-email: Imtiaz_Mangerah@a2d24.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pendulum (>=2.1.2,<3.0.0)
+Project-URL: Documentation, https://github.com/a2d24/typed-models
+Project-URL: Repository, https://github.com/a2d24/typed-models
+Description-Content-Type: text/x-rst
+
+Contributing
+============
+
+Contributions are welcome.
+
+Getting started
+---------------
+
+To work on the typed-models codebase, you'll want to clone the project locally
+and install the required dependencies via `poetry <https://poetry.eustace.io>`_.
+
+.. code-block:: bash
+
+    $ git clone git@github.com:a2d24/typed-models.git
+    $ poetry install
