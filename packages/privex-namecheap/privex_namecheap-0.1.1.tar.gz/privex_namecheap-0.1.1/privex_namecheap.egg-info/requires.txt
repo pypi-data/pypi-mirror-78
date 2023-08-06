@@ -1,0 +1,16 @@
+requests
+privex-helpers>=2.18.0
+privex-loghelper
+
+[dataclasses]
+dataclasses>=0.7
+
+[dev]
+setuptools
+wheel
+twine
+nose
+privex-helpers[setuppy]
+
+[py36]
+dataclasses>=0.7
