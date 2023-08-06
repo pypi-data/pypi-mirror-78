@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: Anomaly-Model
+Version: 1.0.3
+Summary: import method for anomaly detection
+Home-page: https://github.ibm.com/PO-GBS/Magna-MIG/tree/master/MIG_Anomaly_Detection/Anomaly_Models
+Author: anomaly detect team
+Author-email: wzhi05@126.com
+Maintainer: wangzhi
+Maintainer-email: wzhi05@126.com
+License: BSD License
+Keywords: anomaly,detect
+Platform: all
+Requires-Dist: numpy
+Requires-Dist: pandas
+
+import method for anomaly detection
+
+
