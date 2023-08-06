@@ -1,0 +1,108 @@
+import shlex
+from configparser import ConfigParser, NoOptionError
+from pathlib import Path
+from typing import Final, Iterator, Optional, Tuple
+
+from ..decorators import intercept_errors, require_bins, run_subprocess
+from ..errors import FailedSubprocessError, UnavailableResourceError
+from ..helpers.config import Config, SymConfigFile
+from ..helpers.constants import Saml2AwsNoRoles
+from ..helpers.contexts import push_env
+from ..helpers.keywords_to_options import Argument, Options, keywords_to_options
+from ..helpers.params import Profile, get_saml2aws_params
+from .saml_client import SAMLClient
+
+ErrorPatterns = {Saml2AwsNoRoles: UnavailableResourceError}
+
+
+class Saml2Aws(SAMLClient):
+    __slots__ = ["config_file", "resource", "debug", "_config"]
+    binary = "saml2aws"
+    option_value = "saml2aws"
+    priority = 10
+    setup_help = "Run `saml2aws login`."
+
+    resource: str
+    debug: bool
+    config_file: Final[SymConfigFile]
+    _config: Optional[ConfigParser]
+    _s2a_options: Final[Options]
+
+    def __init__(self, resource: str, *, debug: bool) -> None:
+        super().__init__(resource, debug=debug)
+        self.config_file = SymConfigFile(resource=resource, file_name="saml2aws.cfg")
+        self._s2a_options = {
+            "verbose": self.debug,
+            "config": str(self.config_file),
+            "idp_account": "sym",
+            "skip_prompt": True,
+        }
+
+    def is_setup(self) -> bool:
+        path = Path.home() / ".saml2aws"
+        if not path.exists():
+            return False
+        config = ConfigParser()
+        config.read(path)
+        for section in config.sections():
+            try:
+                if config.get(section, "username"):
+                    return True
+            except NoOptionError:
+                continue
+        return False
+
+    @intercept_errors(ErrorPatterns)
+    @run_subprocess
+    @require_bins(binary)
+    def _exec(self, *args: str, **opts: str) -> Iterator[Tuple[Argument, ...]]:
+        self.log_subprocess_event(args)
+        # saml2aws exec actually joins all the arguments into a single string and
+        # runs it with the shell. So we have to use shlex.join to get around that!
+        reparseable = shlex.join(keywords_to_options([*args, opts]))
+        with push_env("AWS_REGION", self.ensure_config()["sym"]["region"]):
+            yield (
+                "saml2aws",
+                self._s2a_options,
+                "exec",
+                "--",
+                reparseable,
+            )
+
+    @intercept_errors(ErrorPatterns, suppress=True)
+    @run_subprocess
+    @require_bins(binary)
+    def _login(self, show_prompt=False):
+        if show_prompt:
+            options = {**self._s2a_options, "skip_prompt": False}
+            args = {"username": Config.get_email()}
+        else:
+            options = self._s2a_options
+            args = {}
+        with push_env("AWS_REGION", self.ensure_config()["sym"]["region"]):
+            yield "saml2aws", options, "login", args  # no-op if session active
+
+    def _ensure_session(self):
+        try:
+            self._login(silence_stderr_=not self.debug)
+        except FailedSubprocessError:
+            self._login(silence_stderr_=not self.debug, show_prompt=True)
+
+    def _ensure_config(self, profile: Profile) -> ConfigParser:
+        saml2aws_params = get_saml2aws_params()
+        config = ConfigParser()
+        config.read_dict(
+            {
+                "sym": {
+                    "url": self.get_aws_saml_url(),
+                    "provider": "Okta",
+                    "skip_verify": "false",
+                    "timeout": "0",
+                    "aws_urn": "urn:amazon:webservices",
+                    **saml2aws_params,
+                    "role_arn": profile.arn,
+                    "region": profile.region,
+                }
+            }
+        )
+        return config
