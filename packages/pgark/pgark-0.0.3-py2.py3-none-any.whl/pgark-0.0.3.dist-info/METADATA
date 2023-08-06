@@ -1,0 +1,225 @@
+Metadata-Version: 2.1
+Name: pgark
+Version: 0.0.3
+Summary: Python library and CLI for archiving URLs on popular services like Wayback Machine
+Home-page: https://www.github.com/dannguyen/pgark
+Author: Dan Nguyen
+Author-email: dansonguyen@gmail.com
+License: UNKNOWN
+Project-URL: Project, https://www.github.com/dannguyen/pgark
+Project-URL: Source, https://www.github.com/dannguyen/pgark
+Project-URL: Tracker, https://www.github.com/dannguyen/pgark/issues
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: certifi (==2020.6.20)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: click (==7.1.2)
+Requires-Dist: commonmark (==0.9.1)
+Requires-Dist: cssselect (==1.1.0)
+Requires-Dist: lxml (==4.5.2)
+Requires-Dist: requests (==2.24.0)
+Requires-Dist: rich (==6.0.0)
+Requires-Dist: typing-extensions (==3.7.4.3)
+Requires-Dist: idna (==2.10) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3"
+Requires-Dist: colorama (==0.4.3) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3, 3.4"
+Requires-Dist: urllib3 (==1.25.10) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3, 3.4" and python_version < "4"
+Requires-Dist: pygments (==2.6.1) ; python_version >= "3.5"
+Provides-Extra: dev
+Requires-Dist: appdirs (==1.4.4) ; extra == 'dev'
+Requires-Dist: black (==20.8b1) ; extra == 'dev'
+Requires-Dist: certifi (==2020.6.20) ; extra == 'dev'
+Requires-Dist: chardet (==3.0.4) ; extra == 'dev'
+Requires-Dist: click (==7.1.2) ; extra == 'dev'
+Requires-Dist: coverage (==5.2.1) ; extra == 'dev'
+Requires-Dist: freezegun (==1.0.0) ; extra == 'dev'
+Requires-Dist: iniconfig (==1.0.1) ; extra == 'dev'
+Requires-Dist: mypy-extensions (==0.4.3) ; extra == 'dev'
+Requires-Dist: pathspec (==0.8.0) ; extra == 'dev'
+Requires-Dist: pkginfo (==1.5.0.1) ; extra == 'dev'
+Requires-Dist: pytest (==6.0.1) ; extra == 'dev'
+Requires-Dist: readme-renderer (==26.0) ; extra == 'dev'
+Requires-Dist: regex (==2020.7.14) ; extra == 'dev'
+Requires-Dist: requests (==2.24.0) ; extra == 'dev'
+Requires-Dist: requests-toolbelt (==0.9.1) ; extra == 'dev'
+Requires-Dist: responses (==0.12.0) ; extra == 'dev'
+Requires-Dist: rfc3986 (==1.4.0) ; extra == 'dev'
+Requires-Dist: toml (==0.10.1) ; extra == 'dev'
+Requires-Dist: twine (==3.2.0) ; extra == 'dev'
+Requires-Dist: typed-ast (==1.4.1) ; extra == 'dev'
+Requires-Dist: typing-extensions (==3.7.4.3) ; extra == 'dev'
+Requires-Dist: webencodings (==0.5.1) ; extra == 'dev'
+Requires-Dist: wheel (==0.35.1) ; extra == 'dev'
+Requires-Dist: pyparsing (==2.4.7) ; (python_version >= "2.6" and python_version not in "3.0, 3.1, 3.2, 3.3") and extra == 'dev'
+Requires-Dist: tqdm (==4.48.2) ; (python_version >= "2.6" and python_version not in "3.0, 3.1, 3.2, 3.3") and extra == 'dev'
+Requires-Dist: attrs (==20.2.0) ; (python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3") and extra == 'dev'
+Requires-Dist: idna (==2.10) ; (python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3") and extra == 'dev'
+Requires-Dist: packaging (==20.4) ; (python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3") and extra == 'dev'
+Requires-Dist: pluggy (==0.13.1) ; (python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3") and extra == 'dev'
+Requires-Dist: py (==1.9.0) ; (python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3") and extra == 'dev'
+Requires-Dist: python-dateutil (==2.8.1) ; (python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3") and extra == 'dev'
+Requires-Dist: six (==1.15.0) ; (python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3") and extra == 'dev'
+Requires-Dist: bleach (==3.1.5) ; (python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3, 3.4") and extra == 'dev'
+Requires-Dist: colorama (==0.4.3) ; (python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3, 3.4") and extra == 'dev'
+Requires-Dist: docutils (==0.16) ; (python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3, 3.4") and extra == 'dev'
+Requires-Dist: urllib3 (==1.25.10) ; (python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3, 3.4" and python_version < "4") and extra == 'dev'
+Requires-Dist: more-itertools (==8.5.0) ; (python_version >= "3.5") and extra == 'dev'
+Requires-Dist: pygments (==2.6.1) ; (python_version >= "3.5") and extra == 'dev'
+Requires-Dist: keyring (==21.4.0) ; (python_version >= "3.6") and extra == 'dev'
+
+pgark
+=====
+
+Python library and CLI for archiving URLs on popular services like
+Wayback Machine
+
+Basically a fork of the great
+[pastpages/savepagenow](https://github.com/pastpages/savepagenow)
+
+How to use
+----------
+
+Install with:
+
+    $ pip install pgark
+
+
+The available subcommands are:
+
+```
+  check  Check if there is a snapshot of [URL] on the [-s/--service].
+  save   Attempt to save a snapshot of [URL] using the [-s/--service].
+```
+
+(for now, only the Wayback Machine service is implemented, so ignore `-s` flag)
+
+
+
+#### Saving a snapshot of a URL
+
+    $ pgark save whitehouse.gov
+    http://web.archive.org/web/20200904230109/https://www.whitehouse.gov/
+
+To get the JSON response with pgark-snapshot metadata and the Wayback
+Machine API job status response, pass in `-j/--json` flag:
+
+    $ pgark -j save whitehouse.gov
+
+```json
+  {
+    "snapshot_url": "http://web.archive.org/web/20200904230109/https://www.whitehouse.gov/",
+    "...": "...",
+    "server_payload": {
+      "status": "success",
+      "duration_sec": 10.638,
+      "job_id": "443e89c2-fd3e-4d01-bd35-abfccc3a124a",
+      "...": "..."
+    }
+  }
+```
+
+See an example of the Wayback Machine\'s full JSON response in:
+[examples/web.archive.org/job-save-success.json](examples/web.archive.org/job-save-success.json)
+
+
+#### Checking if a URL is already snapshotted
+
+For a given URL, to get the latest available snapshot for a URL:
+
+    $ pgark check whitehouse.gov
+
+    http://web.archive.org/web/20200904180914/https://www.whitehouse.gov/
+
+To get the JSON response from the Wayback Machine API, pass in the
+`-j/--json` flag:
+
+    $ pgark check -j whitehouse.gov
+
+
+```json
+{
+    "snapshot_url": "http://web.archive.org/web/20200904180914/https://www.whitehouse.gov/",
+    "server_payload": {
+    "archived_snapshots": {
+      "closest": {
+        "timestamp": "20200904180914",
+        "status": "200",
+        "available": true,
+        "url": "http://web.archive.org/web/20200904180914/https://www.whitehouse.gov/"
+      }
+    },
+    "url": "whitehouse.gov"
+  }
+}
+```
+
+
+
+Project status
+--------------
+
+Just spitballing. Will probably just return to forking savepagenow and
+adding any changes/fixes.
+
+See [CHANGELOG](CHANGELOG.rst) for more details
+
+Similar libraries, resources, and inspirations
+----------------------------------------------
+
+
+- Wayback Machine official docs and stuff"
+    - https://archive.org/help/wayback_api.php
+        - https://github.com/ArchiveLabs/api.archivelab.org
+        - - https://archive.org/services/docs/api/wayback-cdx-server.html?highlight=wayback
+
+
+- Other libraries and utilities:
+    - https://github.com/pastpages/savepagenow
+    - https://github.com/jsvine/waybackpack
+    - https://www.vice.com/en_us/article/wj7mkb/mass-archive-tool-python-wayback-machine-perma-achiveis
+      + https://github.com/motherboardgithub/mass_archive
+    - https://github.com/sangaline/wayback-machine-scraper
+
+
+- Other stuff:
+    - https://notes.peter-baumgartner.net/2019/08/01/scraping-archived-data-with-the-wayback-machine/
+    - https://pywb.readthedocs.io/en/latest/index.html
+
+
+
+
+Development notes
+-----------------
+
+
+To get setup:
+
+```
+$ make init
+```
+
+
+
+To run tests:
+
+```
+$ make test
+```
+
+
+To freeze Pipfile.lock and resync with setup.py
+
+```
+$ make freeze
+```
+
+
