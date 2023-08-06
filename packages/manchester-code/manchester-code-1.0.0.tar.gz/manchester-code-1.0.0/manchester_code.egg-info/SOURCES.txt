@@ -1,0 +1,16 @@
+.gitignore
+.pylintrc
+CHANGELOG.md
+COPYING
+Pipfile
+Pipfile.lock
+README.md
+manchester_code.py
+mypy.ini
+setup.py
+.github/workflows/python.yml
+manchester_code.egg-info/PKG-INFO
+manchester_code.egg-info/SOURCES.txt
+manchester_code.egg-info/dependency_links.txt
+manchester_code.egg-info/top_level.txt
+tests/test_code.py
