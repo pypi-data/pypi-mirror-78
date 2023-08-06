@@ -1,0 +1,149 @@
+#!/bin/bash
+
+function list_model_configs {
+  find model_configs -type f | cut -c15- | rev | cut -c5- | rev
+}
+
+function choose_gpu {
+  if [[ -z ${GPUS} ]]; then
+    nvidia-smi
+    printf "CUDA_VISIBLE_DEVICES: "
+    read devices
+    export CUDA_VISIBLE_DEVICES=${devices}
+    GPUS=${devices}
+  fi
+}
+
+function check_config_path {
+  if [[ -z "$CONF_PATH" ]]; then
+    count=0
+    for i in $(ls -1 model_configs | rev | cut -c5- | rev)
+    do
+      ((count++))
+      echo "[$count] $i"
+    done
+    read -p "Choose a model config: " conf_path_idx
+    CONF_PATH=$(ls -1 model_configs | awk "NR==$conf_path_idx" | rev | cut -c5- | rev)
+  fi
+  #exists=$(find model_configs -type f | cut -c15- | rev | cut -c5- | rev | grep ^${CONF_PATH}$)
+  #if [[ -n "$exists" ]]; then
+  #  echo "Config: ${CONF_PATH}"
+  #else
+  #  echo "Config not found: ${CONF_PATH}"; exit 2
+  #fi
+}
+
+function print_usage {
+  echo "Usage"
+}
+
+# Transform long options to short ones
+#for arg in "$@"; do
+#  shift
+#  case "$arg" in
+#    "--help") set -- "$@" "-h" ;;
+#    "--gpu") set -- "$@" "-g" ;;
+#    "--env") set -- "$@" "-e" ;;
+#    "--report") set -- "$@" "-r" ;;
+#    *)        set -- "$@" "$arg"
+#  esac
+#done
+
+COMMAND=$1
+CONF_PATH=$2
+ARGS=${@:3}
+#CONF_PATH=''
+#OPTIND=2
+#GPUS=''
+#while getopts 'c:vhg:l:' flag; do
+#  case "${flag}" in
+#    c) CONF_PATH="${OPTARG}" ;;
+#    v) VERBOSE='true' ;;
+#    h) print_usage; exit 1 ;;
+#    l) LOAD_CHECKPOINT=${OPTARG} ;;
+#    g) export CUDA_VISIBLE_DEVICES=${OPTARG}; GPUS=${OPTARG} ;;
+#    *) print_usage; exit 1 ;;
+#  esac
+#done
+
+case ${COMMAND} in
+  list)
+    list_model_configs
+    ;;
+  clean)
+    read_config_path
+    rm -rf saved_models/${CONF_PATH}
+    rm -rf logs/${CONF_PATH}
+    echo "Done."
+    ;;
+  stats)
+    pid=$(pgrep -f "[p]ython -m dlex.train" -d " ")
+    echo "Active training model(s):"
+    pwdx ${pid[@]}
+    printf "\nProcess details:\n"
+    ps -o pid= -o time= -o cmd= -p ${pid[@]}
+    ;;
+  prepare)
+    conf_path=$2
+    python -m dlex.prepare_dataset -c ${CONF_PATH}
+    ;;
+  train_continue)
+    check_config_path
+    choose_gpu
+    python -m dlex.torch.train -c ${CONF_PATH} -l latest
+    exit_status=$?
+    if [[ ${exit_status} -eq 2 ]]; then
+        dlex train_continue -c ${CONF_PATH} -l latest -g ${GPUS}
+    fi
+    ;;
+  train-tmux)
+    # check_config_path
+    # choose_gpu
+    # nohup python -m dlex.torch.train -c ${CONF_PATH} ${@:4} > ${DATASETS_PATH}/nohups/${CONF_PATH}.out &
+    # tail -f ${DATASETS_PATH}/nohups/${CONF_PATH}.out -n 500
+    training_id=$(date '+%Y%m%d-%H%M%S')
+    echo "Run training..."
+    echo "python -m dlex.train --training_id=${training_id} --report -c ${CONF_PATH} ${ARGS}"
+
+    tmux has-session -t dlex 2>/dev/null
+    if [[ $? != 0 ]]; then
+      tmux new-session -s dlex -d "ls"
+    fi
+
+    tmux new-window -t dlex -n ${CONF_PATH} \; \
+      send-keys "python -m dlex.train -c ${CONF_PATH} ${ARGS} --training_id=${training_id} --report" C-m \; \
+      split-window -v "python -m dlex.log -c ${CONF_PATH}  ${ARGS} --level info --training_id=${training_id}" \; \
+      resize-pane -D 20 \; \
+      split-window -v "python -m dlex.log -c ${CONF_PATH}  ${ARGS} --level debug --training_id=${training_id}"
+
+    # read -p "Do you want to open tmux? (Y/n): " yn &&
+    # if [[ ${yn} != [nN] ]]; then
+    #   tmux a -t dlex
+    # fi
+    ;;
+  train)
+    training_id=$(date '+%Y%m%d-%H%M%S')
+    echo "Run training..."
+    cmd="python -m dlex.train --training_id=${training_id} --report -c ${CONF_PATH} ${ARGS}"
+    echo "$cmd"
+    $cmd
+    ;;
+  evaluate)
+    check_config_path
+    choose_gpu
+    echo "python -m dlex.torch.evaluate -c ${CONF_PATH} ${@:3}"
+    python -m dlex.torch.evaluate -c ${CONF_PATH} -l ${LOAD_CHECKPOINT}
+    ;;
+  log)
+    check_config_path
+    log_dir=$(ls -t logs/${CONF_PATH} | head -1)
+    #tail -f logs/${conf_path}/${log_dir}/info.log -n 1000
+    tail -f ${DATASETS_PATH}/nohups/${CONF_PATH}.out -n 1000
+    ;;
+  killall)
+    kill $(pgrep -f "[p]ython -m dlex.train")
+    ;;
+  aws-spot)
+    echo "Train model in EC2 spot instance"
+    ;;
+esac
