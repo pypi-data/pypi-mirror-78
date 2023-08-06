@@ -1,0 +1,33 @@
+
+[build]
+setuptools-git
+wheel
+twine
+
+[docs]
+sphinx
+zope.component
+sybil
+twisted
+
+[docs:python_version < "3"]
+mock
+django<2
+
+[docs:python_version >= "3"]
+django
+
+[test]
+pytest>=3.6
+pytest-cov
+pytest-django
+zope.component
+sybil
+twisted
+
+[test:python_version < "3"]
+mock
+django<2
+
+[test:python_version >= "3"]
+django
