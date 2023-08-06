@@ -1,0 +1,28 @@
+name: omnisci-gpu-dev
+channels:
+- conda-forge
+- defaults
+- nvidia
+- rapidsai
+dependencies:
+- cudf=0.14
+- cudatoolkit=10.1
+- pyarrow==0.15.0.*
+- pandas>=0.25,<0.26
+- python>3.6.6,<3.8
+# related: https://github.com/conda-forge/pillow-feedstock/issues/73
+- libtiff=4.0.10
+- geopandas
+- shapely
+- sqlalchemy
+- numpy
+- numpydoc
+- coverage
+- flake8
+- pre-commit
+- pytest-cov
+- pytest-mock
+- sphinx
+- sphinx_rtd_theme
+- requests
+- 'rbc==0.2.2'

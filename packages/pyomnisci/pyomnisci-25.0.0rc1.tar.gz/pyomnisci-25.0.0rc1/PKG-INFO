@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: pyomnisci
+Version: 25.0.0rc1
+Summary: Data science toolkit support for OmniSciDB
+Home-page: https://github.com/omnisci/pyomnisci
+Author: OmniSci
+Author-email: community@omnisci.com
+License: Apache Software License
+Description: =========
+        pyomnisci
+        =========
+        
+        .. image:: https://readthedocs.org/projects/pyomnisci/badge/?version=latest
+           :target: http://pyomnisci.readthedocs.io/en/latest/?badge=latest
+           :alt: Documentation Status
+        
+        .. image:: https://jenkins-os.mapd.com/buildStatus/icon?job=pymapd-tests
+           :target: https://jenkins-os.mapd.com/job/pymapd-tests/
+           :alt: Jenkins Build Status
+        
+        This package enables using common Python data science toolkits with `OmniSciDB`. It brings data frame 
+        support on CPU and GPU as well as support for arrow. See the `documentation`_ for more.
+        
+        Quick Install
+        -------------
+        
+        Packages are available on conda-forge and PyPI::
+        
+           conda install -c conda-forge pyomnisci
+        
+           pip install pyomnisci
+        
+        To install cudf for GPU Dataframe support (conda-only)::
+        
+           conda install -c nvidia/label/cuda10.0 -c rapidsai/label/cuda10.0 -c numba -c conda-forge -c defaults cudf pyomnisci
+        
+        .. _OmniSci: https://www.omnisci.com/
+        .. _documentation: http://pyomnisci.readthedocs.io/en/latest/?badge=latest
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Provides-Extra: docs
+Provides-Extra: test
+Provides-Extra: dev
+Provides-Extra: complete
