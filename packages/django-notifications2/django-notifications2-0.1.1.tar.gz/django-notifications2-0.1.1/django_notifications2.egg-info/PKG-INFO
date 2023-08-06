@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: django-notifications2
+Version: 0.1.1
+Summary: Django notification app.
+Home-page: https://github.com/wuuuduu/django-notifications2
+Author: wuuuduu
+Author-email: github@kornel.dev
+License: BSD License
+Description: 
+        # django-notifications
+        
+        ### Quick start
+        
+        
+        1. Add "django_notifications" to your INSTALLED_APPS setting like this:
+            ```
+                INSTALLED_APPS = [
+                    ...
+                    'django_notifications',
+                ]
+            ```
+        
+        1. Run `python manage.py migrate` to create the django_notifications models.
+        
+        1. Settings:
+            ```
+            MAX_ATTEMPTS_NUMBER: [DEFAULT=3] 
+            How many times should we try to send a notification. If the number is reached, the notification will be removed.
+           ```
+        
+        1. Examples
+         
+            a) Creating e-mail notification:
+            ```python3
+            NotificationQueue.objects.create(
+                custom_notification_id='USER1_LOGGED_IN_070920202201', 
+                backend='email', 
+                data={
+                    'subject': 'Login from a new device', 
+                    'body': '<h1>It looks like you’ve recently signed in.....</h1>', 
+                    'to': 'email@localhost'
+                }
+            )
+           
+           ...
+           from django_notifications.helpers import EmailNotificationQueueManagement
+           EmailNotificationQueueManagement().send_notifications()
+           
+           # if the notification is not sent, it will go to the error queue
+           
+           from django_notifications.helpers import EmailNotificationErrorQueueManagement
+           
+           EmailNotificationErrorQueueManagement().send_notifications()
+            ```
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.0
+Classifier: Framework :: Django :: 3.1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
