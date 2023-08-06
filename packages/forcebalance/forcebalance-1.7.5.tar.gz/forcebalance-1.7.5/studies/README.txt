@@ -1,0 +1,3 @@
+The studies folder contents have been removed for releases to PyPI to stay under the file size limit.
+Please visit https://github.com/leeping/forcebalance to download the full repository with the studies folder.
+Sorry for the inconvenience!
