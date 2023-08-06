@@ -1,0 +1,6 @@
+include LICENSE
+include README.md
+recursive-include docs *
+recursive-include django_haveli_admin/static *
+recursive-include django_haveli_admin/templates *
+recursive-include django_haveli_admin/templatetags *
