@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: whatsappguru
+Version: 0.2.7
+Summary: The package contains the tools to analyze your WhatsApp chats
+Home-page: https://github.com/lollococce/whatsappguru
+Author: Lorenzo Coacci
+Author-email: lorenzo@coacci.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: emoji
+Requires-Dist: progressbar2
+Requires-Dist: uuid
+Requires-Dist: iago
+
+# Welcome!
+
+
