@@ -1,0 +1,10 @@
+
+        [console_scripts]
+        yaplon=yaplon.__main__:cli
+        json22plist=yaplon.__main__:json2plist
+        json22yaml=yaplon.__main__:json2yaml
+        plist22json=yaplon.__main__:plist2json
+        plist22yaml=yaplon.__main__:plist2yaml
+        yaml22json=yaplon.__main__:yaml2json
+        yaml22plist=yaplon.__main__:yaml2plist
+    
