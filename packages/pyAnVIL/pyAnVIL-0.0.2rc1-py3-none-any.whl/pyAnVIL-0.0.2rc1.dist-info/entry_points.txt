@@ -1,0 +1,4 @@
+[console_scripts]
+data_ingestion_tracker = anvil.bin.data_ingestion_tracker:data_ingestion_tracker
+reconciler = anvil.bin.reconciler:reconciler
+
