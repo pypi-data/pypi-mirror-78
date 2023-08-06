@@ -1,0 +1,11 @@
+# .coveragerc to control coverage.py
+
+[html]
+directory = htmlcov
+
+[run]
+parallel = true
+omit =
+    # omit anything in a .local directory anywhere
+    */.local/*
+    */site-packages/*
