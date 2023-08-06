@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ $UID -ne 0 ] ; then
+    echo "You must be root!"
+     exit 1
+fi
+dest=""
+[ "$1" == "" ] || dest="-D$1"
+inary dc $dest
+echo 2 > /proc/sys/vm/drop_caches
+inary rdb $dest
+inary ur $dest
+inary up -c system.base $dest
