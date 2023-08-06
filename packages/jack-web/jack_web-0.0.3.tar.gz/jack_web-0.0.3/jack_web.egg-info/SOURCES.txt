@@ -1,0 +1,12 @@
+MANIFEST.in
+readme.md
+setup.py
+jack_web/__init__.py
+jack_web/__main__.py
+jack_web.egg-info/PKG-INFO
+jack_web.egg-info/SOURCES.txt
+jack_web.egg-info/dependency_links.txt
+jack_web.egg-info/entry_points.txt
+jack_web.egg-info/requires.txt
+jack_web.egg-info/top_level.txt
+jack_web/templates/index.html
