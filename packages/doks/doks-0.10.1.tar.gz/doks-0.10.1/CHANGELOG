@@ -1,0 +1,37 @@
+## v0.10.1 - 20/09/06
+
+* Improve robustness, check error cases
+* Add MANIFEST.in
+* Use tdir() parameter chdir
+* Skip functions without doc strings in rst.py
+* Use simplified tdir calls
+
+## v0.10.0 - 20/07/10
+
+* Show a window around rst errors (fix #8)
+* New --auto flag (fix #10)
+* Don't write timestamp-only changes (fix #9)
+* Fail on empty modules
+
+## v0.9.3 - 20/06/20
+
+* Add a test for README.rst's sanity
+
+## v0.9.2 - 20/06/20
+
+* Follow wrapped functions to find source
+* Fix sections to be hierarchical
+* Read existing section characters from document
+* Move data from test_doks.py into a text file
+* Temporarily lower code coverage threshold
+* Add links to source code
+* Use inspect.getdoc() (see #2)
+* Add self-link to doks (fix #4)
+* Move the tests directory to test
+* Improve shield and variable handling
+* Use doks to generate doks
+* Move some requirements
+
+## v0.9.1 - 20/05/28
+
+* First release
