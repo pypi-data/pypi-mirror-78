@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: stressor-ps
+Version: 0.0.3
+Summary: Add a 'ps' task to stressor
+Home-page: https://github.com/mar10/stressor-ps/
+Author: Martin Wendt
+Author-email: stressor@wwwendt.de
+Maintainer: Martin Wendt
+Maintainer-email: stressor@wwwendt.de
+License: MIT
+Keywords: stressor,stressor-plugin
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Testing :: Traffic Generation
+Description-Content-Type: text/markdown
+
+# stressor-ps
+
+> Stressor plugin that adds memory, cpu, and hardware testing functionality
+
+
+# Usage
+
+The whole *stressor* confiuration is stored in a single YAML file with a few
+attributes and five mandatory sections.
+
+**See also**:
+See the annotated :doc:`ug_sample_stressor_yaml` for an example.
+
+
+## Activities
+### Common Args
+All activites share these common arguments
+(see also :class:`~stressor.plugins.base.ActivityBase`).
+
+
+### 'PsAlloc' Activity
+
+```yaml
+sequences:
+  main:
+    # 'init' is the reserved name for the set-up sequence.
+    - activity: PsAlloc
+      allocate_mb: 1000
+      per_session: true
+```
+
+allocate_mb (float, default: **)
+    Check if the response has HTML format and matches an XPath expression::
+
+        - activity: GetRequest
+        url: /
+        assert_html:
+            "//*[@class='logo']": true
+
+    (See also the common ``assert_match`` argument.)
+
+per_session (bool, default: *false*)
+
+
+## Macros
+
+This extension does not implement new macros.
+
+
