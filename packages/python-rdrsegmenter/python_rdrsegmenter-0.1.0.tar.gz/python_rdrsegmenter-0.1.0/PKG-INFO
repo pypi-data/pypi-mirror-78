@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: python_rdrsegmenter
+Version: 0.1.0
+Summary: python_rdrsegmenter
+Home-page: https://github.com/NgHoangDat/python_rdrsegmenter.git
+Author: nghoangdat
+Author-email: 18.hoang.dat.12@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/NgHoangDat/python_rdrsegmenter/archive/v0.1.0.tar.gz
+Description: # python-rdrsegmenter
+        
+        A Python wrapper for [RdrSegmenter](https://github.com/datquocnguyen/RDRsegmenter) using Pyjnius
+        
+        ## Table Of Contents
+        
+          * [Prerequisites](#prerequisites)
+          * [Installation](#installation)
+          * [Example](#example)
+        
+        ## Prerequisites
+        
+        - Java 1.8+ ([JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html))
+        
+        ## Installation
+        
+        You can install this package from PyPI using [pip](http://www.pip-installer.org):
+        
+        ```
+        $ pip install python-rdrsegmenter
+        ```
+        
+        ## Example
+        
+        ```python
+        #!/usr/bin/python
+        # -*- coding: utf-8 -*-
+        from python_rdrsegmenter import load_segmenter
+        segmenter = load_segmenter()
+        segmenter.tokenize("Tôi là chàng sinh viên Bách Khoa")
+        ```
+        
+Keywords: python-rdrsegmenter rdrsegmenter nlp vietnamese-nlp parser word-segmentation tokenizer
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
