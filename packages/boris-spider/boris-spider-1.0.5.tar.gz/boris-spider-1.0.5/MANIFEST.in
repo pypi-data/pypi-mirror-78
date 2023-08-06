@@ -1,0 +1,11 @@
+include README.md
+include LICENSE
+
+include spider/requirements.txt
+include spider/VERSION
+
+recursive-include spider/templates *
+
+recursive-include tests *
+
+global-exclude __pycache__ *.py[cod]

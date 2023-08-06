@@ -1,0 +1,3 @@
+[console_scripts]
+spider = spider.commands.cmdline:execute
+
