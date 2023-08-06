@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: myqlm
+Version: 1.1.5
+Summary: myQLM package
+Home-page: https://atos.net/en/lp/myqlm
+Author: Atos Quantum Lab
+Author-email: myqlm@atos.net
+License: Atos myQLM EULA
+Keywords: Quantum,myQLM,QLM,Atos
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: qat-comm (>=1.1.5)
+Requires-Dist: qat-core (>=1.2.5)
+Requires-Dist: qat-lang (>=1.1.5)
+Requires-Dist: qat-variational (>=1.1.5)
+Requires-Dist: myqlm-simulators (>=1.1.5)
+
+myQLM is a quantum software stack for writing, simulating, optimizing, and executing quantum programs. Through a Python interface, it provides:
+
+ - powerful semantics for manipulating quantum circuits, with support for universal as well as custom gate sets, abstract parameters, advanced linking options, etc.;
+ - a versatile execution stack for running quantum jobs, including an easy handling of observables, special plugins for carrying out NISQ-oriented variational methods (such as VQE, QAOA), and easy API for writing customized plugins (e.g for compilation or error mitigation), as well as for connecting to any Quantum Processing Unit (QPU);
+ - a seamless interface to available quantum processors and major quantum programming frameworks.
+
+myQLM also interfaces with the QLM, for [Quantum Learning Machine](https://atos.net/en/insights-and-innovation/quantum-computing/atos-quantum/), the quantum programming appliance of Atos.
+
+
