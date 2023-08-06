@@ -1,0 +1,110 @@
+Metadata-Version: 2.1
+Name: tengri
+Version: 1.1
+Summary: Weather scraping command-line tool
+Home-page: https://github.com/robertdurkaj/tengri
+Author: Robert Durkaj
+Author-email: developer@durkaj.com
+License: MIT
+Keywords: weather forecast web-scraping
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests
+Requires-Dist: lxml
+
+Tengri
+======
+
+.. image:: https://travis-ci.org/robertdurkaj/tengri.svg?branch=master
+  :target: https://travis-ci.org/robertdurkaj/tengri/builds
+
+Do you regularly check weather forecast a day before an activity? This
+command-line tool scrapes the following web forecasts for you:
+
+- `www.meteoblue.com`_
+- `www.yr.no`_
+- `www.mountain-forecast.com`_
+
+Usage example::
+
+  $ tengri Khan Tengri
+
+Output::
+
+  Tengri weather report for: "Khan Tengri"
+
+  meteoblue.com
+  -------------
+  : Weather Khan Tängiri Shyngy
+  : Kazakhstan, 42.21°N 80.18°E 6995m asl
+  : Tomorrow
+  Max temp: -28 °C
+  Min temp: -36 °C
+  Wind: 10 km/h
+  ...
+
+
+Install
+-------
+To install Tengri::
+
+  pip install tengri
+
+
+Develop
+-------
+To start working on project, install it in editable (development) mode. This
+makes tengri package importable and installs launch script on system path. See
+`pip "Editable" install`_::
+
+  $ pip install -e .
+
+To start tests, ``pytest`` has to be installed first::
+
+  $ pip install pytest
+
+Then from project dir run tests by::
+
+  $ pytest
+
+To undo the development setup, use ``pip uninstall`` command. It updates python
+path and removes launch script::
+
+  $ pip uninstall tengri
+
+If you are working on many python projects consider using `virtualenv`_.
+
+For convenience ``make`` is used to facilitate project setup (see
+``Makefile`` and ``requirements.txt``).
+
+
+Author
+------
+- Robert Durkaj
+
+
+Credit
+------
+- `Kenneth Reitz`_ for the idea: http://docs.python-guide.org/en/latest/ 
+- `Benjamin Gleitzman`_ for the inspiration: https://github.com/gleitz/howdoi 
+
+.. _`www.meteoblue.com`: https://www.meteoblue.com/en/weather/forecast/week/khan-t%c3%a4ngiri-shyngy_kazakhstan_1537336
+.. _`www.yr.no`: http://www.yr.no/place/Kyrgyzstan/Other/Sheng-li_Feng/?spr=eng
+.. _`www.mountain-forecast.com`: http://www.mountain-forecast.com/peaks/Khan-Tengri/forecasts/7010
+.. _`pip "Editable" install`: https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs
+.. _`virtualenv`: https://virtualenv.pypa.io/
+.. _`Kenneth Reitz`: https://www.kennethreitz.org/
+.. _`Benjamin Gleitzman`: https://github.com/gleitz
+
+
