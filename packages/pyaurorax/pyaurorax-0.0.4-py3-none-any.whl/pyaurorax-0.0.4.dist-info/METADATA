@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pyaurorax
+Version: 0.0.4
+Summary: Python library for interacting with the AuroraX API
+License: MIT
+Author: Darren Chaddock
+Author-email: dchaddoc@ucalgary.ca
+Maintainer: Darren Chaddock
+Maintainer-email: dchaddoc@ucalgary.ca
+Requires-Python: >=3.5
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: flake8 (>=3.8.3,<4.0.0)
