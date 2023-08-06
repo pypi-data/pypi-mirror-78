@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: cloudshell-cp-openstack
+Version: 2.0.10
+Summary: CloudShell Cloud Provider OpenStack package
+Home-page: http://www.qualisystems.com/
+Author: QualiSystems
+Author-email: info@qualisystems.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: ~=3.7
+Requires-Dist: setuptools (>=40.0)
+Requires-Dist: cloudshell-cp-core (~=2.1)
+Requires-Dist: cloudshell-shell-standards (~=1.1)
+Requires-Dist: cloudshell-shell-connectivity-flow (~=2.0)
+Requires-Dist: python-keystoneclient (~=4.1)
+Requires-Dist: python-novaclient (~=17.2)
+Requires-Dist: python-neutronclient (~=7.2)
+Requires-Dist: jsonpickle (~=1.4)
+Requires-Dist: keystoneauth1 (~=4.2)
+
+UNKNOWN
+
+
