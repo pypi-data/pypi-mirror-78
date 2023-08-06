@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.py
+django_more_admin_filters.egg-info/PKG-INFO
+django_more_admin_filters.egg-info/SOURCES.txt
+django_more_admin_filters.egg-info/dependency_links.txt
+django_more_admin_filters.egg-info/requires.txt
+django_more_admin_filters.egg-info/top_level.txt
+django_more_admin_filters.egg-info/zip-safe
+more_admin_filters/__init__.py
+more_admin_filters/apps.py
+more_admin_filters/filters.py
+more_admin_filters/templates/more_admin_filters/dropdownfilter.html
+more_admin_filters/templates/more_admin_filters/multiselectdropdownfilter.html
