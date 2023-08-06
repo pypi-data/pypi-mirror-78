@@ -1,0 +1,12 @@
+[console_scripts]
+vaex = vaex.__main__:main
+
+[gui_scripts]
+vaexgui = vaex.__main__:main
+
+[vaex.dataframe.accessor]
+geo = vaex.geo:DataFrameAccessorGeo
+
+[vaex.plugin]
+arrow = vaex.arrow.opener:register_opener
+
