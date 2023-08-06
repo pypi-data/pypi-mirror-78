@@ -1,0 +1,15 @@
+---
+connection:
+  url: ${REDSHIFT_TEST_URL}
+index:
+  schema: druzhba_test
+  table: pipeline_table_index
+s3:
+  bucket: ${S3_BUCKET}
+  prefix: ${S3_PREFIX}
+iam_copy_role: ${REDSHIFT_IAM_COPY_ROLE}
+sources:
+  - alias: pgtest
+    type: postgres
+  - alias: mysqltest
+    type: mysql
