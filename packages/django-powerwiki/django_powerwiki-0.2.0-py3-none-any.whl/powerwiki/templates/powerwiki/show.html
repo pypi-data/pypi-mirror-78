@@ -1,0 +1,31 @@
+{% extends "powerwiki/base.html" %}
+
+
+{% block wiki_menu %}
+    <ul class="powerwiki__menu_options">
+        <li>
+            <form action="{% url "powerwiki:search" wiki_slug=wiki_slug %}" method="GET">
+            <input type="text" name="q" placeholder="Search" value="{{ search_query }}">
+            <input type="submit" value="Go">
+            </form>
+        </li>
+        {% if edit_url %}
+        <li><a href="{{ edit_url }}" id="powerwiki__page__edit">{{ edit_label|default:"Edit page" }}</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block wiki_content %}
+<div class="powerwiki__page">
+    {% if page %}
+        {{ page.render_content }}
+    {% else %}
+        <p>This page does not exist yet.</p>
+        {% if edit_url %}
+        <ul>
+        <li><a href="{{ edit_url }}">Create this page</a></li>
+        </ul>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
