@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: sa2schema
+Version: 0.1.0b3
+Summary: Convert SqlAlchemy models to Pydantic
+Home-page: https://github.com/kolypto/py-sa2schema
+Author: Mark Vartanyan
+Author-email: kolypto@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pydantic
+Requires-Dist: sqlalchemy (>=1.3.5,<2.0.0)
+Project-URL: Repository, https://github.com/kolypto/py-sa2schema
