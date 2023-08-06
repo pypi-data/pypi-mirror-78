@@ -1,0 +1,9 @@
+absl-py==0.10.0
+pydantic==1.6.1
+jsonnet==0.16.0
+tensorflow<2.0,>=1.15.2
+mesh_tensorflow==0.1.16
+transformers==3.1.0
+tokenizers==0.8.1
+ftfy<5.9,>=5.8
+pyfarmhash==0.2.2

@@ -1,0 +1,7 @@
+[console_scripts]
+lm = lm.cli.main:apprun
+lm_check_dataset = lm.scripts.check_dataset:apprun
+lm_convert_tokenizer = lm.scripts.convert_tokenizer:apprun
+lm_filter_lang = lm.cli.filter_lang:apprun
+lm_train_tokenizer = lm.scripts.train_tokenizer:apprun
+
