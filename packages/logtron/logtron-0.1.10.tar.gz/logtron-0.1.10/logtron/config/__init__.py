@@ -1,0 +1,1 @@
+from logtron.config.discover_config import discover_config
