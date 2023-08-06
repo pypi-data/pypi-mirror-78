@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "nbplugins-watch"
+version = "0.0.6"
+description = "watch and (re)load/remove nonebot plugins from a directory"
+authors = ["ffreemt"]
+readme = "README.md"
+homepage = "https://github.com/ffreemt/nonebot-plugins-watch"
+repository = "https://github.com/ffreemt/nonebot-plugins-watch"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+nonebot = "^1.6.0"
+watchgod = "^0.6"
+logzero = "^1.5.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pytest-cov = "^2.10.0"
+pylint = "^2.5.3"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
