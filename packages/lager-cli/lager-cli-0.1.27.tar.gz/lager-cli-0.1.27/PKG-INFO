@@ -1,0 +1,32 @@
+Metadata-Version: 1.2
+Name: lager-cli
+Version: 0.1.27
+Summary: Lager Command Line Interface
+Home-page: https://github.com/lagerdata/lager-cli
+Author: Lager Data LLC
+Author-email: hello@lagerdata.com
+Maintainer: Lager Data LLC
+Maintainer-email: hello@lagerdata.com
+License: MIT
+Description: # lager-cli
+        Lager Command Line Interface
+        
+        ## Development
+        
+        ### Installation for development purposes
+        
+        ```
+        python3 -m venv $(< .venv)
+        source $(< .venv)/bin/activate
+        pip install --editable .
+        ```
+        
+        With the virtualenv sourced, the `lager` executable should be available.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development
+Requires-Python: >=3.6
