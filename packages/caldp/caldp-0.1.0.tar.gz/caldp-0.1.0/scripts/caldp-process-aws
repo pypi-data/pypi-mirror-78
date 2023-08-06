@@ -1,0 +1,12 @@
+#! /bin/bash
+
+# For non-AWS desktop use based on pip install.  Docker must wrap this.
+
+# caldp-process-aws  <s3_output_path>   <ipppssoot>
+
+output_path=$1
+ipppssoot=$2
+input_path="astroquery:"
+caldp_config=${4:-caldp-config-aws}
+
+caldp-process $ipppssoot  $input_path   $output_path   $caldp_config

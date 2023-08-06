@@ -1,0 +1,13 @@
+#! /bin/bash
+
+# For testing with Docker image prior to submitting actual workflow jobs.
+#
+
+ipppssoot=$1
+input_path=${2:-"file:."}
+output_path=${3:-"file:."}
+caldp_config=${4:-"caldp-config-onsite"}
+
+source $caldp_config
+
+caldp-docker-run-container caldp-process   $ipppssoot  $input_path  $output_path  $caldp_config

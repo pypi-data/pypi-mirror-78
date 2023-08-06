@@ -1,0 +1,61 @@
+#! /bin/bash -eux
+
+#
+# Does Docker setup and runs commands in the CALDP container on a
+# local (non-cloud) system.
+#
+# Define the native Docker working directory using CALDP_HOME if you want
+#  something other than the default.
+#
+# Map (jupyter lab) container port 8888 to docker host port 8888.
+
+# Choose the CALDP docker image configured by an installed
+# caldp-image-config
+source caldp-image-config
+
+#
+# Mount native file systems into the Docker container:
+# 1. $CALDP_HOME or `pwd` is mounted as /home/developer
+#     inside Docker, and is r/w.
+# 2. $CRDS_PATH (or /grp/crds/cache) is mounted, readonly if CRDS_READONLY_CACHE,
+#     at /grp/crds/cache inside the Docker container.
+#
+# To support use of AWS, consider copying or linking ~/.aws into whatever
+# native directory you mount at /home/developer.
+#
+# If $CALDP_HOME is defined in the environment, mount that directory at
+# /home/developer when Docker is run. By default, when $CALDP_HOME is not
+# defined, mount the current working directory at /home/developer inside the
+# container.  If CALDP_HOME is set to "none" then don't mount anything.
+#
+# Paths specified on the command line are interpreted within the context of the
+# running container.  Hence relative paths are relative to /home/developer
+# and/or relative to whatever native directory is mounted at /home/developer.
+#
+DEV_HOME=${CALDP_HOME:-`pwd`}
+mkdir -p $DEV_HOME
+if [ ${DEV_HOME} != "none" ]; then
+    MOUNTS="--mount type=bind,source=$DEV_HOME,target=/home/developer"
+else
+    MOUNTS = ""
+fi
+#
+# Mount CRDS_PATH inside container at /grp/crds/cache, defaulting CRDS_PATH to
+# /grp/crds/cache on Central Store if the user does not define it in their
+# environment.
+#
+# NOTE: The file system at CRDS_PATH must be "shared" in Docker, use the Docker
+# GUI to share it so that it is accessible to the mount switch below and thereby
+# visible inside the container.
+#
+CRDS_SRC=${CRDS_PATH:-/grp/crds/hst}
+if [[ "$CRDS_READONLY_CACHE" == "0" && "$CRDS_SRC" != "/grp/crds/hst" ]]; then
+    MOUNTS="${MOUNTS} --mount type=bind,source=${CRDS_SRC},target=/grp/crds/cache"
+else
+    MOUNTS="${MOUNTS} --mount type=bind,source=${CRDS_SRC},target=/grp/crds/cache,readonly"
+fi
+
+
+# we pass DEV_HOME into the container as an env variable so that the output paths in the message
+# can refer to the local, out-of-container path.
+docker run --rm -it -p 8888:8888 --env DEV_HOME=$DEV_HOME --env CALDP_DOCKER=1 $MOUNTS $CALDP_DOCKER_IMAGE $*

@@ -1,0 +1,31 @@
+#! /bin/bash  -eu
+export PS1="@ "
+export PREFIX=${1:-"$HOME/miniconda3"}
+
+pushd .
+rm -rf install-fitscut.tmp
+mkdir install-fitscut.tmp
+cd install-fitscut.tmp/
+
+# $PREFIX/../../bin/conda install --yes --quiet libpng  cfitsio
+
+git clone https://github.com/healpy/cfitsio.git
+cd cfitsio && git checkout 8838182 && ./configure --prefix=${PREFIX} && make && make install
+
+wget http://tdc-www.harvard.edu/software/wcstools/wcstools-3.9.5.tar.gz
+tar -zxf wcstools-3.9.5.tar.gz
+cd wcstools-3.9.5 && make
+mkdir -p ${PREFIX}/include/libwcs
+cp libwcs/*.h ${PREFIX}/include/libwcs
+cp libwcs/*.a ${PREFIX}/lib
+cp -r bin/* ${PREFIX}/bin
+
+# export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
+export CFLAGS=-I${PREFIX}/include
+export LDFLAGS=-L${PREFIX}/lib
+
+git clone https://github.com/spacetelescope/fitscut
+cd fitscut && git checkout c76680d && ./configure --prefix=${PREFIX} && make && make install
+
+popd
+rm -rf install-fitscut.tmp
