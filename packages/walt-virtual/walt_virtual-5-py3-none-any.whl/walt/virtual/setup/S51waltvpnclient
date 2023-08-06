@@ -1,0 +1,105 @@
+#!/bin/sh
+#
+# walt-vpn-client       Establishes a vpn to walt server
+#
+
+DAEMON="walt-vpn-client"
+DAEMON_PATH="$(which $DAEMON)"
+PIDFILE="/var/run/$DAEMON.pid"
+CONF=/etc/default/walt-vpn-node
+export HOME=/root
+
+# Make sure the conf is OK
+[ -f $CONF ] || {
+    echo "Missing file '$CONF'." >&2
+    exit 1
+}
+source $CONF
+[ ! -z "$WALT_VPN_ENTRYPOINT" ] || {
+    echo "File $CONF should define var WALT_VPN_ENTRYPOINT." >&2
+    exit 1
+}
+
+umask 077
+
+msg() {
+	echo "[walt-vpn-client] $1" | tee /dev/tty0
+}
+
+start() {
+	while true
+	do
+		eth0_state=$(cat /sys/class/net/eth0/operstate)
+		if [ "$eth0_state" = "up" ]
+		then
+			break
+		else
+			msg "Waiting for eth0 to be up..."
+			sleep 5
+		fi
+	done
+
+	if [ ! -f /root/.ssh/id_ecdsa_walt_vpn ]
+	then
+		msg "Setting up VPN credentials with walt server..."
+		mount -o remount,rw /
+		while true
+		do
+			walt-vpn-setup-credentials --log-file /dev/tty0 --log-prefix "walt-vpn-client" $WALT_VPN_ENTRYPOINT
+			if [ -f /root/.ssh/id_ecdsa_walt_vpn ]
+			then
+				msg "VPN credentials obtained successfully."
+				mount -o remount,ro /
+				break
+			else
+				msg "Could not get VPN credentials. Will retry in a few seconds."
+				sleep 10
+			fi
+		done
+	fi
+
+	msg "Starting vpn client..."
+	start-stop-daemon -S -q -p "$PIDFILE" -a "$DAEMON_PATH" \
+		-- --log-file /dev/tty0 --log-prefix "walt-vpn-client" "$WALT_VPN_ENTRYPOINT"
+	status=$?
+	if [ "$status" -eq 0 ]; then
+		msg "OK"
+	else
+		msg "FAILED"
+	fi
+	return "$status"
+}
+stop() {
+	msg 'Stopping vpn client...'
+	start-stop-daemon -K -q -p "$PIDFILE"
+	status=$?
+	if [ "$status" -eq 0 ]; then
+		rm -f "$PIDFILE"
+		msg "OK"
+	else
+		msg "FAIL"
+	fi
+	return "$status"
+}
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  restart|reload)
+	restart
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+
