@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: kvaser
+Version: 0.0.2
+Summary: Various utility functions.
+Home-page: https://github.com/kkholst/kvaser
+Author: Klaus Kähler Holst
+Author-email: klaus.holst@maersk.com
+License: Apache Software License
+Description: # Kvaser
+        
+        Various utility functions
+        
+        The implemention currently includes
+        - **BlobStorage**
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: C++
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
