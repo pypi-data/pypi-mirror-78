@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "pyaurorax"
+version = "0.0.4"
+description = "Python library for interacting with the AuroraX API"
+authors = ["Darren Chaddock <dchaddoc@ucalgary.ca>"]
+maintainers = ["Darren Chaddock <dchaddoc@ucalgary.ca>"]
+license = "MIT"
+packages = [
+    { include = "aurorax" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.5"
+flake8 = "^3.8.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
