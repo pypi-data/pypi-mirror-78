@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- editado con XMLSpy v2020 rel. 2 (x64) (http://www.altova.com) por teresa.marco (INECO) -->
+<xs:schema xmlns="http://localhost/elegibilidad" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost/elegibilidad" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="TiposSencillos.xsd"/>
+	<xs:include schemaLocation="TiposComplejos.xsd"/>
+	<xs:include schemaLocation="TipoMensajeR105.xsd"/>
+	<xs:element name="MensajeCierreReclamacion">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CabeceraReclamacion" type="CabeceraReclamacion"/>
+				<xs:element name="CierreReclamacion" type="CierreReclamacion"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
