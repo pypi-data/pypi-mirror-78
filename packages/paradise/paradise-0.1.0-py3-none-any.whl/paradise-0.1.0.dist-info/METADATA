@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: paradise
+Version: 0.1.0
+Summary: A file sharing and media streaming utility for local network
+Home-page: https://github.com/rahulsrma26/paradise
+Author: Rahul Sharma
+Author-email: rahulsrma26@gmail.com
+Maintainer: rahulsrma26
+Maintainer-email: welcometors@gmail.com
+License: LICENSE
+Project-URL: Code, https://github.com/rahulsrma26/paradise
+Keywords: sharing streaming network setuptools development
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: System :: Filesystems
+Classifier: Topic :: Communications :: File Sharing
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Multimedia
+Requires-Python: >= 3.6
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: aiofiles
+Requires-Dist: python-multipart
+
+Paradise
+========
+
+A file sharing and media streaming solution for local networks.
+
+Steps to run:
+
+First install all the requirements
+
+```
+pip install -r requirements.txt
+```
+
+Run webserver using uvicorn
+
+```
+uvicorn server:app --host 0.0.0.0 --port 8000
+```
+
+
