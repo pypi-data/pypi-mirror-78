@@ -1,0 +1,15 @@
+MANIFEST.in
+setup.cfg
+setup.py
+msapi/__init__.py
+msapi/admin.py
+msapi/apps.py
+msapi/models.py
+msapi/tests.py
+msapi/views.py
+msapi/migrations/__init__.py
+muses_msapi.egg-info/PKG-INFO
+muses_msapi.egg-info/SOURCES.txt
+muses_msapi.egg-info/dependency_links.txt
+muses_msapi.egg-info/requires.txt
+muses_msapi.egg-info/top_level.txt
