@@ -1,0 +1,23 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "minmon"
+dist-name = "minmon"
+description-file = "README.md"
+keywords = "monitor memory swap cpu temperature disk network i/o"
+author = "Carlo Alessandro Verre"
+author-email = "carlo.alessandro.verre@gmail.com"
+classifiers = ["Programming Language :: Python :: 3",
+               "Programming Language :: Python :: 3.7",
+               "Development Status :: 5 - Production/Stable",
+               "Environment :: Console",
+               "Intended Audience :: End Users/Desktop",
+               "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+               "Operating System :: POSIX :: Linux",]
+requires-python = ">=3.7"
+requires = ["psutil"]
+
+[tool.flit.scripts]
+minmon = "minmon.__main__:main"
