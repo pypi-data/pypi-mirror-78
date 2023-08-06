@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: etna-api
+Version: 1.0.0
+Summary: Python wrapper to make calls to the Etna's API
+Home-page: https://github.com/etna-alternance/EtnaAPI
+Author: Clément Doumergue
+Author-email: clement.doumergue@etna.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: urllib3
+
+# etna-api
+Wrapper en Python pour exécuter des requêtes aux différents services de l'ETNA
+
+## Installation
+
+- **Python 3** ([guides d'installation](https://wiki.python.org/moin/BeginnersGuide/Download))
+- **gnome-keyring**, si la machine est sous Linux et que l'on souhaite utiliser la keyring de l'OS pour s'authentifier
+
+Le module peut ensuite être installé via la commande suivante :
+
+```bash
+pip3 install etna-api
+```
+
+## Documentation
+
+Pour générer la documentation de ce dépôt via **Sphinx**, il suffit d'exécuter les commandes suivantes :
+
+```
+pip3 install -r docs/requirements.txt
+sphinx-apidoc -f --separate -o docs/source/ EtnaAPI
+make -C docs/ html
+```
+
+
