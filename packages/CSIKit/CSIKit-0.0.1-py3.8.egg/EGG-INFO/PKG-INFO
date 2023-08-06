@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: CSIKit
+Version: 0.0.1
+Summary: Test of CSIKit Deployment
+Home-page: https://github.com/Gi-z/CSIKit
+Author: Glenn Forbes
+Author-email: gizmoloon@gmail.com
+License: MIT
+Description: # CSIKit [![PyPI version](https://badge.fury.io/py/requests.svg)](https://badge.fury.io/py/requests)
+        
+        Parse and process CSI data from a range of compatible WiFi hardware. Python 3.5+ required.
+        
+        Major bullet points.
+        
+        - **CSI parsing**
+        - **Processing** and **Visualisation**
+        - **Modules** for parsing CSI in your own python applications.
+        
+        
+        
+        - [Description](#Description)
+        - [Options](#Options)
+        - [Example](#Example)
+        - [Supported Hardware](#Supported-Hardware)
+        - [Description](#Description)
+        - [Description](#Description)
+        
+        ## Description
+        
+        **CSIKit** is a framework aimed at assisting data scientists, budding researchers and other programmers with performing experiments and tests using CSI-capable WiFi hardware. 
+        
+        command line tool for parsing, processing, converting, and visualisation. 
+        
+        `csikit [OPTIONS] file[.pcap/.dat]`
+        
+        ## Options
+        
+        ```
+        --info, -i          Print information about the CSI contained in a given file (hardware, configuration, shape, etc).
+                            # Additional options to be added in the near future.
+        
+        
+        --graph, -g         Visualise CSI data using matplotlib.
+                            #Additional options to be added in the near future.
+        
+            --graph-type TYPE   Select a graph type for visualisation: ["heatmap" (default), "all_subcarriers", "subcarrier_filter"]
+        
+        --csv, -c           Write CSI data to CSV file.
+                            # Currently this writes all (scaled, where applicable) subcarrier amplitudes from the first antenna stream to each row.
+                            # Additional options to be added in the near future.
+        ```
+        
+        ## Example
+        
+        
+        
+        ## Supported Hardware
+        
+        Intel IWL5300
+        
+        Broadcom BCM43455C0
+        
+        ### Coming Soon
+        
+        Additional nexmon_csi compatible hardware.
+        
+        Atheros.
+        
+        ESP32.
+        
+        ## Mistakes
+        
+        If anything is wrong, [let me know](mailto:gizmoloon@gmail.com). I want to know why.
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
