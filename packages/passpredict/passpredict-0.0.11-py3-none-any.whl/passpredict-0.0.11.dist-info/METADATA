@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: passpredict
+Version: 0.0.11
+Summary: Predict upcoming satellite overpasses
+Home-page: https://www.github.com/samtx/passpredict
+Author: Sam Friedman
+License: UNKNOWN
+Keywords: iss predict orbit sgp4 satellite
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Python Software Foundation License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: sgp4 (>=2.8)
+Requires-Dist: astropy (>=4.1rc1)
+Requires-Dist: requests
+Requires-Dist: pydantic
+Requires-Dist: click
+Provides-Extra: dev
+Requires-Dist: Cython ; extra == 'dev'
+Requires-Dist: pytest (==5.4.3) ; extra == 'dev'
+Requires-Dist: pytest-html ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+
+# passpredict
+
+![Build](https://github.com/samtx/passpredict/workflows/Tests/badge.svg)
+
+Predict upcoming satellite overpasses over a point on Earth.
+
+This library is in active development and currently incomplete.
+
+
