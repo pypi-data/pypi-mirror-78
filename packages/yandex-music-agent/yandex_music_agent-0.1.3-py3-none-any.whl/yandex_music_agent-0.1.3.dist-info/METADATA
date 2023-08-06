@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: yandex-music-agent
+Version: 0.1.3
+Summary: Download yandex account favorites artists music
+Home-page: https://bitbucket.org/shmyga/yandex.music.agent
+Author: shmyga
+Author-email: shmyga.z@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Requires-Dist: argparse
+Requires-Dist: aiohttp
+Requires-Dist: aiofiles
+Requires-Dist: aiostream
+Requires-Dist: beautifulsoup4
+Requires-Dist: lxml
+Requires-Dist: brotlipy
+Requires-Dist: mutagen
+Requires-Dist: asynctest
+
+UNKNOWN
+
+
