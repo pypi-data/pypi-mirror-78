@@ -1,0 +1,47 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static notification_tags %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'openwisp-notifications/css/loader.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'openwisp-notifications/css/notifications.css' %}" />
+{% endblock extrastyle %}
+
+{% block extrahead %}
+  {{ block.super }}
+  {% if not media.js %}
+    <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/jquery.init.js' %}"></script>
+  {% endif %}
+{% endblock %}
+
+{% block userlinks %}
+  <div class="ow-notifications" id="openwisp_notifications">
+    <img class="bell-icon" src="{% static 'openwisp-notifications/images/icons/icon-bell.svg' %}" />
+    {% unread_notifications %}
+  </div>
+  {% csrf_token %}
+  {% notification_toast %}
+  {% notification_widget %}
+{% endblock %}
+
+{% block footer %}
+  {{ block.super }}
+  {% if request.user.is_authenticated %}
+    <script type="text/javascript">
+      {% if OPENWISP_NOTIFICATIONS_HOST %}
+        const notificationApiHost = new URL('{{ OPENWISP_NOTIFICATIONS_HOST }}');
+      {% else %}
+        const notificationApiHost = window.location;
+      {% endif %}
+      {% if debug %}
+        const webSocketProtocol = 'ws';
+      {% else %}
+        const webSocketProtocol = 'wss';
+      {% endif %}
+      const notificationSound = new Audio('{{ OPENWISP_NOTIFICATIONS_SOUND | default:"" }}');
+    </script>
+    <script type="text/javascript" src="{% static 'openwisp-notifications/js/vendor/reconnecting-websocket.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'openwisp-notifications/js/notifications.js' %}"></script>
+  {% endif %}
+{% endblock footer %}
