@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: mavenn
+Version: 0.15
+Summary: package for inferring models of sequence-function relationships from mave datasets
+Home-page: http://mavenn.readthedocs.io
+Author: Ammar Tareen, Justin B. Kinney
+Author-email: tareen@cshl.edu
+License: MIT
+Keywords: mave,mpa
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+Requires-Dist: tensorflow
+Requires-Dist: sklearn
+Requires-Dist: scikit-learn (>=0.22)
+Requires-Dist: logomaker
+Requires-Dist: seaborn
+
+MAVENN
+------
+
+MAVENN is a Python package for inferring quantitative models of sequence-function
+relationships from multiplexed assays of variant effects. 
+MAVENN currently implements global epistasis regression and noise agnostic regression.
+Please see 'https://mavenn.readthedocs.io' 
+for additional details.
+
