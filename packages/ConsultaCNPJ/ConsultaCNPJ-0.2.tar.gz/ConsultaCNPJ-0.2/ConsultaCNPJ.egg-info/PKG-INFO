@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: ConsultaCNPJ
+Version: 0.2
+Summary: Retorna uma consulta simples dos dados da empresa informada.
+                Os dados sao retornados apartir da API desenvolvida pelo site RECEITAWS.
+Home-page: https://github.com/wherculano/Consulta-CNPJ
+Author: Wagner Herculano
+Author-email: wagherculano@hotmail.com
+License: GNU AFFERO GENERAL PUBLIC LICENSE
+Description: # Consulta-CNPJ
+        Projeto utilizando API do site 'receitaws' para visualizar algumas informaÃ§Ãµes contidas no CNPJ consultado.
+        
+        Apenas uma aplicaÃ§Ã£o simples utilizando o mÃ³dulo TKinter para apresentar as informaÃ§Ãµes.
+        
+        [![Build Status](https://travis-ci.org/wherculano/Consulta-CNPJ.svg?branch=master)](https://travis-ci.org/wherculano/Consulta-CNPJ)
+        [![Updates](https://pyup.io/repos/github/wherculano/Consulta-CNPJ/shield.svg)](https://pyup.io/repos/github/wherculano/Consulta-CNPJ/)
+        [![Python 3](https://pyup.io/repos/github/wherculano/Consulta-CNPJ/python-3-shield.svg)](https://pyup.io/repos/github/wherculano/Consulta-CNPJ/)
+        [![codecov](https://codecov.io/gh/wherculano/Consulta-CNPJ/branch/master/graph/badge.svg)](https://codecov.io/gh/wherculano/Consulta-CNPJ)
+        
+        Para instalar o projeto basta efetuar o clone do mesmo:
+        ```console
+        git close https://github.com/wherculano/Consulta-CNPJ.git
+        ```
+        criar um ambiente virtual dentro da pasta do projeto:
+        ```console
+        cd Consulta-CNPJ
+        python -m venv .venv
+        ```
+        E depois instalar as depedÃªncias do projeto.
+        HÃ¡ trÃªs formas:
+        1. Instalando via requirements:
+            ```console
+            pip install -r requirements.txt
+            ```
+        1. Instalando via setup.py
+            ```console
+            pip install -e .
+            ```
+        1. Instalando via pacote zip:
+            ```console
+            pip install https://github.com/wherculano/Consulta-CNPJ/archive/0.1.zip
+           ```
+           
+         A interface grÃ¡fica do programa Ã© bem intuitiva.    
+         Basta digita o CNPJ desejado que as informaÃ§Ãµes irÃ£o aparecer na tela apÃ³s clicar em 'OK' ou pressionar 'ENTER'
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Framework :: Pytest
+Description-Content-Type: text/markdown
