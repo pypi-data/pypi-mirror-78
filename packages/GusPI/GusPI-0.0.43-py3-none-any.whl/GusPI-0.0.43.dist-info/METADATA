@@ -1,0 +1,420 @@
+Metadata-Version: 2.1
+Name: GusPI
+Version: 0.0.43
+Summary: This open-source python package aims to provide statistical support in supply chain analytics and finance/accounting analytics. We welcome everyone to use this python package for personal or professional projects. Please let us know any feedback you have. We'd love to improve the package and add feature enhancements to benefit researchers.
+Home-page: https://github.com/ygeszvain/GusPI
+Author: Randy Geszvain
+Author-email: randy.geszvain@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+## GusPI
+This open-source python package aims to provide statistical support in supply chain analytics and finance/accounting analytics. We welcome everyone to use this python package for personal or professional projects. Please let us know any feedback you have. We'd love to improve the package and add feature enhancements to benefit researchers.
+
+Report any bugs by opening an issue here: https://github.com/ygeszvain/GusPI/issues
+
+Quick start
+
+```
+$ python3 -m pip install -U plotly
+
+$ python3 -m pip install -U scikit-learn
+
+$ python3 -m pip install -U matplotlib
+
+$ python3 -m pip install -U seaborn
+
+$ python3 -m pip install -U simfin
+
+$ python3 -m pip install -U GusPI
+```
+
+## Templates
+### Templates for suPY
+
+[SalesData.csv](https://github.com/ygeszvain/GusPI/blob/master/sampleFiles/SalesData.csv)
+
+### Templates for fiPY
+
+[income_statement.csv](https://github.com/ygeszvain/GusPI/blob/master/sampleFiles/income_statement.csv)
+
+[income_statement_yr.csv](https://github.com/ygeszvain/GusPI/blob/master/sampleFiles/income_statement_yr.csv)
+
+[income_statement_m.csv](https://github.com/ygeszvain/GusPI/blob/master/sampleFiles/income_statement_m.csv)
+
+[balancesheet.csv](https://github.com/ygeszvain/GusPI/blob/master/sampleFiles/balancesheet.csv)
+
+[balance_sheet_yr.csv](https://github.com/ygeszvain/GusPI/blob/master/sampleFiles/balance_sheet_yr.csv)
+
+[cashflow.csv](https://github.com/ygeszvain/GusPI/blob/master/sampleFiles/cashflow.csv)
+
+## Demo notebook
+
+[demo](https://colab.research.google.com/drive/1qc1ZuvbgWPLCrSP3z-8Umj4FYJSiViq8?usp=sharing)
+
+## GusPI.suPY
+
+```
+from GusPI import suPY
+```
+
+### metrics
+
+This package provides several analytical formulas to support supply chain analytics.
+
+Economic order quantity
+EOQ(demand, mean, STD, C, Ce, Cs, Ct)
+
+Perfect Order Measurement
+POM(TotalOrders, ErrorOrders)
+
+Fill Rate
+FR(TotalItems, ShippedItems)
+
+Inventory Days of Supply
+IDS(InventoryOnHand,AvgDailyUsage)
+
+Freight cost per unit
+FCU(TotalFreightCost,NumberOfItems)
+
+Inventory Turnover
+IT(COGS,AvgInventory)
+
+Days of Supply (DOS)
+DOS(AvgInventory,MonthlyDemand)
+
+Gross Margin Return on Investment (GMROI)
+GMROI(GrossProfit, OpeningStock, ClosingStock)
+
+Inventory Accuracy
+IA(ItemCounts, TotalItemCounts)
+
+Storage Utilization Rate
+SUR(InventoryCube, TotalWarehouseCube)
+
+Total Order Cycle Time
+TOCT(TimeOrderReceivedbyCustomer, TimeOrderPlaced,TotalNumberofOrdersShipped)
+
+Internal Order Cycle Time
+IOCT(TimeOrderShipped, TimeOrderReceived, NumberofOrdersShipped)
+
+Read sales data from csv file and calculate basic safety sock and reorder point.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 12LS
+#safety days: 5
+#leadtime in days: 7
+
+suPy.basicSafetyStock('SalesData.csv','12LS',5,7)
+```
+
+Read sales data from csv file and calculate basic safety sock and reorder point for all products.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#safety days: 5
+#leadtime in days: 7
+
+suPy.basicSafetyStockList('SalesData.csv',5,7)
+```
+
+Read sales data from csv file and calculate safety sock and reorder point.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 12LS
+#service rate: 0.95
+#leadtime in days: 7
+
+suPy.safetyStockwtServiceRate('SalesData.csv','12LS',0.95,7)
+```
+
+Read sales data from csv file and calculate basic safety sock and reorder point for all products.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#service rate: 0.95
+#leadtime in days: 7
+
+suPy.safetyStockwtServiceRateList('SalesData.csv',0.95,7)
+```
+
+Read sales data from csv file and calculate coefficient of variation of a product.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 12LS
+#CV is non-negative and higher CV indicates higher volatility
+
+suPy.cvPerProduct('SalesData.csv','12LS')
+```
+
+Read sales data from csv file and calculate 'Intercept', 'Slope', 'Mean Absolute Error', 'Mean Squared Error', 'Root Mean Squared Error' of a product.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 12LS
+
+suPy.linearRegressionPerProduct('SalesData.csv','12LS')
+```
+
+Read sales data from csv file and calculate EOQ of a product.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 12LS
+#Setup cost: 2000
+#Holding cost: 1000
+
+suPy.eoqPerProduct('SalesData.csv','12LS',2000,1000)
+```
+
+Read sales data from csv file and create a list of average quantity sold per year for products.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+
+suPy.avgQtySoldList('SalesData.csv')
+```
+
+Read sales data from csv file and calculate the seasonality index of a product for a given year.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 12LS
+#year: 2018
+
+suPy.seasonalityIndexPerProduct('SalesData.csv','22LS',2018)
+```
+
+### graphs
+
+Read sales data from csv file and print out a line plot of a product quantity sold.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 22LS
+
+#print the line plot
+suPy.line plotQtyByMonth('salesData.csv','22LS')
+```
+
+Read sales data from csv file and print out a line plot of a product's total cost sold.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 22LS
+
+#print the line plot
+suPy.line plotTotalCostByMonth('salesData.csv','22LS')
+```
+
+Read sales data from csv file and print out a line plot of a product's total sales.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 22LS
+
+#print the line plot
+suPy.line plotTotalSalesByMonth('salesData.csv','22LS')
+```
+
+Read sales data from csv file and print out a line plot of a product's average cost.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 22LS
+
+#print the line plot
+suPy.line plotAverageCostByMonth('salesData.csv','22LS')
+```
+
+Read sales data from csv file and print out a line plot of a product's average sales.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 22LS
+
+#print the line plot
+suPy.line plotAverageSalesPriceByMonth('salesData.csv','22LS')
+```
+
+Read sales data from csv file and print out sales forecast for a product.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 22LS
+#length in month for the prediction: 12
+
+#print the metrics and line plot
+suPy.forecastQtyMonthlySales('SalesData.csv','12LS',12)
+```
+
+Read sales data from csv file and print out pricing forecast for a product.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 22LS
+#length in month for the prediction: 12
+
+#print the metrics and line plot
+suPy.forecastMonthlyPrice('SalesData.csv','12LS',12)
+```
+
+Read sales data from csv file and print out cost forecast for a product.
+
+```
+#Example
+
+#sales data from a csv file: salesData.csv
+#product number to perform analysis on: 22LS
+#length in month for the prediction: 12
+
+#print the metrics and line plot
+suPy.forecastMonthlyCost('SalesData.csv','12LS',12)
+```
+
+## GusPI.finPy
+
+```
+from GusPI import finPy
+```
+
+Read financial statements from csv file and print them out as a data frame.
+
+```
+#Example
+
+#balancesheet from a csv file: balance_sheet_yr.csv
+
+#print the statement in a data frame
+finPy.printStatement('balance_sheet_yr.csv')
+```
+
+Read financial statements from csv files and provide a single line chart for analysis.
+
+```
+#Example
+
+#income statement from a csv file: income_statement_m.csv
+
+#print a single line chart
+finPy.line plot('income_statement_m.csv','total_revenue')
+```
+
+Read financial statements from csv files and provide multiple line charts for analysis.
+
+```
+#Example
+
+#balancesheet from a csv file: balance_sheet_yr.csv
+
+#print multiple line plots
+finPy.multiline plots('balance_sheet_yr.csv', '3 year BalanceSheet Graph')
+```
+
+Read financial statements from csv files and provide a bullet chart for analysis.
+
+```
+#Example
+
+#balancesheet from a csv file: balance_sheet_yr.csv
+
+#print financial metrics
+finPy.bulletChart('balance_sheet_yr.csv','inventory')
+```
+
+Read financial statements from csv files and provide financial metrics for analysis.
+
+```
+#Example
+
+#balancesheet from a csv file: balance_sheet_yr.csv
+#incomeStatement from a csv file: income_statement_3yr.csv
+
+#print financial metrics
+finPy.calculateMetrics('balance_sheet_yr.csv','income_statement_12m.csv')
+```
+
+Read financial statements from csv files and provide horizontal analysis for the last two periods.
+
+```
+#Example
+
+#balancesheet from a csv file: balance_sheet_yr.csv
+
+#print financial metrics
+finPy.horizontalAnalysisLastTwo('balance_sheet_yr.csv')
+```
+
+## GusPI.scraper
+
+The scrape package provides an easy way to scrape Yelp business info and Yelp reviews for a specific business.
+
+```
+from GusPI import scraper
+```
+
+YelpBizInfo
+The function collects business info and save it into a csv file.
+
+```
+#Example
+
+#declare a list: https://www.yelp.com/biz/`artisan-ramen-milwaukee`
+CUISINES = ['artisan-ramen-milwaukee','red-light-ramen-milwaukee-5']
+
+#scrape the business info
+scraper.YelpBizInfo(CUISINES)
+```
+
+YelpReview
+The function collects reviews for respective business and save them into separate files by business names.
+```
+#Example
+
+#declare a list: https://www.yelp.com/biz/`artisan-ramen-milwaukee`
+CUISINES = ['artisan-ramen-milwaukee','red-light-ramen-milwaukee-5']
+
+#scrape the business info
+scraper.YelpReview(CUISINES)
+```
+
+
