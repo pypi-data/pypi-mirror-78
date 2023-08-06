@@ -1,0 +1,145 @@
+Metadata-Version: 2.1
+Name: osia
+Version: 0.2.0a1
+Summary: OpenShift infra automation
+Home-page: https://redhat-cop.github.io/osia/
+Author: Miroslav Jaros
+Author-email: mirek@mijaros.cz
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/redhat-cop/osia/issues
+Project-URL: Source, https://github.com/redhat-cop/osia
+Keywords: OpenShift OpenStack AWS automation
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: appdirs (==1.4.4)
+Requires-Dist: beautifulsoup4 (==4.9.1)
+Requires-Dist: boto3 (==1.14.56)
+Requires-Dist: botocore (==1.17.56)
+Requires-Dist: certifi (==2020.6.20)
+Requires-Dist: cffi (==1.14.2)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: coloredlogs (==14.0)
+Requires-Dist: decorator (==4.4.2)
+Requires-Dist: dynaconf[yaml] (==3.1.0)
+Requires-Dist: gitpython (==3.1.8)
+Requires-Dist: iso8601 (==0.1.12)
+Requires-Dist: jinja2 (==2.11.2)
+Requires-Dist: munch (==2.5.0)
+Requires-Dist: netifaces (==0.10.9)
+Requires-Dist: openstacksdk (==0.48.0)
+Requires-Dist: os-service-types (==1.7.0)
+Requires-Dist: pyyaml (==5.3.1)
+Requires-Dist: requestsexceptions (==1.4.0)
+Requires-Dist: ruamel.yaml (==0.16.12)
+Requires-Dist: s3transfer (==0.3.3)
+Requires-Dist: urllib3 (==1.25.10) ; python_version != "3.4"
+Requires-Dist: ruamel.yaml.clib (==0.2.2) ; python_version < "3.9" and platform_python_implementation == "CPython"
+Requires-Dist: pbr (==5.5.0) ; python_version >= "2.6"
+Requires-Dist: docutils (==0.15.2) ; python_version >= "2.6" and python_version not in "3.0, 3.1, 3.2, 3.3"
+Requires-Dist: jmespath (==0.10.0) ; python_version >= "2.6" and python_version not in "3.0, 3.1, 3.2, 3.3"
+Requires-Dist: idna (==2.10) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3"
+Requires-Dist: jsonpointer (==2.0) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3"
+Requires-Dist: markupsafe (==1.1.1) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3"
+Requires-Dist: pycparser (==2.20) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3"
+Requires-Dist: python-dateutil (==2.8.1) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3"
+Requires-Dist: six (==1.15.0) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3"
+Requires-Dist: smmap (==3.0.4) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3"
+Requires-Dist: cryptography (==3.1) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3, 3.4"
+Requires-Dist: humanfriendly (==8.2) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3, 3.4"
+Requires-Dist: jsonpatch (==1.26) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3, 3.4"
+Requires-Dist: requests (==2.24.0) ; python_version >= "2.7" and python_version not in "3.0, 3.1, 3.2, 3.3, 3.4"
+Requires-Dist: gitdb (==4.0.5) ; python_version >= "3.4"
+Requires-Dist: soupsieve (==2.0.1) ; python_version >= "3.5"
+Requires-Dist: dogpile.cache (==1.0.2) ; python_version >= "3.6"
+Requires-Dist: keystoneauth1 (==4.2.1) ; python_version >= "3.6"
+Requires-Dist: stevedore (==3.2.1) ; python_version >= "3.6"
+Provides-Extra: dev
+
+# OSIA
+
+OpenShift infra automation.
+
+## Goal
+
+The tool aims to unified installer of OpenShift to various clouds which is
+easy to automate and use within CI.
+
+To see necessary steps for OpenShift installation please see [OpenShift documentation](https://docs.openshift.com).
+
+To see full documentation of `osia` please follow to [Official documentation](https://redhat-cop.github.io/osia).
+
+## Installation
+
+To get started with osia, just install available package from [pypi](pypi.org):
+
+```bash
+$ pip install osia
+```
+
+
+__Main features__
+
+* Find empty region in aws to install opneshift on.
+* Find feasible network in OpenStack and allocate FIPs before installation happens.
+* Generate `install-config.yaml` from predefined defaults.
+* Store generated files for deletion to git repository and push changes right after the cluster is installed.
+* Manage DNS entries based on the installation properties and results.
+* Clean everything once the cluster is not needed.
+
+
+
+
+## Usage
+
+The tool operates over directory which is expected to be git repository and where the service will
+store generated configuration and push it to the upstream repository of currently working branch.
+
+### Common configuration
+
+The common configuraiton is done by yaml file called `settings.yaml` that should be located at
+`CWD` (root of the repository in most cases).
+
+The configuration has following structure:
+
+```
+default:
+  cloud:
+    openstack:
+      base_domain: ''
+      certificate_bundle_file: ''
+      pull_secret_file: ''
+      ssh_key_file: ''
+      osp_cloud: ''
+      osp_base_flavor: ''
+      network_list: []
+    aws:
+      base_domain: ''
+      pull_secret_file: ''
+      certificate_bundle_file: ''
+      ssh_key_file: ''
+      worker_flavor: '' 
+      list_of_regions: []
+  dns:
+    route53:
+      ttl: 0
+    nsupdate:
+      server: ''
+      zone: ''
+      key_file: ''
+      ttl: 0 
+```
+
+Every key here is overridible by the argument passed to the installer.
+For explanation of any key, please check he documentation below.
+
+
+
