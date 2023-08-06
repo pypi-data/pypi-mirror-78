@@ -1,0 +1,112 @@
+<!--
+ Copyright 2018 by Embrapa.  All rights reserved.
+
+ This code is part of the machado distribution and governed by its
+ license. Please see the LICENSE.txt and README.md files that should
+ have been included as part of this package for licensing information.
+-->
+
+{% extends 'base.html' %}
+{% load machado_extras %}
+
+{% block content %}
+
+        <div class="row m-1">
+        <div class="col col-3 py-2 mx-1 rounded bg-light">
+            {% include "search_facet.html" %}
+        </div>
+
+        {% if object_list %}
+        <div class="col py-2 mx-1 rounded bg-light" style="overflow-x: auto;">
+            <div class="row">
+                <div class="col">
+                    <h3>Results</h3>
+                </div>
+                <div class="col text-right">
+                    {% if so_term_count == 1 or 'orthologous_group' in selected_facets_fields or 'coexpression_group' in selected_facets_fields %}
+                        <a class="fas fa-download" href="{% url 'feature_search_export' %}?{{ request.GET.urlencode }}&export=tsv" title="Download TSV" onclick="return confirm('Download results in TSV format')">TSV</a> 
+                        <a class="fas fa-download" href="{% url 'feature_search_export' %}?{{ request.GET.urlencode }}&export=fasta" title="Download FASTA" onclick="return confirm('Download results in FASTA format')">FASTA</a> 
+                    {% endif %}
+                </div>
+            </div>
+            <table class="table table-hover table-sm">
+            <tr>
+				<th><a href="?{% param_replace order_by='organism' %}">Organism</a></th>
+				<th><a href="?{% param_replace order_by='so_term' %}">Feature Type</a></th>
+				<th><a href="?{% param_replace order_by='uniquename' %}">Feature ID</a></th>
+                <th>Relationship</th>
+				<th><a href="?{% param_replace order_by='display' %}">Display</a></th>
+                {% if orthologs %}<th><a href="?{% param_replace order_by='orthologous_group' %}">Orthologous Group</a></th>{% endif %}
+				{% if coexp_groups %}<th><a href="?{% param_replace order_by='coexpression_group' %}">Coexpression Group</a></th>{% endif %}
+            </tr>
+            {% for result in page_obj.object_list %}
+            <tr>
+		<td><i>{{ result.organism }}</i></td>
+                <td>{{ result.so_term }}</td>
+                <td>
+                    <a href="{% url 'feature' %}?feature_id={{ result.pk|safe }}">{{ result.uniquename }}</a>
+                </td>
+                <td>
+					{% for relationship in result.relationship %}
+					  {% with relationship|split:" " as r_list %}
+					    <a href="{% url 'feature' %}?feature_id={{ r_list.0 }}">{{ r_list.1 }}</a>
+					  {% endwith %}
+					{% endfor %}
+                </td>
+                <td>{{ result.display|default_if_none:'' }}</td>
+                {% if orthologs %}
+                    <td><a href="{% url 'feature_search' %}?selected_facets=orthologous_group:{{ result.orthologous_group }}">{{ result.orthologous_group|default_if_none:'' }}</a></td>
+                {% endif%}
+                {% if coexp_groups %}
+                    <td><a href="{% url 'feature_search' %}?selected_facets=coexpression_group:{{ result.coexpression_group }}">{{ result.coexpression_group|default_if_none:'' }}</a></td>
+                {% endif%}
+            </tr>
+                {% empty %}
+                <p>No results found.</p>
+                {% endfor %}
+                </table>
+
+                <br />
+
+
+
+            {% if page_obj.has_previous or page_obj.has_next %}
+            <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-left">
+                <li class="page-item {% if page_obj.has_previous == False %}disabled{% endif %}">
+                    <a class="page-link" href="{% if page_obj.has_previous %}?{% param_replace page=page_obj.previous_page_number %}{% endif %}">Previous</a>
+                </li>
+
+                {% for l in page_obj.paginator.page_range %}
+                    {% if l <= page_obj.number|add:4 and l >= page_obj.number|add:-4 %}
+                    <li class="page-item {% if page_obj.number == forloop.counter %}disabled{% endif %}">
+                        <a class="page-link" href="?{% param_replace page=forloop.counter %}">{{ forloop.counter }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+
+                <li class="page-item {% if page_obj.has_next == False %}disabled{% endif %}">
+                    <a class="page-link" href="{% if page_obj.has_next %}?{% param_replace page=page_obj.next_page_number %}{% endif %}">Next</a>
+                </li>
+            </ul>
+            </nav>
+
+			Number of records:
+			<a href="?{% param_replace records=10 %}">10</a>
+			<a href="?{% param_replace records=50 %}">50</a>
+			<a href="?{% param_replace records=100 %}">100</a>
+			<a href="?{% param_replace records=500 %}">500</a>
+			<a href="?{% param_replace records=1000 %}">1000</a>
+
+            {% endif %}
+
+        </div>
+     </div>
+    {% else %}
+    <div class="col py-2 mx-1 rounded bg-light">
+        <h3>Results</h3>
+            Not found.
+    </div>
+    {% endif %}
+
+{% endblock %}

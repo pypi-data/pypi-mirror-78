@@ -1,0 +1,226 @@
+<!--
+ Copyright 2018 by Embrapa.  All rights reserved.
+
+ This code is part of the machado distribution and governed by its
+ license. Please see the LICENSE.txt and README.md files that should
+ have been included as part of this package for licensing information.
+-->
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<script src="{% static 'feature.js' %}"></script>
+
+{% if feature.error == None %}
+
+  {% if data %}
+  <input type="hidden" value="{{ feature.feature_id|safe }}" id="feature_id" name="feature_id"></input>
+  <div class="card m-1">
+    <div class="card-header">
+        <small><i>{{ feature.organism.genus }} {{ feature.organism.species }}</i></small>
+        <h3 class="card-title">
+			{{ feature.type.name }}: {{ feature.name }}
+		</h3>
+    </div>
+    <div class="card-body">
+      <div class="card-text">
+        <p>ID: {{ feature.uniquename }}</p>
+      {% if feature.get_dbxrefs %}<p>DBxRefs: {{ feature.get_dbxrefs|join:', ' }}</p>{% endif %}
+      {% if feature.get_display %}<p>Display: {{ feature.get_display }}</p>{% endif %}
+      {% if feature.get_product %}<p>Product: {{ feature.get_product }}</p>{% endif %}
+      {% if feature.get_description %}<p>Description: {{ feature.get_description }}</p>{% endif %}
+      {% if feature.get_note %}<p>Note: {{ feature.get_note }}</p>{% endif %}
+      {% if feature.get_relationship %}
+        <p>
+        {% for relative in feature.get_relationship %}
+        {{ relative.type.name }}: <a href="{% url 'feature'%}?feature_id={{ relative.feature_id|safe }}">{{ relative.uniquename }}</a> {{ relative.get_display|default_if_none:'' }}<br />
+        {% endfor %}
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if feature.get_location %}
+  <div class="card m-1">
+    <div class="card-header">
+        <h4 class="card-title">
+			Location
+		</h4>
+    </div>
+    <div class="card-body">
+      <div class="card-text">
+        {% for location in feature.get_location %}
+        <p>{{ location.ref|safe }}:{{ location.start|safe }}..{{ location.end|safe }} {{ location.strand|safe }}</p>
+          {% if location.jbrowse_url %}
+            <iframe style='border:0' width='100%' height='300' src="{{ location.jbrowse_url }}"></iframe>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if data.cvterm or data.protein_matches %}
+  <div class="card m-1">
+    <div class="card-header">
+      <h4 class="card-title">
+		  <a data-toggle="collapse" href="#collapseAnnotation" role="button" aria-expanded="false" aria-controls="collapseAnnotation">
+		    Functional annotation
+			<small><i class="fas fa-caret-up"></i></small>
+		  </a>
+	  </h4>
+    </div>
+    <div class="card-body collapse show" id="collapseAnnotation">
+		<ul class="nav nav-tabs" id="annotationTab" role="tablist">
+          {% if data.cvterm %}
+		  <li class="nav-item">
+			<a class="nav-link active" id="go-tab" data-toggle="tab" href="#collapseOntology" role="tab" aria-controls="go" aria-selected="true">Gene Ontology</a>
+		  </li>
+		  {% endif %}
+          {% if data.protein_matches %}
+		  <li class="nav-item">
+			<a class="nav-link" id="iprscan-tab" data-toggle="tab" href="#collapseProteinMatches" role="tab" aria-controls="iprscan" aria-selected="false">Interpro databases</a>
+		  </li>
+		  {% endif %}
+		</ul>
+      <div class="card-text tab-content">
+        {% if data.cvterm %}
+	    <div class="tab-pane fade show active" id="collapseOntology" role="tabpanel" aria-labelledby="go-tab">
+            <table class="table table-sm table-hover"></table>
+		</div>
+        {% endif %}
+
+        {% if data.protein_matches %}
+		<div class="tab-pane fade {% if not data.cvterm %}show active{% endif %}" id="collapseProteinMatches" role="tabpanel" aria-labelledby="iprscan-tab">
+            <table class="table table-sm table-hover"></table>
+		</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if data.similarity %}
+  <div class="card m-1">
+    <div class="card-header">
+      <h4 class="card-title">
+		  <a data-toggle="collapse" href="#collapseSimilarity" role="button" aria-expanded="false" aria-controls="collapseSimilarity">
+		  Similarity
+		  <small><i class="fas fa-caret-up"></i></small>
+		  </a>
+	  </h4>
+    </div>
+    <div class="card-body collapse show" id="collapseSimilarity">
+      <div class="card-text">
+        <table class="table table-sm table-hover"></table>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if feature.type.name == 'mRNA' and feature.get_expression_samples %}
+  <div class="card m-1">
+    <div class="card-header">
+      <h4 class="card-title">
+		  <a data-toggle="collapse" href="#collapseExpression" role="button" aria-expanded="false" aria-controls="collapseExpression">
+		  Expression data
+		  <small><i class="fas fa-caret-up"></i></small>
+		  </a>
+	  </h4>
+    </div>
+    <div class="card-body collapse show" id="collapseExpression">
+      <div class="card-text">
+        {% if feature.get_coexpression_group %}
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item list-group-item-secondary">Coexpression Group: <a href="{% url 'feature_search' %}?selected_facets=coexpression_group:{{ feature.get_coexpression_group }}">{{ feature.get_coexpression_group }}</a></li>
+        </ul>
+        {% endif %}
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Assay source</th>
+              <th scope="col">Assay name</th>
+              <th scope="col">Assay description</th>
+              <th scope="col">Biomaterial name</th>
+              <th scope="col">Biomaterial description</th>
+              <th scope="col">Treatment</th>
+              <th scope="col">Score normalized (TPM)</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for value in feature.get_expression_samples %}
+            <tr>
+              <td>{{ value.analysis__sourcename|safe }} </td>
+			  <td><a href="https://www.ncbi.nlm.nih.gov/sra/?term={{ value.assay_name|safe }}" target="_blank">{{ value.assay_name|safe }}</a></td>
+              <td>{{ value.assay_description|safe }}</td>
+			  <td><a href="https://www.ncbi.nlm.nih.gov/sra/?term={{ value.biomaterial_name|safe }}" target="_blank">{{ value.biomaterial_name|safe }}</a></td>
+              <td>{{ value.biomaterial_description|safe }}</td>
+              <td>{{ value.treatment_name|safe }}</td>
+              <td>{{ value.normscore|safe|floatformat:2 }} </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if feature.type.name == 'polypeptide' and feature.get_orthologous_group %}
+  <div class="card m-1">
+    <div class="card-header">
+        <h4 class="card-title">
+          <a data-toggle="collapse" href="#collapseOrthologs" role="button" aria-expanded="false" aria-controls="collapseOrthologs">
+			Orthologs
+			<small><i class="fas fa-caret-down"></i></small>
+		  </a>
+		</h4>
+    </div>
+    <div class="card-body collapse" id="collapseOrthologs">
+      <div class="card-text"></div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if feature.residues %}
+  <div class="card m-1">
+    <div class="card-header">
+        <h4 class="card-title">
+            <a data-toggle="collapse" href="#collapseSeq" role="button" aria-expanded="false" aria-controls="collapseSeq">
+			Sequence
+			<small><i class="fas fa-caret-down"></i></small>
+		</a>
+		</h4>
+    </div>
+    <div class="card-body collapse" id="collapseSeq">
+      <div class="card-text text-monospace"><small></small></div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if data.pubs %}
+  <div class="card m-1">
+    <div class="card-header">
+        <h4 class="card-title">
+        <a data-toggle="collapse" href="#collapsePub" role="button" aria-expanded="false" aria-controls="collapsePub">
+			Publications
+			<small><i class="fas fa-caret-down"></i></small>
+		</a>
+		</h4>
+    </div>
+    <div class="card-body collapse" id="collapsePub">
+      <div class="card-text"></div>
+    </div>
+  </div>
+  {% endif %}
+
+  <br />
+
+{% else %}
+  {{ feature.error }}
+{% endif %}
+
+{% endblock %}
