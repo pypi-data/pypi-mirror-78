@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: robustneldermead
+Version: 1.1
+Summary: Nelder Mead algorithm for high dimensional parameter spaces
+Home-page: https://github.com/astrobc1/neldermead
+Author: Bryson Cale
+Author-email: bryson.cale1@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Requires-Dist: numba (>=0.48)
+Requires-Dist: numpy (>=1.18)
+Requires-Dist: optimparameters (>=1.0.3)
+
+UNKNOWN
+
+
