@@ -1,0 +1,10 @@
+watchdog
+portalocker
+pathtools
+
+[test]
+pytest
+coverage
+pytest-cov
+pymongo
+pandas
