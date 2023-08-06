@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: tfnlu
+Version: 0.0.25
+Summary: NLP tool
+Home-page: https://github.com/deepdialog/tfnlu
+Author: deepdialog
+Author-email: thebotbot@sina.com
+License: Private
+Keywords: nlp,tensorflow,parser,tagger
+Platform: any
+Requires-Dist: tensorflow (>=2.2.0)
+Requires-Dist: tensorflow-hub
+Requires-Dist: tensorflow-addons
+Requires-Dist: tqdm
+Requires-Dist: pandas
+
+NLP tool, NER, POS
+
+
