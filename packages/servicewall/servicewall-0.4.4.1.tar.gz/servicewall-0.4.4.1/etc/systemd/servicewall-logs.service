@@ -1,0 +1,10 @@
+[Unit]
+Description=logs for servicewall
+
+[Service]
+ExecStart=/bin/cat /dev/ulog
+ExecReload=/usr/bin/kill --signal HUP ${MAINPID}
+
+[Install]
+WantedBy=multi-user.target
+

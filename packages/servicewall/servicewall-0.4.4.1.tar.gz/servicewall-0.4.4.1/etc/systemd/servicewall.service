@@ -1,0 +1,15 @@
+[Unit]
+Description=ServiceWall firewall
+Wants=network-pre.target
+Before=network-pre.target
+Requires=servicewall-ulogd.service
+
+[Service]
+# This service does nothing, braise will check it to see if it's enabled
+ExecStart=/usr/bin/braise start
+RemainAfterExit=yes
+ExecReload=/usr/bin/braise reload
+ExecStop=/usr/bin/braise stop
+
+[Install]
+WantedBy=multi-user.target
