@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: soak
+Version: 11
+Summary: Process aridity templates en masse, like Helm but much more DRY
+Home-page: https://github.com/combatopera/soak
+Author: Andrzej Cichocki
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: aridity
+Requires-Dist: diapyr
+Requires-Dist: lagoon
+Requires-Dist: PyYAML
+Requires-Dist: splut
+
+# soak
+[![Build Status](https://travis-ci.org/combatopera/soak.svg?branch=master)](https://travis-ci.org/combatopera/soak)
+
+
