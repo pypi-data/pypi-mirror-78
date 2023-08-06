@@ -1,0 +1,169 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<style>
+ #download {
+     display: none;
+ }
+ #preview {
+     display: none;
+     margin-top: 40px;
+ }
+ #back {
+     display: none;
+ }
+ .preview-entry {
+     border:1px solid #bbb;
+     margin-bottom: 10px;
+ }
+ .preview-metadata {
+     background: #ecf6ff;
+     padding: 10px;
+ }
+ .preview-metadata span {
+     margin-left: 20px;
+ }
+ .preview-metadata span:first-child {
+     margin-left: 0;
+ }
+ .preview-text {
+     padding: 10px;
+ }
+ #no_results {
+     display: none;
+ }
+ #xml_no_preview {
+     display: none;
+ }
+</style>
+
+<p>
+  Processed <span class="processed">0</span> files out of <span class="total">-</span>
+</p>
+<p id="results_count"></p>
+<div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+</div>
+<a class="btn btn-danger" id="cancel" href="#">Cancel</a>
+<a class="btn btn-default" id="back" href="#">Back</a>
+
+<a class="btn btn-default" download="query.json" href="data:application/json,{{query_json}}">Save Query</a>
+<a class="btn btn-primary" id="download" href="#">Download</a>
+<div id="preview">
+    <h3>Preview</h3>
+    <p id="preview_desc"></p>
+    <div id="preview_content"></div>
+</div>
+<div id="no_results">
+  Your query and search settings have produced no results.
+</div>
+<div id="xml_no_preview">
+  Preview is currently unavailable when using the XML output format.
+</div>
+<script>
+ if (typeof(miniXhr) === 'undefined' && typeof(jQuery) !== 'undefined') {
+     window.miniXhr = function (method, url, callback) {
+         jQuery.ajax(url, {method: method, success:callback});
+     }
+ }
+
+ function noResults() {
+     document.getElementById('no_results').style.display = 'block';
+     document.getElementById('download').style.display = 'none';
+     document.getElementById('cancel').style.display = 'none';
+ }
+
+ function xmlNoPreview() {
+     document.getElementById('xml_no_preview').style.display = 'block';
+ }
+
+ function done() {
+     clearInterval(interval);
+     document.querySelector('.progress').style.display = 'none';
+     var downloadBtn = document.getElementById('download');
+     downloadBtn.href = '{% url 'perfectextractor_ui:download' task_id %}';
+     downloadBtn.style.display = 'inline-block';
+     document.getElementById('back').style.display = 'inline-block';
+     document.getElementById('cancel').style.display = 'none';
+     peek(true);
+ }
+
+ function peek(lastPeek) {
+     var sourceLanguage = '{{source}}';
+     var targetLanguages = [{% for language in alignment %}'{{language}}',{% endfor %}];
+     var outputFormat = '{{output_format}}';
+
+     if (outputFormat == 'xml') {
+         xmlNoPreview();
+         return;
+     }
+
+     miniXhr('get', '{% url 'perfectextractor_ui:peek' task_id %}',
+             function(response) {
+                 var lines = [];
+                 response.head.forEach(function(line) {
+                     var type = line['type ' + sourceLanguage];
+                     var words = line['words ' + sourceLanguage];
+                     lines.push('<div class="preview-entry"><div class="preview-metadata">');
+                     lines.push('<span>Document: ' + line.document + '</span>');
+                     lines.push('<span>Sentence: ' + line.sentence + '</span>');
+                     lines.push('<span>Type: ' + type + '</span>');
+                     lines.push('<span>Words: ' + words + '</span>');
+                     lines.push('</div><div class="preview-text">');
+                     lines.push('<span class="label label-primary">');
+                     lines.push(sourceLanguage);
+                     lines.push('</span> ');
+                     var lineWithBold = line[sourceLanguage].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                     lines.push(lineWithBold);
+                     lines.push('</div>');
+                     targetLanguages.forEach(function(language) {
+                         lines.push('<div class="preview-text">');
+                         lines.push('<span class="label label-primary">');
+                         lines.push(language);
+                         lines.push('</span> ');
+                         lines.push(line[language]);
+                         lines.push('</div>');
+                     });
+                     lines.push('</div>');
+                 });
+
+                 document.getElementById('results_count').innerHTML = 'Contexts found: ' + response.results.toLocaleString();
+
+                 if (lastPeek && !lines.length) {
+                     noResults();
+                 }
+                 else if (lines.length) {
+                     document.getElementById('preview').style.display = 'block';
+                     var desc = 'Displaying ' + response.head.length;
+                     if (response.head.length < response.results) { desc += ' first'; }
+                     desc += ' results:';
+                     document.getElementById('preview_desc').innerHTML = desc;
+                     document.getElementById('preview_content').innerHTML = lines.join('');
+                 }
+     });
+ }
+
+ function checkStatus() {
+     miniXhr('get', '{% url 'perfectextractor_ui:status' task_id %}',
+             function(response) {
+                 if (response.status && response.status.total > 0) {
+                     if (response.status.progress > 0) peek();
+                     if (response.status.progress == response.status.total) done();
+
+                     var status = response.status;
+                     var percent = status.progress / status.total * 100;
+                     document.querySelector('.progress-bar').style.width = percent + '%';
+                     document.querySelector('.processed').innerText = status.progress;
+                     document.querySelector('.total').innerText = status.total;
+                 }
+     });
+ }
+
+ function cancel() {
+     miniXhr('get', '{% url 'perfectextractor_ui:cancel' task_id%}', function(response) {done()});
+ }
+
+ var interval = setInterval(checkStatus, 1000);
+ document.getElementById('cancel').addEventListener('click', cancel);
+ document.getElementById('back').addEventListener('click', function(){window.history.go(-1)});
+</script>
+{% endblock %}
