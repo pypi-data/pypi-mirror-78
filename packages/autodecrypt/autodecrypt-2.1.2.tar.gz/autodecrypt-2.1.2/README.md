@@ -1,0 +1,131 @@
+# autodecrypt
+[![PyPI version](https://badge.fury.io/py/autodecrypt.svg)](https://badge.fury.io/py/autodecrypt)
+
+Simple tool to decrypt iOS firmware images.
+
+Going to the iPhone wiki and copying and pasting firmware keys to your terminal is boring.
+
+autodecrypt will grab keys for you and decrypt the firmware image you want.
+
+## Usage
+```
+usage: autodecrypt.py [-h] -f IMG_FILE -d DEVICE [-i IOS_VERSION]
+                      [-b BUILD_ID] [-c CODENAME] [-l] [--beta] [--download]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f IMG_FILE, --file IMG_FILE
+                        img file you want to decrypt
+  -d DEVICE, --device DEVICE
+                        device ID (eg : iPhone8,1)
+  -i IOS_VERSION, --ios IOS_VERSION
+                        iOS version for the said file
+  -b BUILD_ID, --build BUILD_ID
+                        build ID to set instead of iOS version
+  -c CODENAME, --codename CODENAME
+                        codename of iOS version
+  -l, --local           don't download firmware image
+  --beta                specify beta firmware
+  --download            download firmware image
+```
+
+## Dependencies
+- [img4](https://github.com/xerub/img4lib)
+
+To run autodecrypt, use poetry with a virtualenv:
+- `virtualenv -p python3 env`
+- `pip3 install poetry`
+- `poetry install`
+
+
+## Installation
+`pip3 install autodecrypt`
+
+
+## Examples
+
+#### Download and decrypt iBSS using keys from theiphonewiki
+```
+» autodecrypt -f iBSS -i 10.3.3 -d iPhone6,2
+[i] downloading iBSS.iphone6.RELEASE.im4p
+[i] image : ibss
+[i] grabbing keys for iPhone6,2/14G60
+[x] iv  : f2aa35f6e27c409fd57e9b711f416cfe
+[x] key : 599d9b18bc51d93f2385fa4e83539a2eec955fce5f4ae960b252583fcbebfe75
+[i] decrypting iBSS.iphone6.RELEASE.im4p to iBSS.iphone6.RELEASE.bin...
+[x] done
+```
+
+#### Download and decrypt SEP firmware by specifying keys
+```
+» autodecrypt -f sep-firmware -b 17C5053a -d iPhone11,8 -k 9f974f1788e615700fec73006cc2e6b533b0c6c2b8cf653bdbd347bc1897bdd66b11815f036e94c951250c4dda916c00
+[i] downloading sep-firmware.n841.RELEASE.im4p
+[x] iv  : 9f974f1788e615700fec73006cc2e6b5
+[x] key : 33b0c6c2b8cf653bdbd347bc1897bdd66b11815f036e94c951250c4dda916c00
+[i] decrypting sep-firmware.n841.RELEASE.im4p to sep-firmware.n841.RELEASE.bin...
+[x] done
+```
+
+#### Use [foreman](https://github.com/GuardianFirewall/foreman) instance to grab firmware keys
+```
+» export FOREMAN_HOST="https://foreman-public.sudosecuritygroup.com"
+» autodecrypt -f LLB -i 13.2.3 -d iPod9,1
+[i] downloading LLB.n112.RELEASE.im4p
+[i] image : llb
+[i] grabbing keys for iPod9,1/17B111
+[i] grabbing keys from https://foreman-public.sudosecuritygroup.com
+[x] iv  : 85784a219eb29bcb1cc862de00a590e7
+[x] key : f539c51a7f3403d90c9bdc62490f6b5dab4318f4633269ce3fbbe855b33a4bc7
+[i] decrypting LLB.n112.RELEASE.im4p to LLB.n112.RELEASE.bin...
+[x] done
+```
+
+#### Decrypt keys from Device
+Since [checkra1n](https://checkra.in/) 0.9.8.1 you can use autodecrypt and [this tool] to decrypt kbags from userland.
+
+You'll have to run `kbag` as a server on your idevice and specify IP address with autodecrypt :
+```
+» autodecrypt -f iBoot -i 13.3.1 -d iPhone9,3 --ip 192.168.1.4
+[i] downloading iBoot.d10.RELEASE.im4p
+[i] grabbing keys from gidaes server on 192.168.1.4:12345
+[i] kbag : EF95BCD9B0C229D7EBD11EE9CA8FC824C02350BAD10234B4D8838B205266C3E6E37C281F14D0C663534CC79BF39AB269
+[x] iv  : 8630e88c3155844eb61289e42f8bde1b
+[x] key : da05c8905394ac13ce41beef1d13847bddc0af1252710cb3578a269473f9c3a6
+[i] decrypting iBoot.d10.RELEASE.im4p to iBoot.d10.RELEASE.bin...
+[x] done
+```
+
+#### Decrypt SEP keys from PongoOS
+```
+» autodecrypt -f sep-firmware -d iPhone9,3 -i 13.6 --pongo
+[i] downloading sep-firmware.d101.RELEASE.im4p
+[i] grabbing keys from PongoOS device
+[i] kbag : 7634421DC6A6AE941A8350802C9CEE1EC6F7D736BB97198346C2F5DC07C026F13204795B8ADC40E0F69EAC83A0A18C9E
+[x] iv  : 1889b6d019700984d3948771a7769b9b
+[x] key : 31550be01c48893e6aa149b72691d460464eef74cc8deca2d2a94626255d5a4b
+[i] decrypting sep-firmware.d101.RELEASE.im4p to sep-firmware.d101.RELEASE.bin...
+[x] done
+```
+
+
+#### Log
+
+For debugging purposes you can check `autodecrypt.log` :
+```
+11/02/2019 21:39:41 Launching "['autodecrypt/autodecrypt.py', '-d', 'iPhone9,3', '-f', 'iBoot', '-i', '12.3.1']"
+11/02/2019 21:39:41 requesting IPSW's API for iPhone9,3
+11/02/2019 21:39:41 done, now looking for version or build
+11/02/2019 21:39:41 grabbing firmware codename for 16F203
+11/02/2019 21:39:42 codename : PeaceF
+11/02/2019 21:39:42 grabbing IPSW file URL for iPhone9,3/12.3.1
+11/02/2019 21:39:42 downloading iBoot...
+11/02/2019 21:39:43 img4 -i iBoot.d10.RELEASE.im4p iBoot.d10.RELEASE.bin 978fd4680cd4b624b0dfea22a417f51f0ee2b871defed42277fe18885053b1eb5c7ffe82f38ab8cf7772c69a0db5d386
+```
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="05ac", ATTRS{idProduct}=="PID", MODE="0666"
+
+### Credits
+- checkra1n team for AES patches, kbag.m and [PongoOS](https://github.com/checkra1n/pongoos)
+- kennytm for img3 stuff (removed for the moment)
+- xerub for [img4](https://github.com/xerub/img4lib)
+- tihmstar for wiki parsing ([my method](https://github.com/matteyeux/ios-tools/blob/master/scrapkeys.py) was pretty bad)
