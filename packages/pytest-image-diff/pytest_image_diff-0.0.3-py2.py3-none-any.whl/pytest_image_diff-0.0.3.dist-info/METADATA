@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: pytest-image-diff
+Version: 0.0.3
+Summary: UNKNOWN
+Home-page: https://github.com/Apkawa/pytest-image-diff
+Author: Apkawa
+Author-email: apkawa@gmail.com
+License: MIT
+Keywords: pytest
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+Requires-Dist: pytest
+Requires-Dist: typing-extensions
+Requires-Dist: diffimg
+Requires-Dist: imgdiff
+Provides-Extra: splinter
+Requires-Dist: pytest-splinter (>=2.1.0) ; extra == 'splinter'
+Requires-Dist: chromedriver-binary (==2.40.1) ; extra == 'splinter'
+
+[![PyPi](https://img.shields.io/pypi/v/pytest-image-diff.svg)](https://pypi.python.org/pypi/pytest-image-diff)
+[![Build Status](https://travis-ci.org/Apkawa/pytest-image-diff.svg?branch=master)](https://travis-ci.org/Apkawa/pytest-image-diff)
+[![Documentation Status](https://readthedocs.org/projects/pytest-image-diff/badge/?version=latest)](https://pytest-ngrok.readthedocs.io/en/latest/?badge=latest)
+[![Codecov](https://codecov.io/gh/Apkawa/pytest-image-diff/branch/master/graph/badge.svg)](https://codecov.io/gh/Apkawa/pytest-image-diff)
+[![Requirements Status](https://requires.io/github/Apkawa/pytest-image-diff/requirements.svg?branch=master)](https://requires.io/github/Apkawa/pytest-image-diff/requirements/?branch=master)
+[![PyUP](https://pyup.io/repos/github/Apkawa/pytest-image-diff/shield.svg)](https://pyup.io/repos/github/Apkawa/pytest-image-diff)
+[![PyPi Python versions](https://img.shields.io/pypi/pyversions/pytest-image-diff.svg)](https://pypi.python.org/pypi/pytest-image-diff)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+# pytest-image-diff
+
+# Installation
+
+```bash
+pip install pytest-image-diff
+```
+
+or from git
+
+```bash
+pip install -e git+https://githib.com/Apkawa/pytest-image-diff.git@master#egg=pytest-image-diff
+```
+
+Python>=3.5
+
+
+# Usage
+
+```python
+from PIL import Image
+
+
+def test_compare(image_diff):
+    image: Image or str or bytes = Image.new()
+    image2: Image or str or bytes = '/path/to/image.jpeg'
+    image_diff(image, image2)
+
+def test_regression(image_regression):
+    image: Image or str or bytes = Image.new()
+    image_regression(image)
+```
+
+
+
+
+
+
+
+
+
