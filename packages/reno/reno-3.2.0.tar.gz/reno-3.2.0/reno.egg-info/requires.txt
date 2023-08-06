@@ -1,0 +1,16 @@
+PyYAML>=5.3.1
+dulwich>=0.15.0
+packaging>=20.4
+pbr
+
+[sphinx]
+docutils>=0.11
+sphinx!=2.1.0,>=2.0.0
+
+[test]
+coverage!=4.4,>=4.0
+openstackdocstheme>=2.2.1
+python-subunit>=0.0.18
+stestr>=2.0.0
+testscenarios>=0.4
+testtools>=1.4.0
