@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "pytest-factory"
+version = "0.0.1-dev0"
+description = "Use factories for test setup with py.test"
+authors = ["Zach \"theY4Kman\" Kanzler <they4kman@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/theY4Kman/pytest-drf"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Pytest",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+]
+packages = [
+    { include = "pytest_factory" },
+    { include = "tests", format = "sdist" },
+    { include = "pytest.ini", format = "sdist" },
+    { include = "LICENSE", format = "sdist" },
+    { include = "CHANGELOG.md", format = "sdist" },
+]
+
+
+[tool.poetry.plugins."pytest11"]
+factory = "pytest_factory.plugin"
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pytest = ">4.3"
+factory_boy = ">=2.10.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0.1"
+pytest-lambda = "^1.1.1"
+pytest-camel-collect = "^1.0.2"
+pytest-assert-utils = "^0.2.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
