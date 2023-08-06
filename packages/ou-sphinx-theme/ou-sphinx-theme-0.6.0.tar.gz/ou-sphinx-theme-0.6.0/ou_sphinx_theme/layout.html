@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="{{ encoding }}"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+  <link rel="stylesheet" href="{{ pathto('_static/sanitize.css', 1)|e }}" type="text/css" />
+  <link rel="stylesheet" href="{{ pathto('_static/' + style, 1)|e }}" type="text/css" />
+  <link rel="icon" href="{{ pathto('_static/favicon.svg', 1)|e }}" type="image/svg+xml"/>
+  <script id="json-blob" type="binary/json">{{ json_blob }}</script>
+</head>
+<body>
+  <div id="app">
+    <article>
+      {{ body }}
+    </article>
+  </div>
+  <script src="{{ pathto('_static/chunk-vendors.js', 1)|e }}"></script>
+  <script src="{{ pathto('_static/app.js', 1)|e }}"></script>
+  <script src="{{ pathto('_static/mathjax/tex-mml-chtml.js', 1)|e }}"></script>
+</body>
+</html>

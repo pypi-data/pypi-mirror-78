@@ -1,0 +1,688 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #0a0a0a; }
+
+a {
+  color: #1e4b9b; }
+  a:hover, a:focus {
+    color: #002158; }
+
+div#app {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  overflow: hidden; }
+  div#app.layout-tutorial-only, div#app.layout-tutorial-only-center {
+    max-width: 50rem;
+    margin: 0 auto;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%; }
+    div#app.layout-tutorial-only.layout-has-app-menu, div#app.layout-tutorial-only-center.layout-has-app-menu {
+      grid-template-rows: auto 1fr; }
+      div#app.layout-tutorial-only.layout-has-app-menu #app-menu, div#app.layout-tutorial-only-center.layout-has-app-menu #app-menu {
+        grid-column: 1;
+        grid-row: 1; }
+      div#app.layout-tutorial-only.layout-has-app-menu #tutorial, div#app.layout-tutorial-only-center.layout-has-app-menu #tutorial {
+        grid-column: 1;
+        grid-row: 2; }
+  div#app.layout-tutorial-only-left {
+    max-width: 50rem;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%; }
+    div#app.layout-tutorial-only-left.layout-has-app-menu {
+      grid-template-rows: auto 1fr; }
+      div#app.layout-tutorial-only-left.layout-has-app-menu #app-menu {
+        grid-column: 1;
+        grid-row: 1; }
+      div#app.layout-tutorial-only-left.layout-has-app-menu #tutorial {
+        grid-column: 1;
+        grid-row: 2; }
+  div#app.layout-tutorial-only-right {
+    max-width: 50rem;
+    margin-left: auto;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%; }
+    div#app.layout-tutorial-only-right.layout-has-app-menu {
+      grid-template-rows: auto 1fr; }
+      div#app.layout-tutorial-only-right.layout-has-app-menu #app-menu {
+        grid-column: 1;
+        grid-row: 1; }
+      div#app.layout-tutorial-only-right.layout-has-app-menu #tutorial {
+        grid-column: 1;
+        grid-row: 2; }
+  div#app.layout-tutorial-iframe {
+    grid-template-columns: min(40%, 50rem) 1fr;
+    grid-template-rows: 100%; }
+    div#app.layout-tutorial-iframe #tutorial {
+      grid-column: 1;
+      grid-row: 1; }
+    div#app.layout-tutorial-iframe #iframe {
+      grid-column: 2;
+      grid-row: 1;
+      width: 100%;
+      height: 100%; }
+    div#app.layout-tutorial-iframe.layout-has-app-menu {
+      grid-template-rows: auto 1fr; }
+      div#app.layout-tutorial-iframe.layout-has-app-menu #app-menu {
+        grid-column: 1/3;
+        grid-row: 1; }
+      div#app.layout-tutorial-iframe.layout-has-app-menu #tutorial {
+        grid-column: 1;
+        grid-row: 2; }
+      div#app.layout-tutorial-iframe.layout-has-app-menu #iframe {
+        grid-column: 2;
+        grid-row: 2; }
+
+.show-for-sr {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden; }
+
+svg.icon {
+  width: 1.28571rem;
+  height: 1.28571rem; }
+  svg.icon.large {
+    width: 1.71429rem;
+    height: 1.71429rem; }
+  svg.icon.small {
+    width: 1rem;
+    height: 1rem; }
+
+[role="tablist"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0; }
+  [role="tablist"] a[role="tab"] {
+    display: block;
+    padding: 0.5rem 2rem;
+    cursor: pointer; }
+
+#app-menu {
+  background: #1e4b9b;
+  color: #fefefe; }
+  #app-menu ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: center; }
+    #app-menu ul > li {
+      flex: 0 0 auto; }
+      #app-menu ul > li.separator {
+        flex: 1 1 auto; }
+  #app-menu a {
+    display: block;
+    text-align: center;
+    padding: 0.33333rem 1rem;
+    border: 2px solid transparent;
+    color: #fefefe;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.85714rem;
+    text-decoration: none; }
+    #app-menu a[aria-current="true"], #app-menu a:hover, #app-menu a:focus {
+      border-bottom-color: #ffc23d; }
+    #app-menu a img {
+      max-height: 1.28571rem; }
+
+#tutorial {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+  #tutorial > .content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto; }
+  #tutorial header {
+    display: flex;
+    flex-direction: row;
+    background: #1e4b9b;
+    color: #fefefe;
+    padding: 1rem 0;
+    align-items: center; }
+    #tutorial header > div {
+      flex: 0 0 auto;
+      padding: 0 1rem; }
+      #tutorial header > div:first-child {
+        font-size: 2.28571rem;
+        max-width: 50%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+      #tutorial header > div a {
+        color: #fefefe;
+        text-decoration: none; }
+        #tutorial header > div a:hover {
+          color: #fefefe; }
+        #tutorial header > div a img {
+          max-height: 2.28571rem; }
+    #tutorial header > form {
+      flex: 1 1 auto;
+      padding: 0 1rem;
+      display: flex; }
+      #tutorial header > form label {
+        flex: 1 1 auto; }
+        #tutorial header > form label input {
+          width: 100%;
+          border: 0.14286rem solid #fefefe;
+          padding: 0.25rem; }
+          #tutorial header > form label input:focus {
+            outline: none;
+            border: 0.14286rem solid #ffc23d; }
+      #tutorial header > form button {
+        flex: 0 0 auto;
+        border: 0;
+        background: #577f00;
+        padding: 0;
+        width: 3.42857rem;
+        cursor: pointer; }
+        #tutorial header > form button svg path, #tutorial header > form button svg g {
+          fill: #fefefe; }
+  #tutorial nav.block {
+    background: #002158;
+    font-size: 1.14286rem; }
+    #tutorial nav.block ul {
+      display: flex;
+      flex-direction: row;
+      margin: 0; }
+      #tutorial nav.block ul > li {
+        flex: 1 1 auto; }
+    #tutorial nav.block a {
+      display: block;
+      text-align: center;
+      padding: 1rem;
+      border-bottom: 0.14286rem solid #002158;
+      color: #fefefe;
+      text-decoration: none; }
+      #tutorial nav.block a[aria-current="true"], #tutorial nav.block a:hover, #tutorial nav.block a:focus {
+        border-bottom-color: #ffc23d; }
+  #tutorial nav.within-block {
+    background: #e5f0f9;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    transition: 0.3s background-color; }
+    #tutorial nav.within-block ul {
+      display: flex;
+      flex-direction: row;
+      margin: 0; }
+      #tutorial nav.within-block ul > li {
+        flex: 1 1 auto; }
+        #tutorial nav.within-block ul > li:first-child, #tutorial nav.within-block ul > li:last-child {
+          flex: 0 0 auto; }
+    #tutorial nav.within-block li > a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 1rem;
+      transition: 0.3s color;
+      cursor: pointer; }
+      #tutorial nav.within-block li > a > span {
+        padding-right: 0.57143rem;
+        vertical-align: middle; }
+      #tutorial nav.within-block li > a > svg {
+        vertical-align: middle; }
+    #tutorial nav.within-block li > span {
+      display: block;
+      text-align: center;
+      padding: 1rem;
+      cursor: not-allowed;
+      color: #4a4a4a; }
+  #tutorial nav.within-block-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0;
+    background: #e5f0f9;
+    z-index: 2;
+    overflow: auto;
+    transition: 0.3s height; }
+    #tutorial nav.within-block-overlay button {
+      background: #e5f0f9;
+      border: 0;
+      cursor: pointer;
+      padding: 0.5rem 1rem; }
+      #tutorial nav.within-block-overlay button.close-full-within-block {
+        position: absolute;
+        right: 0;
+        top: 0; }
+      #tutorial nav.within-block-overlay button svg path {
+        fill: #0a0a0a; }
+    #tutorial nav.within-block-overlay ul {
+      margin-left: 1rem;
+      margin-right: 1rem; }
+    #tutorial nav.within-block-overlay a {
+      display: block;
+      padding: 0.5rem 1rem;
+      text-decoration: none; }
+      #tutorial nav.within-block-overlay a[aria-current="true"] {
+        background: #002158;
+        color: #fefefe; }
+    #tutorial nav.within-block-overlay > ul > li > span button {
+      display: none; }
+    #tutorial nav.within-block-overlay li > ul {
+      display: none; }
+    #tutorial nav.within-block-overlay li[aria-expanded="true"] > span button svg:nth-child(1) {
+      display: none; }
+    #tutorial nav.within-block-overlay li[aria-expanded="true"] > span button svg:nth-child(2) {
+      display: inline; }
+    #tutorial nav.within-block-overlay li[aria-expanded="true"] > ul {
+      display: block; }
+    #tutorial nav.within-block-overlay li > span {
+      display: flex;
+      flex-direction: row; }
+      #tutorial nav.within-block-overlay li > span a {
+        flex: 1 1 auto; }
+        #tutorial nav.within-block-overlay li > span a[aria-current="true"] + button {
+          background: #002158; }
+          #tutorial nav.within-block-overlay li > span a[aria-current="true"] + button svg path {
+            fill: #fefefe; }
+      #tutorial nav.within-block-overlay li > span button {
+        flex: 0 0 auto; }
+        #tutorial nav.within-block-overlay li > span button svg:nth-child(2) {
+          display: none; }
+        #tutorial nav.within-block-overlay li > span button svg path {
+          fill: #0a0a0a; }
+  #tutorial .scrolling nav.within-block {
+    background: #002158;
+    box-shadow: 0 0 0.71429rem #0a0a0a; }
+    #tutorial .scrolling nav.within-block a {
+      color: #fefefe; }
+  #tutorial div.toctree-wrapper a {
+    display: block;
+    text-decoration: none; }
+  #tutorial div.toctree-wrapper ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  #tutorial div.toctree-wrapper > ul > li > a {
+    background: #e6e6e6;
+    padding: 1rem;
+    font-size: 1.14286rem;
+    font-weight: bold; }
+  #tutorial div.toctree-wrapper > ul > li ul {
+    margin-left: 1rem;
+    margin-bottom: 2rem; }
+    #tutorial div.toctree-wrapper > ul > li ul a {
+      font-size: 1rem;
+      padding: 0.5rem 0; }
+  #tutorial main {
+    padding: 1rem 1rem 4rem 1rem; }
+    #tutorial main h1, #tutorial main h2, #tutorial main h3, #tutorial main h4, #tutorial main h5, #tutorial main h6 {
+      margin-top: 0;
+      color: #002158; }
+      #tutorial main h1 .headerlink, #tutorial main h2 .headerlink, #tutorial main h3 .headerlink, #tutorial main h4 .headerlink, #tutorial main h5 .headerlink, #tutorial main h6 .headerlink {
+        display: none; }
+    #tutorial main p {
+      margin-top: 0; }
+    #tutorial main mjx-container[jax="CHTML"][display="true"] {
+      text-align: left; }
+  #tutorial div.activity {
+    background: #e5f0f9;
+    border-left: 0.28571rem solid #1e4b9b; }
+    #tutorial div.activity h2 {
+      font-size: 1.14286rem;
+      padding: 0.25rem 0.5rem;
+      margin: 0; }
+    #tutorial div.activity .content {
+      padding: 0.5rem 0.5rem; }
+    #tutorial div.activity .answer.is-active .buttons button span:nth-child(1) {
+      display: none; }
+    #tutorial div.activity .answer.is-active .buttons button span:nth-child(2) {
+      display: inline; }
+    #tutorial div.activity .answer.is-active .content {
+      display: block; }
+    #tutorial div.activity .answer .buttons {
+      text-align: right;
+      padding: 0 0.5rem; }
+      #tutorial div.activity .answer .buttons button {
+        display: inline-block;
+        padding: 0.14286rem 0.57143rem 0.21429rem;
+        background: #fefefe;
+        color: #0a0a0a;
+        border: 1px solid #002158;
+        border-radius: 0.21429rem;
+        cursor: pointer;
+        transition: 0.3s background-color, 0.3s color; }
+        #tutorial div.activity .answer .buttons button:hover, #tutorial div.activity .answer .buttons button:focus {
+          background: #002158;
+          color: #fefefe; }
+        #tutorial div.activity .answer .buttons button span:nth-child(1) {
+          display: inline; }
+        #tutorial div.activity .answer .buttons button span:nth-child(2) {
+          display: none; }
+    #tutorial div.activity .answer .content {
+      display: none;
+      margin-top: 0.5rem;
+      border-top: 1px dotted #cacaca;
+      padding: 0.5rem 0 0 0; }
+    #tutorial div.activity .answer h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem; }
+  #tutorial .video.is-active .buttons button span:nth-child(1) {
+    display: none; }
+  #tutorial .video.is-active .buttons button span:nth-child(2) {
+    display: inline; }
+  #tutorial .video.is-active .content {
+    display: block; }
+  #tutorial .video .buttons {
+    text-align: right;
+    padding: 0 0.5rem; }
+    #tutorial .video .buttons button {
+      display: inline-block;
+      padding: 0.14286rem 0.57143rem 0.21429rem;
+      background: #fefefe;
+      color: #0a0a0a;
+      border: 1px solid #002158;
+      border-radius: 0.21429rem;
+      cursor: pointer;
+      transition: 0.3s background-color, 0.3s color; }
+      #tutorial .video .buttons button:hover, #tutorial .video .buttons button:focus {
+        background: #002158;
+        color: #fefefe; }
+      #tutorial .video .buttons button span:nth-child(1) {
+        display: inline; }
+      #tutorial .video .buttons button span:nth-child(2) {
+        display: none; }
+  #tutorial .video .content {
+    display: none;
+    max-height: 14.28571rem;
+    overflow: auto;
+    background: #fefefe;
+    border: 1px solid #002158;
+    margin-bottom: 0.5rem; }
+  #tutorial div.admonition {
+    background: #e5f0f9;
+    border-left: 0.28571rem solid #1e4b9b;
+    padding-bottom: 0.25rem;
+    margin-bottom: 1rem; }
+    #tutorial div.admonition p {
+      padding: 0.25rem 0.5rem;
+      margin: 0; }
+    #tutorial div.admonition .admonition-title {
+      background: #1e4b9b;
+      color: #fefefe;
+      font-weight: bold; }
+    #tutorial div.admonition.warning .admonition-title {
+      background: #8a0000; }
+  #tutorial ol.lowerroman {
+    list-style-type: lower-roman; }
+  #tutorial a.reference.external:after {
+    content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" /></svg>');
+    display: inline-block;
+    width: 0.85714rem;
+    height: 0.85714rem;
+    margin-left: 0.14286rem; }
+  #tutorial table.highlighttable {
+    border-spacing: 0;
+    width: 100%; }
+  #tutorial div.linenodiv pre {
+    background: #0a0a0a;
+    color: #858585;
+    padding: 0.5rem; }
+  #tutorial div.highlight pre {
+    overflow: auto;
+    background: #0a0a0a;
+    color: #e9e9e9;
+    padding: 0.5rem;
+    /* Error */
+    /* Comment */
+    /* Comment.Hashbang */
+    /* Comment.Multiline */
+    /* Comment.Preproc */
+    /* Comment.PreprocFile */
+    /* Comment.Single */
+    /* Comment.Special */
+    /* Generic.Deleted */
+    /* Generic.Emph */
+    /* Generic.Error */
+    /* Generic.Heading */
+    /* Generic.Inserted */
+    /* Generic.Output */
+    /* Generic.Prompt */
+    /* Generic.Strong */
+    /* Generic.Subheading */
+    /* Generic.Traceback */
+    /* Keyword */
+    /* Keyword.Constant */
+    /* Keyword.Declaration */
+    /* Keyword.Namespace */
+    /* Keyword.Pseudo */
+    /* Keyword.Reserved */
+    /* Keyword.Type */
+    /* Name.Attribute */
+    /* Name.Builtin */
+    /* Name.Builtin.Pseudo */
+    /* Name.Class */
+    /* Name.Constant */
+    /* Name.Decorator */
+    /* Name.Entity */
+    /* Name.Exception */
+    /* Name.Function */
+    /* Name.Function.Magic */
+    /* Name.Label */
+    /* Name.Namespace */
+    /* Name.Tag */
+    /* Name.Variable */
+    /* Name.Variable.Class */
+    /* Name.Variable.Global */
+    /* Name.Variable.Instance */
+    /* Name.Variable.Magic */
+    /* Operator */
+    /* Operator.Word */
+    /* Literal.Number */
+    /* Literal.Number.Bin */
+    /* Literal.Number.Float */
+    /* Literal.Number.Hex */
+    /* Literal.Number.Integer */
+    /* Literal.Number.Oct */
+    /* Literal.Number.Integer.Long */
+    /* Literal.String */
+    /* Literal.String.Affix */
+    /* Literal.String.Backtick */
+    /* Literal.String.Char */
+    /* Literal.String.Delimiter */
+    /* Literal.String.Doc */
+    /* Literal.String.Double */
+    /* Literal.String.Escape */
+    /* Literal.String.Heredoc */
+    /* Literal.String.Interpol */
+    /* Literal.String.Other */
+    /* Literal.String.Regex */
+    /* Literal.String.Single */
+    /* Literal.String.Symbol */
+    /* Text.Whitespace */ }
+    #tutorial div.highlight pre .err {
+      text-decoration: underline;
+      text-decoration-color: #bc3f3c; }
+    #tutorial div.highlight pre .c {
+      color: #6a9955; }
+    #tutorial div.highlight pre .ch {
+      color: #6a9955; }
+    #tutorial div.highlight pre .cm {
+      color: #6a9955; }
+    #tutorial div.highlight pre .cp {
+      color: #6a9955; }
+    #tutorial div.highlight pre .cpf {
+      color: #6a9955; }
+    #tutorial div.highlight pre .c1 {
+      color: #6a9955; }
+    #tutorial div.highlight pre .cs {
+      color: #6a9955; }
+    #tutorial div.highlight pre .gd {
+      text-decoration: line-through; }
+    #tutorial div.highlight pre .ge {
+      font-style: italic; }
+    #tutorial div.highlight pre .gr {
+      color: #bc3f3c; }
+    #tutorial div.highlight pre .gh {
+      font-weight: bold; }
+    #tutorial div.highlight pre .gi {
+      color: inherit; }
+    #tutorial div.highlight pre .go {
+      color: inherit; }
+    #tutorial div.highlight pre .gp {
+      color: inherit; }
+    #tutorial div.highlight pre .gs {
+      font-weight: bold; }
+    #tutorial div.highlight pre .gu {
+      font-weight: italic; }
+    #tutorial div.highlight pre .gt {
+      color: inherit; }
+    #tutorial div.highlight pre .k {
+      font-weight: bold;
+      color: #569cd6; }
+    #tutorial div.highlight pre .kc {
+      font-weight: bold;
+      color: #569cd6; }
+    #tutorial div.highlight pre .kd {
+      font-weight: bold;
+      color: #569cd6; }
+    #tutorial div.highlight pre .kn {
+      font-weight: bold;
+      color: #569cd6; }
+    #tutorial div.highlight pre .kp {
+      font-weight: bold;
+      color: #569cd6; }
+    #tutorial div.highlight pre .kr {
+      font-weight: bold;
+      color: #569cd6; }
+    #tutorial div.highlight pre .kt {
+      font-weight: bold;
+      color: #569cd6; }
+    #tutorial div.highlight pre .na {
+      color: #9cdcfe; }
+    #tutorial div.highlight pre .nb {
+      color: #4ec9b0; }
+    #tutorial div.highlight pre .bp {
+      color: #4ec9b0; }
+    #tutorial div.highlight pre .nc {
+      color: #a9b7c6; }
+    #tutorial div.highlight pre .no {
+      color: #ddd6a3; }
+    #tutorial div.highlight pre .nd {
+      color: #ddd6a3; }
+    #tutorial div.highlight pre .ni {
+      color: #ddd6a3; }
+    #tutorial div.highlight pre .ne {
+      color: #ddd6a3; }
+    #tutorial div.highlight pre .nf {
+      color: #dcdcaa;
+      font-weight: bold; }
+    #tutorial div.highlight pre .fm {
+      color: #dcdcaa; }
+    #tutorial div.highlight pre .nl {
+      color: #ddd6a3; }
+    #tutorial div.highlight pre .nn {
+      color: #ddd6a3; }
+    #tutorial div.highlight pre .nt {
+      color: #ddd6a3; }
+    #tutorial div.highlight pre .nv {
+      color: #ddd6a3; }
+    #tutorial div.highlight pre .vc {
+      color: #a9b7c6; }
+    #tutorial div.highlight pre .vg {
+      color: #ddd6a3; }
+    #tutorial div.highlight pre .vi {
+      color: #ddd6a3; }
+    #tutorial div.highlight pre .vm {
+      color: #ddd6a3; }
+    #tutorial div.highlight pre .o {
+      color: #d4d4d4; }
+    #tutorial div.highlight pre .ow {
+      color: #569cd6; }
+    #tutorial div.highlight pre .m {
+      color: #b5cea8; }
+    #tutorial div.highlight pre .mb {
+      color: #b5cea8; }
+    #tutorial div.highlight pre .mf {
+      color: #b5cea8; }
+    #tutorial div.highlight pre .mh {
+      color: #b5cea8; }
+    #tutorial div.highlight pre .mi {
+      color: #b5cea8; }
+    #tutorial div.highlight pre .mo {
+      color: #b5cea8; }
+    #tutorial div.highlight pre .il {
+      color: #b5cea8; }
+    #tutorial div.highlight pre .s {
+      color: #ce9178; }
+    #tutorial div.highlight pre .sa {
+      color: #ce9178; }
+    #tutorial div.highlight pre .sb {
+      color: #ce9178; }
+    #tutorial div.highlight pre .sc {
+      color: #ce9178; }
+    #tutorial div.highlight pre .dl {
+      color: #ce9178; }
+    #tutorial div.highlight pre .sd {
+      color: #ce9178; }
+    #tutorial div.highlight pre .s2 {
+      color: #ce9178; }
+    #tutorial div.highlight pre .se {
+      color: #ce9178; }
+    #tutorial div.highlight pre .sh {
+      color: #ce9178; }
+    #tutorial div.highlight pre .si {
+      color: #ce9178; }
+    #tutorial div.highlight pre .sx {
+      color: #ce9178; }
+    #tutorial div.highlight pre .sr {
+      color: #ce9178; }
+    #tutorial div.highlight pre .s1 {
+      color: #ce9178; }
+    #tutorial div.highlight pre .ss {
+      color: #ce9178; }
+    #tutorial div.highlight pre .w {
+      color: #bbbbbb; }
+  #tutorial code {
+    background: #e6e6e6;
+    border-radius: 0.21429rem;
+    padding: 0.14286rem 0.21429rem; }
+  #tutorial .toctree-wrapper {
+    margin-bottom: 2rem; }
+
+.layout-tutorial-iframe.layout-has-app-menu #tutorial header {
+  padding-top: 0; }
+  .layout-tutorial-iframe.layout-has-app-menu #tutorial header div:first-child {
+    max-width: 100%; }
+  .layout-tutorial-iframe.layout-has-app-menu #tutorial header div:last-child {
+    display: none; }
+
+#editor {
+  display: flex;
+  flex-direction: column;
+  background: #4a4a4a;
+  color: #fefefe; }
+  #editor nav {
+    flex: 0 0 auto; }
+    #editor nav a[role="tab"] {
+      color: #cacaca; }
+      #editor nav a[role="tab"][aria-selected="true"] {
+        background: #0a0a0a; }
+  #editor .code-editor {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    background: #4a4a4a; }
+    #editor .code-editor div.line-numbers {
+      flex: 0 0 auto;
+      padding: 0 2rem;
+      text-align: right;
+      color: #cacaca; }
+    #editor .code-editor div.code {
+      flex: 1 1 auto; }
+    #editor .code-editor pre {
+      margin: 0; }
+
+#viewer {
+  box-shadow: 0 0 5px #8a8a8a inset; }
