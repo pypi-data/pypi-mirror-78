@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: hiddenv
+Version: 2020.9.1
+Summary: Utility for managing .env-sourced settings across multiple packages
+Home-page: https://gitlab.com/k377u/hiddenv
+Author: Roope Tikkanen <roope@k377u.com> & Daniil Iakovlev <daniil.iakovlev@gmail.com>
+Author-email: hiddenv@k377u.com
+Maintainer: Roope Tikkanen <roope@k377u.com> & Daniil Iakovlev <daniil.iakovlev@gmail.com>
+Maintainer-email: hiddenv@k377u.com
+License: MIT License
+Description: # hiddenv
+        
+        Utility for managing .env-sourced settings across multiple packages.
+        
+Keywords: dotenv,settings
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Typing :: Typed
+Classifier: Framework :: Django
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev
