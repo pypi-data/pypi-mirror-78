@@ -1,0 +1,12 @@
+lyncs-cppyy
+lyncs-clime
+numpy
+lyncs-setuptools
+
+[all]
+pytest-cov
+pytest
+
+[test]
+pytest
+pytest-cov
