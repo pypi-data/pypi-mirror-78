@@ -1,0 +1,90 @@
+Changelog
+=========
+
+
+0.0.8 (2020-09-02)
+------------------
+- Fix requires-python. [Marek Chrastina]
+
+
+0.0.7 (2020-08-28)
+------------------
+- Fix platform_system. [Marek Chrastina]
+
+- Update CI. [Marek Chrastina]
+
+
+0.0.6 (2020-03-25)
+------------------
+- Add python safety to CI. [Marek Chrastina]
+
+- Add exclude argument. [Marek Chrastina]
+
+- There is show list and show table arguments now. [Marek Chrastina]
+
+- Update pyenv pip setuptools in CI. [Marek Chrastina]
+
+- If only bdist is available, check if python_version satisfied python platform version. [Marek Chrastina]
+
+
+0.0.5 (2019-10-21)
+------------------
+- Fix showing 0.0.0 version. [Marek Chrastina]
+
+
+0.0.4 (2019-10-21)
+------------------
+- Serious bugs in pipdeptree, do not use it anymore. [Marek Chrastina]
+
+- Requires.txt is not mandatory for metadata generator. [Marek Chrastina]
+
+
+0.0.3 (2019-08-29)
+------------------
+- Case vanished module; all deps are taken from metadata; hotfix extras. [Marek Chrastina]
+
+
+0.0.2 (2019-08-16)
+------------------
+- Remove version.py. [Marek Chrastina]
+
+- Add history. [Marek Chrastina]
+
+
+0.0.1 (2019-08-16)
+------------------
+- Add documentation to CI. [Marek Chrastina]
+
+- Add install test, version check and deploy to CI. [Marek Chrastina]
+
+- Add pycodestyle to CI. [Marek Chrastina]
+
+- Add show option. [Marek Chrastina]
+
+- Requires of possible upgradable package versions has to be taken into account. [Marek Chrastina]
+
+- Collect data for all packages. [Marek Chrastina]
+
+- Upgrade pip first. [Marek Chrastina]
+
+- Check for python version. [Marek Chrastina]
+
+- Tabulate print list. [Marek Chrastina]
+
+- Add list option. [Marek Chrastina]
+
+- Code refactoring. [Marek Chrastina]
+
+- Make pylint happy. [Marek Chrastina]
+
+- Add build ci. [Marek Chrastina]
+
+- Add setup.py and __init__.py. [Marek Chrastina]
+
+- Add py script. [Marek Chrastina]
+
+- Add LICENSE. [Marek Chrastina]
+
+- Add README. [Marek Chrastina]
+
+
