@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: setux_logger
+Version: 0.20.36.0
+Summary: System deployment
+Home-page: https://gitlab.com/dugres/setux_logger
+Author: Louis RIVIERE
+Author-email: louis@riviere.xyz
+License: MIT
+Description: ########
+         setux
+        ########
+        
+        **Setux Logger**
+        
+        ============
+        Installation
+        ============
+        
+        .. code-block:: shell 
+        
+            $ pip install setux_logger
+        
+Keywords: utility
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
