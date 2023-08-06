@@ -1,0 +1,5 @@
+{% if fa_icon %}
+<button {% if id %} id='{{ id }}' {% endif %}class="btn{% if danger %} btn_danger{% endif %}" onclick="{{ onclick }}"><i class="{{ fa_class }} {{ fa_icon }}"  aria-hidden="{{ aria_hidden }}"></i>&nbsp;{{ caption }}</button>
+{% else %}
+<button {% if id %} id='{{ id }}' {% endif %}class="btn{% if danger %} btn_danger{% endif %}" onclick="{{ onclick }}">{{ caption }}</button>
+{% endif %}

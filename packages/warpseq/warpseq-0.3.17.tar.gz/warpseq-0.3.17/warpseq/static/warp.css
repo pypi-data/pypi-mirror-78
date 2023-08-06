@@ -1,0 +1,339 @@
+html {background-color: black}
+
+.container {
+  margin: auto;
+  font-family: sans-serif;
+  line-height: 1.5;
+  background-color: black;
+}
+
+.flex-grid {
+  color: white;
+  display: flex;
+  margin: auto; /* -1rem -1rem; */
+  height: 100%;
+  width: 100%;
+}
+
+/**********************************************************************************************************************/
+/* MAIN LAYOUT                                                                                                        */
+/**********************************************************************************************************************/
+
+.col {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.sidebar {
+  flex: flex-grow;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: 100%;
+  overflow: auto;
+}
+
+.workspace {
+  flex: 3;
+  width: auto;
+  height: auto;
+  overflow: auto;
+  padding: 20px;
+  padding-top: 0px;
+}
+
+.nav1 {
+  flex: 1;
+  width: auto;
+  height: auto;
+  flex: flex-shrink;
+  padding: 10px;
+  border-right: 2px double gray;
+  min-width: 150px;
+}
+
+.nav2 {
+  flex: 8;
+  width: auto;
+  height: auto;
+  overflow: auto;
+  padding: 10px;
+  border-right: 2px double white;
+  min-width: 200px;
+
+}
+
+.nav2_title {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+/**********************************************************************************************************************/
+/* FONTAWESOME                                                                                                        */
+/**********************************************************************************************************************/
+
+.fa { display:inline; }
+
+/**********************************************************************************************************************/
+/* WORKSPACE FORMS                                                                                                    */
+/**********************************************************************************************************************/
+
+.warpform {
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+
+.warpform td {
+   padding: 5px;
+}
+
+.warpform label {
+   color: white;
+}
+
+.warpform_buttons td {
+   padding: 10px;
+   padding-bottom: 20px;
+}
+
+.workspace_title {
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 60px;
+  color: white;
+  background-color: white;
+}
+
+.flash {
+   padding: 10px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   padding-left: 50px;
+   color: white;
+}
+
+.flash_error {
+   background-color: red;
+   outline: white 1px;
+}
+
+.flash_happy {
+   background-color: black;
+   outline: blue 1px;
+}
+
+
+/**********************************************************************************************************************/
+/* SWITCHER PANEL                                                                                                     */
+/**********************************************************************************************************************/
+
+.switcher_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.switcher_item {
+  padding: 10px;
+  flex: 1;
+}
+
+/**********************************************************************************************************************/
+/* NAV2 PANEL                                                                                                         */
+/**********************************************************************************************************************/
+
+.nav2_contents {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav2_item {
+  padding: 10px;
+  flex: 1;
+}
+
+.nav2_item_active {
+  font-weight: bold;
+}
+
+.nav2_item_inactive {
+}
+
+/**********************************************************************************************************************/
+/* GLOBAL CONTROLS                                                                                                    */
+/**********************************************************************************************************************/
+
+.global_controls {
+   padding: 10px;
+   padding-bottom: 40px;
+}
+
+.global_control {
+}
+
+/**********************************************************************************************************************/
+/* GENERAL                                                                                                            */
+/**********************************************************************************************************************/
+
+body {
+    /* color: white; */
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    color: white;
+    text-decoration: none;
+}
+
+.btn {
+  border: 2px solid white;
+  background-color: black;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: white;
+  color: white;
+}
+
+.btn_danger {
+  border-color: red;
+}
+
+.btn_danger:hover {
+  border-color: red;
+  color: red;
+}
+
+.warp_option {
+    color:black
+}
+
+/**********************************************************************************************************************/
+/* THE GRID                                                                                                           */
+/**********************************************************************************************************************/
+
+.grid {
+   /* this doesn't seem to work */
+   padding-left:20px;
+   padding-top:40px;
+   color: white;
+}
+
+.grid td {
+   padding: 5px;
+}
+
+.grid_header {
+   padding: 10px;
+
+}
+
+.grid_footer {
+   padding: 10px;
+}
+
+/* INPUT */
+
+input, textarea, select {
+  border: none;        /* Remove default borders */
+  padding: 4px 8px;
+  border-radius: 12px; /* Sadly outline does not round! therefore...*/
+  outline: none;
+  color: black;
+}
+
+select:focus {
+  outline: none;
+}
+
+input[type="text"]:disabled {
+  background: #cccccc;
+}
+
+select option { color: black; }
+
+/**********************************************************************************************************************/
+/* RANGES                                                                                                             */
+/**********************************************************************************************************************/
+
+.range_number {
+    padding-left:10px;
+    color: white;
+}
+
+
+/**********************************************************************************************************************/
+/* TOGGLE SWITCH                                                                                                      */
+/**********************************************************************************************************************/
+
+/* THIS MAY GO AWAY */
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.spacer {
+   padding: 10px;
+}

@@ -1,0 +1,50 @@
+<div class="nav2_contents">
+
+<!-- TODO:
+up/down for scene and track
+visual playing light for scene, clip, pattern
+-->
+
+{% set colspan=1 %}
+{% if category == 'track' %}
+  {% set colspan = 4 %}
+{% elif category == 'scene' %}
+  {% set colspan = 5 %}
+{% elif category == 'pattern' %}
+  {% set colspan = 2 %}
+{% elif category == 'instrument' %}
+  {% set colspan = 2 %}
+{% elif category == 'scale' %}
+  {% set colspan = 2 %}
+{% elif category == 'transform' %}
+  {% set colspan = 2 %}
+{% elif category == 'data_pool' %}
+  {% set colspan = 2 %}
+{% endif %}
+
+<table>
+<tr>
+<td class="nav2_item" colspan={{ colspan }}><span class="nav2_title">{{ title }}</span></td>
+{% for item in items %}
+<tr>
+<td class="nav2_item" id="nav2_item_{{ loop.index }}""><a href="#" onclick="load_{{ category }}_item('{{ item.obj_id }}')">{{ item.name }}</a></td>
+{% if category == 'pattern' %}
+<td><span id="pattern_status_{{ item.obj_id }}"><i class="fas fa-circle"></i></span></td>
+{% endif %}
+{% if category == 'scene' %}
+<td><span id="scene_status_{{ item.obj_id }}"><a href="#" onclick="play_scene('{{ item.obj_id }}')"><i class="fas fa-play" title="play"></i></A></span></td>
+{% endif %}
+{% if category == 'scene' or category == 'track' %}
+<td><a href="#" onclick="shift_{{ category }}_up('{{ item.obj_id }}')"><i class="fas fa-arrow-up" title="up"></i></a></td>
+<td><a href="#" onclick="shift_{{ category }}_down('{{ item.obj_id }}')"><i class="fas fa-arrow-down" title="down"></i></a></td>
+{% endif %}
+{% if category != 'device' %}
+<td><a href="#" onclick="delete_{{ category }}('{{ item.obj_id }}','{{ item.name }}')"><i class="fas fa-times"></i></a></td>
+{% endif %}
+</tr>
+{% endfor %}
+{% if category != 'device' %}
+<tr><td class="nav2_item" id="nav2_item_new" colspan={{ colspan }}><a href="#" onclick="new_{{ category }}_item()"><i class="fas fa-plus" title="new"></i></a></td></tr>
+{% endif %}
+</table>
+</div>

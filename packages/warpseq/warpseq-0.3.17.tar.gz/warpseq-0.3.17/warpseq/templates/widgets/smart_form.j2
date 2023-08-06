@@ -1,0 +1,29 @@
+<form autocomplete="off" onsubmit="return false;">
+<div class="warpform">
+<table class="warpform_table">
+{% for item in items %}
+<tr>
+<td><label for="{{ item.field }}">{{ item.caption }}</label></td>
+<td>{{ item.widget }}</td>
+</tr>
+{% endfor %}
+
+</table>
+</div>
+</form>
+
+<script language='text/javascript'>
+{% for select in selects %}
+select2_activate("{{ select }}");
+{% endfor %}
+{% for textbox in textboxes %}
+textbox_activate("{{ textbox }}");
+{% endfor %}
+{% for range in ranges %}
+range_activate("{{ range }}");
+{% endfor %}
+{% for toggle in toggles %}
+toggle_activate("{{ toggle }}");
+{% endfor %}
+</script>
+
