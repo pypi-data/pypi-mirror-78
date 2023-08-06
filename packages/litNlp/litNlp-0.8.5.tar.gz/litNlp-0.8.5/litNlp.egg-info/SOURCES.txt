@@ -1,0 +1,17 @@
+README.md
+setup.py
+litNlp/__init__.py
+litNlp/predict.py
+litNlp/train.py
+litNlp.egg-info/PKG-INFO
+litNlp.egg-info/SOURCES.txt
+litNlp.egg-info/dependency_links.txt
+litNlp.egg-info/requires.txt
+litNlp.egg-info/top_level.txt
+litNlp.egg-info/zip-safe
+litNlp/model_structure/BiLSTM.py
+litNlp/model_structure/GRU.py
+litNlp/model_structure/Model_TextCNN.py
+litNlp/model_structure/TextCNN.py
+litNlp/model_structure/TextCNN_m.py
+litNlp/model_structure/__init__.py

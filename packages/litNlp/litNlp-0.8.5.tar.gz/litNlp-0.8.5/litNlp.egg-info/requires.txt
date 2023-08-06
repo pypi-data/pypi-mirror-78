@@ -1,0 +1,8 @@
+h5py
+requests
+
+[cpu]
+tensorflow>=2.0.1
+
+[gpu]
+tensorflow-gpu>=2.0.1
