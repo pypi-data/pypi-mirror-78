@@ -1,0 +1,15 @@
+
+[dev]
+pylint
+pytest
+black
+opentelemetry-api
+opentelemetry-sdk
+flask
+pyjwt
+cryptography
+twine
+
+[docs]
+mkdocs
+mkdocs-material
