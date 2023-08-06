@@ -1,0 +1,43 @@
+FROM centos:7
+# matplotlib requires freetype, freetype-devel, libpng-devel under centos
+# scikit-image requires blas-devel, lapack-devel, atlas-devel under centos
+RUN yum update -y && \
+    yum install -y wget vim bzip2 gcc gcc-c++ make libgl1-mesa-glx mesa-libGL qt5-qtbase-gui git nano tree gdb
+
+ENV miniconda_dl 'Miniconda3-latest-Linux-x86_64.sh'
+ENV envconfig 'environment_sicor_basic.yml'
+ENV git_lfs_v='2.7.1'
+
+RUN /bin/bash -i -c "cd /root; wget https://repo.continuum.io/miniconda/$miniconda_dl ; \
+    bash -i /root/$miniconda_dl -b ; \
+    rm -f /root/$miniconda_dl"
+
+# copy some needed stuff to /root
+COPY *.yml /root/
+
+# create an environment with all packages specified in $envconfig
+RUN /bin/bash -i -c "source /root/miniconda3/bin/activate ; \
+    conda env create -f /root/$envconfig"
+
+# update the sicor_env environment
+RUN /bin/bash -i -c "\
+    source /root/miniconda3/bin/activate ; \
+    source activate sicor_env; \
+    conda env update -n sicor_env -f /root/environment_sicor_latest.yml"
+
+# copy EnPT to /root and install it
+COPY EnPT /root/EnPT
+RUN /bin/bash -i -c "source /root/miniconda3/bin/activate ; source activate sicor_env ; cd /root/EnPT/ ; make install"
+
+# copy SICOR to /root
+COPY sicor /root/sicor
+
+# install git lfs
+RUN /bin/bash -i -c "curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash"
+
+# installing git large file support, see here: https://git-lfs.github.com/ , change version number below for future upgrades
+RUN /bin/bash -i -c "wget https://github.com/git-lfs/git-lfs/releases/download/v${git_lfs_v}/git-lfs-linux-amd64-v${git_lfs_v}.tar.gz; \
+    mkdir git-lfs-v${git_lfs_v}; \
+    tar -zxvf git-lfs-linux-amd64-v${git_lfs_v}.tar.gz -C git-lfs-v${git_lfs_v}; \
+    cd git-lfs-v${git_lfs_v}; \
+    bash ./install.sh"
