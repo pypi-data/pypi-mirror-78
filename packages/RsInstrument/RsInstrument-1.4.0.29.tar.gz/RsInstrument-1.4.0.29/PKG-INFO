@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: RsInstrument
+Version: 1.4.0.29
+Summary: VISA or Socket communication module for Rohde & Schwarz instruments
+Home-page: UNKNOWN
+Author: Miloslav Macko
+Author-email: miloslav.macko@rohde-schwarz.com
+License: MIT
+Description: RsInstrument module provides convenient way of communicating with R&S instruments.
+        By default, you need an underlying VISA-C installation, but starting with version 1.3.0, you can also use just a socket communication.
+        - Example of a HiSLIP connection initialization: io = RsInstrument('TCPIP::192.168.56.101::HISLIP', True, True)
+        - Example of a non-VISA Socket connection initialization: io = RsInstrument('TCPIP::192.168.56.101::5025::SOCKET', True, True, 'SelectVisa=SocketIo')
+        
+        RsInstrument offers all the required tasks you are going to need when remote-controlling your instrument:
+        - Initializing a new session with setting all the required VISA and instrument registers depending on the session type
+        - Identification of the instrument, supported models, evaluation of the instrument options
+        - Special actions, e.g. Self-test, reset
+        - Typical text communication - Write / Query / Query<type>
+        - OPC-synchronised actions - Write / Query with OPC. The synchronization mechanism can be: Status byte polling / *OPC? query, Service Request
+        - Asynchronous events-driven OPC-synchronised actions. After the instrument has finished the operation, a registered event handler is invoked
+        - Binary data transfer - Write / Query bin data
+        - Transfer of files between PC and Instrument, the size is unlimited
+        - Binary or ASCII arrays transfers - adaptable querying of float / double / integer arrays
+        	The response is processed correctly regardless whether it arrives as binary data or ASCII data
+        - Instrument status checking (SYSTem:ERRor?) after each command. This can be switched OFF if desired
+        - Optional feature of sending (*OPC?) after each Write command
+        - Multi-thread locking of the session, also available throughout multiple RsInstrument instances
+        - Sharing of the already openeed session with another RsInstrument instance, so the physical VISA session is still only one
+        - Logging of the communication
+        - Generating events if:
+        	- instrument reports an error
+        	- Operation Register event has occured
+        	- Questionable Register event has occured
+        	- big transferred data (write or read) are split into segments. This allows for showing the transfer progress,
+        		or in case of read operation processing partial data without having to wait for the complete response.
+        
+        
+        Version history:
+        
+        Version 1.4.0.29 (04.09.2020)
+        - Fixed error for instruments that do not support *OPT? query
+        
+        Version 1.3.0.28 (18.08.2020)
+        - Implemented SocketIO plugin which allows the remote-control without any VISA installation. Usage:
+            io = RsInstrument('TCPIP::192.168.56.101::5025::SOCKET', True, True, 'SelectVisa=SocketIo')
+        - Implemented finding resources as a static method of the RsInstrument class. Usage:
+            instruments = RsInstrument.list_resources("?*")
+        
+        Version 1.2.0.25 (03.08.2020)
+        - Fixed reading of long strings for NRP-Zxx sessions
+        
+        Version 1.1.0.24 (16.06.2020)
+        - Fixed simulation mode switching
+        - Added Repeated capability
+        
+        Version 1.0.0.21
+        - First released version
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
