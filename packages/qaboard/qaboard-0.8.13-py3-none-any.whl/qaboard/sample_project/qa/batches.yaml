@@ -1,0 +1,11 @@
+# Read about how you can define batches of runs here:
+#   https://samsung.github.io/qaboard/docs/batches-running-on-multiple-inputs/
+# It can be as simple as
+my-batch:
+  inputs:
+    - A.jpg
+    - B.jpg
+
+
+# There is a lot of flexibility to specify different choices of databases, configurations,
+# create "test matrices", or use standard YAML features to avoid repetition
