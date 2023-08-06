@@ -1,0 +1,14 @@
+
+### SATISFACTORY RESPONSE
+## Not found code
+OK = 200
+OK_NOCONTENT = 204
+
+### CLIENT ERROR
+## Not found code
+NOT_FOUND = 404
+UNAUTHORIZED = 401
+
+### SERVER ERROR
+## Internal server error
+INTERNAL_ERROR = 500
