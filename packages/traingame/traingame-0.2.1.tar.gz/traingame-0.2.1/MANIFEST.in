@@ -1,0 +1,5 @@
+include requirements.txt
+include src/traingame/models/*.pickle
+include src/traingame/tracks/*
+include src/traingame/visuals/*.png
+include src/traingame/visuals/*.ttf
