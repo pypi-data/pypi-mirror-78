@@ -1,0 +1,16 @@
+numpy>=1.12
+jax>=0.1.59
+matplotlib
+msgpack
+
+[:python_version < "3.7"]
+dataclasses
+
+[testing]
+jaxlib
+pytest
+pytest-cov
+pytest-xdist==1.34.0
+svn
+tensorflow
+tensorflow_datasets
