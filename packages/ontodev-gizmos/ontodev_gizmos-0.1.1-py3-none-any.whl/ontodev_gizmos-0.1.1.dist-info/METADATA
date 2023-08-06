@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: ontodev-gizmos
+Version: 0.1.1
+Summary: Gizmos for ontology development
+Home-page: UNKNOWN
+Author: James A Overton
+Author-email: james@overton.ca
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Description-Content-Type: text/markdown
+
+# gizmos
+Utilities for ontology development
+
+### Testing
+
+For development, we recommend installing and testing using:
+```
+python3 -m pip install -e .
+python3 setup.py pytest
+```
+
+There are some dependencies that are test-only (e.g., will not be listed in the project requirements). If you try and run `pytest` alone, it may fail due to missing dependencies.
+
+
