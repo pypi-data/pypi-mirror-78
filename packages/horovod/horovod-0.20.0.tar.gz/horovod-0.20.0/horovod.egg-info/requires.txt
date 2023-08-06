@@ -1,0 +1,57 @@
+cloudpickle
+psutil
+pyyaml
+cffi>=1.4.0
+
+[:python_version < "3.7"]
+dataclasses
+
+[all-frameworks]
+tensorflow
+tensorflow-gpu
+keras!=2.0.9,!=2.1.0,!=2.1.1,>=2.0.8
+torch
+mxnet>=1.4.1
+h5py>=2.9
+numpy
+petastorm!=0.9.3,>=0.9.0
+pyarrow>=0.15.0
+
+[all-frameworks:python_version < "3.8"]
+pyspark>=2.3.2
+
+[all-frameworks:python_version >= "3.8"]
+pyspark>=3.0.0.dev
+
+[keras]
+keras!=2.0.9,!=2.1.0,!=2.1.1,>=2.0.8
+
+[mxnet]
+mxnet>=1.4.1
+
+[pytorch]
+torch
+
+[ray]
+ray
+
+[spark]
+h5py>=2.9
+numpy
+petastorm!=0.9.3,>=0.9.0
+pyarrow>=0.15.0
+
+[spark:python_version < "3.8"]
+pyspark>=2.3.2
+
+[spark:python_version >= "3.8"]
+pyspark>=3.0.0.dev
+
+[tensorflow]
+tensorflow
+
+[tensorflow-cpu]
+tensorflow-cpu
+
+[tensorflow-gpu]
+tensorflow-gpu
