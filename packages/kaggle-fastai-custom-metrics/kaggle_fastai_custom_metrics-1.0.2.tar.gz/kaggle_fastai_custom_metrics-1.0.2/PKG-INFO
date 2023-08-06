@@ -1,0 +1,82 @@
+Metadata-Version: 2.1
+Name: kaggle_fastai_custom_metrics
+Version: 1.0.2
+Summary: Custom Metrics for fastai v1 for kaggle competitions
+Home-page: https://shadabsayeed.tech/2020-09-08-CustomMetrics/
+Author: shadab_sayeed
+Author-email: shadabsayeedxxx@gmail.com
+License: MIT
+Download-URL: https://github.com/shadab4150/kaggle_fastai_custom_metrics/archive/v1.0.2.tar.gz
+Description: # kaggle fastai custom metrics
+        ***
+        
+        Custom Metrics for fastai v1 for kaggle competitions.
+        
+        ***
+        ## Disclaimer :
+        
+        Each Kaggle competition has a unique metrics suited to its, need this package lets you download those custom metrics to be used with fastai library.
+        Since Metrics are an important part to evaulate your models performance.
+        
+        ## Installation 
+        
+        ```sh
+        pip install kaggle-fastai-custom-metrics==1.0.2
+        ```
+        
+        or
+        
+        ```bash
+        git clone https://github.com/shadab4150/kaggle_fastai_custom_metrics
+        cd kaggle_fastai_custom_metrics
+        pip install .
+        ```
+        ## Usage :
+        
+        ```python
+        from kaggle_fastai_custom_metrics.kfcm import *
+        print_all_metrics()
+        ```
+        <table style="width:100%">
+          <tr>
+            <th>Competition URL</th>
+            <th>Metric</th> 
+          </tr>
+          <tr>
+            <td>https://www.kaggle.com/c/plant-pathology-2020-fgvc7</td>
+            <td>column_mean_logloss</td>
+          </tr>
+          <tr>
+            <td>https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge</td>
+            <td>column_mean_aucroc</td>
+          </tr>
+          <tr>
+            <td>https://www.kaggle.com/c/trends-assessment-prediction</td>
+            <td>weighted_mae</td>
+          </tr>
+           <tr>
+            <td> https://www.kaggle.com/c/alaska2-image-steganalysis</td>
+            <td>alaska_weighted_auc</td>
+          </tr>
+           <tr>
+            <td>https://www.kaggle.com/c/google-quest-challenge</td>
+            <td>AvgSpearman</td>
+          </tr>
+          <tr>
+            <td>https://www.kaggle.com/c/landmark-recognition-2020</td>
+            <td>GAP_vector</td>
+          </tr>
+          <tr>
+            </table>
+        
+        ```
+        metric = weighted_auc();
+        learn = Learner(data, arch, metrics= [metric] );
+        ```
+        
+Keywords: Fastai,Competition Metrics,Kaggle
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
