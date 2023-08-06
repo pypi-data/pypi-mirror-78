@@ -1,0 +1,82 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/guruhi-rush.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-guruhi.svg') }}"> Guruhi Rush</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>rush</em> deck using the <i>IP</i> disciplines combination.
+    {{ card("Nana Buruku") }} is used for additional Master actions,
+    playing {{ card("Ashur Tablets") }} for recursion and
+    {{ card("Anarch Revolt") }} for additional pool damage.
+</p>
+<p>
+    {{ card("Nangila Were") }},
+    {{ card("Enkidu, The Noah") }} and/or
+    {{ card("Black Annis") }} are used to rush the opponents minions
+    and take them down with the powerful <i>IP</i> combat module.
+</p>
+<p>
+    {{ card("Fame") }} and
+    {{ card("Dragonbound") }} are used to improve pool damage a bit.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Powerbase: Luanda") }} and
+    {{ card("Well-Marked") }} are nice tools for a <em>rush</em> deck.
+</p>
+<p>
+    Just including a bit of <em>wakes</em> and some intercept enhancers like
+    {{ card("Cats' Guidance") }} and
+    {{ card("Sense the Savage Way") }}
+    keeps the other players guessing on wether the deck can block or not.
+</p>
+<p>
+    Getting {{ card("Wider View") }} at some point helps
+    rotating the crypt a little bit.
+    {{ card("Andre LeRoux") }} is included as a bleed enhancer once
+    all the prey's vampires are down.
+</p>
+<p>
+    The combat module includes a lot of cards in single copy as specific counters.
+    They're not likely to jam the hand and can be brought back by
+    {{ card("Ashur Tablets") }} if need be.
+</p>
+<p>
+    As the game moves along, the deck can use {{ card("Ashur Tablets") }}
+    to concentrate the content of the deck on more bleed or more combat cards, depending on what's needed.
+</p>
+<h2>Variants</h2>
+<p>
+    The <strong>Laibon</strong> variant does not go Anarch and can get more toolboxy, using <i>R</i> more for
+    {{ card("Enchant Kindred") }} and the excellent
+    {{ card("Founders of the Ebony Kingdom") }}.
+    {{ card("Grooming the Protégé") }}
+    also helps getting vampires out faster.
+    {{ link("/deck-search", _("Michael Heyder's deck"), twda_id="2k9nacday2") }}
+    from the 2009 NAC is a good example
+</p>
+<p>
+    The <strong>Girls</strong> variant does not go Anarch either and simply focuses on more
+    {{ card("Ashur Tablets") }}, like
+    {{ link("/deck-search", _("Jorge Delgado's deck"), twda_id="2014sncms") }} from 2014 Spanish NC.
+    {{ card("Carver's Meat Packing and Storage") }}
+    and {{ card("Tension in the Ranks") }} can be added
+    to help the rush side of things.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'remove' ) }}
+</div>
+{% endblock %}

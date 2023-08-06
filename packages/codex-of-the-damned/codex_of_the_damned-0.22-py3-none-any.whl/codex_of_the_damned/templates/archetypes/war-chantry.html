@@ -1,0 +1,119 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/war-chantry.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-tremere.svg') }}"> War Chantry</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>toolbox</em> deck built around the Tremere clan and their <i>adt</i> disciplines.
+    <i>d</i> is used to bleed, bounce bleeds and accelerate the crypt with
+    {{ card("Govern the Unaligned") }} and
+    {{ card("Scouting Mission") }}.
+    <i>a</i> is used for wakes, intercept and bounces.
+    <i>t</i> is used for combat and a bit of stealth with
+    {{ card("Mirror Walk") }}.
+</p>
+<p>
+    As the deck does not have much stealth, it uses <em>powerbleed</em> tools to lock the prey vampires
+    and make sure they won't be able to block or bounce, with
+    {{ card("Misdirection") }},
+    {{ card("Anarch Troublemaker") }} and
+    {{ card("Pentex™ Subversion") }}.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Theft of Vitae") }} is an excellent combat card, as it
+    usually produces a 4 blood differential for no cost. Against some modules though,
+    it can be a bit weak. The use of
+    {{ card("Apportation") }} and
+    {{ card("Blood Fury") }} helps with that.
+    It is great against weapons-oriented modules, and can be played when the opponent uses
+    {{ card("Immortal Grapple") }}: it is a nasty surprise
+    against <i>fp</i> combat modules.
+</p>
+<p>
+    Using {{ card("Threats") }} alongside
+    {{ card("Conditioning") }} provides some
+    liberty of action if an opponent plays
+    a {{ card("Direct Intervention") }} on the latter:
+    the cancelled modifier cannot be played again on the same action,
+    but another bleed enhancer can.
+    The most direct advantage though is that it is cheaper and keeps a bit more blood on the vampires.
+</p>
+<h2>Creator Insights</h2>
+<p>
+    <em>Daniel Gargulák</em> was kind enough to provide insights:
+</p>
+<p>
+    Rotation is quite important in the deck.
+    {{ card("The Barrens") }},
+    {{ card("Dreams of the Sphinx") }} and
+    {{ card("Heart of Nizchetus") }} help in this regard.
+</p>
+<p>
+    {{ card("Misdirection") }},
+    {{ card("Anarch Troublemaker") }} and
+    {{ card("Pentex™ Subversion") }} should be kept in hand until
+    it is time for the lunge.
+</p>
+<p>
+    {{ card("Theft of Vitae") }} is especially good because it handles
+    {{ card("Emerald Legionnaire") }} and
+    {{ card("Nephandus") }} easily. That's why there is only a single
+    {{ card("Far Mastery") }} to handle the more rare werewolf allies.
+</p>
+<p>
+    {{ card("Blood Fury") }} is a nice surprise:
+    it is good in many situations, be it against weapons or against a <i>f</i> wall, as both are common.
+</p>
+<p>
+    When going for a bleed, {{ card("Scouting Mission") }} and
+    {{ card("Threats") }} make sure that even a vampire with only 1 blood left
+    can still get a bleed modifier, thus keeping the prey on her toes.
+</p>
+<h2>Variants</h2>
+<p>
+    They are multiple variants on the combat module. It can use aggravated damages with
+    {{ card("Flames of the Netherworld") }} and
+    {{ card("Walk of Flame") }}, for example.
+    {{ card("Magic of the Smith") }} is also played often,
+    in order to fetch a
+    {{ card("Bowl of Convergence") }},
+    {{ card("Heart of Nizchetus") }},
+    {{ card("Ivory bow") }} or
+    {{ card("Sniper Rifle") }}.
+    Also, {{ card("Ponticulus") }} is often included for his excellent
+    defence abilities.
+</p>
+<p>
+    The <strong>Royalty</strong> variant uses <em>Princes</em> and <em>Justicars</em>,
+    adding political actions and
+    {{ card("Second Tradition: Domain") }} to the mix.
+    {{ link("/deck-search", _("Ricardo Molina Sobreira's deck"), twda_id="2018sacsbp") }}
+    from the 2018 SAC is a good example.
+</p>
+<p>
+    The <strong>Infernal</strong> variant uses
+    {{ card("Valerius Maior, Hell's Fool (ADV)") }} instead of
+    {{ card("Carna, The Princess Witch") }}.
+    His ability is fearsome and its <em>Infernal</em> trait and <i>Y</i> give him access to good options like
+    {{ card("Flames of the Netherworld") }} and
+    {{ card("Unleash Hell's Fury") }}.
+    {{ link("/deck-search", _("Pau Vilar's deck"), twda_id="2018igpbi") }} from 2018 is a good example.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'undecided' ) }}
+</div>
+{% endblock %}
