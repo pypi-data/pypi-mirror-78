@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: scrape_amazon
+Version: 0.1.2
+Summary: Scrape Amazon Reviews
+Home-page: http://github.com/officialpm/scrape-amazon
+Author: Parth Maniar
+Author-email: officialparthmaniar@gmail.com
+License: MIT
+Download-URL: https://pypi.org/project/scrape-amazon
+Project-URL: Documentation, https://github.com/officialpm/scrape-amazon
+Project-URL: Code, https://github.com/officialpm/scrape-amazon
+Project-URL: Issue tracker, https://github.com/officialpm/scrape-amazon/issues
+Description: # scrape-amazon-reviews 🚀
+        
+        ![](https://img.shields.io/pypi/v/scrape-amazon-reviews?label=Version&style=for-the-badge) 
+        ![](https://img.shields.io/pypi/pyversions/scrape-amazon-reviews?style=for-the-badge)
+        ![](https://img.shields.io/pypi/dm/scrape-amazon-reviews?style=for-the-badge)
+        ![](https://img.shields.io/pypi/l/scrape-amazon-reviews?style=for-the-badge)
+        
+        ## Installation
+        
+        ```shell
+        pip3 install scrape-amazon-reviews
+        ```
+        
+        ## Example
+        ### Import as module
+        
+        ```python
+        from get_reviews import scrape-amazon
+        
+        reviews = get_reviews('B078BNQ318') #returns dataframe
+        
+        ```
+        
+        ### CLI
+        
+        ```shell
+        scrape_amazon in B078BNQ318 B078BNQ318.csv
+        ```
+        ```shell
+        Positional Arguments:
+        
+        domain       Amazon Domain (in/com)
+        product_id   product id for scraping (B078BNQ318)
+        output_path  output_path for saving (B078BNQ318.csv)
+        ```
+Keywords: Amazon,Scrape,Reviews,Scraper,Products
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
