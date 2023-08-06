@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "argufy"
+version = "0.1.1-dev10"
+description = "Inspection based parser based on argparse."
+authors = ["Jesse P. Johnson <jpj6652@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+docstring-parser = "^0.7.2"
+argparse_color_formatter = "^1.2.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+flake8 = "^3.8.3"
+pydocstyle = "^5.0.2"
+docstr-coverage = "^1.2.0"
+pytest-cov = "^2.10.0"
+isort = "^4.3.21"
+bandit = "^1.6.2"
+safety = "^1.9.0"
+mkdocs = "^1.1.2"
+bump2version = "^1.0.0"
+invoke = "^1.4.1"
+mkdocs-material = "^5.4.0"
+flit = "^2.3.0"
+black = "^19.10b0"
+mypy = "^0.782"
+
+[tool.flit.metadata]
+module = "argufy"
+author = "Jesse P. Johnson"
+author-email = "jpj6652@gmail.com"
+home-page = "https://github.com/kuwv/python-argufy"
+requires = [
+    "docstring-parser",
+]
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+    | \.git
+    | \.mypy_cache
+    | \.pytest_cache
+    | \.vagrant
+    | _build
+    | build
+    | dist
+  )
+)
+'''
+
