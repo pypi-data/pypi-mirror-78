@@ -1,0 +1,14 @@
+argparse
+auditok
+cchardet
+ffmpeg-python
+future
+numpy>=1.12.0
+pysubs2
+six
+srt>=3.0.0
+tqdm
+webrtcvad
+
+[:python_version >= "3.6"]
+rich
