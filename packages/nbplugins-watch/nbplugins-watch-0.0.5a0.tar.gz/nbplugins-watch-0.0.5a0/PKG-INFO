@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: nbplugins-watch
+Version: 0.0.5a0
+Summary: watch and (re)load plugins from a directory
+Home-page: https://github.com/ffreemt/nonebot-plugins-watch
+Author: ffreemt
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: logzero (>=1.5.0,<2.0.0)
+Requires-Dist: nonebot (>=1.6.0,<2.0.0)
+Requires-Dist: pylint (>=2.5.2,<3.0.0)
+Requires-Dist: pytest-cov (>=2.8.1,<3.0.0)
+Requires-Dist: watchgod (>=0.6,<0.7)
+Project-URL: Repository, https://github.com/ffreemt/nonebot-plugins-watch
+Description-Content-Type: text/markdown
+
+# nonebot-plugins-watch
+![Python3.7 package](https://github.com/ffreemt/nonebot-plugins-watch/workflows/Python3.7%20package/badge.svg) ![Codecov](https://github.com/ffreemt/nonebot-plugins-watch/workflows/Codecov/badge.svg) [![PyPI version](https://badge.fury.io/py/nbplugins-watch.svg)](https://badge.fury.io/py/nbplugins-watch)
+
+hot plug and remove nonebot plugins
+
+### Installation
+
+```pip install nbplugins-watch```
+
+Validate installation
+```
+python -c "import nbplugins_watch; print(nbplugins_watch.__version__)"
+0.0.1
+```
+
+### Usage
+Make a directory somewhere and place an empty \_\_init\_\_.py in it.
+
+Monitor the directory in your nonebot runner file, e.g. in  `my_nonebot.py`:
+```python
+
+import nonebot
+
+nonebot.load_builtin_plugins()  # optional
+
+plugin_dir_path = r"path_to_plugin_dir"  # absolute or relative path
+from nbplugins_watch import nbplugins_watch
+nbplugins_watch(plugin_dir_path)
+
+nonebot.run()
+
+```
+Create a file, say fancy_plugin.py, in the directory above. Edit and test and/or remove the file fancy_plugin.py to your heart's content.
+
+Note: if a plugin file contains syntax errors (as opposed to logic errors), you'll have to restart nonebot, in other words, nbplugins_watch will cease to work after an uncaught error.
+
+### Acknowledgments
+
+* Thanks to everyone whose code was used
+
