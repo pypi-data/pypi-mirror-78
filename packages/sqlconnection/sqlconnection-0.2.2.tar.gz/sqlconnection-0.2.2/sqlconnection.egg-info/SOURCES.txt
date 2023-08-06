@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+sqlconnection.egg-info/PKG-INFO
+sqlconnection.egg-info/SOURCES.txt
+sqlconnection.egg-info/dependency_links.txt
+sqlconnection.egg-info/requires.txt
+sqlconnection.egg-info/top_level.txt
+src/sqlconnection/__init__.py
+src/sqlconnection/postgresql.py
+src/sqlconnection/postgresql_queries.py
+test/test.py
