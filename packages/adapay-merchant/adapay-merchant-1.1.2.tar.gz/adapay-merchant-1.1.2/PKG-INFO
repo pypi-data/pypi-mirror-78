@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: adapay-merchant
+Version: 1.1.2
+Summary: adapay_merchant version of adapay sdk
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: Adapay Python SDK
+        ===================================
+        
+         Adapay-Merchant Python SDK。
+        
+        安装
+        -----
+        如果已下载至本地：
+        pip install local_sdk_path
+        
+        远程下载并安装：
+        pip install adapay-merchant
+        
+        文档
+        --------------------
+        相关文档请参考官方提供的线下文件
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
