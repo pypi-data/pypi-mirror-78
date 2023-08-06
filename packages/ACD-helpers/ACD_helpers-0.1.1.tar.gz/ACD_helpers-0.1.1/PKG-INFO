@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: ACD_helpers
+Version: 0.1.1
+Summary: Helpers; functions that I import all the time.
+Home-page: https://github.com/cranedroesch/ACD_helpers
+Author: Andrew Crane-Droesch
+Author-email: andrew.crane-droesch@pennmedicine.upenn.edu
+License: UNKNOWN
+Description: 
+        This package just has some functions that I'm importing all the time.  The beginning part is mostly copied from Mike Becker.  
+        
+        Here is some dumb ascii art:
+        
+        ```
+        
+                    ,\,\/\,.  , , ,  ,  ,
+                  _;_,-.___ `' ` ` `-'\/|
+                 `-,-._,---'            |
+                 ,-^:'  \               |
+                /   _)   )              |
+                )--(`._,'               |
+               (_--_)___     ____       :
+                (" ,'   `. ,'    `.     ;
+                 |/       '        \   :
+                _:__o____|    o    ;   |
+             ,'"  \    \  `.      ,'   ;
+           ,' \    `.   |   \___,'    _|
+          /\   \    :   |   /        ',.\
+         (  \_,^----;___|_,'          `_;
+          `-'    |_             __,.  `\_,-,.
+                  /`,-.---.--;"\_,' `.(_| |  )
+                 (_/  |   |_,`-'     ; :`--`'
+                   `--^---','/-.,-.,'  |
+                          (__`----'    ;
+                         ___,`-._____,;|
+                     ,--' ,'       ,'   `-.
+                    (,--./        :      __\
+                   ,'  ,'         :    ,'  `\
+                 ,'  ,'            \_,'     `.
+              ,-'   /                `.       `.
+        ,----'     /                   `.       `.
+        `._   ,   :                      `.       `---.
+           ;     ,|___                    |`.   `.  ,-'
+          / /, ,' \_  `--.___________,--'/   \     :
+          `;/ /    |`                 ,'(     `.`.\ \
+           `-'     |                     \      \ \;'
+                   |          .           )      `'
+                   `._        |\      _,-'
+                     |`-----.-' `----'  \
+                     :      |      \     \
+                     :      |       \     \
+                     :------^.       \____,`.
+                   ,'`----_--;       (_____,'`.
+                  /      (_) |       |  ,.     `.
+                 :_________,-|       |__`'       \
+                (_________,--'       `._`-------'|
+                                        `-------'
+        ```
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
