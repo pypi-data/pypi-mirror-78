@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: avocado-epigenome
+Version: 0.4.0
+Summary: Avocado is a package for learning a latent representation of the human epigenome.
+Home-page: UNKNOWN
+Author: Jacob Schreiber
+Author-email: jmschr@cs.washington.edu
+License: LICENSE.txt
+Platform: UNKNOWN
+Requires-Dist: numpy (>=1.14.2)
+Requires-Dist: pandas (>=0.23.4)
+Requires-Dist: theano (>=1.0.1)
+Requires-Dist: keras (>=2.0.8)
+Requires-Dist: tqdm (>=4.24.0)
+Requires-Dist: pyBigWig (>=0.3.17)
+
+UNKNOWN
+
+
