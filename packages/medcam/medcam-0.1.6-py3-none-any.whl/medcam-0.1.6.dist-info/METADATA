@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: medcam
+Version: 0.1.6
+Summary: An easy to use library that makes model predictions more interpretable for humans.
+Home-page: UNKNOWN
+Author: Karol Gotkowski
+Author-email: KarolGotkowski@gmx.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: certifi
+Requires-Dist: cycler
+Requires-Dist: decorator
+Requires-Dist: future
+Requires-Dist: imageio
+Requires-Dist: kiwisolver
+Requires-Dist: Mako
+Requires-Dist: Markdown
+Requires-Dist: MarkupSafe
+Requires-Dist: matplotlib
+Requires-Dist: networkx
+Requires-Dist: nibabel
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: packaging
+Requires-Dist: pandas
+Requires-Dist: Pillow
+Requires-Dist: pyparsing
+Requires-Dist: python-dateutil
+Requires-Dist: pytz
+Requires-Dist: PyWavelets
+Requires-Dist: scikit-image
+Requires-Dist: scipy
+Requires-Dist: SimpleITK
+Requires-Dist: six
+
+An easy to use library that makes model predictions more interpretable for humans. M3d-CAM allows the generation of attention maps with multiple methods like Guided Backpropagation, Grad-Cam, Guided Grad-Cam and Grad-Cam++.
+
+
