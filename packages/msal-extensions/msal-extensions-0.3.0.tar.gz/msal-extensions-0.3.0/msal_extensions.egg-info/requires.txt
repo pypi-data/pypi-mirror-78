@@ -1,0 +1,10 @@
+msal<2.0.0,>=0.4.1
+
+[:platform_system != "Windows"]
+portalocker~=1.0
+
+[:platform_system == "Windows"]
+portalocker~=1.6
+
+[:python_version < "3.0"]
+pathlib2
