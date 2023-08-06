@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: octicons16px
+Version: 2020.7.2
+Summary: github octicons 16px
+Home-page: https://github.com/andrewp-as-is/octicons16px.py
+License: Unlicense
+Description: <!--
+        https://readme42.com
+        -->
+        
+        
+        [![](https://img.shields.io/pypi/v/octicons16px.svg?maxAge=3600)](https://pypi.org/project/octicons16px/)
+        [![](https://img.shields.io/badge/License-Unlicense-blue.svg?longCache=True)](https://unlicense.org/)
+        
+        ### Installation
+        ```bash
+        $ [sudo] pip install octicons16px
+        ```
+        
+        #### Examples
+        ```python
+        import octicons16px
+        
+        octicons16px.OCTICON_PACKAGE
+        octicons16px.OCTICONS['package']
+        ```
+        
+        #### Links
+        +   [octicons](https://primer.style/octicons)
+        
+        <p align="center">
+            <a href="https://readme42.com/">readme42.com</a>
+        </p>
+Keywords: octicons
+Platform: UNKNOWN
+Classifier: License :: Public Domain
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
