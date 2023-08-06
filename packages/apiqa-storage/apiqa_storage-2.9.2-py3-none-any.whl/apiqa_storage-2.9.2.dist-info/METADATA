@@ -1,0 +1,155 @@
+Metadata-Version: 2.1
+Name: apiqa-storage
+Version: 2.9.2
+Summary: Apiqa user storage backend for django projects
+Home-page: https://github.com/pik-software/apiqa-storage.git
+Author: pik-software
+Author-email: no-reply@pik-software.ru
+License: UNKNOWN
+Project-URL: Bug Reports, https://gitlab.pik-software.ru/apiqa/apiqa-storage/issues
+Project-URL: Funding, https://gitlab.pik-software.ru/apiqa/apiqa-storage
+Project-URL: Say Thanks!, https://saythanks.io/to/pik_software
+Project-URL: Source, https://gitlab.pik-software.ru/apiqa/apiqa-storage
+Keywords: apiqa django
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: ~=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: django (>=2.1)
+Requires-Dist: djangorestframework (>=3.9)
+Requires-Dist: humanfriendly (>=4.18)
+Requires-Dist: python-slugify (>=1.2.6)
+Requires-Dist: minio (==5.0.6)
+Requires-Dist: celery
+Provides-Extra: dev
+Requires-Dist: responses (==0.10.5) ; extra == 'dev'
+Requires-Dist: prospector (==1.1.4) ; extra == 'dev'
+Requires-Dist: pycodestyle (<2.4.0,>=2.0.0) ; extra == 'dev'
+Requires-Dist: pylint-django (==0.9.4) ; extra == 'dev'
+Requires-Dist: pylint (==2.1.1) ; extra == 'dev'
+Requires-Dist: factory-boy ; extra == 'dev'
+Requires-Dist: freezegun (==0.3.10) ; extra == 'dev'
+Requires-Dist: pdbpp (==0.9.2) ; extra == 'dev'
+Requires-Dist: pytest-xdist (==1.22.2) ; extra == 'dev'
+Requires-Dist: pytest (==3.8.2) ; extra == 'dev'
+Requires-Dist: pytest-cov (==2.5.1) ; extra == 'dev'
+Requires-Dist: pytest-django (==3.4.3) ; extra == 'dev'
+Requires-Dist: pytest-benchmark (==3.1.1) ; extra == 'dev'
+Requires-Dist: pytest-mock (==1.9.0) ; extra == 'dev'
+Requires-Dist: mypy (>=0.600) ; extra == 'dev'
+Requires-Dist: psycopg2-binary (==2.7.5) ; extra == 'dev'
+Requires-Dist: dj-database-url (==0.4.2) ; extra == 'dev'
+Requires-Dist: twine (>=3.1.1) ; extra == 'dev'
+
+# apiqa-storage #
+
+This project aim is to provide user storage backend on minio
+for all apiqa django projects.
+
+## HowToUse ##
+
+* Add `apiqa-storage` to `requirements.txt`.
+
+```
+# Minio file storage
+git+https://github.com/pik-software/apiqa-storage.git#egg=apiqa-storage
+```
+
+* Add `apiqa_storage` to `INSTALLED_APPS` in settings file.
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    ...,
+    'apiqa_storage'
+]
+```
+
+* Add mixin `ModelWithAttachmentsMixin` to any model. Make and run migrations.
+
+```python
+from apiqa_storage.models import ModelWithAttachmentsMixin
+
+class UserFile(ModelWithAttachmentsMixin, ...):
+    ...
+```
+
+* Add serializer mixin at the beginning and add `attachments`,
+ `attachment_ids` to fields.
+
+```python
+from apiqa_storage.serializers import AttachmentsSerializerMixin
+
+class ModelWithAttachmentsSerializer(AttachmentsSerializerMixin, ...):
+    ...
+
+    class Meta:
+        ...
+        fields = (..., 'attachments', 'attachment_ids')
+```
+
+* Add download and upload file urls to urlpatterns.
+
+```python
+from django.urls import path, include
+
+urlpatterns = [
+    path('attachments/', include('apiqa_storage.urls')),
+]
+```
+
+* Or add staff download file url to urlpatterns.
+
+```python
+from django.urls import path, include
+
+urlpatterns = [  # noqa
+    path('attachments/', include('apiqa_storage.staff_urls')),
+]
+```
+
+* Add clean files task to celery beat config.
+
+```python
+from celery.schedules import crontab
+beat_schedule = {
+    # apiqa-storage clean files
+    'purge_attachments': {
+        'task': 'apiqa_storage.tasks.purge_attachments',
+        'schedule': crontab(hour=5)
+    },
+}
+```
+
+* Add required minio settings. Create bucket on minio!
+[django minio storage usage](https://django-minio-storage.readthedocs.io/en/latest/usage/)
+
+```python
+MINIO_STORAGE_ENDPOINT = 'minio:9000'
+MINIO_STORAGE_ACCESS_KEY = ...
+MINIO_STORAGE_SECRET_KEY = ...
+MINIO_STORAGE_BUCKET_NAME = 'local-static'
+```
+* Other settings
+  * **MINIO_STORAGE_MAX_FILE_SIZE**: File size limit for upload, humanfriendly value. 
+  See https://humanfriendly.readthedocs.io/en/latest/readme.html#a-note-about-size-units. Default 100M
+  * **MINIO_STORAGE_MAX_FILE_NAME_LEN**: File name length limit. Use for database char limit. Default 100
+  * **MINIO_STORAGE_MAX_FILES_COUNT**: Limit of files in one object. For example 5 files in ticket. None - is unlimited. Default None
+  * **MINIO_STORAGE_USE_HTTPS**: Use https for connect to minio. Default False
+  * **MINIO_STORAGE_CLEAN_PERIOD**: Delete files without related objects after N days. Default 30
+
+* Run test
+
+```bash
+pip install -r requirements.txt
+pip install -r requirements.dev.txt
+docker-compose up
+pytest --cov .
+```
+
+
