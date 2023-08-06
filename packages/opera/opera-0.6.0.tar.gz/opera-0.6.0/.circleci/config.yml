@@ -1,0 +1,169 @@
+version: "2.1"
+
+commands:
+  common_setup:
+    description: Prepare the repository for work
+    steps:
+      - checkout
+      - run: sudo pip install pipenv
+      - run: make init
+
+  run_tests:
+    description: Run test suite
+    steps:
+      - common_setup
+      - run: make unit_test
+      - run: make integration_test
+
+  run_integration_tests_using_released_opera_version:
+    description: Test xOpera CLI commands with testing service template
+    steps:
+      - checkout
+      - run: pip install --user --upgrade pip
+      - run: pip install --user wheel
+      - run: pip install --user opera
+      - run: OPERA=opera make integration_test
+
+  deploy_to_test_pypi:
+    description: Publish opera package to Python Package Index (PyPI) for testing
+    steps:
+      - common_setup
+      - run: env
+      - run: make build
+      - run: make test_release
+
+  deploy_to_production_pypi:
+    description: Publish opera package to Python Package Index (PyPI)
+    steps:
+      - common_setup
+      - run: make build
+      - run: make release
+
+  create_and_push_stable_branch:
+    description: Create and push GitHub stable branch which points to the latest relased tag/commit
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "b6:94:61:c3:e1:8f:25:e5:43:6d:51:9e:43:c4:16:11"
+      - checkout
+      - run: git branch -f stable HEAD
+      - run: git push origin stable
+
+  build_and_deploy_docs_to_github_pages:
+    description: Build Sphinx documentation and push GitHub stable branch which points to the latest relased tag/commit
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "b6:94:61:c3:e1:8f:25:e5:43:6d:51:9e:43:c4:16:11"
+      - common_setup
+      - run: make docs
+      - run: git worktree add gh-pages gh-pages
+      - run: |
+          cd gh-pages
+          git rm -rf .
+          cp -r ../docs/_build/* .
+          touch .nojekyll
+          git add .
+          git config --global user.email circleci@circleci
+          git config --global user.name CircleCI
+          git commit --allow-empty -m "Add generated opera docs for GitHub pages"
+          git push origin gh-pages
+
+executors:
+  python36:
+    docker:
+      - image: circleci/python:3.6.9
+    environment:
+      PIPENV_VENV_IN_PROJECT: true
+  python37:
+    docker:
+      - image: circleci/python:3.7.4
+    environment:
+      PIPENV_VENV_IN_PROJECT: true
+  python38:
+    docker:
+      - image: circleci/python:3.8.2
+    environment:
+      PIPENV_VENV_IN_PROJECT: true
+
+jobs:
+  test36:
+    executor: python36
+    steps:
+      - run_tests
+  test37:
+    executor: python37
+    steps:
+      - run_tests
+  test38:
+    executor: python38
+    steps:
+      - run_tests
+  nightly_xopera_test:
+    executor: python37
+    steps:
+      - run_integration_tests_using_released_opera_version
+  pypi_test_deploy:
+    executor: python37
+    steps:
+      - deploy_to_test_pypi
+  pypi_production_deploy:
+    executor: python37
+    steps:
+      - deploy_to_production_pypi
+  push_stable_relase_branch:
+    executor: python37
+    steps:
+      - create_and_push_stable_branch
+  documentation_build:
+    executor: python37
+    steps:
+      - build_sphinx_documentation
+  doc_build_and_push_gh_pages_branch:
+    executor: python37
+    steps:
+      - build_and_deploy_docs_to_github_pages
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test36
+      - test37
+      - test38
+      - pypi_test_deploy:
+          requires:
+            - test36
+            - test37
+            - test38
+          context: opera-test-pypi
+          filters:
+            branches:
+              only: master
+
+  deploy:
+    jobs:
+      - pypi_production_deploy:
+          context: opera-production-pypi
+          filters:
+            tags:
+              only: /[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              ignore: /.*/
+      - push_stable_relase_branch:
+          requires:
+            - pypi_production_deploy
+      - doc_build_and_push_gh_pages_branch:
+          filters:
+            branches:
+              only: master
+
+  nightly_test:
+    triggers:
+      - schedule:
+          cron: "0 3 * * *"
+          filters:
+            branches:
+              only: stable
+    jobs:
+      - nightly_xopera_test
