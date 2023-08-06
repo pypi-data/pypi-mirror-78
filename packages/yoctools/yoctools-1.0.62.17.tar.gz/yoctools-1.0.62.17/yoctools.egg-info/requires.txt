@@ -1,0 +1,7 @@
+configparser==4.0.2
+import-scons>=2.0.0
+pyyaml
+requests_toolbelt
+scons<4.0.0,>=3.0.0
+smmap
+threadpool
