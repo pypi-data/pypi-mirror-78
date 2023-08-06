@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: dropt-util
+Version: 0.4
+Summary: DrOpt utility package
+Home-page: https://github.com/NeuralScope/dropt-util/
+Author: Haopin Wu
+Author-email: psistwu@outlook.com
+License: MIT
+Keywords: DrOpt,utility
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: setuptools (>=42.0.0)
+
+# `dropt.util`: DrOpt Utility Package
+This package provides utilities required by the DrOpt suite.
+Here is the list of utilities and their description.
+
+
+## `dropt.util.log`: logging
+This module provides standardized logging tools,
+including __standard format__, __logger classes__ and __logger wrapper__.
+- __standard format__:  
+  The standard format for console output is
+  ```
+  [yyyy-mm-dd HH:MM:SS] {logger_name} [{level_name}] {message}
+  ```
+
+  The standard format for log file output is
+  ```
+  yyyy-mm-dd HH:MM:SS|{logger_name}|{level_name}|{message}
+  ```
+
+- __logger classes__:
+  - `class Logger`
+  - `class DrOptLogger(Logger)`
+  - `class DrOptServiceLogger(DrOptLogger)`
+  - `class DrOptClientLogger(DrOptLogger)`
+  - `class DroptUserLogger(DrOptLogger)`
+
+- __logger wrapper__:
+  - `class FuncLoggingWrapper`
+
+
