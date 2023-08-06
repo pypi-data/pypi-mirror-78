@@ -1,0 +1,9 @@
+numpy>=1.16
+mrcfile
+scipy>=1.3
+pyfftw
+progressbar2
+numba
+
+[gpu]
+cupy
