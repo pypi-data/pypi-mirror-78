@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django-attachments = {editable = true,extras = ["test"],path = "."}
+
+[dev-packages]
+isort = "*"
+black = "*"
+coverage = "*"
+
+[scripts]
+test = "pytest attachments/"
+cleanup = "sh -c \"black --line-length=80 --exclude='/(migrations)/' attachments && isort -rc attachments\""
+
+[pipenv]
+allow_prereleases = true

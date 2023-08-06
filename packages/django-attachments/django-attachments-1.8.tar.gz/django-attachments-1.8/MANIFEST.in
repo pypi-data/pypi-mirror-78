@@ -1,0 +1,10 @@
+include *.lock
+include *.py
+include *.rst
+include LICENSE
+include Pipfile
+include tox.ini
+recursive-include attachments *.html
+recursive-include attachments *.po
+recursive-include attachments *.transifex
+
