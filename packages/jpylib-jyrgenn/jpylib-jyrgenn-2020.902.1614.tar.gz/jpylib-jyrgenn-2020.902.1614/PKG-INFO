@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: jpylib-jyrgenn
+Version: 2020.902.1614
+Summary: Utilities library with several more or less independent components
+Home-page: https://git.w21.org/ni/jpylib/
+Author: Juergen Nickelsen
+Author-email: ni@w21.org
+License: UNKNOWN
+Project-URL: Documentation, https://git.w21.org/ni/jpylib//-/blob/v2020.902.1614/README.md
+Project-URL: Source, https://git.w21.org/ni/jpylib/
+Description: Utilities library with several more or less independent components
+        
+        This library is mainly intended for myself, so I can access it from
+        anywhere. But anyone else is welcome to have a look. Documentation
+        is still lacking, I know, but that shall change. Testing is better.
+        
+        The full documentation (well, what already exists of it) for this
+        version is at
+        <https://git.w21.org/ni/jpylib/-/blob/v2020.902.1614/README.md>
+        
+        [ni@w21.org 2020-08-09]
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
