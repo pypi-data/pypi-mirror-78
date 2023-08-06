@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: semgrep-agent
+Version: 0.1.0b1
+Summary: 
+License: Proprietary
+Author: Return To Corporation
+Author-email: support@r2c.dev
+Requires-Python: >=3.7,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: boltons (>=20.2.1,<21.0.0)
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: gitpython (>=2.1.15,<3.0.0)
+Requires-Dist: glom (>=20.8.0,<21.0.0)
+Requires-Dist: pymmh3 (>=0.0.5,<0.0.6)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Requires-Dist: sh (>=1.13.1,<2.0.0)
