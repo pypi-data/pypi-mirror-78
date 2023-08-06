@@ -1,0 +1,5 @@
+[console_scripts]
+cb = cbench.main:cli
+cbench = cbench.main:cli
+cr = cbench.main:cli
+
