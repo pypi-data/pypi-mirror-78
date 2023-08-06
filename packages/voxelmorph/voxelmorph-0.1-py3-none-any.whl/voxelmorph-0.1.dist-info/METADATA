@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: voxelmorph
+Version: 0.1
+Summary: Image Registration with Convolutional Networks
+Home-page: https://github.com/voxelmorph/voxelmorph
+License: gpl-3.0
+Keywords: deformation,registration,imaging,cnn,mri
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: scikit-image
+Requires-Dist: h5py
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: nibabel
+Requires-Dist: neurite
+
+UNKNOWN
+
+
