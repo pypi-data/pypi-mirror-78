@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: tgusers
+Version: 0.0.20
+Summary: Mini framework for creating bots with tracking the user's position in the so-called "rooms". Based on aiogram.
+Home-page: https://github.com/drogi17/TgUsers
+Author: ic_it
+Author-email: 
+License: GNU 3
+Description: # **TgUsers**
+        ### **[RU]**
+        #### Что такое комнаты? 
+        Комнаты, это понятие введено для интуитивной понятности происходящего. Пользователь (user) отправляя команду "/start" попадает в комнату по названием "start". В этой комнате может быть неограниченное количество команд и возможностей, но весьма часто требуется не одинаковые ответы бота на один и тот же вопрос. 
+        
+        Пример: 
+        
+        Существует комната "start", в которой команда "/get" означает получение "Hello TgUser".
+        И еще одна комната, в которой "/get" означает получение фотографии космоса. 
+        
+        Библиотека умеет автоматически логировать отправленные сообщения создавать новых пользователей. 
+        Разграничивать их по ролям и проверять роли при входе в комнаты.
+        
+        
+        
+        ### Usage example and source code:
+        [https://github.com/drogi17/TgUsers][https://github.com/drogi17/TgUsers]
+        
+        [https://github.com/drogi17/TgUsers]: https://github.com/drogi17/TgUsers
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
