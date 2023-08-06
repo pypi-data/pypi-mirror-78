@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: sportpursuit
+Version: 0.0.1
+Summary: A package containing key sp functions
+Home-page: https://github.com/georgebiggs/sp_py_pkg
+Author: georgebiggs
+Author-email: george.biggs@sportpursuit.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: psycopg2
+
+# sportpursuit
+
+# this is an example package ahead of the sportpursuit package development
+
+# This is a simple example containing a single function at present, but will be extended in the future
+
+
+
