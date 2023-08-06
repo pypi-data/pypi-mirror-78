@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: fem4room
+Version: 0.0.2.dev5
+Summary: Room Acoustics Simulation. Retrieve room impulse response using finite elements method.
+Home-page: https://github.com/aldalmora/fem4room
+Author: André Luiz Dalmora
+Author-email: andre.dalmora@gmail.com
+License: UNKNOWN
+Keywords: room acoustics finite elements method impulse response
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: scipy
+Requires-Dist: gmsh-sdk (>=4.6)
+Requires-Dist: matplotlib (>=3)
+Requires-Dist: ezdxf (~=0.13.1)
+
+Finite Elements Method for Room Acoustics
+	Package python for acoustical simulations using finite elements method.
+
+Internship project for a Master 2 in Acoustical Engineering at ENSTA-Paris (Ã‰cole Nationale SupÃ©rieure de
+Techniques AvancÃ©es).
+
+
+
