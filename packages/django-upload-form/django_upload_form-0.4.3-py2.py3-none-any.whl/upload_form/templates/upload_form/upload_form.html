@@ -1,0 +1,85 @@
+{% load i18n static %}
+
+<div class="uploadform_drop_area">
+
+    <script type="text/javascript">
+        var UPLOAD_FORM_PARALLEL_UPLOAD = {{UPLOAD_FORM_PARALLEL_UPLOAD|lower}};
+        var MAX_IMAGE_SIZE = {{max_image_size}};
+    </script>
+
+    <form method="post" enctype="multipart/form-data" action="{{ action }}" class="uploadform_form" novalidate>
+        {% csrf_token %}
+
+
+        {% if file_errors %}
+        <div class="alert alert-danger">
+            <strong>{% trans 'Please correct the errors below' %}</strong>
+            <ul class="errorlist">
+                {% for error in file_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if form.fields|length %}
+        <div class="extra_fields">
+            {% for field in form %}
+                <div class="form-row{% if field.errors %} errors{% endif %} field-{{ field.html_name }}">
+                    {{ field.label_tag }} {{ field }}
+                    {% if field.help_text %}
+                    <p class="help">{{ field.help_text|safe }}</p>
+                    {% endif %}
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="file_list_input">
+            <p>{% trans 'Select multiple files with the file dialog or by dragging and dropping them onto the dashed region' %}</p>
+
+            <label class="button">
+                <input style="display: none;" type="file" name="files[]" accept="{{accept}}" multiple onchange="UploadForm.handleFiles(this.files)">
+                <img src="{% static 'upload_form/icons/cloud-upload-svgrepo-com.svg' %}" alt="{% trans 'upload' %}">
+                <p>
+                    {% trans 'Select some files' %}
+                </p>
+            </label>
+        </div>
+
+        <div class="file_list_wrapper" style="display: none;">
+            <div class="submit">
+                <div>
+                    {% trans 'Press the button below to proceed with files upload' %}
+                </div>
+                <button type="submit" class="btn btn-success btn-lg">
+                    <img src="/static/upload_form/icons/cloud-upload-svgrepo-com.svg" class="icon">&nbsp;&nbsp;{% trans 'Send' %}
+                </button>
+            </div>
+            <div class="progress" style="display: none;">
+                <div class="progress-bar progress-bar-success progress-bar-striped active"
+                    role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                </div>
+            </div>
+            <table class="uploadform_file_list">
+                <thead>
+                    <tr>
+                        <th>{% trans 'type' %}</th>
+                        <th>{% trans 'name' %}</th>
+                        <th>{% trans 'size' %}</th>
+                        <th>
+                            <a href="#" class="uploadform_remove_all_files" title="remove all">
+                                <img src="/static/upload_form/icons/trash-svgrepo-com.svg" class="icon">
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    </form>
+
+</div>
