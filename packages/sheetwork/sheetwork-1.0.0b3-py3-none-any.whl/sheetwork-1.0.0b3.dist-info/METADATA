@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: sheetwork
+Version: 1.0.0b3
+Summary: 
+    sheetwork is a command line tool to load sheets from google
+    and upload them to snowflake    
+Home-page: https://github.com/bastienboutonnet/sheetwork
+Author: Bastien Boutonnet
+Author-email: bastien.b1@gmail.com
+License: MIT
+Download-URL: https://github.com/bastienboutonnet/sheetwork/archive/v1.0.0b3.tar.gz
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: requests (<2.23.0)
+Requires-Dist: gspread (==3.3.0)
+Requires-Dist: sqlalchemy (==1.3.16)
+Requires-Dist: cerberus (==1.3.2)
+Requires-Dist: pandas (==1.1.1)
+Requires-Dist: pyyaml (==5.3.1)
+Requires-Dist: snowflake-sqlalchemy (==1.2.3)
+Requires-Dist: oauth2client (==4.1.3)
+Requires-Dist: inflection (==0.5.1)
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: luddite (==1.0.1)
+Requires-Dist: packaging (==20.4)
+
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/bastienboutonnet/sheetwork?include_prereleases) [![codecov](https://codecov.io/gh/bastienboutonnet/sheetwork/branch/dev%2Fnicolas_jaar/graph/badge.svg)](https://codecov.io/gh/bastienboutonnet/sheetwork)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
+![Sheetwork Build](https://github.com/bastienboutonnet/sheetwork/workflows/Sheetwork%20CI/badge.svg)
+
+
+# sheetwork 💩🤦
+
+A handy package to load Google Sheets to Snowflake
+
+Performs some cleanups on column names and string (such as removing trailing spaces etc.)
+
+**BIG DISCLAIMER** sheetwork is still very early. Do not use in production jobs unless you tested it extensively and know whether it does what you want it to do!
+
+## Documentation
+Head over to the [official documentation](https://bastienboutonnet.gitbook.io/sheetwork/) to learn about:
+- how to set up sheetwork
+- how to use sheetwork
+
+
