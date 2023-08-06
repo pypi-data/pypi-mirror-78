@@ -1,0 +1,13 @@
+boto3<2
+google-cloud-bigquery<2
+google-cloud-storage<2
+psutil<6
+
+[dev]
+mypy
+pyflakes
+black
+pylint
+wheel
+twine
+pytype
