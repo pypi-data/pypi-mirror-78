@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: EasyDraw
+Version: 0.4.4
+Summary: A graphical library built for visual arts. EasyDraw is built on top of tkinter and has more functionalities.
+Home-page: https://github.com/vafakaramzadegan/EasyDraw
+Author: Vafa Karamzadegan
+Author-email: vafa.k@live.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pyscreenshot
+Requires-Dist: Pillow
+Requires-Dist: multipledispatch
+
+# EasyDraw
+A graphical library built for visual arts. EasyDraw is built on top of tkinter and has more functionalities.
+
