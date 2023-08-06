@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: pymodorino
+Version: 0.0.7
+Summary: Very simple and cross-platform (hopefully) pomodoro timer script.
+Home-page: https://github.com/DominickVale/Pymodorino
+Author: Dominick Vale
+Author-email: dominickveil@gmail.com
+License: UNKNOWN
+Description: # Pymodoro timer
+        
+        > Ever heard of a pymodoro timer? Probably yes.
+        > Should i explain what it is? Probably not.
+        
+        Very early development version. I'm just learning python, please be patient with my skills at this time :)
+        
+        ## How to use
+        - Clone the repository
+        - run `./pymodoro.py`
+        
+        ```
+        optional arguments:
+          -h, --help   show this help message and exit
+          -w 25        Working minutes
+          -b 5         Break minutes
+          ```
+          
+          ### Todo:
+          - fix publishing
+          - Refactor
+          - Add more notification sounds (different sounds for break and working states)
+          - add some statistics
+          - (?)
+Keywords: pomodoro timer,pomodoro,timer
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
