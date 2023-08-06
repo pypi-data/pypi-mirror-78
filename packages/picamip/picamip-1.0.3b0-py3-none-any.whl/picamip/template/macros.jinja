@@ -1,0 +1,84 @@
+{#
+  Python simple Raspberry-Pi camera module web interface
+  Copyright (c) 2020 Luiz Eduardo Amaral <luizamaral306@gmail.com>
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+
+  * Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above copyright
+  notice, this list of conditions and the following disclaimer in the
+  documentation and/or other materials provided with the distribution.
+  * Neither the name of the copyright holder nor the
+  names of its contributors may be used to endorse or promote products
+  derived from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
+#}
+{% macro button(action, method="GET", parameters={}, class="btn-primary", text="", text_class="h4", icon="", icon_size=48) -%}
+<form class="d-inline" action="{{action}}" method="{{method}}">
+  <button type="submit" class="{{class}}">
+    <span class="{{text_class}} text-nowrap">
+    <svg class="bi" width="{{icon_size}}" height="{{icon_size}}" fill="currentColor">
+      <use xlink:href="{{icon}}"/>
+    </svg>
+    {{text}}
+    </span>
+  </button>
+  {% for name, value in parameters.items() %}
+    <input type="hidden" name={{name}} value={{value}} />
+  {% endfor %}
+</form>
+{%- endmacro %}
+
+{% macro jsButton(onsubmit, class="btn-primary", text="", text_class="h4", icon="", icon_size=48) -%}
+<form class="d-inline" action="#" onsubmit="{{onsubmit}}">
+  <button type="submit" class="{{class}} text-nowrap">
+    <span class="{{text_class}}">
+    <svg class="bi" width="{{icon_size}}" height="{{icon_size}}" fill="currentColor">
+      <use xlink:href="{{icon}}"/>
+    </svg>
+    {{text}}
+    </span>
+  </button>
+</form>
+{%- endmacro %}
+
+{% macro simpleModal(id, title, message, button) %} 
+<div 
+  class="modal fade" 
+  id="{{id}}" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="exampleModalLabel" 
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	{{message}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	{{button}}
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}

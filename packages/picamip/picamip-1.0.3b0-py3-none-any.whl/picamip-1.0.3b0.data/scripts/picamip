@@ -1,0 +1,96 @@
+#!python
+"""
+Python simple Raspberry-Pi camera module web interface
+Copyright (c) 2020 Luiz Eduardo Amaral <luizamaral306@gmail.com>
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name of the copyright holder nor the
+      names of its contributors may be used to endorse or promote products
+      derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+"""
+import argparse
+
+import picamip
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        prog="picamip", description="picamip: Raspberry Pi IP Camera"
+    )
+    parser.add_argument(
+        "host", nargs="?", default="0.0.0.0", type=str, help="Server host"
+    )
+    parser.add_argument("port", nargs="?", default=8000, type=int, help="Server port")
+    parser.add_argument(
+        "-p",
+        "--picture-dir",
+        default="/home/pi/Pictures",
+        type=str,
+        help="Pictures storage directory",
+    )
+    # parser.add_argument(
+    #     "-V",
+    #     "--video-dir",
+    #     default="/home/pi/Videos",
+    #     type=str,
+    #     help="Videos storage directory",
+    # )
+    parser.add_argument(
+        "-f",
+        "--files-prefix",
+        default="Picamip_",
+        type=str,
+        help="Directory to store the pictures. Default: ~/Pictures",
+    )
+    parser.add_argument(
+        "-t",
+        "--flask-template",
+        type=str,
+        help="Flask additional jinja2 templates directory",
+    )
+    parser.add_argument(
+        "-s",
+        "--flask-static",
+        type=str,
+        help="Flask additional static files directory",
+    )
+    parser.add_argument(
+        "-d",
+        "--default-route",
+        default="index.html",
+        type=str,
+        help="Default root route. Eg: index.html",
+    )
+    parser.add_argument(
+        "-v", "--version", action="version", version=f"%(prog)s {picamip.__version__}"
+    )
+    args = parser.parse_args()
+
+    picamip.run(
+        host=args.host,
+        port=args.port,
+        picture_dir=args.picture_dir,
+        files_prefix=args.files_prefix,
+        flask_template=args.flask_template,
+        flask_static=args.flask_static,
+        default_route=args.default_route,
+    )
