@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: vidispine
+Version: 5.0.4
+Summary: Vidispine API
+Home-page: UNKNOWN
+Author: API support
+Author-email: info@vidispine.com
+License: UNKNOWN
+Keywords: OpenAPI,OpenAPI-Generator,Vidispine API
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: six (>=1.10)
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+
+This is the official Vidispine API client for Python 2.7 and 3.4+.
+To get started, please see the [readme on Github](https://github.com/vidispine/vidispine-python-sdk)!
+
+
