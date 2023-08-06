@@ -1,0 +1,3 @@
+[console_scripts]
+create_db_schema_group = src.generator_syncers.database_syncers:create_schema_group
+
