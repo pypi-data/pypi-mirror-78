@@ -1,0 +1,10 @@
+Qt.py==1.2.6
+metayaml==0.26
+tpDcc-config
+tpDcc-libs-python
+
+[dev]
+wheel
+
+[test]
+pytest
