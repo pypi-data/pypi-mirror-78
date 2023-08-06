@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: gullveig
+Version: 0.1.11
+Summary: Distributed systems and service monitoring
+Home-page: https://github.com/Addvilz/gullveig
+Author: Matiss Treinis
+Author-email: matiss@hub256.com
+License: Apache 2.0
+Download-URL: https://github.com/Addvilz/gullveig
+Description: # Gullveig
+        
+        [![Gullveig](./docs/website/static/img/gullveig.png)](https://gullveig.hub256.com/docs/webui)
+        
+        Gullveig is a free, open-source, light-weight infrastructure and service monitoring platform. Gullveig offers
+        monitoring, alerting, and insights services for servers, services and applications.
+        
+        Gullveig is modular and flexible, and allows for easy development of custom modules that can be created 
+        using nearly any platform or programming language.
+        
+        ## Core features
+        
+        - Distributed and scalable agent based architecture
+        - Modern, easy to use web interface
+        - Time series graphs for resources, counters, metrics and performance data
+        - Double-redundant bi-directional remote monitoring
+        - Automated alerting and notifications about status changes
+        - Rich interface for remote fact discovery
+        - Interactive status dashboard
+        - Simple, file based configuration
+        - Wide operating system support (written in Python 3)
+        - Does not depend on third party software for basic operation
+        
+        For more information, visit [gullveig.hub256.com](https://gullveig.hub256.com).
+        
+        ## License
+        
+        Licensed under terms and conditions of Apache 2.0 license.
+        
+Platform: UNIX
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: System :: Networking :: Monitoring
+Description-Content-Type: text/markdown
