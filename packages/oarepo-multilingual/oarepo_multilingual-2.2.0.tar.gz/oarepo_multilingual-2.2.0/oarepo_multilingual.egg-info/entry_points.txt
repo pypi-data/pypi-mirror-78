@@ -1,0 +1,12 @@
+[invenio_base.api_apps]
+oarepo_multilingual = oarepo_multilingual.ext:OARepoMultilingualExt
+
+[invenio_base.apps]
+oarepo_multilingual = oarepo_multilingual.ext:OARepoMultilingualExt
+
+[invenio_jsonschemas.schemas]
+oarepo_multilingual = oarepo_multilingual.jsonschemas
+
+[oarepo_mapping_handlers]
+multilingual = oarepo_multilingual.mapping.mapping_handler:handler
+
