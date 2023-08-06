@@ -1,0 +1,5 @@
+include README.rst
+include LICENSE
+include requirements.txt
+recursive-include ckanext/siu_harvester *.html *.js *.less *.css *.mo
+exclude ckanext/siu_harvester/harvesters/tmp.md

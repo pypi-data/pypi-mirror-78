@@ -1,0 +1,8 @@
+
+        [ckan.plugins]
+        siu=ckanext.siu_harvester.plugin:SIUHarvesterPlugin
+        siu_transp_harvester=ckanext.siu_harvester.harvesters.siu_transp:SIUTransparenciaHarvester
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+    
