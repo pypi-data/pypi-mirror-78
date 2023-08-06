@@ -1,0 +1,9 @@
+asn1crypto
+asysocks>=0.0.7
+minikerberos>=0.2.1
+prompt-toolkit>=3.0.2
+tqdm
+winacl>=0.0.2
+
+[:platform_system == "Windows"]
+winsspi>=0.0.9
