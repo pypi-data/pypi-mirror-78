@@ -1,0 +1,17 @@
+# everything the developer needs in addition to the production requirements
+
+# testing
+pytest-mock
+pytest>=5.2
+pytest-flask
+mongomock<=3.12
+responses
+
+# utils
+invoke
+black
+pre-commit
+
+# docs
+mkdocs
+mkdocs-material==4.6.1
