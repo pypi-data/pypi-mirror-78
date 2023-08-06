@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: bbd
+Version: 0.0.1
+Summary: A toolset for political campaign data analysis
+Home-page: https://www.bluebonnetdata.org/
+Author: Bluebonnet Data
+Author-email: info@bluebonnetdata.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: shapely
+Requires-Dist: pyshp
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+
+# Bluebonnet Data Library
+
+This is a toolset developed by [Bluebonnet Data](https://www.bluebonnetdata.org/) for political campaign data analysis.
+
