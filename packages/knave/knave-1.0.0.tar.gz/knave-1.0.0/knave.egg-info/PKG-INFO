@@ -1,0 +1,38 @@
+Metadata-Version: 1.1
+Name: knave
+Version: 1.0.0
+Summary: Authorization for web apps: permissions, groups, roles, ACLs
+Home-page: https://ollycope.com/software/knave/latest/
+Author: Oliver Cope
+Author-email: oliver@redgecko.org
+License: Apache
+Description: Knave: ACLs and authorization in WSGI apps
+        ===========================================
+        
+        Knave provides roles/groups and permissions based authorization
+        for web (WSGI) applications.
+        Knave assigns roles to users
+        (both site wide roles like 'administrator' and
+        context-sensitive roles like 'creator'),
+        then uses those roles to decide whether the user has permission to carry out an
+        action.
+        
+        You can configure permissions and roles statically in your code, or
+        write adapters to pull authorization information from a database or other
+        backend.
+        
+        Knave doesn't do authentication, but can hook into most authentication systems.
+        
+        `Knave Authorization Documentation <https://ollycope.com/software/knave/latest/>`_
+        \| `Repository <https://hg.srt.ht/~olly/knave/>`_
+        
+        
+Keywords: authorization,authorisation authentication security permissions roles groups wsgi acl
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Programming Language :: Python :: 3
