@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: libdecsync
+Version: 1.6.0
+Summary: Python3 bindings for libdecsync
+Home-page: https://github.com/39aldo39/libdecsync-bindings-python3
+Author: Aldo Gunsing
+Author-email: dev@aldogunsing.nl
+License: LGPLv2+
+Description: libdecsync-bindings-python3
+        ===========================
+        
+        libdecsync-bindings-python3 is a Python3 wrapper around [libdecsync](https://github.com/39aldo39/libdecsync) for synchronizing using [DecSync](https://github.com/39aldo39/DecSync). See the [source code](libdecsync/__init__.py) for documentation on how to use it.
+        
+Keywords: decsync
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Intended Audience :: Developers
+Description-Content-Type: text/markdown
