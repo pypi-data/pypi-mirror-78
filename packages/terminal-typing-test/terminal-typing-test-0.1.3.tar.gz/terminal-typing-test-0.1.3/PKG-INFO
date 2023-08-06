@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: terminal-typing-test
+Version: 0.1.3
+Summary: A terminal-based typing test.
+License: MIT
+Author: Fawaz Shah
+Author-email: fawaz010@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+
+# Terminal Typing Test
+
+[![Fawaz Shah](https://circleci.com/gh/fawazshah/terminal-typing-test.svg?style=shield)](https://app.circleci.com/pipelines/github/fawazshah/terminal-typing-test)
+
+Find your typing speed through the command line!
+
+Install with `pip install terminal-typing-test`. Once installed, run `typingtest` from the command line.
+
+
