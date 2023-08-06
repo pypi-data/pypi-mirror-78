@@ -1,0 +1,22 @@
+from glasskit.queue import BaseTask
+
+
+class {{ cls_name }}(BaseTask):
+
+    TYPE = "{{ task_type }}"
+
+    @classmethod
+    def create({{ create_args_list }}):
+        return cls({
+{%- for field in fields %}
+            "{{ field }}": {{ field }},
+{%- endfor %}
+        })
+{% for field in fields %}
+    @property
+    def {{ field }}(self):
+        return self.data["{{ field }}"]
+{% endfor %}
+
+{{ cls_name }}.register()
+
