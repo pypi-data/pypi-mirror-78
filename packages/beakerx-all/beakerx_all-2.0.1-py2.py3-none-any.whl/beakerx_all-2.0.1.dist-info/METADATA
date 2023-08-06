@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: beakerx-all
+Version: 2.0.1
+Summary: BeakerX: Beaker Extensions for Jupyter Notebook
+Home-page: http://beakerx.com
+Author: Two Sigma Open Source, LLC
+Author-email: beakerx-feedback@twosigma.com
+License: UNKNOWN
+Keywords: ipython,jupyter,widgets,java,clojure,groovy,scala,kotlin,sql
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: IPython
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3
+Requires-Dist: beakerx-base (>=2.0.1)
+Requires-Dist: beakerx-kernel-groovy (>=2.0.0)
+Requires-Dist: beakerx-kernel-java (>=2.0.0)
+Requires-Dist: beakerx-kernel-scala (>=2.0.0)
+Requires-Dist: beakerx-kernel-sql (>=2.0.0)
+Requires-Dist: beakerx-kernel-clojure (>=2.0.0)
+Requires-Dist: beakerx-kernel-kotlin (>=2.0.0)
+Requires-Dist: beakerx-kernel-autotranslation (>=2.0.0)
+Requires-Dist: beakerx-tabledisplay (>=2.0.1)
+Requires-Dist: beakerx-widgets (>=2.0.1)
+
+BeakerX: Beaker Extensions for Jupyter Notebook
+
+
