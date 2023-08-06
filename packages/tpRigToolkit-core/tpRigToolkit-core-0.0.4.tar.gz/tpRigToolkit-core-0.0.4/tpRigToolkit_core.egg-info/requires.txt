@@ -1,0 +1,17 @@
+Qt.py
+python-json-logger
+sentry-sdk
+pyyaml
+metayaml
+tpDcc-libs-python
+tpDcc-core
+tpDcc-libs-qt
+tpDcc-dccs-maya
+tpDcc-tools-nameit
+tpRigToolkit-config
+
+[dev]
+wheel
+
+[test]
+pytest
