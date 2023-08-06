@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: kydb
+Version: 0.2.1
+Summary: kydb (Kinyu Database). NoSQL DB interface.
+Home-page: https://github.com/tayglobal/kydb
+Author: Tony Yum
+Author-email: tony.yum@tayglobal.com
+License: MIT
+Download-URL: https://github.com/tayglobal/kydb/archive/v_01.tar.gz
+Keywords: NoSQL,Database,DB
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: boto3
+Requires-Dist: redis
+
+# Introduction
+
+An abstraction layer for NoSQL Database clients.
+
+ * Simple factory. A single URL would define the database or union.
+ * Caching
+ * Union: i.e. multiple databases where:
+   * Read would look for the object in order
+   * Write always writes to the first (front) db
+
+See [Documentation](https://tayglobal.github.io/kydb/html/).
+
+## Installation
+
+```bash
+pip3 install kydb
+```
+
+
+## What does it look like?
+
+Connect to KYDB with AWS S3 as the implementation
+
+```python
+from kinyu.db.api import kydb
+db = kydb.connect('s3://my-kydb-bucket')
+```
+
+Writing to DB
+
+```python
+key = '/mytest/foo'
+db[key] = 123
+```
+
+Reading from DB
+
+```python
+db[key] # returns 123
+```    
+
+
+
