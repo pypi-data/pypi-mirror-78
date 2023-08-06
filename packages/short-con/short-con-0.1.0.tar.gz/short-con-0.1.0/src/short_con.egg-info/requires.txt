@@ -1,0 +1,12 @@
+attrs
+six
+
+[dev]
+invoke
+pycodestyle
+twine
+
+[test]
+pytest
+pytest-cov
+tox
