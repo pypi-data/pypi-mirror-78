@@ -1,0 +1,135 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "standard_header": {
+            "type": "object",
+            "properties": {
+                "app_message_uuid": {
+                    "type": "string",
+                    "description": "The application-generated (i.e. the application that provides a service) uuid for this message. To be provided by vendors"
+                },
+                "request_message_uuid": {
+                    "type": "string",
+                    "description": "If this message is created in response to a previous message, this is pub/sub the messageId of that previous message. All messages should have this field populated except for ServiceRequests"
+                },
+                "originating_message_uuid": {
+                    "type": "string",
+                    "description": "The pub/sub messageId of the first message that initiated the message discourse of which this message is a part. To be copied from one message to the next"
+                },
+                "service_chain_uuid": {
+                    "type": "string",
+                    "description": "A UBL generated uuid of the service-chain to which the subject of this message is a part. To be copied from one message to the next"
+                },
+                "message_timestamp": {
+                    "type": "string",
+                    "description": "The time and date when this message was created. Distinct from pub/sub's own publishTime attribute. To be provided by each service on message creation"
+                },
+                "user_token": {
+                    "type": "string",
+                    "description": "A UBL generated token containing details of the user and requested service. To be copied from one message to another"
+                },
+                "user_id": {
+                    "type": "string",
+                    "description": "An ID attributable to a user that has made a specific request. In this implementation this is the user's Azure AD user object ID. Provided by the UBL, to be copied from one message to another"
+                },
+                "service_chain": {
+                    "type": "string",
+                    "description": "A UBL generated sequence of subsequence service executions used to chain services together. To be copied from one message to another"
+                }
+            }
+        },
+        "service_provider_header": {
+            "type": "object",
+            "properties": {
+                "service_provider_uuid": {
+                    "type": "string",
+                    "description": "The uuid of the service provider the request is made to. To be provided by vendors"
+                },
+                "service_offer_uuid": {
+                    "type": "string",
+                    "description": "The uuid of the service offer requested to be executed"
+                },
+                "service_request_uuid": {
+                    "type": "string",
+                    "description": "The uuid of the original service request that resulted in a service offer that this request is asking be executed."
+                },
+                "service_provider_signature": {
+                    "type": "string",
+                    "description": "Signed token provided by the service provider to validate the originator of this message. To be provided and validated by vendors"
+                }
+            }
+        },
+        "dataset_type_component": {
+            "type": "string",
+            "description": "A list of accepted data types. Will be expanded as additional data types are supported",
+            "enum": [
+                "UNKNOWN",
+                "SEGY"
+            ]
+        },
+        "dataset_details_input_component": {
+            "type": "object",
+            "description": "A component detailing the input data requested for a particular service",
+            "properties": {
+                "data_token": {
+                    "type": "string",
+                    "description": "A DAS generated token to be redeemed for either metadata or a redirect to the location of data"
+                },
+                "dataset_uuid": {
+                    "type": "object",
+                    "properties": {
+                        "data_uri": {
+                            "type": "string",
+                            "description": "The URI of the dataset requested to be processed"
+                        },
+                        "metadata": {
+                            "type": "string",
+                            "description": "Custom metadata added by users in relation to a dataset"
+                        }
+                    }
+                },
+                "dataset_type": {
+                    "$ref": "headers.json#/definitions/dataset_type_component"
+                }
+            }
+        },
+        "dataset_details_output_component": {
+            "type": "object",
+            "description": "The details of the output data requested of a service",
+            "properties": {
+                "file_uri": {
+                    "type": "string",
+                    "description": "The UBL-provided uri of the output data requested of a service"
+                },
+                "dataset_uuid": {
+                    "type": "string",
+                    "description": "The uuid of the output dataset requested to be processed"
+                },
+                "dataset_type": {
+                    "$ref": "headers.json#/definitions/dataset_type_component"
+                }
+            }
+        },
+        "execution_details_component": {
+            "exec_request_uuid": {
+                "type": "string",
+                "description": "The uuid of the execution request that this messages acknowledges"
+            },
+            "exec_process_uuid": {
+                "type": "string",
+                "description": "The uuid of the job / process / task actually carrying out the processing"
+            }
+        },
+        "status_code_component": {
+            "type": "string",
+            "description": "A standard set of codes provided in the course of service processing",
+            "enum": [
+                "NOTIFICATION",
+                "WARNING",
+                "ERROR",
+                "BREACH",
+                "RETURN"
+            ]
+        }
+    }
+}

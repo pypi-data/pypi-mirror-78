@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "standard_header": {
+            "$ref": "headers.json#/definitions/standard_header"
+        },
+        "service_provider_header": {
+            "$ref": "headers.json#/definitions/service_provider_header"
+        },
+        "execution_details": {
+            "$ref": "headers.json#/definitions/execution_details_component"
+        },
+        "exec_status_code": {
+            "$ref": "headers.json#/definitions/status_code_component"
+        },
+        "exec_status_text": {
+            "type": "string",
+            "description": "A user-friendly description accompanying a status update. Provided by vendors"
+        },
+        "exec_update_timestamp": {
+            "type": "string",
+            "description": "The timestamp of the status update"
+        }
+    }
+}
