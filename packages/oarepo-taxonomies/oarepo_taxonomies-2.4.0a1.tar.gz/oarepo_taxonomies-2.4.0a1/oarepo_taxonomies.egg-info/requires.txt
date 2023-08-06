@@ -1,0 +1,12 @@
+flask-taxonomies>=7.0.0a16
+flatten_json<1.0.0,>=0.1.7
+openpyxl<4.0.0,>=3.0.4
+oarepo-mapping-includes<2.0.0,>=1.2.0
+oarepo-references[validate]<2.0.0,>=1.8.3
+deepmerge>=0.1.0
+boltons>=20.0.0
+
+[tests]
+pytest
+pytest-cov
+oarepo[tests]
