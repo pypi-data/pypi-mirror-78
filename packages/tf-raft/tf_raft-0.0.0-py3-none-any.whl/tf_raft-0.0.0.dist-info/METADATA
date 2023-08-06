@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: tf-raft
+Version: 0.0.0
+Summary: RAFT (Recurrent All Pairs Field Transforms for Optical Flow) implementation via tf.keras
+License: MIT
+Author: Daigo Hirooka
+Author-email: daigo.hirooka@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: albumentations (>=0.4.6,<0.5.0)
+Requires-Dist: tensorflow (>=2.3.0,<3.0.0)
+Requires-Dist: tensorflow-addons (>=0.11.1,<0.12.0)
