@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "poetry-demo-cs151"
+version = "0.4.0"
+description = "basic poetry project to explore poetry tool"
+authors = ["Craig Saxton <csaxton171@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.6"
+python-semantic-release = "^7.2.2"
+pylint = "^2.6.0"
+autopep8 = "^1.5.4"
+coverage = "^5.2.1"
+
+
+[tool.semantic_release]
+version_variable = [
+    "poetry_demo_cs151/__init__.py:__version__",
+    "pyproject.toml:version"
+]
+upload_to_pypi = false
+check_build_status = false    
+remove_dist = true
+build_command="${HOME}/.poetry/bin/poetry publish --build"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
