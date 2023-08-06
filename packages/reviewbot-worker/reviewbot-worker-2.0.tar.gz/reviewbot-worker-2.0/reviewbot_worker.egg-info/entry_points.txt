@@ -1,0 +1,17 @@
+[console_scripts]
+reviewbot = reviewbot.celery:main
+
+[reviewbot.tools]
+buildbot = reviewbot.tools.buildbot:BuildBotTool
+checkstyle = reviewbot.tools.checkstyle:CheckstyleTool
+clang = reviewbot.tools.clang:ClangTool
+cppcheck = reviewbot.tools.cppcheck:CPPCheckTool
+cpplint = reviewbot.tools.cpplint:CPPLintTool
+doc8 = reviewbot.tools.doc8:Doc8Tool
+flake8 = reviewbot.tools.flake8:Flake8Tool
+jshint = reviewbot.tools.jshint:JSHintTool
+pmd = reviewbot.tools.pmd:PMDTool
+pycodestyle = reviewbot.tools.pycodestyle:PycodestyleTool
+pydocstyle = reviewbot.tools.pydocstyle:PydocstyleTool
+pyflakes = reviewbot.tools.pyflakes:PyflakesTool
+

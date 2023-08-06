@@ -1,0 +1,12 @@
+appdirs
+celery<4.0,>=3.0
+RBTools>=1.0
+
+[all]
+buildbot>=0.8.7
+cpplint>=0.0.3
+doc8>=0.8.0
+flake8>=3.3.0
+pycodestyle
+pydocstyle
+pyflakes
