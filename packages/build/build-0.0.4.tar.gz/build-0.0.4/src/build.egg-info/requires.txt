@@ -1,0 +1,21 @@
+packaging
+pep517
+toml
+
+[:python_version < "3"]
+typing
+
+[:python_version < "3.8"]
+importlib-metadata
+
+[doc]
+sphinx
+sphinx-autodoc-typehints
+sphinxcontrib-autoprogram
+Pallets-Sphinx-Themes
+
+[test]
+pytest
+pytest-mock
+pytest-cov
+filelock
