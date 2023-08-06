@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: LabTools3
+Version: 1.0.2
+Summary: Python 3 Package of modules for typical analysis tasks analyzing physics data
+Home-page: http://wanda.fiu.edu/LabTools3
+Author: Werner Boeglin
+Author-email: boeglinw@fiu.edu
+License: MIT
+Description: # LabTools3
+        Set of Python analysis tools for physics labs. It contains the "package" directory which is the Python package with a setup.py script for installation and
+        a "doc" directory containing the Sphinx documentation. The repository starts with version 0.2.9 of LabTools.
+        
+Keywords: Data Analysis
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
