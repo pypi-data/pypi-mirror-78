@@ -1,0 +1,131 @@
+Metadata-Version: 2.1
+Name: pytest-reana
+Version: 0.7.0a1
+Summary: Pytest fixtures for REANA.
+Home-page: https://github.com/reanahub/pytest-reana
+Author: REANA
+Author-email: info@reana.io
+License: UNKNOWN
+Description: ############
+        pytest-REANA
+        ############
+        
+        .. image:: https://img.shields.io/pypi/pyversions/pytest-reana.svg
+              :target: https://pypi.org/pypi/pytest-reana
+        
+        .. image:: https://img.shields.io/travis/reanahub/pytest-reana.svg
+              :target: https://travis-ci.org/reanahub/pytest-reana
+        
+        .. image:: https://readthedocs.org/projects/pytest-reana/badge/?version=latest
+              :target: https://pytest-reana.readthedocs.io/en/latest/?badge=latest
+        
+        .. image:: https://img.shields.io/coveralls/reanahub/pytest-reana.svg
+              :target: https://coveralls.io/r/reanahub/pytest-reana
+        
+        .. image:: https://badges.gitter.im/Join%20Chat.svg
+              :target: https://gitter.im/reanahub/reana?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
+        
+        .. image:: https://img.shields.io/github/license/reanahub/pytest-reana.svg
+              :target: https://github.com/reanahub/pytest-reana/blob/master/LICENSE
+        
+        .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+           :target: https://github.com/psf/black
+        
+        About
+        =====
+        
+        pytest-REANA is a component of the `REANA <http://www.reana.io/>`_ reusable and
+        reproducible research data analysis platform. It provides pytest fixtures and
+        test utilities.
+        
+        Features
+        ========
+        
+        - pytest fixtures
+        - mocking OpenAPI client with request format validation
+        - mocking Advanced Message Queuing Protocol consumers and producers
+        - mocking Celery tasks
+        - mocking file system workspace access
+        - mocking database access
+        - includes sample workspace directory
+        
+        Usage
+        =====
+        
+        The detailed information on how to install and use REANA can be found in
+        `docs.reana.io <https://docs.reana.io>`_.
+        
+        Useful links
+        ============
+        
+        - `REANA project home page <http://www.reana.io/>`_
+        - `REANA user documentation <https://docs.reana.io>`_
+        - `REANA user support forum <https://forum.reana.io>`_
+        
+        - `pytest-REANA releases <https://pytest-reana.readthedocs.io/en/latest#changes>`_
+        - `pytest-REANA developer documentation <https://pytest-reana.readthedocs.io/>`_
+        - `pytest-REANA known issues <https://github.com/reanahub/pytest-reana/issues>`_
+        - `pytest-REANA source code <https://github.com/reanahub/pytest-reana>`_
+        
+        
+        Changes
+        =======
+        
+        Version master (UNRELEASED)
+        ---------------------------
+        
+        - Fixes `bug related to duplicated database session <https://github.com/reanahub/pytest-reana/issues/33>`_.
+        - Add Black formatter support.
+        - Create ``__reana`` database schema for ``db`` fixture.
+        
+        Version 0.6.0 (2019-12-19)
+        --------------------------
+        
+        - Adds fixtures for secrets store.
+        - Centralises test requirements.
+        - Adds Python 3.8 support.
+        
+        Version 0.5.0 (2019-04-16)
+        --------------------------
+        
+        - Makes workspace path configurable for the ``sample_workflow_workspace``
+          fixture through the ``path`` parameter.
+        - Adds ``sample_serial_workflow_in_db`` fixture.
+        - Exposes previously hidden ``sample_yadage_workflow_in_db`` fixture.
+        - Adds missing database session close in ``session`` fixture.
+        - Adds helpers to represent starting and requeueing job conditions,
+          ``sample_condition_for_starting_queued_workflows`` and
+          ``sample_condition_for_requeueing_workflows``.
+        
+        Version 0.4.1 (2018-11-06)
+        --------------------------
+        
+        - Adds directory including sample workspace data.
+        
+        Version 0.4.0 (2018-11-06)
+        --------------------------
+        
+        - Initial public release.
+        
+        .. admonition:: Please beware
+        
+           Please note that REANA is in an early alpha stage of its development. The
+           developer preview releases are meant for early adopters and testers. Please
+           don't rely on released versions for any production purposes yet.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: docs
+Provides-Extra: all
