@@ -1,0 +1,17 @@
+numpy>=1.15.4
+h5py
+matplotlib
+seaborn
+statsmodels
+corner
+tables
+deepdish
+pandas
+pygments
+astropy>=3.2.3
+lalsuite>=6.70.0
+ligo-gracedb
+gwpy
+configparser
+plotly
+tqdm>=4.44.0
