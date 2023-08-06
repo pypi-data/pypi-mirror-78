@@ -1,0 +1,10 @@
+from glasskit.uorm.models.storable_model import StorableModel
+{% if model_imports -%}
+from glasskit.uorm.models.fields import {{ model_imports }}
+{% endif %}
+
+class {{ classname }}(StorableModel):
+{% for field_name, field_type in fields %}
+    {{ field_name }}: {{ field_type }}()
+{%- endfor %}
+
