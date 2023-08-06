@@ -1,0 +1,78 @@
+prune .
+
+include LICENSE
+
+include src/ducc0/infra/aligned_array.h
+include src/ducc0/infra/error_handling.h
+include src/ducc0/infra/mav.h
+include src/ducc0/infra/misc_utils.h
+include src/ducc0/infra/simd.h
+include src/ducc0/infra/string_utils.cc
+include src/ducc0/infra/string_utils.h
+include src/ducc0/infra/system.cc
+include src/ducc0/infra/system.h
+include src/ducc0/infra/threading.cc
+include src/ducc0/infra/threading.h
+include src/ducc0/infra/timers.h
+include src/ducc0/infra/transpose.h
+include src/ducc0/infra/useful_macros.h
+
+include src/ducc0/bindings/pybind_utils.h
+
+include src/ducc0/math/cmplx.h
+include src/ducc0/math/constants.h
+include src/ducc0/math/fft1d.h
+include src/ducc0/math/fft.h
+include src/ducc0/math/geom_utils.cc
+include src/ducc0/math/geom_utils.h
+include src/ducc0/math/gl_integrator.h
+include src/ducc0/math/gridding_kernel.h
+include src/ducc0/math/math_utils.h
+include src/ducc0/math/pointing.cc
+include src/ducc0/math/pointing.h
+include src/ducc0/math/quaternion.h
+include src/ducc0/math/rangeset.h
+include src/ducc0/math/space_filling.cc
+include src/ducc0/math/space_filling.h
+include src/ducc0/math/unity_roots.h
+include src/ducc0/math/vec3.h
+
+include src/ducc0/sharp/sharp_almhelpers.cc
+include src/ducc0/sharp/sharp_almhelpers.h
+include src/ducc0/sharp/sharp.cc
+include src/ducc0/sharp/sharp_core.cc
+include src/ducc0/sharp/sharp_core_inc.cc
+include src/ducc0/sharp/sharp_geomhelpers.cc
+include src/ducc0/sharp/sharp_geomhelpers.h
+include src/ducc0/sharp/sharp.h
+include src/ducc0/sharp/sharp_internal.h
+include src/ducc0/sharp/sharp_ylmgen.cc
+
+include src/ducc0/healpix/healpix_base.cc
+include src/ducc0/healpix/healpix_base.h
+include src/ducc0/healpix/healpix_tables.cc
+include src/ducc0/healpix/healpix_tables.h
+
+include python/fft.cc
+include python/sht.cc
+include python/healpix.cc
+include python/gridder_cxx.h
+include python/wgridder.cc
+include python/alm.h
+include python/totalconvolve.h
+include python/totalconvolve.cc
+include python/misc.cc
+include python/pointingprovider.cc
+
+include python/test/test_fft.py
+include python/test/test_healpix.py
+include python/test/test_pointing.py
+include python/test/test_sht.py
+include python/test/test_totalconvolve.py
+include python/test/test_wgridder.py
+
+include python/demos/fft_bench.py
+include python/demos/fft_stress.py
+include python/demos/healpix_perftest.py
+include python/demos/totalconvolve_demo.py
+include python/demos/totalconvolve_usage.py
