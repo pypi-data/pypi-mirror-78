@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# This script is meant to be used inside the container
+# in order to install the latest version of jutge-vinga.
+
+
+if [ "$1" == "-h" ] || [ "$1" == "--help" ] ; then
+    echo "This script installs the last version of jutge-vinga."
+    exit 0
+fi
+
+
+uname=`uname`
+
+if [ $uname == "Linux" ] ; then
+
+    sudo wget -O /usr/local/bin/jutge-vinga https://github.com/jutge-org/jutge-vinga-bin/raw/master/jutge-vinga-linux
+    sudo chown root:root /usr/local/bin/jutge-vinga
+    sudo chmod +x /usr/local/bin/jutge-vinga
+    sudo chmod +s /usr/local/bin/jutge-vinga
+    ls -la /usr/local/bin/jutge-vinga
+
+elif [ $uname == "Darwin" ] ; then
+
+    sudo wget -O /usr/local/bin/jutge-vinga https://github.com/jutge-org/jutge-vinga-bin/raw/master/jutge-vinga-mac
+    sudo chown root:wheel /usr/local/bin/jutge-vinga
+    sudo chmod +x /usr/local/bin/jutge-vinga
+    sudo chmod +s /usr/local/bin/jutge-vinga
+    ls -la /usr/local/bin/jutge-vinga
+
+else
+
+    echo "system $uname is not supported"
+
+fi
