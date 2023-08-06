@@ -1,0 +1,11 @@
+datasette
+click
+PyYAML
+sqlite-utils
+
+[test]
+pytest
+pytest-asyncio
+httpx
+beautifulsoup4
+html5lib
