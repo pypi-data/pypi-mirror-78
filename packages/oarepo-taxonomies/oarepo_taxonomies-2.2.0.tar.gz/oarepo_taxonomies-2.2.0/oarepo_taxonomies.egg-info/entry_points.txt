@@ -1,0 +1,18 @@
+[flask.commands]
+taxonomies = oarepo_taxonomies.cli:taxonomies
+
+[invenio_base.api_apps]
+taxonomies = oarepo_taxonomies.ext:OarepoTaxonomies
+
+[invenio_base.apps]
+taxonomies = oarepo_taxonomies.ext:OarepoTaxonomies
+
+[invenio_celery.tasks]
+oarepo_taxonomies = oarepo_taxonomies.tasks
+
+[invenio_jsonschemas.schemas]
+oarepo_taxonomies = oarepo_taxonomies.jsonschemas
+
+[oarepo_mapping_handlers]
+taxonomy-term = oarepo_taxonomies.mappings:taxonomy_term
+
