@@ -1,0 +1,17 @@
+setup.py
+dtapi.egg-info/PKG-INFO
+dtapi.egg-info/SOURCES.txt
+dtapi.egg-info/dependency_links.txt
+dtapi.egg-info/requires.txt
+dtapi.egg-info/top_level.txt
+dynatrace/__init__.py
+dynatrace/dynatrace_object.py
+dynatrace/entity.py
+dynatrace/entity_type.py
+dynatrace/http_client.py
+dynatrace/main.py
+dynatrace/management_zone.py
+dynatrace/metag.py
+dynatrace/metric.py
+dynatrace/metric_series.py
+dynatrace/pagination.py
