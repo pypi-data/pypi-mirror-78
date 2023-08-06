@@ -1,0 +1,7 @@
+thrift>=0.13.0
+jsonpickle
+six
+basictracer<4,>=3.0
+googleapis-common-protos<2.0,>=1.5.3
+requests<3.0,>=2.19
+protobuf<4.0,>=3.6.0
