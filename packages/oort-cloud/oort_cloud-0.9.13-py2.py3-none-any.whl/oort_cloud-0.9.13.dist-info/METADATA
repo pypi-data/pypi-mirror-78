@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: oort-cloud
+Version: 0.9.13
+Summary: Oort utility to upload all your files in Arcsecond.io's cloud storage.
+Home-page: https://github.com/arcsecond-io/oort
+Author: Cedric Foellmi
+Author-email: cedric@arcsecond.io
+License: MIT
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: arcsecond (>=1.1.0)
+Requires-Dist: astropy
+Requires-Dist: flask
+Requires-Dist: peewee
+Requires-Dist: watchdog
+Requires-Dist: supervisor
+Requires-Dist: dateparser
+Requires-Dist: python-dotenv
+
+# Arcsecond's Oort Cloud
+
+Oort Cloud is a small utility that starts a little server allowing to:
+
+* Automatically upload all the files of a folder (see below), as they appear
+* Upload to your personal or organisation account.
+* Make available a local webpage allowing to follow the upload operations live.
+* Keep track of past uploads  
+
+In one word, Oort Cloud send your files to Arcsecond's cloud for storage.
+
+Installation
+===
+
+```sh
+$ pip install oort-cloud
+``` 
+
+This will also install the `arcsecond` [CLI](https://github.com/arcsecond-io/cli).
+
+Usage
+===
+
+Personal
+--- 
+
+```sh
+$ arcsecond login 
+$ cd <parent folder where files are located>
+// for uploading to a personal account:
+$ oort
+// for uploading to an organisation account whose subdomain is 'saao':
+$ oort -o saao
+``` 
+
+As an Organisation Member
+---
+
+For an organisation identified by its subdomain:' 
+
+```sh
+$ arcsecond login --organisation <subdomain>
+$ cd <parent folder where files are located>
+$ oort -o <subdomain> -t <telescope uuid>
+``` 
+
+That's it! Now, you can open a browser in `http://0.0.0.0:5000` and follow the operations.
+
+![Oort in action](/assets/oort-cloud-basic.png)
+
