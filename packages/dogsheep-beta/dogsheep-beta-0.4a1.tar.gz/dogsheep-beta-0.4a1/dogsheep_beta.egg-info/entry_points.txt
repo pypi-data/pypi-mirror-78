@@ -1,0 +1,6 @@
+[console_scripts]
+dogsheep-beta = dogsheep_beta.cli:cli
+
+[datasette]
+beta = dogsheep_beta
+
