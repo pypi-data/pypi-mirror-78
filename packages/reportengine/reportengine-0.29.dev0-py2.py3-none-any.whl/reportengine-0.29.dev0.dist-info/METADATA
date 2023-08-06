@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: reportengine
+Version: 0.29.dev0
+Summary: Reportengine: A fremework to organize data pypelines pipeline tool
+Home-page: https://github.com/NNPDF/reportengine/
+License: UNKNOWN
+Author: Zahari Kassabov
+Author-email: zk261@cam.ac.uk
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: jinja2
+Requires-Dist: ruamel_yaml
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+Requires-Dist: pygments
+Requires-Dist: blessings
+Requires-Dist: curio ==0.9
+Requires-Dist: pytest ; extra == "test"
+Requires-Dist: hypothesis ; extra == "test"
+Provides-Extra: test
+
+[![DOI](https://zenodo.org/badge/42721933.svg)](https://zenodo.org/badge/latestdoi/42721933)
+[![Build Status](https://travis-ci.org/NNPDF/reportengine.svg?branch=master)](https://travis-ci.org/NNPDF/reportengine)
+
+Reportengine
+============
+
+Reportengine is a framework to develop scientific applications. It is
+focused on supporting declarative input (YAML), enforcing
+initialization time ("*compile time*") constraints, and enabling
+iteration within the declarative input.
+
+It includes support for figures, tables (pandas) and HTML
+reports.
+
+The documentation of the NNPDF specific implementation can be found
+here:
+
+https://data.nnpdf.science/validphys-docs/guide.html
+
+
+An example application can be found in the `example` directory.
+
+
+Install
+-------
+
+It is recommended to work with the package using
+[conda](https://docs.conda.io/en/latest/miniconda.html).
+
+For linux or Mac, you can install a precompiled package by running
+
+````
+conda install reportengine -c https://packages.nnpdf.science/conda
+
+````
+
+Alternatively the package can be installed from `pip`:
+
+
+```
+pip install reportengine
+```
+
+Note that it will additionally require `pandoc` to work.
+
+
+Development
+-----------
+
+Install in development mode:
+
+````
+flit install --symlink
+````
+
+Which requires the [`flit` package](https://github.com/takluyver/flit).
+
+Running the tests
+-----------------
+
+Easiest way is:
+
+````
+py.test
+````
+
