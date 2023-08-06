@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: qalx-orcaflex
+Version: 0.1.5
+Summary: qalx Bots and helpers for OrcaFlex by Orcina
+License: GPL-3.0+
+Author: Steven Rossiter
+Author-email: steve@agiletek.co.uk
+Requires-Python: >=3.7.0,<4.0.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: docs
+Provides-Extra: flaky
+Provides-Extra: pip-licenses
+Requires-Dist: OrcFxAPI (>=11.0.2,<12.0.0)
+Requires-Dist: pandas (>=1.0.4,<2.0.0)
+Requires-Dist: pip-licenses (>=1.16,<2.0); extra == "pip-licenses"
+Requires-Dist: psutil (>=5.7.0,<6.0.0)
+Requires-Dist: pyqalx (>=0.12.0)
+Requires-Dist: pyyaml (>=5.3.1,<6.0.0)
+Requires-Dist: sphinx (>=2.1,<3.0); extra == "docs"
+Requires-Dist: sphinx-rtd-theme (>=0.4.3,<0.5.0); extra == "docs"
