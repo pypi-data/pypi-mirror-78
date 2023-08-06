@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: easytransfer
+Version: 0.0.2
+Summary: PAI EasyTransfer Toolkit
+Home-page: https://github.com/alibaba/easytransfer
+Author: PAI NLP
+Author-email: minghui.qmh@alibaba-inc.com
+License: Apache-2.0
+Platform: UNKNOWN
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: sklearn
+Requires-Dist: sentencepiece
+Provides-Extra: tf
+Requires-Dist: tensorflow (==1.12) ; extra == 'tf'
+Provides-Extra: tf_gpu
+Requires-Dist: tensorflow-gpu (==1.12) ; extra == 'tf_gpu'
+
+# EasyTransfer
+
+EasyTransfer is designed to make it easy to develop transfer learning in natural language processing (NLP) applications.
+
+
+# Background
+The core idea of transfer learning is to transfer knowledge learned from the source domain(s) to help a target domain. The literature has witnessed the success of applying deep transfer learning for many NLP applications. Although there is a growing interest in deep transfer learning for NLP, it is not easy to build a simple and easy-to-use toolkit to achieve this goal.
+
+
+To bridge this gap, we developed a deep transfer learning toolkit EasyTransfer based on PAI-TensorFlow. Since the release of the EasyTransfer toolkit, it has been used in many applications in the major BUs in Alibaba group and achieved very good results in many businesses. EasyTransfer supports the mainstream pre-training model ModelZoo, including language models and multi-modal models pre-trained on the PAI platform, and integrates the SOTA model for the mainstream NLP applications in AppZoo. The toolkit is convenient for users to quickly start model training, evaluation, offline prediction, and online deployment. It provides rich APIs to make the development of NLP and transfer learning easier.
+
+
+# Main Features
+
+\# TO BE ADDED
+
+
+
+
