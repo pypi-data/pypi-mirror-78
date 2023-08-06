@@ -1,0 +1,8 @@
+[console_scripts]
+ginza = ginza.command_line:main_ginza
+ginzame = ginza.command_line:main_ginzame
+
+[spacy_factories]
+BunsetuRecognizer = ginza:BunsetuRecognizer
+CompoundSplitter = ginza:CompoundSplitter
+
