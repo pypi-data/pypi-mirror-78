@@ -1,0 +1,20 @@
+PrettyTable<0.8
+PyYAML
+behave-html-formatter>=0.9.4
+behave>=1.2.6
+boto3
+junitxml
+mock!=4.0.0,!=4.0.1
+os-testr
+pbr!=2.1.0
+python-subunit
+requests!=2.20.0
+robotframework>=3.0
+six
+stevedore
+
+[:(python_version=='2.7' or python_version=='2.6' or python_version=='3.3')]
+enum34
+
+[:(python_version=='2.7')]
+os-testr<2.0.0

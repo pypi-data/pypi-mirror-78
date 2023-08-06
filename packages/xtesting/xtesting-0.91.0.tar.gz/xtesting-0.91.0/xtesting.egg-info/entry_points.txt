@@ -1,0 +1,12 @@
+[console_scripts]
+run_tests = xtesting.ci.run_tests:main
+zip_campaign = xtesting.core.campaign:main
+
+[xtesting.testcase]
+bashfeature = xtesting.core.feature:BashFeature
+behaveframework = xtesting.core.behaveframework:BehaveFramework
+first = xtesting.samples.first:Test
+robotframework = xtesting.core.robotframework:RobotFramework
+second = xtesting.samples.second:Test
+unit = xtesting.core.unit:Suite
+
