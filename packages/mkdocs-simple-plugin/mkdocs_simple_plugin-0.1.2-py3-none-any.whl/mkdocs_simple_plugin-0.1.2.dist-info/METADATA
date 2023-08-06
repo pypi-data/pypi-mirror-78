@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: mkdocs-simple-plugin
+Version: 0.1.2
+Summary: Plugin for adding simple wiki site creation from markdown files interspersed within your code with MkDocs.
+Home-page: http://athackst.github.io/mkdocs-simple-plugin
+Author: Allison Thackston
+Author-email: allison@lyonthackston.com
+License: Apache-2.0
+Project-URL: Issues, https://github.com/athackst/mkdocs-simple-plugin/issues
+Project-URL: Documentation, http://athackst.github.io/mkdocs-simple-plugin
+Project-URL: Source Code, https://github.com/athackst/mkdocs-simple-plugin
+Keywords: mkdocs readme wiki
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Requires-Dist: mkdocs (>=1.0.6)
+Requires-Dist: click (>=7.1)
+
+# mkdocs-simple-plugin
+
+| [Docs](http://athackst.github.io/mkdocs-simple-plugin) | [Code](http://github.com/athackst/mkdocs-simple-plugin)  | [PyPi](https://pypi.org/project/mkdocs-simple-plugin/) | [Docker](https://hub.docker.com/r/athackst/mkdocs-simple-plugin) |
+
+![Test](https://github.com/athackst/mkdocs-simple-plugin/workflows/Test/badge.svg) ![Docs](https://github.com/athackst/mkdocs-simple-plugin/workflows/Docs/badge.svg) ![Docker](https://img.shields.io/docker/pulls/athackst/mkdocs-simple-plugin?color=blue) ![pypi](https://img.shields.io/pypi/dm/mkdocs-simple-plugin?color=blue)
+
+This plugin enables you to build documentation from markdown files interspersed within your code using [mkdocs](https://www.mkdocs.org/).  It is designed for the way developers commonly write documentation in their own code -- with simple markdown files.
+
+## About
+
+You may be wondering why you would want to generate a static site for your project, without doing the typical "wiki" thing of consolidating all documentation within a single `docs` folder or using a single `README` file.
+
+* **My repository is too big for a single documentation source.**
+
+    Sometimes it isn't really feasible to consolidate all documentation within an upper level `docs` directory.  This is often the case with medium/large repositories.  In general, if your code base is too large to fit well within a single `include` directory, your code base is probably also too large for documentation to fit within a single `docs` directory.  
+
+    Since it's typically easier to keep documentation up to date when it lives as close to the code as possible, it is better to create multiple sources for documentation.
+
+* **My repository is too simple for advanced documentation.**
+
+    If your code base is _very very_ large, something like the [monorepo plugin](https://github.com/spotify/mkdocs-monorepo-plugin) might better fit your needs.
+
+    For most other medium+ repositories that have grown over time, you probably have scattered documentation throughout your code.  By combining all of that documentation while keeping folder structure, you can better surface and collaborate with others. And, let's face it.  That documentation is probably all in markdown, since github renders it nicely.
+
+* **I want a pretty documentation site without the hassle.**
+
+    Finally, you may be interested in this plugin if you have a desire for stylized documentation, but don't want to invest the time/energy in replicating information you already have in your README.md files, and you want to keep them where they are (thank you very much).
+
+See [mkdocs-simple-plugin](http://athackst.github.io/mkdocs-simple-plugin) for usage.
+
+
