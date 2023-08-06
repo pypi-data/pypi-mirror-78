@@ -1,0 +1,1421 @@
+openapi: 3.0.3
+info:
+  title: Open Traffic Generator API
+  description: >-
+    The open traffic generator API
+  version: 0.0.2
+  contact:
+    name: Open Traffic Generator Project Team
+    email: andy.balogh@keysight.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: /
+paths:
+  /config:
+    description: >-
+      Configuration API
+    post:
+      tags:
+      - Config
+      operationId: set_config
+      description: >-
+        Sets the configuration on the traffic generator.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Config.Config'
+      responses:
+        '200':
+          description: >-
+            A list of configuration errors. An empty list indicates there are no errors.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result.Errors'
+  /control/port/link:
+    description: >-
+      Control port link API
+    post:
+      tags:
+      - Control
+      operationId: set_port_link
+      description: >-
+        Sets the configuration on the traffic generator.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Control.PortLink'
+      responses:
+        '204':
+          description: >-
+            No content
+  /results/capabilities:
+    description: >-
+      Capabilities results API
+    post:
+      tags:
+      - Results
+      operationId: get_capability_results
+      responses:
+        '200':
+          description: >-
+            Capability results response from the traffic generator
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result.Capabilities'
+  /results/port:
+    description: >-
+      Port results API
+    post:
+      tags:
+      - Results
+      operationId: get_port_results
+      requestBody:
+        description: >-
+          Port results request to the traffic generator.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request.Port'
+      responses:
+        '200':
+          description: >-
+            Capability results response from the traffic generator
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result.Ports'
+components:
+  schemas:
+    Config.Config:
+      description: >-
+        A container for all models that are part of the configuration.
+      type: object
+      properties:
+        ports:
+          description: >-
+            The ports that will be configured on the traffic generator.
+          type: array
+          items:
+            $ref: '#/components/schemas/Port.Port'
+        device_groups:
+          description: >-
+            The device groups that will be configured on the traffic generator.
+          type: array
+          items:
+            $ref: '#/components/schemas/Device.DeviceGroup'
+        flows:
+          description: >-
+            The flows that will be configured on the traffic generator.
+          type: array
+          items:
+            $ref: '#/components/schemas/Flow.Flow'
+        layer1:
+          description: >-
+            The layer1 settings that will be configured on the traffic generator.
+          type: array
+          items:
+            $ref: '#/components/schemas/Port.Layer1'
+        captures:
+          description: >-
+            The captures that will be configured on the traffic generator.
+          type: array
+          items:
+            $ref: '#/components/schemas/Capture.Capture'
+    Port.Port:
+      description: >-
+        An abstract test port.
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        location:
+          description: >-
+            The location of a test port.  It is the endpoint where packets will emit
+            from.
+
+            Test port locations can be the following:
+              - physical appliance with multiple ports
+              - physical chassis with multiple cards and ports
+              - local interface
+              - virtual machine, docker container, kubernetes cluster
+
+            The test port location format is implementation specific. Use the /results/capabilities
+            API to determine what formats an  implementation supports for the location
+            property.
+
+            Get the configured location state by using the /results/port API.
+          type: string
+    Device.DeviceGroup:
+      description: >-
+        An abstract container for emulated device containers.
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        port_names:
+          description: >-
+            One or more port names that the emulated device containers will share.
+          type: array
+          items:
+            type: string
+        devices:
+          description: >-
+            An unordered list of 0..n emulated device containers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Device.Device'
+    Device.Device:
+      description: >-
+        An abstract container for emulated devices.
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        devices_per_port:
+          description: >-
+            The number of emulated devices that will be created on each port.
+          type: integer
+          default: 1
+        ethernets:
+          description: >-
+            An unordered list of 0..n emulated ethernet protocols.
+          type: array
+          items:
+            $ref: '#/components/schemas/Device.Ethernet'
+        devices:
+          description: >-
+            An unordered list of 0..n emulated device containers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Device.Device'
+        networks:
+          description: >-
+            An unordered list of 0..n emulated device containers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Device.Network'
+    Device.Ethernet:
+      description: >-
+        Emulated ethernet protocol
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        mac:
+          $ref: '#/components/schemas/Device.Pattern'
+        mtu:
+          $ref: '#/components/schemas/Device.Pattern'
+        vlans:
+          description: >-
+            List of vlans
+          type: array
+          items:
+            $ref: '#/components/schemas/Device.Vlan'
+        ipv4:
+          $ref: '#/components/schemas/Device.Ipv4'
+        ipv6:
+          $ref: '#/components/schemas/Device.Ipv6'
+    Device.Pattern:
+      description: >-
+        A container for emulated device property patterns.
+      type: object
+      required:
+      - choice
+      properties:
+        choice:
+          type: string
+          enum:
+          - fixed
+          - list
+          - counter
+          - random
+        fixed:
+          type: string
+        list:
+          type: array
+          items:
+            type: string
+        counter:
+          $ref: '#/components/schemas/Device.Counter'
+        random:
+          $ref: '#/components/schemas/Device.Random'
+    Device.Counter:
+      description: >-
+        An incrementing pattern.
+      type: object
+      properties:
+        start:
+          type: string
+        step:
+          type: string
+        up:
+          type: boolean
+          default: true
+    Device.Decrement:
+      description: >-
+        A decrementing pattern.
+      type: object
+      properties:
+        start:
+          type: string
+        step:
+          type: string
+    Device.Random:
+      description: >-
+        A repeatable random range pattern.
+      type: object
+      properties:
+        min:
+          type: string
+        max:
+          type: string
+        step:
+          type: number
+        seed:
+          type: string
+    Device.Vlan:
+      description: >-
+        Emulated vlan protocol
+      type: object
+      required:
+      - name
+      x-constants:
+        tpid_8100: 8100
+        tpid_88a8: 88a8
+        tpid_9100: 9100
+        tpid_9200: 9200
+        tpid_9300: 9300
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        tpid:
+          description: >-
+            Vlan tag protocol identifier.
+          $ref: '#/components/schemas/Device.Pattern'
+        priority:
+          description: >-
+            Vlan priority.
+          $ref: '#/components/schemas/Device.Pattern'
+        id:
+          description: >-
+            Vlan id.
+          $ref: '#/components/schemas/Device.Pattern'
+    Device.Ipv4:
+      description: >-
+        Emulated ipv4 protocol
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        address:
+          description: >-
+            The ipv4 address.
+          $ref: '#/components/schemas/Device.Pattern'
+        gateway:
+          description: >-
+            The ipv4 address of the gateway.
+          $ref: '#/components/schemas/Device.Pattern'
+        prefix:
+          description: >-
+            The prefix of the ipv4 address.
+          $ref: '#/components/schemas/Device.Pattern'
+        bgpv4:
+          $ref: '#/components/schemas/Device.Bgpv4'
+    Device.Bgpv4:
+      description: >-
+        Emulated bgpv4 protocol
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        as_number_2_byte:
+          $ref: '#/components/schemas/Device.Pattern'
+        dut_as_number_2_byte:
+          $ref: '#/components/schemas/Device.Pattern'
+        as_number_4_byte:
+          $ref: '#/components/schemas/Device.Pattern'
+        as_number_set_mode:
+          $ref: '#/components/schemas/Device.Pattern'
+        as_type:
+          description: >-
+            The type of BGP autonomous system.  External BGP (EBGP) is used for BGP
+            links between two or more  autonomous systems. Internal BGP (IBGP) is
+            used within a single autonomous system.
+          type: string
+          enum:
+          - IBGP
+          - EBGP
+        hold_time_interval:
+          $ref: '#/components/schemas/Device.Pattern'
+        keep_alive_interval:
+          $ref: '#/components/schemas/Device.Pattern'
+        graceful_restart:
+          $ref: '#/components/schemas/Device.Pattern'
+        authentication:
+          $ref: '#/components/schemas/Device.Pattern'
+        ttl:
+          $ref: '#/components/schemas/Device.Pattern'
+        dut_ipv4_address:
+          $ref: '#/components/schemas/Device.Pattern'
+    Device.Bgpv4RouteRange:
+      description: >-
+        Emulated bgpv4 route range
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        address:
+          $ref: '#/components/schemas/Device.Pattern'
+        prefix:
+          $ref: '#/components/schemas/Device.Pattern'
+        as_path:
+          $ref: '#/components/schemas/Device.Pattern'
+        next_hop_address:
+          $ref: '#/components/schemas/Device.Pattern'
+        aigp_metric:
+          $ref: '#/components/schemas/Device.Pattern'
+        atomic_aggregate:
+          $ref: '#/components/schemas/Device.Pattern'
+    Device.Ipv6:
+      description: >-
+        Emulated ipv6 protocol
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        address:
+          $ref: '#/components/schemas/Device.Pattern'
+        gateway:
+          $ref: '#/components/schemas/Device.Pattern'
+        prefix:
+          $ref: '#/components/schemas/Device.Pattern'
+        manual_gateway_mac:
+          $ref: '#/components/schemas/Device.Pattern'
+    Device.Network:
+      description: >-
+        An abstract container for an emulated network devices.
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        network_devices_per_port:
+          description: >-
+            The number of emulated network devices that will be created on each port.
+          type: integer
+          default: 1
+        flow_link_name:
+          description: >-
+            Identifies which object in another container is the next hop from this
+            container.  The name cannot be one of the names in this networks container.  An
+            empty value indicates there is no flow link other than the default specified
+            by the implementation.
+          type: string
+        choice:
+          description: >-
+            The type of emulated network devices in the container.
+          type: string
+          enum:
+          - bgpv4_route_range
+        bgpv4_route_range:
+          $ref: '#/components/schemas/Device.Bgpv4RouteRange'
+    Flow.Flow:
+      description: >-
+        A high level data plane traffic flow. Acts as a container for endpoints, frame
+        size, frame rate, duration and packet headers.
+      type: object
+      required:
+      - name
+      - endpoint
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        endpoint:
+          $ref: '#/components/schemas/Flow.Endpoint'
+        packet:
+          description: >-
+            The packet is a list of traffic protocol headers. The order of traffic
+            protocol headers assigned to the list is the order they will appear on
+            the wire.
+          type: array
+          items:
+            $ref: '#/components/schemas/Flow.Header'
+        size:
+          $ref: '#/components/schemas/Flow.Size'
+        rate:
+          $ref: '#/components/schemas/Flow.Rate'
+        duration:
+          $ref: '#/components/schemas/Flow.Duration'
+        state:
+          description: >-
+            Set the configured state of the flow. Use the /results API to get the
+            actual state of the flow.
+          type: string
+          enum:
+          - start
+          - stop
+          - pause
+          - enable
+          - disable
+          default: stop
+    Flow.Endpoint:
+      description: >-
+        A container for different types of endpoints. The endpoint choice dictates
+        the type of flow.
+      type: object
+      required:
+      - choice
+      properties:
+        choice:
+          description: >-
+            The type of endpoint that the flow will originate from.
+          type: string
+          enum:
+          - port
+          - device
+        port:
+          $ref: '#/components/schemas/Flow.PortEndpoint'
+        device:
+          $ref: '#/components/schemas/Flow.DeviceEndpoint'
+    Flow.PortEndpoint:
+      description: >-
+        An endpoint that contains a transmit port and 0..n receive ports.
+      type: object
+      required:
+      - tx_port_name
+      properties:
+        tx_port_name:
+          description: >-
+            The unique name of a port that is the transmit port.
+          type: string
+        rx_port_names:
+          description: >-
+            The unique names of ports that are the intended receive ports.
+          type: array
+          items:
+            type: string
+        tx_patterns:
+          description: >-
+            A list of custom patterns that will be applied to the transmit port.
+          type: array
+          items:
+            $ref: '#/components/schemas/Flow.PortPattern'
+    Flow.DeviceEndpoint:
+      description: >-
+        An endpoint that contains 1..n emulated transmit devices and 1..n  emulated
+        receive devices.
+      type: object
+      required:
+      - tx_device_names
+      - rx_device_names
+      properties:
+        tx_device_names:
+          description: >-
+            The unique names of emulated devices that will be transmitting. The devices
+            names can be 1..n of  DeviceGroup, Device, Ethernet, Vlan, Ipv4 etc
+          type: array
+          items:
+            type: string
+        rx_device_names:
+          description: >-
+            The unique names of emulated devices that will be receiving. The devices
+            names can be 1..n of  DeviceGroup, Device, Ethernet, Vlan, Ipv4 etc
+          type: array
+          items:
+            type: string
+        packet_encap:
+          description: >-
+            The encapsulation determines what packet headers will be  auto generated
+            by the traffic generator and will make use of any learned information
+            such as mac addresses, gateway addresses etc.
+          type: string
+          enum:
+          - ethernet
+          - vlan
+          - ipv4
+          - ipv6
+        src_dst_mesh:
+          type: string
+          enum:
+          - none
+          - one_to_one
+          - many_to_many
+          - full_mesh
+        route_host_mesh:
+          type: string
+          enum:
+          - one_to_one
+          - full_mesh
+        bi_directional:
+          type: boolean
+        allow_self_destined:
+          type: boolean
+    Flow.PortPattern:
+      description: >-
+        A pattern that is applied to a test port. The name of the pattern will be
+        reflected in the port results.
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        offset:
+          type: integer
+          description: >-
+            The offset from the beginning of the packet
+        pattern:
+          type: string
+          description: >-
+            The value of the pattern
+        mask:
+          type: string
+          description: >-
+            The mask value to be applied against the pattern
+    Flow.Header:
+      description: >-
+        Container for all traffic packet headers
+      type: object
+      required:
+      - choice
+      properties:
+        choice:
+          type: string
+          enum:
+          - custom
+          - ethernet
+          - vlan
+          - ipv4
+          - pfcpause
+        custom:
+          $ref: '#/components/schemas/Flow.Custom'
+        ethernet:
+          $ref: '#/components/schemas/Flow.Ethernet'
+        vlan:
+          $ref: '#/components/schemas/Flow.Vlan'
+        ipv4:
+          $ref: '#/components/schemas/Flow.Ipv4'
+        pfcpause:
+          $ref: '#/components/schemas/Flow.PfcPause'
+    Flow.Custom:
+      type: object
+      description: >-
+        Custom packet header
+      required:
+      - bytes
+      properties:
+        bytes:
+          description: >-
+            A custom packet header defined as a string of hex bytes. The string MUST
+            contain valid hex characters. Spaces or colons can be part of the bytes
+            but will be discarded This can be used to create a custom protocol from
+            other inputs  such as scapy, wireshark, pcap etc.
+
+            An example of ethernet/ipv4: '00000000000200000000000108004500001400010000400066e70a0000010a000002'
+          type: string
+          pattern: '^[A-Fa-f0-9: ]+$'
+        patterns:
+          description: >-
+            Modify the bytes with bit based patterns
+          type: array
+          items:
+            $ref: '#/components/schemas/Flow.BitPattern'
+    Flow.BitPattern:
+      description: >-
+        Container for a bit pattern
+      type: object
+      required:
+      - choice
+      properties:
+        choice:
+          type: string
+          enum:
+          - bitlist
+          - bitcounter
+        bitlist:
+          $ref: '#/components/schemas/Flow.BitList'
+        bitcounter:
+          $ref: '#/components/schemas/Flow.BitCounter'
+    Flow.BitList:
+      type: object
+      description: >-
+        A pattern which is a list of values.
+      properties:
+        offset:
+          description: >-
+            Bit offset in the packet at which the pattern will be applied
+          type: integer
+          minimum: 1
+          default: 1
+        length:
+          description: >-
+            The number of bits in the packet that the pattern will span
+          type: integer
+          minimum: 1
+          default: 1
+        count:
+          type: integer
+          description: >-
+            The number of values to generate before repeating
+          default: 1
+        values:
+          type: array
+          items:
+            description: >-
+              The value that the packet offset to offset + length will be either incremented
+              or decremented by. If the value is greater than the length it will be
+              truncated.
+            type: string
+            pattern: '^[A-Fa-f0-9: ]+$'
+    Flow.BitCounter:
+      type: object
+      description: >-
+        An incrementing pattern
+      properties:
+        offset:
+          description: >-
+            Bit offset in the packet at which the pattern will be applied
+          type: integer
+          minimum: 0
+          default: 0
+        length:
+          description: >-
+            The number of bits in the packet that the pattern will span
+          type: integer
+          minimum: 1
+          default: 32
+        count:
+          type: integer
+          description: >-
+            The number of values to generate before repeating A value of 0 means the
+            pattern will count continuously
+          minimum: 1
+          default: 1
+        start:
+          description: >-
+            The starting value of the pattern. If the value is greater than the length
+            it will be truncated.
+          type: string
+          pattern: '^[A-Fa-f0-9: ]+$'
+          default: 0
+        step:
+          description: >-
+            The amount the start value will be incremented by If the value is greater
+            than the length it will be truncated.
+          type: string
+          pattern: '^[A-Fa-f0-9: ]+$'
+          default: 0
+    Flow.Ethernet:
+      description: >-
+        Ethernet packet header
+      type: object
+      properties:
+        dst:
+          $ref: '#/components/schemas/Flow.Pattern'
+        src:
+          $ref: '#/components/schemas/Flow.Pattern'
+        ether_type:
+          $ref: '#/components/schemas/Flow.Pattern'
+    Flow.Pattern:
+      description: >-
+        A container for packet header field patterns. Possible patterns are fixed,
+        list, counter, random.
+      type: object
+      required:
+      - choice
+      properties:
+        choice:
+          type: string
+          enum:
+          - fixed
+          - list
+          - counter
+          - random
+        fixed:
+          type: string
+        list:
+          type: array
+          items:
+            type: string
+        counter:
+          $ref: '#/components/schemas/Flow.Counter'
+        random:
+          $ref: '#/components/schemas/Flow.Random'
+        group_by:
+          description: >-
+            A unique name that can be used to drill down into flow results. The name
+            will appears as one of the group_by options in requesting flow results
+            and as a property in a flow result.
+          type: string
+    Flow.Counter:
+      description: >-
+        A counter pattern that can increment or decrement.
+      type: object
+      properties:
+        start:
+          description: >-
+            The value at which the pattern will start.
+          type: string
+        step:
+          description: >-
+            The value at which the pattern will increment or decrement by.
+          type: string
+        count:
+          description: >-
+            The number of values in the pattern.
+          type: number
+        up:
+          description: >-
+            Determines whether the pattern will increment (true) or decrement (false).
+          type: boolean
+          default: true
+    Flow.Random:
+      description: >-
+        A repeatable random range pattern.
+      type: object
+      properties:
+        min:
+          type: string
+        max:
+          type: string
+        step:
+          type: number
+        seed:
+          type: string
+        count:
+          type: number
+    Flow.Vlan:
+      description: >-
+        Vlan packet header
+      type: object
+      properties:
+        priority:
+          $ref: '#/components/schemas/Flow.Pattern'
+        cfi:
+          $ref: '#/components/schemas/Flow.Pattern'
+        id:
+          $ref: '#/components/schemas/Flow.Pattern'
+        protocol:
+          $ref: '#/components/schemas/Flow.Pattern'
+    Flow.Ipv4:
+      description: >-
+        Ipv4 packet header
+      type: object
+      properties:
+        priority:
+          $ref: '#/components/schemas/Flow.Ipv4.Priority'
+        src:
+          $ref: '#/components/schemas/Flow.Pattern'
+        dst:
+          $ref: '#/components/schemas/Flow.Pattern'
+    Flow.Ipv4.Priority:
+      description: >-
+        Ipv4 ip priority that can be one of RAW or DSCP.
+      type: object
+      x-constants:
+        PRIORITY_RAW: 0
+      required:
+      - choice
+      properties:
+        choice:
+          type: string
+          enum:
+          - dscp
+          - raw
+        dscp:
+          $ref: '#/components/schemas/Flow.Ipv4.Dscp'
+        raw:
+          $ref: '#/components/schemas/Flow.Pattern'
+    Flow.Ipv4.Dscp:
+      description: >-
+        Differentiated services code point (DSCP) packet field.
+
+        PHB (per-hop-behavior) value is 6 bits: >=0 PHB <=63. ECN (explicit-congestion-notification)
+        value is 2 bits: >=0 ECN <=3
+      type: object
+      x-constants:
+        phb_default: 0
+        phb_cs1: 8
+        phb_cs2: 16
+        phb_cs3: 24
+        phb_cs4: 32
+        phb_cs5: 40
+        phb_cs6: 48
+        phb_cs7: 56
+        phb_af11: 10
+        phb_af12: 12
+        phb_af13: 14
+        phb_af21: 18
+        phb_af22: 20
+        phb_af23: 22
+        phb_af31: 26
+        phb_af32: 28
+        phb_af33: 30
+        phb_af41: 24
+        phb_af42: 36
+        phb_af43: 38
+        phb_ef46: 46
+        ecn_non_capable: 0
+        ecn_capable_transport_0: 1
+        ecn_capable_transport_1: 2
+        ecn_congestion_encountered: 3
+      properties:
+        phb:
+          $ref: '#/components/schemas/Flow.Pattern'
+        ecn:
+          $ref: '#/components/schemas/Flow.Pattern'
+    Flow.PfcPause:
+      description: >-
+        IEEE 802.1Qbb PFC Pause packet header. - dst: 01:80:C2:00:00:01 48bits - src:
+        48bits  - ether_type: 0x8808 16bits - control_op_code: 0x0101 16bits - class_enable_vector:
+        16bits - pause_class_0: 0x0000 16bits - pause_class_1: 0x0000 16bits - pause_class_2:
+        0x0000 16bits - pause_class_3: 0x0000 16bits - pause_class_4: 0x0000 16bits
+        - pause_class_5: 0x0000 16bits - pause_class_6: 0x0000 16bits - pause_class_7:
+        0x0000 16bits
+      type: object
+      properties:
+        dst:
+          $ref: '#/components/schemas/Flow.Pattern'
+        src:
+          $ref: '#/components/schemas/Flow.Pattern'
+        ether_type:
+          $ref: '#/components/schemas/Flow.Pattern'
+        control_op_code:
+          $ref: '#/components/schemas/Flow.Pattern'
+        class_enable_vector:
+          $ref: '#/components/schemas/Flow.Pattern'
+        pause_class_0:
+          $ref: '#/components/schemas/Flow.Pattern'
+        pause_class_1:
+          $ref: '#/components/schemas/Flow.Pattern'
+        pause_class_2:
+          $ref: '#/components/schemas/Flow.Pattern'
+        pause_class_3:
+          $ref: '#/components/schemas/Flow.Pattern'
+        pause_class_4:
+          $ref: '#/components/schemas/Flow.Pattern'
+        pause_class_5:
+          $ref: '#/components/schemas/Flow.Pattern'
+        pause_class_6:
+          $ref: '#/components/schemas/Flow.Pattern'
+        pause_class_7:
+          $ref: '#/components/schemas/Flow.Pattern'
+    Flow.Size:
+      description: >-
+        The frame size which overrides the total length of the packet
+      type: object
+      required:
+      - choice
+      properties:
+        choice:
+          type: string
+          enum:
+          - fixed
+          - increment
+          - random
+        fixed:
+          type: integer
+          default: 64
+        increment:
+          $ref: '#/components/schemas/Flow.SizeIncrement'
+        random:
+          $ref: '#/components/schemas/Flow.SizeRandom'
+    Flow.SizeIncrement:
+      type: object
+      description: >-
+        Frame size that increments from a starting size to  an ending size incrementing
+        by a step size.
+      required:
+      - start
+      - end
+      - step
+      properties:
+        start:
+          description: >-
+            Starting frame size in bytes
+          type: integer
+          minimum: 1
+          default: 64
+        end:
+          description: >-
+            Ending frame size in bytes
+          type: integer
+          minimum: 64
+          default: 1518
+        step:
+          description: >-
+            Step frame size in bytes
+          type: integer
+          default: 1
+    Flow.SizeRandom:
+      type: object
+      description: >-
+        Random frame size from a min value to a max value.
+      required:
+      - min
+      - max
+      properties:
+        min:
+          type: integer
+          default: 64
+        max:
+          type: integer
+          default: 1518
+    Flow.Rate:
+      type: object
+      description: >-
+        The rate of packet transmission
+      required:
+      - unit
+      - value
+      properties:
+        unit:
+          description: >-
+            The value is a unit of this.
+          type: string
+          enum:
+          - pps
+          - bps
+          - kbps
+          - mbps
+          - gbps
+          - line
+        value:
+          description: >-
+            The actual rate.
+          type: integer
+    Flow.Duration:
+      description: "A container for different transmit durations. "
+      type: object
+      properties:
+        choice:
+          type: string
+          enum:
+          - fixed
+          - burst
+        fixed:
+          $ref: '#/components/schemas/Flow.Fixed'
+        burst:
+          $ref: '#/components/schemas/Flow.Burst'
+    Flow.Fixed:
+      description: >-
+        A fixed number of packets will be transmitted after which the flow will stop.
+        If the number of packets is set to 0 the flow will not stop.
+      type: object
+      properties:
+        packets:
+          description: >-
+            Stop transmit of the flow after this number of packets. A value of 0 means
+            that the flow will not stop transmitting.
+          type: integer
+          default: 0
+        gap:
+          description: >-
+            The minimum gap between packets expressed as bytes.
+          type: integer
+        delay:
+          description: >-
+            The delay before starting transmission of packets.
+          type: integer
+        delay_unit:
+          description: >-
+            The delay expressed as a number of this value.
+          type: string
+          enum:
+          - bytes
+          - nanoseconds
+    Flow.Burst:
+      description: >-
+        A continuous burst of packets that will not automatically stop.
+      type: object
+      properties:
+        packets:
+          description: >-
+            The number of packets transmitted per burst.
+          type: integer
+          minimum: 1
+        gap:
+          description: >-
+            The minimum gap between packets expressed as bytes.
+          type: integer
+        inter_burst_gap:
+          description: >-
+            The gap between the transmission of each burst. A value of 0 means there
+            is no gap between bursts.
+          type: integer
+        inter_burst_gap_unit:
+          description: >-
+            The inter burst gap expressed as a number of this value.
+          type: string
+          enum:
+          - bytes
+          - nanoseconds
+    Port.Layer1:
+      description: >-
+        A container for layer1 ports and settings.
+      type: object
+      required:
+      - name
+      - choice
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        port_names:
+          description: "A list of unique names of a port objects that will share the\
+            \  choice settings. "
+          type: array
+          items:
+            type: string
+        choice:
+          description: >-
+            The type of layer1 characteristics.
+          type: string
+          enum:
+          - one_hundred_gbe
+          - ethernet
+        one_hundred_gbe:
+          $ref: '#/components/schemas/Port.OneHundredGbe'
+        ethernet:
+          $ref: '#/components/schemas/Port.Ethernet'
+    Port.OneHundredGbe:
+      description: >-
+        100 gigabit ethernet settings
+      type: object
+      properties:
+        ieee_media_defaults:
+          description: >-
+            Enable/disable ieee media default settings. True will override the speed,
+            auto_negotiate, link_training, rs_fec settings.
+          type: boolean
+          default: true
+        auto_negotiate:
+          description: >-
+            Enable/disable auto negotiation.
+          type: boolean
+          default: false
+        link_training:
+          description: >-
+            Enable/disable link training.
+          type: boolean
+          default: false
+        rs_fec:
+          description: >-
+            Enable/disable reed solomon forward error correction (RS FEC).
+          type: boolean
+          default: false
+        speed:
+          description: >-
+            This is the speed that will be used if auto_negotiate is false.
+          type: string
+          enum:
+          - one_hundred_gbps
+          - fifty_gbps
+          - forty_gbps
+          - twenty_five_gpbs
+          - ten_gbps
+          default: one_hundred_gbps
+    Port.Ethernet:
+      description: >-
+        10/100/1000 Ethernet settings
+      type: object
+      properties:
+        media:
+          type: string
+          enum:
+          - copper
+          - fiber
+          default: copper
+        speed:
+          description: >-
+            This is the speed that will be used if auto_negotiate is false.
+          type: string
+          enum:
+          - one_thousand_mbps
+          - one_hundred_fd_mbps
+          - one_hundred_hd_mbps
+          - ten_fd_mbps
+          - ten_hd_mbps
+          default: one_thousand_mbps
+        auto_negotiate:
+          description: >-
+            Enable/disable auto negotiation.
+          type: boolean
+          default: true
+        advertise_one_thousand_mbps:
+          description: >-
+            If auto_negotiate is true then this speed will be advertised.
+          type: boolean
+          default: true
+        advertise_one_hundred_fd_mbps:
+          description: >-
+            If auto_negotiate is true then this speed will be advertised.
+          type: boolean
+          default: true
+        advertise_one_hundred_hd_mbps:
+          description: >-
+            If auto_negotiate is true then this speed will be advertised.
+          type: boolean
+          default: true
+        advertise_ten_fd_mbps:
+          description: >-
+            If auto_negotiate is true then this speed will be advertised.
+          type: boolean
+          default: true
+        advertise_ten_hd_mbps:
+          description: >-
+            If auto_negotiate is true then this speed will be advertised.
+          type: boolean
+          default: true
+    Capture.Capture:
+      description: >-
+        Capture model
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          description: >-
+            Unique name of an object that is the primary key for objects found in  arrays.
+          type: string
+          pattern: ^[\sa-zA-Z0-9-_()><\[\]]+$
+        port_names:
+          description: >-
+            A list of port names to configure capture settings on
+          type: array
+          items:
+            type: string
+        filters:
+          type: string
+    Result.Errors:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Result.Error'
+    Result.Error:
+      type: object
+      properties:
+        name:
+          description: >-
+            The unique name of an object in the configuration.
+          type: string
+        message:
+          description: >-
+            Detailed error information.
+          type: string
+    Control.PortLink:
+      description: >-
+        Control link state
+      type: object
+      properties:
+        names:
+          description: >-
+            The names of port objects to control link state. An empty list will control
+            all port objects.
+          type: array
+          items:
+            type: string
+        state:
+          description: >-
+            The state of the port link
+          type: string
+          enum:
+          - up
+          - down
+    Result.Capabilities:
+      description: >-
+        TBD
+      type: object
+      properties:
+        unsupported:
+          description: >-
+            A list of #/components/schemas/... path that are not supported.
+          type: array
+          items:
+            type: string
+        formats:
+          description: >-
+            A #/components/schemas/... path and specific format  details regarding
+            the path. Specific model format details can be additional objects and
+            properties represented as a hashmap. For example layer1 models are defined
+            as a hashmap key to object with  each object consisting of a specific
+            name/value property pairs. This list of items will detail any specific
+            formats, properties, enums.
+          type: array
+          items:
+            type: string
+    Request.Port:
+      description: "The flow result request to the traffic generator "
+      type: object
+      properties:
+        names:
+          description: >-
+            The names of objects to return results for. An empty list will return
+            all port results.
+          type: array
+          items:
+            type: string
+    Request.Flow:
+      description: "The flow result request to the traffic generator "
+      type: object
+      properties:
+        names:
+          description: >-
+            The names of objects to return results for. An empty list will return
+            all flow results.
+          type: array
+          items:
+            type: string
+        group_by:
+          description: >-
+            Unique names of fields to group results by.
+          type: array
+          items:
+            type: string
+    Result.Ports:
+      description: "The port results "
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Result.Port'
+    Result.Port:
+      type: object
+      properties:
+        name:
+          type: string
+          description: >-
+            The name of a configured port
+        location:
+          description: >-
+            The state of the connection to the test port location. The string can
+            be connected, disconnected or a custom error message.
+          type: string
+        link:
+          description: >-
+            The state of the test port link The string can be up, down or a custom
+            error message.
+          type: string
+        capture:
+          description: >-
+            The state of the test port capture infrastructure. The string can be start,
+            stop or a custom error message.
+          type: string
+        frames_tx:
+          description: >-
+            The current total number of frames transmitted
+          type: integer
+          format: int64
+        frames_rx:
+          description: >-
+            The current total number of valid frames received
+          type: integer
+          format: int64
+          readOnly: true
+        bytes_tx:
+          description: >-
+            The current total number of bytes transmitted
+          type: integer
+          format: int64
+          readOnly: true
+        bytes_rx:
+          description: >-
+            The current total number of valid bytes received
+          type: integer
+          format: int64
+          readOnly: true
+        frames_tx_rate:
+          description: >-
+            The current rate of frames transmitted
+          type: number
+          format: float
+          readOnly: true
+        frames_rx_rate:
+          description: >-
+            The current rate of valid frames received
+          type: number
+          format: float
+          readOnly: true
+        data_integrity_errors:
+          description: "The current total number of data integrity errors "
+          type: integer
+          format: int64
+          readOnly: true
+        counters:
+          type: array
+          description: >-
+            A map of unique names of PortCounter objects added to Port objects and
+            the corresponding count values
+          items:
+            type: object
+            additionalProperties:
+              type: integer
+              description: >-
+                The count of PortCounter pattern matches
