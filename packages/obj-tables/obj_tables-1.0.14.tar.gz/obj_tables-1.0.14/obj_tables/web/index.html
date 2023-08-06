@@ -1,0 +1,734 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObjTables: Toolkit for creating and reusing high-quality spreadsheets</title>
+    <meta name="description" content="ObjTables is a free, open-source toolkit for systematically building, annotating, validating, and parsing complex datasets with the ease of spreadsheets (e.g., Excel), the rigor of schemas, and the power of object-oriented programming. ObjTables makes it easy to design schemas for datasets, generate template spreadsheets with inline help and validation for building datasets, capture metadata such as the author of a dataset, use schemas to validate the syntax and semantics of datasets, and use schemas to parse datasets into data structures for further analysis in languages such as Python. The ObjTables software is available through four interfaces: a web application, a web service, a command-line program, and a Python library. Together, ObjTables can help researchers define formats for domain-specific data, integrate diverse data, analyze complex datasets, and share data."/>
+    <meta name="keywords" content="data, table, schema, data model, meta model, data type, validate, Python"/>
+    <meta name="language" content="EN">
+    <meta name="copyright" content="ObjTables developers"/>
+    <meta name="author" content="ObjTables developers, info@objtables.org"/>
+    <meta name="reply-to" content="info@objtables.org"/>
+    <meta name="url" content="https://www.objtables.org">
+    <meta name="identifier-URL" content="https://www.objtables.org">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#3bafda">
+    <meta name="msapplication-TileColor" content="#3bafda">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="css/foundation-icons.css">
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/raleway.css">
+    <link rel="stylesheet" href="css/plyr.css" />
+    <link rel="stylesheet" href="css/app.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165117961-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-165117961-1');
+    </script>
+  </head>
+  <body id="top">
+    <div class="off-canvas-wrapper">
+      <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+        <!-- Close button -->
+        <button class="close-button" aria-label="Close menu" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <!-- Menu -->
+        <ul class="accordion" data-accordion data-allow-all-closed="true">
+          <li class="accordion-item" data-accordion-item>
+            <a class="accordion-title">Guide</a>
+            <ul class="accordion-content" data-tab-content>
+              <li><a href="guide#authors">Authors</a></li>
+              <li><a href="guide#reviewers">Reviewers and editors</a></li>
+              <li><a href="guide#readers">Readers</a></li>
+            </ul>
+          </li>
+          <li class="accordion-item" data-accordion-item>
+            <a class="accordion-title">Software</a>
+            <ul class="accordion-content" data-tab-content>
+              <li><a href="app">Web application</a></li>
+              <li><a href="https://pypi.org/pypi/obj_tables/">Command-line program</a></li>
+              <li><a href="api">Web service</a></li>
+              <li><a href="https://pypi.org/pypi/obj_tables/">Python package</a></li>
+              <li class="separator"><a href="https://hub.docker.com/r/karrlab/obj_tables">Docker image</a></li>
+              <li><a href="https://github.com/KarrLab/obj_tables/">Source code</a></li>
+            </ul>
+          </li>
+          <li class="accordion-item" data-accordion-item>
+            <a class="accordion-title">Docs</a>
+            <ul class="accordion-content" data-tab-content>
+              <li><a href="docs#examples">Detailed example</a></li>
+              <li><a href="docs#more-examples">Additional examples</a></li>
+              <li class="separator"><a href="docs#schema-formats">Schema formats</a></li>
+              <li><a href="docs#data-types">Data types</a></li>
+              <li><a href="docs#dataset-formats">Dataset formats</a></li>
+              <li><a href="docs#validation">Data validation</a></li>
+              <li class="separator"><a href="app">Web application</a></li>
+              <li><a href="docs#cli">Command-line program</a></li>
+              <li><a href="api">Web service</a></li>
+              <li><a href="docs#python">Python package: introduction</a></li>
+              <li><a href="https://sandbox.karrlab.org/tree/obj_tables">Python package: tutorials</a></li>
+              <li><a href="https://docs.karrlab.org/obj_tables">Python package: docs</a></li>
+              <li class="separator"><a href="docs#other-languages">Working with <i>ObjTables</i> in other languages</a></li>
+              <li><a href="docs#other-resources">Resources for working with <i>ObjTables</i></a></li>
+              <li><a href="docs#comparison">Comparison with other tools</a></li>
+              <li><a href="docs#design-choices">Design choices</a></li>
+              <li><a href="docs#limitations">Known limitations</a></li>
+              <li><a href="docs#roadmap">Future directions</a></li>
+              <li><a href="docs#faq">FAQ</a></li>
+              <li class="separator"><a href="docs#help">More help</a></li>
+            </ul>
+          </li>
+          <li class="accordion-item" data-accordion-item>
+            <a class="accordion-title">About</a>
+            <ul class="accordion-content" data-tab-content>
+              <li><a href="about#license">License</a></li>
+              <li><a href="about#citation">Citation</a></li>
+              <li class="separator"><a href="about#contribute">Contributing</a></li>
+              <li class="separator"><a href="about#team">Team</a></li>
+              <li><a href="about#funding">Funding</a></li>
+              <li class="separator"><a href="about#contact">Contact info</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="off-canvas-content" data-off-canvas-content>
+        <div class="page-title">
+          <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+              <div class="large-8 medium-6 small-12 cell title">
+                <button class="menu-icon hide-for-medium" type="button" data-open="offCanvasLeft"></button>
+                <a href="#top">
+                  <span class="title"><i>ObjTables</i><span class="show-for-large">:</span></span>
+                  <span class="subtitle show-for-large">
+                    Tools for creating and reusing high-quality spreadsheets
+                  </span>
+                </a>
+              </div>
+              <div class="large-4 medium-6 hide-for-small-only cell links">
+                <ul class="dropdown menu" data-dropdown-menu>
+                  <li>
+                    <a>Guide</a>
+                    <ul class="menu">
+                      <li><a href="guide#authors">Authors</a></li>
+                      <li><a href="guide#reviewers">Reviewers and editors</a></li>
+                      <li><a href="guide#readers">Readers</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a>Software</a>
+                    <ul class="menu">
+                      <li><a href="app">Web application</a></li>
+                      <li><a href="https://pypi.org/pypi/obj_tables/">Command-line program</a></li>
+                      <li><a href="api">Web service</a></li>
+                      <li><a href="https://pypi.org/pypi/obj_tables/">Python package</a></li>
+                      <li class="separator"><a href="https://hub.docker.com/r/karrlab/obj_tables">Docker image</a></li>
+                      <li><a href="https://github.com/KarrLab/obj_tables/">Source code</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a>Docs</a>
+                    <ul class="menu">
+                      <li><a href="docs#examples">Detailed example</a></li>
+                      <li><a href="docs#more-examples">Additional examples</a></li>
+                      <li class="separator"><a href="docs#schema-formats">Schema formats</a></li>
+                      <li><a href="docs#data-types">Data types</a></li>
+                      <li><a href="docs#dataset-formats">Dataset formats</a></li>
+                      <li><a href="docs#validation">Data validation</a></li>
+                      <li class="separator"><a href="app">Web application</a></li>
+                      <li><a href="docs#cli">Command-line program</a></li>
+                      <li><a href="api">Web service</a></li>
+                      <li><a href="docs#python">Python package: introduction</a></li>
+                      <li><a href="https://sandbox.karrlab.org/tree/obj_tables">Python package: tutorials</a></li>
+                      <li><a href="https://docs.karrlab.org/obj_tables">Python package: docs</a></li>
+                      <li class="separator"><a href="docs#other-languages">Working with <i>ObjTables</i> in other languages</a></li>
+                      <li><a href="docs#other-resources">Resources for working with <i>ObjTables</i></a></li>
+                      <li><a href="docs#comparison">Comparison with other tools</a></li>
+                      <li><a href="docs#design-choices">Design choices</a></li>
+                      <li><a href="docs#limitations">Known limitations</a></li>
+                      <li><a href="docs#roadmap">Future directions</a></li>
+                      <li><a href="docs#faq">FAQ</a></li>
+                      <li class="separator"><a href="docs#help">More help</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a>About</a>
+                    <ul class="menu">
+                      <li><a href="about#license">License</a></li>
+                      <li><a href="about#citation">Citation</a></li>
+                      <li class="separator"><a href="about#contribute">Contributing</a></li>
+                      <li class="separator"><a href="about#team">Team</a></li>
+                      <li><a href="about#funding">Funding</a></li>
+                      <li class="separator"><a href="about#contact">Contact info</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="splash">
+          <div class="splash-container">
+            <video playsinline data-poster="img/logo.png" controls data-plyr-config='{
+              "title": "Introduction to ObjTables",
+              "autoplay": false,
+              "muted": false,
+              "ratio": "16:9",
+              "controls": ["play-large", "play", "progress", "mute", "volume", "fullscreen"],
+              "resetOnEnd": true
+            }'>
+              <source src="video.mp4" type="video/mp4" />
+            </video>
+
+            <h1>Open-source toolkit for creating and reusing high-quality spreadsheets.</h1>
+
+            <p><i>ObjTables</i> combines the ease of use of spreadsheets (XLSX file or set of CSV or TSV files) with the rigor of schemas and the power of object-oriented programming.</p>
+
+            <p><i>ObjTables</i> is ideal for exchanging scientific data such as supplementary spreadsheets to journal articles. <i>ObjTables</i> makes it easy for both authors to build and quality control spreadsheets and for other investigators to reanalyze, compare, and compose their spreadsheets.</p>
+
+            <p><i>ObjTables</i> builds on a community initiative to make supplementary spreadsheets more reusable. Our goal is to create an ecosystem of reusable data for comparative and integrative research. We invite the community to share feedback or get involved.</p>
+          </div>
+        </div>
+
+        <div class="grid-container content-bottom">
+          <div class="grid-x grid-padding-x">
+            <div class="large-2 cell">
+              <div class="toc-container">
+                <div class="toc">
+                  <h2>Contents</h2>
+                  <div class="section-content">
+                    <ul>
+                      <li><a href="#overview">How <i>ObjTables</i> facilitates reuse</a></li>
+                      <li><a href="#features">How <i>ObjTables</i> helps researchers</a></li>
+                      <li><a href="#components">Components of the toolkit</a></li>
+                      <li><a href="#software">Software tools</a></li>
+                      <li><a href="#use-cases">Use cases</a></li>
+                      <li><a href="#workflow">Workflow</a></li>
+                      <li><a href="#getting-started">Examples and tutorials</a></li>
+                      <li><a href="#docs">Documentation</a></li>
+                      <li><a href="#help">Help</a></li>
+                      <li><a href="#contributing">Contributing to <i>ObjTables</i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="large-10 cell content-container">
+              <div id="overview">
+                <h2>How does <i>ObjTables</i> make spreadsheets (XLSX file or set of CSV or TSV files) human- and machine-readable?</h2>
+                <div class="section-content">
+                  <div class="grid-x grid-padding-x subsection">
+                    <div class="large-4 cell">
+                      <div class="icon">
+                        <img src="img/markup.svg" alt="Markup syntax icon" />
+                        <h3>Markup syntax for spreadsheets</h3>
+                      </div>
+                      <p><i>ObjTables</i> provides simple markup for indicating the class and attribute encoded into each worksheet and column of each worksheet (XLSX file or collection of CSV or TSV files).</p>
+
+                      <div class="icon">
+                        <img src="img/schema.svg" alt="Schema icon" />
+                        <h3>Schemas for spreadsheets</h3>
+                      </div>
+                      <p><i>ObjTables</i> provides a simple format for describing the types of objects encoded in a spreadsheet, their attributes, and their possible relationships.</p>
+
+                      <div class="icon">
+                        <img src="img/gears.svg" alt="Software tools icon" />
+                        <h3>High-level software tools</h3>
+                      </div>
+                      <p><i>ObjTables</i> provides software for using schemas to parse, validate, compare, compose, and analyze annotated spreadsheets.</p>
+                    </div>
+
+                    <div class="large-8 cell">
+                      <div class="icon">
+                        <img src="img/spreadsheet.svg" alt="Spreadsheet icon" />
+                        <h3>Example: <i>Escherichia coli</i> metabolism</h3>
+                      </div>
+
+                      <div class="worksheet-title">Worksheet: !!_Table of contents</div>
+                      <div class="table-scroll worksheet">
+                        <table class="example-tabular-dataset">
+                          <thead>
+                            <tr class="doc-head">
+                              <th colspan="3">!!!ObjTables objTablesVersion='1.0.0' date='2020-03-14 13:19:04'</th>
+                            </tr>
+                            <tr class="class-head">
+                              <th colspan="3">!!ObjTables type='TableOfContents'</th>
+                            </tr>
+                            <tr class="col-head">
+                              <th>!Table</th>
+                              <th>!Description</th>
+                              <th>!Number of objects</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Schema</td>
+                              <td>Table/model and column/attribute definitions</td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>Reactions</td>
+                              <td>Metabolic reactions</td>
+                              <td>2</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <br/>
+
+                      <div class="worksheet-title">Worksheet: !!Reactions</div>
+                      <div class="table-scroll worksheet">
+                        <table class="example-tabular-dataset">
+                          <thead>
+                            <tr class="class-head">
+                              <th colspan="4">!!ObjTables type='Data' class='Reaction' tableFormat='row'</th>
+                            </tr>
+                            <tr class="col-head">
+                              <th>!Id</th>
+                              <th>!Name</th>
+                              <th>!Equation</th>
+                              <th>!&Delta;G (kJ mol^-1)</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>fbp</td>
+                              <td>fructose-bisphosphatase</td>
+                              <td>[c]: fdp + h2o &lt;=&gt; f6p + pi</td>
+                              <td>-45.4</td>
+                            </tr>
+                            <tr>
+                              <td>fum</td>
+                              <td>fumarase</td>
+                              <td>[c]: fum + h2o &lt;=&gt; mal-L</td>
+                              <td>-2.6</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <br/>
+
+                      <div class="worksheet-title">Worksheet: !!_Schema</div>
+                      <div class="table-scroll worksheet">
+                        <table class="example-tabular-dataset">
+                          <thead>
+                            <tr class="class-head">
+                              <th colspan="6">!!ObjTables type='Schema' tableFormat='row'</th>
+                            </tr>
+                            <tr class="col-head">
+                              <th>!Name</th><th>!Type</th><th>!Parent</th><th>!Format</th><th>!Verbose name</th><th>!Verbose name plural</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr><td>Reaction</td><td>Class</td><td></td><td>row</td><td>Reaction</td><td>Reactions</td></tr>
+                            <tr><td>id</td><td>Attribute</td><td>Reaction</td><td>String(primary=True, unique=True)</td><td>Id</td><td></td></tr>
+                            <tr><td>name</td><td>Attribute</td><td>Reaction</td><td>String</td><td>Name</td><td></td></tr>
+                            <tr><td>equation</td><td>Attribute</td><td>Reaction</td><td>ReactionEquation</td><td>Equation</td><td></td></tr>
+                            <tr><td>delta_g</td><td>Attribute</td><td>Reaction</td><td>Float</td><td>&Delta;G (kJ mol^-1)</td><td></td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="features">
+                <h2>How does <i>ObjTables</i> help researchers create and reuse high-quality spreadsheets?</h2>
+
+                <div class="section-content">
+                  <div class="grid-x grid-padding-x">
+                    <div class="large-6 cell">
+                      <div class="subsection">
+                        <div class="icon">
+                          <img src="img/computer.svg" alt="GUI icon" />
+                          <h3>Use Excel &amp; similar programs as GUIs for viewing/editing datasets</h3>
+                        </div>
+                        <p><i>ObjTables</i> enables users to use tools such as Excel and LibreOffice Calc as graphical interfaces for viewing and editing datasets. This makes it easy to get started, and enables users to leverage the features of these tools. <i>ObjTables</i> leverages the XLSX format to provide the following features within programs such as Excel:</p>
+                        <ul class="vertically-spaced-list">
+                          <li><b>Table of contents:</b> Datasets can include a worksheet that describes the data represented by each worksheet.</li>
+                          <li><b>Formatted table titles:</b> Each worksheet includes a title bar that describes the data captured by the worksheet and each column.</li>
+                          <li><b>Inline help for attributes:</b> <i>ObjTables</i> uses comments to embed help information about each attribute into it's heading.</li>
+                          <li><b>Select menus for enumerations and relationships:</b> <i>ObjTables</i> provides dropdown menus for attributes that represent enumerations and *-to-one relationships.</li>
+                          <li><b>Instant validation:</b> <i>ObjTables</i> can setup basic validation for attributes. <i>Note, the <i>ObjTables</i> software provides more extensive validation.</i></li>
+                        </ul>
+                      </div>
+
+                      <div class="subsection">
+                        <div class="icon">
+                          <img src="img/spreadsheet.svg" alt="Spreadsheet icon" />
+                          <h3>Create template spreadsheets for building datasets</h3>
+                        </div>
+                        <p>To make it easy to build datasets, the <i>ObjTables</i> can generate template spreadsheets for schemas with inline help, dropdown menus, and basic validation.</p>
+                      </div>
+
+                      <div class="subsection">
+                        <div class="icon">
+                          <img src="img/revision.svg" alt="Revision icon" />
+                          <h3>Iteratively build schemas and datasets</h3>
+                        </div>
+                        <p><i>ObjTables</i> can use Git to revision schemas and datasets and migrate datasets between different versions of schemas (e.g., adding, removing, and renaming tables).</p>
+                      </div>
+
+                      <div class="subsection">
+                        <div class="icon">
+                          <img src="img/search.svg" alt="Search icon" />
+                          <h3>Query and analyze datasets</h3>
+                        </div>
+                        <p>The <i>ObjTables</i> Python package makes it easy to find objects in datasets and use Python to conduct complex analyses of datasets such as numerical simulations.</p>
+                      </div>
+                    </div>
+
+                    <div class="large-6 cell">
+                      <div class="subsection">
+                        <div class="icon">
+                          <img src="img/bug.svg" alt="Bug icon" />
+                          <h3>Rigorously validate and quickly debug datasets</h3>
+                        </div>
+                        <p><i>ObjTables</i> makes it easy to validate datasets at multiple levels: individual atributes, individual objects, and classes of objects</p>
+                      </div>
+
+                      <div class="subsection">
+                        <div class="icon">
+                          <img src="img/merge.svg" alt="Merge icon" />
+                          <h3>Merge datasets</h3>
+                        </div>
+                        <p>To help users build large datasets, the <i>ObjTables</i> software can merge datasets by identifying and fusing common objects.</p>
+                      </div>
+
+                      <div class="subsection">
+                        <div class="icon">
+                          <img src="img/difference.svg" alt="Difference icon" />
+                          <h3>Compare/difference datasets</h3>
+                        </div>
+                        <p>To help users compare and review changes to datasets, the <i>ObjTables</i> software can determine if datasets are semantically equal and identify their differences.</p>
+                      </div>
+
+                      <div class="subsection">
+                        <div class="icon">
+                          <img src="img/clean.svg" alt="Pretty-print icon" />
+                          <h3>Pretty print datasets for publication</h3>
+                        </div>
+                        <p><i>ObjTables</i> can generate pretty XLSX files with tables of contents, formatted table titles and column headings, and inline help.</p>
+                      </div>
+
+                      <div class="subsection">
+                        <div class="icon">
+                          <img src="img/uml.svg" alt="UML diagram icon" />
+                          <h3>Visualize schemas for datasets</h3>
+                        </div>
+                        <p>To help users understand schemas, <i>ObjTables</i> can generate UML diagrams.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="components">
+                <h2>Components of the <i>ObjTables</i> toolkit</h2>
+
+                <div class="section-content">
+                  <div class="grid-x grid-padding-x">
+                    <div class="large-4 cell">
+                      <div class="subsection icon">
+                        <img src="img/document.svg" alt="Schema icon" />
+                        <h3>Format for schemas for spreadsheets</h3>
+
+                        <p>Schemas capture how classes, instances, attributes, and relationships are encoded into worksheets, rows, and columns. <i>ObjTables</i> supports three ways of encoding relationships: foreign keys, groups of columns, and grammars. Schemas also capture constraints on the value of each attribute.</p>
+                      </div>
+
+                      <div class="subsection icon">
+                        <img src="img/data-types.svg" alt="Data types icon" />
+                        <h3>Numerous data types</h3>
+                        <p><i>ObjTables</i> provides numerous data types, including for mathematics, science, chemoinformatics, and genomics.</p>
+                      </div>
+                    </div>
+
+                    <div class="large-4 cell">
+                      <div class="subsection icon">
+                        <img src="img/markup.svg" alt="Markup syntax icon" />
+                        <h3>Markup syntax for spreadsheets</h3>
+                        <p><i>ObjTables</i> provides syntax for indicating which cells represent each class, instance, and attribute (e.g., worksheet title <span class="monospace">!!Reactions</span>); declaring which cells represent metadata such as the date that a table was updated (<span class="monospace">!!ObjTables ...</span>); and declaring which entries represent comments (<span class="monospace">%/ ... /%</span>).</p>
+                      </div>
+
+                      <div class="subsection icon">
+                        <img src="img/gears.svg" alt="Software tools icon" />
+                        <h3>High-level software for spreadsheets</h3>
+                        <p><i>ObjTables</i> includes a web application, a web service, a command-line program, and a Python package for working with datasets. These tools can be used to pretty print, validate, compare, revision, and migrate datasets.</p>
+                      </div>
+                    </div>
+
+                    <div class="large-4 cell">
+                      <div class="subsection icon">
+                        <img src="img/python.svg" alt="Python icon" />
+                        <h3>Python package for additional flexibility</h3>
+                        <p>For more flexibility, the Python package can be used to implement custom data types, define custom validation, query, and analyze datasets.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="software">
+                <h2>Software tools</h2>
+
+                <div class="section-content">
+                  <div class="grid-x grid-padding-x subsection">
+                    <div class="large-4 cell icon">
+                      <img src="img/browser.svg" alt="Web application icon" />
+                      <h3>Web application</h3>
+                      <p>A web application is available at <a href="app">objtables.org/app</a>.</p>
+                    </div>
+                    <div class="large-4 cell icon">
+                      <img src="img/api.svg" alt="Web service icon" />
+                      <h3>Web service</h3>
+                      <p>A web service is available at <a href="https://www.objtables.org/api">objtables.org/api</a>.</p>
+                    </div>
+                    <div class="large-4 cell icon">
+                      <img src="img/terminal.svg" alt="Computer terminal icon" />
+                      <h3>Command-line program</h3>
+                      <p>A command-line program is available from PyPI <a href="https://pypi.org/pypi/obj_tables"><i class="fi-link"></i></a>.</p>
+                    </div>
+                  </div>
+                  <div class="grid-x grid-padding-x subsection">
+                    <div class="large-4 cell icon">
+                      <img src="img/python.svg" alt="Python icon" />
+                      <h3>Python package</h3>
+                      <p>A Python package is available from PyPI <a href="https://pypi.org/pypi/obj_tables"><i class="fi-link"></i></a>.</p>
+                    </div>
+                    <div class="large-4 cell icon">
+                      <img src="img/docker.svg" alt="Docker icon" />
+                      <h3>Docker image</h3>
+                      <p>An Ubuntu Linux Docker image with <i>ObjTables</i> is available from DockerHub <a href="https://hub.docker.com/r/karrlab/obj_tables"><i class="fi-link"></i></a>. To use the methods of the <span class="monospace">ChemicalStructure</span> attribute, copy a license for ChemAxon Marvin to <span class="monospace">~/.chemaxon/license.cxl</span>. A Dockerfile and instructions for building this image is available at GitHub <a href="https://github.com/KarrLab/obj_tables/blob/master/Dockerfile"><i class="fi-link"></i></a>.</p>
+                    </div>
+                    <div class="large-4 cell icon">
+                      <img src="img/code.svg" alt="Source code icon" />
+                      <h3>Source code</h3>
+                      <p>The source code is available from GitHub <a href="https://github.com/KarrLab/obj_tables"><i class="fi-link"></i></a>.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="use-cases">
+                <h2>Use cases</h2>
+
+                <div class="section-content">
+                  <p><i>ObjTables</i> was designed to help users work with complex data with the ease of spreadsheets and the rigor of schemas. <i>ObjTables</i> excels at cases where datasets need to be both human and machine-readable, such as supplementary materials of journal articles. <i>ObjTables</i> is also well-suited to emerging fields which need to quickly build new formats for new types of data.</p>
+
+                  <div class="grid-x grid-padding-x subsection">
+                    <div class="large-6 cell">
+                      <div class="icon">
+                        <img src="img/book.svg" alt="Journal icon" />
+                        <h3>Publishing re-usable supplementary spreadsheets</h3>
+                      </div>
+
+                      <p>Although supplementary spreadsheets contain valuable data, supplementary spreadsheets are hard to reuse because they often contain errors and often capture data ad hoc.</p>
+
+                      <p><i>ObjTables</i> enables authors to create high-quality datasets that are both human- and machine-readable: (a) authors can use <i>ObjTables</i> to debug their data, (b) authors can use <i>ObjTables</i> to pretty print data with tables of contents and inline help, (c) authors can publish schemas for parsing their data, and (d) readers can use these schemas to parse and analyze published data with minimal effort.</p>
+                    </div>
+
+                    <div class="large-6 cell">
+                      <div class="icon">
+                        <img src="img/share.svg" alt="Sharing icon" />
+                        <h3>Sharing re-usable data and models</h3>
+                      </div>
+
+                      <p>Research often involves novel datasets and models that require new formats. Unfortunately, the substantial effort needed to reuse these custom formats is a frequent barrier to collaboration.</p>
+
+                      <p><i>ObjTables</i> makes it easier to share data and models with collaborators by (a) enabling researchers to clearly describe the structure of their data or model with a schema, (b) enabling researchers to capture metadata about their data or model, (c) providing researchers software tools for validating their data, and (d) enabling collaborators to use these schemas to quickly parse data from colleagues.</p>
+                    </div>
+                  </div>
+
+                  <div class="grid-x grid-padding-x subsection">
+                    <div class="large-6 cell">
+                      <div class="icon">
+                        <img src="img/model.svg" alt="Modeling icon" />
+                        <h3>Building and analyzing complex datasets and models</h3>
+                      </div>
+
+                      <p>Many fields aim to understand how behaviors emerge from complex networks. This often requires integrating diverse data. For example, systems biology aims to understand how cellular behavior emerges from genotype, often using genomics and other data. Spreadsheets are a popular tool for merging data because they are easy to use. However, spreadsheets only support a few data types, and spreadsheets have limited support for multi-dimensional data. In addition, it is difficult to debug spreadsheets.</p>
+
+                      <p><i>ObjTables</i> makes it easy to build, validate, and analyze complex datasets: (a) users can use spreadsheets to assemble diverse data, (b) users can quickly define schemas for their data, and (c) users can use these schemas to validate their data and parse it into object-oriented data structures for further analysis in languages such as Python. For example, we have used <i>ObjTables</i> to integrate data about the biochemistry of H1 human embryonic stem cells.</p>
+
+                      <p><i>ObjTables</i> also makes it easy to build datasets iteratively over time by helping users revision data with Git and migrate their data as they revise their schemas.</p>
+                    </div>
+
+                    <div class="large-6 cell">
+                      <div class="icon">
+                        <img src="img/list.svg" alt="Format icon" />
+                        <h3>Defining formats for new types of data and predictive computational models</h3>
+                      </div>
+
+                      <p>New areas of science often require new types of data and new kinds of predictive computational models. In turn, this often requires new formats to capture these data and models, and new software for working with these formats. Creating these formats is often an obstacle for new domains that have limited resources. Furthermore, evolving these formats as new approaches emerge is challenging because this often requires updating the software tools and converting old files to the new format.</p>
+
+                      <p><i>ObjTables</i> addresses this issue by making it easy to define schemas for domain-specific data and providing software tools for parsing, manipulating, and validating data encoded in these schemas. For example, we have used <i>ObjTables</i> to create, WC-KB <a href="https://github.com/KarrLab/wc_kb"><i class="fi-link"></i></a>, a format for the experimental omics, biochemical, and physiological data needed to model cellular biochemistry. We have also used <i>ObjTables</i> to create, WC-Lang <a href="https://github.com/KarrLab/wc_lang"><i class="fi-link"></i></a>, a format for whole-cell models of all of the biochemical activity in a cell. Creating these formats required minimal code.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid-x grid-padding-x" id="workflow">
+                <div class="large-12 cell">
+                  <h2>Workflow: How can I use <i>ObjTables</i>?</h2>
+
+                  <div class="grid-x grid-padding-x section-content">
+
+                    <div class="large-6 cell icon">
+                      <img src="img/writer.svg" alt="Author icon" />
+                      <h3>Authors</h3>
+                      <ul>
+                        <li>Use Microsoft Excel and similar programs as graphical interfaces for complex datasets that consist of multiple distinct types of objects.</li>
+                        <li>Use complex data types (e.g., reaction equations) within tables.</li>
+                        <li>Use foreign keys, column groups, and grammars to encode relationships.</li>
+                        <li>Define schemas that describe the class represented by each table.</li>
+                        <li>Use schemas and the <i>ObjTables</i> software to debug, revision, and migrate tables.</li>
+                      </ul>
+                    </div>
+
+                    <div class="large-6 cell icon">
+                      <img src="img/reader.svg" alt="Reader icon" />
+                      <h3>Reviewers and editors</h3>
+                      <ul>
+                        <li>Use schemas and the <i>ObjTables</i> software to verify that tables are free of errors, and that they can be re-used by other investigators.</li>
+                      </ul>
+
+                      <h3>Readers</h3>
+                      <ul>
+                        <li>Use schemas and the <i>ObjTables</i> software to compare and merge spreadsheets.</li>
+                        <li>Use schemas and the <i>ObjTables</i> software to parse spreadsheets into object-oriented data structures for analysis with tools such as Python.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="getting-started">
+                <h2>Getting started: examples and tutorials</h2>
+                <div class="section-content">
+                  <div class="grid-x grid-padding-x subsection">
+                    <div class="large-4 cell icon">
+                      <img src="img/steps.svg" alt="Steps icon" />
+                      <h3>Guides</h3>
+                      <p>The guide page <a href="guide"><i class="fi-link"></i></a> contains guides for (a) authors for creating reusable spreadsheets, (b) reviewers for verifying that spreadsheets are reusable, and (c) readers for reusing spreadsheets.</p>
+                    </div>
+                    <div class="large-4 cell icon">
+                      <img src="img/spreadsheet.svg" alt="Spreadsheet icon" />
+                      <h3>Examples</h3>
+                      <p>The documentation contains several example schemas and datasets <a href="docs#examples"><i class="fi-link"></i></a>.</p>
+                    </div>
+                    <div class="large-4 cell icon">
+                      <img src="img/tutorial.svg" alt="Tutorial icon" />
+                      <h3>Tutorials for the Python package</h3>
+                      <p>Interactive tutorials are available as Jupyter notebooks at <a href="https://sandbox.karrlab.org/tree/obj_tables">sandbox.karrlab.org</a>.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="docs">
+                <h2>Documentation</h2>
+                <div class="section-content">
+                  <div class="grid-x grid-padding-x subsection">
+                    <div class="large-4 cell icon">
+                      <img src="img/terminal.svg" alt="Computer terminal icon" />
+                      <h3>Command-line program installation</h3>
+                      <p>Installation instructions for the command-line program are available at <a href="https://docs.karrlab.org/obj_tables/installation.html">docs.karrlab.org</a>. An Ubuntu Linux Docker image with <i>ObjTables</i> is available from DockerHub <a href="https://hub.docker.com/r/karrlab/obj_tables"><i class="fi-link"></i></a>. To use the methods of the <span class="monospace">ChemicalStructure</span> attribute, copy a license for ChemAxon Marvin to <span class="monospace">~/.chemaxon/license.cxl</span>. A Dockerfile and instructions for building this image is available at GitHub <a href="https://github.com/KarrLab/obj_tables/blob/master/Dockerfile"><i class="fi-link"></i></a>.</p>
+                    </div>
+                    <div class="large-4 cell icon">
+                      <img src="img/python.svg" alt="Python icon" />
+                      <h3>Python package installation</h3>
+                      <p>Installation instructions for the Python package are available at <a href="https://docs.karrlab.org/obj_tables/installation.html">docs.karrlab.org</a>. An Ubuntu Linux Docker image with <i>ObjTables</i> is available from DockerHub <a href="https://hub.docker.com/r/karrlab/obj_tables"><i class="fi-link"></i></a>. To use the methods of the <span class="monospace">ChemicalStructure</span> attribute, copy a license for ChemAxon Marvin to <span class="monospace">~/.chemaxon/license.cxl</span>. A Dockerfile and instructions for building this image is available at GitHub <a href="https://github.com/KarrLab/obj_tables/blob/master/Dockerfile"><i class="fi-link"></i></a>.</p>
+                    </div>
+                    <div class="large-4 cell icon">
+                      <img src="img/manual.svg" alt="User manual icon" />
+                      <h3>Docs for the schema &amp; dataset formats</h3>
+                      <p>Documentation for the formats for schemas and the formats for datasets is available at <a href="docs">objtables.org/docs</a>.</p>
+                    </div>
+                  </div>
+                  <div class="grid-x grid-padding-x subsection">
+                    <div class="large-4 cell icon">
+                      <img src="img/manual.svg" alt="User manual icon" />
+                      <h3>Docs for the command-line program</h3>
+                      <p>Documentation for the command-line program is available inline by running <span class="monospace">obj-tables --help</span>.</p>
+                    </div>
+                    <div class="large-4 cell icon">
+                      <img src="img/manual.svg" alt="User manual icon" />
+                      <h3>Docs for the web service</h3>
+                      <p>Documentation for the web service is available at <a href="https://www.objtables.org/api">objtables.org/api</a>.</p>
+                    </div>
+                    <div class="large-4 cell icon">
+                      <img src="img/manual.svg" alt="User manual icon" />
+                      <h3>Docs for the Python package</h3>
+                      <p>An introduction to the Python package is available at <a href="docs">objtables.org/docs</a>. Detailed documentation is available at <a href="https://docs.karrlab.org/obj_tables">docs.karrlab.org</a>.</p>
+                    </div>
+                  </div>
+                  <div class="grid-x grid-padding-x subsection">
+                    <div class="large-4 cell icon">
+                      <img src="img/balance.svg" alt="Comparison icon" />
+                      <h3>Comparison with other tools</h3>
+                      <p>The documentation compares <i>ObjTables</i> with workbook editors such as Microsoft Excel, other spreadsheet schemas such as Table Schema <a href="https://specs.frictionlessdata.io/table-schema/"><i class="fi-link"></i></a>, low code databases such as Airtable <a href="https://airtable.com/"><i class="fi-link"></i></a>, object-relational mapping tools such as Django <a href="https://www.djangoproject.com/"><i class="fi-link"></i></a>, schemas for data serialization formats such as JSON Schema <a href="https://json-schema.org/"><i class="fi-link"></i></a>, and relational database querying tools such as MySQL Workbench <a href="https://www.mysql.com/products/workbench/"><i class="fi-link"></i></a>.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+               <div id="help">
+                <h2>Help</h2>
+                <div class="section-content">
+                  <p>Please contact the developers <a href="mailto:info@objtables.org"><i class="fi-mail"></i></a> with any questions or suggestions.</p>
+                </div>
+              </div>
+
+              <div id="contributing">
+                <h2>Contributing to <i>ObjTables</i></h2>
+
+                <div class="section-content">
+                  <i>ObjTables</i> is a community initiative to make supplementary spreadsheets more reusable. The long-term goal is to create an ecosystem of reusable data for comparative and integrative research. We invite the community to contribute to this endeavour. We welcome suggestions via GitHub issues <a href="https://github.com/KarrLab/obj_tables/issues"><i class="fi-link"></i></a> or pull requests <a href="https://github.com/KarrLab/obj_tables/pulls"><i class="fi-link"></i></a>. We also welcome additional members of the <i>ObjTables</i> team. Please contact the developers <a href="mailto:info@objtables.org"><i class="fi-mail"></i></a> to get involved.
+                </div>
+              </div>
+            </div>            
+          </div>          
+        </div>
+        <div class="privacy-notice">
+          <p>By using this site you agree to use cookies to collect limited personal information to help us improve <i>ObjTables</i> as outlined in our <a href="privacy-policy">Privacy Policy</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/plyr.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+      const player = new Plyr(".splash-container video");
+      $(".splash .plyr").addClass("not-playing");
+
+      player.on('playing', event => {
+        const instance = event.detail.plyr;
+        $(".splash .plyr").removeClass("not-playing");
+      });
+
+      player.on('ended', event => {
+        const instance = event.detail.plyr;
+        $(".splash .plyr").addClass("not-playing");
+      });
+    </script>
+  </body>
+</html>
