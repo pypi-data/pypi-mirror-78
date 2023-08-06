@@ -1,0 +1,13 @@
+filetype<1.1.0,>=1.0.7
+importlib-metadata<0.24,>=0.23
+dakarabase<1.3.0,>=1.2.0
+pymediainfo<5.0,>=4.0
+pysubs2<0.3.0,>=0.2.4
+
+[tests]
+coverage
+codecov
+flake8
+
+[tests:python_version >= "3.6"]
+black
