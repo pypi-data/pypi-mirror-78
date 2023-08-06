@@ -1,0 +1,23 @@
+name: test_env_xgcm_docs
+dependencies:
+  - python=3.6
+  - xarray
+  - netcdf4
+  - cartopy
+  - dask
+  - numpy
+  - future
+  - pytest
+  - numpydoc
+  - sphinx
+  - ipython
+  - matplotlib
+  - sphinx_rtd_theme
+  - ipykernel
+  - pip:
+    - docrep<=0.2.7
+    - nbsphinx
+    - jupyter_client
+    - sphinx_pangeo_theme
+    - sphinx-copybutton
+    - sphinxcontrib-srclinks
