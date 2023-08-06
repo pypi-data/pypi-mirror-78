@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: keystoneauth-oidc-authz-code
+Version: 1.0.0
+Summary: OpenID Connect Authorization Code authentication plugin for keystoneauth
+Home-page: https://github.com/indigo-dc/keystoneauth-oidc-authz-code
+Author: Alvaro Lopez Garcia
+Author-email: aloga@ifca.unican.es
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Description-Content-Type: text/markdown; charset=UTF-8
+Requires-Dist: keystoneauth-oidc
+
+# OpenID Connect Authorization Code grant type support for OpenStack clients
+
+This package is not maintained anymore, please use the
+[keystoneauth-oidc](https://pypi.python.org/pypi/keystoneauth-oidc/) package
+instead.
+
+
+
