@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: realnet
+Version: 0.0.4
+Summary: Realnet command line interface
+Home-page: https://github.com/virtual-space/realnet
+Author: Marko Laban
+Author-email: marko.laban@l33tsystems.com
+License: BSD
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pynecone
+Requires-Dist: requests-toolbelt
+Requires-Dist: keyring
+Requires-Dist: python-dotenv
+Requires-Dist: requests
+
+# realnet
+
+
