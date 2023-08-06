@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: pymusement
+Version: 0.1.6
+Summary: A python package and CLI to get wait times for rides at various theme parks
+Home-page: https://github.com/TheMarauder95/PyMusement
+Author: Josh Shrawder
+Author-email: joshshrawder@gmail.com
+License: MIT
+Download-URL: https://github.com/TheMarauder95/pymusement/archive/0.1.0.tar.gz
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+Requires-Dist: python-dateutil
+Requires-Dist: Click
+
+# PyMusement
+A python package and CLI to get wait times for rides at various theme parks
+test
+## Example
+### CLI
+Get wait times right from your terminal
+```
+pymusement islands-adventure --type rides
+```
+
+### Library
+```
+from pymusement.parks.universal.IslandsOfAdventure import IslandsOfAdventure
+
+ioa = IslandsOfAdventure()
+print ioa.rides()
+# or print ioa.shows() if you want show times instead
+```
+A full list of the rides and shows in the park will be displayed!
+
+## Getting Started
+```
+pip install pymusement
+```
+
+Based on amusement by rambleraptor
+
+
+## Parks
+
+| Park Name                     | Rides       | Shows       |
+| ------------------------------|-------------|-------------|
+| Magic Kingdom                 |             |             |
+| Epcot                         |             |             |
+| Hollywood Studios             |             |             |
+| Animal Kingdom                |             |             |
+| Disneyland                    |             |             |
+| Disney's California Adventure |             |             |
+| Universal Studios Florida     |x            |x            |
+| Islands of Adventure          |x            |x            |
+| Universal Studios Hollywood   |x            |x            |
+| Universal Studios Japan       |             |
+| Hersheypark                   |x            |             |
+
+## Work to be done
+* Fix API for Disney Parks,
+* Find alternative for Seaworld parks
+* Add Six Flags parks
+
+
