@@ -1,0 +1,1 @@
+# Lind Static Designs
