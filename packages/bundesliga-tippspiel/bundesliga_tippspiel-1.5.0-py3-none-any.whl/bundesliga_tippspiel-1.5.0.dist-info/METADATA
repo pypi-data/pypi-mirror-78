@@ -1,0 +1,95 @@
+Metadata-Version: 2.1
+Name: bundesliga-tippspiel
+Version: 1.5.0
+Summary: A Bundesliga Tippspiel Website
+Home-page: https://gitlab.namibsun.net/namibsun/python/bundesliga-tippspiel
+Author: Hermann Krumrey
+Author-email: hermann@krumreyh.com
+License: GNU GPL3
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
+Requires-Dist: flask
+Requires-Dist: flask-login
+Requires-Dist: flask-sqlalchemy
+Requires-Dist: requests
+Requires-Dist: blinker
+Requires-Dist: sentry-sdk
+Requires-Dist: sqlalchemy
+Requires-Dist: werkzeug
+Requires-Dist: cherrypy
+Requires-Dist: puffotter[crypto,flask]
+Requires-Dist: beautifulsoup4
+
+# Bundesliga Tippspiel
+
+|master|develop|
+|:----:|:-----:|
+|[![build status](https://gitlab.namibsun.net/namibsun/python/bundesliga-tippspiel/badges/master/build.svg)](https://gitlab.namibsun.net/namibsun/python/bundesliga-tippspiel/commits/master)|[![build status](https://gitlab.namibsun.net/namibsun/python/bundesliga-tippspiel/badges/develop/build.svg)](https://gitlab.namibsun.net/namibsun/python/bundesliga-tippspiel/commits/develop)|
+
+![Logo](resources/logo/logo-readme.png)
+
+Bundesliga Tippspiel is a website using flask and various plugins that allows
+users to bet on Bundesliga matches and compete with one another.
+
+A live version of the page is available at
+[hk-tippspiel.com](https://hk-tippspiel.com). A development instance is available
+at [develop.hk-tippspiel.com](https://develop.hk-tippspiel.com)
+
+## Documentation
+
+Documentation on the API can be found [here](doc/api/API.md).
+
+For general documentation visit the
+[progstats](https://progstats.namibsun.net/projects/bundesliga-tippspiel)
+page
+
+# Deployment notes:
+
+You can deploy the website using docker and docker-compose.
+To do this run the following commands:
+
+    # Builds the docker image
+    docker build -f docker/Dockerfile -t bundesliga-tippspiel-prod . --no-chache
+    # Starts the container and the database container
+    docker-compose -f docker/docker-compose-prod.yml up -d
+    # If you want to use an updated image
+    docker-compose -f docker/docker-compose-prod.yml up -d --no-deps bundesliga-tippspiel-prod-app
+
+The .env file must contain the following variables:
+
+* MYSQL_ROOT_PASSWORD
+* MYSQL_USER
+* MYSQL_PASSWORD
+* MYSQL_DATABASE
+* FLASK_SECRET
+* RECAPTCHA_SITE_KEY
+* RECAPTCHA_SECRET_KEY
+* SMTP_ADDRESS
+* SMTP_PASSWORD
+* SMTP_PORT
+* SMTP_HOST
+* OPENLIGADB_SEASON
+* OPENLIGADB_LEAGUE
+
+# Backing up and restoring
+
+All the data is stored in the mysql/mariadb database, so you can backup the
+database using the following command:
+
+    docker exec bundesliga-tippspiel-prod-db-container mysqldump --user root --password=$MYSQL_ROOT_PASSWORD bundesliga_tippspiel > $BACKUPS_DIR/bundesliga_tippspiel-$(date --iso-8601).db
+
+And restoring can be done like this:
+
+    docker exec bundesliga-tippspiel-prod-db-container mysql -u root --password=$MYSQL_ROOT_PASSWORD bundesliga_tippspiel < $BACKUP_FILE
+
+## Further Information
+
+* [Changelog](CHANGELOG)
+* [License (GPLv3)](LICENSE)
+* [Gitlab](https://gitlab.namibsun.net/namibsun/python/bundesliga-tippspiel)
+* [Github](https://github.com/namboy94/bundesliga-tippspiel)
+* [Progstats](https://progstats.namibsun.net/projects/bundesliga-tippspiel)
+* [PyPi](https://pypi.org/project/bundesliga-tippspiel)
+
+
