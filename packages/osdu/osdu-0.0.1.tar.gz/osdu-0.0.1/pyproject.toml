@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "osdu"
+version = "0.0.1"
+description = ""
+authors = [
+    "jessekrubin <jessekrubin@gmail.com>",
+    "jesse <jesse@dgi.com>"
+]
+packages = [
+    { include = "osdu", from = "." }
+]
+
+[tool.poetry.dependencies]
+python = "^3.6.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+### CLI
+#[tool.poetry.scripts]
+#<CMD> = "dgpy_pkg.cli:main"
