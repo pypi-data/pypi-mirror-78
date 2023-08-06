@@ -1,0 +1,68 @@
+- [x] archive pages
+- [x] add warning on external resources
+- [x] category pages
+- [x] mirror images
+- [x] atom feed
+- [x] upload to S3 only when changed
+- [x] Twitter announcer
+- [x] FAWM announcer
+- [x] display comments
+- [x] show link to comment
+- [x] update requirements.txt
+- [x] improve build linking
+- [x] FB announcer
+- [x] WT.Social announcer
+- [x] Mastodon announcer
+- [x] Medium announcer
+- [x] microformats
+- [x] linkbacks
+- [x] make timestamp an ISO string instead of float
+- [x] move mirror images to assistant
+- [x] check external resources as assistant
+- [x] check CSS for external resources
+- [x] builders
+- [x] do not pass root/config when initializing Post
+- [x] rename feed to Atom
+- [x] unit test coverage
+- [x] logger names
+- [x] https://indiewebify.me/
+- [x] add footer with link to project
+- [x] Chrome performance
+- [x] honor --force when building categories
+- [x] consolidate entry points __init__
+- [x] center footer on mobile (.footer { text-align: center; })
+- [x] fix contrast post subtitle (summary)
+- [x] Medium collect
+- [x] use track number to sort playlist
+- [x] Neocities publisher
+- [x] requirements.txt
+- [x] fix indienews link when no explicit announce
+- [x] convert relative link to absolute when publishing to Medium
+- [x] per post language
+- [x] new release
+- [x] documentation
+- [x] cassette tape audio player
+- [x] make playlist assistant a builder
+- [x] when mirroring images, add original URL as exif
+- [ ] post types: likes, notes, songs? allow custom themes to be specified
+- [ ] template snippets for books or other things? music?
+- [ ] check that `force` is being used in all relevant plugins
+- [ ] replace `post_directory.parent` with `root / posts` to allow for nested sub directories
+- [ ] use bleach to clean HTML
+- [ ] categories
+- [ ] new theme
+- [ ] search (build index and search using JS)
+- [ ] Medium image upload (go deep post, eg)
+- [ ] RSS club
+- [ ] parallelize build/publish
+- [ ] lxml parser for BeautifulSoup?
+- [ ] multiple announcers of the same type? (eg, 2 mastodon)
+- [ ] Reddit announcer
+- [ ] Soundcloud announcer
+- [ ] Instagram announcer
+- [ ] threaded comments
+- [ ] style webmentioned links: https://www.ctrl.blog/media/hero/webmention.svg
+- [ ] mirror youtube videos in addition to images
+- [ ] PESOS?
+- [ ] self archive.org using wget?
+- [ ] split twitter card into assistant/builder

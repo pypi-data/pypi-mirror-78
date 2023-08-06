@@ -1,0 +1,32 @@
+[console_scripts]
+nb = nefelibata.console:main
+
+[nefelibata.announcer]
+fawm = nefelibata.announcers.fawm:FAWMAnnouncer
+fiftyninety = nefelibata.announcers.fiftyninety:FiftyNinetyAnnouncer
+mastodon = nefelibata.announcers.mastodon:MastodonAnnouncer
+medium = nefelibata.announcers.medium:MediumAnnouncer
+twitter = nefelibata.announcers.twitter:TwitterAnnouncer
+webmention = nefelibata.announcers.webmention:WebmentionAnnouncer
+wtsocial = nefelibata.announcers.wtsocial:WTSocialAnnouncer
+
+[nefelibata.assistant]
+archive_links = nefelibata.assistants.archive_links:ArchiveLinksAssistant
+mirror_images = nefelibata.assistants.mirror_images:MirrorImagesAssistant
+relativize_links = nefelibata.assistants.relativize_links:RelativizeLinksAssistant
+twitter_card = nefelibata.assistants.twitter_card:TwitterCardAssistant
+warn_external_resources = nefelibata.assistants.warn_external_resources:WarnExternalResourcesAssistant
+
+[nefelibata.builder]
+atom = nefelibata.builders.atom:AtomBuilder
+index = nefelibata.builders.index:IndexBuilder
+playlist = nefelibata.builders.playlist:PlaylistBuilder
+post = nefelibata.builders.post:PostBuilder
+tags = nefelibata.builders.tags:TagsBuilder
+
+[nefelibata.publisher]
+S3 = nefelibata.publishers.s3:S3Publisher
+ftp = nefelibata.publishers.ftp:FTPPublisher
+ipfs = nefelibata.publishers.ipfs:IPFSPublisher
+neocities = nefelibata.publishers.neocities:NeocitiesPublisher
+
