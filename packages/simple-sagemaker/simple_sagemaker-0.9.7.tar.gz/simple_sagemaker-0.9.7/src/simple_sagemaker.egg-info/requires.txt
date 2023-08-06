@@ -1,0 +1,10 @@
+docker
+boto3
+sagemaker
+pandas
+
+[docs]
+sphinx>=2.0.0
+
+[testing]
+pytest>=4.0.0
