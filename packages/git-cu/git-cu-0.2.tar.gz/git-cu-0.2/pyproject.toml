@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "git-cu"
+version = "0.2"
+description = "Helps organize git repositories by cloning into a directory structure based on the URL"
+authors = ["Vasili Revelas <vasili.revelas@gmail.com>"]
+license = "GPL-3.0-only"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.5.2"
+yapf = "^0.30.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+git-cu = 'git_cu.main:main'
