@@ -1,0 +1,20 @@
+---
+filename: custom_test.yaml
+enabled: true
+meta:
+  name: Bloodhound References
+  author: PaperMtn
+  date: '2020-08-14'
+  description: Detects exposed Microsoft Word documents
+  severity: '30'
+category: custom
+scope:
+- messages
+test_cases:
+  match_cases:
+  - blank
+  fail_cases:
+  - blank
+strings:
+- bloodhound
+pattern: ''
