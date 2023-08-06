@@ -1,0 +1,6 @@
+voila==0.2.0b0
+
+[test]
+pytest
+pytest-tornasync
+lxml
