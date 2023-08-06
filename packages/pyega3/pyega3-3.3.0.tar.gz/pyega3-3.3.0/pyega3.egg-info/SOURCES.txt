@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+pyega3/__init__.py
+pyega3/pyega3.py
+pyega3.egg-info/PKG-INFO
+pyega3.egg-info/SOURCES.txt
+pyega3.egg-info/dependency_links.txt
+pyega3.egg-info/entry_points.txt
+pyega3.egg-info/requires.txt
+pyega3.egg-info/top_level.txt
+pyega3/config/default_credential_file.json
+pyega3/config/default_server_file.json
+test/__init__.py
+test/test_pyega3.py
