@@ -1,0 +1,8 @@
+asyncblink==0.3.2
+sqlalchemy~=1.0
+alembic~=1.4
+sanic~=20.3
+sanic-cors~=0.10.0
+aiohttp[speedups]~=3.6
+click~=7.1.2
+six~=1.13
