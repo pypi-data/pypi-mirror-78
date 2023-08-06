@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EZFN</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://cdn.ezfn.net/img/Logo.jpg">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css" type="text/css">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.ezfn.net/bootstrap-4.1.3/css/bootstrap.min.css" type="text/css">
+    <!-- Animate CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.ezfn.net/css/animate.css" type="text/css"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdn.ezfn.net/website/css/style.min.css" type="text/css">
+</head>
+
+<script>
+    // Remove the Decryption Key from the URL
+    // https://stackoverflow.com/a/2880929
+    let decryption_key;
+    (window.onpopstate = function () {
+        var match,
+            pl     = /\+/g,  // Regex for replacing addition symbol with a space
+            search = /([^&=]+)=?([^&]*)/g,
+            decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+            query  = window.location.search.substring(1);
+
+        urlParams = {};
+        while (match = search.exec(query))
+        urlParams[decode(match[1])] = decode(match[2]);
+        decryption_key = urlParams.dk
+        window.history.replaceState('', '', 'add_bot')
+    })();
+</script>
+
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0 container mt-5">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="https://ezfn.net"><h5><b>EZFN</b></h5></a>
+        </nav>
+        
+        <div class="row justify-content-center align-items-center p-4">
+            <div class="list-group my-3">
+                <a class="list-group-item list-group-item-action active disabled text-white"><center id="status_bar">You can now add accounts that should be bots.</center></a>
+            </div>
+
+            <a class="m-1 btn btn-outline-success btn-md btn-block" onclick="login_with_eg()" href="javascript:void(0)" id="start_eg_login">Login with EpicGames</a>
+        </div>
+	</main>
+
+    <!-- GitHub Buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Notify -->
+    <script src="https://cdn.ezfn.net/js/bootstrap-notify.min.js"></script>
+    <!-- Popper.js CDN -->
+    <script src="https://cdn.ezfn.net/js/popper.min.js"></script>
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.ezfn.net/bootstrap-4.1.3/js/bootstrap.min.js"></script>
+    <!-- wow.js CDN & Activation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+    <!-- EpicGames Login -->
+    <script src="https://cdn.ezfn.net/admin website/js/eg_login.js"></script>
+
+    <script> new WOW().init(); </script>
+    <!-- Initialize all tooltips -->
+    <script>$(function () {$('[data-toggle="tooltip"]').tooltip()})</script>
+
+    <footer class="mt-auto py-3 text-center">
+        <small class="text-muted mb-2">
+            <i class="fas 192.168.0.69fa-code"></i> with <i class="fas fa-heart"></i>
+            by <strong>Lupus</strong>
+        </small>
+
+        <div class="container-fluid justify-content-center">
+            <a class="social mx-1" target="_blank" href="https://www.twitter.com/@lupusleaks" style="color: rgb(108, 117, 125);" onmouseover="this.style.color='#1da1f2'" onmouseout="this.style.color='#6c757d'">
+                <i class="fab fa-twitter fa-1x"></i>
+            </a>
+        
+            <a class="social mx-1" target="_blank" href="https://github.com/lupusleaks" style="color: rgb(108, 117, 125);" onmouseover="this.style.color='#333333'" onmouseout="this.style.color='#6c757d'">
+                <i class="fab fa-github fa-1x"></i>
+            </a>
+        
+            <a class="social mx-1" target="_blank" href="https://youtube.com/lupusleaks" style="color: rgb(108, 117, 125);" onmouseover="this.style.color='#FF0000'" onmouseout="this.style.color='#6c757d'">
+                <i class="fab fa-youtube fa-1x"></i>
+            </a>
+
+            <a class="social mx-1" target="_blank" href="https://ezfn.net/discord" style="color: rgb(108, 117, 125);" onmouseover="this.style.color='#7289DA'" onmouseout="this.style.color='#6c757d'">
+                <i class="fab fa-discord fa-1x"></i>
+            </a>
+        
+            <a class="social mx-1" target="_blank" href="https://instagram.com/lupusleaks" style="color: #6c757d" onmouseover="document.getElementById('instagram').classList.add('instagram');" onmouseout="document.getElementById('instagram').classList.remove('instagram');">
+                <i class="fab fa-instagram fa-1x" id="instagram"></i>
+            </a>
+        </div>
+        <div>This project is not Affiliated, Associated, Authorized, Endorsed by, or in any way officially connected with EpicGames</div>
+    </footer>
+</body>
+</html>
