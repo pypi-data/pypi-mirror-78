@@ -1,0 +1,10 @@
+aiohttp<3.7,>=3.5.0
+aiohttp-apispec>=1.5
+apispec>=3.0.0
+async-timeout
+marshmallow<3.8,>=3.0.0b19
+marshmallow_peewee<3.1,>=2.3.0
+peewee>=3.9
+peewee-migrate>=1.1.6
+python-dotenv
+webargs<6.0,>=5.2.0

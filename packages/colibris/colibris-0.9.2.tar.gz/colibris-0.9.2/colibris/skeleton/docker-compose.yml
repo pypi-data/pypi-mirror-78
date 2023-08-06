@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  server:
+    image: __projectname__:latest
+    build:
+      context: .
+      target: server
+    command: __projectname__ runserver
+    ports:
+      - "8888:8888"
