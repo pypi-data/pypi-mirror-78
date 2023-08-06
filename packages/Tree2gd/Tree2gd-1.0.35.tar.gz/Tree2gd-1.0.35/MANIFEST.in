@@ -1,0 +1,3 @@
+include tree2gd/*.ini
+recursive-include tree2gd/example_data *.pep *.cds *.tree *.ini
+recursive-include tree2gd/software *
