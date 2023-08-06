@@ -1,0 +1,83 @@
+{
+    "en_US.UTF-8": {
+        "formatting": {
+            "fathers_have_the_same_color": {
+                "short_description": "Fathers have the same color",
+                "long_description": "Starting from the root person, each father of an added individual has the same color as that individual."
+            }
+        },
+        "positioning": {
+            "debug_optimization_compression_steps": {
+                "short_description": "Maximum number of compression steps",
+                "long_description": "Debugging of the compression algorithm. Abort after x steps."
+            },
+            "debug_optimization_flipping_steps": {
+                "short_description": "Maximum number of flipping steps",
+                "long_description": "Debugging of the flipping algorithm. Abort after x steps."
+            },
+            "compress": {
+                "short_description": "Compress the chart horizontally",
+                "long_description": "By default every individual has a unique horizontal slot. This can be inefficient with many generations. This algorithm lets several people share a horizontal slot, if they do not overlap."
+            },
+            "flip_to_optimize": {
+                "short_description": "Flip families to reduce horizontal connections",
+                "long_description": "Switch the position of mother and father in a family, to reduce the overall horizontal cross connections in larger graphs. This is happens if one person is shown in more than one family or it is caused by pedigree collapse."
+            }
+        },
+        "chart_configuration_root_individual": {}
+    },
+    "nl_NL.UTF-8": {
+        "formatting": {
+            "fathers_have_the_same_color": {
+                "short_description": "Vaders hebben dezelfde kleur",
+                "long_description": "Beginnend bij de stampersoon heeft elke vader van een toegevoegd individu dezelfde kleur als dat individu."
+            }
+        },
+        "positioning": {
+            "debug_optimization_compression_steps": {
+                "short_description": "Maximaal aantal compressiestappen",
+                "long_description": "Debuggen van het compressie-algoritme. Afbreken na x stappen."
+            },
+            "debug_optimization_flipping_steps": {
+                "short_description": "Maximaal aantal omkerende stappen",
+                "long_description": "Foutopsporing van het flipping-algoritme. Afbreken na x stappen."
+            },
+            "compress": {
+                "short_description": "Comprimeer de grafiek horizontaal",
+                "long_description": "Standaard heeft ieder individu een uniek horizontaal slot. Dit kan met vele generaties inefficiënt zijn. Met dit algoritme kunnen meerdere mensen een horizontale sleuf delen, als ze elkaar niet overlappen."
+            },
+            "flip_to_optimize": {
+                "short_description": "Draai gezinnen om om horizontale verbindingen te verminderen",
+                "long_description": "Verander de positie van moeder en vader in een gezin om de algehele horizontale dwarsverbanden in grotere grafieken te verminderen. Dit is het geval als één persoon in meer dan één gezin voorkomt of het wordt veroorzaakt door kwartierherhaling."
+            }
+        },
+        "chart_configuration_root_individual": {}
+    },
+    "de_DE.UTF-8": {
+        "formatting": {
+            "fathers_have_the_same_color": {
+                "short_description": "V\u00e4tern dieselbe Farbe zuordnen",
+                "long_description": "Ausgehend von der Hauptperson wird rekursiv V\u00e4tern dieselbe Farbe zugeordnet."
+            }
+        },
+        "positioning": {
+            "debug_optimization_compression_steps": {
+                "short_description": "Maximale Anzahl an Komprimierungsschritten",
+                "long_description": "Debuggen des Komprimierungsalgorithmus. Abbruch nach x Schritten."
+            },
+            "debug_optimization_flipping_steps": {
+                "short_description": "Maximale Anzahl an Spiegelungs Schritten",
+                "long_description": "Debuggen des Flipping-Algorithmus. Abbruch nach x Schritten."
+            },
+            "compress": {
+                "short_description": "Horizontal komprimieren",
+                "long_description": "Normalerweise werden Personen auf einem Raster verteilt. Die horizontale Position kann nur einer Person zugewiesen sein kann. Bei gr\u00f6\u00dferen Diagrammen f\u00fchrt dies dazu, dass die Diagramme un\u00fcbersichtlich werden. Dieser Algorithmus erlaubt es, dass Personen \u00fcbereinander erscheinen k\u00f6nnen. Dies f\u00fchrt jedoch nicht zu \u00dcberlappungen."
+            },
+            "flip_to_optimize": {
+                "short_description": "Spiegeln von Familien zur Verk\u00fcrzung von Querverbindungen",
+                "long_description": "In jeder Familie k\u00f6nnen Mutter und Vater k\u00f6nnen die Position tauschen. Dies f\u00fchrt ggf. zu einer Verk\u00fcrzung der Querverbindungen in gro\u00dfen Diagrammen. Die Querverbindungen werden durch den Ahnenschwund und Wiederheirat verursacht."
+            }
+        },
+        "chart_configuration_root_individual": {}
+    }
+}
