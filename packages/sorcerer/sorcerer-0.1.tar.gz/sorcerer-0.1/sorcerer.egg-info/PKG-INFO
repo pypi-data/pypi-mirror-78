@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: sorcerer
+Version: 0.1
+Summary: Programming problem solution README table generator
+Home-page: https://github.com/terror/sorcerer
+Author: Liam Scalzulli
+Author-email: liamscalzulli@gmail.com
+License: UNKNOWN
+Project-URL: Source Code, https://github.com/terror/sorcerer
+Description: # sorcerer
+        [![Build Status](https://travis-ci.com/terror/sorcerer.svg?branch=master)](https://travis-ci.com/terror/sorcerer)  
+        Programming problem solution README table generator
+        
+        # Installation
+        You can simply use pip to install sorcerer:  
+        ```bash
+        $ pip install sorcerer
+        ```
+        
+        # Usage
+        Run sorcerer as a command
+        ```bash
+        $ sorcerer
+        ```  
+        This will prompt you for your github repository link and absolute path to the repository.
+        
+        ## Example
+        ```bash
+        Github link to repository: https://github.com/sorcerer/example
+        Local path to repository: /Absolute/path/to/repository
+        ```
+        
+        This will then look for a `config.json` file that looks something like this
+        
+        ```JSON
+        {
+        "Ignore": ["CSES"],
+        "Paths": ["Kattis", "Dmoj", "Leetcode"]
+        }
+        ```
+        
+        ## File Structure
+        `sorcerer` as of now, requires a specific file structure in order to work.
+        
+        ```
+        Github/lazy/example/
+        ├── SITE_NAME
+        │   └── PROBLEM_ID
+        │       └── solution.cpp
+        ├── SITE_NAME
+        │   ├── PROBLEM_ID
+        │   │   └── solution.cpp
+        │   └── PROBLEM_ID
+        │       └── solution.py
+        ├── SITE_NAME
+        │   ├── PROBLEM_ID
+        │   │   ├── solution.cpp
+        │   │   └── solution.py
+        │   └── PROBLEM_ID
+        │       └── solution.py
+        ├── README.md
+        └── config.json
+        ```
+        
+        Where PROBLEM_ID is the id for the solved problem and SITE_NAME is the problem website name.  
+        For instance, https://open.kattis.com/problems/opensource -> Kattis/opensource/solution
+        
+        ## Result
+        
+        Potential sample result for a folder in the sample file structure above.
+        
+        ### Kattis
+        | Problem | Languages |
+        | ------- | --------- |
+         [Gerrymandering](https://open.kattis.com/problems/gerrymandering) | [Python](https://github.com/terror/sorcerer/blob/master/example/Kattis/gerrymandering/solution.py)
+         [Fenwick](https://open.kattis.com/problems/fenwick) | [C++](https://github.com/terror/sorcerer/blob/master/example/Kattis/fenwick/solution.cpp), [Python](https://github.com/terror/sorcerer/blob/master/example/Kattis/fenwick/solution.py)
+        
+        
+        The current sites being supported can be found [here](https://github.com/terror/sorcerer/blob/master/constants/sites.py). A full sample repository can be found [here](https://github.com/terror/sorcerer/tree/master/example) 
+        
+        # Development
+        Fork the repository
+        ```bash
+        $ git clone <fork>
+        ```
+        ```
+        $ pip3 install -r requirements.txt
+        ```
+        ```
+        $ python3 sorcerer
+        ```
+        
+        # License
+        MIT
+        
+Keywords: programming competitive tables markdown readmes
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
