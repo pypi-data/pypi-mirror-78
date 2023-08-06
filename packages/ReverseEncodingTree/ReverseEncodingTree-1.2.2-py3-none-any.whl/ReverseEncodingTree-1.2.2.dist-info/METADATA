@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: ReverseEncodingTree
+Version: 1.2.2
+Summary: library for the Reverse Encoding Tree
+Home-page: https://github.com/HaolingZHANG/ReverseEncodingTree
+Author: Haoling Zhang, Chao-Han Huck Yang
+Author-email: zhanghaoling@genomics.cn
+License: Apache
+Keywords: Evolutionary Strategy,NeuroEvolution
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: graphviz
+Requires-Dist: neat-python
+Requires-Dist: sklearn
+Requires-Dist: gym
+Requires-Dist: six
+Requires-Dist: pandas
+
+NeuroEvolution is one of the most competitive evolutionary learning strategies for designing novel neural networks for use in specific tasks. This library implemented an evolutionary strategy named Reverse Encoding Tree (RET), and expanded this strategy to evolve neural networks (Bi-NEAT and GS-NEAT). The experiments of RET contain the landscapes of Mount Everest and Rastrigin Function, and  those of RET-based NEAT include logic gates, Cartpole V0, and Lunar Lander V2.
+
+
