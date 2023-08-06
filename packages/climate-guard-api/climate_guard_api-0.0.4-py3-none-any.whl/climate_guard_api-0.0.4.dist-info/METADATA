@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: climate-guard-api
+Version: 0.0.4
+Summary: Climate Guard Api for boxes
+Home-page: https://github.com/pypa/sampleproject
+Author: oberdev
+Author-email: qovalski@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: attrs (==20.2.0)
+Requires-Dist: certifi (==2020.6.20)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: click (==7.1.2)
+Requires-Dist: Flask (==1.1.2)
+Requires-Dist: idna (==2.10)
+Requires-Dist: iniconfig (==1.0.1)
+Requires-Dist: itsdangerous (==1.1.0)
+Requires-Dist: Jinja2 (==2.11.2)
+Requires-Dist: MarkupSafe (==1.1.1)
+Requires-Dist: more-itertools (==8.5.0)
+Requires-Dist: packaging (==20.4)
+Requires-Dist: pluggy (==0.13.1)
+Requires-Dist: py (==1.9.0)
+Requires-Dist: pyparsing (==2.4.7)
+Requires-Dist: pytest (==6.0.1)
+Requires-Dist: pytest-mock-server (==0.2.0)
+Requires-Dist: requests (==2.24.0)
+Requires-Dist: requests-mock (==1.8.0)
+Requires-Dist: six (==1.15.0)
+Requires-Dist: toml (==0.10.1)
+Requires-Dist: urllib3 (==1.25.10)
+Requires-Dist: Werkzeug (==1.0.1)
+
+climate-guard-api
+
+
