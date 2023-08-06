@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "fastapi-admin"
+version = "0.3.1"
+description = "Fast Admin Dashboard based on fastapi and tortoise-orm and rest-admin."
+authors = ["long2ice <long2ice@gmail.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+homepage = "https://github.com/long2ice/fastapi-admin"
+repository = "https://github.com/long2ice/fastapi-admin.git"
+documentation = "https://github.com/long2ice/fastapi-admin"
+keywords = ["fastapi", "admin", "dashboard"]
+packages = [
+    { include = "fastapi_admin" }
+]
+include = ["LICENSE", "README.md"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+tortoise-orm = "*"
+aiomysql = "*"
+python-dotenv = "*"
+uvloop = {version = "*", optional = true}
+uvicorn = "*"
+python-rapidjson = "*"
+fastapi = "*"
+aiosqlite = "*"
+passlib = "*"
+bcrypt = "*"
+pyjwt = "*"
+xlsxwriter = "*"
+colorama = "*"
+prompt_toolkit = "*"
+jinja2 = "*"
+
+[tool.poetry.dev-dependencies]
+flake8 = "*"
+isort = "*"
+black = "^19.10b0"
+pytest = "*"
+bandit = "*"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+fastapi-admin = "fastapi_admin.cli:main"
+
+[tool.poetry.extras]
+uvloop = ["uvloop"]
