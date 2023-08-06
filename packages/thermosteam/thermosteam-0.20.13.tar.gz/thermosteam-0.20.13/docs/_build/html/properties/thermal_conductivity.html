@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>thermal_conductivity &mdash; Thermosteam  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="triple" href="triple.html" />
+    <link rel="prev" title="interface" href="interface.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="properties_module.html">properties</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="acentric.html">acentric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="combustion.html">combustion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="critical.html">critical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dipole.html">dipole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dippr.html">dippr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="electrolytes.html">electrolytes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="electrolyte_conductivity.html">electrolyte_conductivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements.html">elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eos.html">eos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heat_capacity.html">heat_capacity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identifiers.html">identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joback.html">joback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lennard_jones.html">lennard_jones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="miscdata.html">miscdata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permittivity.html">permitivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="phase_change.html">phase_change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reaction.html">reaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="refractivity.html">refractivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solubility.html">solubility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html">interface</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">thermal_conductivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="triple.html">triple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vapor_pressure.html">vapor_pressure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virial.html">virial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viscosity.html">viscosity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="volume.html">volume</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="properties_module.html">properties</a> &raquo;</li>
+        
+      <li>thermal_conductivity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/properties/thermal_conductivity.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-thermosteam.properties.thermal_conductivity">
+<span id="thermal-conductivity"></span><h1>thermal_conductivity<a class="headerlink" href="#module-thermosteam.properties.thermal_conductivity" title="Permalink to this headline">¶</a></h1>
+<p>All data and methods for estimating a chemical’s thermal conductivity.</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id1"><span class="brackets">1</span></dt>
+<dd><p>Scheffy, W. J., and E. F. Johnson. “Thermal Conductivities of
+Liquids at High Temperatures.” Journal of Chemical &amp; Engineering Data
+6, no. 2 (April 1, 1961): 245-49. doi:10.1021/je60010a019</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">2</span></dt>
+<dd><p>Riedel, L.: Chem. Ing. Tech., 21, 349 (1949); 23: 59, 321, 465 (1951)</p>
+</dd>
+<dt class="label" id="id3"><span class="brackets">3</span></dt>
+<dd><p>Maejima, T., private communication, 1973</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">4</span></dt>
+<dd><p>Properties of Gases and Liquids”, 3rd Ed., McGraw-Hill, 1977</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">5</span></dt>
+<dd><p>Lakshmi, D. S., and D. H. L. Prasad. “A Rapid Estimation Method for
+Thermal Conductivity of Pure Liquids.” The Chemical Engineering Journal
+48, no. 3 (April 1992): 211-14. doi:10.1016/0300-9467(92)80037-B</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">6</span></dt>
+<dd><p>Gharagheizi, Farhad, Poorandokht Ilani-Kashkouli, Mehdi Sattari,
+Amir H. Mohammadi, Deresh Ramjugernath, and Dominique Richon.
+“Development of a General Model for Determination of Thermal
+Conductivity of Liquid Chemical Compounds at Atmospheric Pressure.”
+AIChE Journal 59, no. 5 (May 1, 2013): 1702-8. doi:10.1002/aic.13938</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets">7</span></dt>
+<dd><p>Di Nicola, Giovanni, Eleonora Ciarrocchi, Gianluca Coccia, and
+Mariano Pierantozzi. “Correlations of Thermal Conductivity for
+Liquid Refrigerants at Atmospheric Pressure or near Saturation.”
+International Journal of Refrigeration. 2014.
+doi:10.1016/j.ijrefrig.2014.06.003</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets">8</span></dt>
+<dd><p>Bahadori, Alireza, and Saeid Mokhatab. “Estimating Thermal
+Conductivity of Hydrocarbons.” Chemical Engineering 115, no. 13
+(December 2008): 52-54</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">9</span></dt>
+<dd><p>Mersmann, Alfons, and Matthias Kind. “Prediction of Mechanical and
+Thermal Properties of Pure Liquids, of Critical Data, and of Vapor
+Pressure.” Industrial &amp; Engineering Chemistry Research, January 31,
+2017. <a class="reference external" href="https://doi.org/10.1021/acs.iecr.6b04323">https://doi.org/10.1021/acs.iecr.6b04323</a>.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets">10</span></dt>
+<dd><p>Missenard, F. A., Thermal Conductivity of Organic Liquids of a
+Series or a Group of Liquids , Rev. Gen.Thermodyn., 101 649 (1970).</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets">11</span></dt>
+<dd><p>Danner, Ronald P, and Design Institute for Physical Property Data.
+Manual for Predicting Chemical Process Design Data. New York, N.Y, 1982.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">12</span></dt>
+<dd><p>Poling, Bruce E. The Properties of Gases and Liquids. 5th edition.
+New York: McGraw-Hill Professional, 2000.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">13</span></dt>
+<dd><p>Reid, Robert C.; Prausnitz, John M.; Poling, Bruce E.
+Properties of Gases and Liquids. McGraw-Hill Companies, 1987.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets">14</span></dt>
+<dd><p>Chung, Ting Horng, Lloyd L. Lee, and Kenneth E. Starling.
+“Applications of Kinetic Gas Theories and Multiparameter Correlation for
+Prediction of Dilute Gas Viscosity and Thermal Conductivity.”
+Industrial &amp; Engineering Chemistry Fundamentals 23, no. 1
+(February 1, 1984): 8-13. doi:10.1021/i100013a002</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets">15</span></dt>
+<dd><p>Ely, James F., and H. J. M. Hanley. “Prediction of Transport
+Properties. 2. Thermal Conductivity of Pure Fluids and Mixtures.”
+Industrial &amp; Engineering Chemistry Fundamentals 22, no. 1 (February 1,
+1983): 90-97. doi:10.1021/i100009a016.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets">16</span></dt>
+<dd><p>Bahadori, Alireza, and Saeid Mokhatab. “Estimating Thermal
+Conductivity of Hydrocarbons.” Chemical Engineering 115, no. 13
+(December 2008): 52-54</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets">17</span></dt>
+<dd><p>Stiel, Leonard I., and George Thodos. “The Thermal Conductivity of
+Nonpolar Substances in the Dense Gaseous and Liquid Regions.” AIChE
+Journal 10, no. 1 (January 1, 1964): 26-30. doi:10.1002/aic.690100114.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets">18</span></dt>
+<dd><p>Chung, Ting Horng, Mohammad Ajlan, Lloyd L. Lee, and Kenneth E.
+Starling. “Generalized Multiparameter Correlation for Nonpolar and Polar
+Fluid Transport Properties.” Industrial &amp; Engineering Chemistry Research
+27, no. 4 (April 1, 1988): 671-79. doi:10.1021/ie00076a024.</p>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="triple.html" class="btn btn-neutral float-right" title="triple" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="interface.html" class="btn btn-neutral float-left" title="interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

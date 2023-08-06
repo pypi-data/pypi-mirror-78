@@ -1,0 +1,1120 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>thermosteam.reaction._reaction &mdash; Thermosteam  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>thermosteam.reaction._reaction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for thermosteam.reaction._reaction</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># BioSTEAM: The Biorefinery Simulation and Techno-Economic Analysis Modules</span>
+<span class="c1"># Copyright (C) 2020, Yoel Cortes-Pena, &lt;yoelcortes@gmail.com&gt;, Yalin Li, &lt;yalinli2@illinois.edu&gt;</span>
+<span class="c1"># </span>
+<span class="c1"># This module is under the UIUC open-source license. See </span>
+<span class="c1"># github.com/BioSTEAMDevelopmentGroup/biosteam/blob/master/LICENSE.txt</span>
+<span class="c1"># for license details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">thermosteam</span> <span class="k">as</span> <span class="nn">tmo</span>
+<span class="kn">import</span> <span class="nn">flexsolve</span> <span class="k">as</span> <span class="nn">flx</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_parse</span> <span class="k">as</span> <span class="n">prs</span>
+<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">chemicals_user</span>
+<span class="kn">from</span> <span class="nn">.._phase</span> <span class="kn">import</span> <span class="n">NoPhase</span>
+<span class="kn">from</span> <span class="nn">..indexer</span> <span class="kn">import</span> <span class="n">ChemicalIndexer</span>
+<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="kn">import</span> <span class="n">InfeasibleRegion</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Reaction&#39;</span><span class="p">,</span> <span class="s1">&#39;ParallelReaction&#39;</span><span class="p">,</span> <span class="s1">&#39;SeriesReaction&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">react_stream_adiabatically</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">reaction</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">tmo</span><span class="o">.</span><span class="n">Stream</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;stream must be a Stream object, not a &#39;{type(stream).__name__}&#39; object&quot;</span><span class="p">)</span>
+    <span class="n">Hnet</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">Hnet</span>
+    <span class="n">reaction</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">H</span> <span class="o">=</span> <span class="n">Hnet</span> <span class="o">-</span> <span class="n">stream</span><span class="o">.</span><span class="n">Hf</span>
+
+<span class="k">def</span> <span class="nf">check_material_feasibility</span><span class="p">(</span><span class="n">material</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">material</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span> <span class="k">raise</span> <span class="n">InfeasibleRegion</span><span class="p">(</span><span class="s1">&#39;not enough reactants; reaction conversion&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">set_reaction_basis</span><span class="p">(</span><span class="n">rxn</span><span class="p">,</span> <span class="n">basis</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">basis</span> <span class="o">!=</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_basis</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">basis</span> <span class="o">==</span> <span class="s1">&#39;wt&#39;</span><span class="p">:</span>
+            <span class="n">rxn</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">*=</span> <span class="n">rxn</span><span class="o">.</span><span class="n">MWs</span>
+        <span class="k">elif</span> <span class="n">basis</span> <span class="o">==</span> <span class="s1">&#39;mol&#39;</span><span class="p">:</span>
+            <span class="n">rxn</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">/=</span> <span class="n">rxn</span><span class="o">.</span><span class="n">MWs</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;basis must be either by &#39;wt&#39; or by &#39;mol&#39;&quot;</span><span class="p">)</span>
+        <span class="n">rxn</span><span class="o">.</span><span class="n">_rescale</span><span class="p">()</span>
+        <span class="n">rxn</span><span class="o">.</span><span class="n">_basis</span> <span class="o">=</span> <span class="n">basis</span>
+
+<span class="k">def</span> <span class="nf">as_material_array</span><span class="p">(</span><span class="n">material</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">chemicals</span><span class="p">):</span>
+    <span class="n">isa</span> <span class="o">=</span> <span class="nb">isinstance</span>
+    <span class="k">if</span> <span class="n">isa</span><span class="p">(</span><span class="n">material</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">material</span>
+    <span class="k">elif</span> <span class="n">isa</span><span class="p">(</span><span class="n">material</span><span class="p">,</span> <span class="n">tmo</span><span class="o">.</span><span class="n">MultiStream</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;reacting a stream with multiple phases is underdetermined&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">isa</span><span class="p">(</span><span class="n">material</span><span class="p">,</span> <span class="n">tmo</span><span class="o">.</span><span class="n">Stream</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">material</span><span class="o">.</span><span class="n">chemicals</span> <span class="ow">is</span> <span class="n">chemicals</span><span class="p">,</span> <span class="s2">&quot;reaction and stream chemicals do not match&quot;</span>
+        <span class="k">if</span> <span class="n">basis</span> <span class="o">==</span> <span class="s1">&#39;mol&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">material</span><span class="o">.</span><span class="n">mol</span>
+        <span class="k">elif</span> <span class="n">basis</span> <span class="o">==</span> <span class="s1">&#39;wt&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">material</span><span class="o">.</span><span class="n">mass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;basis must be either &#39;mol&#39; or &#39;wt&#39;&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;reaction material must be either an array or a stream&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Reaction"><a class="viewcode-back" href="../../../reaction/Reaction.html#thermosteam.reaction.Reaction">[docs]</a><span class="nd">@chemicals_user</span>
+<span class="k">class</span> <span class="nc">Reaction</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a Reaction object which defines a stoichiometric reaction and</span>
+<span class="sd">    conversion. When called, it elements of a material array due to the</span>
+<span class="sd">    reaction.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    reaction : dict or str</span>
+<span class="sd">               A dictionary of stoichiometric coefficients or a stoichiometric</span>
+<span class="sd">               equation written as:</span>
+<span class="sd">               i1 R1 + ... + in Rn -&gt; j1 P1 + ... + jm Pm</span>
+<span class="sd">    reactant : str</span>
+<span class="sd">               ID of reactant compound.</span>
+<span class="sd">    X : float</span>
+<span class="sd">        Reactant conversion (fraction).</span>
+<span class="sd">    chemicals=None : Chemicals, defaults to settings.chemicals.</span>
+<span class="sd">        Chemicals corresponing to each entry in the stoichiometry array.</span>
+<span class="sd">    basis=&#39;mol&#39;: {&#39;mol&#39;, &#39;wt&#39;}</span>
+<span class="sd">        Basis of reaction.</span>
+<span class="sd">    </span>
+<span class="sd">    Other Parameters</span>
+<span class="sd">    ----------------</span>
+<span class="sd">    check_mass_balance=False: bool</span>
+<span class="sd">        Whether to assert that mass is not created or destroyed.</span>
+<span class="sd">    correct_mass_balance=False: bool</span>
+<span class="sd">        Whether to make sure mass is not created or destroyed by varying the </span>
+<span class="sd">        reactant stoichiometric coefficient.</span>
+<span class="sd">    check_atomic_balance=False: bool</span>
+<span class="sd">        Whether to assert that stoichiometric balance by atoms cancel out.</span>
+<span class="sd">    correct_atomic_balance=False: bool</span>
+<span class="sd">        Whether to correct the stoichiometry according to the atomic balance.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    A reaction object can react either a stream or an array. When a stream</span>
+<span class="sd">    is passed, it reacts either the mol or mass flow rate according to</span>
+<span class="sd">    the basis of the reaction object. When an array is passed, the array</span>
+<span class="sd">    elements are reacted regardless of what basis they are associated with.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import thermosteam as tmo</span>
+<span class="sd">    &gt;&gt;&gt; import thermosteam.reaction as rxn</span>
+<span class="sd">    &gt;&gt;&gt; chemicals = tmo.Chemicals([&#39;H2O&#39;, &#39;H2&#39;, &#39;O2&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; tmo.settings.set_thermo(chemicals)</span>
+<span class="sd">    &gt;&gt;&gt; reaction = rxn.Reaction(&#39;2H2O -&gt; 2H2 + O2&#39;, reactant=&#39;H2O&#39;, X=0.7)</span>
+<span class="sd">    &gt;&gt;&gt; reaction.show() # Note that the default basis is by &#39;mol&#39;</span>
+<span class="sd">    Reaction (by mol):</span>
+<span class="sd">     stoichiometry       reactant    X[%]</span>
+<span class="sd">     H2O -&gt; H2 + 0.5 O2  H2O        70.00</span>
+<span class="sd">    &gt;&gt;&gt; feed = tmo.Stream(&#39;feed&#39;, H2O=200)</span>
+<span class="sd">    &gt;&gt;&gt; reaction(feed) # Call to run reaction on molar flow</span>
+<span class="sd">    &gt;&gt;&gt; feed.show() # Notice how 70% of water was converted to product</span>
+<span class="sd">    Stream: feed</span>
+<span class="sd">     phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="sd">     flow (kmol/hr): H2O  60</span>
+<span class="sd">                     H2   140</span>
+<span class="sd">                     O2   70</span>
+<span class="sd">    </span>
+<span class="sd">    Alternatively, its also possible to react an array (instead of a stream):</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; array = np.array([200., 0. , 0.])</span>
+<span class="sd">    &gt;&gt;&gt; reaction(array)</span>
+<span class="sd">    &gt;&gt;&gt; array</span>
+<span class="sd">    array([ 60., 140.,  70.])</span>
+<span class="sd">    </span>
+<span class="sd">    Let&#39;s change to a per &#39;wt&#39; basis:</span>
+<span class="sd">        </span>
+<span class="sd">    &gt;&gt;&gt; reaction.basis = &#39;wt&#39;</span>
+<span class="sd">    &gt;&gt;&gt; reaction.show()</span>
+<span class="sd">    Reaction (by wt):</span>
+<span class="sd">     stoichiometry               reactant    X[%]</span>
+<span class="sd">     H2O -&gt; 0.112 H2 + 0.888 O2  H2O        70.00</span>
+<span class="sd">    </span>
+<span class="sd">    Although we changed the basis, the end result is the same if we pass a </span>
+<span class="sd">    stream:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; feed = tmo.Stream(&#39;feed&#39;, H2O=200)</span>
+<span class="sd">    &gt;&gt;&gt; reaction(feed) # Call to run reaction on mass flow</span>
+<span class="sd">    &gt;&gt;&gt; feed.show() # Notice how 70% of water was converted to product</span>
+<span class="sd">    Stream: feed</span>
+<span class="sd">     phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="sd">     flow (kmol/hr): H2O  60</span>
+<span class="sd">                     H2   140</span>
+<span class="sd">                     O2   70</span>
+<span class="sd">    </span>
+<span class="sd">    If we pass an array, however, the Reaction object assumes the</span>
+<span class="sd">    array data is by weight:</span>
+<span class="sd">        </span>
+<span class="sd">    &gt;&gt;&gt; array = np.array([200., 0. , 0.])</span>
+<span class="sd">    &gt;&gt;&gt; reaction(array)</span>
+<span class="sd">    &gt;&gt;&gt; array</span>
+<span class="sd">    array([ 60.   ,  15.666, 124.334])</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;_basis&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;_chemicals&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;_X_index&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;_stoichiometry&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;_X&#39;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reaction</span><span class="p">,</span> <span class="n">reactant</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> 
+                 <span class="n">chemicals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;mol&#39;</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">check_mass_balance</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">check_atomic_balance</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">correct_atomic_balance</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">correct_mass_balance</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">basis</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;wt&#39;</span><span class="p">,</span> <span class="s1">&#39;mol&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span> <span class="o">=</span> <span class="n">basis</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;basis must be either by &#39;wt&#39; or by &#39;mol&#39;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X</span> <span class="o">=</span> <span class="n">X</span> <span class="c1">#: [float] Reactant conversion</span>
+        <span class="n">chemicals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_chemicals</span><span class="p">(</span><span class="n">chemicals</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">reaction</span><span class="p">:</span>            
+            <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">=</span> <span class="n">prs</span><span class="o">.</span><span class="n">get_stoichiometric_array</span><span class="p">(</span><span class="n">reaction</span><span class="p">,</span> <span class="n">chemicals</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">reactant</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rescale</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">correct_atomic_balance</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">correct_atomic_balance</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">correct_mass_balance</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">correct_mass_balance</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">check_mass_balance</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">check_mass_balance</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">check_atomic_balance</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">check_atomic_balance</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">chemicals</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">reactant</span><span class="p">)</span>
+    
+<div class="viewcode-block" id="Reaction.copy"><a class="viewcode-back" href="../../../reaction/Reaction.html#thermosteam.reaction.Reaction.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return copy of Reaction object.&quot;&quot;&quot;</span>
+        <span class="n">copy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+        <span class="n">copy</span><span class="o">.</span><span class="n">_basis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span>
+        <span class="n">copy</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">copy</span><span class="o">.</span><span class="n">_X_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span>
+        <span class="n">copy</span><span class="o">.</span><span class="n">_chemicals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span>
+        <span class="n">copy</span><span class="o">.</span><span class="n">_X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span>
+        <span class="k">if</span> <span class="n">basis</span><span class="p">:</span> <span class="n">set_reaction_basis</span><span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">basis</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">copy</span></div>
+    
+    <span class="k">def</span> <span class="nf">has_reaction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">stoichiometry</span><span class="o">.</span><span class="n">any</span><span class="p">())</span>
+    
+    <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rxn</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="n">rxn</span>
+    
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rxn</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">rxn</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">rxn</span><span class="o">.</span><span class="n">has_reaction</span><span class="p">():</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span> <span class="o">==</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_basis</span><span class="p">,</span> <span class="s1">&#39;basis must be the same to add reactions&#39;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span> <span class="ow">is</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">,</span> <span class="s1">&#39;working chemicals must be the same to add reactions&#39;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span> <span class="o">==</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_X_index</span><span class="p">,</span> <span class="s1">&#39;reactants must be the same to add reactions&#39;</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">stoichiometry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">+</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="o">*</span><span class="n">rxn</span><span class="o">.</span><span class="n">X</span>
+        <span class="n">new</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">=</span> <span class="n">stoichiometry</span><span class="o">/-</span><span class="p">(</span><span class="n">stoichiometry</span><span class="p">[</span><span class="n">new</span><span class="o">.</span><span class="n">_X_index</span><span class="p">])</span>
+        <span class="n">new</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">+</span> <span class="n">rxn</span><span class="o">.</span><span class="n">X</span>
+        <span class="k">return</span> <span class="n">new</span>
+    
+    <span class="k">def</span> <span class="fm">__iadd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rxn</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">rxn</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">rxn</span><span class="o">.</span><span class="n">has_reaction</span><span class="p">():</span> <span class="k">return</span> <span class="bp">self</span>
+        <span class="n">basis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span>
+        <span class="k">if</span> <span class="n">basis</span> <span class="o">!=</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_basis</span><span class="p">:</span> <span class="n">rxn</span> <span class="o">=</span> <span class="n">rxn</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">basis</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span> <span class="ow">is</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">,</span> <span class="s1">&#39;working chemicals must be the same to add reactions&#39;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span> <span class="o">==</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_X_index</span><span class="p">,</span> <span class="s1">&#39;reactants must be the same to add reactions&#39;</span>
+        <span class="n">stoichiometry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">+</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="o">*</span><span class="n">rxn</span><span class="o">.</span><span class="n">X</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">=</span> <span class="n">stoichiometry</span><span class="o">/-</span><span class="p">(</span><span class="n">stoichiometry</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">+</span> <span class="n">rxn</span><span class="o">.</span><span class="n">X</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    
+    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">new</span><span class="o">.</span><span class="n">X</span> <span class="o">*=</span> <span class="nb">float</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new</span>
+    
+    <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__imul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">*=</span> <span class="n">num</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    
+    <span class="k">def</span> <span class="nf">__div__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">num</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">__rdiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">num</span><span class="p">)</span>    
+    
+    <span class="k">def</span> <span class="nf">__idiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__imul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">num</span><span class="p">)</span> 
+    
+    <span class="k">def</span> <span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">new</span><span class="o">.</span><span class="n">X</span> <span class="o">*=</span> <span class="o">-</span><span class="mf">1.</span>
+        <span class="k">return</span> <span class="n">new</span>
+    
+    <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rxn</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span> <span class="o">==</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_basis</span><span class="p">,</span> <span class="s1">&#39;basis must be the same to substract reactions&#39;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span> <span class="ow">is</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">,</span> <span class="s1">&#39;working chemicals must be the same to substract reactions&#39;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span> <span class="o">==</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_X_index</span><span class="p">,</span> <span class="s1">&#39;reactants must be the same to substract reactions&#39;</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">stoichiometry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">-</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="o">*</span><span class="n">rxn</span><span class="o">.</span><span class="n">X</span>
+        <span class="n">new</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">=</span> <span class="n">stoichiometry</span><span class="o">/-</span><span class="p">(</span><span class="n">stoichiometry</span><span class="p">[</span><span class="n">new</span><span class="o">.</span><span class="n">_X_index</span><span class="p">])</span>
+        <span class="n">new</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">-</span> <span class="n">rxn</span><span class="o">.</span><span class="n">X</span>
+        <span class="k">return</span> <span class="n">new</span>
+    
+    <span class="k">def</span> <span class="fm">__isub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rxn</span><span class="p">):</span>
+        <span class="n">basis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span>
+        <span class="k">if</span> <span class="n">basis</span> <span class="o">!=</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_basis</span><span class="p">:</span> <span class="n">rxn</span> <span class="o">=</span> <span class="n">rxn</span><span class="o">.</span><span class="n">to_basis</span><span class="p">(</span><span class="n">basis</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span> <span class="ow">is</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">,</span> <span class="s1">&#39;working chemicals must be the same to substract reactions&#39;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span> <span class="o">==</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_X_index</span><span class="p">,</span> <span class="s1">&#39;reactants must be the same to substract reactions&#39;</span>
+        <span class="n">stoichiometry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">+</span> <span class="n">rxn</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="o">*</span><span class="n">rxn</span><span class="o">.</span><span class="n">X</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">=</span> <span class="n">stoichiometry</span><span class="o">/-</span><span class="p">(</span><span class="n">stoichiometry</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">-</span> <span class="n">rxn</span><span class="o">.</span><span class="n">X</span>
+        <span class="k">return</span> 
+    
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">material</span><span class="p">):</span>
+        <span class="n">material_array</span> <span class="o">=</span> <span class="n">as_material_array</span><span class="p">(</span><span class="n">material</span><span class="p">,</span>
+                                           <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span><span class="p">,</span>
+                                           <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reaction</span><span class="p">(</span><span class="n">material_array</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tmo</span><span class="o">.</span><span class="n">reaction</span><span class="o">.</span><span class="n">CHECK_FEASIBILITY</span><span class="p">:</span>
+            <span class="n">check_material_feasibility</span><span class="p">(</span><span class="n">material_array</span><span class="p">)</span>
+        
+<div class="viewcode-block" id="Reaction.force_reaction"><a class="viewcode-back" href="../../../reaction/Reaction.html#thermosteam.reaction.Reaction.force_reaction">[docs]</a>    <span class="k">def</span> <span class="nf">force_reaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">material</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;React material ignoring feasibility checks.&quot;&quot;&quot;</span>
+        <span class="n">material_array</span> <span class="o">=</span> <span class="n">as_material_array</span><span class="p">(</span><span class="n">material</span><span class="p">,</span>
+                                           <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span><span class="p">,</span>
+                                           <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reaction</span><span class="p">(</span><span class="n">material_array</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Reaction.product_yield"><a class="viewcode-back" href="../../../reaction/Reaction.html#thermosteam.reaction.Reaction.product_yield">[docs]</a>    <span class="k">def</span> <span class="nf">product_yield</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return yield of product per reactant.&quot;&quot;&quot;</span>
+        <span class="n">product_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
+        <span class="n">product_coefficient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">[</span><span class="n">product_index</span><span class="p">]</span>
+        <span class="n">product_yield</span> <span class="o">=</span> <span class="n">product_coefficient</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span> <span class="o">!=</span> <span class="n">basis</span><span class="p">:</span>
+            <span class="n">chemicals_tuple</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="o">.</span><span class="n">tuple</span>
+            <span class="n">reactant_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span>
+            <span class="n">MW_reactant</span> <span class="o">=</span> <span class="n">chemicals_tuple</span><span class="p">[</span><span class="n">reactant_index</span><span class="p">]</span><span class="o">.</span><span class="n">MW</span>
+            <span class="n">MW_product</span> <span class="o">=</span> <span class="n">chemicals_tuple</span><span class="p">[</span><span class="n">product_index</span><span class="p">]</span><span class="o">.</span><span class="n">MW</span>
+            <span class="k">if</span> <span class="n">basis</span> <span class="o">==</span> <span class="s1">&#39;wt&#39;</span><span class="p">:</span>
+                <span class="n">product_yield</span> <span class="o">*=</span> <span class="n">MW_reactant</span> <span class="o">/</span> <span class="n">MW_product</span>
+            <span class="k">elif</span> <span class="n">basis</span> <span class="o">==</span> <span class="s1">&#39;mol&#39;</span><span class="p">:</span>
+                <span class="n">product_yield</span> <span class="o">*=</span> <span class="n">MW_product</span> <span class="o">/</span> <span class="n">MW_reactant</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;basis must be either &#39;wt&#39; or &#39;mol&#39;; &quot;</span>
+                                <span class="sa">f</span><span class="s2">&quot;not {repr(basis)}&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">product_yield</span></div>
+    
+<div class="viewcode-block" id="Reaction.adiabatic_reaction"><a class="viewcode-back" href="../../../reaction/Reaction.html#thermosteam.reaction.Reaction.adiabatic_reaction">[docs]</a>    <span class="k">def</span> <span class="nf">adiabatic_reaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        React stream material adiabatically, accounting for the change in enthalpy</span>
+<span class="sd">        due to the heat of reaction.</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Note how the stream temperature changed after the reaction due to the</span>
+<span class="sd">        heat of reaction:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; import thermosteam as tmo</span>
+<span class="sd">        &gt;&gt;&gt; import thermosteam.reaction as rxn</span>
+<span class="sd">        &gt;&gt;&gt; chemicals = tmo.Chemicals([&#39;H2&#39;, &#39;O2&#39;, &#39;H2O&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; tmo.settings.set_thermo(chemicals)</span>
+<span class="sd">        &gt;&gt;&gt; reaction = rxn.Reaction(&#39;2H2 + O2 -&gt; 2H2O&#39;, reactant=&#39;H2&#39;, X=0.7)</span>
+<span class="sd">        &gt;&gt;&gt; s1 = tmo.Stream(&#39;s1&#39;, H2=10, O2=20, H2O=1000)</span>
+<span class="sd">        &gt;&gt;&gt; s2 = tmo.Stream(&#39;s2&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; s2.copy_like(s1) # s1 and s2 are the same</span>
+<span class="sd">        &gt;&gt;&gt; s1.show() # Before reaction</span>
+<span class="sd">        Stream: s1</span>
+<span class="sd">         phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="sd">         flow (kmol/hr): H2   10</span>
+<span class="sd">                         O2   20</span>
+<span class="sd">                         H2O  1e+03</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; reaction.show()</span>
+<span class="sd">        Reaction (by mol):</span>
+<span class="sd">         stoichiometry       reactant    X[%]</span>
+<span class="sd">         H2 + 0.5 O2 -&gt; H2O  H2         70.00</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; reaction(s1) </span>
+<span class="sd">        &gt;&gt;&gt; s1.show() # After non-adiabatic reaction</span>
+<span class="sd">        Stream: s1</span>
+<span class="sd">         phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="sd">         flow (kmol/hr): H2   3</span>
+<span class="sd">                         O2   16.5</span>
+<span class="sd">                         H2O  1.01e+03</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; reaction.adiabatic_reaction(s2)</span>
+<span class="sd">        &gt;&gt;&gt; s2.show() # After adiabatic reaction</span>
+<span class="sd">        Stream: s2</span>
+<span class="sd">         phase: &#39;l&#39;, T: 324.11 K, P: 101325 Pa</span>
+<span class="sd">         flow (kmol/hr): H2   3</span>
+<span class="sd">                         O2   16.5</span>
+<span class="sd">                         H2O  1.01e+03</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">react_stream_adiabatically</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span></div>
+    
+    <span class="k">def</span> <span class="nf">_reaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">material_array</span><span class="p">):</span>
+        <span class="n">material_array</span> <span class="o">+=</span> <span class="n">material_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Heat of reaction at given conversion. Units are in either</span>
+<span class="sd">        J/mol-reactant or J/g-reactant; depending on basis.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span> <span class="o">==</span> <span class="s1">&#39;mol&#39;</span><span class="p">:</span>
+            <span class="n">Hfs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="o">.</span><span class="n">Hf</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Hfs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="o">.</span><span class="n">Hf</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWs</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">*</span> <span class="p">(</span><span class="n">Hfs</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">X</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[float] Reaction converion as a fraction.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span>
+    <span class="nd">@X</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">X</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X</span> <span class="o">=</span> <span class="n">X</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">stoichiometry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[array] Stoichiometry coefficients.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">istoichiometry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[ChemicalIndexer] Stoichiometry coefficients.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">tmo</span><span class="o">.</span><span class="n">indexer</span><span class="o">.</span><span class="n">ChemicalIndexer</span><span class="o">.</span><span class="n">from_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">,</span>
+                                                     <span class="n">chemicals</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">,</span>
+                                                     <span class="n">check_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">reactant</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[str] Reactant associated to conversion.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="o">.</span><span class="n">IDs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">MWs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[1d array] Molecular weights of all chemicals [mol/g].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="o">.</span><span class="n">MW</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">basis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;{&#39;mol&#39;, &#39;wt&#39;} Basis of reaction&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span>
+    <span class="nd">@basis</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">basis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basis</span><span class="p">):</span>
+        <span class="n">set_reaction_basis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basis</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_stoichiometry_by_wt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return stoichiometry by weight.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span> <span class="o">==</span> <span class="s1">&#39;mol&#39;</span><span class="p">:</span>
+            <span class="n">stoichiometry_by_wt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWs</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">stoichiometry_by_wt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span>
+        <span class="k">return</span> <span class="n">stoichiometry_by_wt</span>
+        
+    <span class="k">def</span> <span class="nf">_get_stoichiometry_by_mol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return stoichiometry on a molar basis.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span> <span class="o">==</span> <span class="s1">&#39;wt&#39;</span><span class="p">:</span>
+            <span class="n">stoichiometry_by_mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWs</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">stoichiometry_by_mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span>
+        <span class="k">return</span> <span class="n">stoichiometry_by_mol</span>
+    
+<div class="viewcode-block" id="Reaction.check_mass_balance"><a class="viewcode-back" href="../../../reaction/Reaction.html#thermosteam.reaction.Reaction.check_mass_balance">[docs]</a>    <span class="k">def</span> <span class="nf">check_mass_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Assert that stoichiometric mass balance is correct.&quot;&quot;&quot;</span>
+        <span class="n">stoichiometry_by_wt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_stoichiometry_by_wt</span><span class="p">()</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">stoichiometry_by_wt</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+        <span class="k">assert</span> <span class="n">error</span> <span class="o">&lt;=</span> <span class="n">tol</span><span class="p">,</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;material stoichiometry is unbalanced by </span><span class="si">{error}</span><span class="s2"> in weight&quot;</span>
+        <span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Reaction.check_atomic_balance"><a class="viewcode-back" href="../../../reaction/Reaction.html#thermosteam.reaction.Reaction.check_atomic_balance">[docs]</a>    <span class="k">def</span> <span class="nf">check_atomic_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Assert that stoichiometric atomic balance is correct.&quot;&quot;&quot;</span>
+        <span class="n">stoichiometry_by_mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_stoichiometry_by_mol</span><span class="p">()</span>
+        <span class="n">formula_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemicals</span><span class="o">.</span><span class="n">formula_array</span>
+        <span class="n">unbalanced_array</span> <span class="o">=</span> <span class="n">formula_array</span> <span class="o">@</span> <span class="n">stoichiometry_by_mol</span>
+        <span class="n">atoms</span> <span class="o">=</span> <span class="n">tmo</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">array_to_atoms</span><span class="p">(</span><span class="n">unbalanced_array</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">,</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;atomic stoichiometry is unbalanced by the following molar stoichiometric coefficients:</span><span class="se">\n</span><span class="s2"> &quot;</span>
+            <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{symbol}</span><span class="s2">: </span><span class="si">{value}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+        <span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Reaction.correct_mass_balance"><a class="viewcode-back" href="../../../reaction/Reaction.html#thermosteam.reaction.Reaction.correct_mass_balance">[docs]</a>    <span class="k">def</span> <span class="nf">correct_mass_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Make sure mass is not created or destroyed by varying the </span>
+<span class="sd">        reactant stoichiometric coefficient.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">variable</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemicals</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span>
+        <span class="n">stoichiometry_by_wt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_stoichiometry_by_wt</span><span class="p">()</span>
+        
+        <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="n">stoichiometry_by_wt</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="k">return</span> <span class="n">stoichiometry_by_wt</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        
+        <span class="n">flx</span><span class="o">.</span><span class="n">aitken_secant</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span> <span class="o">==</span> <span class="s1">&#39;mol&#39;</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">stoichiometry_by_wt</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rescale</span><span class="p">()</span></div>
+    
+<div class="viewcode-block" id="Reaction.correct_atomic_balance"><a class="viewcode-back" href="../../../reaction/Reaction.html#thermosteam.reaction.Reaction.correct_atomic_balance">[docs]</a>    <span class="k">def</span> <span class="nf">correct_atomic_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constants</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Correct stoichiometry coffecients to satisfy atomic balance.&quot;&quot;&quot;</span>
+        <span class="n">stoichiometry_by_mol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_stoichiometry_by_mol</span><span class="p">()</span>
+        <span class="n">chemicals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemicals</span>
+        <span class="k">if</span> <span class="n">constants</span><span class="p">:</span>
+            <span class="n">constant_index</span> <span class="o">=</span> <span class="n">chemicals</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span><span class="n">constants</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">constant_index</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span><span class="p">]</span>
+        <span class="n">chemical_index</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">stoichiometry_by_mol</span> <span class="o">!=</span> <span class="mf">0.</span><span class="p">)</span>
+        <span class="n">chemical_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">chemical_index</span><span class="p">,</span> <span class="n">constant_index</span><span class="p">)</span>
+        <span class="n">formula_array</span> <span class="o">=</span> <span class="n">chemicals</span><span class="o">.</span><span class="n">formula_array</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">formula_array</span><span class="p">[:,</span> <span class="n">constant_index</span><span class="p">]</span>
+               <span class="o">*</span> <span class="n">stoichiometry_by_mol</span><span class="p">[</span><span class="n">constant_index</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">atomic_index</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">atomic_index</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">formula_array</span><span class="p">[</span><span class="n">atomic_index</span><span class="p">,</span> <span class="p">:][:,</span> <span class="n">chemical_index</span><span class="p">]</span>
+        <span class="n">M_atoms</span><span class="p">,</span> <span class="n">N_chemicals</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">if</span> <span class="n">M_atoms</span> <span class="o">!=</span> <span class="n">N_chemicals</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                 <span class="s1">&#39;to solve atomic balance, number of atoms &#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;(</span><span class="si">{M_atoms}</span><span class="s1"> available) must be equal to the number of &#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;varied chemicals (</span><span class="si">{N_chemicals}</span><span class="s1"> available)&#39;</span>
+            <span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="n">stoichiometry_by_mol</span><span class="p">[</span><span class="n">chemical_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span> <span class="o">==</span> <span class="s1">&#39;wt&#39;</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">stoichiometry_by_mol</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">MWs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rescale</span><span class="p">()</span></div>
+    
+    <span class="k">def</span> <span class="nf">_rescale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Scale stoichiometry to a per reactant basis.&quot;&quot;&quot;</span>
+        <span class="n">new_scale</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">/=</span> <span class="n">new_scale</span>
+    
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">stoichiometry</span> <span class="o">=</span> <span class="n">prs</span><span class="o">.</span><span class="n">get_stoichiometric_string</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;{type(self).__name__}(&#39;</span><span class="si">{stoichiometry}</span><span class="s2">&#39;, reactant=&#39;</span><span class="si">{self.reactant}</span><span class="s2">&#39;, X=</span><span class="si">{self.X:.3g}</span><span class="s2">, basis=</span><span class="si">{self.basis}</span><span class="s2">)&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;{type(self).__name__} (by </span><span class="si">{self.basis}</span><span class="s2">):&quot;</span>
+        <span class="n">rxn</span> <span class="o">=</span> <span class="n">prs</span><span class="o">.</span><span class="n">get_stoichiometric_string</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">)</span>
+        <span class="nb">cmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reactant</span>
+        <span class="n">lrxn</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rxn</span><span class="p">)</span>
+        <span class="n">lcmp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">cmp</span><span class="p">)</span>
+        <span class="n">maxrxnlen</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="mi">13</span><span class="p">,</span> <span class="n">lrxn</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span>
+        <span class="n">maxcmplen</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="n">lcmp</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span>
+        <span class="n">info</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> stoichiometry&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="o">*</span><span class="p">(</span><span class="n">maxrxnlen</span> <span class="o">-</span> <span class="mi">13</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;reactant&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="o">*</span><span class="p">(</span><span class="n">maxcmplen</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;  X[%]&#39;</span>
+        <span class="n">rxn_spaces</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">*</span><span class="p">(</span><span class="n">maxrxnlen</span> <span class="o">-</span> <span class="n">lrxn</span><span class="p">)</span>
+        <span class="n">cmp_spaces</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">*</span><span class="p">(</span><span class="n">maxcmplen</span> <span class="o">-</span> <span class="n">lcmp</span><span class="p">)</span>
+        <span class="n">info</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> </span><span class="si">{rxn}{rxn_spaces}{cmp}{cmp_spaces}</span><span class="s2">{X*100: &gt;6.2f}&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+    <span class="n">_ipython_display_</span> <span class="o">=</span> <span class="n">show</span></div>
+
+
+<span class="k">class</span> <span class="nc">ReactionItem</span><span class="p">(</span><span class="n">Reaction</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a ReactionItem object from the a ReactionSet and reaction index.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rxnset : ReactionSet</span>
+<span class="sd">    index : int</span>
+<span class="sd">        Index of reaction.</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;_index&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rxnset</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">=</span> <span class="n">rxnset</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span> <span class="o">=</span> <span class="n">rxnset</span><span class="o">.</span><span class="n">_basis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X</span> <span class="o">=</span> <span class="n">rxnset</span><span class="o">.</span><span class="n">_X</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span> <span class="o">=</span> <span class="n">rxnset</span><span class="o">.</span><span class="n">_chemicals</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span> <span class="o">=</span> <span class="n">rxnset</span><span class="o">.</span><span class="n">_X_index</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="n">index</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">basis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;{&#39;mol&#39;, &#39;wt&#39;} Basis of reaction&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span>
+    <span class="nd">@basis</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">basis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basis</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;cannot change basis of reaction item&#39;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return copy of Reaction object.&quot;&quot;&quot;</span>
+        <span class="n">copy</span> <span class="o">=</span> <span class="n">Reaction</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="n">Reaction</span><span class="p">)</span>
+        <span class="n">copy</span><span class="o">.</span><span class="n">_basis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span>
+        <span class="n">copy</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">copy</span><span class="o">.</span><span class="n">_X_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span>
+        <span class="n">copy</span><span class="o">.</span><span class="n">_chemicals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span>
+        <span class="n">copy</span><span class="o">.</span><span class="n">_X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span>
+        <span class="k">if</span> <span class="n">basis</span><span class="p">:</span> <span class="n">set_reaction_basis</span><span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">basis</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">copy</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">X</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[float] Reaction converion as a fraction.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">]</span>
+    <span class="nd">@X</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">X</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span>
+        
+
+<span class="k">class</span> <span class="nc">ReactionSet</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a ReactionSet that contains all reactions and conversions as an array.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    reactions : Iterable[Reaction]</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;_basis&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;_stoichiometry&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;_X&#39;</span><span class="p">,</span> <span class="s1">&#39;_X_index&#39;</span><span class="p">,</span> 
+                 <span class="s1">&#39;_chemicals&#39;</span><span class="p">)</span>
+
+    <span class="n">copy</span> <span class="o">=</span> <span class="n">Reaction</span><span class="o">.</span><span class="n">copy</span>
+    <span class="n">_get_stoichiometry_by_mol</span> <span class="o">=</span> <span class="n">Reaction</span><span class="o">.</span><span class="n">_get_stoichiometry_by_mol</span>
+    <span class="n">_get_stoichiometry_by_wt</span> <span class="o">=</span> <span class="n">Reaction</span><span class="o">.</span><span class="n">_get_stoichiometry_by_wt</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reactions</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">reactions</span><span class="p">,</span> <span class="s1">&#39;no reactions passed&#39;</span>
+        <span class="n">chemicals</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">chemicals</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">reactions</span><span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">,</span> <span class="o">=</span> <span class="n">chemicals</span>
+        <span class="k">except</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;all reactions must have the same chemicals&#39;</span><span class="p">)</span>
+        <span class="n">basis</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">basis</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">reactions</span><span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span><span class="p">,</span> <span class="o">=</span> <span class="n">basis</span>
+        <span class="k">except</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;all reactions must have the same basis&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">reactions</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">X</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">reactions</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">_X_index</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">reactions</span><span class="p">])</span>
+    
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="n">stoichiometry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stoichiometry</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ReactionItem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rxnset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+            <span class="n">rxnset</span><span class="o">.</span><span class="n">_basis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span>
+            <span class="n">rxnset</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">=</span> <span class="n">stoichiometry</span>
+            <span class="n">rxnset</span><span class="o">.</span><span class="n">_X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="n">rxnset</span><span class="o">.</span><span class="n">_X_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="n">rxnset</span><span class="o">.</span><span class="n">_chemicals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span>
+            <span class="k">return</span> <span class="n">rxnset</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">basis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;{&#39;mol&#39;, &#39;wt&#39;} Basis of reaction&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span>
+    <span class="nd">@basis</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">basis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basis</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;cannot change basis of reaction set&#39;</span><span class="p">)</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">X</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[1d array] Reaction converions.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">chemicals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[Chemicals] Chemicals corresponing to each entry in the stoichiometry array.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">stoichiometry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[2d array] Stoichiometry coefficients.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">reactants</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;tuple[str] Reactants associated to conversion.&quot;&quot;&quot;</span>
+        <span class="n">IDs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="o">.</span><span class="n">IDs</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">IDs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span><span class="p">])</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">MWs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[2d array] Molecular weights of all chemicals.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="o">.</span><span class="n">MW</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+    
+    <span class="k">def</span> <span class="nf">_rescale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Scale stoichiometry to a per reactant basis.&quot;&quot;&quot;</span>
+        <span class="n">X_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span>
+        <span class="n">new_scale</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">X_index</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">X_index</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span> <span class="o">/=</span> <span class="n">new_scale</span>
+    
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;{type(self).__name__}([&#39;, &#39;.join([repr(i) for i in self])])&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;{type(self).__name__} (by </span><span class="si">{self.basis}</span><span class="s2">):&quot;</span>
+        <span class="n">chemicals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span>
+        <span class="n">rxns</span> <span class="o">=</span> <span class="p">[</span><span class="n">prs</span><span class="o">.</span><span class="n">get_stoichiometric_string</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">chemicals</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">]</span>
+        <span class="n">maxrxnlen</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="mi">13</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">rxns</span><span class="p">]])</span> <span class="o">+</span> <span class="mi">2</span>
+        <span class="n">cmps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reactants</span>
+        <span class="n">maxcmplen</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cmps</span><span class="p">]])</span> <span class="o">+</span> <span class="mi">2</span>
+        <span class="n">Xs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+        <span class="n">maxnumspace</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">N</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">info</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">index&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="o">*</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">maxnumspace</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;stoichiometry&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="o">*</span><span class="p">(</span><span class="n">maxrxnlen</span> <span class="o">-</span> <span class="mi">13</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;reactant&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="o">*</span><span class="p">(</span><span class="n">maxcmplen</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;  X[%]&#39;</span>
+        <span class="k">for</span> <span class="n">N</span><span class="p">,</span> <span class="n">rxn</span><span class="p">,</span> <span class="nb">cmp</span><span class="p">,</span> <span class="n">X</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rxns</span><span class="p">,</span> <span class="n">cmps</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+            <span class="n">rxn_spaces</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">*</span><span class="p">(</span><span class="n">maxrxnlen</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">rxn</span><span class="p">))</span>
+            <span class="n">cmp_spaces</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">*</span><span class="p">(</span><span class="n">maxcmplen</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="nb">cmp</span><span class="p">))</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+            <span class="n">numspace</span> <span class="o">=</span> <span class="p">(</span><span class="n">maxnumspace</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">))</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span>
+            <span class="n">info</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[</span><span class="si">{N}</span><span class="s2">]</span><span class="si">{numspace}{rxn}{rxn_spaces}{cmp}{cmp_spaces}</span><span class="s2">{X*100: &gt;6.2f}&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+    <span class="n">_ipython_display_</span> <span class="o">=</span> <span class="n">show</span>
+        
+
+<div class="viewcode-block" id="ParallelReaction"><a class="viewcode-back" href="../../../reaction/ParallelReaction.html#thermosteam.reaction.ParallelReaction">[docs]</a><span class="k">class</span> <span class="nc">ParallelReaction</span><span class="p">(</span><span class="n">ReactionSet</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a ParallelReaction object from Reaction objects. When called, </span>
+<span class="sd">    it returns the change in material due to all parallel reactions.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    reactions : Iterable[Reaction]</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">()</span>
+    
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">material</span><span class="p">):</span>
+        <span class="n">material_array</span> <span class="o">=</span> <span class="n">as_material_array</span><span class="p">(</span><span class="n">material</span><span class="p">,</span>
+                                           <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span><span class="p">,</span> 
+                                           <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reaction</span><span class="p">(</span><span class="n">material_array</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tmo</span><span class="o">.</span><span class="n">reaction</span><span class="o">.</span><span class="n">CHECK_FEASIBILITY</span><span class="p">:</span> 
+            <span class="n">check_material_feasibility</span><span class="p">(</span><span class="n">material_array</span><span class="p">)</span>
+        
+<div class="viewcode-block" id="ParallelReaction.force_reaction"><a class="viewcode-back" href="../../../reaction/ParallelReaction.html#thermosteam.reaction.ParallelReaction.force_reaction">[docs]</a>    <span class="k">def</span> <span class="nf">force_reaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">material</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;React material ignoring feasibility checks.&quot;&quot;&quot;</span>
+        <span class="n">material_array</span> <span class="o">=</span> <span class="n">as_material_array</span><span class="p">(</span><span class="n">material</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reaction</span><span class="p">(</span><span class="n">material_array</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="ParallelReaction.adiabatic_reaction"><a class="viewcode-back" href="../../../reaction/ParallelReaction.html#thermosteam.reaction.ParallelReaction.adiabatic_reaction">[docs]</a>    <span class="k">def</span> <span class="nf">adiabatic_reaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        React stream material adiabatically, accounting for the change in enthalpy</span>
+<span class="sd">        due to the heat of reaction.</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Note how the stream temperature changed after the reaction due to the heat of reaction:</span>
+<span class="sd">            </span>
+<span class="sd">        &gt;&gt;&gt; import thermosteam as tmo</span>
+<span class="sd">        &gt;&gt;&gt; import thermosteam.reaction as rxn</span>
+<span class="sd">        &gt;&gt;&gt; chemicals = tmo.Chemicals([&#39;H2&#39;, &#39;CH4&#39;, &#39;O2&#39;, &#39;CO2&#39;, &#39;H2O&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; tmo.settings.set_thermo(chemicals)</span>
+<span class="sd">        &gt;&gt;&gt; reaction = rxn.ParallelReaction([</span>
+<span class="sd">        ...    #            Reaction definition          Reactant    Conversion</span>
+<span class="sd">        ...    rxn.Reaction(&#39;2H2 + O2 -&gt; 2H2O&#39;,        reactant=&#39;H2&#39;,  X=0.7),</span>
+<span class="sd">        ...    rxn.Reaction(&#39;CH4 + O2 -&gt; CO2 + 2H2O&#39;,  reactant=&#39;CH4&#39;, X=0.1)</span>
+<span class="sd">        ...    ])</span>
+<span class="sd">        &gt;&gt;&gt; s1 = tmo.Stream(&#39;s1&#39;, H2=10, CH4=5, O2=100, H2O=1000)</span>
+<span class="sd">        &gt;&gt;&gt; s2 = tmo.Stream(&#39;s2&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; s2.copy_like(s1) # s1 and s2 are the same</span>
+<span class="sd">        &gt;&gt;&gt; s1.show() # Before reaction</span>
+<span class="sd">        Stream: s1</span>
+<span class="sd">         phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="sd">         flow (kmol/hr): H2   10</span>
+<span class="sd">                         CH4  5</span>
+<span class="sd">                         O2   100</span>
+<span class="sd">                         H2O  1e+03</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; reaction.show()</span>
+<span class="sd">        ParallelReaction (by mol):</span>
+<span class="sd">        index  stoichiometry            reactant    X[%]</span>
+<span class="sd">        [0]    H2 + 0.5 O2 -&gt; H2O       H2         70.00</span>
+<span class="sd">        [1]    CH4 + O2 -&gt; CO2 + 2 H2O  CH4        10.00</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; reaction(s1)</span>
+<span class="sd">        &gt;&gt;&gt; s1.show() # After non-adiabatic reaction</span>
+<span class="sd">        Stream: s1</span>
+<span class="sd">         phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="sd">         flow (kmol/hr): H2   3</span>
+<span class="sd">                         CH4  4.5</span>
+<span class="sd">                         O2   96</span>
+<span class="sd">                         CO2  0.5</span>
+<span class="sd">                         H2O  1.01e+03</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; reaction.adiabatic_reaction(s2)</span>
+<span class="sd">        &gt;&gt;&gt; s2.show() # After adiabatic reaction</span>
+<span class="sd">        Stream: s2</span>
+<span class="sd">         phase: &#39;l&#39;, T: 328.96 K, P: 101325 Pa</span>
+<span class="sd">         flow (kmol/hr): H2   3</span>
+<span class="sd">                         CH4  4.5</span>
+<span class="sd">                         O2   96</span>
+<span class="sd">                         CO2  0.5</span>
+<span class="sd">                         H2O  1.01e+03</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">react_stream_adiabatically</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_reaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">material_array</span><span class="p">):</span>
+        <span class="n">material_array</span> <span class="o">+=</span> <span class="n">material_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span>
+
+<div class="viewcode-block" id="ParallelReaction.reduce"><a class="viewcode-back" href="../../../reaction/ParallelReaction.html#thermosteam.reaction.ParallelReaction.reduce">[docs]</a>    <span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a new Parallel reaction object that combines reaction </span>
+<span class="sd">        with the same reactant together, reducing the number of reactions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">rxn_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span><span class="p">)}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span> <span class="n">rxn_dict</span><span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">_X_index</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">rxns</span> <span class="ow">in</span> <span class="n">rxn_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">rxn</span><span class="p">,</span> <span class="o">*</span><span class="n">rxns</span> <span class="o">=</span> <span class="n">rxns</span>
+            <span class="n">rxn</span> <span class="o">=</span> <span class="n">rxn</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">rxns</span><span class="p">:</span> <span class="n">rxn</span> <span class="o">+=</span> <span class="n">i</span>
+            <span class="n">rxn_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">rxn</span> 
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">rxn_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div>
+            
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">X_net</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[ChemicalIndexer] Net reaction conversion of reactants.&quot;&quot;&quot;</span>
+        <span class="n">X_net</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reactants</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">X_net</span><span class="p">:</span>
+                <span class="n">X_net</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">j</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">X_net</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+        <span class="n">chemicals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemicals</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">chemicals</span><span class="o">.</span><span class="n">kwarray</span><span class="p">(</span><span class="n">X_net</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ChemicalIndexer</span><span class="o">.</span><span class="n">from_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">NoPhase</span><span class="p">,</span> <span class="n">chemicals</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SeriesReaction"><a class="viewcode-back" href="../../../reaction/SeriesReaction.html#thermosteam.reaction.SeriesReaction">[docs]</a><span class="k">class</span> <span class="nc">SeriesReaction</span><span class="p">(</span><span class="n">ReactionSet</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a ParallelReaction object from Reaction objects. When called, </span>
+<span class="sd">    it returns the change in material due to all reactions in series.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    reactions : Iterable[Reaction]</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">()</span>
+    
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">material</span><span class="p">):</span>
+        <span class="n">material_array</span> <span class="o">=</span> <span class="n">as_material_array</span><span class="p">(</span><span class="n">material</span><span class="p">,</span>
+                                           <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span><span class="p">,</span> 
+                                           <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reaction</span><span class="p">(</span><span class="n">material_array</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tmo</span><span class="o">.</span><span class="n">reaction</span><span class="o">.</span><span class="n">CHECK_FEASIBILITY</span><span class="p">:</span>
+            <span class="n">check_material_feasibility</span><span class="p">(</span><span class="n">material_array</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SeriesReaction.force_reaction"><a class="viewcode-back" href="../../../reaction/SeriesReaction.html#thermosteam.reaction.SeriesReaction.force_reaction">[docs]</a>    <span class="k">def</span> <span class="nf">force_reaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">material</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;React material ignoring feasibility checks.&quot;&quot;&quot;</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="n">as_material_array</span><span class="p">(</span><span class="n">material</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chemicals</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reaction</span><span class="p">(</span><span class="n">array</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="SeriesReaction.adiabatic_reaction"><a class="viewcode-back" href="../../../reaction/SeriesReaction.html#thermosteam.reaction.SeriesReaction.adiabatic_reaction">[docs]</a>    <span class="k">def</span> <span class="nf">adiabatic_reaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        React stream material adiabatically, accounting for the change in enthalpy</span>
+<span class="sd">        due to the heat of reaction.</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Note how the stream temperature changed after the reaction due to the heat of reaction:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; import thermosteam as tmo</span>
+<span class="sd">        &gt;&gt;&gt; import thermosteam.reaction as rxn</span>
+<span class="sd">        &gt;&gt;&gt; chemicals = tmo.Chemicals([&#39;CH4&#39;, &#39;CO&#39;,&#39;O2&#39;, &#39;CO2&#39;, &#39;H2O&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; tmo.settings.set_thermo(chemicals)</span>
+<span class="sd">        &gt;&gt;&gt; reaction = rxn.SeriesReaction([</span>
+<span class="sd">        ...     #            Reaction definition                 Reactant       Conversion</span>
+<span class="sd">        ...     rxn.Reaction(&#39;2CH4 + 3O2 -&gt; 2CO + 4H2O&#39;,       reactant=&#39;CH4&#39;,    X=0.7),</span>
+<span class="sd">        ...     rxn.Reaction(&#39;2CO + O2 -&gt; 2CO2&#39;,               reactant=&#39;CO&#39;,     X=0.1)</span>
+<span class="sd">        ...     ])</span>
+<span class="sd">        &gt;&gt;&gt; s1 = tmo.Stream(&#39;s1&#39;, CH4=5, O2=100, H2O=1000)</span>
+<span class="sd">        &gt;&gt;&gt; s2 = tmo.Stream(&#39;s2&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; s2.copy_like(s1) # s1 and s2 are the same</span>
+<span class="sd">        &gt;&gt;&gt; s1.show() # Before reaction</span>
+<span class="sd">        Stream: s1</span>
+<span class="sd">         phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="sd">         flow (kmol/hr): CH4  5</span>
+<span class="sd">                         O2   100</span>
+<span class="sd">                         H2O  1e+03</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; reaction.show()</span>
+<span class="sd">        SeriesReaction (by mol):</span>
+<span class="sd">        index  stoichiometry               reactant    X[%]</span>
+<span class="sd">        [0]    CH4 + 1.5 O2 -&gt; CO + 2 H2O  CH4        70.00</span>
+<span class="sd">        [1]    CO + 0.5 O2 -&gt; CO2          CO         10.00</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; reaction(s1)</span>
+<span class="sd">        &gt;&gt;&gt; s1.show() # After non-adiabatic reaction</span>
+<span class="sd">        Stream: s1</span>
+<span class="sd">         phase: &#39;l&#39;, T: 298.15 K, P: 101325 Pa</span>
+<span class="sd">         flow (kmol/hr): CH4  1.5</span>
+<span class="sd">                         CO   3.15</span>
+<span class="sd">                         O2   94.6</span>
+<span class="sd">                         CO2  0.35</span>
+<span class="sd">                         H2O  1.01e+03</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; reaction.adiabatic_reaction(s2)</span>
+<span class="sd">        &gt;&gt;&gt; s2.show() # After adiabatic reaction</span>
+<span class="sd">        Stream: s2</span>
+<span class="sd">         phase: &#39;l&#39;, T: 326.12 K, P: 101325 Pa</span>
+<span class="sd">         flow (kmol/hr): CH4  1.5</span>
+<span class="sd">                         CO   3.15</span>
+<span class="sd">                         O2   94.6</span>
+<span class="sd">                         CO2  0.35</span>
+<span class="sd">                         H2O  1.01e+03</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">react_stream_adiabatically</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;cannot reduce a SeriesReation object, only &#39;</span>
+                        <span class="s1">&#39;ParallelReaction objects are reducible&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_reaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">material_array</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stoichiometry</span><span class="p">):</span>
+            <span class="n">material_array</span> <span class="o">+=</span> <span class="n">material_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">j</span> <span class="o">*</span> <span class="n">k</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">X_net</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[ChemicalIndexer] Net reaction conversion of reactants.&quot;&quot;&quot;</span>
+        <span class="n">X_net</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reactants</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">X_net</span><span class="p">:</span>
+                <span class="n">X_net</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">X_net</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">j</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">X_net</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+        <span class="n">chemicals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemicals</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">chemicals</span><span class="o">.</span><span class="n">kwarray</span><span class="p">(</span><span class="n">X_net</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ChemicalIndexer</span><span class="o">.</span><span class="n">from_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">NoPhase</span><span class="p">,</span> <span class="n">chemicals</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span></div>
+
+<span class="c1"># Short-hand conventions</span>
+<span class="c1"># Rxn = Reaction</span>
+<span class="c1"># RxnI = ReactionItem</span>
+<span class="c1"># RxnS = ReactionSet</span>
+<span class="c1"># PRxn = ParallelReaction</span>
+<span class="c1"># SRxn = SeriesReaction</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
