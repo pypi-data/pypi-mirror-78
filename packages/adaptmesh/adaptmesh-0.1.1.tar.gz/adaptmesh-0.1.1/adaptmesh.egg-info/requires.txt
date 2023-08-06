@@ -1,0 +1,7 @@
+numpy
+matplotlib
+scipy
+scikit-fem>=2
+
+[:python_version < "3.8"]
+importlib_metadata
