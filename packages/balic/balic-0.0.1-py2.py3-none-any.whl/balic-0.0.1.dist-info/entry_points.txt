@@ -1,0 +1,8 @@
+[balic]
+build = balic.build:Build
+create = balic.create:Create
+destroy = balic.destroy:Destroy
+
+[console_scripts]
+balic = balic.main:main
+
