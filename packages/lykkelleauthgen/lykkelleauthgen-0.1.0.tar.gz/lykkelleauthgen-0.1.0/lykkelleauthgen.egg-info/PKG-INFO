@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: lykkelleauthgen
+Version: 0.1.0
+Summary: Modules pertaining to lykkelleauthgen
+Home-page: https://dev.azure.com/lykkelle/Lykkelle/_git/Lykkellescripts
+Author: Lykkelle Inc
+Author-email: admin@lykkelle.com
+License: UNKNOWN
+Description: This is package that contains all modules needed to run
+        the database and other configurations
+        Contents:
+            1. Lykkelle authentication key generator
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
