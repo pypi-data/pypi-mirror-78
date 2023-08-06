@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pymortar
+Version: 1.0.9a2
+Summary: Python tool for Mortar testbed
+Author: Gabe Fierro
+Author-email: gtfierro@cs.berkeley.edu
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: googleapis-common-protos (>=1.5,<2.0)
+Requires-Dist: grpcio (>=1.18,<2.0)
+Requires-Dist: grpcio-tools (>=1.18,<2.0)
+Requires-Dist: pandas (>=1.1.0,<2.0.0)
