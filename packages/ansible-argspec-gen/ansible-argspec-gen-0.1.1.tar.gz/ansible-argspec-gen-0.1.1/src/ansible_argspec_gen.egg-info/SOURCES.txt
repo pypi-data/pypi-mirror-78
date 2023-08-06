@@ -1,0 +1,17 @@
+.gitignore
+LICENSE
+Makefile
+Pipfile
+README.rst
+setup.cfg
+setup.py
+src/ansible_argspec_gen/__init__.py
+src/ansible_argspec_gen/cli.py
+src/ansible_argspec_gen/utils.py
+src/ansible_argspec_gen.egg-info/PKG-INFO
+src/ansible_argspec_gen.egg-info/SOURCES.txt
+src/ansible_argspec_gen.egg-info/dependency_links.txt
+src/ansible_argspec_gen.egg-info/entry_points.txt
+src/ansible_argspec_gen.egg-info/requires.txt
+src/ansible_argspec_gen.egg-info/top_level.txt
+src/ansible_argspec_gen.egg-info/zip-safe

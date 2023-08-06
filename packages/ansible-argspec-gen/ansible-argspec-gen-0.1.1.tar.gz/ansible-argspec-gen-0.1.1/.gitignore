@@ -1,0 +1,10 @@
+.venv
+
+.eggs
+src/ansible_argspec_gen.egg-info/
+*.pyc
+
+Pipfile.lock
+
+build
+dist
