@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: tbreader
+Version: 1.0.1
+Summary: A simple parser for tensorboard files
+License: Apache-2.0
+Author: Daniel Suess
+Author-email: daniel@dsuess.me
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: protobuf (>=3.8.0)
