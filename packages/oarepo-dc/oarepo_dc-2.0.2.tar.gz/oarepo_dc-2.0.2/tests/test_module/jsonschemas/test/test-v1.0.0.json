@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "these": {
+            "$ref": "https://localhost:5000/schemas/dcterms-v2.0.0.json#/definitions/DCObject"
+      }
+  }
+}

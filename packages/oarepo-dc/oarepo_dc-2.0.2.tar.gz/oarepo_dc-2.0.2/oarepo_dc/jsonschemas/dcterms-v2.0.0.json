@@ -1,0 +1,50 @@
+{
+    "definitions": {
+        "DCObject": {
+            "$id": "#dcobject",
+            "type": "object",
+            "properties": {
+                "identifier": {
+                    "type": "string"
+                },
+                "abstract": {
+                    "$ref": "/schemas/multilingual-v2.0.0.json#/definitions/multilingual"
+                },
+                "title": {
+                    "$ref": "/schemas/multilingual-v2.0.0.json#/definitions/multilingual"
+                },
+                "alternative": {
+                    "$ref": "/schemas/multilingual-v2.0.0.json#/definitions/multilingual"
+                },
+                "description": {
+                    "$ref": "/schemas/multilingual-v2.0.0.json#/definitions/multilingual"
+                },
+                "created": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "available": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "dateSubmitted": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "modified": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "creator": {
+                    "type": "string"
+                },
+                "contributor": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
