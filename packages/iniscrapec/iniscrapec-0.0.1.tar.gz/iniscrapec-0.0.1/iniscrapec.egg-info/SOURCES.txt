@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+iniscrapec.egg-info/PKG-INFO
+iniscrapec.egg-info/SOURCES.txt
+iniscrapec.egg-info/dependency_links.txt
+iniscrapec.egg-info/top_level.txt
+modules/__init__.py
+modules/dao.py
+modules/gui.py
+modules/scraper.py
+tests/__init__.py
+tests/test_dao.py
+tests/test_main.py
