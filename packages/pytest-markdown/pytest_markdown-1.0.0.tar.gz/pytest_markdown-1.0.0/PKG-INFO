@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pytest-markdown
+Version: 1.0.0
+Summary: Docker integration tests for pytest
+Home-page: https://github.com/Jc2k/pytest-markdown
+License: Apache-2.0
+Keywords: pytest,markdown
+Author: John Carr
+Author-email: john.carr@unrouted.co.uk
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Testing
+Requires-Dist: CommonMark (>=0.8.1,<0.9.0)
+Requires-Dist: pytest (>=6.0.1,<7.0.0)
+Description-Content-Type: text/markdown
+
+# pytest-markdown
+
+You have written a `README.md`. In contains some of your best words. They are in an order, and you are happy its a good order. But all those code blocks... Do they contain valid python? This plugin will find tests in your markdown files and run them.
+
