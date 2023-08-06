@@ -1,0 +1,49 @@
+[build-system]
+requires = ["maturin"]
+build-backend = "maturin"
+
+[tool.maturin]
+bindings = "pyo3"
+manylinux = "2014"
+
+[tool.poetry]
+name = "streamson-python"
+version = "3.0.0"
+description = "Python wrappers around streamson"
+authors = ["Stepan Henek"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/shenek/python-streamson"
+keywords = ["json", "splitter"]
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+line_length = 120
+multi_line_output = 3
+length_sort = false
+
+[tool.poetry.dependencies]
+python = "^3.6"
+hyperjson = {version = "*", optional = true}
+
+[tool.poetry.extras]
+hyperjson  = ["hyperjson"]
+
+[tool.poetry.dev-dependencies]
+cffi = "*"
+bandit = "~1.6.2"
+black = {version = "*", allow-prereleases = true}
+flake8 = "*"
+hyperjson = "*"
+isort = {version = "*", extras = ["pyproject"]}
+ijson = "*"
+mypy = "*"
+pytest = "^5.2"
+pytest-asyncio = "^0.14"
+pre-commit = {version = "~2.4.0", python = "^3.6.1"}
+maturin = "~0.8.0"
+safety = "~1.9.0"
+urllib3 = ">=1.24.2"
+darglint = "~1.5.2"

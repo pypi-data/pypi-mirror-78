@@ -1,0 +1,6 @@
+**/target
+*.pyc
+*.swo
+*.swp
+.mypy_cache/
+poetry.lock
