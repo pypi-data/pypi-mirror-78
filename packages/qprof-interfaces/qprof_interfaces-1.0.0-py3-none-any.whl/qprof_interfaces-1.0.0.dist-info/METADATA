@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: qprof-interfaces
+Version: 1.0.0
+Summary: qprof plugin providing the base interfaces.
+Home-page: UNKNOWN
+Author: Adrien Suau
+Author-email: adrien.suau@cerfacs.fr
+License: UNKNOWN
+Project-URL: Bug Reports, https://gitlab.com/qcomputing/qprof/qprof_interfaces/issues
+Project-URL: Source, https://gitlab.com/qcomputing/qprof/qprof_interfaces
+Project-URL: Collaborator, https://cerfacs.fr/en
+Keywords: quantum,performance,gprof,profiling,interface
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: License :: CeCILL-B Free Software License Agreement (CECILL-B)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/x-rst
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: pygments ; extra == 'dev'
+Requires-Dist: setuptools ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+
+**qprof_interfaces**
+====================
+
+**qprof_interfaces** is a plugin for `qprof <https://gitlab.com/qcomputing/qprof/qprof>`_, a quantum profiler largely inspired by
+`gprof <https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_chapter/gprof_1.html#SEC1>`_.
+It is a Python module distributed under the open-source (non-OSI but BSD compatible)
+`CeCILL-B licence <https://cecill.info/licences/Licence_CeCILL-B_V1-en.html>`_.
+
+Installation
+------------
+
+*qprof_interfaces* being a Python module, it is installable with ``pip``.
+
+From Gitlab
+~~~~~~~~~~~
+
+.. code:: shell
+
+   git clone https://gitlab.com/cerfacs/qprof/qprof_interfaces.git
+   pip install qprof_interfaces/
+
+From PyPi
+~~~~~~~~~
+
+The code has not been published on PyPi yet.
+
+
+Usage
+-----
+
+This plugin should not be needed by a simple user and is targeted at developers willing
+to implement a plugin to support a new framework.
+
+
