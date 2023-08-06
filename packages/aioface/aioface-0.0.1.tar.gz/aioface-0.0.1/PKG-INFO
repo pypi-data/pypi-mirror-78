@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: aioface
+Version: 0.0.1
+Summary: aioface is a powerful and simple asynchronous framework for the Facebook Messenger API written in Python 3.7.
+Home-page: https://github.com/kirillkuzin/aioface
+Author: Kirill Kuzin
+Author-email: offkirillkuzin@gmail.com
+License: MIT
+Project-URL: Source, https://github.com/kirillkuzin/aioface
+Description: # aioface
+        
+        aioface is a powerful and simple asynchronous framework for the Facebook Messenger API written in Python 3.7.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
