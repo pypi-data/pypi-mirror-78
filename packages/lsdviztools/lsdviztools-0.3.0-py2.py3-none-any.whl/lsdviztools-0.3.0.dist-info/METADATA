@@ -1,0 +1,104 @@
+Metadata-Version: 2.1
+Name: lsdviztools
+Version: 0.3.0
+Summary: lsdviztools is a collection of routines for plotting geospatial data, with a focus on data produces by LSDTopoTools or by lsdtopytools.
+Home-page: https://github.com/simon-m-mudd/lsdviztools
+Author: Simon Marius Mudd
+Author-email: simon.m.mudd@ed.ac.uk
+License: MIT license
+Keywords: lsdviztools,lsdtopotools,lsdtopytools,GIS,topographic analysis,remote sensing,geomorphology,earth observation
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: rasterio
+Requires-Dist: scipy
+Requires-Dist: cartopy
+Requires-Dist: fiona
+Requires-Dist: shapely
+Requires-Dist: geopandas
+Requires-Dist: pyproj
+Requires-Dist: gdal
+
+===============
+lsdviztools
+===============
+
+
+.. image:: https://img.shields.io/pypi/v/lsdviztools.svg?branch=master
+        :target: https://pypi.org/project/lsdviztools/
+
+.. image:: https://travis-ci.com/LSDtopotools/lsdviztools.svg?branch=master
+        :target: https://travis-ci.com/LSDtopotools/lsdviztools
+
+.. image:: https://readthedocs.org/projects/lsdviztools/badge/?version=latest
+        :target: https://lsdviztools.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+.. image:: https://pyup.io/repos/github/LSDtopotools/lsdviztools/shield.svg
+     :target: https://pyup.io/repos/github/LSDtopotools/lsdviztools/
+     :alt: Updates
+
+
+
+lsdvizools is a collection of routines for plotting geospatial data, with a focus on data produced by LSDTopoTools or by lsdtopytools.
+
+
+* Free software: MIT license
+* Documentation: https://lsviztools.readthedocs.io.
+
+
+Features
+--------
+
+* Plotting of rasters that includes formatting so you can get publication-ready figures with one command.
+* Selection of basins and channels for topogroahic analysis.
+* Tools for plotting point data, usually associated with channel networks, derived from LSDTopoTools command line tools.
+
+
+Getting started
+---------------
+
+You can install lsdviztools with pip.
+
+You can also use our docker container (in the second command you need to change the path after -v to your local directory). You first need to install docker: https://www.docker.com/products/docker-desktop
+
+::
+  $ docker pull lsdtopotools/lsdtt_pytools_docker
+  $ docker run -it -v /path/to/my/local/directory:/LSDTopoTools -p 8888:8888 lsdtopotools/lsdtt_pytools_docker
+  # install_lsdtt_python_packages.sh
+  # jupyter notebook --ip 0.0.0.0 --port 8888 --no-browser --allow-root
+
+Then go to the jupyter notebook in your web browser by going to http://localhost:8888/
+
+
+
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.0 (2020-05-01)
+------------------
+
+* First release on PyPI.
+
+
