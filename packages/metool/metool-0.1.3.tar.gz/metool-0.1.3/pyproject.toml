@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "metool"
+version = "0.1.3"
+description = "Command tool for work and study."
+authors = ["Albert Chen <albert.chen.dao@gmail.com>"]
+license = "MIT"
+packages = [
+    { include = "metool" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "^7.1.2"
+uuid = "^1.30"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+notebook = 'metool.notebook:main'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
