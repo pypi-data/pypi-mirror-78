@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flexsolve.bounded_solvers &mdash; Thermosteam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>flexsolve.bounded_solvers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for flexsolve.bounded_solvers</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on Tue Jul  9 00:35:01 2019</span>
+
+<span class="sd">@author: yoelr</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="kn">import</span> <span class="n">SolverError</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;false_position&#39;</span><span class="p">,</span> <span class="s1">&#39;bisection&#39;</span><span class="p">,</span> <span class="s1">&#39;bounded_wegstein&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;bounded_aitken&#39;</span><span class="p">,</span> <span class="s1">&#39;IQ_interpolation&#39;</span><span class="p">,</span> <span class="s1">&#39;find_bracket&#39;</span><span class="p">)</span>
+
+<span class="c1"># %% Tools</span>
+
+<span class="n">Bracket</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Braket&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;y0&#39;</span><span class="p">,</span> <span class="s1">&#39;y1&#39;</span><span class="p">),</span> <span class="n">module</span><span class="o">=</span><span class="vm">__name__</span><span class="p">)</span>        
+
+<span class="k">def</span> <span class="nf">get_default_bounds</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">y0</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">y0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">y1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y1</span> <span class="o">&lt;</span> <span class="n">yval</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span>
+
+<span class="k">def</span> <span class="nf">not_within_bounds</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="p">(</span><span class="n">x0</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">x1</span> <span class="ow">or</span> <span class="n">x1</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">x0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">iteration_is_getting_stuck</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xlast</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">xlast</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.10</span>
+
+<span class="k">def</span> <span class="nf">bisect</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">x1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
+
+<span class="k">def</span> <span class="nf">iter_false_position</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">xlast</span><span class="p">):</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span>
+    <span class="k">if</span> <span class="n">dy</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">df</span><span class="o">*</span><span class="n">dx</span><span class="o">/</span><span class="n">dy</span>
+        <span class="k">if</span> <span class="n">not_within_bounds</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span> <span class="ow">or</span> <span class="n">iteration_is_getting_stuck</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xlast</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">bisect</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">bisect</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">find_bracket</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a bracket within `x0` and `x1` where the objective function, `f`, is </span>
+<span class="sd">    certain to have a value of `yval`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">maxiter</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">bisect</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">yval</span><span class="p">:</span>
+            <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">y1</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">y0</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="k">if</span> <span class="n">y0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="n">Bracket</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">SolverError</span><span class="p">(</span><span class="n">maxiter</span><span class="p">,</span> <span class="n">Bracket</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span>
+    
+<span class="k">def</span> <span class="nf">estimate_by_inverse_quadratic_interpolation</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span>
+                                                <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">df0</span><span class="p">,</span> <span class="n">xlast</span><span class="p">):</span>
+    <span class="n">df1</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">y1</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">y2</span>
+    <span class="n">d01</span> <span class="o">=</span> <span class="n">df0</span><span class="o">-</span><span class="n">df1</span>
+    <span class="n">d02</span> <span class="o">=</span> <span class="n">df0</span><span class="o">-</span><span class="n">df2</span>
+    <span class="n">d12</span> <span class="o">=</span> <span class="n">df1</span><span class="o">-</span><span class="n">df2</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">d12</span><span class="p">,</span> <span class="n">d02</span><span class="p">,</span> <span class="n">d01</span><span class="p">]):</span>
+        <span class="n">df0_d12</span> <span class="o">=</span> <span class="n">df0</span> <span class="o">/</span> <span class="n">d12</span>
+        <span class="n">df1_d02</span> <span class="o">=</span> <span class="n">df1</span> <span class="o">/</span> <span class="n">d02</span>
+        <span class="n">df2_d01</span> <span class="o">=</span> <span class="n">df2</span> <span class="o">/</span> <span class="n">d01</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span><span class="o">*</span><span class="n">df1_d02</span><span class="o">*</span><span class="n">df2_d01</span> <span class="o">-</span> <span class="n">x1</span><span class="o">*</span><span class="n">df0_d12</span><span class="o">*</span><span class="n">df2_d01</span> <span class="o">+</span> <span class="n">x2</span><span class="o">*</span><span class="n">df0_d12</span><span class="o">*</span><span class="n">df1_d02</span>
+        <span class="k">if</span> <span class="n">not_within_bounds</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span> <span class="ow">or</span> <span class="n">iteration_is_getting_stuck</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xlast</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">bisect</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">iter_false_position</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">df0</span><span class="p">,</span> <span class="n">xlast</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="c1"># %% Solvers</span>
+
+<span class="k">def</span> <span class="nf">false_position</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yval</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">ytol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;False position solver.&quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span>
+    <span class="n">_abs</span> <span class="o">=</span> <span class="nb">abs</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">get_default_bounds</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">y0</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">not_within_bounds</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">iter_false_position</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+    <span class="n">yval_ub</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">+</span> <span class="n">ytol</span>
+    <span class="n">yval_lb</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">ytol</span>
+    <span class="k">while</span> <span class="n">_abs</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">xtol</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">yval_ub</span><span class="p">:</span>
+            <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">y1</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">yval_lb</span><span class="p">:</span>
+            <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">y0</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">y0</span>
+        <span class="k">else</span><span class="p">:</span> <span class="k">break</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">iter_false_position</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">yval</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">ytol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;Bisection solver.&quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span>
+    <span class="n">_abs</span> <span class="o">=</span> <span class="nb">abs</span>
+    <span class="n">yval_ub</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">+</span> <span class="n">ytol</span>
+    <span class="n">yval_lb</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">ytol</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">bisect</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">_abs</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">xtol</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">yval_ub</span><span class="p">:</span>
+            <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">yval_lb</span><span class="p">:</span>
+            <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">else</span><span class="p">:</span> <span class="k">break</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">bisect</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">IQ_interpolation</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yval</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">ytol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;Inverse quadratic interpolation solver.&quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span>
+    <span class="n">_abs</span> <span class="o">=</span> <span class="nb">abs</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">get_default_bounds</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    <span class="n">df0</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">y0</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">not_within_bounds</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">iter_false_position</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">df0</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+    <span class="n">yval_ub</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">+</span> <span class="n">ytol</span>
+    <span class="n">yval_lb</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">ytol</span>
+    <span class="k">while</span> <span class="n">_abs</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">xtol</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">yval_ub</span><span class="p">:</span>
+            <span class="n">y2</span> <span class="o">=</span> <span class="n">y1</span>
+            <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span>
+            <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">y1</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">yval_lb</span><span class="p">:</span>
+            <span class="n">y2</span> <span class="o">=</span> <span class="n">y0</span>
+            <span class="n">x2</span> <span class="o">=</span> <span class="n">x0</span>
+            <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">y0</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="n">df0</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">y</span>
+        <span class="k">else</span><span class="p">:</span> <span class="k">break</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">estimate_by_inverse_quadratic_interpolation</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span>
+                                                        <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">df0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">bounded_wegstein</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yval</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">ytol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;False position solver with Wegstein acceleration.&quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span>
+    <span class="n">_abs</span> <span class="o">=</span> <span class="nb">abs</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">get_default_bounds</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">yval</span><span class="o">-</span><span class="n">y0</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">not_within_bounds</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">iter_false_position</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+    <span class="n">x_old</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">yval_ub</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">+</span> <span class="n">ytol</span>
+    <span class="n">yval_lb</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">ytol</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">yval_ub</span><span class="p">:</span>
+        <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">y1</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">yval_lb</span><span class="p">:</span>
+        <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">y0</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">y</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="n">dx1x0</span> <span class="o">=</span> <span class="n">x1</span><span class="o">-</span><span class="n">x0</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">g0</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">df</span><span class="o">*</span><span class="n">dx1x0</span><span class="o">/</span><span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y0</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">_abs</span><span class="p">(</span><span class="n">dx1x0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">xtol</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">yval_ub</span><span class="p">:</span>
+            <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">y1</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">yval_lb</span><span class="p">:</span>
+            <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">y0</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">y</span>
+        <span class="k">else</span><span class="p">:</span> <span class="k">break</span>
+        <span class="n">dx1x0</span> <span class="o">=</span> <span class="n">x1</span><span class="o">-</span><span class="n">x0</span>
+        <span class="n">g1</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">df</span><span class="o">*</span><span class="n">dx1x0</span><span class="o">/</span><span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y0</span><span class="p">)</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x_old</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="n">dx</span><span class="o">-</span><span class="n">g1</span><span class="o">+</span><span class="n">g0</span>
+        <span class="k">if</span> <span class="n">denominator</span><span class="p">:</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">/</span> <span class="n">denominator</span>
+            <span class="n">x_old</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">w</span><span class="o">*</span><span class="n">g1</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">w</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
+            <span class="k">if</span> <span class="n">not_within_bounds</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">):</span> <span class="n">x</span> <span class="o">=</span> <span class="n">g0</span> <span class="o">=</span> <span class="n">g1</span>
+            <span class="k">else</span><span class="p">:</span> <span class="n">g0</span> <span class="o">=</span> <span class="n">g1</span>                
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">g0</span> <span class="o">=</span> <span class="n">g1</span>
+    <span class="k">return</span> <span class="n">x</span>
+       
+<span class="k">def</span> <span class="nf">bounded_aitken</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yval</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">ytol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">()):</span>
+    <span class="sd">&quot;&quot;&quot;False position solver with Aitken acceleration.&quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span>
+    <span class="n">_abs</span> <span class="o">=</span> <span class="nb">abs</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">get_default_bounds</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    <span class="n">dx1</span> <span class="o">=</span> <span class="n">x1</span><span class="o">-</span><span class="n">x0</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">yval</span><span class="o">-</span><span class="n">y0</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">not_within_bounds</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">iter_false_position</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">dx1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+    <span class="n">yval_ub</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">+</span> <span class="n">ytol</span>
+    <span class="n">yval_lb</span> <span class="o">=</span> <span class="n">yval</span> <span class="o">-</span> <span class="n">ytol</span>
+    <span class="k">while</span> <span class="n">_abs</span><span class="p">(</span><span class="n">dx1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">xtol</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">yval_ub</span><span class="p">:</span>
+            <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">y1</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">yval_lb</span><span class="p">:</span>
+            <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">y0</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">yval</span><span class="o">-</span><span class="n">y</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="n">x</span>
+        <span class="n">dx0</span> <span class="o">=</span> <span class="n">x1</span><span class="o">-</span><span class="n">x0</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">df</span><span class="o">*</span><span class="n">dx0</span><span class="o">/</span><span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">_abs</span><span class="p">(</span><span class="n">dx0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">xtol</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">g</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">yval_ub</span><span class="p">:</span>
+            <span class="n">x1</span> <span class="o">=</span> <span class="n">g</span>
+            <span class="n">y1</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">yval_lb</span><span class="p">:</span>
+            <span class="n">x0</span> <span class="o">=</span> <span class="n">g</span>
+            <span class="n">y0</span> <span class="o">=</span> <span class="n">y</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">yval</span><span class="o">-</span><span class="n">y</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">g</span>
+        <span class="n">dx1</span> <span class="o">=</span> <span class="n">x1</span><span class="o">-</span><span class="n">x0</span>
+        <span class="n">gg</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">df</span><span class="o">*</span><span class="n">dx1</span><span class="o">/</span><span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y0</span><span class="p">)</span>
+        <span class="n">dxg</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">g</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="n">gg</span> <span class="o">+</span> <span class="n">dxg</span> <span class="o">-</span> <span class="n">g</span>
+        <span class="k">if</span> <span class="n">denominator</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">dxg</span><span class="o">**</span><span class="mf">2.</span> <span class="o">/</span> <span class="n">denominator</span>
+        <span class="k">if</span> <span class="n">not_within_bounds</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">):</span>
+            <span class="c1"># Add overshoot to prevent getting stuck</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">gg</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x0</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">gg</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">dx1</span><span class="o">/</span><span class="n">dx0</span><span class="p">)</span><span class="o">**</span><span class="mf">3.</span> 
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VLE &mdash; Thermosteam  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LLE" href="LLE.html" />
+    <link rel="prev" title="equilibrium" href="equilibrium_module.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional.html">functional</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="equilibrium_module.html">equilibrium</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">VLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LLE.html">LLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BubblePoint.html">BubblePoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DewPoint.html">DewPoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity_coefficients_module.html">activity_coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fugacity_coefficients_module.html">fugacity_coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poyinting_correction_factors_module.html">poyinting_correction_factors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_equilibrium_module.html">plot_equilibrium</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="equilibrium_module.html">equilibrium</a> &raquo;</li>
+        
+      <li>VLE</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/equilibrium/VLE.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="vle">
+<h1>VLE<a class="headerlink" href="#vle" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="thermosteam.equilibrium.VLE">
+<em class="property">class </em><code class="sig-prename descclassname">thermosteam.equilibrium.</code><code class="sig-name descname">VLE</code><span class="sig-paren">(</span><em class="sig-param">imol</em>, <em class="sig-param">thermal_condition=None</em>, <em class="sig-param">thermo=None</em>, <em class="sig-param">bubble_point_cache=None</em>, <em class="sig-param">dew_point_cache=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/equilibrium/vle.html#VLE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.equilibrium.VLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a VLE object that performs vapor-liquid equilibrium when called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>imol</strong> (<a class="reference internal" href="../indexer/MaterialIndexer.html#thermosteam.indexer.MaterialIndexer" title="thermosteam.indexer.MaterialIndexer"><em>MaterialIndexer</em></a>) – Chemical phase data is stored here.</p></li>
+<li><p><strong>thermal_condition=None</strong> (<a class="reference internal" href="../ThermalCondition.html#thermosteam.ThermalCondition" title="thermosteam.ThermalCondition"><em>ThermalCondition</em></a><em>, </em><em>optional</em>) – Temperature and pressure results are stored here.</p></li>
+<li><p><strong>thermo=None</strong> (<a class="reference internal" href="../Thermo.html#thermosteam.Thermo" title="thermosteam.Thermo"><em>Thermo</em></a><em>, </em><em>optional</em>) – Themodynamic property package for equilibrium calculations.
+Defaults to <cite>thermosteam.settings.get_thermo()</cite>.</p></li>
+<li><p><strong>bubble_point_cache=None</strong> (<em>thermosteam.utils.Cache</em><em>, </em><em>optional</em>) – Cache to retrieve bubble point object.</p></li>
+<li><p><strong>dew_point_cache=None</strong> (<em>thermosteam.utils.Cache</em><em>, </em><em>optional</em>) – Cache to retrieve dew point object</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">thermosteam</span> <span class="kn">import</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">equilibrium</span><span class="p">,</span> <span class="n">settings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">settings</span><span class="o">.</span><span class="n">set_thermo</span><span class="p">([</span><span class="s1">&#39;Water&#39;</span><span class="p">,</span> <span class="s1">&#39;Ethanol&#39;</span><span class="p">,</span> <span class="s1">&#39;Methanol&#39;</span><span class="p">,</span> <span class="s1">&#39;Propanol&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">imol</span> <span class="o">=</span> <span class="n">indexer</span><span class="o">.</span><span class="n">MolarFlowIndexer</span><span class="p">(</span>
+<span class="gp">... </span>            <span class="n">l</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;Water&#39;</span><span class="p">,</span> <span class="mi">304</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Ethanol&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)],</span>
+<span class="gp">... </span>            <span class="n">g</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;Methanol&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Propanol&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vle</span> <span class="o">=</span> <span class="n">equilibrium</span><span class="o">.</span><span class="n">VLE</span><span class="p">(</span><span class="n">imol</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vle</span>
+<span class="go">VLE(imol=MolarFlowIndexer(</span>
+<span class="go">        g=[(&#39;Methanol&#39;, 40), (&#39;Propanol&#39;, 1)],</span>
+<span class="go">        l=[(&#39;Water&#39;, 304), (&#39;Ethanol&#39;, 30)]),</span>
+<span class="go">    thermal_condition=ThermalCondition(T=298.15, P=101325))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vle</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="mi">101325</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vle</span>
+<span class="go">VLE(imol=MolarFlowIndexer(</span>
+<span class="go">        g=[(&#39;Water&#39;, 126.7), (&#39;Ethanol&#39;, 26.4), (&#39;Methanol&#39;, 33.49), (&#39;Propanol&#39;, 0.896)],</span>
+<span class="go">        l=[(&#39;Water&#39;, 177.3), (&#39;Ethanol&#39;, 3.598), (&#39;Methanol&#39;, 6.509), (&#39;Propanol&#39;, 0.104)]),</span>
+<span class="go">    thermal_condition=ThermalCondition(T=363.88, P=101325))</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="thermosteam.equilibrium.VLE.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param">P=None</em>, <em class="sig-param">H=None</em>, <em class="sig-param">T=None</em>, <em class="sig-param">V=None</em>, <em class="sig-param">x=None</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/equilibrium/vle.html#VLE.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.equilibrium.VLE.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform vapor-liquid equilibrium.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>P=None</strong> (<em>float</em>) – Operating pressure [Pa].</p></li>
+<li><p><strong>H=None</strong> (<em>float</em>) – Enthalpy [kJ/hr].</p></li>
+<li><p><strong>T=None</strong> (<em>float</em>) – Operating temperature [K].</p></li>
+<li><p><strong>V=None</strong> (<em>float</em>) – Molar vapor fraction.</p></li>
+<li><p><strong>x=None</strong> (<em>float</em>) – Molar composition of liquid (for binary mixtures).</p></li>
+<li><p><strong>y=None</strong> (<em>float</em>) – Molar composition of vapor (for binary mixtures).</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>You may only specify two of the following parameters: P, H, T, V, x, and y.
+Additionally, If x or y is specified, the other parameter must be either
+P or T (e.g., x and V is invalid).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="LLE.html" class="btn btn-neutral float-right" title="LLE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="equilibrium_module.html" class="btn btn-neutral float-left" title="equilibrium" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

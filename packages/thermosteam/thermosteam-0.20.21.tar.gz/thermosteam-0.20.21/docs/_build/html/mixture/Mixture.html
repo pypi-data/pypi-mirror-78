@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mixture &mdash; Thermosteam  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="IdealMixtureModel" href="ideal_mixture_model.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="mixture_module.html">mixture</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mixture_builders.html">mixture_builders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ideal_mixture_model.html">IdealMixtureModel</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mixture</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="mixture_module.html">mixture</a> &raquo;</li>
+        
+      <li>Mixture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/mixture/Mixture.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="mixture">
+<h1>Mixture<a class="headerlink" href="#mixture" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="thermosteam.mixture.Mixture">
+<em class="property">class </em><code class="sig-prename descclassname">thermosteam.mixture.</code><code class="sig-name descname">Mixture</code><span class="sig-paren">(</span><em class="sig-param">rule</em>, <em class="sig-param">Cn</em>, <em class="sig-param">H</em>, <em class="sig-param">S</em>, <em class="sig-param">H_excess</em>, <em class="sig-param">S_excess</em>, <em class="sig-param">mu</em>, <em class="sig-param">V</em>, <em class="sig-param">kappa</em>, <em class="sig-param">Hvap</em>, <em class="sig-param">sigma</em>, <em class="sig-param">epsilon</em>, <em class="sig-param">include_excess_energies=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/mixture/mixture.html#Mixture"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.mixture.Mixture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an Mixture object for estimating mixture properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rule</strong> (<em>str</em>) – Description of mixing rules used.</p></li>
+<li><p><strong>Cn</strong> (<em>function</em><em>(</em><em>phase</em><em>, </em><em>mol</em><em>, </em><em>T</em><em>)</em>) – Molar heat capacity mixture model [J/mol/K].</p></li>
+<li><p><strong>H</strong> (<em>function</em><em>(</em><em>phase</em><em>, </em><em>mol</em><em>, </em><em>T</em><em>)</em>) – Enthalpy mixture model [J/mol].</p></li>
+<li><p><strong>S</strong> (<em>function</em><em>(</em><em>phase</em><em>, </em><em>mol</em><em>, </em><em>T</em><em>, </em><em>P</em><em>)</em>) – Entropy mixture model [J/mol].</p></li>
+<li><p><strong>H_excess</strong> (<em>function</em><em>(</em><em>phase</em><em>, </em><em>mol</em><em>, </em><em>T</em><em>, </em><em>P</em><em>)</em>) – Excess enthalpy mixture model [J/mol].</p></li>
+<li><p><strong>S_excess</strong> (<em>function</em><em>(</em><em>phase</em><em>, </em><em>mol</em><em>, </em><em>T</em><em>, </em><em>P</em><em>)</em>) – Excess entropy mixture model [J/mol].</p></li>
+<li><p><strong>mu</strong> (<em>function</em><em>(</em><em>phase</em><em>, </em><em>mol</em><em>, </em><em>T</em><em>, </em><em>P</em><em>)</em>) – Dynamic viscosity mixture model [Pa*s].</p></li>
+<li><p><strong>V</strong> (<em>function</em><em>(</em><em>phase</em><em>, </em><em>mol</em><em>, </em><em>T</em><em>, </em><em>P</em><em>)</em>) – Molar volume mixture model [m^3/mol].</p></li>
+<li><p><strong>kappa</strong> (<em>function</em><em>(</em><em>phase</em><em>, </em><em>mol</em><em>, </em><em>T</em><em>, </em><em>P</em><em>)</em>) – Thermal conductivity mixture model [W/m/K].</p></li>
+<li><p><strong>Hvap</strong> (<em>function</em><em>(</em><em>mol</em><em>, </em><em>T</em><em>)</em>) – Heat of vaporization mixture model [J/mol]</p></li>
+<li><p><strong>sigma</strong> (<em>function</em><em>(</em><em>mol</em><em>, </em><em>T</em><em>, </em><em>P</em><em>)</em>) – Surface tension mixture model [N/m].</p></li>
+<li><p><strong>epsilon</strong> (<em>function</em><em>(</em><em>mol</em><em>, </em><em>T</em><em>, </em><em>P</em><em>)</em>) – Relative permitivity mixture model [-]</p></li>
+<li><p><strong>include_excess_energies=False</strong> (<em>bool</em>) – Whether to include excess energies
+in enthalpy and entropy calculations.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Although the mixture models are on a molar basis, this is only if the molar data is normalized before the calculation (i. e. the <cite>mol</cite> parameter is normalized before being passed to the model).</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="ideal_mixture_model.html#thermosteam.mixture.IdealMixtureModel" title="thermosteam.mixture.IdealMixtureModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdealMixtureModel</span></code></a>, <a class="reference internal" href="mixture_builders.html#thermosteam.mixture.mixture_builders.ideal_mixture" title="thermosteam.mixture.mixture_builders.ideal_mixture"><code class="xref py py-func docutils literal notranslate"><span class="pre">ideal_mixture()</span></code></a></p>
+</div>
+<dl class="attribute">
+<dt id="thermosteam.mixture.Mixture.rule">
+<code class="sig-name descname">rule</code><a class="headerlink" href="#thermosteam.mixture.Mixture.rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of mixing rules used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="thermosteam.mixture.Mixture.include_excess_energies">
+<code class="sig-name descname">include_excess_energies</code><a class="headerlink" href="#thermosteam.mixture.Mixture.include_excess_energies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether to include excess energies
+in enthalpy and entropy calculations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="thermosteam.mixture.Mixture.Cn">
+<code class="sig-name descname">Cn</code><span class="sig-paren">(</span><em class="sig-param">phase</em>, <em class="sig-param">mol</em>, <em class="sig-param">T</em><span class="sig-paren">)</span><a class="headerlink" href="#thermosteam.mixture.Mixture.Cn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mixture molar heat capacity [J/mol/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="thermosteam.mixture.Mixture.mu">
+<code class="sig-name descname">mu</code><span class="sig-paren">(</span><em class="sig-param">phase</em>, <em class="sig-param">mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="headerlink" href="#thermosteam.mixture.Mixture.mu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mixture dynamic viscosity [Pa*s].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="thermosteam.mixture.Mixture.V">
+<code class="sig-name descname">V</code><span class="sig-paren">(</span><em class="sig-param">phase</em>, <em class="sig-param">mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="headerlink" href="#thermosteam.mixture.Mixture.V" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mixture molar volume [m^3/mol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="thermosteam.mixture.Mixture.kappa">
+<code class="sig-name descname">kappa</code><span class="sig-paren">(</span><em class="sig-param">phase</em>, <em class="sig-param">mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="headerlink" href="#thermosteam.mixture.Mixture.kappa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mixture thermal conductivity [W/m/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="thermosteam.mixture.Mixture.Hvap">
+<code class="sig-name descname">Hvap</code><span class="sig-paren">(</span><em class="sig-param">mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="headerlink" href="#thermosteam.mixture.Mixture.Hvap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mixture heat of vaporization [J/mol]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="thermosteam.mixture.Mixture.sigma">
+<code class="sig-name descname">sigma</code><span class="sig-paren">(</span><em class="sig-param">mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="headerlink" href="#thermosteam.mixture.Mixture.sigma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mixture surface tension [N/m].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="thermosteam.mixture.Mixture.epsilon">
+<code class="sig-name descname">epsilon</code><span class="sig-paren">(</span><em class="sig-param">mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="headerlink" href="#thermosteam.mixture.Mixture.epsilon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mixture relative permitivity [-].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.mixture.Mixture.H">
+<code class="sig-name descname">H</code><span class="sig-paren">(</span><em class="sig-param">phase</em>, <em class="sig-param">mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/mixture/mixture.html#Mixture.H"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.mixture.Mixture.H" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return enthalpy [J/mol].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.mixture.Mixture.S">
+<code class="sig-name descname">S</code><span class="sig-paren">(</span><em class="sig-param">phase</em>, <em class="sig-param">mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/mixture/mixture.html#Mixture.S"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.mixture.Mixture.S" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return entropy in [J/mol].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.mixture.Mixture.solve_T">
+<code class="sig-name descname">solve_T</code><span class="sig-paren">(</span><em class="sig-param">phase</em>, <em class="sig-param">mol</em>, <em class="sig-param">H</em>, <em class="sig-param">T_guess</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/mixture/mixture.html#Mixture.solve_T"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.mixture.Mixture.solve_T" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve for temperature in Kelvin.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.mixture.Mixture.xsolve_T">
+<code class="sig-name descname">xsolve_T</code><span class="sig-paren">(</span><em class="sig-param">phase_mol</em>, <em class="sig-param">H</em>, <em class="sig-param">T_guess</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/mixture/mixture.html#Mixture.xsolve_T"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.mixture.Mixture.xsolve_T" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve for temperature in Kelvin.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.mixture.Mixture.xCn">
+<code class="sig-name descname">xCn</code><span class="sig-paren">(</span><em class="sig-param">phase_mol</em>, <em class="sig-param">T</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/mixture/mixture.html#Mixture.xCn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.mixture.Mixture.xCn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multi-phase mixture heat capacity [J/mol/K].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.mixture.Mixture.xH">
+<code class="sig-name descname">xH</code><span class="sig-paren">(</span><em class="sig-param">phase_mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/mixture/mixture.html#Mixture.xH"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.mixture.Mixture.xH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multi-phase mixture enthalpy [J/mol].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.mixture.Mixture.xS">
+<code class="sig-name descname">xS</code><span class="sig-paren">(</span><em class="sig-param">phase_mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/mixture/mixture.html#Mixture.xS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.mixture.Mixture.xS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multi-phase mixture entropy [J/mol].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.mixture.Mixture.xV">
+<code class="sig-name descname">xV</code><span class="sig-paren">(</span><em class="sig-param">phase_mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/mixture/mixture.html#Mixture.xV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.mixture.Mixture.xV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multi-phase mixture molar volume [mol/m^3].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.mixture.Mixture.xmu">
+<code class="sig-name descname">xmu</code><span class="sig-paren">(</span><em class="sig-param">phase_mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/mixture/mixture.html#Mixture.xmu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.mixture.Mixture.xmu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multi-phase mixture hydrolic [Pa*s].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="thermosteam.mixture.Mixture.xkappa">
+<code class="sig-name descname">xkappa</code><span class="sig-paren">(</span><em class="sig-param">phase_mol</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/thermosteam/mixture/mixture.html#Mixture.xkappa"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.mixture.Mixture.xkappa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multi-phase mixture thermal conductivity [W/m/K].</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="ideal_mixture_model.html" class="btn btn-neutral float-left" title="IdealMixtureModel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1230 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>thermosteam.properties.thermal_conductivity &mdash; Thermosteam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>thermosteam.properties.thermal_conductivity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for thermosteam.properties.thermal_conductivity</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">All data and methods for estimating a chemical&#39;s thermal conductivity.</span>
+
+<span class="sd">References</span>
+<span class="sd">----------</span>
+<span class="sd">.. [1] Scheffy, W. J., and E. F. Johnson. &quot;Thermal Conductivities of</span>
+<span class="sd">    Liquids at High Temperatures.&quot; Journal of Chemical &amp; Engineering Data</span>
+<span class="sd">    6, no. 2 (April 1, 1961): 245-49. doi:10.1021/je60010a019</span>
+<span class="sd">.. [2] Riedel, L.: Chem. Ing. Tech., 21, 349 (1949); 23: 59, 321, 465 (1951)</span>
+<span class="sd">.. [3] Maejima, T., private communication, 1973</span>
+<span class="sd">.. [4] Properties of Gases and Liquids&quot;, 3rd Ed., McGraw-Hill, 1977</span>
+<span class="sd">.. [5] Lakshmi, D. S., and D. H. L. Prasad. &quot;A Rapid Estimation Method for</span>
+<span class="sd">    Thermal Conductivity of Pure Liquids.&quot; The Chemical Engineering Journal</span>
+<span class="sd">    48, no. 3 (April 1992): 211-14. doi:10.1016/0300-9467(92)80037-B</span>
+<span class="sd">.. [6] Gharagheizi, Farhad, Poorandokht Ilani-Kashkouli, Mehdi Sattari,</span>
+<span class="sd">    Amir H. Mohammadi, Deresh Ramjugernath, and Dominique Richon.</span>
+<span class="sd">    &quot;Development of a General Model for Determination of Thermal</span>
+<span class="sd">    Conductivity of Liquid Chemical Compounds at Atmospheric Pressure.&quot;</span>
+<span class="sd">    AIChE Journal 59, no. 5 (May 1, 2013): 1702-8. doi:10.1002/aic.13938</span>
+<span class="sd">.. [7] Di Nicola, Giovanni, Eleonora Ciarrocchi, Gianluca Coccia, and</span>
+<span class="sd">    Mariano Pierantozzi. &quot;Correlations of Thermal Conductivity for</span>
+<span class="sd">    Liquid Refrigerants at Atmospheric Pressure or near Saturation.&quot;</span>
+<span class="sd">    International Journal of Refrigeration. 2014.</span>
+<span class="sd">    doi:10.1016/j.ijrefrig.2014.06.003</span>
+<span class="sd">.. [8] Bahadori, Alireza, and Saeid Mokhatab. &quot;Estimating Thermal</span>
+<span class="sd">    Conductivity of Hydrocarbons.&quot; Chemical Engineering 115, no. 13</span>
+<span class="sd">    (December 2008): 52-54</span>
+<span class="sd">.. [9] Mersmann, Alfons, and Matthias Kind. &quot;Prediction of Mechanical and </span>
+<span class="sd">   Thermal Properties of Pure Liquids, of Critical Data, and of Vapor </span>
+<span class="sd">   Pressure.&quot; Industrial &amp; Engineering Chemistry Research, January 31, </span>
+<span class="sd">   2017. https://doi.org/10.1021/acs.iecr.6b04323.</span>
+<span class="sd">.. [10] Missenard, F. A., Thermal Conductivity of Organic Liquids of a</span>
+<span class="sd">       Series or a Group of Liquids , Rev. Gen.Thermodyn., 101 649 (1970).</span>
+<span class="sd">.. [11] Danner, Ronald P, and Design Institute for Physical Property Data.</span>
+<span class="sd">   Manual for Predicting Chemical Process Design Data. New York, N.Y, 1982.</span>
+<span class="sd">.. [12] Poling, Bruce E. The Properties of Gases and Liquids. 5th edition.</span>
+<span class="sd">    New York: McGraw-Hill Professional, 2000.</span>
+<span class="sd">.. [13] Reid, Robert C.; Prausnitz, John M.; Poling, Bruce E.</span>
+<span class="sd">    Properties of Gases and Liquids. McGraw-Hill Companies, 1987.</span>
+<span class="sd">.. [14] Chung, Ting Horng, Lloyd L. Lee, and Kenneth E. Starling.</span>
+<span class="sd">    &quot;Applications of Kinetic Gas Theories and Multiparameter Correlation for</span>
+<span class="sd">    Prediction of Dilute Gas Viscosity and Thermal Conductivity.&quot;</span>
+<span class="sd">    Industrial &amp; Engineering Chemistry Fundamentals 23, no. 1</span>
+<span class="sd">    (February 1, 1984): 8-13. doi:10.1021/i100013a002</span>
+<span class="sd">.. [15] Ely, James F., and H. J. M. Hanley. &quot;Prediction of Transport</span>
+<span class="sd">    Properties. 2. Thermal Conductivity of Pure Fluids and Mixtures.&quot;</span>
+<span class="sd">    Industrial &amp; Engineering Chemistry Fundamentals 22, no. 1 (February 1,</span>
+<span class="sd">    1983): 90-97. doi:10.1021/i100009a016.</span>
+<span class="sd">.. [16] Bahadori, Alireza, and Saeid Mokhatab. &quot;Estimating Thermal</span>
+<span class="sd">    Conductivity of Hydrocarbons.&quot; Chemical Engineering 115, no. 13</span>
+<span class="sd">    (December 2008): 52-54</span>
+<span class="sd">.. [17] Stiel, Leonard I., and George Thodos. &quot;The Thermal Conductivity of</span>
+<span class="sd">    Nonpolar Substances in the Dense Gaseous and Liquid Regions.&quot; AIChE</span>
+<span class="sd">    Journal 10, no. 1 (January 1, 1964): 26-30. doi:10.1002/aic.690100114.</span>
+<span class="sd">.. [18] Chung, Ting Horng, Mohammad Ajlan, Lloyd L. Lee, and Kenneth E.</span>
+<span class="sd">    Starling. &quot;Generalized Multiparameter Correlation for Nonpolar and Polar</span>
+<span class="sd">    Fluid Transport Properties.&quot; Industrial &amp; Engineering Chemistry Research</span>
+<span class="sd">    27, no. 4 (April 1, 1988): 671-79. doi:10.1021/ie00076a024.</span>
+<span class="sd">   </span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">flexsolve</span> <span class="k">as</span> <span class="nn">flx</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp2d</span>
+<span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="p">(</span><span class="n">InterpolatedTDependentModel</span><span class="p">,</span> 
+                    <span class="n">ThermoModelHandle</span><span class="p">,</span>
+                    <span class="n">TDependentModel</span><span class="p">,</span>
+                    <span class="n">TPDependentHandleBuilder</span><span class="p">,</span> 
+                    <span class="n">PhaseTPHandleBuilder</span><span class="p">,</span> 
+                    <span class="n">kappa</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.._constants</span> <span class="kn">import</span> <span class="n">R</span><span class="p">,</span> <span class="n">N_A</span><span class="p">,</span> <span class="n">k</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span><span class="p">,</span> <span class="n">exp</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">CASDataReader</span>
+<span class="kn">from</span> <span class="nn">..functional</span> <span class="kn">import</span> <span class="n">horner_polynomial</span>
+<span class="kn">from</span> <span class="nn">.miscdata</span> <span class="kn">import</span> <span class="n">VDI_saturation_dict</span><span class="p">,</span> <span class="n">VDI_tabular_data</span>
+<span class="kn">from</span> <span class="nn">.dippr</span> <span class="kn">import</span> <span class="n">DIPPR_EQ100</span><span class="p">,</span> <span class="n">DIPPR_EQ102</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;thermal_conductivity_handle&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Sheffy_Johnson&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Sato_Riedel&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Lakshmi_Prasad&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Gharagheizi_liquid&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Nicola&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Bahadori_liquid&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Mersmann_Kind_thermal_conductivity_liquid&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;DIPPR9G&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Missenard&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Eucken&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Eucken_modified&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;DIPPR9B_linear&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;DIPPR9B_monoatomic&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;DIPPR9B_nonlinear&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Chung&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Eli_Hanley&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Gharagheizi_gas&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Bahadori_gas&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Stiel_Thodos_dense&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Eli_Hanley_dense&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Chung_dense&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">read</span> <span class="o">=</span> <span class="n">CASDataReader</span><span class="p">(</span><span class="vm">__file__</span><span class="p">,</span> <span class="s1">&#39;Thermal Conductivity&#39;</span><span class="p">)</span>
+
+<span class="n">_Perrys2_314</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;Table 2-314 Vapor Thermal Conductivity of Inorganic and Organic Substances.tsv&#39;</span><span class="p">)</span>
+<span class="n">_Perrys2_315</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;Table 2-315 Thermal Conductivity of Inorganic and Organic Liquids.tsv&#39;</span><span class="p">)</span>
+<span class="n">_VDI_PPDS_9</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;VDI PPDS Thermal conductivity of saturated liquids.tsv&#39;</span><span class="p">)</span>
+<span class="n">_VDI_PPDS_10</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;VDI PPDS Thermal conductivity of gases.tsv&#39;</span><span class="p">)</span>
+<span class="c1">### Purely CSP Methods - Liquids</span>
+
+<div class="viewcode-block" id="Sheffy_Johnson"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Sheffy_Johnson">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[1]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Sheffy_Johnson</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tm</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates the thermal conductivity of a liquid as a function of</span>
+<span class="sd">    temperature using the Sheffy-Johnson (1961) method. Requires</span>
+<span class="sd">    temperature, molecular weight, and melting point:</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        k = 1.951 \frac{1-0.00126(T-T_m)}{T_m^{0.216}MW^{0.3}}</span>
+<span class="sd">    </span>
+<span class="sd">    The origin of this equation has been challenging to trace. It is</span>
+<span class="sd">    presently unknown, and untested.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Sheffy_Johnson(47, 280)</span>
+<span class="sd">    &gt;&gt;&gt; f(300)</span>
+<span class="sd">    0.17740150413112196</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mf">1.951</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.00126</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">Tm</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">Tm</span><span class="o">**</span><span class="mf">0.216</span><span class="o">*</span><span class="n">MW</span><span class="o">**</span><span class="mf">0.3</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Sato_Riedel"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Sato_Riedel">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[4]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Sato_Riedel</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Tc</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates the thermal conductivity of a liquid as a function of</span>
+<span class="sd">    temperature using the CSP method of Sato-Riedel [2]_, [3]_, published in</span>
+<span class="sd">    Reid [4]_. Requires temperature, molecular weight, and boiling and critical</span>
+<span class="sd">    temperatures.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        k = \frac{1.1053}{\sqrt{MW}}\frac{3+20(1-T_r)^{2/3}}</span>
+<span class="sd">        {3+20(1-T_{br})^{2/3}}</span>
+<span class="sd">        </span>
+<span class="sd">    This equation has a complicated history. It is proposed by Reid [3]_.</span>
+<span class="sd">    Limited accuracy should be expected. Uncheecked.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Sato_Riedel(47, 390, 520)</span>
+<span class="sd">    &gt;&gt;&gt; f(300)</span>
+<span class="sd">    0.21037692461337687</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">Tbr</span> <span class="o">=</span> <span class="n">Tb</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="k">return</span> <span class="mf">1.1053</span><span class="o">*</span><span class="p">(</span><span class="mf">3.</span> <span class="o">+</span> <span class="mf">20.</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Tr</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">))</span><span class="o">*</span><span class="n">MW</span><span class="o">**-</span><span class="mf">0.5</span><span class="o">/</span><span class="p">(</span><span class="mf">3.</span> <span class="o">+</span> <span class="mf">20.</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Tbr</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Lakshmi_Prasad"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Lakshmi_Prasad">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[5]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Lakshmi_Prasad</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates thermal conductivity of pure liquids as a function of</span>
+<span class="sd">    temperature using a reference fluid approach. Low accuracy but quick.</span>
+<span class="sd">    Developed using several organic fluids.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \lambda = 0.0655-0.0005T + \frac{1.3855-0.00197T}{M^{0.5}}</span>
+<span class="sd">        </span>
+<span class="sd">    This equation returns negative numbers at high T sometimes.</span>
+<span class="sd">    This equation is one of those implemented by DDBST.</span>
+<span class="sd">    If this results in a negative thermal conductivity, no value is returned.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Lakshmi_Prasad(100)</span>
+<span class="sd">    &gt;&gt;&gt; f(273.15)</span>
+<span class="sd">    0.013664450000000009</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mf">0.0655</span> <span class="o">-</span> <span class="mf">0.0005</span><span class="o">*</span><span class="n">T</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.3855</span> <span class="o">-</span> <span class="mf">0.00197</span><span class="o">*</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">MW</span><span class="o">**-</span><span class="mf">0.5</span></div>
+
+<span class="k">def</span> <span class="nf">Tmax_Lakshmi_Prasad</span><span class="p">(</span><span class="n">MW</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the maximum temperature at which the Lakshmi Prasad method is</span>
+<span class="sd">    valid.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">T_max</span> <span class="o">=</span> <span class="n">flx</span><span class="o">.</span><span class="n">aitken_secant</span><span class="p">(</span><span class="n">Lakshmi_Prasad</span><span class="o">.</span><span class="n">function</span><span class="p">,</span> <span class="mf">298.15</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">MW</span><span class="p">,))</span>
+    <span class="k">return</span> <span class="n">T_max</span> <span class="o">-</span> <span class="mi">10</span> <span class="c1"># As an extra precaution</span>
+
+<div class="viewcode-block" id="Gharagheizi_liquid"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Gharagheizi_liquid">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[6]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Gharagheizi_liquid</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of a liquid as a function of</span>
+<span class="sd">    temperature using the CSP method of Gharagheizi [6]_. A  convoluted</span>
+<span class="sd">    method claiming high-accuracy and using only statistically significant</span>
+<span class="sd">    variable following analalysis.</span>
+<span class="sd">    Requires temperature, molecular weight, boiling temperature and critical</span>
+<span class="sd">    pressure and acentric factor.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        &amp;k = 10^{-4}\left[10\omega + 2P_c-2T+4+1.908(T_b+\frac{1.009B^2}{MW^2})</span>
+<span class="sd">        +\frac{3.9287MW^4}{B^4}+\frac{A}{B^8}\right]</span>
+<span class="sd">        </span>
+<span class="sd">        &amp;A = 3.8588MW^8(1.0045B+6.5152MW-8.9756)</span>
+<span class="sd">        </span>
+<span class="sd">        &amp;B = 16.0407MW+2T_b-27.9074</span>
+<span class="sd">    </span>
+<span class="sd">    Pressure is internally converted into bar, as used in the original equation.</span>
+<span class="sd">    This equation was derived with 19000 points representing 1640 unique compounds.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Gharagheizi_liquid(40, 350, 1E6, 0.27)</span>
+<span class="sd">    &gt;&gt;&gt; f(300)</span>
+<span class="sd">    0.2171113029534838</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Pc</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">/</span><span class="mf">1E5</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="mf">16.0407</span><span class="o">*</span><span class="n">MW</span> <span class="o">+</span> <span class="mf">2.</span><span class="o">*</span><span class="n">Tb</span> <span class="o">-</span> <span class="mf">27.9074</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="mf">3.8588</span><span class="o">*</span><span class="n">MW</span><span class="o">**</span><span class="mi">8</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0045</span><span class="o">*</span><span class="n">B</span> <span class="o">+</span> <span class="mf">6.5152</span><span class="o">*</span><span class="n">MW</span> <span class="o">-</span> <span class="mf">8.9756</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">1E-4</span><span class="o">*</span><span class="p">(</span><span class="mf">10.</span><span class="o">*</span><span class="n">omega</span> <span class="o">+</span> <span class="mf">2.</span><span class="o">*</span><span class="n">Pc</span> <span class="o">-</span> <span class="mf">2.</span><span class="o">*</span><span class="n">T</span> <span class="o">+</span> <span class="mf">4.</span> <span class="o">+</span> <span class="mf">1.908</span><span class="o">*</span><span class="p">(</span><span class="n">Tb</span> <span class="o">+</span> <span class="mf">1.009</span><span class="o">*</span><span class="n">B</span><span class="o">*</span><span class="n">B</span><span class="o">/</span><span class="p">(</span><span class="n">MW</span><span class="o">*</span><span class="n">MW</span><span class="p">))</span>
+        <span class="o">+</span> <span class="mf">3.9287</span><span class="o">*</span><span class="n">MW</span><span class="o">**</span><span class="mi">4</span><span class="o">*</span><span class="n">B</span><span class="o">**-</span><span class="mi">4</span> <span class="o">+</span> <span class="n">A</span><span class="o">*</span><span class="n">B</span><span class="o">**-</span><span class="mi">8</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Nicola"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Nicola">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[7]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Nicola</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of a liquid as a function of</span>
+<span class="sd">    temperature using the CSP method of [1]_. A statistically derived</span>
+<span class="sd">    equation using any correlated terms.</span>
+<span class="sd">    Requires temperature, molecular weight, critical temperature and pressure,</span>
+<span class="sd">    and acentric factor.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \frac{\lambda}{0.5147 W/m/K} = -0.2537T_r+\frac{0.0017Pc}{\text{bar}}</span>
+<span class="sd">        +0.1501 \omega + \left(\frac{1}{MW}\right)^{-0.2999}</span>
+<span class="sd">    </span>
+<span class="sd">    A statistical correlation. A revision of an original correlation.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Nicola(142.3, 611.7, 2110000.0, 0.49)</span>
+<span class="sd">    &gt;&gt;&gt; f(300)</span>
+<span class="sd">    0.10863821554584034</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">Pc</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">/</span><span class="mf">1E5</span>
+    <span class="k">return</span> <span class="mf">0.5147</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2537</span><span class="o">*</span><span class="n">Tr</span> <span class="o">+</span> <span class="mf">0.0017</span><span class="o">*</span><span class="n">Pc</span> <span class="o">+</span> <span class="mf">0.1501</span><span class="o">*</span><span class="n">omega</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">MW</span><span class="p">)</span><span class="o">**</span><span class="mf">0.2999</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Bahadori_liquid"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Bahadori_liquid">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[8]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Bahadori_liquid</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of parafin liquid hydrocarbons.</span>
+<span class="sd">    Fits their data well, and is useful as only MW is required.</span>
+<span class="sd">    X is the Molecular weight, and Y the temperature.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        K = a + bY + CY^2 + dY^3</span>
+<span class="sd">        </span>
+<span class="sd">        a = A_1 + B_1 X + C_1 X^2 + D_1 X^3</span>
+<span class="sd">        </span>
+<span class="sd">        b = A_2 + B_2 X + C_2 X^2 + D_2 X^3</span>
+<span class="sd">        </span>
+<span class="sd">        c = A_3 + B_3 X + C_3 X^2 + D_3 X^3</span>
+<span class="sd">        </span>
+<span class="sd">        d = A_4 + B_4 X + C_4 X^2 + D_4 X^3</span>
+<span class="sd">    </span>
+<span class="sd">    The accuracy of this equation has not been reviewed.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Data point from [9]_.</span>
+<span class="sd">    &gt;&gt;&gt; f = Bahadori_liquid(170)</span>
+<span class="sd">    &gt;&gt;&gt; f(273.15)</span>
+<span class="sd">    0.14274278108272603</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">6.48326E-2</span><span class="p">,</span> <span class="mf">2.715015E-3</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.08580E-5</span><span class="p">,</span> <span class="mf">9.853917E-9</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.565612E-2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.55833E-4</span><span class="p">,</span> <span class="mf">5.051114E-7</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.68030E-10</span><span class="p">]</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.80304E-4</span><span class="p">,</span> <span class="mf">1.758693E-6</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.55224E-9</span><span class="p">,</span> <span class="mf">5.201365E-12</span><span class="p">]</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.880443E-7</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.65898E-9</span><span class="p">,</span> <span class="mf">1.764384E-11</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.65944E-14</span><span class="p">]</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">MW</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">T</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">3</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">Y</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">Y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">d</span><span class="o">*</span><span class="n">Y</span><span class="o">**</span><span class="mi">3</span></div>
+
+<div class="viewcode-block" id="Mersmann_Kind_thermal_conductivity_liquid"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Mersmann_Kind_thermal_conductivity_liquid">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[9]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Mersmann_Kind_thermal_conductivity_liquid</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">atoms</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of organic liquid substances</span>
+<span class="sd">    according to the method of [9]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \lambda^* = \frac{\lambda\cdot V_c^{2/3}\cdot T_c\cdot \text{MW}^{0.5}}</span>
+<span class="sd">        {(k\cdot T_c)^{1.5}\cdot N_A^{7/6}}</span>
+<span class="sd">        </span>
+<span class="sd">        \lambda^* = \frac{2}{3}\left(n_a + 40\sqrt{1-T_r}\right)</span>
+<span class="sd">        </span>
+<span class="sd">    </span>
+<span class="sd">    In the equation, all quantities must be in SI units but N_A is in a kmol</span>
+<span class="sd">    basis and Vc is in units of (m^3/kmol); this is converted internally.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Dodecane at 400 K:</span>
+<span class="sd">        </span>
+<span class="sd">    &gt;&gt;&gt; f = Mersmann_Kind_thermal_conductivity_liquid(170.33484, 658.0, </span>
+<span class="sd">    ... 0.000754, {&#39;C&#39;: 12, &#39;H&#39;: 26})</span>
+<span class="sd">    &gt;&gt;&gt; f(400)</span>
+<span class="sd">    0.08952713798442789</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">na</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="n">lambda_star</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="o">*</span><span class="p">(</span><span class="n">na</span> <span class="o">+</span> <span class="mf">40.</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">Vc</span> <span class="o">=</span> <span class="n">Vc</span><span class="o">*</span><span class="mi">1000</span> <span class="c1"># m^3/mol to m^3/kmol</span>
+    <span class="n">N_A2</span> <span class="o">=</span> <span class="n">N_A</span><span class="o">*</span><span class="mi">1000</span> <span class="c1"># Their avogadro&#39;s constant is per kmol</span>
+    <span class="n">kl</span> <span class="o">=</span> <span class="n">lambda_star</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">Tc</span><span class="p">)</span><span class="o">**</span><span class="mf">1.5</span><span class="o">*</span><span class="n">N_A2</span><span class="o">**</span><span class="p">(</span><span class="mi">7</span><span class="o">/</span><span class="mf">6.</span><span class="p">)</span><span class="o">*</span><span class="n">Vc</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">/</span><span class="n">Tc</span><span class="o">*</span><span class="n">MW</span><span class="o">**-</span><span class="mf">0.5</span>
+    <span class="k">return</span> <span class="n">kl</span></div>
+
+<span class="c1">### Thermal Conductivity of Dense Liquids</span>
+
+<div class="viewcode-block" id="DIPPR9G"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.DIPPR9G">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[11]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">DIPPR9G</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">k_l</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Adjusts for pressure. the thermal conductivity of a liquid using an</span>
+<span class="sd">    emperical formula based on [10]_, but as given in [11]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        k = k^* \left[ 0.98 + 0.0079 P_r T_r^{1.4} + 0.63 T_r^{1.2}</span>
+<span class="sd">        \left( \frac{P_r}{30 + P_r}\right)\right]</span>
+<span class="sd">    </span>
+<span class="sd">    This equation is entrely dimensionless; all dimensions cancel.</span>
+<span class="sd">    The original source has not been reviewed.</span>
+<span class="sd">    This is DIPPR Procedure 9G: Method for the Thermal Conductivity of Pure</span>
+<span class="sd">    Nonhydrocarbon Liquids at High Pressures</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    From [11]_, for butyl acetate.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = DIPPR9G(3.92E7, 579.15, 3.212E6, 7.085E-2)</span>
+<span class="sd">    &gt;&gt;&gt; f(515.05)</span>
+<span class="sd">    0.0864419738671184</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">Pr</span> <span class="o">=</span> <span class="n">P</span><span class="o">/</span><span class="n">Pc</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k_l</span><span class="p">,</span> <span class="n">ThermoModelHandle</span><span class="p">):</span> <span class="n">k_l</span> <span class="o">=</span> <span class="n">k_l</span><span class="o">.</span><span class="n">at_T</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">k_l</span><span class="o">*</span><span class="p">(</span><span class="mf">0.98</span> <span class="o">+</span> <span class="mf">0.0079</span><span class="o">*</span><span class="n">Pr</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mf">1.4</span> <span class="o">+</span> <span class="mf">0.63</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mf">1.2</span><span class="o">*</span><span class="p">(</span><span class="n">Pr</span><span class="o">/</span><span class="p">(</span><span class="mf">30.</span> <span class="o">+</span> <span class="n">Pr</span><span class="p">)))</span></div>
+
+
+<span class="n">Trs_Missenard</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">Prs_Missenard</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
+<span class="n">Qs_Missenard</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.036</span><span class="p">,</span> <span class="mf">0.038</span><span class="p">,</span> <span class="mf">0.038</span><span class="p">,</span> <span class="mf">0.038</span><span class="p">,</span> <span class="mf">0.038</span><span class="p">,</span> <span class="mf">0.038</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mf">0.018</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.027</span><span class="p">,</span> <span class="mf">0.031</span><span class="p">,</span> <span class="mf">0.032</span><span class="p">,</span> <span class="mf">0.032</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mf">0.015</span><span class="p">,</span> <span class="mf">0.020</span><span class="p">,</span> <span class="mf">0.022</span><span class="p">,</span> <span class="mf">0.024</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mf">0.012</span><span class="p">,</span> <span class="mf">0.0165</span><span class="p">,</span> <span class="mf">0.017</span><span class="p">,</span> <span class="mf">0.019</span><span class="p">,</span> <span class="mf">0.020</span><span class="p">,</span> <span class="mf">0.020</span><span class="p">]])</span>
+<span class="n">Qfunc_Missenard</span> <span class="o">=</span> <span class="n">interp2d</span><span class="p">(</span><span class="n">Prs_Missenard</span><span class="p">,</span> <span class="n">Trs_Missenard</span><span class="p">,</span> <span class="n">Qs_Missenard</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Missenard"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Missenard">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[12]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Missenard</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">k_l</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Adjusts for pressure. the thermal conductivity of a liquid using an</span>
+<span class="sd">    emperical formula based on [10]_, but as given in [12]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \frac{k}{k^*} = 1 + Q P_r^{0.7}</span>
+<span class="sd">    </span>
+<span class="sd">    This equation is entirely dimensionless; all dimensions cancel.</span>
+<span class="sd">    An interpolation routine is used here from tabulated values of Q.</span>
+<span class="sd">    The original source has not been reviewed.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Example from [12]_, toluene; matches.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Missenard(6330E5, 591.8, 41E5, 0.129)</span>
+<span class="sd">    &gt;&gt;&gt; f(304.)</span>
+<span class="sd">    0.2198375777069657</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">Pr</span> <span class="o">=</span> <span class="n">P</span><span class="o">/</span><span class="n">Pc</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Qfunc_Missenard</span><span class="p">(</span><span class="n">Pr</span><span class="p">,</span> <span class="n">Tr</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k_l</span><span class="p">,</span> <span class="n">ThermoModelHandle</span><span class="p">):</span> <span class="n">k_l</span> <span class="o">=</span> <span class="n">k_l</span><span class="o">.</span><span class="n">at_T</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">k_l</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">Q</span><span class="o">*</span><span class="n">Pr</span><span class="o">**</span><span class="mf">0.7</span><span class="p">)</span></div>
+
+<span class="nd">@TPDependentHandleBuilder</span><span class="p">(</span><span class="s1">&#39;kappa.l&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">thermal_conductivity_liquid_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">CAS</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="n">add_model</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">add_model</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">((</span><span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">)):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">handle</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">DIPPR9G</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Missenard</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_Perrys2_315</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">C3</span><span class="p">,</span> <span class="n">C4</span><span class="p">,</span> <span class="n">C5</span><span class="p">,</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="n">_Perrys2_315</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">C3</span><span class="p">,</span> <span class="n">C4</span><span class="p">,</span> <span class="n">C5</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">DIPPR_EQ100</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_VDI_PPDS_9</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span>  <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">E</span> <span class="o">=</span> <span class="n">_VDI_PPDS_9</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">horner_polynomial</span><span class="o">.</span><span class="n">from_kwargs</span><span class="p">({</span><span class="s1">&#39;coeffs&#39;</span><span class="p">:(</span><span class="n">E</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">)}))</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">VDI_saturation_dict</span><span class="p">:</span>
+        <span class="n">Ts</span><span class="p">,</span> <span class="n">Ys</span> <span class="o">=</span> <span class="n">VDI_tabular_data</span><span class="p">(</span><span class="n">CAS</span><span class="p">,</span> <span class="s1">&#39;K (l)&#39;</span><span class="p">)</span>
+        <span class="n">Tmin</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">Tmax</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">InterpolatedTDependentModel</span><span class="p">(</span><span class="n">Ts</span><span class="p">,</span> <span class="n">Ys</span><span class="p">,</span> <span class="n">Tmin</span><span class="o">=</span><span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="o">=</span><span class="n">Tmax</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Gharagheizi_liquid</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Nicola</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Sato_Riedel</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tm</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="c1"># Works down to 0, has a nice limit at T = Tm+793.65 from Sympy</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Sheffy_Johnson</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">793.65</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,)</span>
+    <span class="k">if</span> <span class="n">MW</span><span class="p">:</span>
+        <span class="n">Tmax</span> <span class="o">=</span> <span class="n">Tmax_Lakshmi_Prasad</span><span class="p">(</span><span class="n">MW</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Lakshmi_Prasad</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Bahadori_liquid</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="c1">### Thermal Conductivity of Gases</span>
+
+<div class="viewcode-block" id="Eucken"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Eucken">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[13]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Eucken</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">mu_g</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of a gas as a function of</span>
+<span class="sd">    temperature using the CSP method of Eucken [13]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        C_v = C_n - R</span>
+<span class="sd">        </span>
+<span class="sd">        \frac{\lambda M}{\eta C_v} = 1 + \frac{9/4}{C_v/R}</span>
+<span class="sd">    </span>
+<span class="sd">    Temperature dependence is introduced via heat capacity and viscosity.</span>
+<span class="sd">    A theoretical equation. No original author located.</span>
+<span class="sd">    MW internally converted to kg/g-mol.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    2-methylbutane at low pressure, 373.15 K. Mathes calculation in [13]_.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Eucken(MW=72.151, Cn=135.9, mu=8.77E-6)</span>
+<span class="sd">    &gt;&gt;&gt; f(373.15)</span>
+<span class="sd">    0.018792644287722975</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">Cn</span><span class="p">):</span> <span class="n">Cn</span> <span class="o">=</span> <span class="n">Cn</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">mu_g</span><span class="p">):</span> <span class="n">mu_g</span> <span class="o">=</span> <span class="n">mu_g</span><span class="o">.</span><span class="n">at_T</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">Cv</span> <span class="o">=</span> <span class="n">Cn</span> <span class="o">-</span> <span class="n">R</span>
+    <span class="n">MW</span> <span class="o">=</span> <span class="n">MW</span><span class="o">/</span><span class="mf">1000.</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="mi">9</span><span class="o">/</span><span class="mf">4.</span><span class="o">/</span><span class="p">(</span><span class="n">Cv</span><span class="o">/</span><span class="n">R</span><span class="p">))</span><span class="o">*</span><span class="n">mu_g</span><span class="o">*</span><span class="n">Cv</span><span class="o">/</span><span class="n">MW</span></div>
+
+<div class="viewcode-block" id="Eucken_modified"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Eucken_modified">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[13]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Eucken_modified</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of a gas as a function of</span>
+<span class="sd">    temperature using the Modified CSP method of Eucken [1]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \frac{\lambda M}{\eta C_v} = 1.32 + \frac{1.77}{C_v/R}</span>
+<span class="sd">    </span>
+<span class="sd">    Temperature dependence is introduced via heat capacity and viscosity.</span>
+<span class="sd">    A theoretical equation. No original author located.</span>
+<span class="sd">    MW internally converted to kg/g-mol.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    2-methylbutane at low pressure, 373.15 K. Mathes calculation in [1]_.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Eucken_modified(MW=72.151, Cvm=135.9, mu=8.77E-6)</span>
+<span class="sd">    &gt;&gt;&gt; f(373.15)</span>
+<span class="sd">    0.023593536999201956</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">Cn</span><span class="p">):</span> <span class="n">Cn</span> <span class="o">=</span> <span class="n">Cn</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">mu</span><span class="p">):</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="o">.</span><span class="n">at_T</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">Cv</span> <span class="o">=</span> <span class="n">Cn</span> <span class="o">-</span> <span class="n">R</span>
+    <span class="n">MW</span> <span class="o">=</span> <span class="n">MW</span><span class="o">/</span><span class="mf">1000.</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.32</span> <span class="o">+</span> <span class="mf">1.77</span><span class="o">/</span><span class="p">(</span><span class="n">Cv</span><span class="o">/</span><span class="n">R</span><span class="p">))</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="n">Cv</span><span class="o">/</span><span class="n">MW</span></div>
+
+<span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span>
+<span class="k">def</span> <span class="nf">DIPPR9B_linear</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Tc</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">Cn</span><span class="p">):</span> <span class="n">Cn</span> <span class="o">=</span> <span class="n">Cn</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">mu</span><span class="p">):</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="o">.</span><span class="n">at_T</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">Cv</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="p">(</span><span class="n">Cn</span> <span class="o">-</span> <span class="n">R</span><span class="p">)</span> <span class="c1"># J/mol/K to J/kmol/K</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="k">return</span> <span class="n">mu</span><span class="o">/</span><span class="n">MW</span><span class="o">*</span><span class="p">(</span><span class="mf">1.30</span><span class="o">*</span><span class="n">Cv</span> <span class="o">+</span> <span class="mi">14644</span> <span class="o">-</span> <span class="mf">2928.80</span><span class="o">/</span><span class="n">Tr</span><span class="p">)</span>
+
+<span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span>    
+<span class="k">def</span> <span class="nf">DIPPR9B_monoatomic</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">Cn</span><span class="p">):</span> <span class="n">Cn</span> <span class="o">=</span> <span class="n">Cn</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">mu</span><span class="p">):</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="o">.</span><span class="n">at_T</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">Cv</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="p">(</span><span class="n">Cn</span> <span class="o">-</span> <span class="n">R</span><span class="p">)</span> <span class="c1"># J/mol/K to J/kmol/K</span>
+    <span class="k">return</span> <span class="mf">2.5</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="n">Cv</span><span class="o">/</span><span class="n">MW</span>
+
+<span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span>
+<span class="k">def</span> <span class="nf">DIPPR9B_nonlinear</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">Cn</span><span class="p">):</span> <span class="n">Cn</span> <span class="o">=</span> <span class="n">Cn</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">mu</span><span class="p">):</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="o">.</span><span class="n">at_T</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">Cv</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="p">(</span><span class="n">Cn</span> <span class="o">-</span> <span class="n">R</span><span class="p">)</span> <span class="c1"># J/mol/K to J/kmol/K</span>
+    <span class="k">return</span> <span class="n">mu</span><span class="o">/</span><span class="n">MW</span><span class="o">*</span><span class="p">(</span><span class="mf">1.15</span><span class="o">*</span><span class="n">Cv</span> <span class="o">+</span> <span class="mf">16903.36</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Chung"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Chung">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[14]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Chung</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of a gas as a function of</span>
+<span class="sd">    temperature using the CSP method of Chung [14]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \frac{\lambda M}{\eta C_v} = \frac{3.75 \Psi}{C_v/R}</span>
+<span class="sd">        </span>
+<span class="sd">        \Psi = 1 + \alpha \left\{[0.215+0.28288\alpha-1.061\beta+0.26665Z]/</span>
+<span class="sd">        [0.6366+\beta Z + 1.061 \alpha \beta]\right\}</span>
+<span class="sd">        </span>
+<span class="sd">        \alpha = \frac{C_v}{R}-1.5</span>
+<span class="sd">        </span>
+<span class="sd">        \beta = 0.7862-0.7109\omega + 1.3168\omega^2</span>
+<span class="sd">        </span>
+<span class="sd">        Z=2+10.5T_r^2</span>
+<span class="sd">    </span>
+<span class="sd">    MW internally converted to kg/g-mol.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    2-methylbutane at low pressure, 373.15 K. Mathes calculation in [13]_.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Chung(MW=72.151, Tc=460.4, omega=0.227, Cvm=135.9, mu=8.77E-6)</span>
+<span class="sd">    &gt;&gt;&gt; f(T=373.15)</span>
+<span class="sd">    0.023015653729496946</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">Cn</span><span class="p">):</span> <span class="n">Cn</span> <span class="o">=</span> <span class="n">Cn</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">mu</span><span class="p">):</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="o">.</span><span class="n">at_T</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">Cv</span> <span class="o">=</span> <span class="n">Cn</span> <span class="o">-</span> <span class="n">R</span> 
+    <span class="n">MW</span> <span class="o">=</span> <span class="n">MW</span><span class="o">/</span><span class="mf">1000.</span> <span class="c1"># g/mol to kg/mol</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">Cv</span><span class="o">/</span><span class="n">R</span> <span class="o">-</span> <span class="mf">1.5</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.7862</span> <span class="o">-</span> <span class="mf">0.7109</span><span class="o">*</span><span class="n">omega</span> <span class="o">+</span> <span class="mf">1.3168</span><span class="o">*</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">10.5</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">Tc</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="p">((</span><span class="mf">0.215</span> <span class="o">+</span> <span class="mf">0.28288</span><span class="o">*</span><span class="n">alpha</span> <span class="o">-</span> <span class="mf">1.061</span><span class="o">*</span><span class="n">beta</span> <span class="o">+</span> <span class="mf">0.26665</span><span class="o">*</span><span class="n">Z</span><span class="p">)</span>
+                      <span class="o">/</span><span class="p">(</span><span class="mf">0.6366</span> <span class="o">+</span> <span class="n">beta</span><span class="o">*</span><span class="n">Z</span> <span class="o">+</span> <span class="mf">1.061</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">beta</span><span class="p">))</span>
+    <span class="k">return</span> <span class="mf">3.75</span><span class="o">*</span><span class="n">psi</span><span class="o">*</span><span class="n">R</span><span class="o">/</span><span class="n">MW</span><span class="o">*</span><span class="n">mu</span></div>
+
+<div class="viewcode-block" id="Eli_Hanley"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Eli_Hanley">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[13]_ [15]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Eli_Hanley</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">Zc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Cn</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of a gas as a function of</span>
+<span class="sd">    temperature using the reference fluid method of Eli and Hanley [1]_ as</span>
+<span class="sd">    shown in [13]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        </span>
+<span class="sd">        \lambda = \lambda^* + \frac{\eta^*}{MW}(1.32)\left(C_v - \frac{3R}{2}\right)</span>
+<span class="sd">        </span>
+<span class="sd">        Tr = \text{min}(Tr, 2)</span>
+<span class="sd">        </span>
+<span class="sd">        \theta = 1 + (\omega-0.011)\left(0.56553 - 0.86276\ln Tr - \frac{0.69852}{Tr}\right)</span>
+<span class="sd">        </span>
+<span class="sd">        \psi = [1 + (\omega - 0.011)(0.38560 - 1.1617\ln Tr)]\frac{0.288}{Z_c}</span>
+<span class="sd">        </span>
+<span class="sd">        f = \frac{T_c}{190.4}\theta</span>
+<span class="sd">        </span>
+<span class="sd">        h = \frac{V_c}{9.92E-5}\psi</span>
+<span class="sd">        </span>
+<span class="sd">        T_0 = T/f</span>
+<span class="sd">        </span>
+<span class="sd">        \eta_0^*(T_0)= \sum_{n=1}^9 C_n T_0^{(n-4)/3}</span>
+<span class="sd">        </span>
+<span class="sd">        \theta_0 = 1944 \eta_0</span>
+<span class="sd">        </span>
+<span class="sd">        \lambda^* = \lambda_0 H</span>
+<span class="sd">        </span>
+<span class="sd">        \eta^* = \eta^*_0 H \frac{MW}{16.04}</span>
+<span class="sd">        </span>
+<span class="sd">        H = \left(\frac{16.04}{MW}\right)^{0.5}f^{0.5}/h^{2/3}</span>
+<span class="sd">    </span>
+<span class="sd">    Reference fluid is Methane.</span>
+<span class="sd">    MW internally converted to kg/g-mol.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    2-methylbutane at low pressure, 373.15 K. Mathes calculation in [13]_.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Eli_Hanley(MW=72.151, Tc=460.4, Vc=3.06E-4, Zc=0.267,</span>
+<span class="sd">    ... omega=0.227, Cvm=135.9)</span>
+<span class="sd">    &gt;&gt;&gt; f(T=373.15)</span>
+<span class="sd">    0.02247951789135337</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Cs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.907741307E6</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.312874033E6</span><span class="p">,</span> <span class="mf">1.608101838E6</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.331904871E5</span><span class="p">,</span> 
+          <span class="mf">7.062481330E4</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.116620750E3</span><span class="p">,</span> <span class="mf">4.325174400E2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.445911210E1</span><span class="p">,</span> <span class="mf">2.037119479E-1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">Cn</span><span class="p">):</span> <span class="n">Cn</span> <span class="o">=</span> <span class="n">Cn</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">Cv</span> <span class="o">=</span> <span class="n">Cn</span> <span class="o">-</span> <span class="n">R</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="k">if</span> <span class="n">Tr</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Tr</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">omega</span> <span class="o">-</span> <span class="mf">0.011</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.56553</span> <span class="o">-</span> <span class="mf">0.86276</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">Tr</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.69852</span><span class="o">/</span><span class="n">Tr</span><span class="p">)</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">omega</span><span class="o">-</span><span class="mf">0.011</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.38560</span> <span class="o">-</span> <span class="mf">1.1617</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">Tr</span><span class="p">)))</span><span class="o">*</span><span class="mf">0.288</span><span class="o">/</span><span class="n">Zc</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">Tc</span><span class="o">/</span><span class="mf">190.4</span><span class="o">*</span><span class="n">theta</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">Vc</span><span class="o">/</span><span class="mf">9.92E-5</span><span class="o">*</span><span class="n">psi</span>
+    <span class="n">T0</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">f</span>
+    <span class="n">eta0</span> <span class="o">=</span> <span class="mf">1E-7</span><span class="o">*</span><span class="nb">sum</span><span class="p">([</span><span class="n">Ci</span><span class="o">*</span><span class="n">T0</span><span class="o">**</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mf">1.</span> <span class="o">-</span> <span class="mf">4.</span><span class="p">)</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">Ci</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Cs</span><span class="p">)])</span>
+    <span class="n">k0</span> <span class="o">=</span> <span class="mi">1944</span><span class="o">*</span><span class="n">eta0</span>
+
+    <span class="n">H</span> <span class="o">=</span> <span class="p">(</span><span class="mf">16.04</span><span class="o">/</span><span class="n">MW</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="n">f</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="n">h</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span>
+    <span class="n">etas</span> <span class="o">=</span> <span class="n">eta0</span><span class="o">*</span><span class="n">H</span><span class="o">*</span><span class="n">MW</span><span class="o">/</span><span class="mf">16.04</span>
+    <span class="n">ks</span> <span class="o">=</span> <span class="n">k0</span><span class="o">*</span><span class="n">H</span>
+    <span class="k">return</span> <span class="n">ks</span> <span class="o">+</span> <span class="n">etas</span><span class="o">/</span><span class="p">(</span><span class="n">MW</span><span class="o">/</span><span class="mf">1000.</span><span class="p">)</span><span class="o">*</span><span class="mf">1.32</span><span class="o">*</span><span class="p">(</span><span class="n">Cv</span> <span class="o">-</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">R</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Gharagheizi_gas"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Gharagheizi_gas">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[6]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Gharagheizi_gas</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of a gas as a function of</span>
+<span class="sd">    temperature using the CSP method of Gharagheizi [6]_. A  convoluted</span>
+<span class="sd">    method claiming high-accuracy and using only statistically significant</span>
+<span class="sd">    variable following analalysis.</span>
+<span class="sd">    Requires temperature, molecular weight, boiling temperature and critical</span>
+<span class="sd">    pressure and acentric factor.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        k = 7.9505\times 10^{-4} + 3.989\times 10^{-5} T</span>
+<span class="sd">        -5.419\times 10^-5 M + 3.989\times 10^{-5} A</span>
+<span class="sd">       </span>
+<span class="sd">        A = \frac{\left(2\omega + T - \frac{(2\omega + 3.2825)T}{T_b} + 3.2825\right)}{0.1MP_cT}</span>
+<span class="sd">        \times (3.9752\omega + 0.1 P_c + 1.9876B + 6.5243)^2</span>
+<span class="sd">    </span>
+<span class="sd">    Pressure is internally converted into 10*kPa but author used correlation with</span>
+<span class="sd">    kPa; overall, errors have been corrected in the presentation of the formula.</span>
+<span class="sd">    This equation was derived with 15927 points and 1574 compounds.</span>
+<span class="sd">    Example value from [1]_ is the first point in the supportinf info, for CH4.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Gharagheizi_gas(16.04246, 111.66, 4599000.0, 0.0115478000)</span>
+<span class="sd">    &gt;&gt;&gt; f(580.)</span>
+<span class="sd">    0.09594861261873211</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Pc</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">/</span><span class="mf">1E4</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">T</span> <span class="o">+</span> <span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">omega</span> <span class="o">+</span> <span class="mf">2.</span><span class="o">*</span><span class="n">T</span> <span class="o">-</span> <span class="mf">2.</span><span class="o">*</span><span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">omega</span> <span class="o">+</span> <span class="mf">3.2825</span><span class="p">)</span><span class="o">/</span><span class="n">Tb</span> <span class="o">+</span> <span class="mf">3.2825</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">omega</span> <span class="o">+</span> <span class="n">T</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">omega</span><span class="o">+</span><span class="mf">3.2825</span><span class="p">)</span><span class="o">/</span><span class="n">Tb</span> <span class="o">+</span> <span class="mf">3.2825</span><span class="p">)</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">omega</span><span class="o">+</span><span class="mf">3.2825</span><span class="p">)</span><span class="o">/</span><span class="n">Tb</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">omega</span> <span class="o">+</span> <span class="n">T</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">omega</span> <span class="o">+</span> <span class="mf">3.2825</span><span class="p">)</span><span class="o">/</span><span class="n">Tb</span> <span class="o">+</span> <span class="mf">3.2825</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="n">MW</span><span class="o">*</span><span class="n">Pc</span><span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">3.9752</span><span class="o">*</span><span class="n">omega</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">Pc</span> <span class="o">+</span> <span class="mf">1.9876</span><span class="o">*</span><span class="n">B</span> <span class="o">+</span> <span class="mf">6.5243</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="mf">7.9505E-4</span> <span class="o">+</span> <span class="mf">3.989E-5</span><span class="o">*</span><span class="n">T</span> <span class="o">-</span> <span class="mf">5.419E-5</span><span class="o">*</span><span class="n">MW</span> <span class="o">+</span> <span class="mf">3.989E-5</span><span class="o">*</span><span class="n">A</span></div>
+
+<div class="viewcode-block" id="Bahadori_gas"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Bahadori_gas">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[16]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Bahadori_gas</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">MW</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of hydrocarbons gases at low P.</span>
+<span class="sd">    Fits their data well, and is useful as only MW is required.</span>
+<span class="sd">    Y is the Molecular weight, and X the temperature.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        K = a + bY + CY^2 + dY^3</span>
+<span class="sd">        </span>
+<span class="sd">        a = A_1 + B_1 X + C_1 X^2 + D_1 X^3</span>
+<span class="sd">        </span>
+<span class="sd">        b = A_2 + B_2 X + C_2 X^2 + D_2 X^3</span>
+<span class="sd">        </span>
+<span class="sd">        c = A_3 + B_3 X + C_3 X^2 + D_3 X^3</span>
+<span class="sd">        </span>
+<span class="sd">        d = A_4 + B_4 X + C_4 X^2 + D_4 X^3</span>
+<span class="sd">    </span>
+<span class="sd">    The accuracy of this equation has not been reviewed.</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Bahadori_gas(20) # Point from article</span>
+<span class="sd">    &gt;&gt;&gt; f(313.15)</span>
+<span class="sd">    0.031968165337873326</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.3931323468E-1</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.88001122207E-2</span><span class="p">,</span> <span class="mf">9.28616040136E-4</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.57828995724E-6</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.9624238519E-3</span><span class="p">,</span> <span class="mf">2.67956145820E-4</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.40171884139E-6</span><span class="p">,</span> <span class="mf">4.48579040207E-8</span><span class="p">]</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mf">7.54249790107E-6</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.46636219509E-7</span><span class="p">,</span> <span class="mf">1.5124510261E-8</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0376480449E-10</span><span class="p">]</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">6.0988433456E-9</span><span class="p">,</span> <span class="mf">5.20752132076E-10</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.19425545729E-11</span><span class="p">,</span> <span class="mf">8.0136464085E-14</span><span class="p">]</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">MW</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mi">3</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">Y</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">Y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">d</span><span class="o">*</span><span class="n">Y</span><span class="o">**</span><span class="mi">3</span></div>
+
+
+<span class="c1">### Thermal Conductivity of dense gases</span>
+
+<div class="viewcode-block" id="Stiel_Thodos_dense"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Stiel_Thodos_dense">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[17]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Stiel_Thodos_dense</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">P</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">Zc</span><span class="p">,</span> <span class="n">V_g</span><span class="p">,</span> <span class="n">k_g</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of a gas at high pressure as a</span>
+<span class="sd">    function of temperature using difference method of Stiel and Thodos [1]_</span>
+<span class="sd">    as shown in [13]_.</span>
+<span class="sd">    </span>
+<span class="sd">    if \rho_r &lt; 0.5:</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        (\lambda-\lambda^\circ)\Gamma Z_c^5=1.22\times 10^{-2} [\exp(0.535 \rho_r)-1]</span>
+<span class="sd">    </span>
+<span class="sd">    if 0.5 &lt; \rho_r &lt; 2.0:</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        (\lambda-\lambda^\circ)\Gamma Z_c^5=1.22\times 10^{-2} [\exp(0.535 \rho_r)-1]</span>
+<span class="sd">    </span>
+<span class="sd">    if 2 &lt; \rho_r &lt; 2.8:</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        (\lambda-\lambda^\circ)\Gamma Z_c^5=1.22\times 10^{-2} [\exp(0.535 \rho_r)-1]</span>
+<span class="sd">        \Gamma = 210 \left(\frac{T_cMW^3}{P_c^4}\right)^{1/6}</span>
+<span class="sd">    </span>
+<span class="sd">    Pc is internally converted to bar.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Stiel_Thodos_dense(MW=44.013, Tc=309.6, Pc=72.4E5,</span>
+<span class="sd">    ... Vc=97.4E-6, Zc=0.274, Vm=144E-6, kg=2.34E-2)</span>
+<span class="sd">    &gt;&gt;&gt; f(T=378.15)</span>
+<span class="sd">    0.041245574404863684</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">V_g</span><span class="p">):</span> <span class="n">V_g</span> <span class="o">=</span> <span class="n">V_g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k_g</span><span class="p">,</span> <span class="n">ThermoModelHandle</span><span class="p">):</span> <span class="n">k_g</span> <span class="o">=</span> <span class="n">k_g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="mi">210</span><span class="o">*</span><span class="p">(</span><span class="n">Tc</span><span class="o">*</span><span class="n">MW</span><span class="o">**</span><span class="mf">3.</span><span class="o">/</span><span class="p">(</span><span class="n">Pc</span><span class="o">/</span><span class="mf">1E5</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">6.</span><span class="p">)</span>
+    <span class="n">rhor</span> <span class="o">=</span> <span class="n">Vc</span><span class="o">/</span><span class="n">V_g</span>
+    <span class="k">if</span> <span class="n">rhor</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+        <span class="n">term</span> <span class="o">=</span> <span class="mf">1.22E-2</span><span class="o">*</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.535</span><span class="o">*</span><span class="n">rhor</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">rhor</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">term</span> <span class="o">=</span> <span class="mf">1.14E-2</span><span class="o">*</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.67</span><span class="o">*</span><span class="n">rhor</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.069</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Technically only up to 2.8</span>
+        <span class="n">term</span> <span class="o">=</span> <span class="mf">2.60E-3</span><span class="o">*</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="mf">1.155</span><span class="o">*</span><span class="n">rhor</span><span class="p">)</span> <span class="o">+</span> <span class="mf">2.016</span><span class="p">)</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="n">term</span><span class="o">/</span><span class="n">Zc</span><span class="o">**</span><span class="mi">5</span><span class="o">/</span><span class="n">gamma</span>
+    <span class="n">k_g</span> <span class="o">=</span> <span class="n">k_g</span> <span class="o">+</span> <span class="n">diff</span>
+    <span class="k">return</span> <span class="n">k_g</span></div>
+
+<div class="viewcode-block" id="Eli_Hanley_dense"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Eli_Hanley_dense">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[13]_ [15]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Eli_Hanley_dense</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">Zc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">V_g</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of a gas at high pressure as a</span>
+<span class="sd">    function of temperature using the reference fluid method of Eli and</span>
+<span class="sd">    Hanley [15]_ as shown in [13]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        Tr = min(Tr, 2)</span>
+<span class="sd">        </span>
+<span class="sd">        Vr = min(Vr, 2)</span>
+<span class="sd">        </span>
+<span class="sd">        f = \frac{T_c}{190.4}\theta</span>
+<span class="sd">        </span>
+<span class="sd">        h = \frac{V_c}{9.92E-5}\psi</span>
+<span class="sd">        </span>
+<span class="sd">        T_0 = T/f</span>
+<span class="sd">        </span>
+<span class="sd">        \rho_0 = \frac{16.04}{V}h</span>
+<span class="sd">        </span>
+<span class="sd">        \theta = 1 + (\omega-0.011)\left(0.09057 - 0.86276\ln Tr + \left(</span>
+<span class="sd">        0.31664 - \frac{0.46568}{Tr}\right) (V_r - 0.5)\right)</span>
+<span class="sd">        </span>
+<span class="sd">        \psi = [1 + (\omega - 0.011)(0.39490(V_r - 1.02355) - 0.93281(V_r -</span>
+<span class="sd">        0.75464)\ln T_r]\frac{0.288}{Z_c}</span>
+<span class="sd">        </span>
+<span class="sd">        \lambda_1 = 1944 \eta_0</span>
+<span class="sd">        </span>
+<span class="sd">        \lambda_2 = \left\{b_1 + b_2\left[b_3 - \ln \left(\frac{T_0}{b_4}</span>
+<span class="sd">        \right)\right]^2\right\}\rho_0</span>
+<span class="sd">        </span>
+<span class="sd">        \lambda_3 = \exp\left(a_1 + \frac{a_2}{T_0}\right)\left\{\exp[(a_3 +</span>
+<span class="sd">        \frac{a_4}{T_0^{1.5}})\rho_0^{0.1} + (\frac{\rho_0}{0.1617} - 1)</span>
+<span class="sd">        \rho_0^{0.5}(a_5 + \frac{a_6}{T_0} + \frac{a_7}{T_0^2})] - 1\right\}</span>
+<span class="sd">        </span>
+<span class="sd">        \lambda^{**} = [\lambda_1 + \lambda_2 + \lambda_3]H</span>
+<span class="sd">        </span>
+<span class="sd">        H = \left(\frac{16.04}{MW}\right)^{0.5}f^{0.5}/h^{2/3}</span>
+<span class="sd">        </span>
+<span class="sd">        X = \left\{\left[1 - \frac{T}{f}\left(\frac{df}{dT}\right)_v \right]</span>
+<span class="sd">        \frac{0.288}{Z_c}\right\}^{1.5}</span>
+<span class="sd">        </span>
+<span class="sd">        \left(\frac{df}{dT}\right)_v = \frac{T_c}{190.4}\left(\frac{d\theta}</span>
+<span class="sd">        {d T}\right)_v</span>
+<span class="sd">        </span>
+<span class="sd">        \left(\frac{d\theta}{d T}\right)_v = (\omega-0.011)\left[</span>
+<span class="sd">        \frac{-0.86276}{T} + (V_r-0.5)\frac{0.46568T_c}{T^2}\right]</span>
+<span class="sd">    </span>
+<span class="sd">    Reference fluid is Methane.</span>
+<span class="sd">    MW internally converted to kg/g-mol.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Eli_Hanley_dense(MW=42.081, Tc=364.9, Vc=1.81E-4, Zc=0.274,</span>
+<span class="sd">    ... omega=0.144, Cvm=82.70, Vm=1.721E-4)</span>
+<span class="sd">    &gt;&gt;&gt; f(T=473.)</span>
+<span class="sd">    0.06038475936515042</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Cs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.907741307E6</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.312874033E6</span><span class="p">,</span> <span class="mf">1.608101838E6</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.331904871E5</span><span class="p">,</span>
+          <span class="mf">7.062481330E4</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.116620750E3</span><span class="p">,</span> <span class="mf">4.325174400E2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.445911210E1</span><span class="p">,</span>
+          <span class="mf">2.037119479E-1</span><span class="p">]</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="k">if</span> <span class="n">Tr</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">Tr</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">V_g</span><span class="p">):</span> <span class="n">V_g</span> <span class="o">=</span> <span class="n">V_g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">Cn</span><span class="p">):</span> <span class="n">Cn</span> <span class="o">=</span> <span class="n">Cn</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">Cvm</span> <span class="o">=</span> <span class="n">Cn</span> <span class="o">-</span> <span class="n">R</span>
+    <span class="n">Vr</span> <span class="o">=</span> <span class="n">V_g</span><span class="o">/</span><span class="n">Vc</span>
+    <span class="k">if</span> <span class="n">Vr</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">Vr</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">omega</span> <span class="o">-</span> <span class="mf">0.011</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.09057</span> <span class="o">-</span> <span class="mf">0.86276</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">Tr</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.31664</span> <span class="o">-</span> <span class="mf">0.46568</span><span class="o">/</span><span class="n">Tr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Vr</span><span class="o">-</span><span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">omega</span><span class="o">-</span><span class="mf">0.011</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.39490</span><span class="o">*</span><span class="p">(</span><span class="n">Vr</span><span class="o">-</span><span class="mf">1.02355</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.93281</span><span class="o">*</span><span class="p">(</span><span class="n">Vr</span><span class="o">-</span><span class="mf">0.75464</span><span class="p">)</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">Tr</span><span class="p">)))</span><span class="o">*</span><span class="mf">0.288</span><span class="o">/</span><span class="n">Zc</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">Tc</span><span class="o">/</span><span class="mf">190.4</span><span class="o">*</span><span class="n">theta</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">Vc</span><span class="o">/</span><span class="mf">9.92E-5</span><span class="o">*</span><span class="n">psi</span>
+    <span class="n">T0</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">f</span>
+    <span class="n">rho0</span> <span class="o">=</span> <span class="mf">16.04</span><span class="o">/</span><span class="p">(</span><span class="n">V_g</span><span class="o">*</span><span class="mf">1E6</span><span class="p">)</span><span class="o">*</span><span class="n">h</span>  <span class="c1"># Vm must be in cm^3/mol here.</span>
+    <span class="n">eta0</span> <span class="o">=</span> <span class="mf">1E-7</span><span class="o">*</span><span class="nb">sum</span><span class="p">([</span><span class="n">Cs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">T0</span><span class="o">**</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Cs</span><span class="p">))])</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="mi">1944</span><span class="o">*</span><span class="n">eta0</span>
+    <span class="n">b1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.25276920E0</span>
+    <span class="n">b2</span> <span class="o">=</span> <span class="mf">0.334328590E0</span>
+    <span class="n">b3</span> <span class="o">=</span> <span class="mf">1.12</span>
+    <span class="n">b4</span> <span class="o">=</span> <span class="mf">0.1680E3</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="p">(</span><span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span><span class="o">*</span><span class="p">(</span><span class="n">b3</span> <span class="o">-</span> <span class="n">log</span><span class="p">(</span><span class="n">T0</span><span class="o">/</span><span class="n">b4</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mf">1000.</span><span class="o">*</span><span class="n">rho0</span>
+
+    <span class="n">a1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">7.19771</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="mf">85.67822</span>
+    <span class="n">a3</span> <span class="o">=</span> <span class="mf">12.47183</span>
+    <span class="n">a4</span> <span class="o">=</span> <span class="o">-</span><span class="mf">984.6252</span>
+    <span class="n">a5</span> <span class="o">=</span> <span class="mf">0.3594685</span>
+    <span class="n">a6</span> <span class="o">=</span> <span class="mf">69.79841</span>
+    <span class="n">a7</span> <span class="o">=</span> <span class="o">-</span><span class="mf">872.8833</span>
+
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">exp</span><span class="p">((</span><span class="n">a3</span> <span class="o">+</span> <span class="n">a4</span><span class="o">/</span><span class="n">T0</span><span class="o">**</span><span class="mf">1.5</span><span class="p">)</span><span class="o">*</span><span class="n">rho0</span><span class="o">**</span><span class="mf">0.1</span> <span class="o">+</span> <span class="p">(</span><span class="n">rho0</span><span class="o">/</span><span class="mf">0.1617</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">rho0</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">a5</span> <span class="o">+</span> <span class="n">a6</span><span class="o">/</span><span class="n">T0</span> <span class="o">+</span> <span class="n">a7</span><span class="o">/</span><span class="n">T0</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1000.</span>
+
+    <span class="k">if</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">dtheta</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dtheta</span> <span class="o">=</span> <span class="p">(</span><span class="n">omega</span> <span class="o">-</span> <span class="mf">0.011</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mf">0.86276</span><span class="o">/</span><span class="n">T</span> <span class="o">+</span> <span class="p">(</span><span class="n">Vr</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mf">0.46568</span><span class="o">*</span><span class="n">Tc</span><span class="o">/</span><span class="n">T</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">dfdT</span> <span class="o">=</span> <span class="n">Tc</span><span class="o">/</span><span class="mf">190.4</span><span class="o">*</span><span class="n">dtheta</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="n">f</span><span class="o">*</span><span class="n">dfdT</span><span class="p">)</span><span class="o">*</span><span class="mf">0.288</span><span class="o">/</span><span class="n">Zc</span><span class="p">)</span><span class="o">**</span><span class="mf">1.5</span>
+
+    <span class="n">H</span> <span class="o">=</span> <span class="p">(</span><span class="mf">16.04</span><span class="o">/</span><span class="n">MW</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="n">f</span><span class="o">**</span><span class="mf">0.5</span><span class="o">/</span><span class="n">h</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span>
+    <span class="n">ks</span> <span class="o">=</span> <span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">k2</span> <span class="o">+</span> <span class="n">k3</span><span class="p">)</span><span class="o">*</span><span class="n">H</span>
+
+    <span class="c1">### Uses calculations similar to those for pure species here</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">omega</span> <span class="o">-</span> <span class="mf">0.011</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.56553</span> <span class="o">-</span> <span class="mf">0.86276</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">Tr</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.69852</span><span class="o">/</span><span class="n">Tr</span><span class="p">)</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">omega</span><span class="o">-</span><span class="mf">0.011</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.38560</span> <span class="o">-</span> <span class="mf">1.1617</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">Tr</span><span class="p">)))</span><span class="o">*</span><span class="mf">0.288</span><span class="o">/</span><span class="n">Zc</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">Tc</span><span class="o">/</span><span class="mf">190.4</span><span class="o">*</span><span class="n">theta</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">Vc</span><span class="o">/</span><span class="mf">9.92E-5</span><span class="o">*</span><span class="n">psi</span>
+    <span class="n">T0</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">f</span>
+    <span class="n">eta0</span> <span class="o">=</span> <span class="mf">1E-7</span><span class="o">*</span><span class="nb">sum</span><span class="p">([</span><span class="n">Cs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">T0</span><span class="o">**</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Cs</span><span class="p">))])</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="p">(</span><span class="mf">16.04</span><span class="o">/</span><span class="n">MW</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="n">f</span><span class="o">**</span><span class="mf">0.5</span><span class="o">/</span><span class="n">h</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span>
+    <span class="n">etas</span> <span class="o">=</span> <span class="n">eta0</span><span class="o">*</span><span class="n">H</span><span class="o">*</span><span class="n">MW</span><span class="o">/</span><span class="mf">16.04</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">ks</span> <span class="o">+</span> <span class="n">etas</span><span class="o">/</span><span class="p">(</span><span class="n">MW</span><span class="o">/</span><span class="mf">1000.</span><span class="p">)</span><span class="o">*</span><span class="mf">1.32</span><span class="o">*</span><span class="p">(</span><span class="n">Cvm</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">R</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">k</span></div>
+
+<div class="viewcode-block" id="Chung_dense"><a class="viewcode-back" href="../../../properties/thermal_conductivity.html#thermosteam.properties.thermal_conductivity.Chung_dense">[docs]</a><span class="nd">@kappa</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">other_params</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;association&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">Chung_dense</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">V_g</span><span class="p">,</span> <span class="n">mu_g</span><span class="p">,</span> <span class="n">dipole</span><span class="p">,</span> <span class="n">association</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Other Parameters</span>
+<span class="sd">    ----------------</span>
+<span class="sd">    association : float, optional</span>
+<span class="sd">        Association factor [-]</span>
+<span class="sd">        </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the thermal conductivity of a gas at high pressure as a</span>
+<span class="sd">    function of temperature using the reference fluid method of</span>
+<span class="sd">    Chung [18]_ as shown in [12]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \lambda = \frac{31.2 \eta^\circ \Psi}{M&#39;}(G_2^{-1} + B_6 y)+qB_7y^2T_r^{1/2}G_2</span>
+<span class="sd">        </span>
+<span class="sd">        \Psi = 1 + \alpha \left\{[0.215+0.28288\alpha-1.061\beta+0.26665Z]/</span>
+<span class="sd">        [0.6366+\beta Z + 1.061 \alpha \beta]\right\}</span>
+<span class="sd">        </span>
+<span class="sd">        \alpha = \frac{C_v}{R}-1.5</span>
+<span class="sd">        </span>
+<span class="sd">        \beta = 0.7862-0.7109\omega + 1.3168\omega^2</span>
+<span class="sd">        </span>
+<span class="sd">        Z = 2+10.5T_r^2</span>
+<span class="sd">        </span>
+<span class="sd">        q = 3.586\times 10^{-3} (T_c/M&#39;)^{1/2}/V_c^{2/3}</span>
+<span class="sd">        </span>
+<span class="sd">        y = \frac{V_c}{6V}</span>
+<span class="sd">        </span>
+<span class="sd">        G_1 = \frac{1-0.5y}{(1-y)^3}</span>
+<span class="sd">        </span>
+<span class="sd">        G_2 = \frac{(B_1/y)[1-\exp(-B_4y)]+ B_2G_1\exp(B_5y) + B_3G_1}</span>
+<span class="sd">        {B_1B_4 + B_2 + B_3}</span>
+<span class="sd">        </span>
+<span class="sd">        B_i = a_i + b_i \omega + c_i \mu_r^4 + d_i \kappa</span>
+<span class="sd">    </span>
+<span class="sd">    MW internally converted to kg/g-mol.</span>
+<span class="sd">    Vm internally converted to mL/mol.</span>
+<span class="sd">    [18]_ is not the latest form as presented in [12]_.</span>
+<span class="sd">    Association factor is assumed 0. Relates to the polarity of the gas.</span>
+<span class="sd">    Coefficients as follows:</span>
+<span class="sd">        </span>
+<span class="sd">        ais = [2.4166E+0, -5.0924E-1, 6.6107E+0, 1.4543E+1, 7.9274E-1, -5.8634E+0, 9.1089E+1]</span>
+<span class="sd">    </span>
+<span class="sd">        bis = [7.4824E-1, -1.5094E+0, 5.6207E+0, -8.9139E+0, 8.2019E-1, 1.2801E+1, 1.2811E+2]</span>
+<span class="sd">    </span>
+<span class="sd">        cis = [-9.1858E-1, -4.9991E+1, 6.4760E+1, -5.6379E+0, -6.9369E-1, 9.5893E+0, -5.4217E+1]</span>
+<span class="sd">    </span>
+<span class="sd">        dis = [1.2172E+2, 6.9983E+1, 2.7039E+1, 7.4344E+1, 6.3173E+0, 6.5529E+1, 5.2381E+2]</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Chung_dense(MW=42.081, Tc=364.9, Vc=184.6E-6, omega=0.142,</span>
+<span class="sd">    ... Cvm=82.67, Vm=172.1E-6, mu=134E-7, dipole=0.4)</span>
+<span class="sd">    &gt;&gt;&gt; f(T=473.)</span>
+<span class="sd">    0.06160570379787278</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">V_g</span><span class="p">):</span> <span class="n">V_g</span> <span class="o">=</span> <span class="n">V_g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">mu_g</span><span class="p">):</span> <span class="n">mu_g</span> <span class="o">=</span> <span class="n">mu_g</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">Cn</span><span class="p">):</span> <span class="n">Cn</span> <span class="o">=</span> <span class="n">Cn</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">Cvm</span> <span class="o">=</span> <span class="n">Cn</span> <span class="o">-</span> <span class="n">R</span>
+    <span class="n">ais</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.4166E+0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0924E-1</span><span class="p">,</span> <span class="mf">6.6107E+0</span><span class="p">,</span> <span class="mf">1.4543E+1</span><span class="p">,</span> <span class="mf">7.9274E-1</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.8634E+0</span><span class="p">,</span> <span class="mf">9.1089E+1</span><span class="p">]</span>
+    <span class="n">bis</span> <span class="o">=</span> <span class="p">[</span><span class="mf">7.4824E-1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5094E+0</span><span class="p">,</span> <span class="mf">5.6207E+0</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.9139E+0</span><span class="p">,</span> <span class="mf">8.2019E-1</span><span class="p">,</span> <span class="mf">1.2801E+1</span><span class="p">,</span> <span class="mf">1.2811E+2</span><span class="p">]</span>
+    <span class="n">cis</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">9.1858E-1</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.9991E+1</span><span class="p">,</span> <span class="mf">6.4760E+1</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.6379E+0</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.9369E-1</span><span class="p">,</span> <span class="mf">9.5893E+0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.4217E+1</span><span class="p">]</span>
+    <span class="n">dis</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.2172E+2</span><span class="p">,</span> <span class="mf">6.9983E+1</span><span class="p">,</span> <span class="mf">2.7039E+1</span><span class="p">,</span> <span class="mf">7.4344E+1</span><span class="p">,</span> <span class="mf">6.3173E+0</span><span class="p">,</span> <span class="mf">6.5529E+1</span><span class="p">,</span> <span class="mf">5.2381E+2</span><span class="p">]</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">mur</span> <span class="o">=</span> <span class="mf">131.3</span><span class="o">*</span><span class="n">dipole</span><span class="o">/</span><span class="p">(</span><span class="n">Vc</span><span class="o">*</span><span class="mf">1E6</span><span class="o">*</span><span class="n">Tc</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+
+    <span class="c1"># From Chung Method</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">Cvm</span><span class="o">/</span><span class="n">R</span> <span class="o">-</span> <span class="mf">1.5</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.7862</span> <span class="o">-</span> <span class="mf">0.7109</span><span class="o">*</span><span class="n">omega</span> <span class="o">+</span> <span class="mf">1.3168</span><span class="o">*</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">10.5</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">Tc</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="p">((</span><span class="mf">0.215</span> <span class="o">+</span> <span class="mf">0.28288</span><span class="o">*</span><span class="n">alpha</span> <span class="o">-</span> <span class="mf">1.061</span><span class="o">*</span><span class="n">beta</span> <span class="o">+</span> <span class="mf">0.26665</span><span class="o">*</span><span class="n">Z</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">0.6366</span> <span class="o">+</span> <span class="n">beta</span><span class="o">*</span><span class="n">Z</span> <span class="o">+</span> <span class="mf">1.061</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">beta</span><span class="p">))</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">Vc</span><span class="o">/</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">V_g</span><span class="p">)</span>
+    <span class="n">B1</span><span class="p">,</span> <span class="n">B2</span><span class="p">,</span> <span class="n">B3</span><span class="p">,</span> <span class="n">B4</span><span class="p">,</span> <span class="n">B5</span><span class="p">,</span> <span class="n">B6</span><span class="p">,</span> <span class="n">B7</span> <span class="o">=</span> <span class="p">[</span><span class="n">ais</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">bis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">omega</span> <span class="o">+</span> <span class="n">cis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">mur</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="n">dis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">association</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)]</span>
+    <span class="n">G1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">G2</span> <span class="o">=</span> <span class="p">(</span><span class="n">B1</span><span class="o">/</span><span class="n">y</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">B4</span><span class="o">*</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="n">B2</span><span class="o">*</span><span class="n">G1</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">B5</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">B3</span><span class="o">*</span><span class="n">G1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">B1</span><span class="o">*</span><span class="n">B4</span> <span class="o">+</span> <span class="n">B2</span> <span class="o">+</span> <span class="n">B3</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="mf">3.586E-3</span><span class="o">*</span><span class="p">(</span><span class="n">Tc</span><span class="o">/</span><span class="p">(</span><span class="n">MW</span><span class="o">/</span><span class="mf">1000.</span><span class="p">))</span><span class="o">**</span><span class="mf">0.5</span><span class="o">/</span><span class="p">(</span><span class="n">Vc</span><span class="o">*</span><span class="mf">1E6</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">31.2</span><span class="o">*</span><span class="n">mu_g</span><span class="o">*</span><span class="n">psi</span><span class="o">/</span><span class="p">(</span><span class="n">MW</span><span class="o">/</span><span class="mf">1000.</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">G2</span><span class="o">**-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">B6</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">q</span><span class="o">*</span><span class="n">B7</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">Tr</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="n">G2</span></div>
+
+
+<span class="nd">@TPDependentHandleBuilder</span><span class="p">(</span><span class="s1">&#39;kappa.g&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">thermal_conductivity_gas_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">CAS</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">Zc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">dipole</span><span class="p">,</span> <span class="n">Vg</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">mug</span><span class="p">):</span>
+    <span class="n">add_model</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">add_model</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">VDI_saturation_dict</span><span class="p">:</span>
+        <span class="n">Ts</span><span class="p">,</span> <span class="n">Ys</span> <span class="o">=</span> <span class="n">VDI_tabular_data</span><span class="p">(</span><span class="n">CAS</span><span class="p">,</span> <span class="s1">&#39;K (g)&#39;</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">InterpolatedTDependentModel</span><span class="p">(</span><span class="n">Ts</span><span class="p">,</span> <span class="n">Ys</span><span class="p">))</span>
+    <span class="c1"># if CAS in _VDI_PPDS_10:</span>
+    <span class="c1">#     _,  *data = _VDI_PPDS_10[CAS].tolist()</span>
+    <span class="c1">#     data.reverse()</span>
+    <span class="c1">#     add_model(horner_polynomial.from_kwargs({&#39;coeffs&#39;: data}))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">mug</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">DIPPR9B_linear</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Gharagheizi_gas</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>   
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">mug</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Chung</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">Zc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Cn</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Eli_Hanley</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">Zc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">Vg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Eli_Hanley_dense</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">Vg</span><span class="p">,</span> <span class="n">mug</span><span class="p">,</span> <span class="n">dipole</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Chung_dense</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">Zc</span><span class="p">,</span> <span class="n">Vg</span><span class="p">,</span> <span class="n">handle</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Stiel_Thodos_dense</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">MW</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">mug</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Eucken_modified</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Eucken</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="c1"># TODO: Fix propblem with values</span>
+    <span class="c1"># if CAS in _Perrys2_314:</span>
+    <span class="c1">#     _, *data, Tmin, Tmax = _Perrys2_314[CAS]</span>
+    <span class="c1">#     add_model(DIPPR9B_linear(data), Tmin, Tmax)</span>
+
+<span class="n">thermal_conductivity_handle</span> <span class="o">=</span> <span class="n">PhaseTPHandleBuilder</span><span class="p">(</span><span class="s1">&#39;kappa&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+                                                     <span class="n">thermal_conductivity_liquid_handle</span><span class="p">,</span>
+                                                     <span class="n">thermal_conductivity_gas_handle</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

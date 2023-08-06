@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>thermosteam.properties.reaction &mdash; Thermosteam  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>thermosteam.properties.reaction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for thermosteam.properties.reaction</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># BioSTEAM: The Biorefinery Simulation and Techno-Economic Analysis Modules</span>
+<span class="c1"># Copyright (C) 2020, Yoel Cortes-Pena &lt;yoelcortes@gmail.com&gt;</span>
+<span class="c1"># </span>
+<span class="c1"># A significant portion of this module originates from:</span>
+<span class="c1"># Chemical Engineering Design Library (ChEDL). Utilities for process modeling.</span>
+<span class="c1"># Copyright (C) 2020 Caleb Bell &lt;Caleb.Andrew.Bell@gmail.com&gt;</span>
+<span class="c1"># </span>
+<span class="c1"># This module is under a dual license:</span>
+<span class="c1"># 1. The UIUC open-source license. See </span>
+<span class="c1"># github.com/BioSTEAMDevelopmentGroup/biosteam/blob/master/LICENSE.txt</span>
+<span class="c1"># for license details.</span>
+<span class="c1"># </span>
+<span class="c1"># 2. The MIT open-source license. See</span>
+<span class="c1"># https://github.com/CalebBell/thermo/blob/master/LICENSE.txt for details.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">All data and methods for estimating a chemical&#39;s heat of formation.</span>
+
+<span class="sd">References</span>
+<span class="sd">----------</span>
+<span class="sd">.. [1] Albahri, Tareq A., and Abdulla F. Aljasmi. &quot;SGC Method for</span>
+<span class="sd">   Predicting the Standard Enthalpy of Formation of Pure Compounds from</span>
+<span class="sd">   Their Molecular Structures.&quot; Thermochimica Acta 568</span>
+<span class="sd">   (September 20, 2013): 46-60. doi:10.1016/j.tca.2013.06.020.</span>
+<span class="sd">.. [2] Ruscic, Branko, Reinhardt E. Pinzon, Gregor von Laszewski, Deepti</span>
+<span class="sd">    Kodeboyina, Alexander Burcat, David Leahy, David Montoy, and Albert F.</span>
+<span class="sd">    Wagner. &quot;Active Thermochemical Tables: Thermochemistry for the 21st</span>
+<span class="sd">    Century.&quot; Journal of Physics: Conference Series 16, no. 1</span>
+<span class="sd">    (January 1, 2005): 561. doi:10.1088/1742-6596/16/1/078.</span>
+<span class="sd">.. [3] Frenkelʹ, M. L, Texas Engineering Experiment Station, and</span>
+<span class="sd">    Thermodynamics Research Center. Thermodynamics of Organic Compounds in</span>
+<span class="sd">    the Gas State. College Station, Tex.: Thermodynamics Research Center,</span>
+<span class="sd">    1994.   </span>
+<span class="sd">    </span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;heat_of_formation&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;heat_of_formation_liquid&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;heat_of_formation_gas&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="kn">import</span> <span class="n">UndefinedPhase</span><span class="p">,</span> <span class="n">InvalidMethod</span>
+<span class="kn">from</span> <span class="nn">.data</span> <span class="kn">import</span> <span class="p">(</span><span class="n">heat_of_formation_sources</span><span class="p">,</span>
+                   <span class="n">heat_of_formation_solid_sources</span><span class="p">,</span>
+                   <span class="n">heat_of_formation_gas_sources</span><span class="p">,</span>
+                   <span class="n">heat_of_formation_liquid_sources</span><span class="p">,</span>
+                   <span class="n">get_from_data_sources</span>
+<span class="p">)</span>
+
+<span class="c1"># TODO: Add the rest of the metals, and fix graphite in data base.</span>
+<span class="c1"># Currently, graphite points to methane.</span>
+<span class="n">elemental_gas_standard_states</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;1333-74-0&#39;</span><span class="p">,</span> <span class="s1">&#39;7727-37-9&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;7782-44-7&#39;</span><span class="p">,</span> <span class="s1">&#39;7782-41-4&#39;</span><span class="p">,</span> 
+                                 <span class="s1">&#39;7782-50-5&#39;</span><span class="p">,</span> <span class="s1">&#39;7440-59-7&#39;</span>
+<span class="p">}</span>
+<span class="n">elemental_liquid_standard_states</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;7726-95-6&#39;</span><span class="p">,</span> <span class="s1">&#39;7439-97-6&#39;</span>
+<span class="p">}</span>
+<span class="n">elemental_solid_standard_states</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;100320-09-0&#39;</span><span class="p">,</span> <span class="s1">&#39;7553-56-2&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;7440-21-3&#39;</span>
+<span class="p">}</span>
+<span class="n">standard_elemental_states</span> <span class="o">=</span> <span class="p">(</span><span class="n">elemental_gas_standard_states</span> 
+                             <span class="o">|</span> <span class="n">elemental_liquid_standard_states</span> 
+                             <span class="o">|</span> <span class="n">elemental_solid_standard_states</span><span class="p">)</span>
+
+<div class="viewcode-block" id="heat_of_formation"><a class="viewcode-back" href="../../../properties/reaction.html#thermosteam.properties.reaction.heat_of_formation">[docs]</a><span class="k">def</span> <span class="nf">heat_of_formation</span><span class="p">(</span><span class="n">CASRN</span><span class="p">,</span> <span class="n">phase_ref</span><span class="p">,</span>
+                      <span class="n">Hvap_298K</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Hfus</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">method</span><span class="o">=</span><span class="s1">&#39;Any&#39;</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return a chemical&#39;s standard-phase heat of formation.</span>
+<span class="sd">    The lookup is based on CASRNs. Return None if the data is not available.</span>
+
+<span class="sd">    Function has data for 571 chemicals.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    CASRN : string</span>
+<span class="sd">        CASRN [-].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Hf : float</span>
+<span class="sd">        Standard-state heat of formation [J/mol].</span>
+
+<span class="sd">    Other Parameters</span>
+<span class="sd">    ----------------</span>
+<span class="sd">    method : string, optional</span>
+<span class="sd">        The method name to use. If method is &quot;Any&quot;, the first available</span>
+<span class="sd">        value from these methods will returned. If method is &quot;All&quot;,</span>
+<span class="sd">        a dictionary of method results will be returned.</span>
+<span class="sd">    phase_ref : {&#39;s&#39;, &#39;l&#39;, &#39;g&#39;}</span>
+<span class="sd">        Reference phase.</span>
+<span class="sd">    Hvap_298K=None : float, optional</span>
+<span class="sd">        Heat of vaporization [J/mol].</span>
+<span class="sd">    Hfus=None : float, optional</span>
+<span class="sd">        Heat of fusion [J/mol].</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Multiple sources of information are available for this function:</span>
+
+<span class="sd">        * &#39;API_TDB&#39;, a compilation of heats of formation of unspecified phase.</span>
+<span class="sd">          Not the original data, but as reproduced in [1]_. Some chemicals with</span>
+<span class="sd">          duplicated CAS numbers were removed.</span>
+<span class="sd">        * &#39;ATCT_L&#39;, the Active Thermochemical Tables version 1.112. [2]_</span>
+<span class="sd">        * &#39;ATCT_G&#39;, the Active Thermochemical Tables version 1.112. [2]_</span>
+<span class="sd">        * &#39;TRC&#39;, from a 1994 compilation. [3]_</span>
+<span class="sd">        * &#39;Other&#39;, from NIST or calculated by Joback method. </span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; Hf(CASRN=&#39;7732-18-5&#39;)</span>
+<span class="sd">    -241820.0</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">phase_ref</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">CASRN</span> <span class="ow">in</span> <span class="n">elemental_liquid_standard_states</span><span class="p">:</span> <span class="k">return</span> <span class="mf">0.</span>
+    <span class="k">elif</span> <span class="n">phase_ref</span> <span class="o">==</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">CASRN</span> <span class="ow">in</span> <span class="n">elemental_gas_standard_states</span><span class="p">:</span> <span class="k">return</span> <span class="mf">0.</span> 
+    <span class="k">elif</span> <span class="n">phase_ref</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">CASRN</span> <span class="ow">in</span> <span class="n">elemental_solid_standard_states</span><span class="p">:</span> <span class="k">return</span> <span class="mf">0.</span>
+    
+    <span class="k">try</span><span class="p">:</span> <span class="n">Hf</span> <span class="o">=</span> <span class="n">heat_of_formation_gas</span><span class="p">(</span><span class="n">CASRN</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">InvalidMethod</span><span class="p">:</span> <span class="k">pass</span>
+    <span class="k">if</span> <span class="n">Hf</span><span class="p">:</span>
+        <span class="n">Hf</span> <span class="o">=</span> <span class="n">Hf_at_phase_ref</span><span class="p">(</span><span class="n">Hf</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">phase_ref</span><span class="p">,</span> <span class="n">Hvap_298K</span><span class="p">,</span> <span class="n">Hfus</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">Hf</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hf</span>
+    
+    <span class="k">try</span><span class="p">:</span> <span class="n">Hf</span> <span class="o">=</span> <span class="n">heat_of_formation_liquid</span><span class="p">(</span><span class="n">CASRN</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">InvalidMethod</span><span class="p">:</span> <span class="k">pass</span>
+    <span class="k">if</span> <span class="n">Hf</span><span class="p">:</span>
+        <span class="n">Hf</span> <span class="o">=</span> <span class="n">Hf_at_phase_ref</span><span class="p">(</span><span class="n">Hf</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="n">phase_ref</span><span class="p">,</span> <span class="n">Hvap_298K</span><span class="p">,</span> <span class="n">Hfus</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">Hf</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hf</span>        
+    
+    <span class="k">try</span><span class="p">:</span> <span class="n">Hf</span> <span class="o">=</span> <span class="n">heat_of_formation_solid</span><span class="p">(</span><span class="n">CASRN</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">InvalidMethod</span><span class="p">:</span> <span class="k">pass</span>
+    <span class="k">if</span> <span class="n">Hf</span><span class="p">:</span>
+        <span class="n">Hf</span> <span class="o">=</span> <span class="n">Hf_at_phase_ref</span><span class="p">(</span><span class="n">Hf</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">phase_ref</span><span class="p">,</span> <span class="n">Hvap_298K</span><span class="p">,</span> <span class="n">Hfus</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">Hf</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hf</span>     
+    
+    <span class="k">try</span><span class="p">:</span> <span class="n">Hf</span><span class="p">,</span> <span class="n">phase</span> <span class="o">=</span> <span class="n">get_from_data_sources</span><span class="p">(</span><span class="n">heat_of_formation_sources</span><span class="p">,</span> <span class="n">CASRN</span><span class="p">,</span>
+                                           <span class="p">[</span><span class="s1">&#39;Hf&#39;</span><span class="p">,</span> <span class="s1">&#39;phase&#39;</span><span class="p">],</span> <span class="n">method</span><span class="p">)</span>     
+    <span class="k">except</span> <span class="n">InvalidMethod</span><span class="p">:</span> <span class="k">pass</span>
+    <span class="k">if</span> <span class="n">Hf</span><span class="p">:</span>
+        <span class="n">Hf</span> <span class="o">=</span> <span class="n">Hf_at_phase_ref</span><span class="p">(</span><span class="n">Hf</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">phase_ref</span><span class="p">,</span> <span class="n">Hvap_298K</span><span class="p">,</span> <span class="n">Hfus</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">Hf</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hf</span>        </div>
+        
+<span class="k">def</span> <span class="nf">Hf_at_phase_ref</span><span class="p">(</span><span class="n">Hf</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">phase_ref</span><span class="p">,</span> <span class="n">Hvap_298K</span><span class="p">,</span> <span class="n">Hfus</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">phase</span> <span class="o">==</span> <span class="n">phase_ref</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hf</span>
+    <span class="k">elif</span> <span class="n">phase</span> <span class="o">==</span> <span class="s1">&#39;g&#39;</span> <span class="ow">and</span> <span class="n">phase_ref</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Hvap_298K</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hf</span> <span class="o">-</span> <span class="n">Hvap_298K</span>
+    <span class="k">elif</span> <span class="n">phase</span> <span class="o">==</span> <span class="s1">&#39;g&#39;</span> <span class="ow">and</span> <span class="n">phase_ref</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Hvap_298K</span> <span class="ow">and</span> <span class="n">Hfus</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hf</span> <span class="o">-</span> <span class="n">Hvap_298K</span> <span class="o">-</span> <span class="n">Hfus</span>
+    <span class="k">elif</span> <span class="n">phase</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span> <span class="ow">and</span> <span class="n">phase_ref</span> <span class="o">==</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Hvap_298K</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hf</span> <span class="o">+</span> <span class="n">Hvap_298K</span>
+    <span class="k">elif</span> <span class="n">phase</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span> <span class="ow">and</span> <span class="n">phase_ref</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Hfus</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hf</span> <span class="o">-</span> <span class="n">Hfus</span>
+    <span class="k">elif</span> <span class="n">phase</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span> <span class="ow">and</span> <span class="n">phase_ref</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Hfus</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hf</span> <span class="o">+</span> <span class="n">Hfus</span>
+    <span class="k">elif</span> <span class="n">phase</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span> <span class="ow">and</span> <span class="n">phase_ref</span> <span class="o">==</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Hvap_298K</span> <span class="ow">and</span> <span class="n">Hfus</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hf</span> <span class="o">+</span> <span class="n">Hvap_298K</span> <span class="o">+</span> <span class="n">Hfus</span>
+    <span class="k">else</span><span class="p">:</span> <span class="k">raise</span> <span class="n">UndefinedPhase</span><span class="p">(</span><span class="n">phase</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">heat_of_formation_solid</span><span class="p">(</span><span class="n">CASRN</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;Any&#39;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_from_data_sources</span><span class="p">(</span><span class="n">heat_of_formation_solid_sources</span><span class="p">,</span>
+                                 <span class="n">CASRN</span><span class="p">,</span> <span class="s1">&#39;Hfs&#39;</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+
+<div class="viewcode-block" id="heat_of_formation_liquid"><a class="viewcode-back" href="../../../properties/reaction.html#thermosteam.properties.reaction.heat_of_formation_liquid">[docs]</a><span class="k">def</span> <span class="nf">heat_of_formation_liquid</span><span class="p">(</span><span class="n">CASRN</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;Any&#39;</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return a chemical&#39;s liquid standard phase heat of formation. </span>
+<span class="sd">    The lookup is based on CASRNs. Selects the only data source available,</span>
+<span class="sd">    Active Thermochemical Tables (l), if the chemical is in it.</span>
+<span class="sd">    Return None if the data is not available.</span>
+
+<span class="sd">    Function has data for 34 chemicals.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    CASRN : string</span>
+<span class="sd">        CASRN [-]</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Hf_l : float</span>
+<span class="sd">        Liquid standard-state heat of formation, [J/mol]</span>
+
+<span class="sd">    Other Parameters</span>
+<span class="sd">    ----------------</span>
+<span class="sd">    method : string, optional</span>
+<span class="sd">        The method name to use. If method is &quot;Any&quot;, the first available</span>
+<span class="sd">        value from these methods will returned. If method is &quot;All&quot;,</span>
+<span class="sd">        a dictionary of method results will be returned.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Only one source of information is available to this function. It is:</span>
+
+<span class="sd">        * &#39;ATCT_L&#39;, the Active Thermochemical Tables version 1.112. [2]_</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; heat_of_formation_liquid(&#39;67-56-1&#39;)</span>
+<span class="sd">    -238400.0</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">get_from_data_sources</span><span class="p">(</span><span class="n">heat_of_formation_liquid_sources</span><span class="p">,</span>
+                                 <span class="n">CASRN</span><span class="p">,</span> <span class="s1">&#39;Hfl&#39;</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="heat_of_formation_gas"><a class="viewcode-back" href="../../../properties/reaction.html#thermosteam.properties.reaction.heat_of_formation_gas">[docs]</a><span class="k">def</span> <span class="nf">heat_of_formation_gas</span><span class="p">(</span><span class="n">CASRN</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;Any&#39;</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Retrieve a chemical&#39;s gas heat of formation. Lookup is based on CASRNs. </span>
+<span class="sd">    Automatically select a data source to use if no Method is provided.</span>
+<span class="sd">    Return None if the data is not available.</span>
+
+<span class="sd">    Prefered sources are &#39;Active Thermochemical Tables (g)&#39; for high accuracy,</span>
+<span class="sd">    and &#39;TRC&#39; for less accuracy but more chemicals.</span>
+<span class="sd">    Function has data for approximately 2000 chemicals.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    CASRN : string</span>
+<span class="sd">        CASRN [-]</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Hf_g : float</span>
+<span class="sd">        Gas phase heat of formation, [J/mol]</span>
+
+<span class="sd">    Other Parameters</span>
+<span class="sd">    ----------------</span>
+<span class="sd">    method : string, optional</span>
+<span class="sd">        The method name to use. If method is &quot;Any&quot;, the first available</span>
+<span class="sd">        value from these methods will returned. If method is &quot;All&quot;,</span>
+<span class="sd">        a dictionary of method results will be returned.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Sources are:</span>
+
+<span class="sd">        * &#39;ATCT_G&#39;, the Active Thermochemical Tables version 1.112. [2]_</span>
+<span class="sd">        * &#39;TRC&#39;, from a 1994 compilation. [3]_</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; Hf_g(&#39;67-56-1&#39;)</span>
+<span class="sd">    -200700.0</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">get_from_data_sources</span><span class="p">(</span><span class="n">heat_of_formation_gas_sources</span><span class="p">,</span>
+                                 <span class="n">CASRN</span><span class="p">,</span> <span class="s1">&#39;Hfg&#39;</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span></div>
+   
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

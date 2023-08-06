@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>thermosteam.mixture.mixture &mdash; Thermosteam  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>thermosteam.mixture.mixture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for thermosteam.mixture.mixture</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># BioSTEAM: The Biorefinery Simulation and Techno-Economic Analysis Modules</span>
+<span class="c1"># Copyright (C) 2020, Yoel Cortes-Pena &lt;yoelcortes@gmail.com&gt;</span>
+<span class="c1"># </span>
+<span class="c1"># This module is under the UIUC open-source license. See </span>
+<span class="c1"># github.com/BioSTEAMDevelopmentGroup/biosteam/blob/master/LICENSE.txt</span>
+<span class="c1"># for license details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">flexsolve</span> <span class="k">as</span> <span class="nn">flx</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Mixture&#39;</span><span class="p">,)</span>
+
+<span class="k">def</span> <span class="nf">iter_temperature</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">H_model</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">Cn</span><span class="p">):</span>
+    <span class="c1"># Used to solve for ethalpy at given temperature</span>
+    <span class="k">return</span> <span class="n">T</span> <span class="o">+</span> <span class="p">(</span><span class="n">H</span> <span class="o">-</span> <span class="n">H_model</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">))</span> <span class="o">/</span> <span class="n">Cn</span>
+
+<span class="k">def</span> <span class="nf">xiter_temperature</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">H_model</span><span class="p">,</span> <span class="n">phase_mol</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">Cn</span><span class="p">):</span>
+    <span class="c1"># Used to solve for ethalpy at given temperature</span>
+    <span class="k">return</span> <span class="n">T</span> <span class="o">+</span> <span class="p">(</span><span class="n">H</span> <span class="o">-</span> <span class="n">H_model</span><span class="p">(</span><span class="n">phase_mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">))</span> <span class="o">/</span> <span class="n">Cn</span>
+
+<span class="c1"># %% Ideal mixture</span>
+
+<div class="viewcode-block" id="Mixture"><a class="viewcode-back" href="../../../mixture/Mixture.html#thermosteam.mixture.Mixture">[docs]</a><span class="k">class</span> <span class="nc">Mixture</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create an Mixture object for estimating mixture properties.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rule : str</span>
+<span class="sd">        Description of mixing rules used.</span>
+<span class="sd">    Cn : function(phase, mol, T)</span>
+<span class="sd">        Molar heat capacity mixture model [J/mol/K].</span>
+<span class="sd">    H : function(phase, mol, T)</span>
+<span class="sd">        Enthalpy mixture model [J/mol].</span>
+<span class="sd">    S : function(phase, mol, T, P)</span>
+<span class="sd">        Entropy mixture model [J/mol].</span>
+<span class="sd">    H_excess : function(phase, mol, T, P)</span>
+<span class="sd">        Excess enthalpy mixture model [J/mol].</span>
+<span class="sd">    S_excess : function(phase, mol, T, P)</span>
+<span class="sd">        Excess entropy mixture model [J/mol].</span>
+<span class="sd">    mu : function(phase, mol, T, P)</span>
+<span class="sd">        Dynamic viscosity mixture model [Pa*s].</span>
+<span class="sd">    V : function(phase, mol, T, P)</span>
+<span class="sd">        Molar volume mixture model [m^3/mol].</span>
+<span class="sd">    kappa : function(phase, mol, T, P)</span>
+<span class="sd">        Thermal conductivity mixture model [W/m/K].</span>
+<span class="sd">    Hvap : function(mol, T)</span>
+<span class="sd">        Heat of vaporization mixture model [J/mol]</span>
+<span class="sd">    sigma : function(mol, T, P)</span>
+<span class="sd">        Surface tension mixture model [N/m].</span>
+<span class="sd">    epsilon : function(mol, T, P)</span>
+<span class="sd">        Relative permitivity mixture model [-]</span>
+<span class="sd">    include_excess_energies=False : bool</span>
+<span class="sd">        Whether to include excess energies</span>
+<span class="sd">        in enthalpy and entropy calculations.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Although the mixture models are on a molar basis, this is only if the molar data is normalized before the calculation (i. e. the `mol` parameter is normalized before being passed to the model).</span>
+<span class="sd">    </span>
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    IdealMixtureModel</span>
+<span class="sd">    :func:`~.mixture_builders.ideal_mixture`</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rule : str</span>
+<span class="sd">        Description of mixing rules used.</span>
+<span class="sd">    include_excess_energies : bool</span>
+<span class="sd">        Whether to include excess energies</span>
+<span class="sd">        in enthalpy and entropy calculations.</span>
+<span class="sd">    Cn(phase, mol, T) : </span>
+<span class="sd">        Mixture molar heat capacity [J/mol/K].</span>
+<span class="sd">    mu(phase, mol, T, P) : </span>
+<span class="sd">        Mixture dynamic viscosity [Pa*s].</span>
+<span class="sd">    V(phase, mol, T, P) : </span>
+<span class="sd">        Mixture molar volume [m^3/mol].</span>
+<span class="sd">    kappa(phase, mol, T, P) : </span>
+<span class="sd">        Mixture thermal conductivity [W/m/K].</span>
+<span class="sd">    Hvap(mol, T, P) : </span>
+<span class="sd">        Mixture heat of vaporization [J/mol]</span>
+<span class="sd">    sigma(mol, T, P) : </span>
+<span class="sd">        Mixture surface tension [N/m].</span>
+<span class="sd">    epsilon(mol, T, P) : </span>
+<span class="sd">        Mixture relative permitivity [-].</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;rule&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;rigorous_energy_balance&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;include_excess_energies&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Cn&#39;</span><span class="p">,</span> <span class="s1">&#39;mu&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;kappa&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Hvap&#39;</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="s1">&#39;epsilon&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;_H&#39;</span><span class="p">,</span> <span class="s1">&#39;_H_excess&#39;</span><span class="p">,</span> <span class="s1">&#39;_S&#39;</span><span class="p">,</span> <span class="s1">&#39;_S_excess&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rule</span><span class="p">,</span> <span class="n">Cn</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">H_excess</span><span class="p">,</span> <span class="n">S_excess</span><span class="p">,</span>
+                 <span class="n">mu</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">Hvap</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span>
+                 <span class="n">include_excess_energies</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rule</span> <span class="o">=</span> <span class="n">rule</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">include_excess_energies</span> <span class="o">=</span> <span class="n">include_excess_energies</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Cn</span> <span class="o">=</span> <span class="n">Cn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">V</span> <span class="o">=</span> <span class="n">V</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kappa</span> <span class="o">=</span> <span class="n">kappa</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Hvap</span> <span class="o">=</span> <span class="n">Hvap</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span> <span class="o">=</span> <span class="n">epsilon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_H</span> <span class="o">=</span> <span class="n">H</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_S</span> <span class="o">=</span> <span class="n">S</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_H_excess</span> <span class="o">=</span> <span class="n">H_excess</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_S_excess</span> <span class="o">=</span> <span class="n">S_excess</span>
+    
+<div class="viewcode-block" id="Mixture.H"><a class="viewcode-back" href="../../../mixture/Mixture.html#thermosteam.mixture.Mixture.H">[docs]</a>    <span class="k">def</span> <span class="nf">H</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return enthalpy [J/mol].&quot;&quot;&quot;</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_H</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">include_excess_energies</span><span class="p">:</span>
+            <span class="n">H</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_H_excess</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">H</span></div>
+    
+<div class="viewcode-block" id="Mixture.S"><a class="viewcode-back" href="../../../mixture/Mixture.html#thermosteam.mixture.Mixture.S">[docs]</a>    <span class="k">def</span> <span class="nf">S</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return entropy in [J/mol].&quot;&quot;&quot;</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_S</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">include_excess_energies</span><span class="p">:</span>
+            <span class="n">S</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_S_excess</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">S</span></div>
+    
+<div class="viewcode-block" id="Mixture.solve_T"><a class="viewcode-back" href="../../../mixture/Mixture.html#thermosteam.mixture.Mixture.solve_T">[docs]</a>    <span class="k">def</span> <span class="nf">solve_T</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">T_guess</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Solve for temperature in Kelvin.&quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cn</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T_guess</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">flx</span><span class="o">.</span><span class="n">aitken</span><span class="p">(</span><span class="n">iter_temperature</span><span class="p">,</span> <span class="n">T_guess</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">checkiter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+                
+<div class="viewcode-block" id="Mixture.xsolve_T"><a class="viewcode-back" href="../../../mixture/Mixture.html#thermosteam.mixture.Mixture.xsolve_T">[docs]</a>    <span class="k">def</span> <span class="nf">xsolve_T</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phase_mol</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">T_guess</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Solve for temperature in Kelvin.&quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xH</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">phase_mol</span><span class="p">),</span> <span class="n">P</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xCn</span><span class="p">(</span><span class="n">phase_mol</span><span class="p">,</span> <span class="n">T_guess</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">flx</span><span class="o">.</span><span class="n">aitken</span><span class="p">(</span><span class="n">xiter_temperature</span><span class="p">,</span> <span class="n">T_guess</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">checkiter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Mixture.xCn"><a class="viewcode-back" href="../../../mixture/Mixture.html#thermosteam.mixture.Mixture.xCn">[docs]</a>    <span class="k">def</span> <span class="nf">xCn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phase_mol</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Multi-phase mixture heat capacity [J/mol/K].&quot;&quot;&quot;</span>
+        <span class="n">Cn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Cn</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">Cn</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span> <span class="k">for</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">phase_mol</span><span class="p">])</span></div>
+    
+<div class="viewcode-block" id="Mixture.xH"><a class="viewcode-back" href="../../../mixture/Mixture.html#thermosteam.mixture.Mixture.xH">[docs]</a>    <span class="k">def</span> <span class="nf">xH</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phase_mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Multi-phase mixture enthalpy [J/mol].&quot;&quot;&quot;</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_H</span>
+        <span class="n">H_total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">H</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span> <span class="k">for</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">phase_mol</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">include_excess_energies</span><span class="p">:</span>
+            <span class="n">H_excess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_H_excess</span>
+            <span class="n">H_total</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">H_excess</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span> <span class="k">for</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">phase_mol</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">H_total</span></div>
+    
+<div class="viewcode-block" id="Mixture.xS"><a class="viewcode-back" href="../../../mixture/Mixture.html#thermosteam.mixture.Mixture.xS">[docs]</a>    <span class="k">def</span> <span class="nf">xS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phase_mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Multi-phase mixture entropy [J/mol].&quot;&quot;&quot;</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_S</span>
+        <span class="n">S_total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">S</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span> <span class="k">for</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">phase_mol</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">include_excess_energies</span><span class="p">:</span>
+            <span class="n">S_excess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_S_excess</span>
+            <span class="n">S_total</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">S_excess</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span> <span class="k">for</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">phase_mol</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">S_total</span></div>
+    
+<div class="viewcode-block" id="Mixture.xV"><a class="viewcode-back" href="../../../mixture/Mixture.html#thermosteam.mixture.Mixture.xV">[docs]</a>    <span class="k">def</span> <span class="nf">xV</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phase_mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Multi-phase mixture molar volume [mol/m^3].&quot;&quot;&quot;</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">V</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">V</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span> <span class="k">for</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">phase_mol</span><span class="p">])</span></div>
+    
+<div class="viewcode-block" id="Mixture.xmu"><a class="viewcode-back" href="../../../mixture/Mixture.html#thermosteam.mixture.Mixture.xmu">[docs]</a>    <span class="k">def</span> <span class="nf">xmu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phase_mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Multi-phase mixture hydrolic [Pa*s].&quot;&quot;&quot;</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">mu</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span> <span class="k">for</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">phase_mol</span><span class="p">])</span></div>
+    
+<div class="viewcode-block" id="Mixture.xkappa"><a class="viewcode-back" href="../../../mixture/Mixture.html#thermosteam.mixture.Mixture.xkappa">[docs]</a>    <span class="k">def</span> <span class="nf">xkappa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phase_mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Multi-phase mixture thermal conductivity [W/m/K].&quot;&quot;&quot;</span>
+        <span class="n">kappa</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kappa</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">kappa</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">mol</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span> <span class="k">for</span> <span class="n">phase</span><span class="p">,</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">phase_mol</span><span class="p">])</span></div>
+    
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;{type(self).__name__}(rule={repr(self.rule)}, ..., include_excess_energies=</span><span class="si">{self.include_excess_energies}</span><span class="s2">)&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;{type(self).__name__}(</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;    rule={repr(self.rule)}, ...</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;    include_excess_energies=</span><span class="si">{self.include_excess_energies}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                 <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_info</span><span class="p">())</span>
+    <span class="n">_ipython_display_</span> <span class="o">=</span> <span class="n">show</span></div>
+        
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

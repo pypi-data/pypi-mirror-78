@@ -1,0 +1,1375 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>functional &mdash; Thermosteam  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="equilibrium" href="equilibrium/equilibrium_module.html" />
+    <link rel="prev" title="exceptions" href="exceptions.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">exceptions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>functional</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/functional.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-thermosteam.functional">
+<span id="functional"></span><h1>functional<a class="headerlink" href="#module-thermosteam.functional" title="Permalink to this headline">¶</a></h1>
+<p>Functional utilities for the calculation of thermodynamic properties.</p>
+<dl class="function">
+<dt id="thermosteam.functional.mu_to_nu">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">mu_to_nu</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">rho</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#mu_to_nu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.mu_to_nu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the kinematic viscosity (nu) given the dynamic viscosity (mu) and
+density (rho).</p>
+<div class="math notranslate nohighlight">
+\[\nu = \frac{\mu}{\rho}\]</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mu_to_nu</span><span class="p">(</span><span class="mf">0.000998</span><span class="p">,</span> <span class="mf">998.</span><span class="p">)</span>
+<span class="go">1.0e-06</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.V_to_rho">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">V_to_rho</code><span class="sig-paren">(</span><em class="sig-param">V</em>, <em class="sig-param">MW</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#V_to_rho"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.V_to_rho" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the density (rho) in kg/m^3 given the molar volume (V) in
+m^3/mol and molecular weight (MW) in g/mol.</p>
+<div class="math notranslate nohighlight">
+\[\rho = \frac{MW}{1000\cdot V}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>V</strong> (<em>float</em>) – Molar volume, [m^3/mol]</p></li>
+<li><p><strong>MW</strong> (<em>float</em>) – Molecular weight, [g/mol]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>rho</strong> – Density, [kg/m^3]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rho</span><span class="p">(</span><span class="mf">0.000132</span><span class="p">,</span> <span class="mf">86.18</span><span class="p">)</span>
+<span class="go">652.8787878787879</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.rho_to_V">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">rho_to_V</code><span class="sig-paren">(</span><em class="sig-param">rho</em>, <em class="sig-param">MW</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#rho_to_V"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.rho_to_V" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the molar volume (V) in m^3/mol given the density (rho) in
+kg/m^3 and molecular weight (MW) in g/mol.</p>
+<div class="math notranslate nohighlight">
+\[V = \left(\frac{1000 \rho}{MW}\right)^{-1}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rho</strong> (<em>float</em>) – Density, [kg/m^3]</p></li>
+<li><p><strong>MW</strong> (<em>float</em>) – Molecular weight, [g/mol]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>V</strong> – Molar volume, [m^3/mol]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="p">(</span><span class="mf">652.9</span><span class="p">,</span> <span class="mf">86.18</span><span class="p">)</span>
+<span class="go">0.00013199571144126206</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.SG_to_API">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">SG_to_API</code><span class="sig-paren">(</span><em class="sig-param">SG</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#SG_to_API"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.SG_to_API" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return specific gravity of a liquid given its API, as shown in
+<a href="#id40"><span class="problematic" id="id1">[1]_</span></a>.</p>
+<div class="math notranslate nohighlight">
+\[\text{API gravity} = \frac{141.5}{\text{SG}} - 131.5\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>SG</strong> (<em>float</em>) – Specific gravity of the fluid at 60 degrees Farenheight [-]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>API</strong> – API of the fluid [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Defined only at 60 degrees Fahrenheit.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SG_to_API</span><span class="p">(</span><span class="mf">0.7365</span><span class="p">)</span>
+<span class="go">60.62491513917175</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets">1</span></dt>
+<dd><p>API Technical Data Book: General Properties &amp; Characterization.</p>
+</dd>
+</dl>
+<p>American Petroleum Institute, 7E, 2005.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.API_to_SG">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">API_to_SG</code><span class="sig-paren">(</span><em class="sig-param">API</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#API_to_SG"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.API_to_SG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates API of a liquid given its specific gravity, as shown in
+<a href="#id41"><span class="problematic" id="id3">[1]_</span></a>.</p>
+<div class="math notranslate nohighlight">
+\[\text{SG at}~60^\circ\text{F} = \frac{141.5}{\text{API gravity} +131.5}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>API</strong> (<em>float</em>) – API of the fluid [-]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>SG</strong> – Specific gravity of the fluid at 60 degrees Farenheight [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Defined only at 60 degrees Fahrenheit.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">API_to_SG</span><span class="p">(</span><span class="mf">60.62</span><span class="p">)</span>
+<span class="go">0.7365188423901728</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets">1</span></dt>
+<dd><p>API Technical Data Book: General Properties &amp; Characterization.</p>
+</dd>
+</dl>
+<p>American Petroleum Institute, 7E, 2005.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.SG">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">SG</code><span class="sig-paren">(</span><em class="sig-param">rho</em>, <em class="sig-param">rho_ref=999.0170824078306</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#SG"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.SG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the specific gravity of a substance with respect to another
+substance; by default, this is water at 15.6 °C (60 °F). For gases,
+normally the reference density is 1.2 kg/m^3, that of dry air. However, in
+general specific gravity should always be specified with respect to the
+temperature and pressure of its reference fluid. This can vary widely.</p>
+<div class="math notranslate nohighlight">
+\[SG = \frac{\rho}{\rho_{ref}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rho</strong> (<em>float</em>) – Density of the substance, [kg/m^3]</p></li>
+<li><p><strong>rho_ref</strong> (<em>float</em><em>, </em><em>optional</em>) – Density of the reference substance, [kg/m^3]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>SG</strong> – Specific gravity of the substance with respect to the reference
+density, [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Another common reference point is water at 4°C (rho_ref=999.9748691393087).
+Specific gravity is often used by consumers instead of density.
+The reference for solids is normally the same as for liquids - water.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">SG</span><span class="p">(</span><span class="mi">860</span><span class="p">)</span>
+<span class="go">0.8608461408159591</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.Parachor">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">Parachor</code><span class="sig-paren">(</span><em class="sig-param">V_l</em>, <em class="sig-param">V_g</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#Parachor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.Parachor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate Parachor for a pure species, using its density in the
+liquid and gas phases, surface tension, and molecular weight.</p>
+<div class="math notranslate nohighlight">
+\[P = \frac{\sigma^{0.25}}{V_l^{-1} - V_g^{-1}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>MW</strong> (<em>float</em>) – Molecular weight, [g/mol]</p></li>
+<li><p><strong>V_l</strong> (<em>float</em>) – Liquid density [mol/m^3]</p></li>
+<li><p><strong>V_g</strong> (<em>float</em>) – Gas density [mol/m^3]</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – Surface tension, [N/m]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>P</strong> – Parachor, [N^0.25*m^2.75/mol]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>To convert the output of this function to units of [mN^0.25*m^2.75/kmol],
+multiply by 5623.4132519.</p>
+<p>Values in group contribution tables for Parachor are often listed as
+dimensionless, in which they are multiplied by 5623413 and the appropriate
+units to make them dimensionless.</p>
+<p class="rubric">Examples</p>
+<p>Calculating Parachor from a known surface tension for methyl isobutyl
+ketone at 293.15 K</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Parachor</span><span class="p">(</span><span class="mf">100.15888</span><span class="p">,</span> <span class="mf">800.8088185536124</span><span class="p">,</span> <span class="mf">4.97865317223119</span><span class="p">,</span> <span class="mf">0.02672166960656005</span><span class="p">)</span>
+<span class="go">5.088443542210164e-05</span>
+</pre></div>
+</div>
+<p>Converting to the <cite>dimensionless</cite> form:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5623413</span><span class="o">*</span><span class="mf">5.088443542210164e-05</span>
+<span class="go">286.14419565030687</span>
+</pre></div>
+</div>
+<p>Compared to 274.9 according to a group contribution method described in
+<a href="#id42"><span class="problematic" id="id5">[3]_</span></a>.</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id6"><span class="brackets">1</span></dt>
+<dd><p>Poling, Bruce E. The Properties of Gases and Liquids. 5th edition.
+New York: McGraw-Hill Professional, 2000.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets">2</span></dt>
+<dd><p>Green, Don, and Robert Perry. Perry’s Chemical Engineers’ Handbook,
+8E. McGraw-Hill Professional, 2007.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets">3</span></dt>
+<dd><p>Danner, Ronald P, and Design Institute for Physical Property Data.
+Manual for Predicting Chemical Process Design Data. New York, N.Y, 1982.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.isobaric_expansion">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">isobaric_expansion</code><span class="sig-paren">(</span><em class="sig-param">V</em>, <em class="sig-param">dV_dT</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#isobaric_expansion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.isobaric_expansion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the isobaric coefficient of a thermal expansion, given its
+molar volume at a certain <cite>T</cite> and <cite>P</cite>, and its derivative of molar volume
+with respect to <cite>T</cite>.</p>
+<div class="math notranslate nohighlight">
+\[\beta = \frac{1}{V}\left(\frac{\partial V}{\partial T} \right)_P\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>V</strong> (<em>float</em>) – Molar volume at <cite>T</cite> and <cite>P</cite>, [m^3/mol]</p></li>
+<li><p><strong>dV_dT</strong> (<em>float</em>) – Derivative of molar volume with respect to <cite>T</cite>, [m^3/mol/K]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>beta</strong> – Isobaric coefficient of a thermal expansion, [1/K]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>For an ideal gas, this expression simplified to:</p>
+<div class="math notranslate nohighlight">
+\[\beta = \frac{1}{T}\]</div>
+<p class="rubric">Examples</p>
+<p>Calculated for hexane from the PR EOS at 299 K and 1 MPa (liquid):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">isobaric_expansion</span><span class="p">(</span><span class="mf">0.000130229900873546</span><span class="p">,</span> <span class="mf">1.58875261849113e-7</span><span class="p">)</span>
+<span class="go">0.0012199599384121608</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id9"><span class="brackets">1</span></dt>
+<dd><p>Poling, Bruce E. The Properties of Gases and Liquids. 5th edition.
+New York: McGraw-Hill Professional, 2000.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.isothermal_compressibility">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">isothermal_compressibility</code><span class="sig-paren">(</span><em class="sig-param">V</em>, <em class="sig-param">dV_dP</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#isothermal_compressibility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.isothermal_compressibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the isothermal coefficient of a compressibility, given its
+molar volume at a certain <cite>T</cite> and <cite>P</cite>, and its derivative of molar volume
+with respect to <cite>P</cite>.</p>
+<div class="math notranslate nohighlight">
+\[\kappa = -\frac{1}{V}\left(\frac{\partial V}{\partial P} \right)_T\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>V</strong> (<em>float</em>) – Molar volume at <cite>T</cite> and <cite>P</cite>, [m^3/mol]</p></li>
+<li><p><strong>dV_dP</strong> (<em>float</em>) – Derivative of molar volume with respect to <cite>P</cite>, [m^3/mol/Pa]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>kappa</strong> – Isothermal coefficient of a compressibility, [1/Pa]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>For an ideal gas, this expression simplified to:</p>
+<div class="math notranslate nohighlight">
+\[\kappa = \frac{1}{P}\]</div>
+<p class="rubric">Examples</p>
+<p>Calculated for hexane from the PR EOS at 299 K and 1 MPa (liquid):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">isothermal_compressibility</span><span class="p">(</span><span class="mf">0.000130229900873546</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.72902118209903e-13</span><span class="p">)</span>
+<span class="go">2.095541165119158e-09</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id10"><span class="brackets">1</span></dt>
+<dd><p>Poling, Bruce E. The Properties of Gases and Liquids. 5th edition.
+New York: McGraw-Hill Professional, 2000.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.phase_identification_parameter">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">phase_identification_parameter</code><span class="sig-paren">(</span><em class="sig-param">V</em>, <em class="sig-param">dP_dT</em>, <em class="sig-param">dP_dV</em>, <em class="sig-param">d2P_dV2</em>, <em class="sig-param">d2P_dVdT</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#phase_identification_parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.phase_identification_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Phase Identification Parameter developed in <a href="#id43"><span class="problematic" id="id11">[1]_</span></a> for
+the accurate and efficient determination of whether a fluid is a liquid or
+a gas based on the results of an equation of state. For supercritical
+conditions, this provides a good method for choosing which property
+correlations to use.</p>
+<div class="math notranslate nohighlight">
+\[\Pi = V \left[\frac{\frac{\partial^2 P}{\partial V \partial T}}
+{\frac{\partial P }{\partial T}}- \frac{\frac{\partial^2 P}{\partial
+V^2}}{\frac{\partial P}{\partial V}} \right]\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>V</strong> (<em>float</em>) – Molar volume at <cite>T</cite> and <cite>P</cite>, [m^3/mol]</p></li>
+<li><p><strong>dP_dT</strong> (<em>float</em>) – Derivative of <cite>P</cite> with respect to <cite>T</cite>, [Pa/K]</p></li>
+<li><p><strong>dP_dV</strong> (<em>float</em>) – Derivative of <cite>P</cite> with respect to <cite>V</cite>, [Pa*mol/m^3]</p></li>
+<li><p><strong>d2P_dV2</strong> (<em>float</em>) – Second derivative of <cite>P</cite> with respect to <cite>V</cite>, [Pa*mol^2/m^6]</p></li>
+<li><p><strong>d2P_dVdT</strong> (<em>float</em>) – Second derivative of <cite>P</cite> with respect to both <cite>V</cite> and <cite>T</cite>, [Pa*mol/m^3/K]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>PIP</strong> – Phase Identification Parameter, [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Heuristics were used by process simulators before the invent of this
+parameter.</p>
+<p>The criteria for liquid is Pi &gt; 1; for vapor, Pi &lt;= 1.</p>
+<p>There is also a solid phase mechanism available. For solids, the Solid
+Phase Identification Parameter is greater than 1, like liquids; however,
+unlike liquids, d2P_dVdT is always &gt;0; it is &lt; 0 for liquids and gases.</p>
+<p class="rubric">Examples</p>
+<p>Calculated for hexane from the PR EOS at 299 K and 1 MPa (liquid):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">phase_identification_parameter</span><span class="p">(</span><span class="mf">0.000130229900874</span><span class="p">,</span> <span class="mf">582169.397484</span><span class="p">,</span>
+<span class="gp">... </span><span class="o">-</span><span class="mf">3.66431747236e+12</span><span class="p">,</span> <span class="mf">4.48067893805e+17</span><span class="p">,</span> <span class="o">-</span><span class="mf">20518995218.2</span><span class="p">)</span>
+<span class="go">11.33428990564796</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id12"><span class="brackets">1</span></dt>
+<dd><p>Venkatarathnam, G., and L. R. Oellrich. “Identification of the Phase
+of a Fluid Using Partial Derivatives of Pressure, Volume, and
+Temperature without Reference to Saturation Properties: Applications in
+Phase Equilibria Calculations.” Fluid Phase Equilibria 301, no. 2
+(February 25, 2011): 225-33. doi:10.1016/j.fluid.2010.12.001.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">2</span></dt>
+<dd><p>Jayanti, Pranava Chaitanya, and G. Venkatarathnam. “Identification
+of the Phase of a Substance from the Derivatives of Pressure, Volume and
+Temperature, without Prior Knowledge of Saturation Properties: Extension
+to Solid Phase.” Fluid Phase Equilibria 425 (October 15, 2016): 269-277.
+doi:10.1016/j.fluid.2016.06.001.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.phase_identification_parameter_phase">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">phase_identification_parameter_phase</code><span class="sig-paren">(</span><em class="sig-param">d2P_dVdT</em>, <em class="sig-param">V=None</em>, <em class="sig-param">dP_dT=None</em>, <em class="sig-param">dP_dV=None</em>, <em class="sig-param">d2P_dV2=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#phase_identification_parameter_phase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.phase_identification_parameter_phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses the Phase Identification Parameter concept developed in <a href="#id44"><span class="problematic" id="id14">[1]_</span></a> and
+<a href="#id45"><span class="problematic" id="id15">[2]_</span></a> to determine if a chemical is a solid, liquid, or vapor given the
+appropriate thermodynamic conditions.</p>
+<p>The criteria for liquid is PIP &gt; 1; for vapor, PIP &lt;= 1.</p>
+<p>For solids, PIP(solid) is defined to be d2P_dVdT. If it is larger than 0,
+the species is a solid. It is less than 0 for all liquids and gases.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d2P_dVdT</strong> (<em>float</em>) – Second derivative of <cite>P</cite> with respect to both <cite>V</cite> and <cite>T</cite>, [Pa*mol/m^3/K]</p></li>
+<li><p><strong>V</strong> (<em>float</em><em>, </em><em>optional</em>) – Molar volume at <cite>T</cite> and <cite>P</cite>, [m^3/mol]</p></li>
+<li><p><strong>dP_dT</strong> (<em>float</em><em>, </em><em>optional</em>) – Derivative of <cite>P</cite> with respect to <cite>T</cite>, [Pa/K]</p></li>
+<li><p><strong>dP_dV</strong> (<em>float</em><em>, </em><em>optional</em>) – Derivative of <cite>P</cite> with respect to <cite>V</cite>, [Pa*mol/m^3]</p></li>
+<li><p><strong>d2P_dV2</strong> (<em>float</em><em>, </em><em>optionsl</em>) – Second derivative of <cite>P</cite> with respect to <cite>V</cite>, [Pa*mol^2/m^6]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>phase</strong> – Either ‘s’, ‘l’ or ‘g’</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The criteria for being a solid phase is checked first, which only
+requires d2P_dVdT. All other inputs are optional for this reason.
+However, an exception will be raised if the other inputs become
+needed to determine if a species is a liquid or a gas.</p>
+<p class="rubric">Examples</p>
+<p>Calculated for hexane from the PR EOS at 299 K and 1 MPa (liquid):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">phase_identification_parameter_phase</span><span class="p">(</span><span class="o">-</span><span class="mf">20518995218.2</span><span class="p">,</span> <span class="mf">0.000130229900874</span><span class="p">,</span>
+<span class="gp">... </span><span class="mf">582169.397484</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.66431747236e+12</span><span class="p">,</span> <span class="mf">4.48067893805e+17</span><span class="p">)</span>
+<span class="go">&#39;l&#39;</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id16"><span class="brackets">1</span></dt>
+<dd><p>Venkatarathnam, G., and L. R. Oellrich. “Identification of the Phase
+of a Fluid Using Partial Derivatives of Pressure, Volume, and
+Temperature without Reference to Saturation Properties: Applications in
+Phase Equilibria Calculations.” Fluid Phase Equilibria 301, no. 2
+(February 25, 2011): 225-33. doi:10.1016/j.fluid.2010.12.001.</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets">2</span></dt>
+<dd><p>Jayanti, Pranava Chaitanya, and G. Venkatarathnam. “Identification
+of the Phase of a Substance from the Derivatives of Pressure, Volume and
+Temperature, without Prior Knowledge of Saturation Properties: Extension
+to Solid Phase.” Fluid Phase Equilibria 425 (October 15, 2016): 269-277.
+doi:10.1016/j.fluid.2016.06.001.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.Cp_minus_Cv">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">Cp_minus_Cv</code><span class="sig-paren">(</span><em class="sig-param">T</em>, <em class="sig-param">dP_dT</em>, <em class="sig-param">dP_dV</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#Cp_minus_Cv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.Cp_minus_Cv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the difference between a real gas’s constant-pressure heat
+capacity and constant-volume heat capacity, as given in <a href="#id46"><span class="problematic" id="id18">[1]_</span></a>, <a href="#id47"><span class="problematic" id="id19">[2]_</span></a>, and
+<a href="#id48"><span class="problematic" id="id20">[3]_</span></a>. The required derivatives should be calculated with an equation of
+state.</p>
+<div class="math notranslate nohighlight">
+\[C_p - C_v = -T\left(\frac{\partial P}{\partial T}\right)_V^2/
+\left(\frac{\partial P}{\partial V}\right)_T\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em>) – Temperature of fluid [K]</p></li>
+<li><p><strong>dP_dT</strong> (<em>float</em>) – Derivative of <cite>P</cite> with respect to <cite>T</cite>, [Pa/K]</p></li>
+<li><p><strong>dP_dV</strong> (<em>float</em>) – Derivative of <cite>P</cite> with respect to <cite>V</cite>, [Pa*mol/m^3]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Cp_minus_Cv</strong> – Cp - Cv for a real gas, [J/mol/K]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Equivalent expressions are:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}C_p - C_v= -T\left(\frac{\partial V}{\partial T}\right)_P^2/\left(
+\frac{\partial V}{\partial P}\right)_T\\C_p - C_v = T\left(\frac{\partial P}{\partial T}\right)
+\left(\frac{\partial V}{\partial T}\right)\end{aligned}\end{align} \]</div>
+<p>Note that these are not second derivatives, only first derivatives, some
+of which are squared.</p>
+<p class="rubric">Examples</p>
+<p>Calculated for hexane from the PR EOS at 299 K and 1 MPa (liquid):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Cp_minus_Cv</span><span class="p">(</span><span class="mi">299</span><span class="p">,</span> <span class="mf">582232.475794113</span><span class="p">,</span> <span class="o">-</span><span class="mf">3665180614672.253</span><span class="p">)</span>
+<span class="go">27.654681381642394</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id21"><span class="brackets">1</span></dt>
+<dd><p>Poling, Bruce E. The Properties of Gases and Liquids. 5th edition.
+New York: McGraw-Hill Professional, 2000.</p>
+</dd>
+<dt class="label" id="id22"><span class="brackets">2</span></dt>
+<dd><p>Walas, Stanley M. Phase Equilibria in Chemical Engineering.
+Butterworth-Heinemann, 1985.</p>
+</dd>
+<dt class="label" id="id23"><span class="brackets">3</span></dt>
+<dd><p>Gmehling, Jurgen, Barbel Kolbe, Michael Kleiber, and Jurgen Rarey.
+Chemical Thermodynamics for Process Simulation. 1st edition. Weinheim:
+Wiley-VCH, 2012.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.speed_of_sound">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">speed_of_sound</code><span class="sig-paren">(</span><em class="sig-param">V</em>, <em class="sig-param">dP_dV</em>, <em class="sig-param">Cp</em>, <em class="sig-param">Cv</em>, <em class="sig-param">MW=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#speed_of_sound"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.speed_of_sound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a real fluid’s speed of sound. The required derivatives should
+be calculated with an equation of state, and <cite>Cp</cite> and <cite>Cv</cite> are both the
+real fluid versions. Expression is given in <a href="#id49"><span class="problematic" id="id24">[1]_</span></a> and <a href="#id50"><span class="problematic" id="id25">[2]_</span></a>; a unit conversion
+is further performed to obtain a result in m/s. If MW is not provided the
+result is returned in units of m*kg^0.5/s/mol^0.5.</p>
+<div class="math notranslate nohighlight">
+\[w = \left[-V^2 \left(\frac{\partial P}{\partial V}\right)_T \frac{C_p}
+{C_v}\right]^{1/2}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>V</strong> (<em>float</em>) – Molar volume of fluid, [m^3/mol]</p></li>
+<li><p><strong>dP_dV</strong> (<em>float</em>) – Derivative of <cite>P</cite> with respect to <cite>V</cite>, [Pa*mol/m^3]</p></li>
+<li><p><strong>Cp</strong> (<em>float</em>) – Real fluid heat capacity at constant pressure, [J/mol/K]</p></li>
+<li><p><strong>Cv</strong> (<em>float</em>) – Real fluid heat capacity at constant volume, [J/mol/K]</p></li>
+<li><p><strong>MW</strong> (<em>float</em><em>, </em><em>optional</em>) – Molecular weight, [g/mol]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>w</strong> – Speed of sound for a real gas, [m/s or m*kg^0.5/s/mol^0.5 or MW missing]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>An alternate expression based on molar density is as follows:</p>
+<div class="math notranslate nohighlight">
+\[w = \left[\left(\frac{\partial P}{\partial \rho}\right)_T \frac{C_p}
+{C_v}\right]^{1/2}\]</div>
+<p>The form with the unit conversion performed inside it is as follows:</p>
+<div class="math notranslate nohighlight">
+\[w = \left[-V^2 \frac{1000}{MW}\left(\frac{\partial P}{\partial V}
+\right)_T \frac{C_p}{C_v}\right]^{1/2}\]</div>
+<p class="rubric">Examples</p>
+<p>Example from <a href="#id51"><span class="problematic" id="id26">[2]_</span></a>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">speed_of_sound</span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="mf">0.00229754</span><span class="p">,</span> <span class="n">dP_dV</span><span class="o">=-</span><span class="mf">3.5459e+08</span><span class="p">,</span> <span class="n">Cp</span><span class="o">=</span><span class="mf">153.235</span><span class="p">,</span> <span class="n">Cv</span><span class="o">=</span><span class="mf">132.435</span><span class="p">,</span> <span class="n">MW</span><span class="o">=</span><span class="mf">67.152</span><span class="p">)</span>
+<span class="go">179.5868138460819</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id27"><span class="brackets">1</span></dt>
+<dd><p>Gmehling, Jurgen, Barbel Kolbe, Michael Kleiber, and Jurgen Rarey.
+Chemical Thermodynamics for Process Simulation. 1st edition. Weinheim:
+Wiley-VCH, 2012.</p>
+</dd>
+<dt class="label" id="id28"><span class="brackets">2</span></dt>
+<dd><p>Pratt, R. M. “Thermodynamic Properties Involving Derivatives: Using
+the Peng-Robinson Equation of State.” Chemical Engineering Education 35,
+no. 2 (March 1, 2001): 112-115.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.Joule_Thomson">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">Joule_Thomson</code><span class="sig-paren">(</span><em class="sig-param">T</em>, <em class="sig-param">V</em>, <em class="sig-param">Cp</em>, <em class="sig-param">dV_dT=None</em>, <em class="sig-param">beta=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#Joule_Thomson"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.Joule_Thomson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a real fluid’s Joule Thomson coefficient. The required
+derivative should be calculated with an equation of state, and <cite>Cp</cite> is the
+real fluid versions. This can either be calculated with <cite>dV_dT</cite> directly,
+or with <cite>beta</cite> if it is already known.</p>
+<div class="math notranslate nohighlight">
+\[\mu_{JT} = \left(\frac{\partial T}{\partial P}\right)_H = \frac{1}{C_p}
+\left[T \left(\frac{\partial V}{\partial T}\right)_P - V\right]
+= \frac{V}{C_p}\left(\beta T-1\right)\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em>) – Temperature of fluid, [K]</p></li>
+<li><p><strong>V</strong> (<em>float</em>) – Molar volume of fluid, [m^3/mol]</p></li>
+<li><p><strong>Cp</strong> (<em>float</em>) – Real fluid heat capacity at constant pressure, [J/mol/K]</p></li>
+<li><p><strong>dV_dT</strong> (<em>float</em><em>, </em><em>optional</em>) – Derivative of <cite>V</cite> with respect to <cite>T</cite>, [m^3/mol/K]</p></li>
+<li><p><strong>beta</strong> (<em>float</em><em>, </em><em>optional</em>) – Isobaric coefficient of a thermal expansion, [1/K]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mu_JT</strong> – Joule-Thomson coefficient [K/Pa]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Example from <a href="#id52"><span class="problematic" id="id29">[2]_</span></a>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Joule_Thomson</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mi">390</span><span class="p">,</span> <span class="n">V</span><span class="o">=</span><span class="mf">0.00229754</span><span class="p">,</span> <span class="n">Cp</span><span class="o">=</span><span class="mf">153.235</span><span class="p">,</span> <span class="n">dV_dT</span><span class="o">=</span><span class="mf">1.226396e-05</span><span class="p">)</span>
+<span class="go">1.621956080529905e-05</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id30"><span class="brackets">1</span></dt>
+<dd><p>Walas, Stanley M. Phase Equilibria in Chemical Engineering.
+Butterworth-Heinemann, 1985.</p>
+</dd>
+<dt class="label" id="id31"><span class="brackets">2</span></dt>
+<dd><p>Pratt, R. M. “Thermodynamic Properties Involving Derivatives: Using
+the Peng-Robinson Equation of State.” Chemical Engineering Education 35,
+no. 2 (March 1, 2001): 112-115.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.isentropic_exponent">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">isentropic_exponent</code><span class="sig-paren">(</span><em class="sig-param">Cp</em>, <em class="sig-param">Cv</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#isentropic_exponent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.isentropic_exponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the isentropic coefficient of a gas, given its constant-
+pressure and constant-volume heat capacity.</p>
+<div class="math notranslate nohighlight">
+\[k = \frac{C_p}{C_v}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Cp</strong> (<em>float</em>) – Gas heat capacity at constant pressure, [J/mol/K]</p></li>
+<li><p><strong>Cv</strong> (<em>float</em>) – Gas heat capacity at constant volume, [J/mol/K]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>k</strong> – Isentropic exponent, [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">isentropic_exponent</span><span class="p">(</span><span class="mf">33.6</span><span class="p">,</span> <span class="mf">25.27</span><span class="p">)</span>
+<span class="go">1.329639889196676</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id32"><span class="brackets">1</span></dt>
+<dd><p>Poling, Bruce E. The Properties of Gases and Liquids. 5th edition.
+New York: McGraw-Hill Professional, 2000.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.Z">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">Z</code><span class="sig-paren">(</span><em class="sig-param">T</em>, <em class="sig-param">P</em>, <em class="sig-param">V</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#Z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.Z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the compressibility factor of a gas, given its
+temperature, pressure, and molar volume.</p>
+<div class="math notranslate nohighlight">
+\[Z = \frac{PV}{RT}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em>) – Temperature, [K]</p></li>
+<li><p><strong>P</strong> (<em>float</em>) – Pressure [Pa]</p></li>
+<li><p><strong>V</strong> (<em>float</em>) – Molar volume, [m^3/mol]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Z</strong> – Compressibility factor, [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Z</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="mf">1E6</span><span class="p">,</span> <span class="n">V</span><span class="o">=</span><span class="mf">0.00463</span><span class="p">)</span>
+<span class="go">0.9281019876560912</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id33"><span class="brackets">1</span></dt>
+<dd><p>Poling, Bruce E. The Properties of Gases and Liquids. 5th edition.
+New York: McGraw-Hill Professional, 2000.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.B_to_Z">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">B_to_Z</code><span class="sig-paren">(</span><em class="sig-param">B</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#B_to_Z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.B_to_Z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the compressibility factor of a gas, given its
+second virial coefficient.</p>
+<div class="math notranslate nohighlight">
+\[Z = 1 + \frac{BP}{RT}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>B</strong> (<em>float</em>) – Second virial coefficient, [m^3/mol]</p></li>
+<li><p><strong>T</strong> (<em>float</em>) – Temperature, [K]</p></li>
+<li><p><strong>P</strong> (<em>float</em>) – Pressure [Pa]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Z</strong> – Compressibility factor, [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Other forms of the virial coefficient exist.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">B_to_Z</span><span class="p">(</span><span class="o">-</span><span class="mf">0.0015</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mf">1E5</span><span class="p">)</span>
+<span class="go">0.9398638020957176</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id34"><span class="brackets">1</span></dt>
+<dd><p>Poling, Bruce E. The Properties of Gases and Liquids. 5th edition.
+New York: McGraw-Hill Professional, 2000.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.Z_to_B">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">Z_to_B</code><span class="sig-paren">(</span><em class="sig-param">Z</em>, <em class="sig-param">T</em>, <em class="sig-param">P</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#Z_to_B"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.Z_to_B" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the second virial coefficient of a pure species, given the
+compressibility factor of the gas.</p>
+<div class="math notranslate nohighlight">
+\[B = \frac{RT(Z-1)}{P}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Z</strong> (<em>float</em>) – Compressibility factor, [-]</p></li>
+<li><p><strong>T</strong> (<em>float</em>) – Temperature, [K]</p></li>
+<li><p><strong>P</strong> (<em>float</em>) – Pressure [Pa]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>B</strong> – Second virial coefficient, [m^3/mol]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Other forms of the virial coefficient exist.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">B_from_Z</span><span class="p">(</span><span class="mf">0.94</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mf">1E5</span><span class="p">)</span>
+<span class="go">-0.0014966027640000014</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id35"><span class="brackets">1</span></dt>
+<dd><p>Poling, Bruce E. The Properties of Gases and Liquids. 5th edition.
+New York: McGraw-Hill Professional, 2000.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.Z_from_virial_density_form">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">Z_from_virial_density_form</code><span class="sig-paren">(</span><em class="sig-param">T</em>, <em class="sig-param">P</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#Z_from_virial_density_form"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.Z_from_virial_density_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the compressibility factor of a gas given its temperature,
+pressure, and molar density-form virial coefficients. Any number of
+coefficients is supported.</p>
+<div class="math notranslate nohighlight">
+\[Z = \frac{PV}{RT} = 1 + \frac{B}{V} + \frac{C}{V^2} + \frac{D}{V^3}
++ \frac{E}{V^4} \dots\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>float</em>) – Temperature, [K]</p></li>
+<li><p><strong>P</strong> (<em>float</em>) – Pressure, [Pa]</p></li>
+<li><p><strong>to Z</strong> (<em>B</em>) – Virial coefficients, [various]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Z</strong> – Compressibility factor at T, P, and with given virial coefficients, [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>For use with B or with B and C or with B and C and D, optimized equations
+are used to obtain the compressibility factor directly.
+If more coefficients are provided, uses numpy’s roots function to solve
+this equation. This takes substantially longer as the solution is
+numerical.</p>
+<p>If no virial coefficients are given, returns 1, as per the ideal gas law.</p>
+<p>The units of each virial coefficient are as follows, where for B, n=1, and
+C, n=2, and so on.</p>
+<div class="math notranslate nohighlight">
+\[\left(\frac{\text{m}^3}{\text{mol}}\right)^n\]</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Z_from_virial_density_form</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mf">122057.233762653</span><span class="p">,</span> <span class="mf">1E-4</span><span class="p">,</span> <span class="mf">1E-5</span><span class="p">,</span> <span class="mf">1E-6</span><span class="p">,</span> <span class="mf">1E-7</span><span class="p">)</span>
+<span class="go">1.2843496002100001</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id36"><span class="brackets">1</span></dt>
+<dd><p>Prausnitz, John M., Rudiger N. Lichtenthaler, and Edmundo Gomes de
+Azevedo. Molecular Thermodynamics of Fluid-Phase Equilibria. 3rd
+edition. Upper Saddle River, N.J: Prentice Hall, 1998.</p>
+</dd>
+<dt class="label" id="id37"><span class="brackets">2</span></dt>
+<dd><p>Walas, Stanley M. Phase Equilibria in Chemical Engineering.
+Butterworth-Heinemann, 1985.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.Z_from_virial_pressure_form">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">Z_from_virial_pressure_form</code><span class="sig-paren">(</span><em class="sig-param">P</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#Z_from_virial_pressure_form"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.Z_from_virial_pressure_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the compressibility factor of a gas given its pressure, and
+pressure-form virial coefficients. Any number of coefficients is supported.</p>
+<div class="math notranslate nohighlight">
+\[Z = \frac{Pv}{RT} = 1 + B'P + C'P^2 + D'P^3 + E'P^4 \dots\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>P</strong> (<em>float</em>) – Pressure, [Pa]</p></li>
+<li><p><strong>to Z</strong> (<em>B</em>) – Pressure form Virial coefficients, [various]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Z</strong> – Compressibility factor at P, and with given virial coefficients, [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Note that although this function does not require a temperature input, it
+is still dependent on it because the coefficients themselves normally are
+regressed in terms of temperature.</p>
+<p>The use of this form is less common than the density form. Its coefficients
+are normally indicated with the “’” suffix.</p>
+<p>If no virial coefficients are given, returns 1, as per the ideal gas law.</p>
+<p>The units of each virial coefficient are as follows, where for B, n=1, and
+C, n=2, and so on.</p>
+<div class="math notranslate nohighlight">
+\[\left(\frac{1}{\text{Pa}}\right)^n\]</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Z_from_virial_pressure_form</span><span class="p">(</span><span class="mf">102919.99946855308</span><span class="p">,</span> <span class="mf">4.032286555169439e-09</span><span class="p">,</span> <span class="mf">1.6197059494442215e-13</span><span class="p">,</span> <span class="mf">6.483855042486911e-19</span><span class="p">)</span>
+<span class="go">1.00283753944</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id38"><span class="brackets">1</span></dt>
+<dd><p>Prausnitz, John M., Rudiger N. Lichtenthaler, and Edmundo Gomes de
+Azevedo. Molecular Thermodynamics of Fluid-Phase Equilibria. 3rd
+edition. Upper Saddle River, N.J: Prentice Hall, 1998.</p>
+</dd>
+<dt class="label" id="id39"><span class="brackets">2</span></dt>
+<dd><p>Walas, Stanley M. Phase Equilibria in Chemical Engineering.
+Butterworth-Heinemann, 1985.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.zs_to_ws">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">zs_to_ws</code><span class="sig-paren">(</span><em class="sig-param">zs</em>, <em class="sig-param">MWs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#zs_to_ws"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.zs_to_ws" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a list of mole fractions to mass fractions. Requires molecular
+weights for all species.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}w_i = \frac{z_i MW_i}{MW_{avg}}\\MW_{avg} = \sum_i z_i MW_i\end{aligned}\end{align} \]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zs</strong> (<em>iterable</em>) – Mole fractions [-]</p></li>
+<li><p><strong>MWs</strong> (<em>iterable</em>) – Molecular weights [g/mol]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ws</strong> – Mass fractions [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>iterable</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Does not check that the sums add to one. Does not check that inputs are of
+the same length.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">zs_to_ws</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="go">[0.3333333333333333, 0.6666666666666666]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.ws_to_zs">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">ws_to_zs</code><span class="sig-paren">(</span><em class="sig-param">ws</em>, <em class="sig-param">MWs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#ws_to_zs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.ws_to_zs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a list of mass fractions to mole fractions. Requires molecular
+weights for all species.</p>
+<div class="math notranslate nohighlight">
+\[z_i = \frac{\frac{w_i}{MW_i}}{\sum_i \frac{w_i}{MW_i}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ws</strong> (<em>iterable</em>) – Mass fractions [-]</p></li>
+<li><p><strong>MWs</strong> (<em>iterable</em>) – Molecular weights [g/mol]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>zs</strong> – Mole fractions [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>iterable</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Does not check that the sums add to one. Does not check that inputs are of
+the same length.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ws_to_zs</span><span class="p">([</span><span class="mf">0.3333333333333333</span><span class="p">,</span> <span class="mf">0.6666666666666666</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="go">[0.5, 0.5]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.zs_to_Vfs">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">zs_to_Vfs</code><span class="sig-paren">(</span><em class="sig-param">zs</em>, <em class="sig-param">Vs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#zs_to_Vfs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.zs_to_Vfs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a list of mole fractions to volume fractions. Requires molar
+volumes for all species.</p>
+<div class="math notranslate nohighlight">
+\[\text{Vf}_i = \frac{z_i V_{i}}{\sum_i z_i V_{i}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zs</strong> (<em>iterable</em>) – Mole fractions [-]</p></li>
+<li><p><strong>Vs</strong> (<em>iterable</em>) – Molar volumes of species [m^3/mol]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Vfs</strong> – Molar volume fractions [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Does not check that the sums add to one. Does not check that inputs are of
+the same length.</p>
+<p>Molar volumes are specified in terms of pure components only. Function
+works with any phase.</p>
+<p class="rubric">Examples</p>
+<p>Acetone and benzene example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">zs_to_Vfs</span><span class="p">([</span><span class="mf">0.637</span><span class="p">,</span> <span class="mf">0.363</span><span class="p">],</span> <span class="p">[</span><span class="mf">8.0234e-05</span><span class="p">,</span> <span class="mf">9.543e-05</span><span class="p">])</span>
+<span class="go">[0.5960229712956298, 0.4039770287043703]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.Vfs_to_zs">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">Vfs_to_zs</code><span class="sig-paren">(</span><em class="sig-param">Vfs</em>, <em class="sig-param">Vs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#Vfs_to_zs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.Vfs_to_zs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a list of mass fractions to mole fractions. Requires molecular
+weights for all species.</p>
+<div class="math notranslate nohighlight">
+\[z_i = \frac{\frac{\text{Vf}_i}{V_{m,i}}}{\sum_i
+\frac{\text{Vf}_i}{V_{m,i}}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Vfs</strong> (<em>iterable</em>) – Molar volume fractions [-]</p></li>
+<li><p><strong>VMs</strong> (<em>iterable</em>) – Molar volumes of species [m^3/mol]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>zs</strong> – Mole fractions [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Does not check that the sums add to one. Does not check that inputs are of
+the same length.</p>
+<p>Molar volumes are specified in terms of pure components only. Function
+works with any phase.</p>
+<p class="rubric">Examples</p>
+<p>Acetone and benzene example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vfs_to_zs</span><span class="p">([</span><span class="mf">0.596</span><span class="p">,</span> <span class="mf">0.404</span><span class="p">],</span> <span class="p">[</span><span class="mf">8.0234e-05</span><span class="p">,</span> <span class="mf">9.543e-05</span><span class="p">])</span>
+<span class="go">[0.6369779395901142, 0.3630220604098858]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.none_and_length_check">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">none_and_length_check</code><span class="sig-paren">(</span><em class="sig-param">all_inputs</em>, <em class="sig-param">length=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#none_and_length_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.none_and_length_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks inputs for suitability of use by a mixing rule which requires
+all inputs to be of the same length and non-None. A number of variations
+were attempted for this function; this was found to be the quickest.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>all_inputs</strong> (<em>array-like of array-like</em>) – list of all the lists of inputs, [-]</p></li>
+<li><p><strong>length</strong> (<em>int</em><em>, </em><em>optional</em>) – Length of the desired inputs, [-]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>False/True</strong> – Returns True only if all inputs are the same length (or length <cite>length</cite>)
+and none of the inputs contain None [-]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Does not check for nan values.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">none_and_length_check</span><span class="p">(([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">]),</span> <span class="n">length</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.allclose_variable">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">allclose_variable</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">limits</em>, <em class="sig-param">rtols</em>, <em class="sig-param">atols</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#allclose_variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.allclose_variable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if two arrays are element-wise equal within several
+different tolerances. Tolerance values are always positive, usually
+very small. Based on numpy’s allclose function.</p>
+<p>Only atols or rtols needs to be specified; both are used if given.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>b</strong> (<em>a</em><em>,</em>) – Input arrays to compare.</p></li>
+<li><p><strong>limits</strong> (<em>array_like</em>) – Fractions of elements allowed to not match to within each tolerance.</p></li>
+<li><p><strong>rtols</strong> (<em>array_like</em>) – The relative tolerance parameters.</p></li>
+<li><p><strong>atols</strong> (<em>float</em>) – The absolute tolerance parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>allclose</strong> – Returns True if the two arrays are equal within the given
+tolerances; False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>10 random similar variables, all of them matching to within 1E-5, allowing
+up to half to match up to 1E-6.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.7244322249597719e-08</span><span class="p">,</span> <span class="mf">3.0105683900110473e-10</span><span class="p">,</span> <span class="mf">2.7244124924802327e-08</span><span class="p">,</span> <span class="mf">3.0105259397637556e-10</span><span class="p">,</span> <span class="mf">2.7243929226310193e-08</span><span class="p">,</span> <span class="mf">3.0104990272770901e-10</span><span class="p">,</span> <span class="mf">2.7243666849384451e-08</span><span class="p">,</span> <span class="mf">3.0104101821236015e-10</span><span class="p">,</span> <span class="mf">2.7243433745917367e-08</span><span class="p">,</span> <span class="mf">3.0103707421519949e-10</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.7244328304561904e-08</span><span class="p">,</span> <span class="mf">3.0105753470546008e-10</span><span class="p">,</span> <span class="mf">2.724412872417824e-08</span><span class="p">,</span>  <span class="mf">3.0105303055834564e-10</span><span class="p">,</span> <span class="mf">2.7243914341030203e-08</span><span class="p">,</span> <span class="mf">3.0104819238021998e-10</span><span class="p">,</span> <span class="mf">2.7243684057561379e-08</span><span class="p">,</span> <span class="mf">3.0104299541023674e-10</span><span class="p">,</span> <span class="mf">2.7243436694839306e-08</span><span class="p">,</span> <span class="mf">3.010374130526363e-10</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">allclose_variable</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">[</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">],</span> <span class="n">rtols</span><span class="o">=</span><span class="p">[</span><span class="mf">1E-5</span><span class="p">,</span> <span class="mf">1E-6</span><span class="p">],</span> <span class="n">atols</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.polylog2">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">polylog2</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#polylog2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.polylog2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple function to calculate PolyLog(2, x) from ranges 0 &lt;= x &lt;= 1,
+with relative error guaranteed to be &lt; 1E-7 from 0 to 0.99999. This
+is a Pade approximation, with three coefficient sets with splits at 0.7
+and 0.99. An exception is raised if x is under 0 or above 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – Value to evaluate PolyLog(2, x) T</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y</strong> – Evaluated result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Efficient (2-4 microseconds). No implementation of this function exists in
+SciPy. Derived with mpmath’s pade approximation.
+Required for the entropy integral of
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">thermo.heat_capacity.Zabransky_quasi_polynomial</span></code>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">polylog2</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="go">0.5822405264516294</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.normalize">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param">array</em>, <em class="sig-param">minimum=1e-16</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a normalized array to a magnitude of 1.
+If magnitude is zero, all fractions will have equal value.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.mixing_simple">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">mixing_simple</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#mixing_simple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.mixing_simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a weighted average of <cite>y</cite> given the weights, <cite>z</cite>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mixing_simple</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">]))</span>
+<span class="go">0.019000000000000003</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="thermosteam.functional.mixing_logarithmic">
+<code class="sig-prename descclassname">thermosteam.functional.</code><code class="sig-name descname">mixing_logarithmic</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/thermosteam/functional.html#mixing_logarithmic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#thermosteam.functional.mixing_logarithmic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the logarithmic weighted average <cite>y</cite> given weights, <cite>z</cite>.</p>
+<div class="math notranslate nohighlight">
+\[y = \sum_i z_i \cdot \log(y_i)\]</div>
+<p class="rubric">Notes</p>
+<p>Does not work on negative values.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mixing_logarithmic</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">]))</span>
+<span class="go">0.01866065983073615</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="equilibrium/equilibrium_module.html" class="btn btn-neutral float-right" title="equilibrium" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="exceptions.html" class="btn btn-neutral float-left" title="exceptions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
