@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: revbranch
+Version: 0.1
+Summary: Attach branch names to git revisions, to help understand repository history
+Home-page: https://github.com/noamraph/revbranch
+Author: Noam Yorav-Raphael
+Author-email: noamraph@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: git
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Version Control :: Git
+Provides-Extra: dev
