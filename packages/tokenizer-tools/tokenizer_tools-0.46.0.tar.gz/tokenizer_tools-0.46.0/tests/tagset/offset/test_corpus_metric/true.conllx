@@ -1,0 +1,109 @@
+#	{"label": "ROUTE", "domain": "map", "id": "d1f1a2f9-d447-4574-97cf-9d58c7c2faf6"}
+去	O
+深	B-endLoc_city
+圳	L-endLoc_city
+怎	O
+么	O
+坐	O
+车	O
+？	O
+
+#	{"label": "QUERY", "domain": "bus", "id": "5d15398b-3e78-4be8-9eef-777f38222109"}
+南	B-Src
+京	L-Src
+到	O
+，	O
+黄	B-Dest
+山	L-Dest
+的	O
+汽	O
+车	O
+。	O
+
+#	{"label": "LAUNCH", "domain": "app", "id": "ae9ef2e9-4412-4c85-ba28-8cd1c1350bde"}
+开	O
+微	B-name
+信	L-name
+
+#	{"label": "SENDCONTACTS", "domain": "message", "id": "b4cfab96-6e41-4606-8d15-b641307ec091"}
+把	O
+鱼	B-name
+苗	L-name
+的	O
+电	O
+话	O
+号	O
+码	O
+发	O
+给	O
+徐	B-receiver
+景	I-receiver
+明	L-receiver
+
+#	{"label": "QUERY", "domain": "cookbook", "id": "05184da0-f685-417c-b1af-c7c60616b907"}
+搜	O
+索	O
+烤	B-ingredient
+饼	L-ingredient
+的	O
+做	O
+法	O
+。	O
+
+#	{"label": "QUERY", "domain": "cookbook", "id": "d88d8164-ff65-453f-b63d-b220452ccb73"}
+猪	B-dishName
+肉	I-dishName
+丸	I-dishName
+子	I-dishName
+汤	L-dishName
+怎	O
+么	O
+做	O
+啊	O
+？	O
+
+#	{"label": "QUERY", "domain": "epg", "id": "419764e6-b7dc-499b-b8fb-556bc4b04ab4"}
+明	B-datetime_date
+天	L-datetime_date
+安	B-tvchannel
+徽	I-tvchannel
+卫	I-tvchannel
+视	L-tvchannel
+演	O
+什	O
+么	O
+
+#	{"label": "QUERY", "domain": "health", "id": "d44e43b7-202f-418b-9dbf-6a09a655d35f"}
+怎	O
+么	O
+治	O
+感	B-keyword
+冒	L-keyword
+？	O
+
+#	{"label": "QUERY", "domain": "video", "id": "30936367-786d-463b-820f-b199db2eaa34"}
+我	O
+想	O
+看	O
+周	B-artist
+星	I-artist
+驰	L-artist
+的	O
+喜	B-tag
+剧	L-tag
+电	B-category
+影	L-category
+喜	B-name
+剧	I-name
+之	I-name
+王	L-name
+
+#	{"label": "POSITION", "domain": "map", "id": "53ff9ab3-7b8f-4d44-b1cc-240d9192426d"}
+科	B-location_poi
+大	I-location_poi
+讯	I-location_poi
+飞	L-location_poi
+在	O
+哪	O
+里	O
+呀	O
