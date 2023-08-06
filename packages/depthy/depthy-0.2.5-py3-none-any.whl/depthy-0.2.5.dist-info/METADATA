@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: depthy
+Version: 0.2.5
+Summary: Package enabling depth computation
+Home-page: http://github.com/hahnec/depthy
+Author: Christopher Hahne
+Author-email: inbox@christopherhahne.de
+License: GNU GPL V3.0
+Keywords: depth light-field lightfield epipolar epi optimization
+Platform: UNKNOWN
+Requires-Python: >=3
+Description-Content-Type: text/x-rst
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: imageio
+Requires-Dist: matplotlib
+Requires-Dist: requests
+Requires-Dist: docutils
+
+depthy enables depth map generation from light-fields.
+
+
