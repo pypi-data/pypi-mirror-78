@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: inspy-logger
+Version: 2.0.0a3
+Summary: Colorable, scalable logger for CLI
+Author: Taylor-Jayde Blackstone
+Author-email: tayjaybabee@gmail.com
+Requires-Python: >=3.6.3,<4.0.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: colorlog (>=4.2.1,<5.0.0)
+Requires-Dist: setuptools-autover (>=1.0.2,<2.0.0)
