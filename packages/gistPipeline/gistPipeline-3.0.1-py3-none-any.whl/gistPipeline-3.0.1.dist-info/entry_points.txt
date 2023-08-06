@@ -1,0 +1,11 @@
+[console_scripts]
+gistPipeline = gistPipeline.MainPipeline:main
+
+[gui_scripts]
+Mapviewer = gistPipeline.Mapviewer:main
+gistPlot_gas = gistPipeline.plotting.gistPlot_gas:main
+gistPlot_kin = gistPipeline.plotting.gistPlot_kin:main
+gistPlot_lambdar = gistPipeline.plotting.gistPlot_lambdar:main
+gistPlot_ls = gistPipeline.plotting.gistPlot_ls:main
+gistPlot_sfh = gistPipeline.plotting.gistPlot_sfh:main
+
