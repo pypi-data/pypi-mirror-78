@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: hypofuzz
+Version: 0.0.0
+Summary: See hypofuzz.com
+Home-page: https://hypofuzz.com
+Author: Zac Hatfield-Dodds
+Author-email: hypofuzz@zhd.dev
+License: UNKNOWN
+Description: 
+        This is a placeholder package to direct people to https://hypofuzz.com
+        if they accidentally installed `hypofuzz` from PyPI, and to prevent
+        typosquatting-style attacks from such accidents.
+        
+Platform: UNKNOWN
+Classifier: License :: Other/Proprietary License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
