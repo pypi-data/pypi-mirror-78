@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: py-package
+Version: 0.0.1
+Summary: This is a template repository for creating python packages
+Home-page: https://github.com/aahnik/py_package
+Author: Aahnik Daw
+Author-email: meet.aahnik@gmail.com
+License: UNKNOWN
+Description: # py_package
+        This is a template repository for creating python packages. [Learn more](https://packaging.python.org/tutorials/packaging-projects/) about packaging in Python.
+        
+        **Features :**
+        
+        - has the basic structure of any python package
+        - has a template setup.py file
+        - has a data directory which serves as a storage bucket for package data. [Learn How](https://github.com/aahnik/meLearningPython/tree/master/py_packaging_data_files_demo)
+        - contains GitHub Actions workflow to publish to PyPI automatically, whenever a new release is made.Make sure to have a PyPI account and save the username and password in the GitHub Secret of your repo.
+        - has the perfect .gitignore to solve your misery
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
