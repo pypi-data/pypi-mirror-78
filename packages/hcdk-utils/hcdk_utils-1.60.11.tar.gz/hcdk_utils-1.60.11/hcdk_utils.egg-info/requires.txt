@@ -1,0 +1,10 @@
+aws-cdk.aws-secretsmanager>=1.60.0
+aws-cdk.aws_cloudwatch>=1.60.0
+aws-cdk.aws_cloudwatch_actions>=1.60.0
+aws-cdk.aws_docdb>=1.60.0
+aws-cdk.aws_ec2>=1.60.0
+aws-cdk.aws_rds>=1.60.0
+aws-cdk.aws_sns>=1.60.0
+aws-cdk.core>=1.60.0
+deepmerge
+pyyaml
