@@ -1,0 +1,6 @@
+[bmi.plugins]
+bmi_mmd = model_metadata.cli.main:configure_parser_mmd
+
+[console_scripts]
+mmd = model_metadata.cli.main:mmd
+
