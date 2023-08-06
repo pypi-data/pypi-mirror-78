@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: time-int
+Version: 0.0.6
+Summary: Subclass of integer representing seconds since UNIX epoch
+Home-page: https://github.com/aallaire/time-int
+License: MIT
+Author: Andrew Allaire
+Author-email: andrew.allaire@gmail.com
+Requires-Python: >=3.5,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pytest (>=5.4.2,<6.0.0)
+Project-URL: Repository, https://github.com/aallaire/time-int
+Description-Content-Type: text/markdown
+
+# time-int
+Integer subclass to represent naive time since epoch.
+
+### The Idea
+UNIX has a venerable tradition of representing time as seconds since the
+start of 1970. This has its limitations, but it is sometimes desirably
+simple. This package sub-classes int to give a little handy functionality
+to this simple approach.
+
+### Important Limitations
+* Supported range starts at 0 or TimeInt.MIN on Jan 1, 1970
+* Supported range ends at a 32-bit limit or TimeInt.MAX on Apr 2, 2106
+* Values are rounded off to the nearest second.
+* Values do not track what time-zone they represent.
+
+### Quick Example
+```python
+from time_int import TimeInt
+
+start_time = TimeInt.utcnow()
+some_slow_operation()
+end_time = TimeInt.utcnow()
+
+print(f"Operation started at {start_time.get_pretty()}")
+print(f"Operation ended  at  {end_time.get_pretty()}")
+print(f"Operation took {end_time - start_time} seconds")
+```
+
+
