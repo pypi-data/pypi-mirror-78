@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: Avatar-Utils
+Version: 1.7.1
+Summary: Common utils for services in ecosystem
+Home-page: UNKNOWN
+Author: Algorithmics of Complex System
+Author-email: artem.sementsov@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp (>=3.6.2)
+Requires-Dist: flask (>=1.1.1)
+Requires-Dist: flask-sqlalchemy (>=2.3.2)
+Requires-Dist: psycopg2-binary (>=2.7.5)
+Requires-Dist: requests (>=2.23.0)
+Requires-Dist: apispec (>=3.3.0)
+Requires-Dist: marshmallow (>=3.6.0)
+Requires-Dist: flasgger (>=0.9.4)
+Requires-Dist: APScheduler (~=3.6.3)
+Requires-Dist: python-keycloak (~=0.21.0)
+Requires-Dist: cryptography (~=3.0)
+Requires-Dist: PyJWT (~=1.7.1)
+Requires-Dist: marshmallow-dataclass (~=7.6.0)
+
+# Package for common utils of avatar ecosystem
+
+### Install to your service
+
+```bash
+pip install avatar-utils
+```
+That's all. Nothing more.
+
+#
+### Developers tips (how to upload a new version)
+
+##### Install setuptools and wheel
+
+```bash
+pip install setuptools wheel
+```
+
+##### Generate distribution package
+
+```bash
+python setup.py sdist bdist_wheel
+```
+
+##### Install twine
+
+```bash
+pip install twine
+```
+
+##### Upload package to index
+
+```bash
+python -m twine upload dist/*
+```
+
+
