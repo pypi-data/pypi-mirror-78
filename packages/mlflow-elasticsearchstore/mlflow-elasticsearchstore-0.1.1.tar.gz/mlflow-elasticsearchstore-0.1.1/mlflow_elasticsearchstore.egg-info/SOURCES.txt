@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+mlflow_elasticsearchstore/__init__.py
+mlflow_elasticsearchstore/_version.py
+mlflow_elasticsearchstore/elasticsearch_store.py
+mlflow_elasticsearchstore/models.py
+mlflow_elasticsearchstore.egg-info/PKG-INFO
+mlflow_elasticsearchstore.egg-info/SOURCES.txt
+mlflow_elasticsearchstore.egg-info/dependency_links.txt
+mlflow_elasticsearchstore.egg-info/entry_points.txt
+mlflow_elasticsearchstore.egg-info/requires.txt
+mlflow_elasticsearchstore.egg-info/top_level.txt
