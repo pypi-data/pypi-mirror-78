@@ -1,0 +1,24 @@
+aiida-core<2.0.0,>=1.1.0
+six
+voluptuous
+
+[docs]
+sphinx
+sphinxcontrib-contentui
+sphinx-rtd-theme
+
+[docs:python_version >= "3.0"]
+sphinxcontrib-details-directive
+
+[pre-commit]
+astroid==2.2.5
+pre-commit==1.20.0
+prospector==1.1.7
+pylint==2.3.1
+
+[testing]
+pgtest~=1.3.1
+wheel~=0.31
+coverage
+pytest<5.0.0,~=3.6
+pytest-cov
