@@ -1,0 +1,5 @@
+[console_scripts]
+convertmc = pymchelper.run:main
+mcscripter = pymchelper.utils.mcscripter:main
+pld2sobp = pymchelper.utils.pld2sobp:main
+
