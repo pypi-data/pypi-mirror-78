@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: xeda
+Version: 0.0.1.post1.dev0
+Summary: XEDA: Cross-platform, cross-tool, cross-target, cross-HDL Electronic Design Automation
+Home-page: https://github.com/kammoh/xeda
+Author: Kamyar Mohajerani
+Author-email: kamyar@ieee.org
+License: Apache-2.0
+Keywords: EDA Synthesis Simulation Hardware Verilog VHDL FPGA ASIC
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6, <4
+Requires-Dist: jinja2 (>=2.11.2)
+Requires-Dist: colored
+Requires-Dist: progress (>=1.5)
+Requires-Dist: coloredlogs
+
+Xeda `/ˈziːdə/` is a cross-platform, cross-EDA, cross-target simulation and synthesis automation platform.
+Xeda can assists hardware developers during verification, evaluation, and deployment of RTL designs. Xeda supports flows from multiple commercial and open-source electronic design automation suites.
+
