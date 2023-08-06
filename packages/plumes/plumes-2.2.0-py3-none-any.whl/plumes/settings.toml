@@ -1,0 +1,41 @@
+sleep_time = 905 # rate limit sleep; 15min + buffer
+textwrap_width = 30
+project_homepage = "https://github.com/nnadeau/plumes"
+twitter_dev_page = "https://developer.twitter.com/en/apps"
+
+[default.config]
+CONSUMER_KEY = ""
+CONSUMER_SECRET = ""
+ACCESS_TOKEN = ""
+ACCESS_TOKEN_SECRET = ""
+
+[logging]
+version = 1
+disable_existing_loggers = false
+
+# logs format
+[logging.formatters.simple]
+format = "{asctime} - {name} - {levelname:8s} - {message}"
+style = "{"
+datefmt = "%Y-%m-%d %H:%M:%S"
+
+# write logs to console
+[logging.handlers.console]
+class = "logging.StreamHandler"
+formatter = "simple"
+level = "INFO"
+
+[logging.handlers.timedrotatingfilehandler]
+class = "logging.handlers.TimedRotatingFileHandler"
+formatter = "simple"
+level = "DEBUG"
+filename = "/tmp/plumes.log"
+
+# root logger
+[logging.root]
+handlers = ["console","timedrotatingfilehandler"]
+level = "ERROR"
+
+# app logger
+[logging.loggers.plumes]
+level = "DEBUG"
