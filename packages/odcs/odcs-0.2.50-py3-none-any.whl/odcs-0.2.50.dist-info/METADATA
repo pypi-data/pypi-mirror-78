@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: odcs
+Version: 0.2.50
+Summary: On Demand Compose Service
+Home-page: https://pagure.io/odcs/
+Author: The Factory 2.0 Team
+Author-email: odcs-owner@fedoraproject.org
+License: GPLv2+
+Keywords: on demand compose service modularity fedora
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Dist: funcsigs
+Requires-Dist: httplib2
+Requires-Dist: mock
+Requires-Dist: pyOpenSSL
+Requires-Dist: python-fedora
+Requires-Dist: six
+Requires-Dist: requests-kerberos
+Requires-Dist: requests
+Provides-Extra: all
+Requires-Dist: Flask-Login (<0.5.0) ; extra == 'all'
+Requires-Dist: funcsigs ; extra == 'all'
+Requires-Dist: pygobject ; extra == 'all'
+Requires-Dist: futures ; extra == 'all'
+Requires-Dist: Flask-Script ; extra == 'all'
+Requires-Dist: Flask-Migrate ; extra == 'all'
+Requires-Dist: kobo ; extra == 'all'
+Requires-Dist: pyldap ; extra == 'all'
+Requires-Dist: Flask ; extra == 'all'
+Requires-Dist: psutil ; extra == 'all'
+Requires-Dist: jinja2 ; extra == 'all'
+Requires-Dist: pyOpenSSL ; extra == 'all'
+Requires-Dist: flufl.lock ; extra == 'all'
+Requires-Dist: celery ; extra == 'all'
+Requires-Dist: Flask-SQLAlchemy ; extra == 'all'
+Requires-Dist: requests ; extra == 'all'
+Requires-Dist: mock ; extra == 'all'
+Requires-Dist: requests-kerberos ; extra == 'all'
+Requires-Dist: koji ; extra == 'all'
+Requires-Dist: productmd ; extra == 'all'
+Requires-Dist: sqlalchemy ; extra == 'all'
+Requires-Dist: httplib2 ; extra == 'all'
+Requires-Dist: prometheus-client ; extra == 'all'
+Requires-Dist: six ; extra == 'all'
+Requires-Dist: defusedxml ; extra == 'all'
+Requires-Dist: python-fedora ; extra == 'all'
+Provides-Extra: client
+Requires-Dist: funcsigs ; extra == 'client'
+Requires-Dist: httplib2 ; extra == 'client'
+Requires-Dist: mock ; extra == 'client'
+Requires-Dist: pyOpenSSL ; extra == 'client'
+Requires-Dist: python-fedora ; extra == 'client'
+Requires-Dist: six ; extra == 'client'
+Requires-Dist: requests-kerberos ; extra == 'client'
+Requires-Dist: requests ; extra == 'client'
+Provides-Extra: common
+Requires-Dist: six ; extra == 'common'
+Provides-Extra: server
+Requires-Dist: futures ; extra == 'server'
+Requires-Dist: funcsigs ; extra == 'server'
+Requires-Dist: flufl.lock ; extra == 'server'
+Requires-Dist: kobo ; extra == 'server'
+Requires-Dist: psutil ; extra == 'server'
+Requires-Dist: httplib2 ; extra == 'server'
+Requires-Dist: mock ; extra == 'server'
+Requires-Dist: pyOpenSSL ; extra == 'server'
+Requires-Dist: python-fedora ; extra == 'server'
+Requires-Dist: six ; extra == 'server'
+Requires-Dist: sqlalchemy ; extra == 'server'
+Requires-Dist: Flask ; extra == 'server'
+Requires-Dist: Flask-Migrate ; extra == 'server'
+Requires-Dist: Flask-SQLAlchemy ; extra == 'server'
+Requires-Dist: Flask-Script ; extra == 'server'
+Requires-Dist: Flask-Login (<0.5.0) ; extra == 'server'
+Requires-Dist: requests ; extra == 'server'
+Requires-Dist: jinja2 ; extra == 'server'
+Requires-Dist: defusedxml ; extra == 'server'
+Requires-Dist: productmd ; extra == 'server'
+Requires-Dist: pygobject ; extra == 'server'
+Requires-Dist: koji ; extra == 'server'
+Requires-Dist: pyldap ; extra == 'server'
+Requires-Dist: celery ; extra == 'server'
+Requires-Dist: prometheus-client ; extra == 'server'
+
+UNKNOWN
+
+
