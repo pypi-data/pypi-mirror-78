@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pyground
+Version: 0.0.7
+Summary: Support for my Jupyter Notebooks
+Home-page: https://github.com/chbrown/pyground
+Author: Christopher Brown
+Author-email: io@henrian.com
+License: MIT
+Description: # `pyground`
+        
+        [![Latest version on PyPI](https://badge.fury.io/py/pyground.svg)](https://pypi.org/project/pyground/)
+        
+        Library providing code shared across multiple Jupyter Notebooks.
+        
+        
+        ## License
+        
+        Copyright 2019–2020 Christopher Brown.
+        [MIT Licensed](https://chbrown.github.io/licenses/MIT/#2019-2020).
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
