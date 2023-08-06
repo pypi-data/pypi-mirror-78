@@ -1,0 +1,98 @@
+logging
+*******
+
+
+Description
+===========
+
+loggingManagementControlplane CLI specification
+
+
+Available Commands
+==================
+
+* agent-configuration
+
+  * change-compartment
+
+  * create
+
+  * create-log-configuration
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+  * update-log-configuration
+
+* log
+
+  * change-log-group
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* log-group
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* log-included-search
+
+  * get
+
+  * list
+
+* log-saved-search
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* service
+
+  * list
+
+* work-request
+
+  * delete
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log
+
+  * list
