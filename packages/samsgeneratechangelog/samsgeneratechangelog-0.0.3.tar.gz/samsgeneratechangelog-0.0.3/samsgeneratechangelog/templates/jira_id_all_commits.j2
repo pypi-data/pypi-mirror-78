@@ -1,0 +1,8 @@
+# {{header_text}}
+{%- for jira_id, jira_id_files in file_commits | groupby('jira_id') | sort(attribute='grouper')  %}
+
+## {{jira_id | default('No Jira ID in commit', true)}}
+{% for file_commit in jira_id_files | sort(attribute='file_path') %}
+ - {{file_commit.file_path}} - {{file_commit.hexsha_short}} - {{file_commit.committed_date}} - {{file_commit.author}}
+{%- endfor %}    
+{%- endfor %}
