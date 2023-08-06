@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: pycomply
+Version: 0.1.0
+Summary: 
+Author: Ashutosh Bandiwdekar
+Author-email: ashutoshb@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests (>=2.24.0,<3.0.0)
