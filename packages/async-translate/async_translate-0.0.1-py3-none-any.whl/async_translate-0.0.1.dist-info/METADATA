@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: async-translate
+Version: 0.0.1
+Summary: Multi-provider async translate API
+Home-page: https://github.com/Memotic/async-translate
+Author: William Hatcher
+Author-email: william@memotic.net
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: aiocache (~=0.11.1)
+Requires-Dist: aiohttp (~=3.6.2)
+Requires-Dist: google-cloud-translate (~=3.0.1)
+Requires-Dist: msgpack (~=1.0.0)
+Requires-Dist: ujson (~=3.1.0)
+
+# Translate
+Multi-provider translate API
+
+
