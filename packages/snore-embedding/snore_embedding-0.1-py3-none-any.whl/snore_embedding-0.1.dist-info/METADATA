@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: snore-embedding
+Version: 0.1
+Summary: SNoRe: Scalable Unsupervised Learning of Symbolic Node Representations
+Home-page: https://github.com/smeznar/SNoRe
+Author: Sebastian Mežnar and Blaž Škrlj
+Author-email: smeznar@gmail.com
+License: GNU General Public License v3.0
+Keywords: graph,representation learning,symbolic,snore,unsupervised learning
+Platform: UNKNOWN
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: networkx
+Requires-Dist: numba (>=0.51.2)
+Requires-Dist: scikit-learn
+
+# SNoRe
+SNoRe: Scalable Unsupervised Learning of Symbolic Node Representations
+
+![algorithm overview](/images/algorithm_overview.png)
+
+# Installing SNoRe
+```
+python setup.py install
+```
+
+or
+
+```
+pip install snore-embedding
+```
+
+# Using SNoRe
+A simple usecase is shown below.
+
+```
+import snore
+```
+
+Further examples can be found in the example folder.
+
