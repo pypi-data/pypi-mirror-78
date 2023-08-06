@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: webtree
+Version: 0.0.17
+Summary: Displays HTML page as a Graph
+Home-page: https://github.com/abishekshyamsunder/webtree
+Author: Abishek Shyamsunder, Adithya Viswanathan
+Author-email: abishekshyamsunder@gmail.com, adith_viswa@ymail.com
+License: MIT license
+Keywords: webtree
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: dash (>=1.14.0)
+Requires-Dist: dash-core-components (>=1.10.2)
+Requires-Dist: dash-html-components (>=1.0.3)
+Requires-Dist: plotly (>=4.9.0)
+Requires-Dist: networkx (>=2.4)
+Requires-Dist: matplotlib (>=3.2.1)
+Requires-Dist: pandas (>=1.0.3)
+Requires-Dist: beautifulsoup4 (>=4.9.1)
+Requires-Dist: chart-studio (>=1.1.0)
+Requires-Dist: requests (>=2.22.0)
+Requires-Dist: Click (>=7.0)
+Requires-Dist: lxml (>=4.5.2)
+Requires-Dist: scipy (>=1.5.2)
+
+# WebTree  
+
+## Project Description
+All HTML documents are structured as trees. This project provides code to parse and visualise HTML documents as graphs.  
+Features of the project are:  
+- View any html page (using page source) as a graph (collection of connected nodes).  
+- Search graph by html tags, tag attributes, strings etc.  
+- Find shortest path between HTML node to any other node in graph, for easier web-scraping.  
+
+## Usage  
+`pip install webtree`  
+`webtree scrape --site=https://www.google.com`   
+
+
