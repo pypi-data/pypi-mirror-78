@@ -1,0 +1,2 @@
+class InvalidFeedError(Exception):
+    pass

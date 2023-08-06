@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: feedler
+Version: 0.0.1
+Summary: A dead simple parser
+Home-page: https://github.com/xheuz/feedler
+Author: Victor Natschke
+Author-email: vnatschke@gmail.com
+License: MIT
+Keywords: rss json feed feeds parser
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Text Processing :: Markup :: XML
+Requires-Python: >=3.6.*
+Requires-Dist: defusedxml (==0.6.0)
+Requires-Dist: requests (==2.24.0)
+
+UNKNOWN
+
+
