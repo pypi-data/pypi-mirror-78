@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: gdict
+Version: 0.1.1
+Summary: 
+Author: guojian
+Author-email: guojian_k@qq.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: lxml (>=4.5.2,<5.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
