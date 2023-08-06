@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: tshistory-xl
+Version: 0.1.1
+Summary: Light client for excel/tshistory
+Home-page: UNKNOWN
+Author: Pythonian
+Author-email: arnaud.campeas@pythonian.fr, aurelien.campeas@pythonian.fr
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Version Control
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: colorlover
+Requires-Dist: requests
+Requires-Dist: python-dateutil
+Requires-Dist: isodate
+Requires-Dist: tshistory
+Requires-Dist: tshistory-formula
+Requires-Dist: tshistory-supervision
+
+# TSHISTORY XL
+
+This is an Excel client for [tshistory][tshistory].
+
+To install it make sure that xlwings is installed (`xlwings addin install`).
+Also type:
+
+```sh
+$ tsh xl-addin install
+```
+
+
+[tshistory]: https://hg.sr.ht/~pythonian/tshistory
+
+
