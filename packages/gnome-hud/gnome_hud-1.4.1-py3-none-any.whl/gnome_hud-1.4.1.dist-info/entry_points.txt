@@ -1,0 +1,5 @@
+[console_scripts]
+gnomehud = gnomehud.command:main
+gnomehud-rofi = gnomehud.command:rofi
+gnomehud-service = gnomehud.appmenu:main
+
