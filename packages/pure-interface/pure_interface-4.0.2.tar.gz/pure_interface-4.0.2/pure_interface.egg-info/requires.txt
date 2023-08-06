@@ -1,0 +1,8 @@
+six
+
+[:python_version < "3.5"]
+typing
+funcsigs
+
+[contracts]
+PyContracts>=1.7
