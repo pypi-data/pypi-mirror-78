@@ -1,0 +1,10 @@
+elasticsearch
+requests
+deepmerge
+
+[tests]
+invenio[base,elasticsearch7,metadata,sqlite]
+pytest
+pytest-cov
+pytest-pep8
+requests-mock
