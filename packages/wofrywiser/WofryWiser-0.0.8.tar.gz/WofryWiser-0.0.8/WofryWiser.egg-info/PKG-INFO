@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: WofryWiser
+Version: 0.0.8
+Summary: WOFRY (Wave Optics FRamework in pYthon) for Wiser library
+Home-page: https://github.com/oasys-elettra-kit/wofrywiser
+Author: Luca Rebuffi, Michele Manfredda, Aljosa Hafner
+Author-email: michele.manfredda@elettra.eu
+Maintainer: Aljosa Hafner
+Maintainer-email: aljosa.hafner@ceric-eric.eu
+License: GPLv3
+Download-URL: https://github.com/oasys-elettra-kit/wofrywiser
+Description: WOFRY (Wave Optics FRamework in pYthon) for Wiser library
+        
+        Kernel classes for WOFRY - Wiser in python.
+        
+        It is an intermediate layer between LibWiser and Wofry. It exists in order to ensure interoperability between the rest of OASYS codes and LibWiser - numerical integration using Huygens integral.
+        
+        syned package requires Python 3.3 or newer.
+        
+        
+        Work in progress
+        
+        * initial layer for scripting
+        
+        
+        Installing
+        
+        wofrywiser will be pip installable (https://pip.pypa.io/) by:
+        
+            pip install wofrywiser
+        
+        to install it.
+        
+        
+Keywords: dictionary,glossary,synchrotron,simulation
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Plugins
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Description-Content-Type: text/markdown
