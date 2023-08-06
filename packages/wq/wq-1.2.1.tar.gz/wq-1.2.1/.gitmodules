@@ -1,0 +1,12 @@
+[submodule "wq/app"]
+	path = wq/app
+	url = https://github.com/wq/wq.app.git
+[submodule "wq/db"]
+	path = wq/db
+	url = https://github.com/wq/wq.db.git
+[submodule "wq/start"]
+	path = wq/start
+	url = https://github.com/wq/wq.start.git
+[submodule "wq/core"]
+	path = wq/core
+	url = https://github.com/wq/wq.core.git
