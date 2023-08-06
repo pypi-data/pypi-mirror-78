@@ -1,0 +1,27 @@
+<ObjectEvent>
+    {% include "epcis/event_times.xml" %}
+    {% include "epcis/base_extension.xml" %}
+    {% if event.epc_list %}
+        <epcList>
+            {% for epc in event.epc_list %}
+                <epc>{{ epc }}</epc>
+            {% endfor %}
+        </epcList>
+    {% endif %}
+    {% include "epcis/business_data.xml" %}
+    {% if event.ilmd and event.action == 'ADD' %}
+    {% if additional_context != None %}
+        {% if additional_context.search_value != None and additional_context.reverse_search == False and additional_context.search_value in event.epc_list[0] %}
+            {% include "optel/optel_ilmd.xml" %}
+            {{ additional_context.object_ilmd|default('', true) }}
+        {% elif additional_context.search_value != None and additional_context.reverse_search == True and additional_context.search_value not in event.epc_list[0] %}
+            {% include "optel/optel_ilmd.xml" %}
+            {{ additional_context.object_ilmd|default('', true) }}
+        {% else %}
+            {% include "optel/optel_ilmd.xml" %}
+        {% endif %}
+    {% else %}
+        {% include "optel/optel_ilmd.xml" %}
+    {% endif %}
+    {% endif %}
+</ObjectEvent>
