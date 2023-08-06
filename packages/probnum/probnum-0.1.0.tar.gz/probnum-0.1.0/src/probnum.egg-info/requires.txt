@@ -1,0 +1,11 @@
+numpy
+scipy>=1.4
+GPy
+matplotlib
+
+[:python_version < "3.8"]
+cached_property
+
+[testing]
+pytest
+pytest-cov
