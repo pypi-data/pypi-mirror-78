@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: pytwoway-pkg
+Version: 0.0.1
+Summary: Two way fixed effect models in python
+Home-page: https://github.com/tlamadon/pytwoway
+Author: Thibaut Lamadon, Adam Alexander Oppenheimer
+Author-email: thibaut.lamadon@gmail.com
+Maintainer: Thibaut Lamadon
+License: Apache Software License 
+Project-URL: Documentation, https://github.com/tlamadon/pytwoway
+Project-URL: Source, https://github.com/tlamadon/pytwoway
+Project-URL: Tracker, https://github.com/tlamadon/pytwoway/issues
+Keywords: sparse,two way fixed effects
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha 
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: networkx (>=2.3)
+Requires-Dist: sklearn
+Requires-Dist: scipy
+Requires-Dist: pyamg
+Requires-Dist: pyreadr
+Requires-Dist: tqdm
+Requires-Dist: decorator
+
+# pytwoway
+Two way fixed effect models in python
+
+To run using default options:
+- If you have data
+```python
+from pytwoway import twfe_network as tn
+# data is labor data, formatting is 'long' or 'event study', and col_dict gives a dictionary of column names:
+d_net = tn.twfe_network(data, formatting, col_dict)
+# Convert long data into event study data (not necessary if the data is already in event study format):
+d_net.refactor_es()
+# Run the bias-corrected AKM estimator:
+d_net.run_akm_corrected()
+# Cluster firms based on their wage CDFs (required for the CRE estimator)
+d_net.cluster()
+# Run the CRE estimator
+d_net.run_cre()
+```
+
+- If you want to simulate data
+```python
+from pytwoway import twfe_network as tn
+# Parameters are optional when simulating data:
+d_net = tn.twfe_network()
+# Convert long data into event study data (this is necessary for simulated data):
+d_net.refactor_es()
+# Run the bias-corrected AKM estimator:
+d_net.run_akm_corrected()
+# Cluster firms based on their wage CDFs (required for the CRE estimator)
+d_net.cluster()
+# Run the CRE estimator
+d_net.run_cre()
+```
+
+
