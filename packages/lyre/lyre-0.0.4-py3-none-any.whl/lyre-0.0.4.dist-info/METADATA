@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: lyre
+Version: 0.0.4
+Summary: 
+Author: Chris Chambers
+Author-email: chris@peanutcode.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: aeval (>=0.1.2,<0.2.0)
+Requires-Dist: lsp (>=0.1.1,<0.2.0)
+Requires-Dist: trio (>=0.16.0,<0.17.0)
