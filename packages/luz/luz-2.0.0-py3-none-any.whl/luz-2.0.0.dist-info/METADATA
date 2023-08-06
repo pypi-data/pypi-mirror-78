@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: luz
+Version: 2.0.0
+Summary: Framework for rapid research and development of machine learning projects using PyTorch.
+Home-page: https://github.com/kijanac/luz
+Author: Ki-Jana Carter
+Author-email: kijana@mit.edu
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Requires-Dist: matplotlib
+Requires-Dist: networkx
+Requires-Dist: pytorch
+Provides-Extra: dev
+Requires-Dist: anaconda-client ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: codecov ; extra == 'dev'
+Requires-Dist: conda-build ; extra == 'dev'
+Requires-Dist: conda-verify ; extra == 'dev'
+Requires-Dist: latexmk ; extra == 'dev'
+Requires-Dist: make ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-autodoc-typehints ; extra == 'dev'
+Requires-Dist: tectonic ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+
+==============
+Luz Module
+==============
+
+.. image:: https://codecov.io/gh/kijanac/luz/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/kijanac/luz
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github
+
+**Framework for rapid research and development of machine learning projects using PyTorch.**
+
+Longer description coming soon!
+
+---------------
+Getting Started
+---------------
+
+Prerequisites
+-------------
+
+Installing
+----------
+
+To install, open a shell terminal and run::
+
+`conda create -n luz -c conda-forge -c pytorch -c kijana luz`
+
+----------
+Versioning
+----------
+
+-------
+Authors
+-------
+
+Ki-Jana Carter
+
+-------
+License
+-------
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+
