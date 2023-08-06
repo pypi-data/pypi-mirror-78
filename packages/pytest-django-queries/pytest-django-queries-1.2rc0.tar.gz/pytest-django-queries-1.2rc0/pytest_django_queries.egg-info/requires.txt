@@ -1,0 +1,31 @@
+Click
+beautifultable==0.7.0
+colorama
+jinja2
+pytest>=4.4.0
+
+[:python_version < "3.0"]
+django<2
+
+[:python_version >= "3.0"]
+django
+
+[dev]
+beautifulsoup4
+lxml
+mock
+pre-commit
+sphinx
+sphinx_rtd_theme
+
+[test]
+beautifulsoup4
+codecov
+coverage
+lxml
+mock
+pre-commit
+pytest-xdist
+sphinx
+sphinx_rtd_theme
+tox-travis
