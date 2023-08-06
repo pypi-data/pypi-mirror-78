@@ -1,0 +1,61 @@
+#!/bin/bash
+
+Help () {
+    echo "Usage: authoraffiliationsetup -e user_email [-u arcgis_username -p arcgis_password -r referer_url]"
+    echo ""
+    echo "Email is used as identity for content negotiation."
+    echo "ArcGIS username and password used for location requests."
+    echo "Referer URL is optional."
+}
+
+SHORT=he:u::p::r::
+
+while getopts $SHORT FLAG ; do
+    case $FLAG in
+	h)
+	    HELP=true
+	    ;;
+	e)
+	    EMAIL="$OPTARG"
+	    ;;
+	u)
+	    USER="$OPTARG"
+	    ;;
+	p)
+	    PASS="$OPTARG"
+	    ;;
+	r)
+	    REFERER="$OPTARG"
+    esac
+done
+
+if [ "$HELP" = true ] ; then
+    Help
+    exit 0
+fi
+
+PACKAGE_LOC=$(python -c "import whyis_author_affiliation_agent as _; print(_.__path__[0])")
+
+if [ "$PACKAGE_LOC" == "" ] ; then
+    echo "Please find your whyis_author_affiliation_agent installation, and run \`pip install -e .\`"
+    exit 1
+fi
+
+if [ "$EMAIL" != "" ] ; then
+    echo "$EMAIL" > $PACKAGE_LOC/useragent.txt
+else
+    Help
+    exit 1
+fi
+
+if [ "$USER" != "" ] ; then
+    echo "$USER" > $PACKAGE_LOC/arcgisclient.txt
+fi
+
+if [ "$PASS" != "" ] ; then
+    echo "$PASS" >> $PACKAGE_LOC/arcgisclient.txt
+fi
+
+if [ "$REFERER" != "" ] ; then
+    echo "$REFERER" >> $PACKAGE_LOC/arcgisclient.txt
+fi
