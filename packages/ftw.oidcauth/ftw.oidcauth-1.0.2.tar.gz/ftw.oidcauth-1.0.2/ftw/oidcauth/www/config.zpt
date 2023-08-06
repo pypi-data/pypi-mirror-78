@@ -1,0 +1,120 @@
+<h1 tal:replace="structure here/manage_page_header"> PAGE HEADER </h1>
+<h2 tal:replace="structure here/manage_tabs"> PAGE HEADER </h2>
+
+<span tal:condition="options/error_message | nothing">
+Error: <b tal:content="options/error_message">
+  Error message goes here.
+</b></span>
+
+<h3>OIDC Web SSO Authentication</h3>
+
+    <p class="form-help">
+      Authenticates requests coming from a trusted reverse proxy where the user name
+      is provided by a HTTP header.
+    </p>
+
+    <form action="manage_updateConfig" method="post">
+      <table>
+        <tr valign="top">
+          <td><div class="form-label">Client ID</div>
+          <div class="form-help"></div>
+          </td>
+          <td><input type="text" name="client-id" size="60"
+                     tal:attributes="value context/client_id"/></td>
+        </tr>
+        <tr valign="top">
+          <td><div class="form-label">Client Secret</div>
+          <div class="form-help"></div>
+          </td>
+          <td><input type="text" name="client-secret" size="60"
+                     tal:attributes="value context/client_secret"/></td>
+        </tr>
+        <tr valign="top">
+          <td><div class="form-label">Scope</div>
+          <div class="form-help"></div>
+          </td>
+          <td><input type="text" name="scope" size="60"
+                     tal:attributes="value context/scope"/></td>
+        </tr>
+        <tr valign="top"
+            tal:define="ttt python: True; fff python: False">
+          <td><div class="form-label">Sign Algorithm</div>
+          <div class="form"></div></td>
+          <td>
+            <select name="sign-algorithm">
+              <option value="RS256"
+                      tal:attributes="selected python:'selected' if context.sign_algorithm == 'RS256' else False">
+                RS256
+              </option>
+              <option value="HS256"
+                      tal:attributes="selected python:'selected' if context.sign_algorithm == 'HS256' else False">
+                HS256
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td><div class="form-label">Authorization Endpoint</div>
+          <div class="form-help"></div>
+          </td>
+          <td><input type="text" name="authentication-endpoint" size="60"
+                     tal:attributes="value context/authentication_endpoint"/></td>
+        </tr>
+        <tr valign="top">
+          <td><div class="form-label">Token Endpoint</div>
+          <div class="form-help"></div>
+          </td>
+          <td><input type="text" name="token-endpoint" size="60"
+                     tal:attributes="value context/token_endpoint"/></td>
+        </tr>
+        <tr valign="top">
+          <td><div class="form-label">User Endpoint</div>
+          <div class="form-help"></div>
+          </td>
+          <td><input type="text" name="user-endpoint" size="60"
+                     tal:attributes="value context/user_endpoint"/></td>
+        </tr>
+        <tr valign="top">
+          <td><div class="form-label">JWKS Endpoint</div>
+          <div class="form-help"></div>
+          </td>
+          <td><input type="text" name="jwks-endpoint" size="60"
+                     tal:attributes="value context/jwks_endpoint"/></td>
+        </tr>
+        <tr valign="top">
+          <td><div class="form-label">Enable Auto Provisioning</div>
+          <div class="form-help"></div>
+          </td>
+          <td>
+            <input type="checkbox" name="auto-provisioning-enabled" checked="on"
+                   tal:condition="context/auto_provisioning_enabled"/>
+            <input type="checkbox" name="auto-provisioning-enabled"
+                   tal:condition="not: context/auto_provisioning_enabled"/>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td><div class="form-label">Properties Mapping</div>
+          <div class="form-help"></div>
+          </td>
+          <td><textarea name="properties-mapping" rows="4" cols="60"
+                        tal:content="context/properties_mapping"></textarea></td>
+        </tr>
+        <tr valign="top">
+          <td><div class="form-label">Roles</div>
+          <div class="form-help"></div>
+          </td>
+          <td><input type="text" name="roles" size="60"
+                     tal:attributes="value context/roles"/></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="form-element">
+              <input type="submit" value="Update"/>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+
+<h1 tal:replace="structure here/manage_page_footer"> PAGE FOOTER </h1>

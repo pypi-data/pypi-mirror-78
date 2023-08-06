@@ -1,0 +1,11 @@
+Plone
+PyJWT
+cryptography
+plone.api
+requests
+setuptools
+six
+
+[tests]
+mock
+plone.app.testing
