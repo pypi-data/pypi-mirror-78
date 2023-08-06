@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+confile/__init__.py
+confile/confile.py
+confile.egg-info/PKG-INFO
+confile.egg-info/SOURCES.txt
+confile.egg-info/dependency_links.txt
+confile.egg-info/requires.txt
+confile.egg-info/top_level.txt
+tests/__init__.py
+tests/test_confile.py
