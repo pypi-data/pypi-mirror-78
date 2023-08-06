@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: uio
+Version: 0.2.0.24
+Summary: Universal IO (uio) library.
+Home-page: https://www.github.com/aaronsteers/uio
+Author: Aaron (AJ) Steers
+Author-email: aj.steers@slalom.com
+License: MIT
+Download-URL: https://www.github.com/aaronsteers/uio/archive
+Description: UNKNOWN
+Keywords: DATAOPS,LOGGING
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: AWS
+Provides-Extra: Azure
