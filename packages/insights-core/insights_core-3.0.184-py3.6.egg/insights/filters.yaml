@@ -1,0 +1,1004 @@
+insights.specs.Specs.audit_log:
+- comm="virtlogd" name="console.log"
+- comm="logrotate" path="/var/log/candlepin
+- type=AVC
+insights.specs.Specs.catalina_out:
+- 'NoCobblerTokenException: We had an error trying to login.'
+- APPARENT DEADLOCK!
+insights.specs.Specs.ceilometer_collector_log:
+- ERROR
+- Out of range value for column
+- pymysql.err.DataError
+- DBDataError
+insights.specs.Specs.ceilometer_compute_log:
+- Cannot inspect data of
+insights.specs.Specs.ceph_conf:
+- rgw_swift_account_in_url
+- '['
+insights.specs.Specs.ceph_log:
+- '[WRN] slow request'
+insights.specs.Specs.ceph_osd_log:
+- common/Thread.cc
+insights.specs.Specs.cinder_api_log:
+- Timed out waiting for RPC response
+- Too many connections
+- DEBUG oslo.messaging._drivers.impl_rabbit
+insights.specs.Specs.cinder_volume_log:
+- 'Message: NFS file could not be discovered.'
+- DEBUG oslo.messaging._drivers.impl_rabbit
+- '[Errno 24] Too many open files'
+- Timed out waiting for RPC response
+- Image cloning unsuccessful for image
+insights.specs.Specs.cloud_init_log:
+- Network config is likely broken
+- sysconfig
+- Failed loading yaml blob. Invalid format at line 1 column 1
+- Unable to render networking
+- No available network renderers found
+- Read 59 bytes from /etc/cloud/cloud.cfg.d/99-datasource.cfg
+- Attempting to load yaml from string of length 59 with allowed root types
+insights.specs.Specs.cluster_conf:
+- clusternode name=
+insights.specs.Specs.cron_daily_rhsmd:
+- if [ -n $config ]; then
+insights.specs.Specs.dirsrv_errors:
+- 'DSRetroclPlugin - delete_changerecord: could not delete change record'
+- We recommend to increase the entry cache size nsslapd-cachememsize
+insights.specs.Specs.dmesg:
+- ' is now offline'
+- FEATURE SPEC_CTRL
+- Emulex OneConnect OCe10100, FCoE Initiator
+- fw=8.08.
+- 'EDAC '
+- 'SMBIOS '
+- Machine check events logged
+- 'Ignoring BGRT: failed to map image memory'
+- vpd r/w failed
+- 'blocked FC remote port time out: removing target and saving binding'
+- 'CIFS VFS: protocol revalidation - security settings mismatch'
+- CSUM
+- 'netconsole: network logging started'
+- 'Warning: QLogic ISP3XXX Network Driver - this hardware has not undergone testing
+  by Red Hat and might not be certified'
+- FEATURE IBPB_SUPPORT
+- Kernel page table isolation
+- 'e1000: E1000 MODULE IS NOT SUPPORTED'
+- CVE-2018-14634
+- 'Brought up '
+- CVE-2017-1000364
+- __cpufreq_add_dev
+- 'page allocation failure: order:'
+- crashkernel=auto resulted in zero bytes of reserved memory
+- Amazon EC2
+- 'SPLXMOD: SPLX 3.0: KHM loaded. Version [30119]'
+- QLogic QLE2692 - QLogic 16Gb FC Dual-port HBA
+- Uhhuh. NMI received for unknown reason
+- tx hang
+- WRITE SAME failed. Manually zeroing
+- Linux version
+- 'mce: '
+- L1TF
+- crashkernel reservation failed
+- 'ixgbevf: Unknown parameter `InterruptThrottleRate'''
+- 'NUMA: '
+- 'Node 0 CPUs: '
+- 'SPLXMOD: SPLX 3.0: KHM loaded. Version [30118]'
+- 'smpboot: CPU '
+- x86/pti
+- Dazed and confused, but trying to continue
+- Device is ineligible for IOMMU domain attach due to platform RMRR requirement
+- L1Tf
+- 'TECH PREVIEW: NVMe over FC may not be fully supported.'
+- l1tf
+- temperature above threshold
+- Dropping TSO
+- 'Ignoring BGRT: failed to map image header memory'
+- resetting
+- Machine Check Exception
+- VPD access disabled
+- the DIE domain not a subset of the NUMA domain
+- vmxnet3
+- AMD Secure Memory Encryption (SME) active
+insights.specs.Specs.dmesg_log:
+- L1Tf
+- CVE-2017-1000364
+- __cpufreq_add_dev
+- l1tf
+- FEATURE SPEC_CTRL
+- Amazon EC2
+- Linux version
+- FEATURE IBPB_SUPPORT
+- Kernel page table isolation
+- L1TF
+- CVE-2018-14634
+- x86/pti
+insights.specs.Specs.engine_log:
+- ERROR
+- Low disk space. Host
+- org.ovirt.engine.core.vdsbroker.vdsbroker.HotUnplugLeaseVDSCommand
+- Data Center
+- org.ovirt.engine.core.bll.storage.lease.AddVmLeaseCommand
+- VDS_LOW_DISK_SPACE_ERROR
+- org.ovirt.engine.core.dal.dbbroker.auditloghandling.AuditLogDirector
+- org.ovirt.engine.core.bll.storage.lease.RemoveVmLeaseCommand
+- org.ovirt.engine.core.vdsbroker.vdsbroker.HotPlugLeaseVDSCommand
+- INFO
+insights.specs.Specs.etcd_conf:
+- '['
+- ETCD_DATA_DIR
+insights.specs.Specs.firewalld_conf:
+- AllowZoneDrifting
+insights.specs.Specs.gnocchi_conf:
+- '['
+- ceph
+- storage
+- ceph_pool
+- driver
+insights.specs.Specs.gnocchi_metricd_log:
+- 'ObjectNotFound: error opening pool ''metrics'''
+insights.specs.Specs.heat_api_log:
+- Too many connections
+insights.specs.Specs.httpd24_httpd_error_log:
+- The mpm module (prefork.c) is not supported by mod_http2
+insights.specs.Specs.httpd_error_log:
+- The mpm module (prefork.c) is not supported by mod_http2
+- exceeds ServerLimit value of
+- '(28)No space left on device: '
+- consider raising the MaxClients setting
+- 'manager_handler CONFIG error: MEM: Can''t update or insert node'
+- exit signal Segmentation fault
+- 'ModSecurity: collections_remove_stale: Failed deleting collection'
+- 'manager_handler ENABLE-APP error: MEM: Can''t update or insert context'
+- exceeds compile time limit of
+- consider raising the MaxRequestWorkers setting
+- 'manager_handler ENABLE-APP error: MEM: Can''t update or insert host alias'
+- 'and would exceed the ServerLimit value of '
+- Resource temporarily unavailable
+- Require ServerLimit > 0, setting to 1
+- exceed ServerLimit of
+- '[crit] Memory allocation failed, aborting process'
+- 'AH00485: scoreboard is full, not at MaxRequestWorkers'
+- exceeds compile-time limit of
+- not allowed, increasing to 1
+insights.specs.Specs.imagemagick_policy:
+- <policymap>
+- </policymap>
+- <policy
+insights.specs.Specs.ip_netns_exec_namespace_lsof:
+- neutron-n
+- COMMAND
+insights.specs.Specs.ipaupgrade_log:
+- 'wait_for_open_ports: localhost'
+insights.specs.Specs.ironic_conf:
+- '['
+insights.specs.Specs.ironic_inspector_log:
+- ERROR requests.packages.urllib3.connection
+- Certificate did not match expected hostname
+insights.specs.Specs.jbcs_httpd24_httpd_error_log:
+- The mpm module (prefork.c) is not supported by mod_http2
+insights.specs.Specs.jboss_domain_server_log:
+- 'JBWEB003008: Maximum number of threads'
+insights.specs.Specs.journal_since_boot:
+- Resolv.conf file '/etc/resolv.conf' contains search line consisting of more than
+  3 domains
+- 'Could not load host key: /etc/pki/ovirt-vmconsole/host-ssh_host_rsa'
+- 'dynamic linking error libJerasure.so.2: cannot open shared object file: No such
+  file or directory'
+- liberasurecode_instance_create
+- 'error synchronizing: clusterrole.rbac.authorization.k8s.io'
+- messages from /system.slice/docker.service
+insights.specs.Specs.katello_service_status:
+- Some services failed to status
+- Success
+insights.specs.Specs.kernel_config:
+- CONFIG_PREEMPT_RT_FULL
+- CONFIG_BPF_SYSCALL
+- CONFIG_SMP
+insights.specs.Specs.keystone_log:
+- Too many connections
+insights.specs.Specs.libvirtd_log:
+- 'virDomainSnapshotCreateXML:'
+- 'virDomainBlockCopy:'
+- 'virDomainBlockPull:'
+- 'virDomainBlockCommit:'
+- 'qemuMigrationSrcNBDStorageCopyBlockdev:'
+insights.specs.Specs.ls_usr_lib64:
+- total
+insights.specs.Specs.ls_usr_sbin:
+- total
+insights.specs.Specs.ls_var_tmp:
+- foreman-ssh-cmd
+- /var/tmp
+insights.specs.Specs.lsof:
+- /var/log/journal
+- COMMAND
+- libcrypto
+- rgw_swift
+- tnslsnr
+- lsnrctl
+- libssl
+- libssl.so
+- ovs-vswit
+- (deleted)
+insights.specs.Specs.lvm_conf:
+- volume_list
+- thin_pool_autoextend
+- filter
+- locking_type
+- auto_activation_volume_list
+insights.specs.Specs.mariadb_log:
+- for key 'PRIMARY'
+- Duplicate entry
+- Too many open files
+insights.specs.Specs.messages:
+- mode:0x20
+- 'kernel: INFO: task xfsaild/md'
+- reservation conflict
+- 'error Error on attach: Node not found'
+- 'kernel: possible SYN flooding on port'
+- host not found in upstream
+- 'rhsmd: rhsmd process exceeded runtime and was killed'
+- 'systemd: Unit iptables.service entered failed state'
+- PPM exceeds tolerance 500 PPM
+- 'systemd[1]: Received SIGCHLD from PID'
+- Could not set
+- 'failed to modify QP to RTR: -22'
+- MDC/MDIO access timeout
+- 'from image service failed: rpc error: code = Canceled desc = context canceled'
+- Device is still in reset
+- ext4_ext_search_left
+- /input/input
+- failed! ALB mode requires that the base driver support setting the hw address also
+  when the network
+- link status up for interface
+- start request repeated too quickly for docker.service
+- state changed timeout -> done
+- Error I40E_AQ_RC_EINVAL adding RX filters on PF, promiscuous mode forced on
+- Out of MCCQ wrbs
+- tg3_start_xmit
+- not responding, timed out
+- nfs_reap_expired_delegations
+- 'hv_netvsc: probe of vmbus_'
+- hv_netvsc vmbus_
+- ' disconnect jid='
+- 'failed: Connection amqps:'
+- Error deleting EBS Disk volume aws
+- 'kernel: kvm: disabled by bios'
+- 'Out of memory: kill process'
+- skb_copy
+- 'kernel: CIFS VFS: Unexpected SMB signature'
+- 'SDN initialization failed: Error: Existing service with IP: None is not part of
+  service network'
+- MountVolume.SetUp succeeded for volume
+- 'netlink_socket|ERR|fcntl: Too many open file'
+- 'udev: renamed network interface'
+- Orphaned pod
+- Device offlined - not ready after error recovery
+- 'end_request: I/O error, dev'
+- List /apis/image.openshift.io/v1/images
+- segfault at
+- DHCPv4 lease renewal requested
+- returned a bad sequence-id error
+- multipathd.service operation timed out. Terminating
+- Cannot assign requested address
+- 'kernel: Memory cgroup out of memory: Kill process'
+- timing out command, waited
+- httpd
+- hw csum failure
+- 'ip_local_port_range: prefer different parity for start/end values'
+- ': session replaced: jid='
+- 'kernel: bnx2fc: byte_count'
+- Error running DeviceResume dm_task_run failed
+- TX driver issue detected, PF reset issued
+- 'TX stuck with port_enabled=1: resetting channels'
+- failed while handling
+- 'iscsiadm: iscsiadm: Could not log into all portals'
+- 'TypeError: object of type ''NoneType'' has no len()'
+- enabling it in
+- 'kernel: TCP: out of memory -- consider tuning tcp_mem'
+- as active slave; either
+- does not seem to be present, delaying initialization
+- '- image is referenced in one or more repositories'
+- evicted, waiting for pod to be cleaned up
+- 'server kernel: rhsmcertd-worke'
+- 'kernel: lockd: Unknown symbol register_inet6addr_notifier'
+- 'SCSI error: return code ='
+- unknown filesystem type 'binfmt_misc'
+- 'device-mapper: multipath: Failing path'
+- 'ProcessExecutionError: Exit code: 1; Stdin: ; Stdout: ; Stderr: setting the network
+  namespace'
+- belongs to docker.service
+- '(enic): transmit queue 0 timed out'
+- Neighbour table overflow
+- This system does not support "SSSE3"
+- is beyond advertised capabilities
+- 'Loop callback failed with: Cannot allocate memory'
+- page allocation failure
+- initiating reset due to tx timeout
+- skb_over_panic
+- Exception happened during processing of request from
+- WRITE SAME failed. Manually zeroing
+- khash_super_prune_nolock
+- Virtualization daemon
+- is down or the link is down
+- 'Cannot assign requested address: AH00072'
+- 'kernel: BUG: soft lockup'
+- clearing Tx timestamp hang
+- irq handler for vector (irq -1)
+- 'swapper: page allocation failure'
+- 'Failed to bind socket: No such file or directory'
+- canceled DHCP transaction, DHCP client pid
+- 'fit failure summary on nodes : Insufficient pods'
+- Buffer I/O error on device
+- 'watch chan error: etcdserver: mvcc: required revision has been compacted'
+- callbacks suppressed
+- 'Out of memory: Kill process'
+- there is a meaningful conflict
+- Abort command issued
+- dev_set_mac_address of dev
+- kernel/softirq.c:159 local_bh_enable+
+- NETDEV WATCHDOG
+- 'vdsm-tool: EnvironmentError: Failed to restore the persisted networks'
+- Connection amqps://subscription.rhn.redhat.com:5647 disconnected
+- invalid key/value pair in file /usr/lib/udev/rules.d/59-fc-wwpn-id.rules
+- 'kernel: megasas: Found FW in FAULT state,will reset adapter.'
+- 'kernel: lockd: Unknown symbol unregister_inet6addr_notifier'
+- per_source_limit from
+- timeout before we got a set response
+- 'eviction manager: eviction criteria not yet met for threshold'
+- 'eviction manager: observations: signal=allocatableNodeFs.available, available:
+  -'
+- ': segfault at '
+- shm_open failed, Permission denied
+- firewalld - dynamic firewall daemon
+- '"/var/lib/pgsql/data" is missing or empty'
+- DMA Status error.  Resetting chip
+- 'systemd: Unit ip6tables.service entered failed state'
+- Scheduled import of stream
+- 'platform microcode: firmware: requesting'
+- '] trap divide error '
+- drivers/input/input-leds.c:115 input_leds_connect
+- 'megaraid_sas: FW detected to be in faultstate, restarting it'
+- 'eviction manager: must evict pod(s) to reclaim nodefsInodes'
+- 'http2: no cached connection was available'
+- ', type vxfs) has no security xattr handler'
+- 'failed: rpc error: code = 2 desc = unable to inspect docker image'
+- Medium access timeout failure. Offlining disk!
+- timeout; kill it
+- 'chardev: opening backend "socket" failed'
+- failed with error -110
+- Failed to extend thin
+- 'failed: Invalid argument'
+- '11000 E11000 duplicate key error index: pulp_database.repo_profile_applicability.$profile_hash_-1_repo_id_-1'
+- Broken pipe
+- timed out
+- in libnl.so.1
+- 'fiid_obj_get: ''present_countdown_value'': data not available'
+- NetworkManager state is now CONNECTED_SITE
+- Detected Tx Unit Hang
+- transmit queue
+- 'kernel: nfs: server'
+- Throttling request took
+insights.specs.Specs.mongod_conf:
+- dbpath
+insights.specs.Specs.mysql_log:
+- '[ERROR]'
+- 'OpenSSL internal error, assertion failed: Digest MD5 forbidden in FIPS mode!'
+- Too many open files
+insights.specs.Specs.named_checkconf_p:
+- ECCGOST
+- Rsasha512
+- sha-384
+- sha384
+- Rsasha1
+- sha1
+- rsasha1
+- ecdsap384sha384
+- Sha384
+- SHA-384
+- Sha-256
+- SHA256
+- '}'
+- Eccgost
+- dsa
+- disable-algorithms
+- GOST
+- SHA384
+- rsamd5
+- Nsec3Rsasha1
+- Rsasha256
+- nsec3rsasha1
+- nsec3dsa
+- eccgost
+- DISABLE-ALGORITHMS
+- NSEC3DSA
+- DISABLE-DS-DIGESTS
+- disable-ds-digests
+- Gost
+- Nsec3Dsa
+- Ecdsap384Sha384
+- dnssec-enable
+- Dsa
+- Disable-Ds-Digests
+- DNSSEC-ENABLE
+- ECDSAP256SHA256
+- sha-256
+- Sha-384
+- Sha-1
+- NSEC3RSASHA1
+- Ecdsap256Sha256
+- SHA1
+- Rsamd5
+- sha-1
+- DSA
+- sha256
+- rsasha256
+- Sha256
+- SHA-1
+- ECDSAP384SHA384
+- SHA-256
+- RSASHA1
+- ecdsap256sha256
+- RSASHA256
+- RSAMD5
+- RSASHA512
+- gost
+- rsasha512
+- Dnssec-Enable
+- Sha1
+- Disable-Algorithms
+insights.specs.Specs.neutron_conf:
+- debug
+- dhcp_agents_per_network
+- '['
+insights.specs.Specs.neutron_dhcp_agent_ini:
+- '['
+- force_metadata
+insights.specs.Specs.neutron_l3_agent_ini:
+- agent_mode
+- '['
+insights.specs.Specs.neutron_l3_agent_log:
+- Duplicate iptables rule detected
+- DEBUG oslo.messaging._drivers.impl_rabbit
+- Timed out waiting for RPC response
+- 'Stderr: Another app is currently holding the xtables lock'
+- Error while deleting router
+insights.specs.Specs.neutron_metadata_agent_ini:
+- auth_url
+- '['
+insights.specs.Specs.neutron_metadata_agent_log:
+- 'Unauthorized: {"error": {"message": "The resource could not be found.", "code":
+  404, "title": "Not Found"}}'
+insights.specs.Specs.neutron_ml2_conf:
+- '['
+insights.specs.Specs.neutron_ovs_agent_log:
+- neutron.plugins.ml2.drivers.openvswitch.agent.openflow.native.ovs_ryuapp
+- Agent main thread died of an exception
+- DEBUG oslo.messaging._drivers.impl_rabbit
+- 'u''device_owner'': u''network:router_interface_distributed'''
+- Timed out waiting for RPC response
+insights.specs.Specs.nova_api_log:
+- Timed out waiting for RPC response
+- Too many connections
+- DEBUG oslo.messaging._drivers.impl_rabbit
+- Timed out waiting for a reply to message ID
+insights.specs.Specs.nova_compute_log:
+- is not on shared storage
+- 'Migration pre-check error: Unable to migrate'
+- is not active
+- No such device or address
+- During sync_power_state the instance has a pending task
+- '/console.log: Permission denied'
+- 'error: Failed to start domain'
+- 'unsupported configuration: Target network card MTU'
+- does not match source
+- INFO os_brick.initiator.linuxscsi
+- 'Could not open '
+- Resuming guest
+- from mountpoint /dev
+- ERROR nova.virt.libvirt.driver
+- Attempting claim on node
+- DEBUG oslo.messaging._drivers.impl_rabbit
+- Instance shutdown by itself. Calling the stop API.
+- 'ERROR oslo_messaging.rpc.server Stderr: u''Device crypt-dm-uuid-mpath'
+- 'unsupported configuration: Target device drive address'
+- 'libvirtError: Unable to delete file /var/lib/nova/instances/'
+- Successfully plugged vif VIFBridge
+- 'libvirtError: Requested operation is not valid: domain has assigned non-USB host
+  devices'
+- ERROR oslo_messaging.rpc.server InvalidSharedStorage
+- 'ERROR oslo_messaging.rpc.server Command: scp -r'
+- 'unsupported configuration: Unable to find security driver for model selinux'
+- 'Live Migration failure: internal error: process exited while connecting to monitor'
+- 'FlavorDiskSmallerThanImage: Flavor''s disk is too small for requested image.'
+- Disk of instance is too large
+- INFO nova.compute.manager
+- ': No such device or address'
+- Find Multipath device file for volume WWN
+- Detach volume
+- libvirt-guests.sh
+- Claim successful on node
+- Timed out waiting for RPC response
+- 'cmt=off: Property ''.cmt'' not found'
+- 'Live Migration failure: operation failed: Failed to connect to remote libvirt URI
+  qemu+ssh'
+- 'Stderr: u''blockdev: cannot open'
+insights.specs.Specs.nscd_conf:
+- enable-cache
+insights.specs.Specs.nsswitch_conf:
+- 'Hosts:'
+- group
+- shadow
+- 'hosts:'
+- 'HOSTS:'
+- passwd
+insights.specs.Specs.octavia_conf:
+- stats_update_driver
+- amp_ssh_access_allowed
+- graceful_shutdown_timeout
+- amphora_udp_driver
+- ca_certificates_file
+- enabled_provider_drivers
+- disable_local_log_storage
+- signing_digest
+- max_retries
+- engine
+- failover_threads
+- log_queue_size
+- health_update_threads
+- amp_image_id
+- amphora_driver
+- allow_sorting
+- insecure
+- administrative_log_facility
+- bind_ip
+- controller_ip_port_list
+- memcached_servers
+- enabled_provider_agents
+- log_retry_interval
+- status_request_timeout
+- volume_type
+- amphora_expiry_age
+- amp_flavor_id
+- api_base_uri
+- heartbeat_interval
+- volume_create_retry_interval
+- stats_request_timeout
+- vrrp_garp_refresh_interval
+- port_detach_timeout
+- vrrp_advert_int
+- distributor_driver
+- cert_validity_time
+- max_workers
+- active_connection_rety_interval
+- cafile
+- health_check_interval
+- stats_update_threads
+- active_connection_max_retries
+- udp_connect_min_interval_health_monitor
+- connection_logging
+- logging_template_override
+- amp_secgroup_list
+- allow_vip_port_id
+- load_balancer_expiry_age
+- rpc_thread_pool_size
+- forward_all_logs
+- pagination_max_limit
+- stats_max_processes
+- tenant_log_targets
+- volume_size
+- log_protocol
+- agent_server_network_file
+- enable_proxy_headers_parsing
+- topics
+- agent_request_read_timeout
+- client_cert
+- build_rate_limit
+- client_ca
+- cleanup_interval
+- network_driver
+- base_path
+- amp_image_tag
+- driver
+- spare_check_interval
+- allow_tls_terminated_listeners
+- amp_boot_network_list
+- default_health_monitor_quota
+- service_name
+- sock_rlimit
+- status_socket_path
+- haproxy_cmd
+- volume_create_timeout
+- auth_strategy
+- compute_driver
+- allow_vip_network_id
+- rest_request_conn_timeout
+- server_ca
+- amp_active_wait_sec
+- get_socket_path
+- '['
+- user_data_config_drive
+- allow_pagination
+- use_oslo_messaging
+- vrrp_success_count
+- enabled
+- connection_max_retries
+- availability_zone
+- allow_ping_health_monitors
+- admin_log_targets
+- bind_port
+- ignore_req_list
+- agent_server_network_dir
+- cert_generator
+- user_log_format
+- lb_network_interface
+- vrrp_check_interval
+- agent_server_cert
+- cert_manager
+- build_active_retries
+- default_load_balancer_quota
+- use_upstart
+- audit_map_file
+- storage_path
+- random_amphora_name_length
+- max_process_warning_percent
+- default_member_quota
+- debug
+- octavia_plugins
+- spare_amphora_pool_size
+- topic
+- amp_active_retries
+- workers
+- haproxy_template
+- haproxy_stick_size
+- base_cert_dir
+- anti_affinity_policy
+- heartbeat_timeout
+- default_provider_driver
+- enable_anti_affinity
+- status_max_processes
+- build_retry_interval
+- vrrp_fail_count
+- endpoint_type
+- user_log_facility
+- loadbalancer_topology
+- provider_agent_shutdown_timeout
+- log_file
+- vrrp_garp_refresh_count
+- status_update_threads
+- disable_revert
+- default_pool_quota
+- amp_image_owner_id
+- allow_vip_subnet_id
+- health_update_driver
+- rest_request_read_timeout
+- default_listener_quota
+- respawn_interval
+- volume_driver
+- connection_retry_interval
+- retry_interval
+- log_retry_count
+- agent_server_ca
+- respawn_count
+- policy_file
+- bind_host
+- volume_create_max_retries
+- log_dir
+- auth_type
+- region_name
+- agent_tls_protocol
+- stats_socket_path
+insights.specs.Specs.odbc_ini:
+- no_ssps
+- server
+- No_ssps
+- Server
+- '['
+- DRIVER
+- Driver
+- SERVER
+- NO_SSPS
+- driver
+insights.specs.Specs.openshift_hosts:
+- openshift_use_crio
+- '['
+insights.specs.Specs.ovirt_engine_server_log:
+- Operation ("deploy") failed
+- ERROR [org.jboss.as.controller.management-operation]
+- INFO  [org.wildfly.extension.undertow
+- 'Registered web context: ''/ovirt-engine/api'' for server'
+insights.specs.Specs.ovirt_engine_ui_log:
+- 'Uncaught exception: com.google.gwt.event.shared.UmbrellaException'
+insights.specs.Specs.pacemaker_log:
+- pcmk_dbus_find_error
+insights.specs.Specs.postgresql_log:
+- must be vacuumed within
+- remaining connection slots are reserved for non-replication superuser connections
+- FATAL
+- checkpoints are occurring too frequently
+- database is not accepting commands to avoid wraparound data loss in database
+- connection limit exceeded for non-superusers
+insights.specs.Specs.ps_alxwww:
+- pcsd
+- COMMAND
+- docker
+- ora
+- tuned
+- pacemakerd
+- bash
+insights.specs.Specs.ps_aux:
+- ceph-osd
+- pcsd
+- /usr/bin/docker
+- /usr/bin/docker-current
+- ora
+- ptp4l
+- postgres
+- /usr/bin/openshift start node
+- pacemakerd
+- bash
+- COMMAND
+- /usr/bin/openshift start master
+- openshift start master controllers
+- tuned
+- mysqld
+- openshift start node
+- docker
+- oc observe csr
+- ntpd
+- openshift start master api
+- phc2sys
+- /usr/bin/docker daemon
+- STAP/8.2
+- /usr/bin/dockerd-current
+- /usr/bin/docker-current daemon
+- /usr/bin/hyperkube kubelet
+- chronyd
+insights.specs.Specs.ps_auxww:
+- catalina.base
+- pcsd
+- nfs-server
+- docker
+- ora
+- httpd
+- iscsid
+- postgres
+- pkla-check-auth
+- ntpd
+- /usr/sap/
+- /usr/sbin/fcoemon --syslog
+- target_completi
+- ceilometer-coll
+- pacemakerd
+- tgtd
+- bash
+- nginx
+- HDB
+- greenplum
+- COMMAND
+- multipath
+- taskomaticd
+- elasticsearch
+- cmirrord
+- /sbin/multipathd
+- /exe/sapstartsrv
+- /usr/bin/teamd
+- goferd
+- tuned
+- octavia-worker
+- smbd
+- nova-compute
+- nfsd
+- virt-who
+- chronyd
+insights.specs.Specs.ps_ef:
+- pcsd
+- CMD
+- 'nginx: master process'
+- docker
+- ora
+- tuned
+- 'nginx: worker process'
+- neutron-ns-metadata-proxy
+- pacemakerd
+- bash
+insights.specs.Specs.puppetserver_config:
+- JAVA_ARGS
+insights.specs.Specs.rabbitmq_startup_log:
+- 'Event crashed log handler:'
+insights.specs.Specs.rhn_search_daemon_log:
+- APPARENT DEADLOCK!
+insights.specs.Specs.rhsm_log:
+- 'KeyError: ''config.network.dnsConfig.hostName'''
+- 'Validation failed: Name is invalid'
+- virt.host_type=hyperv, virt.uuid=Not Settable
+insights.specs.Specs.rsyslog_conf:
+- imtcp
+- imjournal
+- regex
+insights.specs.Specs.samba:
+- Max Smbd Processes
+- global
+- writable
+- realm
+- REALM
+- Kerberos Method
+- passdb backend
+- kerberos method
+- SECURITY
+- PASSDB BACKEND
+- path
+- read only
+- security
+- KERBEROS METHOD
+- nt pipe support
+- '['
+- Nt Pipe Support
+- max smbd processes
+- GLOBAL
+- MAX SMBD PROCESSES
+- Security
+- NT PIPE SUPPORT
+- Global
+- Passdb Backend
+- Realm
+- comment
+insights.specs.Specs.sap_host_profile:
+- SAPSYSTEM
+- DIR_
+insights.specs.Specs.saphostctl_getcimobject_sapinstance:
+- SapVersionInfo
+- SystemNumber
+- InstanceName
+- CreationClassName
+- '******'
+- Hostname
+- FullQualifiedHostname
+- SID
+insights.specs.Specs.setup_named_chroot:
+- ROOTDIR_MOUNT
+- /
+insights.specs.Specs.smartpdc_settings:
+- ':database:'
+insights.specs.Specs.ssh_config:
+- Host
+- ProxyCommand
+insights.specs.Specs.ssh_foreman_proxy_config:
+- Host
+- ProxyCommand
+insights.specs.Specs.sshd_config:
+- KbdInteractiveAuthentication
+- usepam
+- ciphers
+- Match
+- UsePam
+- PermitRootLogin
+- Denyusers
+- Clientalivecountmax
+- protocol
+- AllowUsers
+- Maxstartups
+- KBDINTERACTIVEAUTHENTICATION
+- ALLOWUSERS
+- Ciphers
+- Usepam
+- permitrootlogin
+- Maxauthtries
+- PROTOCOL
+- Macs
+- clientalivecountmax
+- Protocol
+- USEPAM
+- permitemptypasswords
+- maxstartups
+- denyusers
+- Challengeresponseauthentication
+- LOGINGRACETIME
+- PERMITEMPTYPASSWORDS
+- UsePAM
+- PERMITROOTLOGIN
+- ChallengeResponseAuthentication
+- Permitemptypasswords
+- maxauthtries
+- MaxStartups
+- PasswordAuthentication
+- MAXSTARTUPS
+- CLIENTALIVEINTERVAL
+- PermitEmptyPasswords
+- CIPHERS
+- DENYUSERS
+- ClientAliveInterval
+- ClientAliveCountMax
+- Clientaliveinterval
+- MACS
+- allowusers
+- CLIENTALIVECOUNTMAX
+- challengeresponseauthentication
+- kbdinteractiveauthentication
+- LoginGraceTime
+- CHALLENGERESPONSEAUTHENTICATION
+- Permitrootlogin
+- DenyUsers
+- clientaliveinterval
+- logingracetime
+- Port
+- MaxAuthTries
+- Kbdinteractiveauthentication
+- MAXAUTHTRIES
+- MACs
+- Allowusers
+- Logingracetime
+- macs
+insights.specs.Specs.subscription_manager_installed_product_ids:
+- 'ID:'
+insights.specs.Specs.udev_fc_wwpn_id_rules:
+- ENV{FC_TARGET_WWPN}
+- ENV{FC_INITIATOR_WWPN}
+- ENV{FC_TARGET_LUN}
+insights.specs.Specs.vdsm_log:
+- RPC call Host.setupNetworks failed
+- 'Changed state to Down: ''NoneType'' object has no attribute ''attrib'''
+- _report_inconsistency
+- 'libvirtError: internal error: failed to format device alias'
+- The name org.fedoraproject.FirewallD1 was not provided by any .service files
+- 'Changed state to Down: internal error: Attempted double use of PCI slot'
+- storage.TaskManager.Task
+- lastCheck
+- (mailbox-spm) [storage.Misc.excCmd] /usr/bin/taskset --cpu-list
+- Bad volume specification
+- ERROR (mailbox-spm) [storage.MailBox.SpmMailMonitor]
+- looking for unfetched domain
+- The vm start process failed
+- INFO
+- Stopping connection
+insights.specs.Specs.virt_who_conf:
+- configs
+- oneshot
+- server
+- type
+- log_
+- debug
+- owner
+- '['
+- env
+- interval
+insights.specs.Specs.virtlogd_conf:
+- max_size
+insights.specs.Specs.vsftpd_conf:
+- SSL_ENABLE
+- Local_Enable
+- ssl_enable
+- ssl_sslv3
+- Ssl_Enable
+- SSL_SSLV3
+- local_enable
+- LOCAL_ENABLE
+- Ssl_Sslv3
+insights.specs.default.DefaultSpecs.ps_alxwww:
+- pcsd
+- docker
+- ora
+- tuned
+- pacemakerd
+- bash
+insights.specs.default.DefaultSpecs.ps_aux:
+- pcsd
+- docker
+- ora
+- tuned
+- pacemakerd
+- bash
+insights.specs.default.DefaultSpecs.ps_auxww:
+- pcsd
+- docker
+- ora
+- tuned
+- pacemakerd
+- bash
+insights.specs.default.DefaultSpecs.ps_ef:
+- pcsd
+- docker
+- ora
+- tuned
+- pacemakerd
+- bash
