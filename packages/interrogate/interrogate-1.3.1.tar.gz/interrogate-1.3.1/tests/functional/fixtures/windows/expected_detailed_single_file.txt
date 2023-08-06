@@ -1,0 +1,30 @@
+------------------------------ Detailed Coverage ------------------------------
+| Name                                               |                 Status |
+|----------------------------------------------------|------------------------|
+| full.py (module)                                   |                COVERED |
+|   Foo (L5)                                         |                COVERED |
+|     Foo.__init__ (L8)                              |                COVERED |
+|     Foo.__str__ (L12)                              |                COVERED |
+|     Foo._semiprivate (L16)                         |                COVERED |
+|     Foo.__private (L20)                            |                COVERED |
+|     Foo.method_foo (L24)                           |                COVERED |
+|     Foo.get (L28)                                  |                COVERED |
+|     Foo.get (L32)                                  |                COVERED |
+|     Foo.prop (L37)                                 |                COVERED |
+|     Foo.prop (L42)                                 |                COVERED |
+|   top_level_func (L47)                             |                COVERED |
+|     top_level_func.inner_func (L50)                |                COVERED |
+|   Bar (L55)                                        |                COVERED |
+|     Bar.method_bar (L58)                           |                COVERED |
+|       Bar.method_bar.InnerBar (L61)                |                COVERED |
+|   _SemiprivateClass (L67)                          |                COVERED |
+|   __PrivateClass (L73)                             |                COVERED |
+|----------------------------------------------------|------------------------|
+
+----------------------------------- Summary -----------------------------------
+| Name            |        Total |        Miss |        Cover |        Cover% |
+|-----------------|--------------|-------------|--------------|---------------|
+| full.py         |           18 |           0 |           18 |          100% |
+|-----------------|--------------|-------------|--------------|---------------|
+| TOTAL           |           18 |           0 |           18 |        100.0% |
+--------------- RESULT: PASSED (minimum: 80.0%, actual: 100.0%) ---------------
