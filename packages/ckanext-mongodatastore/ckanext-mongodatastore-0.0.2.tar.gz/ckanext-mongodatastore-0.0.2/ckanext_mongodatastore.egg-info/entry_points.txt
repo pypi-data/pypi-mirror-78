@@ -1,0 +1,10 @@
+
+        [ckan.plugins]
+        mongodatastore=ckanext.mongodatastore.plugin:MongodatastorePlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+        
+        [paste.paster_command]
+        querystore = ckanext.mongodatastore.commands:querystore_group
+    
