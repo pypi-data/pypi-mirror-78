@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "cancer_data"
+version = "0.2.1"
+description = "Preprocessing for various cancer genomics datasets"
+authors = ["Kevin Hu <kevinhuwest@gmail.com>"]
+
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/kevinhu/cancer_data"
+repository = "https://github.com/kevinhu/cancer_data"
+keywords = ["cancer", "data", "genomics"]
+
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.6.1"
+gtfparse = "^1.2.0"
+scipy = "^1.5.1"
+requests = "^2.24.0"
+tqdm = "^4.48.0"
+tables = "^3.6.1"
+xlrd = "^1.2.0"
+pandas = "^1.0.5"
+pre-commit = "^2.7.1"
+
+[tool.poetry.dev-dependencies]
+ipython = "^7.16.1"
+matplotlib = "^3.3.0"
+seaborn = "^0.10.1"
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
