@@ -1,0 +1,20 @@
+[databroker.handlers]
+
+
+[databroker.ingestors]
+application/x-DM = xicam.NCEM.ingestors.DMPlugin:ingest_NCEM_DM
+application/x-EMD = xicam.NCEM.ingestors.EMDPlugin:ingest_NCEM_EMD
+application/x-EMD-VELOX = xicam.NCEM.ingestors.EMDPlugin:ingest_NCEM_EMD_VELOX
+application/x-MRC = xicam.NCEM.ingestors.MRCPlugin:ingest_NCEM_MRC
+application/x-SER = xicam.NCEM.ingestors.SERPlugin:ingest_NCEM_SER
+image/tiff = xicam.NCEM.ingestors.TIFPlugin:ingest_NCEM_TIF
+
+[databroker.sniffers]
+emd_sniffer = xicam.NCEM.ingestors.EMDPlugin:emd_sniffer
+
+[xicam.plugins.GUIPlugin]
+NCEM = xicam.NCEM:NCEMPlugin
+
+[xicam.plugins.WidgetPlugin]
+ncem_viewer = xicam.NCEM.widgets.NCEMViewerPlugin:NCEMViewerPlugin
+
