@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: simplecpreprocessor
+Version: 2.1.0
+Summary: Simple C preprocessor for usage eg before CFFI
+Home-page: https://gitlab.com/nanonyme/simplecpreprocessor
+Author: Seppo Yli-Olli
+Author-email: seppo.yli-olli@iki.fi
+License: BSD
+Keywords: python c preprocessor
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: BSD License
+Provides-Extra: tests
+Requires-Dist: flake8 ; extra == 'tests'
+Requires-Dist: mock ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+Requires-Dist: pytest (>=3.6) ; extra == 'tests'
+
+https://gitlab.com/nanonyme/simplecpreprocessor
+
+
