@@ -1,0 +1,16 @@
+Plone
+setuptools
+plone.api
+psutil
+requests
+zc.monitor
+zc.z3monitor
+ZODB3
+zope.component
+zope.processlifetime
+
+[tests]
+ftw.testing
+ftw.testbrowser
+plone.app.testing
+plone.testing
