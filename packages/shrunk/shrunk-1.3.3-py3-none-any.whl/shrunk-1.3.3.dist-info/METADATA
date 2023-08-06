@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: shrunk
+Version: 1.3.3
+Summary: Rutgers University URL Shortener
+Home-page: https://github.com/oss/shrunk
+Author: Rutgers Open System Solutions
+Author-email: oss@oss.rutgers.edu
+License: UNKNOWN
+Keywords: shrunk rutgers url shortener
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+Requires-Dist: Flask (==1.1.1)
+Requires-Dist: Flask-SSO (==0.4.0)
+Requires-Dist: Flask-WTF (==0.14.3)
+Requires-Dist: Jinja2 (==2.11.1)
+Requires-Dist: MarkupSafe (==1.1.1)
+Requires-Dist: WTForms (==2.2.1)
+Requires-Dist: Werkzeug (==1.0.0)
+Requires-Dist: itsdangerous (==1.1.0)
+Requires-Dist: pymongo (==3.10.1)
+Requires-Dist: geoip2 (==3.0.0)
+Requires-Dist: httpagentparser (==1.9.0)
+Requires-Dist: click (==7.0)
+Requires-Dist: python-ldap (==3.2.0)
+
+shrunk
+======
+
+A URL shortener for Rutgers University. For more information, contact [Rutgers
+Open System Solutions](http://oss.rutgers.edu).
+
+Uses MongoDB. Python code targets **Python 3.6**.
+
+Getting started
+---------------
+
+First set up a virtual environment and install the python dependencies with:
+
+    $ virtualenv --no-site-packages --python="python3" venv
+    $ source venv/bin/activate
+    $ pip install -r pip.req
+    $ pip install -r pip.req.dev
+
+Then build the HTML documentation with
+
+    $ ./setup.py build_sphinx
+
+This will place the Shrunk developer manual in `./build/sphinx/html`. Open the file
+`index.html` in that directory and start reading the tutorials linked therein! 
+
+Features
+--------
+
+### Web Application
+
+- Log in with a Rutgers NetID
+- Create a short URL from a long URL
+- Given a NetID, what URLs have they created?
+- Analytics on visits. With graphs and maps!
+- Create organizations to share links with your friends!
+
+### URL Shortening Service
+
+- Given a short URL, redirect to the long URL
+- Track visits to the short URL
+- Track popularity and number of clicks
+
+
