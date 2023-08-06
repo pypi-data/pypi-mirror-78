@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: traitlet-widgets
+Version: 5.0.0
+Summary: A library which provides the ability to create widget views for traitlet `HasTraits` models, and also to observe changes in a model
+Home-page: https://github.com/agoose77/traitlet_widgets
+License: MIT
+Keywords: traitlets,ui,widgets,jupyter,mvc
+Author: Angus Hollands
+Author-email: goosey15@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: ipywidgets (>=7.5.1,<8.0.0)
+Requires-Dist: traitlets (>=5.0.4,<6.0.0)
+Project-URL: Repository, https://github.com/agoose77/traitlet_widgets
