@@ -1,0 +1,74 @@
+# ========================================================================================
+#                        M O D I F I C A T I O N   H I S T O R Y
+# ========================================================================================
+
+
+------------------------------------------------------------------------------------------
+VERSION    DATE          DESCRIPTION
+------------------------------------------------------------------------------------------
+
+V3.0.1     2020-09-03    CHANGED: 
+			  * Assure compatibility with pPXF version 7 by adopting the 
+			    _bvls_solve and nnls_flags from pPXF version 6 into pyGandALF.
+			    Thanks to Michele Cappellari for his permission to include 
+			    these functions. 
+			  * Relaxed version dependencies of other packages in setup.py.
+			  * Changed the default value of the ftol parameter in pyGandALF 
+			    to 1e-5, in order to improve the reliability of the fit.
+
+V3.0       2020-08-20    Substantial revision and restructuring of the source code. Please
+			 consider the documentation for a detailed description of all 
+			 changes. 
+
+V2.1       2020-04-06	 CHANGED: 
+			  * Changed definition of npad variable in Gandalf analogue 
+			    to PPXF. Thanks to Alireza Molaeinezhad for the suggestion. 
+			  * Check dimensions of templates at read-in to allow the use of 
+			    Miles stars. Thanks to Thomas Spriggs for the suggestion. 
+			  * Modified CALIFA read-in routines to pass variances in 
+			    error spectra. 
+			 FIXED:
+			  * Added missing np.sqrt in the calculation of error spectra
+			    of bins consisting of single spaxels. Thanks to Sebastien 
+			    Comeron for reporting this bug. 
+			  * Neglect negative BIN_IDs in the calculation of the reference 
+			    velocity in Mapviewer. Thanks to Isabel Pérez. 
+			  * Enable DEBUG-mode in read-in routines by passing shape of cube
+			    Thanks to Adriano Poci for reporting this bug. 
+			  * Mapviewer: Plot the spectrum of the nearest valid bin if a bin
+			    outside of the Voronoi-region is selected. 
+			    Thanks to Michela Rubino. 
+
+V2.0.0     2019-11-13    ADDED: 
+			  * Support different wavelength ranges in different modules,
+			    including a separate wavelength range for the SNR calculation.
+			  * Support AO in MUSE wide- and narrow-field mode
+			    Thanks to Sebastien Comeron for the suggestion. 
+			  * Support of sky-lines in spectralMasking_*.config
+			    Thanks to Sebastien Comeron for the suggestion. 
+			 CHANGED: 
+			  * Propagate defunct spaxels through the pipeline
+
+V1.1.1     2019-10-31    FIXED: 
+			  * Apply de-redshifting to laser wavelength range in MUSE_NFM.py
+			  * Apply de-redshifting to LSF
+			    Thanks to Sebastien Comeron for reporting these bugs. 
+
+V1.1.0     2019-08-16    ADDED:   
+			  * Allow different initial guesses for different bins in pPXF
+			    Thanks to Michela Rubino for the suggestion. 
+			  * Read-in routine for single spectra in txt-format "PLAINTXT.py"
+	      	   	 FIXED:   
+			  * spectralMasking_SFH.config to handle one or zero masks
+	      	   	  * Orientation of maps in plotting routines
+	      	   	  * GandALF taking into account the LSF in doublet lines
+	      	   	 CHANGED:
+			  * Use stellar kinematics as initial guess on GandALF fit
+	      	   	  * Use np.nansum instead of np.nanmean to co-add spectra into 
+			    Voronoi-bins
+	      	   	  * Pass ORIGIN in units of pixels
+	      	   	 REMOVED:
+			  * *_gandalf-residuals_*.fits output
+
+V1.0.0     2019-06-11    Release of first version
+
