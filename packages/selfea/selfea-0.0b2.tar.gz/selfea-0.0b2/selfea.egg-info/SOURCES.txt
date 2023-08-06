@@ -1,0 +1,14 @@
+setup.py
+selfea/__init__.py
+selfea/dask_clients.py
+selfea/feature_evaluator.py
+selfea/selfea.py
+selfea/task_manager.py
+selfea.egg-info/PKG-INFO
+selfea.egg-info/SOURCES.txt
+selfea.egg-info/dependency_links.txt
+selfea.egg-info/top_level.txt
+selfea/default_models/__init__.py
+selfea/default_models/default_xgboost_regressor.py
+selfea/utils/__init__.py
+selfea/utils/data_structure_utils.py
