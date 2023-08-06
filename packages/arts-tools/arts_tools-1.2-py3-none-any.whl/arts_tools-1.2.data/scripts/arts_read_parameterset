@@ -1,0 +1,24 @@
+#!python
+
+import sys
+import argparse
+
+from arts_tools.fits.reader import read_parameterset
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
+                                     description="Read observation parameterset from ARTS FITS file")
+    parser.add_argument('file', help="Path to input FITS file")
+
+    # print help if no arguments are given
+    if len(sys.argv) == 1:
+        parser.print_help()
+        sys.exit(1)
+
+    args = parser.parse_args()
+
+    print("Reading parameterset from {}".format(args.file))
+    parset = read_parameterset(args.file)
+    for k, v in parset.items():
+        print("{} = {}".format(k, v))
