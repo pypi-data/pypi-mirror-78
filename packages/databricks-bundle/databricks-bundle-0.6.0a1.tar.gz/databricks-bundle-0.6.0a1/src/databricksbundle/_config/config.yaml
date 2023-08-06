@@ -1,0 +1,13 @@
+parameters:
+  databricksbundle:
+    enableNotebookErrorHandler: True
+
+    pipeline:
+      serviceResolvers:
+
+services:
+  databricksbundle.pipeline.function.ServiceResolver:
+    arguments:
+      - '%databricksbundle.pipeline.serviceResolvers%'
+
+  databricksbundle.pipeline.function.ServicesResolver:
