@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: hypernetx
+Version: 0.3.7
+Summary: HyperNetX is a Python library for the creation and study of hypergraphs.
+Home-page: https://github.com/pnnl/HyperNetX
+Author: Brenda Praggastis, Dustin Arendt, Emilie Purvine, Cliff Joslyn
+Author-email: hypernetx@pnnl.gov
+License: 3-Clause BSD license
+Platform: UNKNOWN
+Requires-Dist: networkx (<3.0,>=2.2)
+Requires-Dist: numpy (<2.0,>=1.15.0)
+Requires-Dist: scipy (<2.0,>=1.1.0)
+Requires-Dist: matplotlib (>3.0)
+Requires-Dist: scikit-learn (>=0.20.0)
+Provides-Extra: all
+Requires-Dist: sphinx (>=1.8.2) ; extra == 'all'
+Requires-Dist: nb2plots (>=0.6) ; extra == 'all'
+Requires-Dist: sphinx-rtd-theme (>=0.4.2) ; extra == 'all'
+Requires-Dist: pytest (>=4.0) ; extra == 'all'
+Requires-Dist: jupyter (>=1.0) ; extra == 'all'
+Requires-Dist: pandas (>=0.23) ; extra == 'all'
+Provides-Extra: documentation
+Requires-Dist: sphinx (>=1.8.2) ; extra == 'documentation'
+Requires-Dist: nb2plots (>=0.6) ; extra == 'documentation'
+Requires-Dist: sphinx-rtd-theme (>=0.4.2) ; extra == 'documentation'
+Provides-Extra: notebooks
+Requires-Dist: jupyter (>=1.0) ; extra == 'notebooks'
+Requires-Dist: pandas (>=0.23) ; extra == 'notebooks'
+Provides-Extra: testing
+Requires-Dist: pytest (>=4.0) ; extra == 'testing'
+Provides-Extra: tutorials
+Requires-Dist: jupyter (>=1.0) ; extra == 'tutorials'
+Requires-Dist: pandas (>=0.23) ; extra == 'tutorials'
+
+
+The HyperNetX library provides classes and methods for complex network data.
+HyperNetX uses data structures designed to represent set systems containing
+nested data and/or multi-way relationships. The library generalizes traditional
+graph metrics to hypergraphs.
+
+The current version is preliminary. We are actively testing and would be grateful
+for comments and suggestions. Expect changes in both class names and methods as
+many of the requirements demanded of the library are worked out.
+
+
