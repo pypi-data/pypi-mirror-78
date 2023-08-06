@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: senttelegrammenu
+Version: 0.3.0
+Summary: Superstructure over telebot which can show inline keyboard telegram menu
+Home-page: https://github.com/Senteris/SentTelegramMenu
+Author: Senteris
+Author-email: senteristeam@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pytelegrambotapi
+
+# Sent Telegram Menu
+[![Alt text](https://img.shields.io/pypi/v/senttelegrammenu)](https://pypi.org/project/senttelegrammenu/)
+[![Alt text](https://img.shields.io/github/workflow/status/Senteris/SentTelegramMenu/Build%20and%20publish%20Python%20distributions%20to%20PyPI)](https://github.com/Senteris/SentTelegramMenu/actions)
+[![Alt text](https://img.shields.io/github/pipenv/locked/python-version/Senteris/SentTelegramMenu)](/)
+[![Alt text](https://img.shields.io/github/pipenv/locked/dependency-version/Senteris/SentTelegramMenu/pytelegrambotapi)](https://github.com/eternnoir/pyTelegramBotAPI)  
+
+Superstructure over [telebot](https://github.com/eternnoir/pyTelegramBotAPI)  which can show inline keyboard telegram menu
+![Alt text](images/basicusage.gif "Basic usage")
+![Alt text](images/customuser.gif "Custom user")
+## Examples
+- [Basic usage](examples/basic.py)
+    - Submenu
+    - Notification button
+    - Function button
+ - [Custom user](examples/custom_user.py)
+    - Input
+    - Custom user class
+## Installing
+[Project on PyPi](https://pypi.org/project/senttelegrammenu/)  
+Install: `pip install senttelegrammenu`  
+Install for development: `pipenv install --dev`  
+
+
