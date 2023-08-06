@@ -1,0 +1,118 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "agent.json",
+	"type": "object",
+	"title": "RAC JSON Schema",
+	"allOf": [{
+		"$id": "#/agent",
+		"type": "object",
+		"title": "Agents",
+		"required": [
+			"category",
+			"external_identifiers",
+			"group",
+			"title",
+			"type",
+			"agent_type"
+		],
+		"properties": {
+			"agent_type": {
+				"$id": "#/agent/properties/agent_type",
+				"type": "string",
+				"enum": [
+					"family",
+					"organization",
+					"person"
+				]
+			},
+			"category": {
+				"$id": "#/collection/properties/category",
+				"type": "string",
+				"title": "Agent Category",
+				"enum": [
+					"person",
+					"organization"
+				]
+			},
+			"type": {
+				"$id": "#/agent/properties/type",
+				"type": "string",
+				"enum": [
+					"agent"
+				]
+			},
+			"title": {
+				"$id": "#/agent/properties/title",
+				"type": "string",
+				"title": "Agent Title",
+				"description": "Title for Agent",
+				"examples": [
+					"Lawson Foundation"
+				],
+				"pattern": "^(.*)$"
+			},
+			"description": {
+				"$id": "#/agent/properties/description",
+				"type": ["string", "null"],
+				"title": "Agent Description",
+				"description": "Description of the Agent",
+				"examples": [
+					"Elit irure adipisicing esse minim Lorem non deserunt ullamco. Ex eiusmod tempor ipsum nisi. Aliqua tempor cillum ea labore laboris consectetur ut incididunt esse dolor labore ullamco magna magna."
+				],
+				"pattern": "^(.*)$"
+			},
+			"dates": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/date"
+					}]
+				}
+			},
+			"notes": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/note"
+					}]
+				}
+			},
+			"people": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/reference"
+					}]
+				}
+			},
+			"organizations": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/reference"
+					}]
+				}
+			},
+			"families": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/reference"
+					}]
+				}
+			},
+			"external_identifiers": {
+				"type": "array",
+				"minItems": 1,
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/external_identifier"
+					}]
+				}
+			},
+			"group": {
+				"type": "string"
+			}
+		}
+	}]
+}
