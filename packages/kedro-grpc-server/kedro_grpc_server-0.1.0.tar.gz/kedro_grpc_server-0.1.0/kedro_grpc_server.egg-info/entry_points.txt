@@ -1,0 +1,3 @@
+[kedro.project_commands]
+kedro_grpc_server = kedro_grpc_server.app:commands
+
