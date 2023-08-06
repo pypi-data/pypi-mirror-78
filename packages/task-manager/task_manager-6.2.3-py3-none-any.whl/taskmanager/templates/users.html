@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% from "_macros.html" import collapse_card_start, collapse_card_end, card_link_by_title %}
+
+{% block content %}
+
+<ul class="nav nav-tabs justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">User overview</a>
+  </li>
+  {% if current_user.has_permission('roles_manage') %}
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('web.userroles') }}">User roles</a>
+  </li>
+  {% endif %}
+</ul>
+
+<h1>User Overview</h1>
+{{ collapse_card_start("users", show=True, data_count=data|length) }}
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>username</th>
+          <th>name</th>
+          <th>active</th>
+          <th># of tasks</th>
+          <th># of queued tasks</th>
+          <th>assignment weight</th>
+          <th>email</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for d in data %}
+        <tr>
+          <td>
+            <a href="{{url_for('web.user', id=d.id) }}">
+              {{d.id}}
+            </a>
+          </td>
+          <td>
+            <a href="{{url_for('web.user', id=d.id) }}">
+              {{d.username}}
+            </a>
+          </td>
+          <td>
+            <a href="{{url_for('web.user', id=d.id) }}">
+              {{d.name}}
+            </a>
+          </td>
+          <td>
+              <span class="badge badge-{{ 'success' if d.active else 'danger' }}">
+                {{d.active}}
+              </span>
+          </td>
+          <td>
+            {{ card_link_by_title(title="Tasks per Template", prefix=url_for('web.user', id=d.id)) }}
+              <span class="badge badge-secondary">
+                {{d.tasks | length}}
+              </span>
+            </a>
+          </td>
+          <td>
+            <a href="{{url_for('web.user', id=d.id) }}">
+            {{ card_link_by_title(title="Tasks Assigned", prefix=url_for('web.user', id=d.id)) }}
+              <span class="badge badge-secondary">
+                {{d.tasks | selectattr("status", "equalto", "queued") | list | length}}
+              </span>
+            </a>
+          </td>
+          <td>
+            {{d.assignment_weight}}
+          </td>
+          <td>
+            <a href="mailto:{{ d.email }}">
+              {{d.email}}
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{{ collapse_card_end("Template Information") }}
+
+
+{% endblock %}

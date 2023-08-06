@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+        <h1>Not Found</h1>
+        <p>The requested URL was not found on the server.
+            If you entered the URL manually please check your spelling and try again.</p>
+    </div>
+</div>
+
+<img src="{{ url_for('static', filename='img/van_gogh_wheatfield_with_crows.jpg') }}"
+     class="img-fluid"
+     alt="van Gogh - Wheatfield with crows">
+<blockquote class="blockquote text-right">
+    <p class="mb-0">
+        “If I cease searching, then, woe is me, I am lost. That is how I look at
+        it - keep going, keep going come what may.”
+    </p>
+    <footer class="blockquote-footer">Vincent van Gogh, The Letters of Vincent van Gogh</footer>
+</blockquote>
+
+{% endblock %}

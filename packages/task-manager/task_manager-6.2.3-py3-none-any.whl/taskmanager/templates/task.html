@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% from "_macros.html" import collapse_card_start, collapse_card_end, card_link_by_title %}
+
+{% block content %}
+
+
+<h1>Task {{ data.id }} </h1>
+{{ collapse_card_start("Task Information", show=True) }}
+      <dl class="dl-horizontal">
+        <dt>id</dt>
+        <dd>{{ data.id }}</dd>
+
+        <dt>status</dt>
+        <dd>{{ data.status }}</dd>
+
+        <dt>lock</dt>
+        <dd>
+          {% if data.lock %}
+              <a href="{{url_for('web.user', id=data.lock.id)}}">{{data.lock.name}}</a>
+          {% endif %}
+        </dd>
+
+        <dt>project</dt>
+        <dd>{{ data.project }}</dd>
+
+        <dt>template</dt>
+        {% if data.template %}
+        <dd><a href="{{url_for('web.template', id=data.template.id)}}">
+            {{ data.template.label }}
+            </a>
+        </dd>
+        {% endif %}
+
+        <dt>task group</dt>
+        <dd>
+        {% if data.parent %}
+          <a href="{{url_for('web.taskgroup', id=data.parent.id)}}">
+            {% if data.parent.label %}
+              {{ data.parent.label }}
+            {% else %}
+              {{ data.parent.id }}
+            {% endif %}
+          </a>
+        {% endif %}
+        </dd>
+
+        <dt>generator_url</dt>
+        <dd>
+        {% if data.generator_url %}
+        <a href="{{ data.generator_url }}">
+            {{ data.generator_url }}
+            </a>
+        {% endif %}
+        </dd>
+
+        <dt>application name</dt>
+        <dd>
+            {% if data.application_name %}
+              {{ data.application_name }}
+            {% endif %}
+        </dd>
+
+        <dt>application version</dt>
+        <dd>
+            {% if data.application_version %}
+              {{ data.application_version }}
+            {% endif %}
+        </dd>
+
+        <dt>create time</dt>
+        <dd>{{ data.create_time }}</dd>
+
+        <dt>update time</dt>
+        <dd>{{ data.update_time }}</dd>
+
+        <dt>tags</dt>
+        <dd>
+          {% for tag in data.tags %}
+            <a href="{{ url_for('web.tag', id=tag.id) }}">
+                <span class="badge badge-primary">{{ tag.name }}</span>
+            </a>
+          {% endfor %}
+        </dd>
+
+        <dt># users</dt>
+        <dd>
+            {{ card_link_by_title("Users") }}
+                <span class="badge badge-secondary">{{ data.users | length }}</span>
+            </a>
+        </dd>
+
+        <dt># groups</dt>
+        <dd>
+            {{ card_link_by_title("Groups") }}
+                <span class="badge badge-secondary">{{ data.groups | length }}</span>
+            </a>
+        </dd>
+
+        <dt># users via groups</dt>
+        <dd>
+            {{ card_link_by_title("Users via Group") }}
+                <span class="badge badge-secondary">{{ data.users_via_group | length }}</span>
+            </a>
+        </dd>
+
+        <dt>content</dt>
+        <dd>
+            {% if data.content %}
+            <pre class="language-json line-numbers"><code>{{ data.content | json_format }}</code></pre>
+            {% endif %}
+        </dd>
+      </dl>
+{{ collapse_card_end("Task Information") }}
+
+{% if data.callback_url %}
+{{ collapse_card_start("Callback Information", show=False) }}
+          <dl class="dl-horizontal">
+              <dt>callback url</dt>
+              <dd>{{ data.callback_url }}</dd>
+          </dl>
+          <dl class="dl-horizontal">
+              <dt>callback content</dt>
+              <dd>
+                  <pre class="language-json line-numbers"><code>{{ data.callback_content | json_format }}</code></pre>
+              </dd>
+          </dl>
+{{ collapse_card_end("Callback Information") }}
+{% endif %}
+
+{% if data.users %}
+{{ collapse_card_start("Users", show=True, data_count=data.users|length) }}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>name</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in data.users %}
+                <tr>
+                    <td>
+                        {{user.id}}
+                    </td>
+                    <td>
+                        <a href="{{url_for('web.user', id=user.id)}}">{{user.name}}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+{{ collapse_card_end("Users") }}
+{% endif %}
+
+{% if data.groups %}
+{{ collapse_card_start("Groups", show=True, data_count=data.groups|length) }}
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>users</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for group in data.groups %}
+        <tr>
+          <td>
+              {{group.id}}
+          </td>
+          <td>
+              <a href="{{url_for('web.group', id=group.id)}}">{{group.name}}</a>
+          </td>
+          <td>
+              {{group.users | join(', ', attribute='name')}}
+          </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{{ collapse_card_end("Groups") }}
+
+{% endif %}
+
+{% if data.users_via_group %}
+{{ collapse_card_start("Users via Group", show=True, data_count=data.users_via_group|length) }}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>user groups</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in data.users_via_group %}
+                <tr>
+                    <td>
+                        {{user.id}}
+                    </td>
+                    <td>
+                        <a href="{{url_for('web.user', id=user.id)}}">{{user.name}}</a>
+                    </td>
+                    <td>
+                        {{user.groups | join(', ', attribute='name')}}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+{{ collapse_card_end("Users via Group") }}
+{% endif %}
+
+{% endblock %}
