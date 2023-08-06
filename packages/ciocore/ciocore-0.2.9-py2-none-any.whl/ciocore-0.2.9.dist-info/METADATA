@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: ciocore
+Version: 0.2.9
+Summary: Core functionality for Conductor's client tools
+Home-page: https://github.com/AtomicConductor/conductor-core
+Author: conductor
+Author-email: info@conductortech.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python
+Classifier: Topic :: Multimedia :: Graphics :: 3D Rendering
+Requires-Python: ~=2.7
+Description-Content-Type: text/markdown
+Requires-Dist: pyjwt (>=1.4.2)
+Requires-Dist: requests (>=2.10.0)
+
+Core functionality for Conductor's client tools
+
+
