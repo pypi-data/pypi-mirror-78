@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: grabutils
+Version: 0.0.23
+Summary: Utils and helpers for crawling websites
+Home-page: https://github.com/sniter/grabutils
+Author: Ilya Babich
+Author-email: sniter@gmail.com
+License: UNKNOWN
+Description: # Grabutils
+        
+        Utils and helpers for crawling websites
+        
+        ## Install
+        
+        ```shell script
+        pip install grabutils
+        ```
+        
+        or from Github
+        
+        ```shell script
+        pip install git+git://github.com/sniter/grabutils.git#egg=grabutils 
+        ```
+        
+        ## Usage
+        
+        See tests as usage example
+        
+        ## Install 
+        
+        ```shell script
+        pip install grabutils[all]
+        ```
+        
+        For `bs` module:
+        
+        ```shell script
+        pip install grabutils[bs]
+        ```
+        
+        For `rest` module:
+        
+        ```shell script
+        pip install grabutils[rest]
+        ```
+        
+        For `ssh` module:
+        
+        ```shell script
+        pip install grabutils[ssh]
+        ```
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: bs
+Provides-Extra: ssh
+Provides-Extra: rest
+Provides-Extra: all
