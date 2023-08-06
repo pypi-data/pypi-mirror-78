@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: vald-client-python
+Version: 0.0.53
+Summary: a client library for Vald (https://github.com/vdaas/vald).
+Home-page: https://github.com/vdaas/vald-client-python
+Author: Rintaro Okamura
+Author-email: rintaro.okamura@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: googleapis-common-protos
+Requires-Dist: grpcio
+Requires-Dist: protobuf
+
+# vald-client-python
+
+[![PyPI version](https://badge.fury.io/py/vald-client-python.svg)](https://badge.fury.io/py/vald-client-python)
+
+
+
