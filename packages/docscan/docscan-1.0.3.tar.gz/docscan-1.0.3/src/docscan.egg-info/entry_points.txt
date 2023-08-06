@@ -1,0 +1,4 @@
+[console_scripts]
+docscan = docscan.cmd.cli:main
+docscan-server = docscan.cmd.server:main
+
