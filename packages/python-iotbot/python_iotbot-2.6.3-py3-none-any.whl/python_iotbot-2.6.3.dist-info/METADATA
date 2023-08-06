@@ -1,0 +1,180 @@
+Metadata-Version: 2.1
+Name: python-iotbot
+Version: 2.6.3
+Summary: IOTBOT SDK with python!
+Home-page: https://github.com/XiyaoWong/python-iotbot
+Author: wongxy
+Author-email: xiyao.wong@foxmail.com
+License: MIT
+Keywords: iotbot,iotbot sdk,iotqq,OPQ,OPQBot
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: python-socketio (>=4.5.1)
+Requires-Dist: websocket-client (>=0.57.0)
+Requires-Dist: requests (>=2.23.0)
+Requires-Dist: prettytable (>=0.7.2)
+Requires-Dist: loguru (>=0.5.1)
+Requires-Dist: schedule (>=0.6.0)
+
+# python-iotbot
+
+[![pypi](https://img.shields.io/pypi/v/python-iotbot?style=flat-square 'pypi')](https://pypi.org/project/python-iotbot/)
+[![python-version](https://img.shields.io/pypi/pyversions/python-iotbot?style=flat-square)](https://pypi.org/project/python-iotbot/)
+
+## Install
+
+```shell
+pip install python-iotbot -i https://pypi.org/simple --upgrade
+```
+
+## Quick Start
+
+```python
+from iotbot import IOTBOT, GroupMsg
+
+bot = IOTBOT(your_bot_qq)
+
+
+@bot.on_group_msg
+def group(ctx: GroupMsg):
+    print(f"""
+{ctx.FromNickName}在{ctx.MsgTime}的时候，发了一个类型是{ctx.MsgType}的消息，内容为：
+{ctx.Content}""")
+    print(ctx.CurrentQQ)
+
+
+bot.run()
+```
+
+[documentation](https://xiyaowong.github.io/python--iotbot 'documentation')
+
+## [CHANGELOG](./CHANGELOG.md)
+
+## LICENSE
+
+MIT
+
+## CHANGELOG
+
+### 0.2.3 - 2020-05-15
+
+1. 更多 action
+
+2. 每个 action 除默认参数外，还可设置:
+   - `api_path` `default=/v1/LuaApiCaller`
+   - `iot_timeout` `default=self.timeout=10` IOTBOT 端处理允许等待的时间
+   - `bot_qq` `default=self.qq` 机器人 QQ 号
+
+### 1.0.0 - 2020-05-28
+
+#### 大改动
+
+1. 插件化
+2. 效率更高，不漏消息
+3. 更多快捷方法
+4. 更多自定义参数
+
+### 1.1.0 - 2020-06-19
+
+1. 无需重启即可更新插件，正常调用`refresh_plugins`方法即可
+2. 改了下刷新插件后的显示信息
+3. 增加刷新 key 二次登陆 Action
+4. 改善了生成模板
+
+### 2.0.0
+
+1. 支持队列发送
+2. 支持中间件，可用于传递配置
+3. 优化数据解析，提供解析更详细的函数
+4. ...
+
+### 2.1.0
+
+1. 增加 webhook 功能，方便做远程服务
+2. 废弃环境变量的配置方式，使用`.iotbot.json`进行配置
+3. sugar 发送图片函数增加文字参数
+
+### 2.2.0
+
+1. 优化插件管理
+
+### 2.2.1
+
+1. 优化中间件的处理
+2. 好友白名单改为好友黑名单
+3. 配置文件增加群、好友黑名单配置项
+4. Action 增加部分方法
+
+### 2.3.1
+
+1. 使用第三方库替代原来手动配置的 logger，日志不那么粗糙了
+2. 移除 Action 中的设置日志参数
+
+### 2.3.2
+
+1. windows 上编码错误
+
+### 2.3.4
+
+1. 新增设置/取消管理员 Action
+2. Action 对象的 host,port...等属性改为公开属性
+3. 发送请求使用 session
+4. GroupAdminsysnotifyEventMsgQQ 群系统消息通知消息完善
+   ...
+
+### 2.4.0
+
+1. 移除 Action 每分钟限制发送频率的功能
+2. 优化发送队列
+
+### 2.4.1
+
+1. action 检查 Ret 值时首先判断该字段是否存在
+
+### 2.4.2
+
+1. 封装获取包括群主在内的管理员方法
+
+### 2.5.0
+
+1. 优化插件管理，使用文件存储停用的插件信息
+2. 添加 `is_botself`装饰器，只接收机器人自身消息
+3. 去除冗余代码
+
+### 2.5.1
+
+1. 封装转发视频给群(repost_video_to_group)/好友(repost_video_to_friend)两个 action
+2. 增加解析视频消息的 refine 函数
+
+### 2.5.2
+
+1. 修正误将 GetWebConn 作为心跳的错误
+
+### 2.5.3
+
+1. refine 函数不修改原上下文对象
+
+### 2.6.0
+
+1. 添加定时任务功能
+
+## 2.6.1
+
+1. 增加对发送错误码的描述
+
+## 2.6.2
+
+1. 优化 sugar 函数，增加对临时会话的支持
+2. 好友消息增加字段 TempUin（临时会话的入口群聊 id)
+3. refine 图片消息后对象的 GroupPic 列表成员由原始字典变为单独的图片对象
+
+
