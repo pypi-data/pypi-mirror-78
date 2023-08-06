@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+import argparse
+from MasterSSH import MasterSSH
+
+
+arg_parser = argparse.ArgumentParser()
+arg_parser.add_argument('--cred-url', dest='cred_url', default=None, help='URL that points to credentials data')
+arg_parser.add_argument('--cred-file', dest='cred_file', default=None, help='Path to your credentials file')
+arg_parser.add_argument('--servers', dest='servers', default=None, help='A comma separated list of server hostnames')
+arg_parser.add_argument('--manual', dest='manual', action='store_true', help='Use this when you wish to connect manually from the program')
+arg_parser.add_argument('--verbose', dest='verbose', action='store_true', help='Sets logging to debug level')
+arg_parser.add_argument('--port', dest='port', help='Sets the custom port for all hosts')
+
+args = arg_parser.parse_args()
+
+threading.current_thread().name = 'MasterSSH'
+
+master_ssh = MasterSSH(args)
+master_ssh.create_connections()
+master_ssh.listen()
+
+sys.exit(0)
