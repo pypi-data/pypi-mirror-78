@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: hxntools
+Version: 0.5.1
+Summary: NSLS-II Hard X-ray Nanoprobe data acquisition tools
+Home-page: https://github.com/NSLS-II-HXN/hxntools
+Author: Brookhaven National Laboratory
+Author-email: DAMA@bnl.gov
+License: BSD-3-Clause
+Description: hxntools
+        ========
+        Python library of tools used at NSLS-II's Hard X-ray Nanoprobe (HXN, 03id) beamline
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
