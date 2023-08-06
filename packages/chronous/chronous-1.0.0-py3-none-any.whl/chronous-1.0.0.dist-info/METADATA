@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: chronous
+Version: 1.0.0
+Summary: Library for Event-Driven architecture using asyncio.
+Home-page: https://github.com/Lapis0875/Chronous
+Author: Lapis0875
+Author-email: lapis0875@kakao.com
+License: MIT
+Keywords: Event-Driven architecture,EDD,async,asynchronous,asyncio
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: colorama (>=0.4.3)
+Requires-Dist: colorlog (>=4.2.1)
+
+# Chronous
+Chronous is a asynchronous python library designed to make asynchronous event-driven architectures on discord.py
+
+
