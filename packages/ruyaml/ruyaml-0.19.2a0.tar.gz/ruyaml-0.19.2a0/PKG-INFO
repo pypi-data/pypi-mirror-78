@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: ruyaml
+Version: 0.19.2a0
+Summary: ruyaml is a fork of ruamel.yaml
+Home-page: https://github.com/pycontribs/ruyaml
+Author: Sorin Sbarnea
+Author-email: sorin.sbarnea@gmail.com
+Maintainer: Sorin Sbarnea
+Maintainer-email: sorin.sbarnea@gmail.com
+License: MIT license
+Project-URL: Bug Tracker, https://github.com/pycontribs/ruyaml/issues
+Project-URL: Release Management, https://github.com/pycontribs/ruyaml/releases
+Project-URL: Source Code, https://github.com/pycontribs/ruyaml
+Description: ruyaml
+        ======
+        
+        ``ruyaml`` package is a fork of ``ruamel.yaml`` aimed to made in order to
+        secure the future of the library, mainly by having a pool of maintainers.
+        
+        Notes
+        =====
+        
+        - Current version is a drop-in dependency replacement for "ruamel.yaml"
+          package and will install `ruamel.yaml` python module. As long this is still
+          true keep in mind not to install `ruamel.yaml` package.
+        - python3.6 is the minimal version of python supported
+        
+Keywords: selinux,virtualenv
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst; charset=UTF-8
+Provides-Extra: docs
