@@ -1,0 +1,22 @@
+Metadata-Version: 1.2
+Name: mozregression
+Version: 4.0.14
+Summary: Regression range finder for Mozilla nightly builds
+Home-page: http://github.com/mozilla/mozregression
+Author: Mozilla Automation and Tools Team
+Author-email: tools@lists.mozilla.org
+License: MPL 2.0
+Description: Regression range finder for Mozilla nightly builds.
+        For more information see the mozregression website:
+        http://mozilla.github.io/mozregression/
+Platform: Any
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
