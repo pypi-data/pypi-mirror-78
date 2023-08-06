@@ -1,0 +1,8 @@
+include requirements.txt
+include README.rst
+include LICENSE
+
+exclude testcase.py
+recursive-exclude * __pycache__
+recursive-exclude * .github
+recursive-exclude * .vs

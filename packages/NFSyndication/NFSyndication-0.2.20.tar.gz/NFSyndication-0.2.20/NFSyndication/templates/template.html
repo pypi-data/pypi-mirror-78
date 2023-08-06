@@ -1,0 +1,47 @@
+<html>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+<style>
+</style>
+<title>News Topics: Today’s RSS</title>
+<body>
+  <aside>
+    <div id="header_text"><h1><a href="javascript:window.location.reload()">News Stories</a></h1></div>
+  </aside>
+  <ul class="rss">
+  {% for post in posts|sort|reverse %}
+  <li>
+    <div class="article_title">
+      <h3 class="{% if post.permalink %}link{% else %}full{% endif %}post_title"><a href="{{ post.link }}">{{ post.title }}</a>{% if post.permalink %} <span class="linkpost_arrow">→</span>{% endif %}</h3>
+    </div>
+    <div class="article_meta"><p>
+      Posted on {{ post.time.strftime('%d %B %Y').strip('') }} at {{ post.time.strftime('%I:%M&thinsp;%p').strip('0').lower() }}
+      • {{ post.blog }}
+      {% if post.author and post.blog != post.author %}
+        • by {{ post.author }}
+      {% endif %}
+      {% if post.permalink %}
+       • <span class="permalink"><a href="{{ post.permalink }}">∞</a></span>
+      {% endif %}
+    </p></div>
+    {{ post.body|safe }}
+    {# Put a line between posts, but only if this isn't the last one #}
+    {% if loop.index != posts|count %}<hr class="between_posts"/>{% endif %}
+  </li>
+  {% endfor %}
+  </ul>
+  <footer>
+    <!--p>
+        By <a href="http://leancrew.com/all-this/2015/11/simpler-syndication/">Dr Drang</a>.
+    </p-->
+    <p>
+        Last updated on {{ time.strftime('%d %B %Y').strip('') }} at {{ time.strftime('%I:%M&thinsp;%p').strip('0').lower() }}.
+        Made with Python app & Jinja2 (based on script by configuration of the project)
+    </p>
+  </footer>
+</body>
+</html>
