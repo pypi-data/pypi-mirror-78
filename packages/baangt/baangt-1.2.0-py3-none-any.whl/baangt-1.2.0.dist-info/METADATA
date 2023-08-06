@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: baangt
+Version: 1.2.0
+Summary: Open source Test Automation Suite for MacOS, Windows, Linux
+Home-page: https://baangt.org
+Author: Bernhard Buhl
+Author-email: info@baangt.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Appium-Python-Client
+Requires-Dist: beautifulsoup4
+Requires-Dist: browsermob-proxy
+Requires-Dist: dataclasses
+Requires-Dist: dataclasses-json
+Requires-Dist: faker
+Requires-Dist: gevent
+Requires-Dist: jinja2
+Requires-Dist: lxml
+Requires-Dist: openpyxl
+Requires-Dist: pandas
+Requires-Dist: Pillow
+Requires-Dist: pluggy
+Requires-Dist: pyperclip
+Requires-Dist: pyQT5 (==5.14.2)
+Requires-Dist: requests
+Requires-Dist: requests-toolbelt
+Requires-Dist: schwifty
+Requires-Dist: selenium
+Requires-Dist: sqlalchemy
+Requires-Dist: urllib3
+Requires-Dist: psutil
+Requires-Dist: pymsteams
+Requires-Dist: slack-webhook
+Requires-Dist: xl2dict
+Requires-Dist: xlrd3
+Requires-Dist: xlsxwriter
+Requires-Dist: atlassian-python-api
+Requires-Dist: icopy2xls
+Requires-Dist: xlsclone
+
+# Welcome
+Please find the full documentation on [ReadTheDocs](https://baangt.readthedocs.io)
+
+# Further reading:
+* Homepage https://baangt.org
+* Blog https://baangt.org/blog
+
+# Follow us:
+* Overview, contact and blog: [https://www.baangt.org](https://www.baangt.org)
+* Documentation: [https://baangt.readthedocs.io](https://baangt.readthedocs.io)
+* Facebook: [https://facebook.com/baangtSoftware](https://facebook.com/baangtSoftware) 
+* Instagram: [https://www.instagram.com/baangt_software/](https://www.instagram.com/baangt_software/)
+* Twitter: [https://twitter.com/baangtTweets](https://twitter.com/baangtTweets)
+* Medium: [https://medium.com/baangt](https://medium.com/baangt) 
+* Youtube: [https://www.youtube.com/channel/UCHoFle1U6RfhsIh5i38C__A/](https://www.youtube.com/channel/UCHoFle1U6RfhsIh5i38C__A/)
+* Telegram Channel: [https://t.me/baangt](https://t.me/baangt)
+* Official repository for download: [https://github.com/Athos1972/baangt](https://github.com/Athos1972/baangt)
+* Nightly builds: [https://gogs.earthsquad.global/Athos/baangt](https://gogs.earthsquad.global/Athos/baangt) 
+* Binary repositories: [https://github.com/Athos1972/baangt-executables](https://github.com/Athos1972/baangt-executables)
+
+# UPDATE: 24 Aug 2020  
+The `ResultsDB` structure was updatetd to support `ResultsBrowser` module:
+* field `number` was inrouduced to tables `TestCaseSequences` and `TestCases`
+
+To update an older DB, run
+```bash
+python db_update.py
+```
+
