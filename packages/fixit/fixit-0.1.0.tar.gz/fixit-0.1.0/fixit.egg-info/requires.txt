@@ -1,0 +1,16 @@
+flake8>=3.8.1
+libcst>=0.3.10
+pyyaml>=5.2
+
+[dev]
+black>=19.10b0
+codecov>=2.0.15
+coverage>=4.5.4
+isort>=4.3.20
+jupyter>=1.0.0
+nbsphinx>=0.7.1
+pyre-check==0.0.41
+sphinx-rtd-theme>=0.5.0
+prompt-toolkit>=2.0.9
+tox>=3.14.5
+diff_cover>=3.0.1
