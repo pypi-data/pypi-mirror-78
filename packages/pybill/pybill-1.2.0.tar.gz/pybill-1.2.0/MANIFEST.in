@@ -1,0 +1,22 @@
+include ChangeLog
+include DEPENDS
+include README
+include tox.ini
+
+include bin/pybill
+include bin/pybill.bat
+include pybill/man/pybill.1
+include pybill/xmlschema/*.xsd
+include pybill/configs/*.xml
+include pybill/configs/README
+
+recursive-include pybill *.py *.png *.xml *.dtd README catalog
+recursive-include test *.py
+recursive-include test/data *
+
+recursive-include doc/_themes *
+recursive-include doc *.rst makefile README conf.py
+
+prune debian
+exclude .gitlab-ci.yml
+exclude Makefile

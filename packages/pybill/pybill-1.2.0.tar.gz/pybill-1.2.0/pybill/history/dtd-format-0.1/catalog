@@ -1,0 +1,22 @@
+  -- ...................................................................... --
+  -- File pybill/dtd/catalog                                                --
+  --                                                                        --
+  -- Intent:                                                                --
+  --   This is the catalog file defining DTD for Logilab PyBill             --
+  --   application.                                                         --
+  -- ...................................................................... --
+
+  -- Revision: $Id: catalog,v 1.1 2004-02-26 15:40:49 ocy Exp $ --
+
+
+  -- ...................................................................... --
+  -- DTD of XML files describing bills                                      --
+
+PUBLIC "-//LOGILAB//DTD PyBill Bills V1.0//EN"
+       "pybill.dtd"
+
+  -- ...................................................................... --
+  -- DTD of XML files describing the configuration for PyBill               --
+
+PUBLIC "-//LOGILAB//DTD PyBill Config V1.0//EN"
+       "config.dtd"

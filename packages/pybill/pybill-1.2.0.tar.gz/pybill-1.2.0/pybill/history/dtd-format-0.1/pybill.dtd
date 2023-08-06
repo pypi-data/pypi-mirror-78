@@ -1,0 +1,139 @@
+
+<!-- Public Identifier of this DTD is 
+     "-//LOGILAB//DTD PyBill Bills V1.0//EN" -->
+
+<!-- Revision: $Id: pybill.dtd,v 1.3 2004-09-24 15:23:23 ocy Exp $
+  -->
+
+<!-- standard attributes ############################################
+
+     These are the attributes contained in <bill>, <claim-form>, 
+     <pro-forma> and <downpayment>. These root elements can also 
+     have other specific attributes.
+
+     * our-ref      = our references
+     * your-ref     = their references
+     * purch-ref    = the reference of their purchase order
+     * supplier-ref = our reference in their purchasing system
+     * date         = date when the document was written
+     * place        = place where the document was written
+-->
+
+<!ENTITY % std.bill.attr
+     "our-ref       CDATA  #REQUIRED
+      your-ref      CDATA  #IMPLIED
+      purch-ref     CDATA  #IMPLIED
+      supplier-ref  CDATA  #IMPLIED
+      date          CDATA  #REQUIRED
+      place         CDATA  #REQUIRED"
+>
+
+
+<!-- standard content ###############################################
+
+     These are the child elements found in <bill>, <claim-form>,
+     <pro-forma> et <downpayment>. These root elements can also
+     have other specific child elements.
+
+     * two <address> elements whose role attribute is "from" and "to"
+         (sender and receiver addresses) (sender is optional)
+     * optional text (<remark>)
+     * one <selling> element describing the items selled
+
+-->
+
+<!ENTITY % std.bill.content 
+     "address?, address, remark*, selling"
+>
+
+
+<!-- root elements ################################################## -->
+
+<!ELEMENT bill (%std.bill.content; , charged-downpayment*, issued-debit*, 
+                payment-terms)>
+<!ATTLIST bill %std.bill.attr;>
+<!ATTLIST bill id ID #REQUIRED> <!-- Number of the bill -->
+
+<!ELEMENT claim-form (%std.bill.content; ,payment-terms)>
+<!ATTLIST claim-form %std.bill.attr;>
+<!ATTLIST claim-form id ID #REQUIRED> <!-- Number of the claim form -->
+
+<!ELEMENT downpayment (%std.bill.content; ,payment-terms)>
+<!ATTLIST downpayment %std.bill.attr;>
+<!ATTLIST downpayment id ID #REQUIRED> <!-- Number of the downpayment 
+                                             bill -->
+<!ATTLIST downpayment percent CDATA #REQUIRED> <!-- Downpayment percent -->
+
+<!ELEMENT pro-forma (%std.bill.content;)>
+<!ATTLIST pro-forma %std.bill.attr;>
+<!ATTLIST pro-forma validity-date CDATA #IMPLIED> <!-- Date of the end of the
+                                                        validity period of the
+                                                        commercial offer -->
+
+<!ELEMENT debit (%std.bill.content;)>
+<!ATTLIST debit %std.bill.attr;>
+<!ATTLIST debit id ID #REQUIRED> <!-- Number of the debit -->
+<!ATTLIST debit with-vat (yes|no) "yes"> <!-- Boolean set when the debit 
+                                              concerns items with VAT -->
+
+<!-- elements describing an address (inspired from DocBook) ####### -->
+
+<!ELEMENT address (honorific|firstname|surname|lineage|othername
+                    |affiliation|street|pob|postcode|city|state
+                    |country|phone|fax|email)*>
+<!ATTLIST address role (from|to) #IMPLIED>
+
+<!ELEMENT affiliation (jobtitle*,orgname?,orgdiv*,address?)>
+
+<!ELEMENT honorific (#PCDATA)>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT surname (#PCDATA)>
+<!ELEMENT lineage (#PCDATA)>
+<!ELEMENT othername (#PCDATA)>
+<!ELEMENT street (#PCDATA)>
+<!ELEMENT pob (#PCDATA)>
+<!ELEMENT postcode (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT state (#PCDATA)>
+<!ELEMENT country (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT fax (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT jobtitle (#PCDATA)>
+<!ELEMENT orgname (#PCDATA)>
+<!ELEMENT orgdiv (#PCDATA)>
+
+
+<!-- elements describing a selling ################################# -->
+
+<!ELEMENT selling (item+)> <!-- describes what has been selled -->
+
+<!ELEMENT item (qty,description,unit-price,vat?)> <!-- items selled -->
+
+<!ELEMENT qty (#PCDATA)> <!-- quantity of items selled (number) -->
+<!ELEMENT description (title,detail*)> <!-- description of the item -->
+<!ELEMENT unit-price (#PCDATA)> <!-- unit price (actually duty free price)
+                                     (number) -->
+<!ELEMENT vat (#PCDATA)> <!-- VAT rate (number) -->
+
+<!ELEMENT title (#PCDATA)> <!-- description of the item (text) -->
+<!ELEMENT detail (#PCDATA)> <!-- additional description (text) -->
+
+
+<!-- other elements ############################################### -->
+
+<!ELEMENT remark (#PCDATA)> <!-- optional text -->
+
+<!ELEMENT charged-downpayment (#PCDATA)> <!-- downpayment whose bill 
+                                 has already been sent (contains a number) -->
+<!ATTLIST charged-downpayment bill-date CDATA #REQUIRED> <!-- date of the 
+                                          bill concerning this downpayment -->
+<!ATTLIST charged-downpayment bill-id CDATA #REQUIRED> <!-- id of the 
+                                          bill concerning this downpayment -->
+
+<!ELEMENT issued-debit (#PCDATA)> <!-- debit already issued (contains a 
+                                                                   number) -->
+<!ATTLIST issued-debit debit-date CDATA #REQUIRED> <!-- date of this debit -->
+<!ATTLIST issued-debit debit-id CDATA #REQUIRED> <!-- id of this debit -->
+
+<!ELEMENT payment-terms (#PCDATA)> <!-- payment terms (text) -->
