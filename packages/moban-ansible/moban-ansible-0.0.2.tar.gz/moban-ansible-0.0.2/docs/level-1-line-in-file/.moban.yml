@@ -1,0 +1,24 @@
+targets:
+  # remove a line from a file
+  - output: absent.txt
+    template: absent_file.txt
+    template_type:
+      base_type: lineinfile
+      options:
+        state: absent
+        regexp: "^remove.*$"
+  # ensure a line in a file
+  - output: ensure.txt
+    template: ensure_file.txt
+    template_type:
+      base_type: lineinfile
+      options:
+        regexp: "^code="
+        line: "code=C"
+  # append a line to a file
+  - output: append.txt
+    template: append_file.txt
+    template_type:
+      base_type: lineinfile
+      options:
+        line: "127.0.0.1 append"
