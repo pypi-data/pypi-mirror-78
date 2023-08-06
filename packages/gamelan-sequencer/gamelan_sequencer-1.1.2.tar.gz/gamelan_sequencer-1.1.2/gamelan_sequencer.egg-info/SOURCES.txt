@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+gamelan_sequencer/__init__.py
+gamelan_sequencer/__main__.py
+gamelan_sequencer/gamelan.py
+gamelan_sequencer/gamelan_score.py
+gamelan_sequencer/section.py
+gamelan_sequencer/tempo.py
+gamelan_sequencer/wave_manager.py
+gamelan_sequencer.egg-info/PKG-INFO
+gamelan_sequencer.egg-info/SOURCES.txt
+gamelan_sequencer.egg-info/dependency_links.txt
+gamelan_sequencer.egg-info/top_level.txt
+samples/javanese_gamelan.json
