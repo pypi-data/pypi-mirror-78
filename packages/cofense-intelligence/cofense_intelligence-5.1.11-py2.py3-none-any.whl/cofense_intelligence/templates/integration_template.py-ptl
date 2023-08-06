@@ -1,0 +1,22 @@
+import os
+
+from cofense_intelligence import CFIntelSync, CofenseIntegration
+
+''' User and Password tokens will need to be passed. This is an example calling them from environment variables.
+Any method will work. But if you set the COFENSE_USER and COFENSE_PASSWORD environment variables to the respective tokens 
+this method ensures they are not commited to a git repository'''
+
+user_token = os.environ.get('COFENSE_USER')
+pass_token = os.environ.get('COFENSE_PASSWORD')
+
+
+# Configure your integration class here
+class {{ camel_case_name }}(CofenseIntegration):
+
+    def process(self, mrti):
+        pass
+
+
+if __name__ == '__main__':
+    cfi_handler = CFIntelSync(CF_USER=user_token, CF_PASS=pass_token, INTEGRATION={{ camel_case_name }})
+    cfi_handler.run()
