@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2020 Collabora, Ltd. and the Ballparker contributors
+
+Sphinx==3.2.1
+sphinx-autodoc-typehints
+sphinx_rtd_theme
+typing
+attrs
+
+recommonmark
+
+rstcheck

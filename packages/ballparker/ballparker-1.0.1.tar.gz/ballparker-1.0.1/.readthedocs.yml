@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2020 Collabora, Ltd. and the Ballparker contributors
+
+# Reference: https://docs.readthedocs.io/en/stable/config-file/v2.html
+
+# Required
+version: 2
+
+build:
+  image: latest
+
+formats: all
+
+sphinx:
+  configuration: docs/conf.py
+
+python:
+  version: 3.7
+  install:
+    - requirements: docs/requirements.txt
+
+    - method: pip
+      path: .
+      extra_requirements:
+        - docs
