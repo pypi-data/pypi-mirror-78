@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: adcopen
+Version: 1.0.0
+Summary: Open-source python libraries for data integration with ADC equipment.
+Home-page: https://adc360.visualstudio.com/ADCOpen/_git/adcopen-python
+Author: Automated Design Corp.
+Author-email: support@automateddesign.com
+License: Proprietary License
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
+Requires-Dist: nidaqmx
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: ctypes
+Requires-Dist: time
+Requires-Dist: enum
+Requires-Dist: pywin32
+
+## ADCOpen
+### Open-source python libraries for data integration with ADC equipment.
+
+Licensed for use with ADC equipment. 
+automateddesign.com
+
