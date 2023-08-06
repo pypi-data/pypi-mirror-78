@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pyghdl
+Version: 1.0.dev0
+Summary: VHDL Language Server and interface to ghdl, a VHDL analyzer
+Home-page: http://github.com/ghdl/ghdl
+Author: Tristan Gingold
+Author-email: tgingold@free.fr
+License: GPL-2.0-or-later
+Platform: UNKNOWN
+Requires-Dist: attrs
+
+pyghdl is a language server for VHDL based on ghdl.
+
+It implements the Language Server Protocol.
+The server is implemented in Python (3.x) but relies on libghdl for parsing.
+
+It also provides a python interface to libghdl, which could be used to
+develop tools around the parser and analyzer.
+
