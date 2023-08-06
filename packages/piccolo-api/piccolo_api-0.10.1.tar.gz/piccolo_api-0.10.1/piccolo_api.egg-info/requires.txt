@@ -1,0 +1,10 @@
+asgiref==3.2.10
+Jinja2==2.11.*
+piccolo<0.13,>=0.12.1
+pydantic==1.6.*
+python-multipart==0.0.5
+starlette==0.13.*
+PyJWT==1.7.1
+
+[fastapi]
+fastapi>=0.58.0
