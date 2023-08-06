@@ -1,0 +1,35 @@
+name: sensormapgeo
+
+channels: &id1
+  - conda-forge
+
+dependencies:
+  - python=3.*.*
+  - pip  # avoids that conda uses the wrong pip
+  - numpy
+  - gdal
+  - pyresample>=1.11.0
+  - _openmp_mutex=*=*llvm* [Unix]  # fixes a deadlock (https://gitext.gfz-potsdam.de/EnMAP/sensormapgeo/-/issues/6)
+  - pyproj>=2.2
+
+  # py_tools_ds
+  - pyqt
+  - scikit-image
+  - lxml
+  - geopandas
+  - ipython
+
+  - pip:
+    - py_tools_ds>=0.14.26
+    - pebble
+
+    - sphinx-argparse
+    - flake8
+    - pycodestyle
+    - pylint
+    - pydocstyle
+    - nose
+    - nose2
+    - nose-htmloutput
+    - coverage
+    - rednose

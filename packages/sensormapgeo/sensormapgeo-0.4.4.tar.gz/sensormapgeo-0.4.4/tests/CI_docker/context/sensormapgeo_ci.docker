@@ -1,0 +1,12 @@
+FROM ci_base_centos:0.1
+
+# copy some needed stuff to /root
+COPY *.yml /root/
+
+# update the ci_env environment (that already contains all packages installed via 'docker_pyenvs' repo)
+# NOTE: We update conda and Python to avoid version incompatibilities.
+RUN /bin/bash -i -c "\
+    source /root/miniconda3/bin/activate; \
+    conda update -n base -c conda-forge conda ; \
+    source activate ci_env; \
+    conda env update -n ci_env -f /root/environment_sensormapgeo.yml"
