@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: OctoBot-Services
+Version: 1.1.22
+Summary: OctoBot project services package
+Home-page: https://github.com/Drakkar-Software/OctoBot-Services
+Author: Drakkar-Software
+Author-email: drakkar-software@protonmail.com
+License: LGPL-3.0
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+Requires-Dist: OctoBot-Channels (<1.5,>=1.4.11)
+Requires-Dist: OctoBot-Commons (<1.4,>=1.3.45)
+Requires-Dist: OctoBot-Trading (<1.11,>=1.10.0)
+Requires-Dist: praw (==6.5.1)
+Requires-Dist: python-telegram-bot (==12.7.0)
+Requires-Dist: Python-Twitter (==3.5)
+Requires-Dist: simplifiedpytrends (>=1.1.0)
+Requires-Dist: pyngrok (==2.1.4)
+Requires-Dist: flask (==1.1.2)
+Requires-Dist: flask-login (==0.5.0)
+Requires-Dist: WTForms (==2.3.3)
+Requires-Dist: Flask-WTF (==0.14.3)
+Requires-Dist: gevent (==1.5.0)
+Requires-Dist: gevent-websocket (==0.10.1)
+Requires-Dist: flask-socketio (==4.2.1)
+Requires-Dist: newspaper3k (==0.2.8)
+Requires-Dist: vaderSentiment (==3.3.1)
+
+# OctoBot-Services [1.1.22](https://github.com/Drakkar-Software/OctoBot-Services/tree/master/docs/CHANGELOG.md)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/31a1caa6e5384d80bf890dba5c9b5e4b)](https://app.codacy.com/gh/Drakkar-Software/OctoBot-Services?utm_source=github.com&utm_medium=referral&utm_content=Drakkar-Software/OctoBot-Services&utm_campaign=Badge_Grade_Dashboard)
+[![PyPI](https://img.shields.io/pypi/v/OctoBot-Services.svg)](https://pypi.python.org/pypi/OctoBot-Services/)
+[![Build Status](https://api.travis-ci.com/Drakkar-Software/OctoBot-Services.svg?branch=master)](https://travis-ci.com/Drakkar-Software/OctoBot-Services) 
+[![Build Status](https://dev.azure.com/drakkarsoftware/OctoBot-Services/_apis/build/status/Drakkar-Software.OctoBot-Services?branchName=master)](https://dev.azure.com/drakkarsoftware/OctoBot-Services/_build/latest?definitionId=6&branchName=master)
+
+OctoBot services package.
+
+
