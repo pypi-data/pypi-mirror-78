@@ -1,0 +1,8 @@
+# {{header_text}}
+{%- for author, author_files in file_commits | groupby('author.name') | sort(attribute='grouper') %}
+
+## {{author}}'s Files
+{% for file_commit in author_files | sort(attribute='file_path') %}
+ - {{file_commit.file_path}} - {{file_commit.hexsha_short}} - {{file_commit.committed_date}} - {{file_commit.friendly_change_type}}
+{%- endfor %}    
+{%- endfor %}
