@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/cdk_fargate_fastautoscaler/__init__.py
+src/cdk_fargate_fastautoscaler/py.typed
+src/cdk_fargate_fastautoscaler.egg-info/PKG-INFO
+src/cdk_fargate_fastautoscaler.egg-info/SOURCES.txt
+src/cdk_fargate_fastautoscaler.egg-info/dependency_links.txt
+src/cdk_fargate_fastautoscaler.egg-info/requires.txt
+src/cdk_fargate_fastautoscaler.egg-info/top_level.txt
+src/cdk_fargate_fastautoscaler/_jsii/__init__.py
+src/cdk_fargate_fastautoscaler/_jsii/cdk-fargate-fastautoscaler@0.2.22.jsii.tgz
