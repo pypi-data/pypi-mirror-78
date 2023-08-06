@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+scrapy_tdd/__init__.py
+scrapy_tdd/helpers.py
+scrapy_tdd.egg-info/PKG-INFO
+scrapy_tdd.egg-info/SOURCES.txt
+scrapy_tdd.egg-info/dependency_links.txt
+scrapy_tdd.egg-info/requires.txt
+scrapy_tdd.egg-info/top_level.txt
+test/test_helpers.py
