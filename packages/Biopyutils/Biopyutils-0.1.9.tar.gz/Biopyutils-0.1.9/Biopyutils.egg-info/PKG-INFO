@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: Biopyutils
+Version: 0.1.9
+Summary: A bionformatic tookits
+Home-page: https://jingxinfu.github.io/Biopyutils
+Author: Jingxin Fu
+Author-email: jingxinfu.tj@gmail.com
+License: UNKNOWN
+Description: # Biopyutils: A Bioinformatics Toolkit
+        [![PyPI](https://img.shields.io/pypi/v/Biopyutils?color=blue)](https://pypi.org/project/Biopyutils/) ![PyPI - Format](https://img.shields.io/pypi/format/Biopyutils?style=flat-square) ![PyPI - License](https://img.shields.io/pypi/l/Biopyutils?color=red) [![Build Status](https://travis-ci.org/jingxinfu/Biopyutils.svg?branch=master)](https://travis-ci.org/jingxinfu/Biopyutils) [![PyPI - Downloads](https://img.shields.io/pypi/dm/Biopyutils?color=green&label=pypi%20download&logoColor=green&style=flat-square)](https://pypi.org/project/Biopyutils/) 
+        
+        This package provides functions that are frequently used by bioinformaticians. 
+        
+        [Document](https://jingxinfu.github.io/Biopyutils)
+        
+        ### Latest additions
+        
+        #### 1.1.9
+        - Updates:
+          - the Ensembl Gene: v99->v101
+        - Bug Fix:
+          - specify squeeze function with "columns"
+        
+Keywords: Gene ID Convertor,Bioinformatics,Genomics,Computational Biologist
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
