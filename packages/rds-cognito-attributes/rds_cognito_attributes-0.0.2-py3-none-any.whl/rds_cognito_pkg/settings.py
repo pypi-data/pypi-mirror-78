@@ -1,0 +1,5 @@
+COGNITO_ATTRIBUTE = 'custom:last_name'
+RDS_TABLE_COLUMN = 'last_name'
+QUERY_STRING = f'SELECT user_id, {RDS_TABLE_COLUMN} FROM app_users WHERE org_id != 0 LIMIT 5'
+REGION = 'us-east-1'
+FOLDER_NAME = 'files'
