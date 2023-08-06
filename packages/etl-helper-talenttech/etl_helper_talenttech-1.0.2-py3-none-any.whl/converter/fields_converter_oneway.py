@@ -1,0 +1,176 @@
+from converter.database_worker import DataBaseWorker
+from converter.config.config_converter import base_converter_params
+import logging
+import sys
+import json
+import warnings
+
+warnings.filterwarnings("ignore")
+
+logging.basicConfig(
+    stream=sys.stdout,
+    level=logging.INFO,
+    format="%(asctime)s  %(name)s  %(levelname)s: %(message)s",
+)
+logging.basicConfig(
+    stream=sys.stderr,
+    level=logging.ERROR,
+    format="%(asctime)s  %(name)s  %(levelname)s: %(message)s",
+)
+logging.captureWarnings(True)
+
+
+class FieldsConverterOneWay:
+    """
+    class to upload just one way (from list of dicts to sql table)
+    """
+
+    def __init__(self, sql_credentials, db, debug=True, tables=None):
+        """
+        :param sql_credentials:
+        :param db: ch, vertica, mysql, pg or others
+        :param debug: show debug text
+        :param tables:  converter only for list of tables. Will process more rapid
+        """
+        self.db_worker = DataBaseWorker(sql_credentials, db, debug, tables)
+
+    @property
+    def __str__(self):
+        return "FieldsConverterOneWay_{}".format(self.db)
+
+    @property
+    def __repr__(self):
+        return "FieldsConverterOneWay_{}".format(self.db)
+
+    def __del__(self):
+        del self.db_worker
+
+    def log(self, text):
+        if self.debug:
+            logging.info(self.__str__ + ": " + text)
+
+    def __get_python_type(self, type_sql):
+        """
+        Get type to convert in python
+        :param   type_sql
+        :return: type_python
+        """
+        type_python = "str"
+        update_types_dict = base_converter_params[self.db_worker.db]["to_python_dict"]
+        for type_old in update_types_dict:
+            if type_sql.lower().find(type_old) > -1:
+                type_python = update_types_dict[type_old]
+                return type_python
+        return type_python
+
+    def __get_sql_type(self, type_python):
+        """
+        Get type to convert in sql from python
+        :param   type_
+        :return: type_python
+        """
+        update_types_dict = base_converter_params[self.db_worker.db]["from_python_dict"]
+        type_sql = update_types_dict["str"]
+        for type_old in update_types_dict:
+            if type_python.lower().find(type_old) > -1:
+                type_sql = update_types_dict[type_old]
+                return type_sql
+        return type_sql
+
+    def __save_ddl_to_file(self, ddl, table_name, ddl_dir):
+        """
+        save ddl to file if you wish
+        :param table_name:
+        :param ddl_dir:
+        :return:
+        """
+        f = open(ddl_dir + "/" + self.schema + "_" + table_name + ".sql", "w", )
+        f.write(ddl)
+        f.close()
+
+    def update_value_df_type(self, table_name, dataframe, dict_replace_str={}):
+        """
+        :param fields:
+        :param dataframe:
+        :param dict_replace_str:
+        :return: updated dataframe
+        """
+        fields = self.db_worker.get_columns(table_name)
+        for key in list(dataframe.columns):
+            type_python = self.__get_python_type(fields[key])
+            dataframe[key] = dataframe[key].astype(type_python)
+            if type == "str":
+                dataframe[key] = dataframe[key].replace(to_replace=dict_replace_str)
+        return dataframe
+
+    def __update_value_type(self, fields, item, key, dict_replace_str={}):
+        """
+        :param dict_replace_str: - replace params to
+        :param db: db to update
+        :param fields: dict - key  type
+        :param item: - to update item
+        :param key: key to update
+        :return: converted item
+        """
+
+        if item is None:
+            return item
+        if key not in item:
+            return item
+        if item[key] is None:
+            return item
+        type_python = self.__get_python_type(fields[key])
+        if type_python == "int":
+            item[key] = int(item[key])
+        elif type_python == "float":
+            item[key] = float(item[key])
+        elif type_python == "json":
+            item[key] = json.dumps(item[key])
+        elif type == "bool":
+            item[key] = bool(item[key])
+        else:
+            item[key] = str(item[key])
+            for key_replace in dict_replace_str:
+                item[key] = item[key].replace(
+                    key_replace, dict_replace_str[key_replace]
+                )
+        return item
+
+    def update_value_type(self, table_name, items, dict_replace_str={}):
+        """
+        :param dict_replace_str: replace in string dict
+        :param items: list of dicts to update
+        :param table_name: table_name to insert
+        :return: updated dictionary
+        """
+        fields = self.db_worker.get_columns(table_name=table_name)
+        if len(fields) == 0:
+            raise Exception("No table {} in metadata".format(table_name))
+        keys = fields.keys()
+        for item in items:
+            for key in keys:
+                item = self.__update_value_type(
+                    fields, item, key, dict_replace_str=dict_replace_str
+                )
+        return items
+
+    def create_table_from_python(
+            self, fields_python, table_name, to_create=True, ddl_dir=None
+    ):
+        """create tables using python types"""
+        txt = "create table {schema}.{table} (".format(
+            schema=self.schema, table=table_name
+        )
+        res_list = []
+        for field in fields_python:
+            type_python = fields_python[field]
+            type_sql = self.__get_sql_type(type_python)
+            res_list.append(self.quote_char + field + self.quote_char + " " + type_sql)
+        txt += ",".join(res_list)
+        txt += ")"
+        if to_create:
+            self.conn.execute(txt)
+            logging.info("creating table {} is successfull".format(table_name))
+        if ddl_dir is not None:
+            self.__save_ddl_to_file(ddl_dir=ddl_dir, table_name=table_name)
+        return txt
