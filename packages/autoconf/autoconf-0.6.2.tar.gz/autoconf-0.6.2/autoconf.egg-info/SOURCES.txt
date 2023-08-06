@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+autoconf/__init__.py
+autoconf/ancestor.py
+autoconf/conf.py
+autoconf/exc.py
+autoconf/named.py
+autoconf/prior.py
+autoconf/json_prior/__init__.py
+autoconf/json_prior/config.py
+autoconf/json_prior/converter.py
+test_autoconf/__init__.py
+test_autoconf/mock_real.py
