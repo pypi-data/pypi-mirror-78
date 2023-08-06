@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: pytest-forward-compatibility
+Version: 0.1.0
+Summary: A pytest plugin to shim pytest commandline options for fowards compatibility
+Home-page: https://github.com/graingert/pytest-forward-compatibility
+License: UNKNOWN
+Author: Thomas Grainger
+Author-email: pytest-forward-compatibility@graingert.co.uk
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Framework :: Pytest
+Requires-Dist: packaging
