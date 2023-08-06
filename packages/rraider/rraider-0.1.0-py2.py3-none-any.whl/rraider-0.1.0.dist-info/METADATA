@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: rraider
+Version: 0.1.0
+Summary: Trading tools in python
+Home-page: https://github.com/alienbrett/rraider
+Author: Brett Graves
+Author-email: alienbrett648@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: beautifulsoup4
+Requires-Dist: joblib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy (>=1.5.2)
+Requires-Dist: yfinance
+
+
+# rraider
+My finance tools in Python3
+
+
