@@ -1,0 +1,68 @@
+from __future__ import print_function
+from setuptools import setup, find_packages
+from OpenMI_OpenGMS_Engine import OpenMIOpenGMSEngine
+import sys
+
+setup(
+    name="OpenMI-OpenGMS-Engine",
+    version="0.1.0",
+    author="Fengyuan Zhang",
+    author_email="zhangfengyuangis@163.com",
+    description="Python Framework.",
+    license="MIT",
+    url="", 
+    packages=find_packages(),
+    include_package_data=True,
+    classifiers=[
+        "Environment :: Web Environment",
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Natural Language :: English',
+        'Operating System :: MacOS',
+        'Operating System :: Microsoft',
+        'Operating System :: POSIX',
+        'Operating System :: Unix',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+    ],
+    data_files=[
+        "OpenMI_OpenGMS_Engine/resource/ICSharpCode.SharpZipLib.dll",
+        "OpenMI_OpenGMS_Engine/resource/Newtonsoft.Json.dll",
+        "OpenMI_OpenGMS_Engine/resource/NJModelServiceSDK.dll",
+        "OpenMI_OpenGMS_Engine/resource/nxdat.csharp.dll",
+        "OpenMI_OpenGMS_Engine/resource/nxmodel.mdl.csharp.dll",
+        "OpenMI_OpenGMS_Engine/resource/Oatc.OpenMI.Sdk.Backbone.dll",
+        "OpenMI_OpenGMS_Engine/resource/Oatc.OpenMI.Sdk.Buffer.dll",
+        "OpenMI_OpenGMS_Engine/resource/Oatc.OpenMI.Sdk.DevelopmentSupport.dll",
+        "OpenMI_OpenGMS_Engine/resource/Oatc.OpenMI.Sdk.Spatial.dll",
+        "OpenMI_OpenGMS_Engine/resource/Oatc.OpenMI.Sdk.Wrapper.dll",
+        "OpenMI_OpenGMS_Engine/resource/OpenGMS.OpenMI.Case.dll",
+        "OpenMI_OpenGMS_Engine/resource/OpenMI.Standard.dll",
+        "OpenMI_OpenGMS_Engine/resource/OpenMI_Interoperation.dll",
+        "OpenMI_OpenGMS_Engine/resource/OpenMIOpenGMSWrapper.exe",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/license.txt",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/ICSharpCode.SharpZipLib.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/Newtonsoft.Json.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/NJModelServiceSDK.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/nxdat.csharp.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/nxmodel.context.csharp.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/nxmodel.mdl.csharp.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/Oatc.OpenMI.Gui.Controls.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/Oatc.OpenMI.Gui.Core.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/Oatc.OpenMI.Sdk.Backbone.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/Oatc.OpenMI.Sdk.Buffer.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/Oatc.OpenMI.Sdk.DevelopmentSupport.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/Oatc.OpenMI.Sdk.Spatial.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/Oatc.OpenMI.Sdk.Wrapper.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/OpenMI.Standard.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/OpenMI_Interoperation.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/OpenMIComponent.dll",
+        "OpenMI_OpenGMS_Engine/resource/openmi_resource/wrapper/OpenMIWrapper.exe"
+    ],
+    install_requires=[
+        'numpy>=1.14.0',
+        'OGMSService'
+    ],
+    zip_safe=True,
+)
