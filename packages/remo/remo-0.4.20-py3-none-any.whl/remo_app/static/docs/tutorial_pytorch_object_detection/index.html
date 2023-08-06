@@ -1,0 +1,1146 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="http://remo.ai/tutorial_pytorch_object_detection/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/remo_whiskers_green_large_v20.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>PyTorch Object Detection Tutorial - Docs · remo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../stylesheets/test.css">
+    
+    
+      
+        <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N4CTML8');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4CTML8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162141162-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-162141162-1');
+</script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#adding-data-to-remo" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Application header -->
+<header class="md-header header-custom" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        <a href="http://remo.ai/"
+           title="Docs · remo"
+           aria-label="Docs · remo"
+           class="md-header-nav__button md-logo">
+          
+          <img alt="logo" height="40px" width="127px" src="../img/remo-logo.png" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+               for="__drawer"></label>
+      </div>
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch links-container vertical-align-middle">
+        <div class="md-flex__ellipsis md-header-nav__title links-container "
+             data-md-component="title">
+          <a class="remo-link vertical-align-middle text-underline" href="">Docs</a>
+          <a class="remo-link vertical-align-middle" href="https://discuss.remo.ai">Discuss</a>
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        
+        <label class="md-icon md-icon--search md-header-nav__button"
+               for="__search"></label>
+
+        <!-- Search interface -->
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://remo.ai/" title="Docs · remo" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../img/remo-logo.png" width="48" height="48">
+      
+    </a>
+    Docs · remo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Quick Start" class="md-nav__link">
+      Quick Start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Python Library
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python Library
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk-intro/" title="First steps" class="md-nav__link">
+      First steps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_remo-python/" title="Intro Tutorial" class="md-nav__link">
+      Intro Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial_upload_annotations/" title="Upload Annotations Tutorial" class="md-nav__link">
+      Upload Annotations Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial_pytorch_image_classification/" title="PyTorch Image Classification Tutorial" class="md-nav__link">
+      PyTorch Image Classification Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        PyTorch Object Detection Tutorial
+      </label>
+    
+    <a href="./" title="PyTorch Object Detection Tutorial" class="md-nav__link md-nav__link--active">
+      PyTorch Object Detection Tutorial
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-data-to-remo" class="md-nav__link">
+    Adding Data to Remo
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#train-test-split" class="md-nav__link">
+    Train / test split
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-dataset" class="md-nav__link">
+    Create a dataset
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feeding-data-into-pytorch" class="md-nav__link">
+    Feeding Data into PyTorch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#training-the-model" class="md-nav__link">
+    Training the Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizing-predictions" class="md-nav__link">
+    Visualizing Predictions
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../annotation-tool/" title="Annotation tool" class="md-nav__link">
+      Annotation tool
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../annotation-formats/" title="Annotation formats" class="md-nav__link">
+      Annotation formats
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../advanced-topics/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../colab/" title="Google Colab" class="md-nav__link">
+      Google Colab
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Python Library Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Python Library Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/sdk/" title="SDK" class="md-nav__link">
+      SDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/dataset/" title="Dataset" class="md-nav__link">
+      Dataset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/image/" title="Image" class="md-nav__link">
+      Image
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/annotation_set/" title="Annotation set" class="md-nav__link">
+      Annotation set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/annotation/" title="Annotation" class="md-nav__link">
+      Annotation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/task/" title="Annotation tasks" class="md-nav__link">
+      Annotation tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/class_encodings/" title="Class encodings" class="md-nav__link">
+      Class encodings
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CHANGELOG/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../terms/" title="Terms of service" class="md-nav__link">
+      Terms of service
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-data-to-remo" class="md-nav__link">
+    Adding Data to Remo
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#train-test-split" class="md-nav__link">
+    Train / test split
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-dataset" class="md-nav__link">
+    Create a dataset
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feeding-data-into-pytorch" class="md-nav__link">
+    Feeding Data into PyTorch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#training-the-model" class="md-nav__link">
+    Training the Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizing-predictions" class="md-nav__link">
+    Visualizing Predictions
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <div style="text-align: right"> 
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <a href="https://gitcdn.link/repo/rediscovery-io/remo-python/master/examples/tutorial_pytorch_object_detection.ipynb" download="tutorial_pytorch_object_detection.ipynb" target="_blank"><button style="background-color: #4caf50;border: none;border-radius:2px; position: relative; top: -6px;color: white;padding: 2px 4px;cursor: pointer;height: 20px;font-size: 12px;width: 95px;"><i class="fa fa-download"></i> Download</button></a>
+<a href="http://colab.research.google.com/github/rediscovery-io/remo-python/blob/master/examples/google-colab/tutorial_pytorch_object_detection.ipynb" target="_blank"><button style="background-image: url('https://colab.research.google.com/assets/colab-badge.svg');height: 20px; width:117px;border: none; outline: none;"></button></a>
+</div>
+
+<h1>Object Detection Pipeline using Remo</h1>
+
+<p><strong>In this tutorial, we will use Remo to accelerate and improve the process of building a transfer learning pipeline for an Object Detection task.</strong></p>
+<p>In particular, we will:
+- Use Remo to browse through our images and annotations
+- Use Remo to understand the properties of the dataset and annotations by visualizing statistics.
+- Create a custom train, test, valid split in-place using Remo image tags.
+- Fine tune a pre-trained FasterRCNN model from torchvision and do some inference
+- Visually compare bounding box predictions with the ground truth</p>
+<p><strong>Along the way, we will see how the Dataset visualization provided Remo helps to gather insights to improve the dataset and the model.</strong></p>
+<p>Let's start by importing the relevant libraries:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tqdm</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">Dataset</span>
+
+<span class="kn">import</span> <span class="nn">torchvision</span>
+<span class="kn">from</span> <span class="nn">torchvision.models.detection.faster_rcnn</span> <span class="kn">import</span> <span class="n">FastRCNNPredictor</span>
+<span class="kn">from</span> <span class="nn">torchvision.models.detection</span> <span class="kn">import</span> <span class="n">FasterRCNN</span>
+<span class="kn">from</span> <span class="nn">torchvision.models.detection.rpn</span> <span class="kn">import</span> <span class="n">AnchorGenerator</span>
+<span class="kn">import</span> <span class="nn">torchvision.transforms</span> <span class="k">as</span> <span class="nn">transforms</span>
+
+
+<span class="kn">import</span> <span class="nn">remo</span>
+<span class="n">remo</span><span class="o">.</span><span class="n">set_viewer</span><span class="p">(</span><span class="s1">&#39;jupyter&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="adding-data-to-remo">Adding Data to Remo<a class="headerlink" href="#adding-data-to-remo" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>The dataset used in this example is a subset of the <a href="https://storage.googleapis.com/openimages/web/index.html">Open Images Dataset</a>.</p>
+</li>
+<li>
+<p>The directory structure of the dataset is:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">├── object_detection_dataset</span>
+<span class="err">    ├── images</span>
+<span class="err">        ├── image_1.jpg</span>
+<span class="err">        ├── image_2.jpg</span>
+<span class="err">        ├── ...</span>
+<span class="err">    ├── annotations</span>
+<span class="err">        ├── annotations.csv</span>
+<span class="err">        ├── model_predictions.csv</span>
+</code></pre></div>
+
+
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="c1"># The dataset will be extracted in a new folder</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;object_detection_dataset.zip&#39;</span><span class="p">):</span>
+    <span class="err">!</span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">s</span><span class="o">-</span><span class="mf">3.</span><span class="n">s3</span><span class="o">-</span><span class="n">eu</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mf">1.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">object_detection_dataset</span><span class="o">.</span><span class="n">zip</span>
+    <span class="err">!</span><span class="n">unzip</span> <span class="o">-</span><span class="n">qq</span> <span class="n">object_detection_dataset</span><span class="o">.</span><span class="n">zip</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Files already downloaded&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># The path to the folders</span>
+<span class="n">path_to_images</span> <span class="o">=</span>  <span class="s1">&#39;./object_detection_dataset/images/&#39;</span>
+<span class="n">path_to_annotations</span> <span class="o">=</span> <span class="s1">&#39;./object_detection_dataset/annotations/&#39;</span>
+
+<span class="n">annotations_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_to_annotations</span><span class="p">,</span> <span class="s1">&#39;annotations.csv&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>To visualise the labels as strings rather than IDs, we can use a dictionary mapping the two of them.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Mapping between Class name and Index</span>
+<span class="n">cat_to_index</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Wheel&#39;</span>        <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+                <span class="s1">&#39;Car&#39;</span>          <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s1">&#39;Person&#39;</span>       <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> 
+                <span class="s1">&#39;Land vehicle&#39;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span> 
+                <span class="s1">&#39;Human body&#39;</span>   <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> 
+                <span class="s1">&#39;Plant&#39;</span>        <span class="p">:</span> <span class="mi">6</span><span class="p">,</span> 
+                <span class="s1">&#39;Tire&#39;</span>         <span class="p">:</span> <span class="mi">7</span><span class="p">,</span> 
+                <span class="s1">&#39;Vehicle&#39;</span>      <span class="p">:</span> <span class="mi">8</span><span class="p">,</span> 
+                <span class="s1">&#39;Vehicle registration plate&#39;</span> <span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
+</code></pre></div>
+
+<h3 id="train-test-split">Train / test split<a class="headerlink" href="#train-test-split" title="Permanent link">&para;</a></h3>
+<p>In Remo, we can use tags to organise our images.
+Among other things, this allows us to generate train / test splits without the need to move image files around.</p>
+<p>To do this, we just need to pass a dictionary (mapping tags to the relevant images paths) to the function 
+<code class="codehilite"><span class="err">remo.generate_image_tags()</span></code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">im_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path_to_images</span> <span class="o">+</span> <span class="s1">&#39;/**/*.jpg&#39;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+<span class="n">im_list</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">im_list</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">im_list</span><span class="p">))</span>
+
+<span class="c1"># Definining the train test split</span>
+<span class="n">train_idx</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">im_list</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">)</span>
+<span class="n">valid_idx</span> <span class="o">=</span> <span class="n">train_idx</span> <span class="o">+</span> <span class="nb">round</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">im_list</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="n">test_idx</span>  <span class="o">=</span> <span class="n">valid_idx</span> <span class="o">+</span> <span class="nb">round</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">im_list</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Creating a dictionary with tags</span>
+<span class="n">tags_dict</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;train&#39;</span> <span class="p">:</span> <span class="n">im_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">train_idx</span><span class="p">],</span> 
+              <span class="s1">&#39;valid&#39;</span> <span class="p">:</span> <span class="n">im_list</span><span class="p">[</span><span class="n">train_idx</span><span class="p">:</span><span class="n">valid_idx</span><span class="p">],</span> 
+              <span class="s1">&#39;test&#39;</span> <span class="p">:</span> <span class="n">im_list</span><span class="p">[</span><span class="n">valid_idx</span><span class="p">:</span><span class="n">test_idx</span><span class="p">]}</span>
+
+<span class="n">train_test_split_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_to_annotations</span><span class="p">,</span> <span class="s1">&#39;images_tags.csv&#39;</span><span class="p">)</span> 
+<span class="n">remo</span><span class="o">.</span><span class="n">generate_image_tags</span><span class="p">(</span><span class="n">tags_dictionary</span>  <span class="o">=</span> <span class="n">tags_dict</span><span class="p">,</span> 
+                         <span class="n">output_file_path</span> <span class="o">=</span> <span class="n">train_test_split_file_path</span><span class="p">,</span> 
+                         <span class="n">append_path</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="create-a-dataset">Create a dataset<a class="headerlink" href="#create-a-dataset" title="Permanent link">&para;</a></h3>
+<p>To create a dataset we can use <code class="codehilite"><span class="err">remo.create_dataset()</span></code>, specifying the path to data and annotations.</p>
+<p>The class encoding (if required) is passed via a dictionary.</p>
+<p>For a complete list of formats supported, you can <a href="https://remo.ai/docs/annotation-formats/"> refer to the docs</a>.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># The annotations.csv is generated in the same path of the sub-folder</span>
+<span class="n">object_detection_dataset</span> <span class="o">=</span>  <span class="n">remo</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;object-detection-dataset&#39;</span><span class="p">,</span> 
+                                                <span class="n">local_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">path_to_images</span><span class="p">,</span> <span class="n">path_to_annotations</span><span class="p">],</span>
+                                                <span class="n">annotation_task</span> <span class="o">=</span> <span class="s1">&#39;Object Detection&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>Visualizing the dataset</strong></p>
+<p>To view and explore images and labels, we can use Remo directly from the notebook. We just need to call <code class="codehilite"><span class="err">dataset.view()</span></code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">object_detection_dataset</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
+</code></pre></div>
+
+<p><img alt="dataset_view" src="../assets/obj_dataset_view.png" /></p>
+<p>Looking at the dataset, we notice some interesting points:
+- There is a significant degree of overlap in bounding boxes of different classes (e.g. Wheel and Car)
+- Bounding box sizes vary a good amount across Wheel and Car objects
+- Pictures of Cars can be taken from different angles</p>
+<p><strong>Dataset Statistics</strong></p>
+<p>Using Remo, we can quickly visualize some key Dataset properties that can help us with our modelling, without needing to write extra boilerplate code.</p>
+<p>This can be done either from code, or using the visual interface.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">object_detection_dataset</span><span class="o">.</span><span class="n">get_annotation_statistics</span><span class="p">()</span>
+</code></pre></div>
+
+<p class="remo__output-code">[{'AnnotationSet ID': 347,
+'AnnotationSet name': 'Object detection',
+'n_images': 7,
+'n_classes': 9,
+'n_objects': 50,
+'top_3_classes': [{'name': 'Wheel', 'count': 28},
+{'name': 'Car', 'count': 9},
+{'name': 'Tire', 'count': 4}],
+'creation_date': None,
+'last_modified_date': '2020-09-01T11:10:37.164406Z'}]</p>
+<div class="codehilite"><pre><span></span><code><span class="n">object_detection_dataset</span><span class="o">.</span><span class="n">view_annotation_stats</span><span class="p">()</span>
+</code></pre></div>
+
+<p><img alt="obj_view_annotations_stats" src="../assets/obj_view_annotations.png" /></p>
+<p><strong>Looking at the statistics we can gain some useful insights</strong> like: </p>
+<ul>
+<li>
+<p>Some labels are not present in the test and valid set, but are present in the training set. This means we will not get an indicative model performance for these class (which is fine for the tutorial's sake, but in real life we would want to fix that)</p>
+</li>
+<li>
+<p>The Wheel class has more instances than any other class in the dataset. Higher reported performance on this class might be caused by this.</p>
+</li>
+</ul>
+<h2 id="feeding-data-into-pytorch">Feeding Data into PyTorch<a class="headerlink" href="#feeding-data-into-pytorch" title="Permanent link">&para;</a></h2>
+<p>Here we start working with PyTorch. To load the data, we will define a custom PyTorch <code class="codehilite"><span class="err">Dataset</span></code> object (as usual with PyTorch).</p>
+<p>In order to adapt this to your dataset, the following are required:
+- <strong>train_test_valid_split (Path to Tags):</strong> path to tags csv file for Train, Test, Validation split. Format: file_name, tag.
+- <strong>annotations (Path to Annotations):</strong> path to the annotations CSV File. Format : file_name, classes, xmin, ymin, xmax, ymax,
+- <strong>mapping (Mapping):</strong> a dictionary containing mapping of class name and class index. Format : {'class_name' : 'class_index'}</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">ObjectDetectionDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Custom PyTorch Dataset Class to facilitate loading data for the Object Detection Task</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                 <span class="n">annotations</span><span class="p">,</span> 
+                 <span class="n">train_test_valid_split</span><span class="p">,</span> 
+                 <span class="n">mapping</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                 <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;train&#39;</span><span class="p">,</span> 
+                 <span class="n">transform</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span> 
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Args:</span>
+<span class="sd">            annotations: The path to the annotations CSV file. Format: file_name, classes, xmin, ymin, xmax, ymax</span>
+<span class="sd">            train_test_valid_split: The path to the tags CSV file for train, test, valid split. Format: file_name, tag</span>
+<span class="sd">            mapping: a dictionary containing mapping of class name and class index. Format : {&#39;class_name&#39; : &#39;class_index&#39;}, Default: None</span>
+<span class="sd">            mode: Mode in which to instantiate class. Default: &#39;train&#39;</span>
+<span class="sd">            transform: The transforms to be applied to the image data</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            image : Torch Tensor, target: Torch Tensor, file_name : str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">mapping</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">transform</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">path_to_images</span> <span class="o">=</span> <span class="s1">&#39;./object_detection_dataset/images/&#39;</span>
+        <span class="c1"># Loading the annotation file (same format as Remo&#39;s)</span>
+        <span class="n">my_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">annotations</span><span class="p">)</span>
+        <span class="c1"># Here we append the file path to the filename. </span>
+        <span class="c1"># If dataset.export_annotations_to_file was used to create the annotation file, it would feature by default image file paths</span>
+        <span class="n">my_data</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{self.path_to_images}{x}</span><span class="s1">&#39;</span><span class="p">))</span>
+        <span class="n">my_data</span> <span class="o">=</span> <span class="n">my_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;file_name&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Loading the train/test split file (same format as Remo&#39;s)</span>
+        <span class="n">my_data</span><span class="p">[</span><span class="s1">&#39;tag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">train_test_valid_split</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;file_name&#39;</span><span class="p">)</span>
+
+        <span class="n">my_data</span> <span class="o">=</span> <span class="n">my_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="c1"># Load only Train/Test/Split depending on the mode</span>
+        <span class="n">my_data</span> <span class="o">=</span> <span class="n">my_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">my_data</span><span class="p">[</span><span class="s1">&#39;tag&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">mode</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">my_data</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_names</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+
+        <span class="n">file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_names</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">records</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">file_name</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>       
+        <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">/=</span> <span class="mf">255.0</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>  
+
+        <span class="c1"># here we are assuming we don&#39;t have labels for the test set</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span>
+            <span class="n">boxes</span> <span class="o">=</span> <span class="n">records</span><span class="p">[[</span><span class="s1">&#39;xmin&#39;</span><span class="p">,</span> <span class="s1">&#39;ymin&#39;</span><span class="p">,</span> <span class="s1">&#39;xmax&#39;</span><span class="p">,</span> <span class="s1">&#39;ymax&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">area</span> <span class="o">=</span> <span class="p">(</span><span class="n">boxes</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">boxes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">boxes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">boxes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+            <span class="n">area</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">area</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">records</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">records</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">records</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;classes&#39;</span><span class="p">]]</span>
+
+                <span class="n">labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">records</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+            <span class="n">iscrowd</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">records</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+            <span class="n">target</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">target</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes</span>
+            <span class="n">target</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span>
+            <span class="n">target</span><span class="p">[</span><span class="s1">&#39;image_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">index</span><span class="p">])</span>
+            <span class="n">target</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area</span>
+            <span class="n">target</span><span class="p">[</span><span class="s1">&#39;iscrowd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iscrowd</span> 
+            <span class="n">target</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="nb">map</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">,</span> <span class="n">target</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">]))))</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">image</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">file_name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">image</span><span class="p">,</span> <span class="n">file_name</span>
+
+<span class="k">def</span> <span class="nf">collate_fn</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">batch</span><span class="p">))</span>
+</code></pre></div>
+
+<p>The train, test and validation datasets are instantiated and wrapped around a <code class="codehilite"><span class="err">DataLoader</span></code> method.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">tensor_transform</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">()])</span>
+
+<span class="c1"># Here the operations provided with Remo are integrated into a workflow in PyTorch </span>
+<span class="c1"># by using the custom ObjectDetectionDataset method.</span>
+
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">ObjectDetectionDataset</span><span class="p">(</span><span class="n">annotations</span> <span class="o">=</span> <span class="n">annotations_file_path</span><span class="p">,</span>  
+                                       <span class="n">train_test_valid_split</span> <span class="o">=</span> <span class="n">train_test_split_file_path</span><span class="p">,</span>
+                                       <span class="n">transform</span> <span class="o">=</span> <span class="n">tensor_transform</span><span class="p">,</span>
+                                       <span class="n">mapping</span> <span class="o">=</span> <span class="n">cat_to_index</span><span class="p">,</span>
+                                       <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;train&#39;</span><span class="p">)</span>
+
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">ObjectDetectionDataset</span><span class="p">(</span><span class="n">annotations</span> <span class="o">=</span> <span class="n">annotations_file_path</span><span class="p">,</span>  
+                                       <span class="n">train_test_valid_split</span> <span class="o">=</span> <span class="n">train_test_split_file_path</span><span class="p">,</span>
+                                       <span class="n">transform</span> <span class="o">=</span> <span class="n">tensor_transform</span><span class="p">,</span>
+                                       <span class="n">mapping</span> <span class="o">=</span> <span class="n">cat_to_index</span><span class="p">,</span>
+                                       <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
+
+
+<span class="n">train_data_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">collate_fn</span><span class="o">=</span><span class="n">collate_fn</span><span class="p">)</span>
+<span class="n">test_data_loader</span>  <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">collate_fn</span><span class="o">=</span><span class="n">collate_fn</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="training-the-model">Training the Model<a class="headerlink" href="#training-the-model" title="Permanent link">&para;</a></h2>
+<p>In this tutorial, we use a <code class="codehilite"><span class="err">Faster RCNN</span></code> architecture with a <code class="codehilite"><span class="err">ResNet-50 Backbone</span></code>, pre-trained on on COCO train2017. This is <a href="https://pytorch.org/docs/stable/torchvision/models.html#faster-r-cnn">loaded directly from torchvision.models</a></p>
+<p>To train the model, we specify the foolowing details:</p>
+<ul>
+<li><strong>Model</strong>: The edited version of the pre-trained model.</li>
+<li><strong>num_classes</strong>: The number of classes present in the dataset = actual n of classes + 1 for background of the image (that's a peculiarity of Faster RCNN)</li>
+<li><strong>Optimizer:</strong> The optimizer used for training the network</li>
+<li><strong>Num_epochs:</strong> The number of epochs for which we would like to train the network.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="n">device</span>      <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">num_classes</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">loss_value</span>  <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">num_epochs</span>  <span class="o">=</span> <span class="mi">5</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">detection</span><span class="o">.</span><span class="n">fasterrcnn_resnet50_fpn</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">in_features</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">roi_heads</span><span class="o">.</span><span class="n">box_predictor</span><span class="o">.</span><span class="n">cls_score</span><span class="o">.</span><span class="n">in_features</span>
+<span class="n">model</span><span class="o">.</span><span class="n">roi_heads</span><span class="o">.</span><span class="n">box_predictor</span> <span class="o">=</span> <span class="n">FastRCNNPredictor</span><span class="p">(</span><span class="n">in_features</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">]</span>
+
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># The training loop trains the model for the total number of epochs.</span>
+<span class="c1"># (1 epoch = one complete pass over the entire dataset)</span>
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+
+    <span class="n">train_data_loader</span> <span class="o">=</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">train_data_loader</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">image_ids</span> <span class="ow">in</span> <span class="n">train_data_loader</span><span class="p">:</span>
+
+        <span class="n">images</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">)</span>
+        <span class="n">targets</span> <span class="o">=</span> <span class="p">[{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">targets</span><span class="p">]</span>
+
+        <span class="n">loss_dict</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+
+        <span class="n">losses</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">loss</span> <span class="k">for</span> <span class="n">loss</span> <span class="ow">in</span> <span class="n">loss_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="n">loss_value</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">losses</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Training Loss : </span><span class="si">{:.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loss_value</span><span class="p">))</span>
+</code></pre></div>
+
+<h2 id="visualizing-predictions">Visualizing Predictions<a class="headerlink" href="#visualizing-predictions" title="Permanent link">&para;</a></h2>
+<p>Using Remo, we can easily iterate through the images to compare the model predictions against the original labels.</p>
+<p>To do this, we just need to upload the model predictions to a new <code class="codehilite"><span class="err">AnnotationSet</span></code>, which we call <code class="codehilite"><span class="err">model_predictions</span></code></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Mapping Between Predicted Index and Class Name</span>
+<span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span> <span class="n">value</span> <span class="p">:</span> <span class="n">key</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">cat_to_index</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="n">detection_threshold</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="n">test_data_loader</span> <span class="o">=</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">test_data_loader</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">image_ids</span> <span class="ow">in</span> <span class="n">test_data_loader</span><span class="p">:</span>
+
+        <span class="n">images</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+
+            <span class="n">boxes</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;boxes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            <span class="n">scores</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;scores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="n">scores</span> <span class="o">&gt;=</span> <span class="n">detection_threshold</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+            <span class="n">scores</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="n">scores</span> <span class="o">&gt;=</span> <span class="n">detection_threshold</span><span class="p">]</span>
+            <span class="n">image_id</span> <span class="o">=</span> <span class="n">image_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">outputs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">]):</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;file_name&#39;</span> <span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">image_id</span><span class="p">),</span> 
+                                <span class="s1">&#39;classes&#39;</span>   <span class="p">:</span> <span class="n">mapping</span><span class="p">[</span><span class="n">labels</span><span class="o">.</span><span class="n">item</span><span class="p">()],</span> 
+                                <span class="s1">&#39;xmin&#39;</span>      <span class="p">:</span> <span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                <span class="s1">&#39;ymin&#39;</span>      <span class="p">:</span> <span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                <span class="s1">&#39;xmax&#39;</span>      <span class="p">:</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                                <span class="s1">&#39;ymax&#39;</span>      <span class="p">:</span> <span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">]})</span>
+
+<span class="n">model_predictions_path</span> <span class="o">=</span> <span class="n">path_to_annotations</span> <span class="o">+</span> <span class="s1">&#39;model_predictions.csv&#39;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_predictions_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="s1">&#39;classes&#39;</span><span class="p">,</span> <span class="s1">&#39;xmin&#39;</span><span class="p">,</span> <span class="s1">&#39;ymin&#39;</span><span class="p">,</span> <span class="s1">&#39;xmax&#39;</span><span class="p">,</span> <span class="s1">&#39;ymax&#39;</span><span class="p">])</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">predictions</span> <span class="o">=</span> <span class="n">object_detection_dataset</span><span class="o">.</span><span class="n">create_annotation_set</span><span class="p">(</span><span class="n">annotation_task</span><span class="o">=</span><span class="s1">&#39;Object Detection&#39;</span><span class="p">,</span> 
+                                                             <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;model-predictions-oid&#39;</span><span class="p">,</span>
+                                                             <span class="n">paths_to_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">train_test_split_file_path</span><span class="p">,</span> <span class="n">model_predictions_path</span><span class="p">])</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">object_detection_dataset</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
+</code></pre></div>
+
+<p>By visualizing the predicted boxes against the ground truth, we can go past summary performance metrics, and visually inspect model biases and iterate to improve it.</p>
+<p>For example, we might notice in the picture below how the model incorrectly but clearly predicts the left car lamp to be a "Wheel", perhaps due to the shape being similar.</p>
+<p><img alt="visualize_predictions" src="../assets/obj_visualize_results.png" /></p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../tutorial_pytorch_image_classification/" title="PyTorch Image Classification Tutorial" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                PyTorch Image Classification Tutorial
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../annotation-tool/" title="Annotation tool" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Annotation tool
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.df00da5d.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
