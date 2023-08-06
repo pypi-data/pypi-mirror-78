@@ -1,0 +1,16 @@
+indra
+boto3
+jsonpickle
+kappy
+pygraphviz
+fnvhash
+sqlalchemy
+inflection
+pybel
+flask_jwt_extended
+gilda
+
+[test]
+nose
+coverage
+moto
