@@ -1,0 +1,78 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/the-dark-side-of-politics.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-baali.svg') }}">The Dark Side of Politics</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>vote</em> deck using centered around the <i>Of</i> disciplines, with
+    {{ card("Giotto Verducci") }} as a star.
+</p>
+<p>
+    The base idea is to get {{ card("Kaymakli Fragment") }}
+    fast using {{ card("Giotto Verducci") }}'s ability, then
+    use it (the infernal version) to get some titled vampires out fast and cheap.
+</p>
+<p>
+    Using <i>O</i> for maximum stealth, the deck then proceeds to destroy its prey with
+    {{ card("Kine Resources Contested") }} and
+    {{ card("Parity Shift") }}.
+</p>
+<p>
+    The deck has no bounce against bleeds, but {{ card("Villein") }} and
+    {{ card("Parity Shift") }} make for a nice bloat.
+    Furthermore, the few {{ card("Second Tradition: Domain") }}
+    and {{ card("Unleash Hell's Fury") }} provide a sturdy defence
+    already.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Ashur Tablets") }} provide a bit of recursion so that
+    cards discarded with {{ card("Giotto Verducci") }}'s ability
+    can be fetched back.
+</p>
+<p>
+    {{ card("Condemnation: Mute") }} is used to get the vote lock
+    faster by silencing opponents titled vampires.
+</p>
+<p>
+    {{ card("The Textbook Damnation") }} is included so that
+    another vampire with <i>f</i> can get the
+    {{ card("Kaymakli Fragment") }} from
+    {{ card("Giotto Verducci") }},
+    use {{ card("Freak Drive") }} to unlock then use the <em>Fragment</em>
+    again in the same turn.
+</p>
+<p>
+    {{ card("Wider View") }} is included to help rotate the crypt
+    and get rid of the spurious {{ card("Giotto Verducci") }} copies
+    for more titled vampires.
+</p>
+<h2>Variants</h2>
+<p>
+    Variants exist using different crypts, like <em>Inner Circle</em> vampires with <i>OD</i> or centered a bit more
+    around the <i>OR</i> disciplines with more Ventrue in the crypt:
+    {{ card("Arika") }},
+    {{ card("Jaroslav Pascek") }},
+    {{ card("Lucinde, Alastor") }},
+    {{ card("Marcus Vitel") }} and
+    {{ card("Queen Anne") }}.
+    {{ link("/deck-search", _("Vincent Ripoll's deck"), twda_id="2015encle") }} for the 2015 English NC
+    is a good example.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.parityshift() }}
+</div>
+{% endblock %}

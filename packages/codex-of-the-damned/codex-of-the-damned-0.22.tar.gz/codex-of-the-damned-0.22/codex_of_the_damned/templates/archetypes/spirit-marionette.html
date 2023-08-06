@@ -1,0 +1,84 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/spirit-marionette.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-salubri.svg') }}"> Spirit Marionette</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>toolbox</em> deck starring
+    {{ card("Saulot, The Wanderer") }}.
+    He uses {{ card("Spirit Marionette") }}
+    to steal opponents vampires and take their blood with
+    {{ card("Heidelberg Castle, Germany") }}.
+</p>
+<p>
+    The deck disciplines are <i>BAT</i>.
+    {{ card("Saulot, The Wanderer") }} is accompanied by
+    Tremere antitribu, and they can use {{ card("Infernal Pact") }}
+    to be able to play <i>B</i> too.
+</p>
+<p>
+    <i>A</i> provides good intercept, wakes and bleed bounces with
+    {{ card("Eyes of Argus") }},
+    {{ card("Telepathic Misdirection") }} and
+    {{ card("My Enemy's Enemy") }}
+</p>
+<p>
+    <i>T</i> and <i>B</i> are used for combat, with
+    {{ card("Anesthetic Touch") }} and
+    {{ card("Theft of Vitae") }}, making for a nice "flight of fight"
+    module.
+</p>
+<p>
+    The deck can slowly grind the whole table and use
+    {{ card("Enkil Cog") }} and
+    {{ card("Codex of the Edenic Groundskeepers") }}
+    to lunge and destroy its successive preys.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Magic of the Smith") }} is used to fetch
+    great equipments, depending on the table context.
+    {{ card("Heart of Nizchetus") }} is the default choice.
+</p>
+<p>
+    {{ card("Renewed Vigor") }} is very strong combined with
+    {{ card("Saulot, The Wanderer") }}'s ability, if any
+    Tremere antitribu can use {{ card("Infernal Pact") }} to play it.
+</p>
+<p>
+    {{ card("Rutor's Hand") }} is a good way to improve
+    {{ link("/strategy/fundamentals", _("A&B"), _anchor="AB") }},
+    provided one can pay the blood.
+</p>
+<h2>Variants</h2>
+<p>
+    The <strong>Eurayle</strong> variant uses
+    {{ card("Eurayle Gelasia Mylonas") }}
+    as the star Salubri,
+    as in {{ link("/deck-search", _("Yannick Gibert's deck"), twda_id="2010fncqlyon") }} from 2010.
+</p>
+<p>
+    An {{ link("/deck-search", _("older version from Tomasz Kowalewski"), twda_id="2k8crusadebreslau") }},
+    in 2008, do not even use the Tremere antitribu and their
+    {{ card("Infernal Pact") }}, but low capacity <i>A</i> vampires
+    instead.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'remove' ) }}
+    {{ erratum.villein() }}
+    {{ erratum.lilithsblessing() }}
+</div>
+{% endblock %}

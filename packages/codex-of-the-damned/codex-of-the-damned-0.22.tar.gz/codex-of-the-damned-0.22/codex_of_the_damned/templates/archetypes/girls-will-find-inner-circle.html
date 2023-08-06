@@ -1,0 +1,81 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/girls-will-find-inner-circle.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1>Girls Will Find Inner Circle</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>stealth & bleed</em> deck centered around the use of multiple Master actions
+    and a lot of actions cards. This is commonly reffered to as a <strong>M</strong>ulti
+    <strong>M</strong>aster <strong>P</strong>hase <strong>A</strong>ctions construct.
+</p>
+<p>
+    The base idea is to get {{ card("Cybele") }} out, then
+    {{ card("Aksinya Daclau") }}, using
+    {{ card("Zillah's Valley") }} and
+    {{ card("Villein") }} to get them out faster.
+</p>
+<p>
+    {{ card("Cybele") }} ability provides more master phase actions, while
+    {{ card("Aksinya Daclau") }}'s ability also uses the Master cards
+    for bleed defence, providing a permanent bounce.
+</p>
+<p>
+    The deck has an exceptional bloat capacity, between {{ card("Villein") }},
+    {{ card("Liquidation") }} and
+    {{ card("Ashur Tablets") }}.
+</p>
+<p>
+    While the game progresses, big capacity vampires with a strong permanent bleed bonus and <i>O</i>
+    are put into play. They proceed to destroying the prey's pool using <i>O</i> stealth and their inherent
+    bleed bonus.
+</p>
+<p>
+    The high number of {{ card("Ashur Tablets") }} provide
+    an exceptional recursion. The more the game advances, the more the deck concentrates the cards it needs
+    the most, depending on the table context and the opponents decks.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    {{ card("Aksinya Daclau") }} needs to be unlocked to use her ability.
+    That's why the deck uses {{ card("Guard Dogs") }} and
+    {{ card("Rat's Warning") }}.
+</p>
+<p>
+    The crypt uses vampires with <i>O</i> and <i>R</i>, so they can use
+    {{ card("Entrancement") }} and
+    {{ card("Majesty") }}. However, most vampires do not have access to
+    <i>d</i> or <i>A</i> for additional bounces.
+    As the vampires have a very big capacity though,
+    {{ card("Lost in Translation") }} provide additional bounces
+    in case of a very aggressive predator.
+</p>
+<h2>Variants</h2>
+<p>
+    Many small variations exists, depending on the cards used outside the Master module.
+</p>
+<p>
+    A common variation is the <strong>Girls Will Find AIDS</strong>, more combat-focused and using
+    {{ card("Nana Buruku") }} and a <i>I</i> combat module using
+    {{ card("Deep Song") }},
+    {{ card("Aid From Bats") }}, and
+    {{ card("Carrion Crows") }}.
+    {{ link("/deck-search", _("Hugh Angseesing's deck"), twda_id="2011fcqco") }} from the 2011 NAC FCQ
+    is a good example.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'undecided' ) }}
+</div>
+{% endblock %}

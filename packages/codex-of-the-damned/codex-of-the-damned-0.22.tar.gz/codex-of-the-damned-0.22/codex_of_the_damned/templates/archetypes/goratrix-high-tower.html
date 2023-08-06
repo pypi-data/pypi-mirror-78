@@ -1,0 +1,100 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/goratrix-high-tower.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-tremere-anti.svg') }}"> Goratrix High Tower</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>wall</em> deck starring {{ card("Goratrix") }}.
+    Its superior <i>I</i> allows him to use
+    {{ card("Sense the Savage Way") }}, a powerful
+    addition to the <i>A</i> intercept module.
+</p>
+<p>
+    {{ card("Goratrix") }} combat ability is very good: as
+    {{ card("Theft of Vitae") }}, its damage can not be prevented.
+    The use of {{ card("Carrion Crows") }} for additional damage and
+    {{ card("Canine Horde") }} against weapons makes for a powerful
+    but slim combat module.
+</p>
+<p>
+    {{ card("Magic of the Smith") }} is used to fetch powerful
+    equipments adapted to the table context.
+    {{ card("Heart of Nizchetus") }} is always good,
+    {{ card("Bowl of Convergence") }} adds additional intercept,
+    {{ card("Ivory Bow") }},
+    {{ card("Kevlar Vest") }} and
+    {{ card("Ruins of Ceoris") }} are great additions for combat.
+</p>
+<p>
+    The intercept module is very heavy, with 20 wakes not counting the
+    {{ card("Cats' Guidance") }}, 9 bleed bounces to help deliver
+    pool damage to the prey, and a total of 45 bonus intercept available accross 45 reaction cards.
+</p>
+<p>
+    Pool damage is done using
+    {{ card("Anarch Revolt") }},
+    {{ card("Army of Rats") }} and
+    {{ card("Smiling Jack, The Anarch") }}, with the addition of
+    {{ card("Enkil Cog") }} at some point to have
+    {{ card("Goratrix") }} bleed for 3 at the end of its predator's turn
+    if he is still unlocked.
+</p>
+<p>
+    {{ card("Anarch Revolt") }} is ineffective if the prey gets
+    <em>Anarch</em> vampires into play, but {{ card("Eagle's Sight") }}
+    can be used to intercept these <em>Anarchs</em> whatever they do and dispose of them quickly.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    The sidekicks in the crypt also have the <i>AI</i> disciplines combination to help with intercept in case
+    a {{ card("Pentex™ Subversion") }} is played.
+</p>
+<p>
+    {{ card("Rutor's Hand") }} and
+    {{ card("Mylan Horseed") }} are used to enable
+    {{ card("Goratrix") }} to act and still stay unlocked.
+</p>
+<p>
+    {{ card("Villein") }} and
+    {{ card("Vessel") }} are used to bloat a bit from
+    {{ card("Goratrix") }}, as its combat ability should ensure he never
+    runs out of blood.
+</p>
+<p>
+    Given the disciplines span available to {{ card("Goratrix") }},
+    {{ card("The Erciyes Fragments") }} becomes very versatile.
+    It can provide additional wakes and bounces but also bleed enhancers.
+</p>
+<h2>Variants</h2>
+<p>
+    There are not many variants in this archetype.
+    {{ card("Read the Winds") }}
+    is often included in the intercept module, and surprise aggravated damage from <i>v</i> can be added, like
+    {{ card("Breath of the Dragon") }} or
+    {{ card("Chiropteran Marauder") }}.
+</p>
+<p>
+    It is possible to build a non-anarch version of this archetype. It looses the damages from
+    {{ card("Anarch Revolt") }}, but gains access to
+    {{ card("Abbot") }} and
+    {{ card("Powerbase: Barranquilla") }}, like in
+    {{ link("/deck-search", _("Jakub Baranowski's deck"), twda_id="2013pncnsp") }}
+    from the 2013 Polish NC.
+</p>
+{% endblock %}
+
+{% block errata %}
+<div class="warning">
+    <h3>Errata</h3>
+    {{ erratum.pentextmsubversion( 'remove' ) }}
+</div>
+{% endblock %}

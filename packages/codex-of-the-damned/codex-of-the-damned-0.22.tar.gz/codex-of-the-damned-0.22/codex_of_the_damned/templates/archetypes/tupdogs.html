@@ -1,0 +1,96 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/tupdogs.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-tremere-anti.svg') }}"> Tupdogs</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>rush</em> deck using {{ card("Tupdog") }} and their
+    <i>PU</i> disciplines combination to dispose of opponents vampires.
+    The crypt is spammed with {{ card("Tupdog") }} to an unusual 24 cards count.
+    The size of the crypt alone is often enough for the opponents to recognize the archetype.
+</p>
+<p>
+    The combat module uses
+    {{ card("Brick by Brick") }} to set the range,
+    {{ card("Immortal Grapple") }} to prevent dodges and
+    S:CE ("<strong>S</strong>trike: <strong>C</strong>ombat <strong>E</strong>nds") and
+    {{ card("Raking Talons") }} for aggravated damage.
+    {{ card("Torn Signpost") }} or
+    {{ card("Amaranth") }} are used to destroy cumbersome vampires.
+</p>
+<p>
+    As the {{ card("Tupdog") }} needs a master to be able to act,
+    {{ card("Antonio d'Erlette") }} is a perfect fit.
+    He also comes with his friends the {{ card("Nephandus") }},
+    they're here to bleed the prey, helped by some
+    {{ card("Computer Hacking") }}.
+</p>
+<p>
+    The {{ card("Nephandus") }} can also defend a bit with
+    {{ card("The Unmasking") }}.
+    Also, {{ card("Deflection") }} is used for bounces by
+    {{ card("Antonio d'Erlette") }}.
+</p>
+<p>
+    This is a fast and brutal deck, which must handle its predator sooner rather than later,
+    as most opponents will gladely let her dispose of the deck if she can.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    A bit of additional intercept is provided by permanents:
+    {{ card("Channel 10") }},
+    {{ card("KRCG News Radio") }} and
+    {{ card("Aranthebes, The Immortal") }}.
+</p>
+<p>
+    Only 4 copies of {{ card("Antonio d'Erlette") }} are in the crypt
+    as to not jam it.
+</p>
+<p>
+    {{ card("Yawp Court") }} is an interesting counter against
+    political constructs: as {{ card("Tupdog") }} are Sabbat,
+    they can use it.
+</p>
+<h2>Variants</h2>
+<p>
+    {{ card("Computer Hacking") }} are not often used and
+    {{ card("Target Vitals") }} is often included as it can be used
+    by the {{ card("Nephandus") }}.
+    Before 2010 (release date of <em>Heirs to the Blood</em> and
+    {{ card("Brick by Brick") }}),
+    {{ card("Crawling Chamber") }} was used to maneuver,
+    but it was less efficient.
+</p>
+<p>
+    {{ card("Graverobbing") }} is often included instead of
+    {{ card("Amaranth") }},
+    to steal vampires to help oust the prey faster.
+    It forces {{ card("Antonio d'Erlette") }}
+    to take a risky action though: if he is disabled, the
+    {{ card("Tupdog") }} can not act anymore.
+</p>
+<p>
+    As for the {{ link("/archetypes/nephandii", _("Nephandii")) }} archetype,
+    the decks works well with
+    {{ card("The Parthenon") }} and some
+    {{ card("Ashur Tablets") }}.
+    {{ link("/deck-search", _("Martin Weinmayer's deck"), twda_id="2019tdclf") }} from 2019 is a good example.
+</p>
+<p>
+    The <strong>Cats and Dogs</strong> variant replaces the commonly used
+    {{ card("Nephandus") }} by some
+    {{ card("Rock Cat") }} for additional rushes,
+    like in {{ link("/deck-search", _("Danilo Torrisi's deck"), twda_id="2013iecqbi") }} from 2013.
+    A bit of bloat is needed to pay for them though, Danilo's idea was to use
+    {{ card("Autarkis Persecution") }}.
+</p>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "archetypes/_layout.html" %}
+{% import "archetypes/_layout-erratum.html" as erratum with context %}
+{% import "archetypes/tzimisce-toolbox.json" as deck_json %}
+
+{% block meta %}
+<meta property="decklist" content='{{ deck_json | tojson }}' />
+{% endblock %}
+
+{% block archetype_name %}
+<h1><img src="{{ url_for('static', filename='img/icons/clan-tzimisce.svg') }}"> Tzimisce Toolbox</h1>
+{% endblock %}
+
+{% block archetype %}
+<h2>Highlights</h2>
+<p>
+    This is a <em>toolbox</em> deck using the Tzimisce and their <i>VAI</i> disciplines.
+</p>
+<p>
+    The combat module uses
+    {{ card("Chiropteran Marauder") }} for aggravated damage,
+    Intercept is high with 27 reactions combining <i>A</i> and <i>I</i>.
+    Political actions are used to deliver pool damage with
+    {{ card("Kine Resources Contested") }}
+    while {{ card("Changeling") }} and
+    {{ card("Mind of the Wilds") }} are used for stealth.
+</p>
+<p>
+    {{ card("Blood Doll") }} and
+    {{ card("Villein") }} are used to get some pool back.
+</p>
+<p>
+    The deck is a bit slow but very difficult to predict for opponents.
+</p>
+<h2>Tips & Tricks</h2>
+<p>
+    This version of the deck includes <em>a lot</em> of cards in only 1 copy. This is a bit rare,
+    but it makes the deck even harder to figure out for opponents. One should be careful to keep the opponents
+    guessing as to what the deck can really do.
+</p>
+<p>
+    {{ card("Under Siege") }} is a powerful deterrent against the predator:
+    knowing wakes are available is far more troublesome than suspecting one has it in had.
+</p>
+<h2>Variants</h2>
+<p>
+    There is a lot of room for variations, including in the crypt:
+    {{ card("Sascha Vykos, The Angel of Caine") }},
+    {{ card("Stravinsky") }} or
+    {{ card("Meshenka") }} can get a star position with 3 copies.
+</p>
+<p>
+    A bit more permanent intercept is a common inclusion, with
+    {{ card("Bowl of Convergence") }},
+    {{ card("Revenant") }} and
+    {{ card("Mr. Winthrop") }}.
+    Permanent bleed enhancement is often included too, be it with
+    {{ card("Pulse of the Canaille") }},
+    {{ card("J. S. Simmons, Esq.") }} and
+    {{ card("Tasha Morgan") }}, or
+    {{ card("Living Manse") }}.
+</p>
+{% endblock %}
