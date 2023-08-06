@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: PogoOCR
+Version: 0.3.2
+Summary: A Python tool for running OCR on Pokemon Screenshots
+Home-page: https://github.com/TrainerDex/PogoOCR
+Author: Jay Turner
+Author-email: jay@trainerdex.co.uk
+License: UNKNOWN
+Description: # PogoOCR
+        
+        ![Python package](https://github.com/TrainerDex/PogoOCR/workflows/Python%20package/badge.svg) [![Discord](https://discordapp.com/api/guilds/614101299197378571/widget.png?style=shield)](https://discordapp.com/invite/pdxh7P)
+        
+        A Python tool for running OCR on Pokémon Screenshots using Google Cloud Vision
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
