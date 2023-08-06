@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: pywreck
+Version: 0.1.2
+Summary: Simple async HTTP/1.1 client
+Home-page: https://a-feld.github.io/pywreck
+Author: Allan Feldman
+License: Apache-2.0
+Project-URL: Source, https://github.com/a-feld/pywreck
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+
+
+pywreck
+=======
+
+|ci| |coverage| |docs| |black|
+
+.. |ci| image:: https://img.shields.io/github/workflow/status/a-feld/pywreck/CI/main
+   :target: https://github.com/a-feld/pywreck/actions?query=workflow%3ACI
+
+.. |coverage| image:: https://img.shields.io/codecov/c/github/a-feld/pywreck/main
+    :target: https://codecov.io/gh/a-feld/pywreck
+
+.. |docs| image:: https://img.shields.io/badge/docs-available-brightgreen.svg
+    :target: https://a-feld.github.io/pywreck
+
+.. |black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+
+A small, not so great async Python HTTP client.
+
+This HTTP client does not implement any error / exception handling. If the server the client is talking to deviates from the HTTP spec, this code will behave in unexpected ways. Network errors? Those are unhandled too!
+
+Usage
+-----
+
+.. code-block:: python
+
+    import asyncio
+    import pywreck
+
+    async def main():
+        response = await pywreck.get("www.example.com", "/")
+        print(response)
+
+    asyncio.run(main())
+
+Why?
+----
+
+Eh, why not? Sometimes you just need a small async HTTP client with no dependencies -- no batteries included.
+
+
