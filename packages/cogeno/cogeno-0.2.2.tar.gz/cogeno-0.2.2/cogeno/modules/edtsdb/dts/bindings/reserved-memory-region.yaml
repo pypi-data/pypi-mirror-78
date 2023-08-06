@@ -1,0 +1,36 @@
+# Copyright (c) 2020 Bobby Noeltw
+# SPDX-License-Identifier: Apache-2.0
+
+# Common fields for reserved memory regions
+
+description: Reserved memory region properties
+
+compatible: "reserved-memory-region"
+
+include: base.yaml
+
+properties:
+    reg:
+      required: false
+
+    size:
+      type: int
+      required: false
+      description: >
+        length based on parent's #size-cells
+        Size in bytes of memory to reserve.
+
+    alignment:
+      type: int
+      required: false
+      description: >
+        length based on parent's #size-cells
+        Address boundary for alignment of allocation.
+
+    alloc-ranges:
+      type: array
+      required: false
+      description: >
+        prop-encoded-array (address, length pairs).
+        Specifies regions of memory that are
+        acceptable to allocate from.

@@ -1,0 +1,14 @@
+# Copyright (c) 2020 Bobby Noeltw
+# SPDX-License-Identifier: Apache-2.0
+
+# Common fields for memory
+
+description: Memory properties
+
+compatible: "memory"
+
+include: base.yaml
+
+properties:
+    reg:
+      required: true

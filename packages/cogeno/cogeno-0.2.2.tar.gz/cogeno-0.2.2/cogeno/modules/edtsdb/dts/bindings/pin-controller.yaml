@@ -1,0 +1,19 @@
+# Copyright (c) 2018..2020 Bobby Noelte
+# SPDX-License-Identifier: Apache-2.0
+
+description: Pin controller
+
+include: base.yaml
+
+properties:
+    pin-controller:
+      type: boolean
+      required: true
+      description: device controller identification
+
+    "#pinctrl-cells":
+      type: int
+      required: false
+      description: >
+        Number of pin control cells in addition to the index within the
+        pin controller device instance

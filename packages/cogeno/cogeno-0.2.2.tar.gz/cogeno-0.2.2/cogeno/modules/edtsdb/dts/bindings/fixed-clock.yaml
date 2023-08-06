@@ -1,0 +1,35 @@
+#
+# Copyright (c) 2017..2019 b0661n0e17e@gmail.com
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+title: Simple fixed-rate clock sources.
+
+description: >
+    Binding for simple fixed-rate clock sources.
+
+inherits:
+    !include clock-provider.yaml
+
+properties:
+    compatible:
+      constraint: "fixed-clock"
+
+    "#clock-cells":
+      constraint: 0
+
+    clock-frequency:
+      type: int
+      category: required
+      description: Frequency of clock in Hz. Should be a single cell.
+
+    clock-accuracy:
+      type: int
+      category: optional
+      description: Accuracy of clock in ppb (parts per billion). Should be a single cell.
+
+    oscillator:
+      type: int
+      category: optional
+      description: clock is an oszillator (a quartz)

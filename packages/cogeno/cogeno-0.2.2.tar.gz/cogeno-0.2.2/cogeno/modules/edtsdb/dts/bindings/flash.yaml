@@ -1,0 +1,41 @@
+# Copyright (c) 2018..2020 Bobby Noelte
+# SPDX-License-Identifier: Apache-2.0
+
+description: Flash Base Structure
+
+include: base.yaml
+
+properties:
+    label:
+      required: true
+
+    reg:
+      required: true
+
+    "#address-cells":
+      type: int
+      required: true
+      description: >
+        <1>: for flash devices that require a single 32-bit cell to represent their
+            address (aka the value is below 4 GiB)
+        <2>: for flash devices that require two 32-bit cells to represent their
+            address (aka the value is 4 GiB or greater).
+
+    "#size-cells":
+      type: int
+      required: true
+      description: >
+        <1>: for flash devices that require a single 32-bit cell to represent their
+            size (aka the value is below 4 GiB)
+        <2>: for flash devices that require two 32-bit cells to represent their
+            size (aka the value is 4 GiB or greater).
+
+    write-block-size:
+      type: int
+      required: false
+      description: Size of flash blocks  for write operations
+
+    erase-block-size:
+      type: int
+      required: false
+      description: Size of flash blocks for erase operations

@@ -1,0 +1,17 @@
+include docs/*.rst
+include docs/cogeno/*.rst
+include docs/cogeno/*.png
+include docs/conf.py
+include docs/Doxyfile
+include docs/Makefile
+include docs/make.bat
+include docs/requirements.txt
+include cogeno/modules/edtsdb/dts/bindings/*.yaml
+include cogeno/modules/edtsdb/libraries/*.py
+include cogeno/modules/edtsdb/*.py
+include cogeno/modules/*.py
+include cogeno/*.py
+include LICENSE
+include README.rst
+include setup.py
+
