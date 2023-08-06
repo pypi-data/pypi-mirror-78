@@ -1,0 +1,10 @@
+survey,,,
+,type,name,label,constraint,required
+,text,name,Name,,yes,
+,begin repeat,items,Items,wq:initial(3),yes
+,text,name,Item Name,,yes,
+,integer,count,Item Count,,yes,
+,end repeat,,,,,
+,begin group,nested,Nested,,yes
+,text,name,Name,,yes
+,end group,,,,

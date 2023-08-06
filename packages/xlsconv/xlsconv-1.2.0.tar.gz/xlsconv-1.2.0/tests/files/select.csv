@@ -1,0 +1,28 @@
+survey,,,
+,type,name,label,constraint,required
+,select_one colors,color,Pick a color,,
+,select_one numbers,number,Pick a number,,
+,select_multiple tags,tags,Pick some tags,,
+,integer,site,Pick a Site ID,wq:ForeignKey("other_app.Site"),yes
+choices,,,
+,list name,name,label
+,colors,red,Red
+,colors,green,Green
+,colors,blue,Blue
+,numbers,1,One
+,numbers,2,Two
+,numbers,3,Three
+,numbers,4,Four
+,numbers,5,Five
+,numbers,6,Six
+,numbers,7,Seven
+,numbers,8,Eight
+,numbers,9,Nine
+,numbers,10,Ten
+,numbers,11,Eleven
+,tags,cool,Cool
+,tags,active,Active
+,tags,recent,Recent
+settings,,
+,instance_name
+,"concat(${color}, ' - ', ${number})"
