@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: pytest-forward-compatability
+Version: 0.1.0
+Summary: A name to avoid typosquating pytest-foward-compatibility
+Home-page: https://github.com/graingert/pytest-forward-compatability
+License: UNKNOWN
+Author: Thomas Grainger
+Author-email: pytest-forward-compatability@graingert.co.uk
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: pytest-forward-compatibility
