@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: gqlgen
+Version: 0.0.6
+Summary: Auto-generate GraphQL Type, Resolver and Query.
+Home-page: https://github.com/syfun
+Author: syfun
+Author-email: sunyu418@gmail.com
+Requires-Python: >=3.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7,<8)
+Requires-Dist: graphql-core (>=3)
