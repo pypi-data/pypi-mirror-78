@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: tinytoken
+Version: 0.9.3
+Summary: A CLI to generate security credentials via OpenID Connect federation with AWS Cognito IDP.
+Home-page: https://github.com/m1keil/tinytoken
+Author: Michael Sverdlik
+Author-email: m1keil@users.noreply.github.com
+License: mit
+Project-URL: Documentation, https://github.com/m1keil/tinytoken
+Description: # tinytoken
+        
+        A command line tool to generate temporary security credentials via OpenID Connect federation with AWS Cognito IDP.
+        
+        Follows the [OAuth 2.0 Authorization flow for Native apps as described in RFC 8252](https://tools.ietf.org/html/rfc8252).
+        
+        Dependencies:
+        * requests: python's stdlib requires external cacerts to be configured/bundled while `requests` already comes with 
+          `certifi`. 
+        
+        ## Installation
+        
+        ```
+        $ pip install tinytoken
+        ```
+        
+        
+        
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6.*
+Description-Content-Type: text/markdown; charset=UTF-8
