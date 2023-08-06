@@ -1,0 +1,85 @@
+{% ckan_extends %}
+
+{% block meta %}
+    {{ super() }}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.9/jquery.csv.js"></script>
+{% endblock %}
+
+{% block secondary_content %}
+    {{ super() }}
+    
+    {# Common JS for all previews #}
+    
+    <script type="text/javascript">
+        var jq_ready = false;
+        var charts_ready = false;
+
+        $( document ).ready(function() {
+            jq_ready = true;
+            if (charts_ready) {drawAll();}
+        });
+
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', {'packages':['corechart']});
+        
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(charts_is_ready);
+        
+        function charts_is_ready() {
+            charts_ready = true;
+            if (jq_ready) {drawAll();}
+        }
+
+        function drawAll() {
+
+            var chart_width = document.getElementsByClassName('dataset-item')[0].offsetWidth;
+            var new_data;
+            {% for package in c.page.items %}
+                {% set preview_data = h.get_preview_chart_data(package) %}
+                {% if preview_data %}
+                new_data = {{ preview_data|safe }};
+                new_data.chart_width = chart_width;
+                load_preview(new_data, '{{ package.name }}');
+                {% endif %}
+            {% endfor %}
+        }
+
+function load_preview(preview_data, package_name) {
+    
+    console.log(preview_data.data)
+
+    var data = new google.visualization.DataTable();
+    var headers = preview_data.headers;
+    for (var i=0; i < headers.length; i++) {
+        data.addColumn(headers[i][1], headers[i][0]);
+        }
+
+    data.addRows(preview_data.data);
+    
+    if (preview_data.chart_type == 'Pie') {chart_type = 'PieChart'}
+    else if (preview_data.chart_type == 'Column') {chart_type = 'ColumnChart'}
+    else if (preview_data.chart_type == 'Bar') {chart_type = 'BarChart'}
+    else {chart_type = 'ColumnChart'}
+        
+    var viz = new google.visualization.ChartWrapper({
+        chartType: chart_type,
+        containerId: 'chart_div_' + package_name,
+        dataTable: data,
+        options:{
+            'title': '',  // preview_data.chart_title,
+            'width': preview_data.chart_width,
+            'height': preview_data.height,
+            'legend': 'none',
+            'colors': [preview_data.chart_color],
+            }
+        });
+        viz.draw();
+
+    }
+      </script>
+
+    
+
+{% endblock %}
