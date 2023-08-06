@@ -1,0 +1,127 @@
+Metadata-Version: 2.1
+Name: jict
+Version: 2.5
+Summary: Python dictionary with automatic and arbitrary levels of nestedness
+Home-page: https://github.com/y-vas/jict
+Author: Vasyl Yovdiy
+Author-email: yovdiyvasyl@gmail.com
+License: MIT
+Description: ## jict
+        jict is basically a nested dict.  
+        with some extra features  
+        
+        simple use example :
+        
+        ```python
+        from jict import jict
+        
+        jct = jict()
+        jct['level1']['level2']['level3'] = 'created nested dictionary'
+        
+        print(jct)
+        # output :
+        # {
+        #   "level1": {
+        #     "level2": {
+        #       "level3": "created nested dictionary"
+        #     }
+        #   }
+        # }
+        
+        # jict to dict
+        mydict = jct.dict()
+        
+        ```
+        
+        jict utilities:
+        ```python
+        from jict import jict
+        
+        # our jict
+        jct = jict({
+            'val': { 'list':[ [{ 'find-me': 'secret' }] ] }
+        })
+        
+        # we can easly find the key we need
+        print(jct.get('find-me'))
+        
+        # we also can rename the keys
+        # output : secret
+        jct.rename('find-me','password')
+        print(jct.get('find-me'))
+        # output : None
+        print(jct.get('password'))
+        # output : secret
+        
+        # we also can replace values
+        jct.replace('password','mypass')
+        print(jct.get('password'))
+        # output : mypass
+        
+        
+        def foo(val):
+            val[0][0]['name'] = 'jict'
+            return val
+        
+        # we also can replace with callbacks and multiple values
+        jct.replace({
+            'password':'mypass',
+            'list': foo,
+        })
+        
+        # callbacks also work with this: jct.replace('list' , foo)
+        
+        print(jct.get('list'))
+        # output: [[{'password': 'mypass', 'name': 'jict'}]]
+        
+        
+        ```
+        
+        also you can easly load a .json , .yaml file
+        
+        ```python
+        from jict import jict
+        
+        jctj = jict('test.json')
+        print(jctj)
+        # output :
+        # {
+        #   "test": "json-content"
+        # }
+        
+        jcty = jict('test.yaml')
+        print(jctj)
+        # output :
+        # {
+        #   "test": "yaml-content"
+        # }
+        
+        # if you want to save the modifed values
+        jctj.save()
+        jcty.save()
+        
+        # you can also save to another file
+        jcty.save('newfile.json')
+        ```
+        
+Keywords: nested,jict,defaultdict,dictionary,auto-vivification,shared-array,shared-memory-json,shared-memory-yaml
+Platform: UNKNOWN
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
