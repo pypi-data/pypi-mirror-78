@@ -1,0 +1,849 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="http://remo.ai/tutorial_upload_annotations/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/remo_whiskers_green_large_v20.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Upload Annotations Tutorial - Docs · remo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../stylesheets/test.css">
+    
+    
+      
+        <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N4CTML8');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4CTML8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162141162-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-162141162-1');
+</script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#uploading-annotations-and-predictions" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Application header -->
+<header class="md-header header-custom" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        <a href="http://remo.ai/"
+           title="Docs · remo"
+           aria-label="Docs · remo"
+           class="md-header-nav__button md-logo">
+          
+          <img alt="logo" height="40px" width="127px" src="../img/remo-logo.png" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+               for="__drawer"></label>
+      </div>
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch links-container vertical-align-middle">
+        <div class="md-flex__ellipsis md-header-nav__title links-container "
+             data-md-component="title">
+          <a class="remo-link vertical-align-middle text-underline" href="">Docs</a>
+          <a class="remo-link vertical-align-middle" href="https://discuss.remo.ai">Discuss</a>
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        
+        <label class="md-icon md-icon--search md-header-nav__button"
+               for="__search"></label>
+
+        <!-- Search interface -->
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://remo.ai/" title="Docs · remo" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../img/remo-logo.png" width="48" height="48">
+      
+    </a>
+    Docs · remo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Quick Start" class="md-nav__link">
+      Quick Start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Python Library
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python Library
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk-intro/" title="First steps" class="md-nav__link">
+      First steps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_to_remo-python/" title="Intro Tutorial" class="md-nav__link">
+      Intro Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Upload Annotations Tutorial
+      </label>
+    
+    <a href="./" title="Upload Annotations Tutorial" class="md-nav__link md-nav__link--active">
+      Upload Annotations Tutorial
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#supported-format" class="md-nav__link">
+    Supported format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-predictions-or-custom-annotations" class="md-nav__link">
+    Add predictions or custom annotations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotation-sets" class="md-nav__link">
+    Annotation sets
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial_pytorch_image_classification/" title="PyTorch Image Classification Tutorial" class="md-nav__link">
+      PyTorch Image Classification Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial_pytorch_object_detection/" title="PyTorch Object Detection Tutorial" class="md-nav__link">
+      PyTorch Object Detection Tutorial
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../annotation-tool/" title="Annotation tool" class="md-nav__link">
+      Annotation tool
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../annotation-formats/" title="Annotation formats" class="md-nav__link">
+      Annotation formats
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../advanced-topics/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../colab/" title="Google Colab" class="md-nav__link">
+      Google Colab
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Python Library Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Python Library Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/sdk/" title="SDK" class="md-nav__link">
+      SDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/dataset/" title="Dataset" class="md-nav__link">
+      Dataset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/image/" title="Image" class="md-nav__link">
+      Image
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/annotation_set/" title="Annotation set" class="md-nav__link">
+      Annotation set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/annotation/" title="Annotation" class="md-nav__link">
+      Annotation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/task/" title="Annotation tasks" class="md-nav__link">
+      Annotation tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/class_encodings/" title="Class encodings" class="md-nav__link">
+      Class encodings
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CHANGELOG/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../terms/" title="Terms of service" class="md-nav__link">
+      Terms of service
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#supported-format" class="md-nav__link">
+    Supported format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-predictions-or-custom-annotations" class="md-nav__link">
+    Add predictions or custom annotations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotation-sets" class="md-nav__link">
+    Annotation sets
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="uploading-annotations-and-predictions">Uploading Annotations and Predictions<a class="headerlink" href="#uploading-annotations-and-predictions" title="Permanent link">&para;</a></h1>
+<p><strong>In this tutorial, we explore different options to upload annotations in Remo from code.</strong></p>
+<p>In particular, we will see how to:</p>
+<ul>
+<li>add annotations from a file (in a format supported by remo)</li>
+<li>add annotations from code (can be used for predictions, and from any input format)</li>
+</ul>
+<p>We start off by creating a dataset and populating it with some images:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">remo</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">remo</span><span class="o">.</span><span class="n">set_viewer</span><span class="p">(</span><span class="s1">&#39;jupyter&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://remo-scripts.s3-eu-west-1.amazonaws.com/open_images_sample_dataset.zip&#39;</span><span class="p">]</span>
+<span class="n">my_dataset</span> <span class="o">=</span> <span class="n">remo</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">urls</span><span class="p">)</span>
+</code></pre></div>
+
+<p class="remo__output-code">Acquiring data - completed                                                                         <br />
+Processing data - completed                                                                        <br />
+Data upload completed</p>
+<h2 id="supported-format">Supported format<a class="headerlink" href="#supported-format" title="Permanent link">&para;</a></h2>
+<p><strong>To add annotations from a supported file format, we can pass the file via <code class="codehilite"><span class="err">dataset.add_data</span></code></strong></p>
+<p>Remo automatically parses annotation files in a variety of formats (such as Pascal XML, COCO JSON, Open Images CSV, etc). You can read more about supported file formats in <a href="https://remo.ai/docs/annotation-formats/">our documentation</a>.</p>
+<p><strong>Example: let's add some annotations for an Object Detection task from a CSV file with encoded classes</strong></p>
+<p>In this case, annotations are stored in a supported CSV file format. Class labels were encoded using <a href="https://developers.google.com/knowledge-graph">GoogleKnowledgeGraph</a>. Remo automatically detects the class encoding and translates it into the corresponding labels</p>
+<div class="codehilite"><pre><span></span><code><span class="n">annotation_files</span><span class="o">=</span><span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/assets/open_sample.csv&#39;</span><span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">annotation_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</code></pre></div>
+
+<p class="remo__output-code">Index(['ImageID', 'Source', 'LabelName', 'Confidence', 'XMin', 'XMax', 'YMin',
+'YMax', 'IsOccluded', 'IsTruncated', 'IsGroupOf', 'IsDepiction',
+'IsInside'],
+dtype='object')</p>
+<div class="codehilite"><pre><span></span><code><span class="n">my_dataset</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span><span class="n">local_files</span><span class="o">=</span><span class="n">annotation_files</span><span class="p">,</span> <span class="n">annotation_task</span> <span class="o">=</span> <span class="s1">&#39;Object detection&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Acquiring data - completed                                                                         <br />
+Processing data - completed                                                                        <br />
+Data upload completed</p>
+<p class="remo__output-code">{'session_id': '810e23ad-ff63-42a9-89ed-400fbb7d4fc0',
+'created_at': '2020-05-29T13:56:17.832956Z',
+'dataset': {'id': 14, 'name': 'D1'},
+'status': 'done',
+'substatus': '',
+'images': {'pending': 0,
+'total': 0,
+'successful': 0,
+'failed': 0,
+'errors': []},
+'annotations': {'pending': 0,
+'total': 1,
+'successful': 1,
+'failed': 0,
+'errors': []},
+'errors': [],
+'uploaded': {'total': {'items': 0, 'size': 0, 'human_size': '0 b'},
+'images': {'items': 0, 'size': 0, 'human_size': '0 b'},
+'annotations': {'items': 0, 'size': 0, 'human_size': '0 b'},
+'archives': {'items': 0, 'size': 0, 'human_size': '0 b'}}}</p>
+<p>We can now see annotation statistics and visually explore the dataset</p>
+<div class="codehilite"><pre><span></span><code><span class="n">my_dataset</span><span class="o">.</span><span class="n">get_annotation_statistics</span><span class="p">()</span>
+</code></pre></div>
+
+<p class="remo__output-code">[{'AnnotationSet ID': 44,
+'AnnotationSet name': 'Object detection',
+'n_images': 9,
+'n_classes': 15,
+'n_objects': 84,
+'top_3_classes': [{'name': 'Fruit', 'count': 27},
+{'name': 'Sports equipment', 'count': 12},
+{'name': 'Human arm', 'count': 7}],
+'creation_date': None,
+'last_modified_date': '2020-05-29T13:56:05.883892Z'}]</p>
+<div class="codehilite"><pre><span></span><code><span class="n">my_dataset</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
+</code></pre></div>
+
+<p><img alt="dataset_added_annotation.jpeg" src="../assets/dataset_added_annotation.jpeg" /> </p>
+<h2 id="add-predictions-or-custom-annotations">Add predictions or custom annotations<a class="headerlink" href="#add-predictions-or-custom-annotations" title="Permanent link">&para;</a></h2>
+<p><strong>To add data programatically from any format, we can use the <code class="codehilite"><span class="err">Annotation</span></code> object</strong></p>
+<p>This can be useful to:</p>
+<ul>
+<li>upload model predictions</li>
+<li>upload annotations from any custom file format</li>
+<li>create an active learning workflow</li>
+</ul>
+<p><strong>Example: let's add annotations to a specific image using <code class="codehilite"><span class="err">add_annotations()</span></code> method of the dataset class</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;000a1249af2bc5f0.jpg&#39;</span>
+
+<span class="n">annotations</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">annotation</span> <span class="o">=</span> <span class="n">remo</span><span class="o">.</span><span class="n">Annotation</span><span class="p">()</span>
+<span class="n">annotation</span><span class="o">.</span><span class="n">img_filename</span> <span class="o">=</span> <span class="n">image_name</span>
+<span class="n">annotation</span><span class="o">.</span><span class="n">classes</span><span class="o">=</span><span class="s1">&#39;Human hand&#39;</span>
+<span class="n">annotation</span><span class="o">.</span><span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">227</span><span class="p">,</span> <span class="mi">284</span><span class="p">,</span> <span class="mi">678</span><span class="p">,</span> <span class="mi">674</span><span class="p">]</span>
+<span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">annotation</span><span class="p">)</span>
+
+<span class="n">annotation</span> <span class="o">=</span> <span class="n">remo</span><span class="o">.</span><span class="n">Annotation</span><span class="p">()</span>
+<span class="n">annotation</span><span class="o">.</span><span class="n">img_filename</span> <span class="o">=</span> <span class="n">image_name</span>
+<span class="n">annotation</span><span class="o">.</span><span class="n">classes</span><span class="o">=</span><span class="s1">&#39;Fashion accessory&#39;</span>
+<span class="n">annotation</span><span class="o">.</span><span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">496</span><span class="p">,</span> <span class="mi">322</span><span class="p">,</span> <span class="mi">544</span><span class="p">,</span><span class="mi">370</span><span class="p">]</span>
+<span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">annotation</span><span class="p">)</span>
+
+<span class="n">my_dataset</span><span class="o">.</span><span class="n">add_annotations</span><span class="p">(</span><span class="n">annotations</span><span class="p">)</span>
+</code></pre></div>
+
+<p class="remo__output-code">Progress 100% - 1/1 - elapsed 0:00:00.001000 - speed: 1000.00 img / s, ETA: 0:00:00
+Acquiring data - completed                                                                         <br />
+Processing data - completed                                                                        <br />
+Data upload completed</p>
+<p>We can now retrieve the picture and visualise it:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">my_image</span> <span class="o">=</span> <span class="n">my_dataset</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">image_name</span><span class="p">)</span>
+<span class="n">my_image</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
+</code></pre></div>
+
+<p><img alt="dataset_added_annotation.jpeg" src="../assets/added_annotation.jpeg" /> </p>
+<h2 id="annotation-sets">Annotation sets<a class="headerlink" href="#annotation-sets" title="Permanent link">&para;</a></h2>
+<p><strong>Under the hood, Remo organises annotations in an annotation set, which is just a version of all the annotations of a dataset.</strong></p>
+<p>There are 2 great advantages of using annotation sets:</p>
+<ol>
+<li>high-level operations on all the annotations with just one command</li>
+<li>easily manage multiple versions of annotations</li>
+</ol>
+<p><strong>What you can do with annotation sets</strong></p>
+<p>When training a model, it's not always clear what's the right way to label data. 
+Using annotation sets, this exploration becomes easier as you can for example:</p>
+<ul>
+<li>see stats of your data</li>
+<li>change labels for objects from one class to another</li>
+<li>delete objects of specific classes</li>
+<li>compare different annotation sets (such as ground truth vs prediction, or annotations coming from different annotators)</li>
+</ul>
+<p>In the example we have seen above, Remo automatically creates an annotation set. For more control, it's possible to explicit manipulate Annotation sets objects thesmelves.</p>
+<p>To read more about annotation sets, you can check the remo documentation: <a href="https://remo.ai/docs/annotation-formats/">https://remo.ai/docs/</a>.</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../intro_to_remo-python/" title="Intro Tutorial" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Intro Tutorial
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../tutorial_pytorch_image_classification/" title="PyTorch Image Classification Tutorial" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                PyTorch Image Classification Tutorial
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.df00da5d.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
