@@ -1,0 +1,4 @@
+[console_scripts]
+dumang-config = dumang_ctrl.tools.config:main
+dumang-sync = dumang_ctrl.tools.sync:main
+
