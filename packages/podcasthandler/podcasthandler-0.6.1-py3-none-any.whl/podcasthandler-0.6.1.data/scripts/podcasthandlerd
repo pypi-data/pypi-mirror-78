@@ -1,0 +1,72 @@
+#!python
+
+# PODCAST HANDLER by Claudio Barca (Copyright 2020 Claudio Barca)
+# This software is distributed under GPL v. 3 license.
+# See LICENSE file for details.
+
+# PODCASTHANDLER - DAEMON 
+
+import os
+import time
+import argparse
+import signal
+
+from podcasthnd.media import Media
+from podcasthnd.item import Item
+import podcasthnd.constants as constants
+
+def save_daemon_data(pid,host):
+    file = open(constants.daemon_data_file,'w') 
+    file.write("%s:%s" % (pid, host))
+    file.close() 
+
+def read_daemon_data():   # list: [pid, host]
+    file = open(constants.daemon_data_file,'r') 
+    data = (file.readlines()[0]).split(':')
+    return data
+
+def kill_old_daemon():
+        pid = int(read_daemon_data()[0])
+        os.kill(pid, signal.SIGKILL)
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-H", "--host", default="localhost", help="set mpd host (default localhost)")
+args = parser.parse_args()
+
+# initilizing mpd
+media = Media(args.host)
+
+# killing old daemon
+try:
+    kill_old_daemon()
+except:
+    pass
+
+# initial action
+if media.client.status()['state'] == 'play':
+    filename = media.client.currentsong()['file']
+    current_filename = filename
+    item = Item(filename)
+    item.db_set_current()       # save current filename
+    save_daemon_data(os.getpid(), args.host)  # save pid and host
+else:
+    exit()
+
+# loop
+while filename == current_filename:  # exit on new file playing
+    if media.client.status()['state'] == 'play':       # set position only if playing
+        itemtime = media.time()
+        
+        if (int(itemtime[1]) != 0) and ((int(itemtime[0]) + constants.end_time) > int(itemtime[1])):
+            item.db_delete_cache_file()  # if near the end of file delete item 
+        else:
+            item.db_set_position(str(media.time()[0]))  # othewise save position
+    time.sleep(constants.update_time)
+    try:
+        current_filename = media.client.currentsong()['file']  
+    except:
+        current_filename = filename
+
+# exit
+media.client.close()
