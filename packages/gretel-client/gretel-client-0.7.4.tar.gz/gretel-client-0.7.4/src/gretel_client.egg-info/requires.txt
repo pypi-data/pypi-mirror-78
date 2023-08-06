@@ -1,0 +1,16 @@
+faker==4.1.1
+requests
+smart_open==2.1.0
+tqdm==4.45.0
+tenacity==6.2.0
+
+[:python_version < "3.7"]
+dataclasses
+
+[fpe]
+numpy
+pycryptodome==3.9.8
+dateparser==0.7.6
+
+[pandas]
+pandas<1.1.0,>1.0.0
