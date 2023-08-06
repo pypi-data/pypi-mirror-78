@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+"""LICENSE
+Copyright 2017 Hermann Krumrey <hermann@krumreyh.com>
+
+This file is part of bundesliga-tippspiel.
+
+bundesliga-tippspiel is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+bundesliga-tippspiel is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with bundesliga-tippspiel.  If not, see <http://www.gnu.org/licenses/>.
+LICENSE"""
+
+import os
+import time
+import argparse
+import logging
+from threading import Thread
+from betbot import sentry_dsn
+from betbot.prediction import predictors
+from betbot.main import main as betbot_main
+from puffotter.init import cli_start, argparse_add_verbosity
+
+
+def main(_: argparse.Namespace):
+    """
+    The main function of the betbot
+    :param _: The command line arguments
+    :return: None
+    """
+    tippspiel_url = os.environ.get("TIPPSPIEL_URL", "https://hk-tippspiel.com")
+    threads = []
+
+    for predictor in predictors:
+        base = predictor.name().upper().replace("-", "_")
+        user_key = base + "_USER"
+        pass_key = base + "_PASS"
+        username = os.environ.get(user_key)
+        password = os.environ.get(pass_key)
+        if username is None or password is None:
+            continue
+        else:
+            threads.append(Thread(
+                target=betbot_main,
+                args=(predictor.name(), username, password, tippspiel_url)
+            ))
+
+    if len(threads) == 0:
+        logging.warning("No betbots started")
+
+    for thread in threads:
+        thread.start()
+        time.sleep(5)
+    for thread in threads:
+        thread.join()
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    argparse_add_verbosity(parser)
+    cli_start(main, parser, "Thanks for using betbot", "betbot", sentry_dsn)
