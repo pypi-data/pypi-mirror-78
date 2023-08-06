@@ -1,0 +1,23 @@
+<html i18n:domain="ftw.publisher.monitor">
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+        <title tal:content="options/subject"></title>
+    </head>
+    <body>
+        <h1 tal:content="options/subject">
+        </h1>
+
+        <a tal:attributes="href options/portal/absolute_url"
+           tal:content="options/portal/absolute_url" />
+
+        <p class="reason" tal:content="options/reason" />
+
+        <table>
+            <tr>
+                <th i18n:translate="mail_th_jobs_in_queue">Jobs in the queue:</th>
+                <td tal:content="options/jobs_in_queue"></td>
+            </tr>
+        </table>
+
+    </body>
+</html>
