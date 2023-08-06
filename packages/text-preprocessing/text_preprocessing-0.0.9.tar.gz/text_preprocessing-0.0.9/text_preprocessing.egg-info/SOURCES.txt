@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+tests/__init__.py
+tests/run_tests.py
+tests/text_preprocessing_test.py
+text_preprocessing/__init__.py
+text_preprocessing/text_preprocessing.py
+text_preprocessing.egg-info/PKG-INFO
+text_preprocessing.egg-info/SOURCES.txt
+text_preprocessing.egg-info/dependency_links.txt
+text_preprocessing.egg-info/not-zip-safe
+text_preprocessing.egg-info/requires.txt
+text_preprocessing.egg-info/top_level.txt
+text_preprocessing/data/custom_substitutions.csv
+text_preprocessing/data/ignore_spellcheck_words.txt
