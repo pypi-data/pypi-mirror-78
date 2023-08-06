@@ -1,0 +1,5 @@
+__version__ = '0.5.2'
+__tool_name__ = 'mappa-api'
+__description__ = 'Integração com API mappa'
+__author__ = 'Guionardo Furlan'
+__author_email__ = 'guionardo@gmail.com'

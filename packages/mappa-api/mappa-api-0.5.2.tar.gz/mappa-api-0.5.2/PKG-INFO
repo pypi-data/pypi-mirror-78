@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: mappa-api
+Version: 0.5.2
+Summary: Integração com API mappa
+Home-page: https://github.com/guionardo/mappa-api
+Author: Guionardo Furlan
+Author-email: guionardo@gmail.com
+License: MIT
+Project-URL: Documentation, https://github.com/guionardo/mappa-api/wiki
+Project-URL: Source, https://github.com/guionardo/mappa-api
+Description: # mappa-api
+        
+        Interface python para API mAPPa
+        
+        ![Python application](https://github.com/guionardo/mappa-api/workflows/Python%20application/badge.svg)
+Keywords: escoteiros scouts mappa
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6.*
+Description-Content-Type: text/markdown
