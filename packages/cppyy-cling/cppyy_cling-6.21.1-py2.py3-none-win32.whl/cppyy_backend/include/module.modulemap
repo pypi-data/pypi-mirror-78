@@ -1,0 +1,215 @@
+// This module contains header files from module Core which can be used in both
+// C and C++ context.
+module ROOT_Foundation_C  {
+  module "ThreadLocalStorage.h" { header "ThreadLocalStorage.h" export * }
+  module "strlcpy.h" { header "strlcpy.h" export * }
+  module "snprintf.h" { header "snprintf.h" export * }
+
+  export *
+}
+
+// This module contains header files from module Core which are used as
+// configuration for ROOT. They contain a lot of macro definitions which are
+// supposed to be textually expanded in each TU.
+module ROOT_Config  {
+  // These headers are supposed to be only textually expanded for each TU.
+  module "RVersion.h" { textual header "RVersion.h" export * }
+  module "RConfig.h" { header "RConfig.h" export * }
+  module "ROOT/RConfig.h" { header "ROOT/RConfig.h" export * }
+  module "ROOT/RConfig.hxx" { textual header "ROOT/RConfig.hxx" export * }
+  module "RConfigure.h" { textual header "RConfigure.h" export * }
+  // FIXME: There is little benefit in keeping DllImport as a separate header.
+  // The majority of its uses already include Rtypes.h which includes DllImport.
+  module "DllImport.h" { header "DllImport.h" export * }
+
+  export *
+}
+
+module ROOT_Rtypes {
+  module "RtypesCore.h" { header "RtypesCore.h" export * }
+}
+
+// This module contains header files from module Core which do not need -frtti.
+// They are mainly needed for ROOT stage1 build.
+module ROOT_Foundation_Stage1_NoRTTI  {
+  module "ESTLType.h" { header "ESTLType.h" export * }
+  module "ROOT/RStringView.hxx" {
+    // RWrap_libcpp_string_view.h is meant to be included only by ROOT/RStringView.hxx
+    textual header "ROOT/RWrap_libcpp_string_view.h"
+    header "ROOT/RStringView.hxx"
+    export *
+  }
+  // Varargs contains a lot of macros for supporting the obsolete va_args.
+  // FIXME: We may want to drop this when we reimplement all uses to use variadic
+  // templates.
+  module "Varargs.h" { header "Varargs.h" export * }
+  module "TClassEdit.h" { header "TClassEdit.h" export * }
+  module "TIsAProxy.h" { header "TIsAProxy.h" export * }
+  module "TVirtualIsAProxy.h" { header "TVirtualIsAProxy.h" export * }
+  module "TException.h" { header "TException.h" export * }
+
+  export *
+}
+
+// Some frameworks include gl.h or gltypes.h (eg. Cocoa) and thus we cannot build
+// this module as part of the ROOT. The only way is either by outlining it here
+// or relying on fragile module ordering (eg. order before things such as Cocoa.h
+// including gltypes.h.
+// FIXME: The resolution of https://llvm.org/bugs/show_bug.cgi?id=30508 is not
+// enough, we need to downgrade the errors to warnings coming from 'module * { export * }'
+// when there is no folder GL or contents in it.
+// module ROOT_Glew {
+  // Depending on the platform we get some of these three installed.
+  module "glew.h" { header "GL/glew.h" export * }
+  module "wglew.h" { header "GL/wglew.h" export * }
+  module "glxew.h" { header "GL/glxew.h" export * }
+//  link "lib/libGLEW.so"
+//}
+
+// We have a few c files scattered all over graf3d. We need to have a module
+// which is built in C mode, to prevent trying to build the entire Graf3d module
+// within a C context.
+module "Graf3D.X3DBuffer.h_C" {
+  requires !cplusplus
+  header "X3DBuffer.h"
+  export *
+}
+
+// From this point on the contents of this file are automatically generated.
+module "ThreadLegacy" {
+  requires cplusplus
+  module "TWin32Condition.h" { header "TWin32Condition.h" export * }
+  module "TWin32Mutex.h" { header "TWin32Mutex.h" export * }
+  module "TWin32Thread.h" { header "TWin32Thread.h" export * }
+  module "TWin32ThreadFactory.h" { header "TWin32ThreadFactory.h" export * }
+  module "TCondition.h" { header "TCondition.h" export * }
+  module "TConditionImp.h" { header "TConditionImp.h" export * }
+  module "TMutex.h" { header "TMutex.h" export * }
+  module "TMutexImp.h" { header "TMutexImp.h" export * }
+  module "TThreadFactory.h" { header "TThreadFactory.h" export * }
+  module "TThread.h" { header "TThread.h" export * }
+  module "TThreadImp.h" { header "TThreadImp.h" export * }
+  module "ROOT/TReentrantRWLock.hxx" { header "ROOT/TReentrantRWLock.hxx" export * }
+  module "ROOT/TSpinMutex.hxx" { header "ROOT/TSpinMutex.hxx" export * }
+  link "libThreadLegacy.dll"
+  export *
+}
+
+module "CoreLegacy" {
+  requires cplusplus
+  module "Bytes.h" { header "Bytes.h" export * }
+  module "Byteswap.h" { header "Byteswap.h" export * }
+  module "Riostream.h" { header "Riostream.h" export * }
+  module "Rtypes.h" { header "Rtypes.h" export * }
+  module "TApplication.h" { header "TApplication.h" export * }
+  module "TBuffer.h" { header "TBuffer.h" export * }
+  module "TDatime.h" { header "TDatime.h" export * }
+  module "TDirectory.h" { header "TDirectory.h" export * }
+  module "TEnv.h" { header "TEnv.h" export * }
+  module "TError.h" { header "TError.h" export * }
+  module "TException.h" { header "TException.h" export * }
+  module "TInetAddress.h" { header "TInetAddress.h" export * }
+  module "TMathBase.h" { header "TMathBase.h" export * }
+  module "TMD5.h" { header "TMD5.h" export * }
+  module "TMemberInspector.h" { header "TMemberInspector.h" export * }
+  module "TNamed.h" { header "TNamed.h" export * }
+  module "TObject.h" { header "TObject.h" export * }
+  module "TObjString.h" { header "TObjString.h" export * }
+  module "TProcessID.h" { header "TProcessID.h" export * }
+  module "TProcessUUID.h" { header "TProcessUUID.h" export * }
+  module "TRegexp.h" { header "TRegexp.h" export * }
+  module "TROOT.h" { header "TROOT.h" export * }
+  module "TStorage.h" { header "TStorage.h" export * }
+  module "TString.h" { header "TString.h" export * }
+  module "TSysEvtHandler.h" { header "TSysEvtHandler.h" export * }
+  module "TSystem.h" { header "TSystem.h" export * }
+  module "TThreadSlots.h" { header "TThreadSlots.h" export * }
+  module "TTime.h" { header "TTime.h" export * }
+  module "TTimeStamp.h" { header "TTimeStamp.h" export * }
+  module "TUrl.h" { header "TUrl.h" export * }
+  module "TUUID.h" { header "TUUID.h" export * }
+  module "TVersionCheck.h" { header "TVersionCheck.h" export * }
+  module "TVirtualMutex.h" { header "TVirtualMutex.h" export * }
+  module "TVirtualRWMutex.h" { header "TVirtualRWMutex.h" export * }
+  module "TArrayC.h" { header "TArrayC.h" export * }
+  module "TArray.h" { header "TArray.h" export * }
+  module "TBits.h" { header "TBits.h" export * }
+  module "TClassTable.h" { header "TClassTable.h" export * }
+  module "TCollection.h" { header "TCollection.h" export * }
+  module "TCollectionProxyInfo.h" { header "TCollectionProxyInfo.h" export * }
+  module "TExMap.h" { header "TExMap.h" export * }
+  module "THashList.h" { header "THashList.h" export * }
+  module "THashTable.h" { header "THashTable.h" export * }
+  module "TIterator.h" { header "TIterator.h" export * }
+  module "TList.h" { header "TList.h" export * }
+  module "TMap.h" { header "TMap.h" export * }
+  module "TObjArray.h" { header "TObjArray.h" export * }
+  module "TObjectTable.h" { header "TObjectTable.h" export * }
+  module "TOrdCollection.h" { header "TOrdCollection.h" export * }
+  module "TSeqCollection.h" { header "TSeqCollection.h" export * }
+  module "TVirtualCollectionProxy.h" { header "TVirtualCollectionProxy.h" export * }
+  module "RStringView.h" { header "RStringView.h" export * }
+  module "ROOT/RMakeUnique.hxx" { header "ROOT/RMakeUnique.hxx" export * }
+  module "ROOT/RSpan.hxx" { header "ROOT/RSpan.hxx" export * }
+  module "ROOT/TypeTraits.hxx" { header "ROOT/TypeTraits.hxx" export * }
+  module "TWinNTSystem.h" { header "TWinNTSystem.h" export * }
+  module "root_std_complex.h" { header "root_std_complex.h" export * }
+  module "TClingRuntime.h" { header "TClingRuntime.h" export * }
+  module "TBaseClass.h" { header "TBaseClass.h" export * }
+  module "TClassGenerator.h" { header "TClassGenerator.h" export * }
+  module "TClass.h" { header "TClass.h" export * }
+  module "TClassRef.h" { header "TClassRef.h" export * }
+  module "TClassStreamer.h" { header "TClassStreamer.h" export * }
+  module "TDataMember.h" { header "TDataMember.h" export * }
+  module "TDataType.h" { header "TDataType.h" export * }
+  module "TDictAttributeMap.h" { header "TDictAttributeMap.h" export * }
+  module "TDictionary.h" { header "TDictionary.h" export * }
+  module "TEnumConstant.h" { header "TEnumConstant.h" export * }
+  module "TEnum.h" { header "TEnum.h" export * }
+  module "TFunction.h" { header "TFunction.h" export * }
+  module "TFunctionTemplate.h" { header "TFunctionTemplate.h" export * }
+  module "TGenericClassInfo.h" { header "TGenericClassInfo.h" export * }
+  module "TGlobal.h" { header "TGlobal.h" export * }
+  module "TInterpreter.h" { header "TInterpreter.h" export * }
+  module "TInterpreterValue.h" { header "TInterpreterValue.h" export * }
+  module "TListOfDataMembers.h" { header "TListOfDataMembers.h" export * }
+  module "TListOfEnums.h" { header "TListOfEnums.h" export * }
+  module "TListOfEnumsWithLock.h" { header "TListOfEnumsWithLock.h" export * }
+  module "TListOfFunctions.h" { header "TListOfFunctions.h" export * }
+  module "TListOfFunctionTemplates.h" { header "TListOfFunctionTemplates.h" export * }
+  module "TMemberStreamer.h" { header "TMemberStreamer.h" export * }
+  module "TMethodArg.h" { header "TMethodArg.h" export * }
+  module "TMethod.h" { header "TMethod.h" export * }
+  module "TProtoClass.h" { header "TProtoClass.h" export * }
+  module "TRealData.h" { header "TRealData.h" export * }
+  module "TStreamerElement.h" { header "TStreamerElement.h" export * }
+  module "TStreamer.h" { header "TStreamer.h" export * }
+  module "TVirtualStreamerInfo.h" { header "TVirtualStreamerInfo.h" export * }
+  module "Getline.h" { header "Getline.h" export * }
+  link "libCoreLegacy.dll"
+  export *
+}
+
+module "RIOLegacy" {
+  requires cplusplus
+  module "TBufferFile.h" { header "TBufferFile.h" export * }
+  module "TBufferIO.h" { header "TBufferIO.h" export * }
+  module "TCollectionProxyFactory.h" { header "TCollectionProxyFactory.h" export * }
+  module "TContainerConverters.h" { header "TContainerConverters.h" export * }
+  module "TEmulatedMapProxy.h" { header "TEmulatedMapProxy.h" export * }
+  module "TEmulatedCollectionProxy.h" { header "TEmulatedCollectionProxy.h" export * }
+  module "TDirectoryFile.h" { header "TDirectoryFile.h" export * }
+  module "TFree.h" { header "TFree.h" export * }
+  module "TFile.h" { header "TFile.h" export * }
+  module "TGenCollectionStreamer.h" { header "TGenCollectionStreamer.h" export * }
+  module "TGenCollectionProxy.h" { header "TGenCollectionProxy.h" export * }
+  module "TKey.h" { header "TKey.h" export * }
+  module "TMemFile.h" { header "TMemFile.h" export * }
+  module "TStreamerInfoActions.h" { header "TStreamerInfoActions.h" export * }
+  module "TVirtualCollectionIterators.h" { header "TVirtualCollectionIterators.h" export * }
+  module "TStreamerInfo.h" { header "TStreamerInfo.h" export * }
+  module "TVirtualArray.h" { header "TVirtualArray.h" export * }
+  link "libRIOLegacy.dll"
+  export *
+}
+
