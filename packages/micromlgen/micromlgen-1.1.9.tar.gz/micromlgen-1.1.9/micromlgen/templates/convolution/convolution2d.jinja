@@ -1,0 +1,18 @@
+void convolution2d{{ suffix }}(float input[{{ H }}][{{ W }}], float output[{{ H }}][{{ W }}]) {
+    float kernel[{{ kernel|length }}][{{ kernel[0]|length }}] = {
+        {% for kernel_row in kernel %} { {% for k in kernel_row %}{{ k }}, {% endfor %} },
+        {% endfor %}
+    };
+
+    for (int y = 1; y < {{ H }} - 1; y++) {
+        for (int x = 1; x < {{ W }} - 1; x++) {
+            float sum = 0;
+
+            {% for i in range(-k, k + 1) %}
+                sum += {% for j in range(-k, k + 1) %}input[y{{ f.signed(i) }}][x{{ f.signed(j) }}] + {% endfor %} 0;
+            {% endfor %}
+
+            output[y][x] = sum;
+        }
+    }
+}

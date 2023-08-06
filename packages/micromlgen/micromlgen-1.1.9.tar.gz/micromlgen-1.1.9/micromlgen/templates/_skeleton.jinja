@@ -1,0 +1,26 @@
+#pragma once
+
+namespace Eloquent {
+    namespace ML {
+        namespace Port {
+            class {{ classname }} {
+                public:
+
+                    /**
+                     * Predict class for features vector
+                     */
+                    int predict(float *x) {
+                        {% block predict %}{% endblock %}
+                    }
+
+                    {% include 'classmap.jinja' %}
+
+                    {% block public %}{% endblock %}
+
+                protected:
+
+                    {% block protected %}{% endblock %}
+            };
+        }
+    }
+}
