@@ -1,0 +1,7 @@
+-- Ran query on: 2020-08-29 16:59:12
+-- Parameters: {'f_names': ('John', 'Terry', 'Eric', 'Terry', 'Michael', 'Graham'), 'last_name': 'Chapman'}
+SELECT top 10 * from pythons
+
+where first_name in ('John', 'Terry', 'Eric', 'Terry', 'Michael', 'Graham')
+
+or last_name = 'Chapman';
