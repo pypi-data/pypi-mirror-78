@@ -1,0 +1,7 @@
+
+        [ckan.plugins]
+        datasetpreview=ckanext.datasetpreview.plugin:DatasetpreviewPlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+    
