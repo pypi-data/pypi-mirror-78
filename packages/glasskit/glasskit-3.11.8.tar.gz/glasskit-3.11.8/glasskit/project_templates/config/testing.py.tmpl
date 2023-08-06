@@ -1,0 +1,42 @@
+documents_per_page = 10
+app_secret_key = "_some_secret_key_"
+
+flask_settings = {
+    "SESSION_COOKIE_NAME": "_{{ appname }}_tst_session_id",
+    "SESSION_COOKIE_HTTPONLY": True,
+    "SESSION_COOKIE_SAMESITE": "Lax",
+}
+
+session_expiration_time = 86400 * 7 * 2  # 2 weeks
+
+pymongo_extra = {
+    "serverSelectionTimeoutMS": 1100,
+    "socketTimeoutMS": 1100,
+    "connectTimeoutMS": 1100,
+}
+
+database = {
+    "meta": {
+        "uri": "mongodb://localhost/{{ appname }}_test_meta",
+        "pymongo_extra": pymongo_extra,
+    },
+    "shards": {}
+}
+
+queue = {
+    "type": "mongo",
+    "host": "localhost",
+    "port": 6379,
+    "dbname": 0,
+    "channel": "gkq"
+}
+
+log_level = "debug"
+log_format = "[%(asctime)s] %(levelname)s\t%(module)-8.8s:%(lineno)-3d %(request_id)-8s %(message)s"
+debug = False
+
+# memcache_backends = [
+#     'host1:11211',
+#     'host2:11211',
+#     'host3:11211',
+# ]
