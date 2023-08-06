@@ -1,0 +1,10 @@
+digraph Network {
+	graph [rankdir=LR]
+	dpi=300
+	size="4,8"
+	ContactWater [fillcolor=azure shape=oval style=filled width=1.2]
+	Comp [fillcolor=cyan3 shape=rectangle style=filled width=1.2]
+	Compost [fillcolor=azure shape=oval style=filled width=1.2]
+	Comp -> Compost [color=black]
+	Comp -> ContactWater [color=black]
+}
