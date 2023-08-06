@@ -1,0 +1,1 @@
+from yj.yj import YJ
