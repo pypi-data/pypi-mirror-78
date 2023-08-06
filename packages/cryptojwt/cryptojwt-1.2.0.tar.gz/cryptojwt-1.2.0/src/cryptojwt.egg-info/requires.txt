@@ -1,0 +1,17 @@
+cryptography
+requests
+
+[docs]
+Sphinx
+sphinx-autobuild
+alabaster
+
+[quality]
+isort>=5.0.2
+black
+
+[testing]
+responses
+pytest
+isort>=5.0.2
+black
