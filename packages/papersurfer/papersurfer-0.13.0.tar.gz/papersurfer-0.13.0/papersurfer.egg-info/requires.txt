@@ -1,0 +1,17 @@
+requests
+mattermostdriver
+urwid
+configargparse
+tinydb
+dataclasses
+xdgappdirs
+
+[dev]
+flake8
+pylint==2.4.4
+pycodestyle
+pydocstyle
+twine
+pytest
+pytest-cov
+pytest-datadir
