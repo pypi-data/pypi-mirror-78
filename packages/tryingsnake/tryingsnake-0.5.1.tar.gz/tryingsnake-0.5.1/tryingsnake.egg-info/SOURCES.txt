@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+tryingsnake/__init__.py
+tryingsnake/__init__.pyi
+tryingsnake/curried.py
+tryingsnake/curried.pyi
+tryingsnake/py.typed
+tryingsnake.egg-info/PKG-INFO
+tryingsnake.egg-info/SOURCES.txt
+tryingsnake.egg-info/dependency_links.txt
+tryingsnake.egg-info/not-zip-safe
+tryingsnake.egg-info/top_level.txt
+tryingsnake/test/__init__.py
+tryingsnake/test/test_curried_try.py
+tryingsnake/test/test_try.py
