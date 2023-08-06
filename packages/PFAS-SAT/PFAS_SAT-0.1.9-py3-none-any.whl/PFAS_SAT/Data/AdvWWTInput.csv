@@ -1,0 +1,12 @@
+Category,Dictonary_Name,Parameter,Name,amount,unit,uncertainty_type,loc,scale,shape,minimum,maximum,Reference,Comment
+Treatment option,Trtmnt_optn,frac_to_RO,Fraction of incoming PFAS-containing water to RO,0.5,fraction,,,,,,,,
+Treatment option,Trtmnt_optn,frac_to_GAC,Fraction of  incoming PFAS-containing water to GAC,0.5,fraction,,,,,,,,
+RO paramteres,RO,frac_PFAS_rem_eff,PFAS removal efficiency,0.99,fraction,,,,,,,,
+RO paramteres,RO,ts_rem_med,Solids content of removal media - wet,0.9,fraction,,,,,,,,
+RO paramteres,RO,rem_med_conc_pfas,PFAS concentration of media at time of disposal,1000,mg/L,,,,,,,,
+RO paramteres,RO,frac_effl_rem_med,fraction of effluent that goes to the removal media,0.05,fraction,,,,,,,,
+GAC paramteres,GAC,frac_PFAS_rem_eff,PFAS removal efficiency,0.99,fraction,,,,,,,,
+GAC paramteres,GAC,ts_rem_med_GAC,Solids content of removal media - wet,0.9,fraction,,,,,,,,
+GAC paramteres,GAC,GAC_dens,GAC bed density,500,kg/m3,,,,,,,,GAC bed density is typically ~500 kg/m3
+GAC paramteres,GAC,Bed_vol_ratio,Bed volumes: V(H2O)/V(GAC),5000,ratio,,,,,,,,Typically in the thousands to ten thousands
+GAC paramteres,GAC,frac_effl_rem_med,fraction of effluent that goes to the removal media,0.01,fraction,,,,,,,,
