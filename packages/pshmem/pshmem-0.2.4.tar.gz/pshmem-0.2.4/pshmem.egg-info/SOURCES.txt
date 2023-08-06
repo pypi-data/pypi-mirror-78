@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+pshmem/__init__.py
+pshmem/_version.py
+pshmem/locking.py
+pshmem/shmem.py
+pshmem/test.py
+pshmem/utils.py
+pshmem.egg-info/PKG-INFO
+pshmem.egg-info/SOURCES.txt
+pshmem.egg-info/dependency_links.txt
+pshmem.egg-info/requires.txt
+pshmem.egg-info/top_level.txt
