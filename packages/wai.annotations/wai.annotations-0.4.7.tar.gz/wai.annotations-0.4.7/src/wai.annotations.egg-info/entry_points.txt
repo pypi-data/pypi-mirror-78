@@ -1,0 +1,32 @@
+[console_scripts]
+convert-annotations = wai.annotations.main:sys_main
+
+[wai.annotations.plugins]
+check-duplicate-filenames = wai.annotations.isp.specifiers:DuplicateFileNamesISPSpecifier
+coerce-box = wai.annotations.isp.specifiers:BoxBoundsCoercionISPSpecifier
+coerce-mask = wai.annotations.isp.specifiers:MaskBoundsCoercionISPSpecifier
+convert-image-format = wai.annotations.isp.specifiers:ConvertImageFormatISPSpecifier
+dimension-discarder = wai.annotations.isp.specifiers:DimensionDiscarderISPSpecifier
+discard-negatives = wai.annotations.isp.specifiers:DiscardNegativesISPSpecifier
+filter-labels = wai.annotations.isp.specifiers:FilterLabelsISPSpecifier
+from-adams-ic = wai.annotations.format.specifiers:ADAMSICInputFormatSpecifier
+from-adams-od = wai.annotations.format.specifiers:ADAMSODInputFormatSpecifier
+from-coco = wai.annotations.format.specifiers:COCOInputFormatSpecifier
+from-common-voice = wai.annotations.format.specifiers:CommonVoiceInputFormatSpecifier
+from-festvox = wai.annotations.format.specifiers:FestVoxInputFormatSpecifier
+from-roi = wai.annotations.format.specifiers:ROIInputFormatSpecifier
+from-subdir = wai.annotations.format.specifiers:SubDirInputFormatSpecifier
+from-tfrecords = wai.annotations.format.specifiers:TFRecordsInputFormatSpecifier
+from-vgg = wai.annotations.format.specifiers:VGGInputFormatSpecifier
+map-labels = wai.annotations.isp.specifiers:MapLabelsISPSpecifier
+passthrough = wai.annotations.isp.specifiers:PassThroughISPSpecifier
+to-adams-ic = wai.annotations.format.specifiers:ADAMSICOutputFormatSpecifier
+to-adams-od = wai.annotations.format.specifiers:ADAMSODOutputFormatSpecifier
+to-coco = wai.annotations.format.specifiers:COCOOutputFormatSpecifier
+to-common-voice = wai.annotations.format.specifiers:CommonVoiceOutputFormatSpecifier
+to-festvox = wai.annotations.format.specifiers:FestVoxOutputFormatSpecifier
+to-roi = wai.annotations.format.specifiers:ROIOutputFormatSpecifier
+to-subdir = wai.annotations.format.specifiers:SubDirOutputFormatSpecifier
+to-tfrecords = wai.annotations.format.specifiers:TFRecordsOutputFormatSpecifier
+to-vgg = wai.annotations.format.specifiers:VGGOutputFormatSpecifier
+
