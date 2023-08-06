@@ -1,0 +1,3 @@
+[console_scripts]
+parse-hlk = siv.scripts.parsehlk.commandline:main
+

@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: SivScriptsParsehlk
+Version: 1.2.0
+Summary: Convert HLK test result logs from XML format  to csv format
+Home-page: UNKNOWN
+Author: Komal
+Author-email: komalpreetx.kaur@intel.com
+License: Commercial
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: xmltodict
+Requires-Dist: sqlalchemy
+Requires-Dist: Fernet
+Requires-Dist: cryptography
+Requires-Dist: mysql.connector
+
+UNKNOWN
+
+
