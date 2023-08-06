@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: jaraco.test
+Version: 3.0.0
+Summary: Testing support by jaraco
+Home-page: https://github.com/jaraco/jaraco.test
+Author: Jason R. Coombs
+Author-email: jaraco@jaraco.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Framework :: Pytest
+Requires-Python: >=3.6
+Requires-Dist: toml
+Requires-Dist: jaraco.functools
+Requires-Dist: jaraco.context
+Requires-Dist: more-itertools
+Requires-Dist: jaraco.collections
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: jaraco.packaging (>=3.2) ; extra == 'docs'
+Requires-Dist: rst.linker (>=1.9) ; extra == 'docs'
+Provides-Extra: testing
+Requires-Dist: pytest (!=3.7.3,>=3.5) ; extra == 'testing'
+Requires-Dist: pytest-checkdocs (>=1.2.3) ; extra == 'testing'
+Requires-Dist: pytest-flake8 ; extra == 'testing'
+Requires-Dist: pytest-black (>=0.3.7) ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+Requires-Dist: pytest-mypy ; extra == 'testing'
+
+.. image:: https://img.shields.io/pypi/v/jaraco.test.svg
+   :target: `PyPI link`_
+
+.. image:: https://img.shields.io/pypi/pyversions/jaraco.test.svg
+   :target: `PyPI link`_
+
+.. _PyPI link: https://pypi.org/project/jaraco.test
+
+.. image:: https://dev.azure.com/jaraco/jaraco.test/_apis/build/status/jaraco.jaraco.test?branchName=master
+   :target: https://dev.azure.com/jaraco/jaraco.test/_build/latest?definitionId=1&branchName=master
+
+.. image:: https://img.shields.io/travis/jaraco/jaraco.test/master.svg
+   :target: https://travis-ci.org/jaraco/jaraco.test
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/psf/black
+   :alt: Code style: Black
+
+.. .. image:: https://img.shields.io/appveyor/ci/jaraco/jaraco-test/master.svg
+..    :target: https://ci.appveyor.com/project/jaraco/jaraco-test/branch/master
+
+.. .. image:: https://readthedocs.org/projects/jaracotest/badge/?version=latest
+..    :target: https://jaracotest.readthedocs.io/en/latest/?badge=latest
+
+
