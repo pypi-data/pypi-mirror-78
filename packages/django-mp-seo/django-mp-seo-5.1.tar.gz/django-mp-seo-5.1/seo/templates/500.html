@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+
+{% block meta_title %}500 - {% trans 'Server error. Please contact administrator.' %}{% endblock %}
+
+{% block meta_robots %}noindex, nofollow{% endblock %}
+
+
+{% block wrapper %}
+    <div class="container p-t-30 p-b-30">
+
+        <div class="text-center">
+            <h1>500</h1>
+
+            <p>{% trans 'Server error. Please contact administrator.' %}</p>
+
+            <a href="{% url 'home' %}">
+                <i class="fa fa-home"></i> {% trans 'Go to home page' %}
+            </a>
+        </div>
+
+    </div>
+{% endblock %}
