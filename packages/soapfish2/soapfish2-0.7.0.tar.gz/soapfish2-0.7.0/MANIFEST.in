@@ -1,0 +1,9 @@
+include *.ini *.md *.py *.rst *.txt LICENSE
+graft docs
+graft examples
+graft soapfish
+graft tests
+prune docs/_build
+prune *.egg-info
+exclude build dist
+global-exclude *.py[co] .*.sw?
