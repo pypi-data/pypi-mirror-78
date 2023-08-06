@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: residual-anomaly-detector
+Version: 0.0.1
+Summary: Anomaly Detector on the basic assumption that high residuals of surrogate models can be indicative of anomalous behavior
+Home-page: https://github.com/eliavw
+Author: Elia vw
+Author-email: elia.vw@gmail.com
+License: mit
+Project-URL: Documentation, https://github.com/eliavw
+Description: # residual-anomaly-detector
+        
+        Add a short description here!
+        
+        ## Description
+        
+        A longer description of your project goes here...
+        
+        ## Usage
+        
+        For a local install, `cd` to the root of this repository and simply; 
+        
+        ```
+        python setup.py develop
+        ```
+        
+        ## Documentation
+        
+        Documentation should be available at [https://eliavw.github.io/residual-anomaly-detector](https://eliavw.github.io/residual-anomaly-detector).
+        
+        ## Administration
+        
+        Open the folder [note/deploy](./note/deploy) for notebooks that contain annotated scripts for the different administrative tasks you may want to undertake with this software project.
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: testing
