@@ -1,0 +1,46 @@
+{% extends "fn_station/base.html" %}
+{% block body %}
+
+
+<header class="title">
+  <h1>Query History</h1>
+</header>
+
+<form class="query-table-form">
+  <table class="query-table">
+    <thead>
+      <tr>
+      {% for column in columns %}
+        <th> {{column.label}} </th>
+      {% endfor %}
+      </tr>
+      <tr>
+      {% for column in columns %}
+        <th> <input name="{{column.name}}" 
+                    type="{{column.type or 'text'}}" 
+                    value="{{column.value or ''}}"
+                    placeholder="{{column.placeholder or ''}}"
+                    > 
+        </th>
+      {% endfor %}
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for query in queries %}
+        <tr>
+          <td><a href="/query/{{ query.id }}" target="_blank">{{ query.id }}</a></td>
+          <td>{{ query.composer_name or ""}}</td>
+          <td>{{ query.client_id }}</td>
+          <td>{{ query.user or "" }}</td>
+          <td>{{ query.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="table-footer">
+    Page <input name='page' value='{{page}}' type="number" min=1 max={{num_pages}}> of {{num_pages}}
+    <button>Filter</button>
+  </div>
+  </form>
+{% endblock %}

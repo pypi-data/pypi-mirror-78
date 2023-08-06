@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "fn_station"
+version = "0.5.0"
+description = ""
+authors = ["James Saunders <james@businessoptics.biz>", "Alex Hall"]
+
+[tool.poetry.dependencies]
+python = ">=3.7,<4.0"
+fn_graph_studio = "*"
+sqlalchemy = "^1.3.13"
+psycopg2 = "^2.8.4"
+flask-scss = "^0.5"
+instant_api = "*"
+
+[tool.poetry.dev-dependencies]
+black = { version = "^18.3-alpha.0", allow-prereleases = true }
+pytest = "^5.3"
+jupyter = "^1.0"
+matplotlib = "^3.1"
+pygraphviz = "^1.5"
+watchdog = "^0.10.2"
+
+[tool.dephell.main]
+from = { format = "poetry", path = "pyproject.toml" }
+to = { format = "setuppy", path = "setup.py" }
+
+[build-system]
+requires = ["poetry>=0.12.17"]
+build-backend = "poetry.masonry.api"
