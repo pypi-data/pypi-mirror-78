@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: sportpursuit
+Version: 0.0.2
+Summary: A package containing key sp functions
+Home-page: https://github.com/georgebiggs/sp_py_pkg
+Author: georgebiggs
+Author-email: george.biggs@sportpursuit.com
+License: UNKNOWN
+Description: # sportpursuit
+        
+        # This is the official Sportpursuit Python Package
+        
+        # Currently primarily contains functions for getting data from Redshift but will be extended in the future
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
