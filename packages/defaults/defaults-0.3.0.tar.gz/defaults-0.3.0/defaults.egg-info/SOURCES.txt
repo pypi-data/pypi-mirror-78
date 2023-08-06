@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+_tests/__init__.py
+_tests/other_module.py
+defaults.egg-info/PKG-INFO
+defaults.egg-info/SOURCES.txt
+defaults.egg-info/dependency_links.txt
+defaults.egg-info/requires.txt
+defaults.egg-info/top_level.txt
+defaults.egg-info/zip-safe
+hparams/__init__.py
+hparams/hparams.py
+hparams/py.typed
