@@ -1,0 +1,9 @@
+[chaostoolkit.cli_plugins]
+disable = chaoscloud.cli:disable
+enable = chaoscloud.cli:enable
+org = chaoscloud.cli:org
+publish = chaoscloud.cli:publish
+signin = chaoscloud.cli:signin
+team = chaoscloud.cli:team
+verify = chaoscloud.cli:verify
+

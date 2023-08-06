@@ -1,0 +1,10 @@
+chaostoolkit-lib~=1.13
+#-e git://github.com/chaostoolkit/chaostoolkit-lib.git@refactor-run-experiment#egg=chaostoolkit-lib
+chaostoolkit~=1.7
+click~=7.0
+logzero~=1.5
+requests~=2.21
+simplejson~=3.16
+pyyaml~=5.0
+tzlocal~=1.5
+cloudevents~=0.2
