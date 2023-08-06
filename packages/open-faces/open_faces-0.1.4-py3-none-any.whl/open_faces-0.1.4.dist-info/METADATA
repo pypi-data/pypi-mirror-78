@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: open-faces
+Version: 0.1.4
+Summary: Open Faces Toolkit
+Home-page: https://github.com/CachCheng/OpenFaces
+Author: CachCheng
+Author-email: tkggpdc2007@163.com
+License: Apache-2.0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: gdown
+Requires-Dist: opencv-python
+Requires-Dist: flask
+Requires-Dist: Pillow
+Requires-Dist: dlib
+Requires-Dist: keras
+Requires-Dist: tensorflow
+
+# Open-Faces
+
+Open-Faces 是一个应用于实际项目的计算机人脸相关算法开发工具包，方便项目快速部署，缩短开发周期。
+
+## Demo
+[立即体验](http://192.168.0.175:8051/)
+
+## Installation
+
+使用pip安装
+
+```bash
+pip install open-faces
+```
+
+
