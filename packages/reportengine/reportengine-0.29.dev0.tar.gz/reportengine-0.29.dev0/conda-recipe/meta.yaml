@@ -1,0 +1,41 @@
+package:
+  name: reportengine
+  version: "{{ GIT_DESCRIBE_TAG[1:] }}.{{ GIT_DESCRIBE_NUMBER }}"
+
+source:
+    git_url: ../
+
+build:
+    script: "flit install"
+
+requirements:
+  host:
+    - python
+    - flit
+
+
+  run:
+    - python
+    - jinja2
+    - ruamel_yaml =0.15
+    - matplotlib
+    - pandas >=1
+    - pygments
+    - blessings
+    - curio =0.9
+    - pandoc >=2
+
+test:
+    requires:
+        - pytest
+        - hypothesis
+
+    commands:
+        - py.test --pyargs reportengine
+
+
+about:
+  home: https://github.com/NNPDF/reportengine
+  license: GPL
+  summary: 'A general purpose report generator'
+
