@@ -1,0 +1,14 @@
+requests
+colorama
+
+[dev]
+prospector[with_pyroma]
+yapf
+bumpversion
+pytest
+pytest-cov
+pycodestyle
+pytest-runner
+
+[publishing]
+twine
