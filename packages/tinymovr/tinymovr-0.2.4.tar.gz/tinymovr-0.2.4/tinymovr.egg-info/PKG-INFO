@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: tinymovr
+Version: 0.2.4
+Summary: Tinymovr Studio
+Home-page: https://github.com/yconst/Tinymovr
+Author: Yannis Chatzikonstantinou
+Author-email: info@tinymovr.com
+License: UNKNOWN
+Description: ## Tinymovr Studio Python
+        
+        This is the Python client library and application that allows easy interfacing with the Tinymovr motor control board.
+        
+        ### Installing using pip
+        
+        This is the most straightforward method to install Tinymovr studio and have access to hardware.
+        
+            pip install tinymovr
+        
+        ### Installing using git clone
+        
+        First clone the Tinymovr repo to a local directory:
+        
+            git clone https://github.com/yconst/Tinymovr
+        
+        Then cd to the cloned repo directory and install in developer mode:
+        
+            cd Tinymovr/studio/Python
+            pip install -e .
+        
+        ### Launching the command line app
+        
+            tinymovr
+        
+        ### More information
+        
+        For documentation:
+        
+        https://tinymovr.readthedocs.io
+        
+        For more information on Tinymovr:
+        
+        https://hackaday.io/project/168650-tinymovr-motor-controller
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
