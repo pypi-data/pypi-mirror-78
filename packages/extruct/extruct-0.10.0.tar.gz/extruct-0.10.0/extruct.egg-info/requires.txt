@@ -1,0 +1,11 @@
+lxml
+rdflib<5.0.0
+rdflib-jsonld
+mf2py
+w3lib
+html-text>=0.5.1
+six
+jstyleson
+
+[cli]
+requests
