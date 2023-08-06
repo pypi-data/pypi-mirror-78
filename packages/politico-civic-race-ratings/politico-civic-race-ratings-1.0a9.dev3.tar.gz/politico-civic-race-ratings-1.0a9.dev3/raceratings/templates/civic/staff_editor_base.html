@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8">
+    <title>{% block page_title %}{% endblock page_title %}</title>
+
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="https://www.politico.com/interactives/cdn/fonts/battletoads/icons/politico-battletoads-icons.min.css">
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      {% block civic_branding %}
+          <b class="bt-icon bt-icon--politico"></b>
+      {% endblock civic_branding %}
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+  </body>
+
+  {% block javascript %}
+  {% endblock javascript %}
+</html>
