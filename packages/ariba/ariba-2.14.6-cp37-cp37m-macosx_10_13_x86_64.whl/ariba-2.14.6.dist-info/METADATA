@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: ariba
+Version: 2.14.6
+Summary: ARIBA: Antibiotic Resistance Identification By Assembly
+Home-page: https://github.com/sanger-pathogens/ariba
+Author: Martin Hunt
+Author-email: ariba-help@sanger.ac.uk
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Dist: BeautifulSoup4 (>=4.1.0)
+Requires-Dist: biopython
+Requires-Dist: dendropy (>=4.2.0)
+Requires-Dist: pyfastaq (>=3.12.0)
+Requires-Dist: pysam (>=0.9.1)
+Requires-Dist: pymummer (<=0.10.3)
+Requires-Dist: matplotlib (>=3.1.0)
+
+UNKNOWN
+
+
