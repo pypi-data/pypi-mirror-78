@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pyQuASAR_genotype
+Version: 0.1.7
+Summary: Command line tool for genotyping with QuASAR
+Home-page: https://github.com/anthony-aylward/pyQuASAR_genotype.git
+Author: Anthony Aylward
+Author-email: aaylward@eng.ucsd.edu
+License: UNKNOWN
+Description: # pyQuASAR_genotype
+        Command line tool for genotyping with QuASAR. Infer genotypes from ChIP-seq or
+        ATAC-seq data.
+        
+        ## Installation
+        
+        First, follow the installation steps for [pyQuASAR](https://github.com/anthony-aylward/pyQuASAR) and [wasp_map](https://github.com/anthony-aylward/wasp_map). Then:
+        
+        ```sh
+        pip3 install pyQuASAR_genotype
+        ```
+        or
+        ```sh
+        pip3 install --user pyQuASAR_genotype
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
