@@ -1,0 +1,274 @@
+Metadata-Version: 2.1
+Name: nob
+Version: 0.5.4
+Summary: Nested OBject manipulations
+Home-page: https://gitlab.com/cerfacs/nob
+Author-email: lapeyre@cerfacs.fr
+License: UNKNOWN
+Keywords: JSON,YAML,Nested Object
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+
+# nob: the Nested OBject manipulator
+
+JSON is a very popular format for nested data exchange, and Object Relational
+Mapping (ORM) is a popular method to help developers make sense of large JSON
+objects, by mapping objects to the data. In some cases however, the nesting
+can be very deep, and difficult to map with objects. This is where nob can be
+useful: it offers a simple set of tools to explore and edit any nested data
+(Python native dicts and lists).
+
+For more, checkout the [home page](https://gitlab.com/cerfacs/nob).
+
+## Usage
+
+### Instantiation
+
+`nob.Nob` objects can be instantiated directly from a Python dictionary:
+
+    n = Nob({
+        'key1': 'val1',
+        'key2': {
+            'key3': 4,
+            'key4': {'key5': 'val2'},
+            'key5': [3, 4, 5]
+            },
+        'key5': 'val3'
+        })
+
+To create a `Nob` from a JSON (or YAML) file, simply read it and feed the data
+to the constructor:
+
+    import json
+    with open('file.json') as fh:
+        n2 = Nob(json.load(fh))
+
+    import yaml
+    with open('file.yml') as fh:
+        n3 = Nob(yaml.load(fh))
+
+Similarly, to create a JSON (YAML) file from a tree, you can use:
+
+    with open('file.json', 'w') as fh:
+        json.dump(n2[:], fh)
+
+    with open('file.yml', 'w') as fh:
+        yaml.dump(n3[:], fh)
+
+### Basic manipulation
+
+The variable `n` now holds a Nob, *i.e* the reference to the actual data.
+However, for many practical cases it is useful to work with a subset of the
+nob. `nob` offers a useful class `NobView` to this end, that handles
+identically for the most part as the main Nob, but changes performed on a
+`NobView` affect the main `Nob` instance that it is linked to. In practice,
+any access to a key of `n` yields a `NobView` instance, *e.g.*:
+
+    nv1 = n['/key1']         # NobView(/key1)
+    nv2 = n['key1']          # NobView(/key1)
+    nv3 = n.key1             # NobView(/key1)
+    nv1 == nv2 == nv3        # True
+
+Note that a *full path* `'/key1'`, as well as a simple key `'key1'` are valid
+identifiers. Simple keys can also be called as attributes, using `n.key1`.
+
+To access the actual value that is stored in the nested object, simply use the `[:]`
+operator:
+
+    nv1[:]                   >>> 'val1'
+    n.key1[:]                >>> 'val1'
+
+To assign a new value to this node, you can do it directly on the NobView instance:
+
+    n.key1 = 'new'
+    nv1[:]                   >>> 'new'
+    n[:]['key1']             >>> 'new'
+
+Of course, because of how Python variables work, you cannot simply assign the value to
+`nv1`, as this would just overwrite it's contents:
+
+    nv1 = 'new'
+    nv1                      >>> 'new'
+    n[:]['key1']             >>> 'val1'
+
+If you find yourself with a `NobView` object that you would like to edit directly,
+you can use the `.set` method:
+
+    nv1 = n.key1
+    nv1.set('new')
+    n[:]['key1']             >>> 'new'
+
+Because nested objects can contain both dicts and lists, integers are sometimes
+needed as keys:
+
+    n['/key2/key5/0']        >>> NobView(/key2/key5/0)
+    n.key2.key5[0]           >>> NobView(/key2/key5/0)
+    n.key2.key5['0']         >>> NobView(/key2/key5/0)
+
+However, since Python does not support attributes starting with an integer, there is
+no attribute support for lists. Only key access (full path, integer index or its
+stringified counterpart) are supported.
+
+Some keywords are reserved, due to the inner workings of `Nob`. To access a key that
+has a name equal to a reserved keyword, use item access (`n['key']` but not `n.key`).
+To view reserved keywords, use:
+
+    n.reserved()             >>> ['_MutableMapping__marker', '_abc_cache', '_abc_negative_cache', '_abc_negative_cache_version', '_abc_registry', '_data', '_find_all', '_find_unique', '_getitem_slice', '_raw_data', '_root', '_tree', 'clear', 'copy', 'find', 'get', 'items', 'keys', 'np_deserialize', 'np_serialize', 'paths', 'pop', 'popitem', 'reserved', 'root', 'setdefault', 'update', 'val', 'values']
+
+### Manipulation summary
+
+The tl;dr of nob manipulation is summarized by 3 rules:
+
+ 1. `n['/path/to/key']` will **always** work
+ 2. `n['key']` will work **if `key` is unambiguous**
+ 3. `n.key` will work if `key` is unambiguous **and** `key` is not a reserved
+    keyword, and key is a legal python attribute (no spaces, doesn't start
+    with a number, no dots...)
+
+So you can use a `Nob` like a nested dictionary at all times (method 1.). Methods
+2 and 3 enable fast access *except when they don't apply*. 
+
+### Smart key access
+
+In a simple nested dictionary, the access to `'key1'` would be simply done with:
+
+    nested_dict['key1']
+
+If you are looking for *e.g.* `key3`, you would need to write:
+
+    nested_dict['key2']['key3']
+
+For deep nested objects however, this can be a chore, and become very difficult to
+read. `nob` helps you here by supplying a smart method for finding unique keys:
+
+    n['key3']                >>> NobView(/key2/key3)
+    n.key3                   >>> NobView(/key2/key3)
+
+Note that attribute access `t.key3` behaves like simple key access `t['key3']`. This
+has some implications when the key is not unique in the tree. Let's say *e.g.* we wish
+to access `key5`. Let's try using attribute access:
+
+    n.key5                   >>> KeyError: Identifier key5 yielded 3 results instead of 1
+
+Oups! Because `key5` is not unique (it appears 3 times in the tree), `t.key5` is not
+specific, and `nob` wouldn't know which one to return. In this instance, we have
+several possibilities, depending on which `key5` we are looking for:
+
+    n.key4.key5              >>> NobView(/key2/key4/key5)
+    n.key2['/key5']          >>> NobView(/key2/key5)
+    n['/key5']               >>> NobView(/key5)
+
+There is a bit to unpack here:
+
+  - The first `key5` is unique in the `NobView` `t.key4` (and `key4` is itself
+    unique), so `t.key4.key5` finds it correctly.
+  - The second is complex: `key2` is unique, but `key5` is still not unique to `t.key2`.
+    There is not much advantage compared to a full path access `t['/key2/key5']`.
+  - The last cannot be resolved using keys in its path, because there are none. The 
+    only solution is to use a full path.
+
+## Other tree tools
+
+**Paths:** any `Nob` (or `NobView`) object can introspect itself to find all its valid paths:
+
+    n.paths                  >>> [Path('/'),
+                                  Path('/key1'),
+                                  Path('/key2'),
+                                  Path('/key2/key3'),
+                                  Path('/key2/key4'),
+                                  Path('/key2/key4/key5'),
+                                  Path('/key2/key5'),
+                                  Path('/key2/key5/0'),
+                                  Path('/key2/key5/1'),
+                                  Path('/key2/key5/2'),
+                                  Path('/key5')]
+
+**Find:** in order to easily search in this path list, the `.find` method is available:
+
+    n.find('key5')           >>> [Path('/key2/key4/key5'),
+                                  Path('/key2/key5'),
+                                  Path('/key5')]
+
+The elements of these lists are not strings, but `Path` objects, as described
+below.
+
+**Iterable:** any tree or tree view is also iterable, yielding its children:
+
+    [nv for nv in n.key2]    >>> [NobView(/key2/key3),
+                                  NobView(/key2/key4),
+                                  NobView(/key2/key5)]
+
+**Copy:** to make an independant copy of a tree, use its `.copy()` method:
+
+    n_cop = n.copy()
+    n == n_cop               >>> True
+    n_cop.key1 = 'new_val'
+    n == n_cop               >>> False
+
+A new standalone tree can also be produced from any tree view:
+
+    n_cop = n.key2.copy()
+    n_cop == n.key2          >>> True
+    n_cop.key3 = 5
+    n_cop == n.key2          >>> False
+
+## Numpy specifics
+
+If you end up with numpy arrays in your tree, you are no longer JSON
+compatible. You can remediate this by using the `np.ndarray.tolist()` method,
+but this can lead to a very long JSON file. To help you with this, Nob offers
+the `np_serialize` method, which efficiently rewrites all numpy arrays as
+binary strings using the internal `np.save` function. You can even compress
+these using the standard zip algorithm by passing the `compress=True`
+argument. The result can be written directly to disc as a JSON or YAML file:
+
+    n.np_serialize()
+    # OR
+    n.np_serialize(compress=True)
+
+    with open('file.json', 'w') as fh:
+        json.dump(n[:], fh)
+    # OR
+    with open('file.yml', 'w') as fh:
+        yaml.dump(n[:], fh)
+
+To read it back, use the opposite function `np_deserialize`:
+
+    with open('file.json') as fh:
+        n = Nob(json.load(fh))
+    # OR
+    with open('file.yml') as fh:
+        n = Nob(yaml.load(fh))
+    n.np_deserialize()
+
+And that's it, your original Nob has been recreated.
+
+## Path
+
+All paths are stored internally using the `nob.Path` class. Paths are full
+(w.r.t. their `Nob` or `NobView`), and are in essence a list of the keys
+constituting the nested address. They can however be viewed equivalently as
+a unix-type path string with `/` separators. Here are some examples
+
+    p1 = Path(['key1'])
+    p1                       >>> Path(/key1)
+    p2 = Path('/key1/key2')
+    p2                       >>> Path(/key1/key2)
+    p1 / 'key3'              >>> Path(/key1/key3)
+    p2.parent                >>> Path(/key1)
+    p2.parent == p1          >>> True
+    'key2' in p2             >>> True
+    [k for k in p2]          >>> ['key1', 'key2']
+    p2[-1]                   >>> 'key2'
+    len(p2)                  >>> 2
+
+These can be helpful to manipulate paths yourself, as any full access with
+a string to a `Nob` or `NobView` object also accepts a `Path` object. So say
+you are accessing the keys in `list_of_keys` at one position, but that thet also
+exist elsewhere in the tree. You could use *e.g.*:
+
+    root = Path('/path/to/root/of/keys')
+    [n[root / key] for key in list_of_keys]
+
