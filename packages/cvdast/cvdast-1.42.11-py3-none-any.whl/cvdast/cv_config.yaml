@@ -1,0 +1,35 @@
+
+# APIShark/CloudVector-EE environment details
+ce_setup:
+  ce_host: http://10.243.126.62:32691
+  ce_username: kalpana.ponakanti@tivo.com
+
+# API to use to authenticate the session
+authentication:
+  api_url: /provisioning/v1/loginCert
+  headers:
+      Origin-RequestId: 374687-3186
+      Authorization: [jwt_token]
+  payload: {
+               "deviceConfiguration": {
+               "locale": "en_US",
+               "friendlyName": "SharedVirtualCubiDevice",
+               "softwareVersion": "UNKNOWN",
+               "osVersion": "linux-3.14.28-1.23",
+               "deviceType": "managedCubiTv",
+               "timezoneName": "AUTO",
+               "macAddress": "00:A1:79:E5:41:68",
+               "manufacturer": "Arion",
+               "productName": "arion7584a1"
+               }
+              }
+  response_key: authToken
+  type: Basic
+
+input_params_values: []
+
+generate_tests_for_response_codes: Y
+
+upload_result_to: testrails
+
+#static_headers:
