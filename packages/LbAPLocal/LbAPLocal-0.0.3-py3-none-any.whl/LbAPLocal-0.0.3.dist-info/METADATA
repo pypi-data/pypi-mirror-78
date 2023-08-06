@@ -1,0 +1,100 @@
+Metadata-Version: 2.1
+Name: LbAPLocal
+Version: 0.0.3
+Summary: Tool to locally run tests for AnalysisProductions
+Home-page: https://gitlab.cern.ch/lhcb-dpa/analysis-productions/lbaplocal
+Author: LHCb
+License: UNKNOWN
+Project-URL: Bug Reports, https://gitlab.cern.ch/lhcb-dpa/analysis-productions/lbaplocal/-/issues
+Project-URL: Source, https://gitlab.cern.ch/lhcb-dpa/analysis-productions/lbaplocal
+Keywords: LHCb AnalysisProductions DIRAC
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: click
+Requires-Dist: LbAPCommon
+Requires-Dist: LbEnv
+Requires-Dist: LbDiracWrappers
+Requires-Dist: requests
+Requires-Dist: requests-kerberos
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+# LbAPLocal
+
+LbAPLocal is the python library for running offline tests for the LHCb AnalysisProductions framework.
+
+## Installation
+
+For now it can be installed by running
+
+```bash
+python -m pip install git+https://gitlab.cern.ch/lhcb-dpa/analysis-productions/lbaplocal.git
+```
+In the future it will become available within the LHCb environment,
+
+## Usage
+
+After installing, LbAPLocal can be run from the command line with the following options:
+
+```
+Usage: lb-ap [OPTIONS] COMMAND [ARGS]...
+
+  Command line tool for the LHCb AnalysisProductions
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  list       List the available production folders by running lb-ap list...
+  render     Render the info.yaml for a given production
+  test       Execute a job locally
+  debug      Start an interactive session inside the job's environment
+  reproduce  Reproduce an existing online test locally
+```
+
+To see which productions are available:
+```bash
+$ lb-ap list
+The available productions are:
+* MyAnalysis
+```
+
+To see which jobs are available for a given production:
+```bash
+$ lb-ap list MyAnalysis
+The available jobs for MyAnalysis are:
+* My2016MagDownJob
+* My2016MagUpJob
+```
+
+To render the templating in `info.yaml` for a given production:
+```bash
+$ lb-ap render MyAnalysis
+```
+
+To run a test of a job interactively:
+```bash
+$ lb-ap debug MyAnalysis My2016MagDownJob
+
+Welcome to analysis productions debug mode:
+
+The production can be tested by running:
+
+gaudirun.py -T '$ANALYSIS_PRODUCTIONS_DYNAMIC/Lb2Lll/MC_2017_MagDown_Lb2PsiL_mm_strip_autoconf.py' '$ANALYSIS_PRODUCTIONS_BASE/Lb2Lll/stripping_seq.py' prodConf_DaVinci_00012345_00006789_1.py
+
+[DaVinci v45r5] output $
+```
+
+To test a job non-interactively:
+```bash
+$ lb-ap test MyAnalysis My2016MagDownJob
+Success! Output can be found in xxxxxxxxxxxx
+```
+
+
