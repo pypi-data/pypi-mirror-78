@@ -1,0 +1,25 @@
+Metadata-Version: 1.2
+Name: sdtg
+Version: 1.1.3
+Summary: Second-dimensional Telegram Games library.
+Home-page: https://github.com/Vezono/sdtg-lib
+Author: Vezono
+Author-email: gbball.baas@gmail.com
+License: UNKNOWN
+Description: # sdtg-lib
+        Second-dimensional Telegram Games library.
+        ## Requires:
+        `pyTelegramBotApi`
+        ## Installing by requirements.txt:
+        ``sdtg``
+        ## Installing by pip:
+        ``$ pip3 install sdtg``
+        ## Usage:
+        See examples for all details.
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
