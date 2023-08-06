@@ -1,0 +1,85 @@
+Metadata-Version: 2.1
+Name: euclid-launcher
+Version: 1.0.0
+Summary: A commandline program for managing and launching projects.
+Home-page: https://github.com/brenodega28/Euclid
+Author: Breno Gomes
+Author-email: brenodega28@gmail.com
+License: MIT
+Download-URL: https://github.com/brenodega28/Euclid/archive/v_01.tar.gz
+Description: # Euclid
+        
+        A project manager and script launcher made in Python.
+        
+        ## Commands
+        
+        Commands are simple one-line bash scripts that will be saved for execution later.
+        
+        ### Add command
+        
+        ```bash
+        euclid add <script-name> "<script>"
+        ```
+        
+        Example:
+        
+        ```bash
+        euclid add hello-world "echo Hello World"
+        ```
+        
+        ### Running commands
+        
+        ```bash
+        euclid run <script-name>
+        ```
+        
+        Example:
+        
+        ```bash
+        euclid run hello-world
+        ```
+        
+        ## Groups
+        
+        For running many commands together, you can group them.\
+        Running a group will run all the commands <b>synchronously</b> by default, however you can use the <b>parallel flag</b> that is shown down below.
+        
+        ### Add group
+        
+        ```bash
+        euclid group <group-name> "<script1-name> <script2-name>"
+        ```
+        
+        Example:
+        
+        ```bash
+        euclid group hi-all "hello-world hello-you"
+        ```
+        
+        ### Running Groups
+        
+        ```bash
+        euclid run <group-name>
+        ```
+        
+        Example:
+        
+        ```bash
+        euclid run hi-all
+        ```
+        
+        ### Running Groups in Parallel
+        
+        ```bash
+        euclid run -p <group-name>
+        # or
+        euclid run --parallel <group-name>
+        ```
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3
+Description-Content-Type: text/markdown
