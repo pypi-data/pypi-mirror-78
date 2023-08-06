@@ -1,0 +1,14 @@
+{
+  "author": "Guillaume Charbonnier",
+  "email": "guillaume.charbonnier@capgemini.com",
+  "project_name": "Captain Demo",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "Captain Demo contains all the boilerplate you need to create a Python package.",
+  "version": "0.1.0",
+  "repo_name": "{{ cookiecutter.project_slug.replace('_', '-') }}/{{ cookiecutter.project_slug.replace('_', '-') }}",
+  "repo_url": "https://gitlab.com/{{ cookiecutter.repo_name }}",
+  "docs_url": "https://{{ cookiecutter.repo_name.split('/')[0] }}.gitlab.io/{{ cookiecutter.repo_name.split('/')[1] }}",
+  "max_file_size_kb": "50000",
+  "ci_docker_image": "{{ cookiecutter.repo_name }}-ci",
+  "install_jupyter_notebook_kernel": true
+}

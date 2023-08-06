@@ -1,0 +1,85 @@
+stages:
+  - prepare
+  - test
+  - build
+  - publish
+
+variables:
+  CI_DOCKER_IMAGE: "{{ cookiecutter.ci_docker_image }}"
+
+## Prepare ##
+build-ci-image:
+  image: docker:latest
+  services: &docker-service
+    - name: docker:dind
+      command: ["--experimental"]
+  stage: prepare
+  before_script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+  after_script:
+    - docker logout
+  script:
+    - >
+      docker build
+      --cache-from "$CI_DOCKER_IMAGE:ci-$CI_COMMIT_REF_SLUG"
+      -t "$CI_DOCKER_IMAGE:ci-$CI_COMMIT_REF_SLUG"
+      -f ci/Dockerfile
+      .
+    - docker push "$CI_DOCKER_IMAGE:ci-$CI_COMMIT_REF_SLUG"
+
+## Test ##
+lint-code: &test-stage-job
+  image: &ci-image
+    name: "$CI_DOCKER_IMAGE:ci-$CI_COMMIT_REF_SLUG"
+    entrypoint: [""]
+  stage: test
+  before_script:
+    - poetry install
+  script:
+    - invoke lint
+
+test-code:
+  <<: *test-stage-job
+  script:
+    - invoke test
+  artifacts:
+    paths:
+      - docs/coverage-report/
+
+## Build ##
+build-package: &build-job
+  image: *ci-image
+  stage: build
+  before_script:
+    - poetry install
+  script:
+    - invoke build --no-docs
+  artifacts:
+    paths:
+      - dist/
+
+build-docs:
+  <<: *build-job
+  script:
+    - invoke build --no-package
+  artifacts:
+    paths:
+      - dist/docs/
+
+## Publish ##
+publish-package:
+  image: *ci-image
+  stage: publish
+  script:
+    - invoke publish
+  when: manual
+
+pages:
+  image: alpine:latest
+  stage: publish
+  script:
+    - mv dist/docs/ public/
+  artifacts:
+    paths:
+      - public/
+  when: manual
