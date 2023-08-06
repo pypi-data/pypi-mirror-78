@@ -1,0 +1,30 @@
+# (C) Copyright 2020 ECMWF.
+#
+# This software is licensed under the terms of the Apache Licence Version 2.0
+# which can be obtained at http://www.apache.org/licenses/LICENSE-2.0.
+# In applying this licence, ECMWF does not waive the privileges and immunities
+# granted to it by virtue of its status as an intergovernmental organisation
+# nor does it submit to any jurisdiction.
+#
+
+from . import Reader
+from zipfile import ZipFile
+
+
+class ZIPReader(Reader):
+    def __init__(self, source, path):
+        super().__init__(source, path)
+
+        with ZipFile(path, "r") as zip:
+            self._content = zip.namelist()
+
+        assert False, self._content
+
+    # def to_pandas(self, **kwargs):
+    #     import pandas
+
+    #     options = dict()
+    #     options.update(self.source.read_csv_options())
+    #     options.update(kwargs)
+
+    #     return pandas.read_csv(self.path, **options)
