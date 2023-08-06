@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: devtools-shorthand-sql
+Version: 0.2.1
+Summary: Aid writing boilerplate SQL items from create tables, inserts and updates.
+Home-page: https://github.com/HaeckelK/devtools_shorthand_sql
+Author: Haeckel K
+Author-email: haeckelk.github@gmail.com
+License: MIT license
+Keywords: devtools_shorthand_sql
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+
+======================
+devtools_shorthand_sql
+======================
+
+
+.. image:: https://img.shields.io/pypi/v/devtools_shorthand_sql.svg
+        :target: https://pypi.python.org/pypi/devtools_shorthand_sql
+
+.. image:: https://img.shields.io/travis/HaeckelK/devtools_shorthand_sql.svg
+        :target: https://travis-ci.org/HaeckelK/devtools_shorthand_sql
+
+.. image:: https://readthedocs.org/projects/devtools-shorthand-sql/badge/?version=latest
+        :target: https://devtools-shorthand-sql.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+.. image:: https://pyup.io/repos/github/HaeckelK/devtools_shorthand_sql/shield.svg
+     :target: https://pyup.io/repos/github/HaeckelK/devtools_shorthand_sql/
+     :alt: Updates
+
+
+
+Aid writing boilerplate SQL items from create tables, inserts and updates.
+
+
+* Free software: MIT license
+* Documentation: https://devtools-shorthand-sql.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.0 (2020-09-02)
+------------------
+
+* First release on PyPI.
+
+
