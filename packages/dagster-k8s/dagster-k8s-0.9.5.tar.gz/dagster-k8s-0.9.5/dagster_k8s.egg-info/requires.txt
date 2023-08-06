@@ -1,0 +1,6 @@
+dagster
+dagster_graphql
+kubernetes
+
+[:python_version < "3"]
+rsa<=4.0
