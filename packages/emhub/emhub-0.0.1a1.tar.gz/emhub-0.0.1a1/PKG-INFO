@@ -1,0 +1,45 @@
+Metadata-Version: 1.2
+Name: emhub
+Version: 0.0.1a1
+Summary: Web application for monitoring EM results
+Home-page: https://github.com/3dem/emhub
+Author: J.M. De la Rosa Trevin, Grigory Sharov
+Author-email: delarosatrevin@scilifelab.se, gsharov@mrc-lmb.cam.ac.uk
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/3dem/emhub/issues
+Project-URL: Source, https://github.com/3dem/emhub/
+Description: emhub
+        =====
+        
+        Web application for monitoring EM results
+        
+        Launching the development server
+        --------------------------------
+        
+        .. code-block:: bash
+        
+            conda create --name=emhub-flask-py37 python=3.7 flask sqlalchemy pillow h5py flask-login
+            conda activate emhub-flask-py37
+            pip install sqlalchemy-utc requests tzlocal
+        
+            export FLASK_APP=emhub
+            export FLASK_ENV=development
+        
+            # For testing with thumbnails
+            cd ~/work/development
+            git clone git@github.com:3dem/emhub-testdata.git
+        
+            export EMHUB_TESTDATA=~/work/development/emhub-testdata
+            flask run
+        
+        To initialize the db: `python -m emhub.data`
+        
+        Running tests
+        -------------
+        
+        `python -m unittest emhub.tests`
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
