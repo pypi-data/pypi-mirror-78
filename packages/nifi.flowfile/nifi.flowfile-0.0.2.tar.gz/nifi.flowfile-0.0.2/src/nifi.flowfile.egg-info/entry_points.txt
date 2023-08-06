@@ -1,0 +1,3 @@
+[nifi.cli]
+flowfile = nifi.flowfile.cli:flowfile
+
