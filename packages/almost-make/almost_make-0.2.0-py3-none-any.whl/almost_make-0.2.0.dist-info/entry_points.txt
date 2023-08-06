@@ -1,0 +1,4 @@
+[console_scripts]
+almake = almost_make.cli:main
+almake_shell = almost_make.utils.shellUtil.interactiveShell:main
+
