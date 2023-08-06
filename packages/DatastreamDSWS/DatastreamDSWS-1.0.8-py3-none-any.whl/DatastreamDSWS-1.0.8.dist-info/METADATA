@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: DatastreamDSWS
+Version: 1.0.8
+Summary: Python API Package for Refinitiv Datastream Webservice
+Home-page: https://github.com/DatastreamDSWS/Datastream
+Author: Refinitiv
+Author-email: datastream@refinitiv.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: datetime
+
+Python API package for Refinitiv Datastream Webservice
+
+
