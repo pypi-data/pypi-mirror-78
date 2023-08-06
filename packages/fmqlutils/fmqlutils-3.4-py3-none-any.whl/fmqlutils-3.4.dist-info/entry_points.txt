@@ -1,0 +1,7 @@
+[console_scripts]
+fmqlcachehealth = fmqlutils.reporter.cacheHealthReporter:main
+fmqlcacher = fmqlutils.cacher.cacher:main
+fmqlrecacher = fmqlutils.cacher.recacher:main
+fmqltyper = fmqlutils.typer.reduceReportType:main
+fmqlv2er = fmqlutils.cacher.v2er:main
+
