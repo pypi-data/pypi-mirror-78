@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pywirelessmbus
+Version: 1.2.0
+Summary: A tool to receive and send Wireless-M-Bus messages.
+Home-page: https://github.com/gewv-tu-dresden/pyWirelessMbus
+License: MIT
+Author: Karl Wolffgang
+Author-email: karl_eugen.wolffgang@tu-dresden.de
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: loguru (>=0.5.1,<0.6.0)
+Requires-Dist: pyserial (>=3.4,<4.0)
+Requires-Dist: pyserial-asyncio (>=0.4,<0.5)
