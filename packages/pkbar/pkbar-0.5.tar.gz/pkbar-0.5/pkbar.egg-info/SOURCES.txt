@@ -1,0 +1,13 @@
+.gitignore
+LICENSE
+README.md
+setup.py
+.github/workflows/Test.yml
+pkbar/__init__.py
+pkbar/pkbar.py
+pkbar.egg-info/PKG-INFO
+pkbar.egg-info/SOURCES.txt
+pkbar.egg-info/dependency_links.txt
+pkbar.egg-info/requires.txt
+pkbar.egg-info/top_level.txt
+tests/test.py
