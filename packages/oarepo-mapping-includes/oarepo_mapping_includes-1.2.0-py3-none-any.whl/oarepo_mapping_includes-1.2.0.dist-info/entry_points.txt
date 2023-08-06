@@ -1,0 +1,6 @@
+[invenio_base.api_apps]
+oarepo_mapping_includes = oarepo_mapping_includes.ext:OARepoMappingIncludesExt
+
+[invenio_base.apps]
+oarepo_mapping_includes = oarepo_mapping_includes.ext:OARepoMappingIncludesExt
+
