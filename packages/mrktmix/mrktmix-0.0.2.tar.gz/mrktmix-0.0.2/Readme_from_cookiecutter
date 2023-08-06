@@ -1,0 +1,85 @@
+################################################################################
+################################################################################
+
+    You have succesfully created `market_mix_model`.
+
+################################################################################
+
+    You've used these cookiecutter parameters:
+
+        _extensions:               ['jinja2_time.TimeExtension']
+        _template:                 'gh:ionelmc/cookiecutter-pylibrary'
+        allow_tests_inside_package: 'no'
+        appveyor:                  'yes'
+        c_extension_function:      'longest'
+        c_extension_module:        '_mrktmix'
+        c_extension_optional:      'no'
+        c_extension_support:       'no'
+        c_extension_test_pypi:     'no'
+        c_extension_test_pypi_username: 'apd_540@hotmail.com'
+        codacy:                    'no'
+        codacy_projectid:          '[Get ID from https://app.codacy.com/app/apd_540@hotmail.com/market_mix_model/settings]'
+        codeclimate:               'no'
+        codecov:                   'yes'
+        command_line_interface:    'plain'
+        command_line_interface_bin_name: 'mrktmix'
+        coveralls:                 'no'
+        coveralls_token:           '[Required for Appveyor, take it from https://coveralls.io/github/apd_540@hotmail.com/market_mix_model]'
+        distribution_name:         'mrktmix'
+        email:                     'abhimanyu.mahato@gmail.com'
+        full_name:                 'Abhimanyu Prasad Mahato'
+        landscape:                 'no'
+        license:                   'GNU Lesser General Public License v3 or later (LGPLv3+)'
+        linter:                    'flake8'
+        package_name:              'mrktmix'
+        pre_commit:                'yes'
+        project_name:              'Market Mix Modeling'
+        project_short_description: 'Market Mix Modeling'
+        pypi_badge:                'yes'
+        pypi_disable_upload:       'no'
+        release_date:              'today'
+        repo_hosting:              'github.com'
+        repo_hosting_domain:       'market_mix_model'
+        repo_name:                 'market_mix_model'
+        repo_username:             'apd_540@hotmail.com'
+        requiresio:                'yes'
+        scrutinizer:               'no'
+        setup_py_uses_setuptools_scm: 'no'
+        setup_py_uses_test_runner: 'no'
+        sphinx_docs:               'yes'
+        sphinx_docs_hosting:       'https://market_mix_model.readthedocs.io/'
+        sphinx_doctest:            'no'
+        sphinx_theme:              'sphinx-rtd-theme'
+        test_matrix_configurator:  'no'
+        test_matrix_separate_coverage: 'no'
+        test_runner:               'pytest'
+        travis:                    'yes'
+        travis_osx:                'no'
+        version:                   '0.0.1'
+        website:                   'https://blog.ionelmc.ro'
+        year_from:                 '2020'
+        year_to:                   '2020'
+
+    See .cookiecutterrc for instructions on regenerating the project.
+
+################################################################################
+
+    To get started run these:
+
+        cd market_mix_model
+        git init
+        git add --all
+        git commit -m "Add initial project skeleton."
+        git tag v0.0.1
+        git remote add origin git@market_mix_model:apd_540@hotmail.com/market_mix_model.git
+        git push -u origin master v0.0.1
+
+
+    To regenerate your .travis.yml or .appveyor.yml run:
+
+
+        tox -e bootstrap
+
+    You can also run:
+
+        ./ci/bootstrap.py
