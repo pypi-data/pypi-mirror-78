@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: praktikum
+Version: 2.3.0
+Summary: Tools for the beginners' lab courses in physics at RWTH Aachen University
+Home-page: http://pgp.physik.rwth-aachen.de/software
+Author: Henning Gast
+Author-email: henning@physik.rwth-aachen.de
+License: UNKNOWN
+Description: ===============
+         praktikum
+        ===============
+        
+        This library provides tools for analyzing data in the context of the
+        beginners' lab courses in physics at RWTH Aachen University
+        (Grundpraktikum Physik). It also includes tools for parsing data files
+        written by Leybold's Cassy data acquisition system. Both Cassy-1 and
+        Cassy-2 are supported.
+        
+        
+        Further information
+        ===================
+        
+        Please see the `homepage <http://pgp.physik.rwth-aachen.de/software>`_.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Natural Language :: German
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Education
+Description-Content-Type: text/x-rst
