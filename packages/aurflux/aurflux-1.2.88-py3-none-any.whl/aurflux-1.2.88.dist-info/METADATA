@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: aurflux
+Version: 1.2.88
+Summary: Aurflux!
+Author: Zenith
+Author-email: inbox@zenith.dev
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: aurcore
+Requires-Dist: discord.py
+Requires-Dist: pyyaml
