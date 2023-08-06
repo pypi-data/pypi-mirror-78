@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: gmsdict2csv
+Version: 0.0.1
+Summary: PyPi package coverts a flat list to a csv file and saves it in at the given path.
+Home-page: UNKNOWN
+Author: Gumshoe Media Inc. Team
+Author-email: gumshoe.media.inc@gmail.com
+License: MIT
+Description: GMS dict2csv
+        Convert a list to a csv file.
+        This python package takes a list and an output folder in which to create the csv file.
+        
+        Change Log
+        ==========
+         
+        0.0.1 (04/09/2020)
+        ------------------
+        - First Release
+        
+Keywords: data,list,csv,file
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: MacOS :: MacOS 9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
