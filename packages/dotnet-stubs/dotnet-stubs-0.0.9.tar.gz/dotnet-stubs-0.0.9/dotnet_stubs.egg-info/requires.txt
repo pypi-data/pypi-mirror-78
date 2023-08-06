@@ -1,0 +1,12 @@
+
+[all]
+domdf_python_tools>=0.7.0
+isort>=5.0.0
+orderedset
+pythonnet
+
+[builder]
+pythonnet
+domdf_python_tools>=0.7.0
+orderedset
+isort>=5.0.0
