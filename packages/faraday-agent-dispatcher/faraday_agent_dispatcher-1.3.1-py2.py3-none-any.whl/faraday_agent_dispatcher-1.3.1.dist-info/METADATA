@@ -1,0 +1,278 @@
+Metadata-Version: 2.1
+Name: faraday-agent-dispatcher
+Version: 1.3.1
+Summary: Faraday agent dispatcher to communicate an agent to faraday
+Home-page: https://github.com/infobyte/faraday_agent_dispatcher
+Author: Eric Horvat
+Author-email: erich@infobytesec.com
+License: GNU General Public License v3
+Keywords: faraday integration
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: Click
+Requires-Dist: websockets
+Requires-Dist: aiohttp
+Requires-Dist: syslog-rfc5424-formatter
+Requires-Dist: requests
+Requires-Dist: itsdangerous
+Requires-Dist: faraday-plugins
+Requires-Dist: python-owasp-zap-v2.4
+Provides-Extra: dev
+Requires-Dist: giteasychangelog ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: mkdocs ; extra == 'docs'
+Requires-Dist: mkdocs-material ; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-asyncio ; extra == 'test'
+
+Faraday Agents Dispatcher helps user develop integrations with
+[Faraday][faraday] written in any language. <!-- For more information, check [this
+blogpost][blogpost] or continue reading. -->
+
+[faraday]: https://github.com/infobyte/faraday/
+[blogpost]: https://medium.com/faraday
+
+# Installation
+
+Just run `pip3 install faraday_agent_dispatcher` and you should see the
+`faraday-dispatcher` command in your system.
+
+To setup a development environment (this is, to change code of the dispatcher
+itself, not to write your own integrations), you should clone this repo and run
+`pip install -e .`.
+
+# Running Faraday Agent Dispatcher for first time
+
+1. Generate a configuration file running `faraday-dispatcher
+config-wizard`.
+
+2. Run the agent with `faraday-dispatcher run` command. The config file
+that it creates will be located in `~/.faraday/config/dispatcher.ini`
+if you do not pass a custom path.
+
+You should complete the agent configuration with your registration
+token, located at http://localhost:5985/#/admin/agents. Check that the
+server section has the correct information about your Faraday
+Server instance. Then, complete the agent section with the desired name
+of your agent. Finally, [add the executors](#configuring-a-executor)
+
+# Executors
+
+## Creating your own executors
+
+An executor is a script that prints out **single-line** JSON data to
+stdout. Remember that if you print any other data to stdout, the
+dispatcher will trigger an error. If you want to print debugging or
+logging information you should use stderr for that.
+
+Every line written to stdout by the executor will be decoded by the
+dispatcher and sent to Faraday using the Bulk Create endpoint.
+Therefore, the JSON you print must have the schema that the endpoint
+requires (this schema is detailed [below](#bulk-create-json-format)).
+Otherwise, the dispatcher will complain because you supplied invalid
+data to it.
+
+If you want to debug your executor, the simplest way to do it is by
+running it directly instead of running with the Dispatcher. Since the executor
+just prints JSON data to stdout, you will be able to see all
+information it wants to send to Faraday, but without actually sending
+it.
+
+## Configuring a executor
+
+After writing your executor, you have to add it with the
+`faraday-dispatcher config-wizard` within the executor section, adding
+its name, command to execute and the max size of the JSON to send to
+Faraday Server. Additionally, you can configure the Environment
+variables and Arguments in their proper section.
+
+## Running a executor
+
+To run an executor use the `faraday-dispatcher config-wizard` command,
+and play it from the Faraday Server. The executor will use the
+environment variables set and ask for the arguments.
+
+# Bulk Create JSON format
+
+The data published to [faraday][faraday] must correspond to the
+`bulk_create` endpoint of the [Faraday's REST API][API]
+
+# Running multiple dispatchers
+
+If you want to have more than one dispatcher, each one runninng its own
+executors, the preferred of doing this is to create different
+configuration files for each one (for example,
+`~/.faraday/config/dispatcher-1.ini` and
+`~/.faraday/config/dispatcher-2.ini`). Then, you can run two different
+Dispatcher instances with `faraday-dispatcher --config-file
+PATH_TO_A_CONFIG_FILE`.
+
+# Executors
+
+Inside the [executors][executors] directory you can find the already
+created executors.
+
+## Official
+
+The [official executors][official_executors] are the collection of ready-to-go
+executors (with minimum configuration with the wizard). They have a manifest
+JSON file, which gives details about the uses of the executor and helps with
+the configuration of them.
+
+The current official executors are:
+
+* [Arachni][arachni]
+* [Burp][burp]
+* [CrackMapExec][crackmap]
+* [Nessus][nessus]
+* [Nikto][nikto]
+* [Nmap][nmap]
+* [Openvas][openvas]
+* [Sublist3r][sublist3r]
+* [W3af][w3af]
+* [Wpscan][wpscan]
+* [Zap][zap]
+
+## Development
+
+The [development executors][dev_executors] are the collection of executors we
+do **not** fully maintain, we have examples of use, conceptual, and in
+development executors. The most important of them are:
+
+* `basic_example.py`: The Hello World of Faraday executors. It will
+  create a host with an associeted vulnerability to it
+* `heroku_discovery_agent.py`: Load host and service information from
+  your Heroku account
+* `prowlerSample.py`: Run the [**prowler**][prowler] command and send
+  its output to Faraday
+* `brainfuck.sh`: A proof-of-concept to demonstrate you can create
+  an executor in any programming language, including [Brainfuck][brainfuck]!
+
+[executors]: https://github.com/infobyte/faraday_agent_dispatcher/tree/master/faraday_agent_dispatcher/static/executors
+[official_executors]: https://github.com/infobyte/faraday_agent_dispatcher/tree/master/faraday_agent_dispatcher/static/executors/official
+[dev_executors]: https://github.com/infobyte/faraday_agent_dispatcher/tree/master/faraday_agent_dispatcher/static/executors/dev
+[brainfuck]: https://en.wikipedia.org/wiki/Brainfuck
+[prowler]: https://github.com/toniblyx/prowler
+[nessus]: https://www.nessus.org
+[nikto]: https://cirt.net/Nikto2
+[nmap]: https://nmap.org
+[sublist3r]: https://github.com/aboul3la/Sublist3r
+[w3af]: http://w3af.org/
+[wpscan]: https://wpscan.org/
+[arachni]: https://www.arachni-scanner.com/
+[openvas]: https://www.openvas.org/
+[zap]: https://www.zaproxy.org/
+[burp]: https://www.portswigger.net/burp
+[crackmap]: https://github.com/byt3bl33d3r/CrackMapExec
+
+# Roadmap
+
+We are currently working on new executors, apart from improving the
+experience using the agents.
+
+We would like to give some agents read access to their workspace,
+so they can benefit of the existing data in order to find more valuable
+information.
+
+# Documentation
+
+For more info you can check our [documentation][doc]
+
+[doc]: https://docs.agents.faradaysec.com
+[API]: https://api.faradaysec.com/
+
+
+1.3.1 [Sep 7th, 2020]:
+---
+ * Add proxy setup by HTTP_PROXY or HTTPS_PROXY environment variables
+ * Fix default report name with the nessus executor
+ * [Faraday][faraday] versions: 3.12.0
+
+1.3.0 [Sep 3rd, 2020]:
+---
+ * An Agent can post data to multiples workspaces
+ * The `run` command tries to migrate the configuration to the latest version from
+ others as the `config-wizard` does
+ * Improve agent signal management and server disconnection, affecting the exit code
+ * The wizard page size can be customized (See:
+`faraday-dispatcher config-wizard --help` )
+ * The new official executors are:
+    * burp
+    * crackmapexec
+ * Arachni executor generates reports in /tmp now
+ * Nmap executor updates use of nmap plugin (byte-string to string response)
+ * [Faraday][faraday] versions: 3.12.0
+
+1.2.1 [Jun 22nd, 2020]:
+---
+ * Now the dispatcher runs the check commands before running an executor
+ * Fix error when connects with faraday fails when trying to access with SSL to not SSL server
+ * Fix error when connects with faraday fails when server does not respond
+ * Fix error when connects with faraday fails when SSL verification fails
+ * Fix error attempting to create an executor with a comma in the name
+ * Now the wizard ask if you want use the default SSL behavior
+ * Started the process of [documentation][doc]
+ * The new official executors are:
+    * arachni
+    * openvas
+    * zap
+ * Nmap executor now acepted multi target
+ * Fix W3af executor now uses python2
+ * Escape user-controlled executor parameters in order to prevent OS argument injection (not command injection)
+ * [Faraday][faraday] versions: 3.11, 3.11.1, 3.11.2
+
+1.2 [May 27th, 2020]:
+---
+ * Now we have official executors, packaged with the dispatcher
+ * Fix error when killed by signal
+ * Fix error when server close connection
+ * Fix error when ssl certificate does not exists
+ * Fix error when folder `~/.faraday` does not exists, creating it
+ * The new official executors are:
+    * nessus
+    * nikto
+    * nmap
+    * sublist3r
+    * wpscan
+    * w3af
+ * [Faraday][faraday] versions: 3.11, 3.11.1, 3.11.2
+
+1.1 [Apr 22th, 2020]:
+---
+ * The dispatcher now runs with a `faraday-dispatcher run` command
+ * `faraday-dispatcher wizard` command added which generates configuration .ini file
+ * Manage execution_id within WS and API communication
+ * The route of [Faraday][faraday] ws comunication change from / to /websockets
+ * Better error management, now shows error and exceptions depending on log levels
+ * Better management of invalid token errors
+ * Add ssl support
+ * [Faraday][faraday] versions: 3.11, 3.11.1, 3.11.2
+
+1.0 [Dec 17th, 2019]:
+---
+ * You can add fixed parameters than shouldn't came by the web (e.g. passwords) are set in the dispatcher.ini
+ * Now its possible to manage multiple executors within one agent
+ * Now is possible to receive params from the [Faraday][faraday] server
+ * [Faraday][faraday] versions: 3.10, 3.10.1, 3.10.2
+
+0.1 [Oct 31th, 2019]:
+---
+ * First beta version published
+ * Basic structure implemented, with executor with fixed values
+ * [Faraday][faraday] versions: 3.9.2, 3.9.3
+
+[faraday]: https://github.com/infobyte/faraday
+[doc]: https://docs.agents.faradaysec.com
+
+
