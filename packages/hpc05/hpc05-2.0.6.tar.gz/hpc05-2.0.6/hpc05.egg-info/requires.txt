@@ -1,0 +1,15 @@
+ipyparallel
+pexpect
+pyzmq
+paramiko
+tornado
+psutil
+
+[dev]
+pre-commit
+
+[docs]
+sphinx
+sphinx-rtd-theme
+m2r
+sphinxcontrib.apidoc
