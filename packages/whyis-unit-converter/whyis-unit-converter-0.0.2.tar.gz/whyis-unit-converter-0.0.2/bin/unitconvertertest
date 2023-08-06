@@ -1,0 +1,9 @@
+#!/bin/bash
+
+UNIT_CONVERTER_LOC=$(python -c "import whyis_unit_converter as _; print(_.__path__[0])")
+
+cp $UNIT_CONVERTER_LOC/test_Unit_Converter.py /apps/whyis/tests
+
+pushd /apps/whyis
+python manage.py test --test test_Unit_Converter
+popd

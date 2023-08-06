@@ -1,0 +1,8 @@
+#!/bin/bash
+
+UNIT_CONVERTER_LOC=$(python -c "import whyis_unit_converter as _; print(_.__path__[0])")
+
+for var in "$@"
+do
+    cp $var $UNIT_CONVERTER_LOC/dicts && echo "Copied $var to $UNIT_CONVERTER_LOC"
+done
