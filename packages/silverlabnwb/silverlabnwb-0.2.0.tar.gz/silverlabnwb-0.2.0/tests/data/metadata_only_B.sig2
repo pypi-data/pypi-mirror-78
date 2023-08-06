@@ -1,0 +1,30 @@
+Generating signature for metadata_only_B.nwb
+
+/
+	@.specloc: type=Reference val="->/specifications"
+/file_create_date: dtype=ignored shape=ignored val="ignored"
+/general/data_collection: dtype=object shape=() val="All about the data."
+/general/devices/AOL_microscope
+	@description: type=str val="Random access 3d acousto-optic lens two-photon microscope"
+/general/devices/air_puff_device
+	@description: type=str val="Delivers an air puff stimulus to the mouse's whiskers"
+/general/devices/mouse_wheel_device
+	@description: type=str val="Records mouse speed data"
+/general/experiment_description: dtype=object shape=() val="Experiment description"
+/general/experimenter: dtype=object shape=(1,) val="[B Y-S]"
+/general/institution: dtype=object shape=() val="University College London"
+/general/lab: dtype=object shape=() val="Silver Lab (http://silverla...0xc56c0ba8"
+/general/notes: dtype=object shape=() val="My notes"
+/general/pharmacology: dtype=object shape=() val="Medication."
+/general/protocol: dtype=object shape=() val="A protocol."
+/general/silverlab_metadata
+	@silverlab_api_version: type=str val="0.2"
+/general/stimulus: dtype=object shape=() val="Stimulus!"
+/general/subject/age: dtype=object shape=() val="2"
+/general/subject/description: dtype=object shape=() val="Some more about the subject"
+/general/subject/sex: dtype=object shape=() val="F"
+/general/subject/subject_id: dtype=object shape=() val="42"
+/identifier: dtype=ignored shape=ignored val="ignored"
+/session_description: dtype=object shape=() val="B's session description."
+/session_start_time: dtype=object shape=() val="2020-05-10T00:00:00+01:00"
+/timestamps_reference_time: dtype=object shape=() val="2020-05-10T00:00:00+01:00"

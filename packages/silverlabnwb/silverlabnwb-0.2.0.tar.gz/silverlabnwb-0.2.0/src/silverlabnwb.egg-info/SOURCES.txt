@@ -1,0 +1,92 @@
+.bumpversion.cfg
+.cookiecutterrc
+.coveragerc
+.editorconfig
+.travis.yml
+AUTHORS.rst
+CHANGELOG.rst
+CONTRIBUTING.rst
+LICENSE
+MANIFEST.in
+README.rst
+appveyor.yml
+setup.cfg
+setup.py
+tox.ini
+ci/appveyor-download.py
+ci/appveyor-with-compiler.cmd
+docs/authors.rst
+docs/changelog.rst
+docs/conf.py
+docs/contributing.rst
+docs/index.rst
+docs/installation.rst
+docs/readme.rst
+docs/requirements.txt
+docs/spelling_wordlist.txt
+docs/usage.rst
+docs/reference/index.rst
+docs/reference/silverlabnwb.rst
+src/silverlabnwb/__init__.py
+src/silverlabnwb/generate_extended_schema.py
+src/silverlabnwb/header.py
+src/silverlabnwb/imaging.py
+src/silverlabnwb/metadata.py
+src/silverlabnwb/metadata.yaml
+src/silverlabnwb/metadata_gui.py
+src/silverlabnwb/nwb_file.py
+src/silverlabnwb/script.py
+src/silverlabnwb/signature.py
+src/silverlabnwb/silverlab.metadata.yaml
+src/silverlabnwb/silverlab.namespace.yaml
+src/silverlabnwb/silverlab.ophys.yaml
+src/silverlabnwb/silverlab.roi.yaml
+src/silverlabnwb/subsample_nwb.py
+src/silverlabnwb/timings.py
+src/silverlabnwb.egg-info/PKG-INFO
+src/silverlabnwb.egg-info/SOURCES.txt
+src/silverlabnwb.egg-info/dependency_links.txt
+src/silverlabnwb.egg-info/entry_points.txt
+src/silverlabnwb.egg-info/not-zip-safe
+src/silverlabnwb.egg-info/requires.txt
+src/silverlabnwb.egg-info/top_level.txt
+tests/conftest.py
+tests/manual-writing-tests.py
+tests/manual_test_metadata_editor.py
+tests/test_epochs.py
+tests/test_header.py
+tests/test_labview_import.py
+tests/test_metadata_import.py
+tests/test_timings.py
+tests/data/161215_15_34_21.sig
+tests/data/161215_15_34_21.sig2
+tests/data/161215_15_58_52.sig
+tests/data/161215_15_58_52.sig2
+tests/data/161222_16_18_47.sig2
+tests/data/170317_10_11_01.sig
+tests/data/170317_10_11_01.sig2
+tests/data/170322_14_06_43.sig
+tests/data/170322_14_06_43.sig2
+tests/data/170714_22_26_27.sig2
+tests/data/Experiment Header.ini
+tests/data/expected_epochs.yaml
+tests/data/expected_meta_only.yaml
+tests/data/meta_two_users.yaml
+tests/data/metadata.yaml
+tests/data/metadata_only_B.sig2
+tests/data/real life Experiment Header v231 pointing.ini
+tests/data/sample_miniscan_fred_170322_14_06_43.sig
+tests/data/sample_miniscan_fred_170322_14_06_43.sig2
+tests/data/sample_pointing_fred_170317_10_11_01.sig
+tests/data/sample_pointing_fred_170317_10_11_01.sig2
+tests/data/sample_pointing_videos_161215_15_34_21.sig
+tests/data/sample_pointing_videos_161215_15_34_21.sig2
+tests/data/sample_rois_200206_16_30_32.sig2
+tests/data/synthetic experiment Header v231 no last time.ini
+tests/data/synthetic experiment Header v231.ini
+tests/data/synthetic pre2018 ROI.dat
+tests/data/synthetic pre2018 Single cycle relative times.txt
+tests/data/synthetic v231 ROI.dat
+tests/data/synthetic v231 Single cycle relative times_HW.txt
+tests/data/unrecognised line Header.ini
+tests/data/Speed_Data/Speed data 001.txt

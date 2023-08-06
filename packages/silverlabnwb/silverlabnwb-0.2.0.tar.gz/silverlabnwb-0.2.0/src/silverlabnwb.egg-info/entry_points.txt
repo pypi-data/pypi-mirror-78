@@ -1,0 +1,10 @@
+[console_scripts]
+labview2nwb = silverlabnwb.script:import_labview
+metadata2nwb = silverlabnwb.script:import_metadata
+nwb_sig = silverlabnwb.signature:cli
+nwb_sig_convert = silverlabnwb.signature:convert_sig_cli
+subsample_nwb = silverlabnwb.subsample_nwb:run
+
+[gui_scripts]
+nwb_metadata_editor = silverlabnwb.metadata_gui:run_editor
+
