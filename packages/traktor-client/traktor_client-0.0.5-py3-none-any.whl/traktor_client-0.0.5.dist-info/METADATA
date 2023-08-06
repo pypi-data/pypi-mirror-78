@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: traktor-client
+Version: 0.0.5
+Summary: Python client for the Traktor web api.
+Home-page: https://github.com/alefnula/traktor-client
+Author: Viktor Kerkez
+Author-email: alefnula@gmail.com
+Maintainer: Viktor Kerkez
+Maintainer-email: alefnula@gmail.com
+License: Apache-2.0
+Platform: Windows
+Platform: POSIX
+Platform: MacOSX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: tea-client (~=0.0.5)
+Requires-Dist: tea-console (~=0.0.5)
+Requires-Dist: typer (~=0.3.2)
+
+# Traktor Client
+
+Python client library for the Traktor web api.
+
+
