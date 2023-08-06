@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: wizsdk
+Version: 0.1.2
+Summary: API for interacting with and making bots for wizard101
+Author: Underpaid Dev
+Author-email: underpaiddev1@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: asyncio (>=3.4.3,<4.0.0)
+Requires-Dist: numpy (>=1.19.1,<2.0.0)
+Requires-Dist: opencv-python (>=4.4.0,<5.0.0)
+Requires-Dist: wizwalker (>=0.12.2,<0.13.0)
