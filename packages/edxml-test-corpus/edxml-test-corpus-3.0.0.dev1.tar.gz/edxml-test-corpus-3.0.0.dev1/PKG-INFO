@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: edxml-test-corpus
+Version: 3.0.0.dev1
+Summary: A collection of portable unit tests for EDXML implementations
+Home-page: https://github.com/edxml/test-corpus
+Author: Dik Takken
+Author-email: d.h.j.takken@edxml.org
+License: UNKNOWN
+Description: =====================
+        The EDXML Test Corpus
+        =====================
+        
+        This is a Python package that provides the EDXML test corpus. It can be used to include the test corpus in Python projects by adding this package as a dependency.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/x-rst
