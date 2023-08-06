@@ -1,0 +1,4 @@
+[console_scripts]
+base64-to-external-storage = pre_commit_nb.base64_to_external_storage:main
+base64-to-image-files = pre_commit_nb.base64_to_image_files:main
+
