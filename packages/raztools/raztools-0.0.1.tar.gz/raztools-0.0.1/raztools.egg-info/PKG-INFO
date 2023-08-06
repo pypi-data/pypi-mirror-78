@@ -1,0 +1,40 @@
+Metadata-Version: 1.1
+Name: raztools
+Version: 0.0.1
+Summary: A basic tool that allows you to do lots of things.
+Home-page: UNKNOWN
+Author: Razvan Iacob
+Author-email: razvaniacob2008@gmail.com
+License: MIT
+Description: Very simple library that allows you to do some basic commands such as login page,clear terminal and other things. 
+        
+        
+        Useful commands: 
+        
+        MakeLogin('USERNAME','PASSWORD') #for creating a login page 
+        
+        cleart() #for clearing the chat 
+        
+        surefile(example.txt) 
+        
+        wait(2)#wait x seconds 
+        
+        close() #close the program 
+        
+        
+        Works with all platforms.(windows , linux etc.)
+        
+        Change Log 
+        ============= 
+        
+        
+        0.0.1 (07/09/2020) 
+        ---------------------- 
+        First release
+Keywords: calculator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
