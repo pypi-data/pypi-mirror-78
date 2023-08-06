@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <script type="text/javascript" src="/daisy.js"></script>
+    <script type="text/javascript" src="/jquery.js"></script>
+    <script type="text/javascript" src="jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script type="text/javascript">
+        daisy().ready(function () {
+            
+            var UpButton = daisy().createMacroButton("macro", "", "Forward");
+            $("#arrow-top").append(UpButton);
+
+            var LeftButton = daisy().createMacroButton("macro", "", "TurnLeft");
+            $("#arrow-left").append(LeftButton);
+
+            var RightButton = daisy().createMacroButton("macro", "", "TurnRight");
+            $("#arrow-right").append(RightButton);
+
+            var StopButton = daisy().createMacroButton("macro", "", "Stop");
+            $("#stop").append(StopButton);
+
+            var ReverseButton = daisy().createMacroButton("macro", "", "Reverse");
+            $("#arrow-down").append(ReverseButton);
+
+            var CreditsButton = daisy().createMacroButton("macro", "Credits", "FlashAll");
+            $("#credits").append(CreditsButton);
+
+        });
+
+    </script>
+    <style type="text/css">
+        button
+        {
+            display: block;
+            margin: 5px 5px 5px 5px;
+            width: 120px;
+            height: 120px;
+            font-size: 24pt;
+            font-weight: normal;
+            color: white;
+        }
+        
+        table
+        {
+            margin: auto auto;
+        }
+        
+        .zentriert
+        {
+            margin: 0 auto;
+            border: none;
+            background-color: Yellow;
+        }
+        
+        div
+        {
+            background-color: black;
+        }
+        
+        body 
+        {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="zentriert">
+        <div class="container zentriert">
+            <div class="center">
+                <div id="controls" align="center">
+                </div>
+                <table>
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                            <div id="arrow-top">
+                            </div>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="arrow-left">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="stop">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="arrow-right">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <div id="arrow-down">
+                            </div>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <div id="credits">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Project skidloader Author: Martin Shishkov Created 20.07.2020
+#
+[Unit]
+Description=Rocket launch service
+After=multi-user.target
+
+
+[Service]
+Type=oneshot
+ExecStart=sudo bash %s
+WorkingDirectory=%s
+StandardOutput=inherit
+StandardError=inherit
+User=root
+
+[Install]
+WantedBy=multi-user.target
