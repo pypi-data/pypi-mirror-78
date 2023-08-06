@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: xmelange
+Version: 0.1.2
+Summary: Python library for working with xml, xsd, wsdl and soap web services
+Home-page: https://github.com/LotharSpiegel/xmelange
+Author: Lothar Spiegel
+Author-email: l.spiegel@gmx.at
+License: UNKNOWN
+Download-URL: https://github.com/LotharSpiegel/xmelange/archive/v0.1.1.tar.gz
+Project-URL: Bug Reports, https://github.com/LotharSpiegel/xmelange/issues
+Project-URL: Source, https://github.com/LotharSpiegel/xmelange
+Description: # XMelange
+        
+        Python library for working with xml, xsd, wsdl and soap web services
+        
+        ## Installation
+        
+        ```$ pip install xmelange```
+        
+        ## Run from command line
+        
+        ## Complex Types
+        Complex types allow elements in their content (via `<xsd:sequence>` and `<xsd:element>`)
+        Complex types also can carry attributes (via `<xsd:attributes>`).
+        
+        ## Simple Types
+        Simple types cannot have element content.
+        Simple types cannot carry attributes.
+        
+Keywords: python packages import
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, >=3.6
+Description-Content-Type: text/markdown
