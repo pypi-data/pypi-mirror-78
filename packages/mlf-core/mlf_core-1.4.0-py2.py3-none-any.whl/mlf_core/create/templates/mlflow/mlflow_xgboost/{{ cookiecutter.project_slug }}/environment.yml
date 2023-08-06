@@ -1,0 +1,18 @@
+name: {{ cookiecutter.project_slug }}
+channels:
+    - defaults
+    - conda-forge
+    - rapidsai
+dependencies:
+    - defaults::cudatoolkit=10.1
+    - defaults::python=3.7
+    - defaults::click=7.1.2
+    - conda-forge::rich=6.0.0
+    - conda-forge::mlflow=1.11.0
+    - conda-forge::scikit-learn=0.23.2
+    - conda-forge::matplotlib=3.3.0
+    - pip
+    - pip:
+      - xgboost==1.2.0  # xgboost on Conda is not yet built with GPU support!
+      - pycuda==2019.1.2  # not on Conda
+      - system-intelligence==1.2.4  # not yet on Conda
