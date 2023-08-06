@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: itwalker
+Version: 1.3.4
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: itwalker
+Author-email: 2581870602@qq.com
+License: UNKNOWN
+Description: ```
+        db_helper.py 数据库连接助手
+        log_helper.py 日志连接助手
+        rsa_helper.py rsa 加密解密以及签名
+        ```
+        
+        
+        ```
+        python setup.py sdist bdist_wheel
+        twine upload dist/*
+        ```
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
