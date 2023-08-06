@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "seoman-beta"
+version = "0.1.32"
+description = "Beta version for seoman"
+authors = ["ycd <yagizcanilbey1903@gmail.com>"]
+license = "GNU"
+repository = "https://github.com/ycd/seoman-beta"
+
+packages = [
+    { include = "seoman" },
+    { include = "seoman/**/*.py" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+typer = "^0.3.2"
+google-api-python-client = "^1.10.1"
+google-auth-oauthlib = "^0.4.1"
+pytablewriter = {extras = ["excel"], version = "^0.58.0"}
+
+[tool.poetry.dev-dependencies]
+black = {version = "^19.10b0", allow-prereleases = true}
+
+
+[tool.poetry.scripts]
+seoman = 'seoman.main:app'
+
+[build-system]
+requires = ["poetry-core>=1.0.0a5"]
+build-backend = "poetry.core.masonry.api"
