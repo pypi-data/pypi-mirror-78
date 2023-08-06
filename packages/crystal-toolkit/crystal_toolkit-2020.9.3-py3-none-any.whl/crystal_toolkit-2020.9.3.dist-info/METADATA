@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: crystal-toolkit
+Version: 2020.9.3
+Summary: 
+Author: Matthew Horton
+Author-email: mkhorton@lbl.gov
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: server
+Requires-Dist: Flask-Caching (>=1.8.0,<2.0.0); extra == "server"
+Requires-Dist: dash (>=1.16,<2.0); extra == "server"
+Requires-Dist: dash-daq (>=0.4.0,<0.5.0); extra == "server"
+Requires-Dist: dash-extensions (>=0.0.31,<0.0.32)
+Requires-Dist: dash-mp-components (>=0.0.24); extra == "server"
+Requires-Dist: dscribe (>=0.3.5,<0.4.0); extra == "server"
+Requires-Dist: gevent (>=1.4.0,<2.0.0); extra == "server"
+Requires-Dist: gunicorn (>=20.0.4,<21.0.0); extra == "server"
+Requires-Dist: habanero (>=0.7.2,<0.8.0); extra == "server"
+Requires-Dist: hiphive (>=0.7,<0.8); extra == "server"
+Requires-Dist: plotly (>=4.5.4,<5.0.0)
+Requires-Dist: pydantic (>=1.4,<2.0)
+Requires-Dist: pymatgen (>=2020.7.10,<2021.0.0)
+Requires-Dist: redis (>=3.4.1,<4.0.0); extra == "server"
+Requires-Dist: robocrys (>=0.2.1,<0.3.0); extra == "server"
+Requires-Dist: scikit-image (>=0.17.2,<0.18.0); extra == "server"
+Requires-Dist: scikit-learn (>=0.22.2,<0.23.0); extra == "server"
+Requires-Dist: typing-extensions (>=3.7,<4.0); python_version >= "3.7" and python_version < "3.8"
+Requires-Dist: webcolors (>=1.11.1,<2.0.0)
