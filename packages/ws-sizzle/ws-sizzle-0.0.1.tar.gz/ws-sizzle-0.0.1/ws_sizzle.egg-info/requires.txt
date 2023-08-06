@@ -1,0 +1,8 @@
+json-rpc>=1.13.0
+typing>=3.6
+
+[tornado]
+tornado
+
+[websockets]
+websockets
