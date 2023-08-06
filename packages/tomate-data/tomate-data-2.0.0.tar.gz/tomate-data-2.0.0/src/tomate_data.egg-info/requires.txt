@@ -1,0 +1,13 @@
+numpy
+
+[compute]
+scipy
+
+[netcdf]
+netCDF4
+
+[plot]
+matplotlib
+
+[time]
+cftime>=1.1.3
