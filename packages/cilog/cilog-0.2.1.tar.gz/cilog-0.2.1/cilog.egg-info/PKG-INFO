@@ -1,0 +1,134 @@
+Metadata-Version: 2.1
+Name: cilog
+Version: 0.2.1
+Summary: CiLog is a flexible integrated logging tool base on package logging.
+Home-page: https://github.com/CM-BF/CiLog/
+Author: Shurui Gui
+Author-email: citrinegui@gmail.com
+License: UNKNOWN
+Description: # CiLog
+        
+        CiLog is a flexible integrated logging tool with color and custom bold font base on package logging.
+        
+        ## Feature
+        
+        * colored console outputs
+        * setting stack info output level
+        * easier way to custom format for each level
+        
+        ## Install
+        
+        ```bash
+        $ pip install cilog
+        ```
+        
+        ## New Features
+        
+        ### 0.2.1
+        
+        * Bug fixed: Now the logger can automatically create the directory for log file.
+        
+        ### 0.2.0
+        
+        * Eliminate ipt_info, instead you can use logger.important() to log important info.
+        * adding feature of sending email. By Default, after setting enable_mail and mail_setting, all message log by
+        logger.mail() will be sent to the specific email address according to mail_setting.
+        
+        ### 0.1.1
+        
+        * After log file's line_length is greater than 1e+4, it will automatically backup the log file with localtime then new 
+        a log file.
+        
+        ### 0.1.0
+        
+        * new parameter ipt_info
+        
+        ## Basic Usage
+        
+        ```python
+        from cilog.logger import create_logger
+        
+        
+        def call_error():
+            logger.error('Exception')
+        
+        '''
+        mail_setting = {
+                    mailhost:   string or tuple - YourMailHost or (host, port),
+                    fromaddr:   string          - YourSenderAddress,
+                    toaddrs:    list(string)    - List of YourTargetAddresses,
+                    subject:    string          - Mail Subject,
+                    credentials:tuple           - (YourUsername, YourPassword),
+                    secure:     tuple           - () or (KeyfileName) or (KeyfileName, CertificatefileName)
+                                                    use the secure protocol (TLS),
+                    timeout:    float           - Default 1.0
+                }
+        '''
+        # New Feature
+        mail_setting = {
+            'mailhost': ('*****', **),
+            'fromaddr': '****@*****',
+            'toaddrs': ['****@****', '***@***'],
+            'subject': 'CiLog test',
+            'credentials': ('***@**', '****')
+        }
+        logger = create_logger(name='l1', file='./log.log', use_color=True, enable_mail=True,
+                               mail_setting=mail_setting)
+        logger.info('start')
+        logger.debug('here')
+        logger.warning('warn')
+        call_error()
+        logger.critical('Program exit.')
+        logger.important('lal')
+        logger.mail('test') # you will receive an email after using this function.
+        ```
+        
+        "*" means new features
+        
+        `create_logger` keywords:
+        
+        Require[name] : str - logger name
+        
+        Optional[file] : str - File path
+        
+        Optional[file_mode] : str - File open mode. Default: 'a'
+        
+        Optional[file_level] : Literal['DEBUG', 'INFO', 'WARNING', 'IMPORTANT', 'ERROR', 'CRITICAL', 'MAIL'] - Default 'INFO'
+        
+        *Optional[enable_mail] : bool - Default False
+        
+        *Optional[mail_level] : Literal['DEBUG', 'INFO', 'WARNING', 'IMPORTANT', 'ERROR', 'CRITICAL', 'MAIL'] - Default 'MAIL'
+        
+        *Optional[mail_setting] : dir - Required if enable_mail == True
+            {
+                mailhost:   string or tuple - YourMailHost or (host, port),
+                fromaddr:   string          - YourSenderAddress,
+                toaddrs:    list(string)    - List of YourTargetAddresses,
+                subject:    string          - Mail Subject,
+                credentials:tuple           - (YourUsername, YourPassword),
+                secure:     tuple           - () or (KeyfileName) or (KeyfileName, CertificatefileName)
+                                                use the secure protocol (TLS),
+                timeout:    float           - Default 1.0
+            }
+        Optional[use_color] : bool - Signal for using colored info. Default False
+        
+        Optional[stack_level] : Literal['DEBUG', 'INFO', 'WARNING', 'IMPORTANT', 'ERROR', 'CRITICAL', 'MAIL'] - Default 'ERROR'
+        
+        Optional[msg_fmt] : Dict{'DEBUG': debug_fmt, 'INFO': info_fmt, 'WARNING': warning_fmt, 'IMPORTANT': important_fmt,
+        'ERROR': error_fmt, 'CRITICAL': critical_fmt, 'MAIL': mail_fmt} - Custom design massage format.
+        
+        (Specially, you can use $BOLD **text** $RESET to use bold font)
+        Please refer to CustomFormatter and url: https://docs.python.org/3/library/logging.html#logrecord-attributes
+        
+        return: logger : logging.Logger
+        
+        ## LICENSE
+        
+        See [MIT LICENSE](https://github.com/CM-BF/CiLog/blob/master/LICENSE)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
