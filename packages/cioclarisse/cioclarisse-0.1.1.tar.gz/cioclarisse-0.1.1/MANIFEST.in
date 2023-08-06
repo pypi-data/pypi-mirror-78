@@ -1,0 +1,4 @@
+prune tests
+graft cioclarisse/scripts
+global-exclude __pycache__
+global-exclude *.py[co]
