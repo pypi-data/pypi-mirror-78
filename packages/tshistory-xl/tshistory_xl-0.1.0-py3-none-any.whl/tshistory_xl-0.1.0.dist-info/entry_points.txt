@@ -1,0 +1,4 @@
+[tshistory.subcommands]
+xl = tshistory_xl.cli:xl
+xl-addin = tshistory_xl.cli:xl_addin
+
