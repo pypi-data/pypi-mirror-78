@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: nationalarchivescensus
+Version: 0.1
+Summary: Unofficial API for 1911 census.nationalarchives.ie
+Home-page: https://github.com/aidanmuller/censusnationalarchivesiepythonapi
+Author: Aidan Muller
+Author-email: aidanmuller2020@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# censusnationalarchivesiepythonapi
+An API for the census.nationalarchives.ie written in and for Python. <br>
+Made for the 1911 census.<br>
+<br>
+# installation
+Download the latest wheel, unwheel it and move the censusie in censusie-0.x.data<br>
+to wherever python keeps your packages. (Also add a .py to the end, so censusie <br>
+becomes censusie.py.
+<br>
+# documentation
+```python 
+getcensusresults(firstname, lastname, county, town)
+```
+Returns number of results.<br>
+If you do not know any parameters just replace it with ''.<br>
+E.G getcensusresults('', 'Muller', '', '') returns the integer 15.<br>
+<br>
+```python
+getcensus(firstname, lastname, county, town)
+```
+Returns firstname and lastname.<br>
+If you do not know any parameters just replace it with ''.<br>
+E.G getcensus('', 'Muller', '', '', 3) returns the 3rd person with the surname Muller, which happens to be ('Muller', 'Houe').<br>
+
+
+
