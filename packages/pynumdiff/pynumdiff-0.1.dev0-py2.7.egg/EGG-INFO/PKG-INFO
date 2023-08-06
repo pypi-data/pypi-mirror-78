@@ -1,0 +1,39 @@
+Metadata-Version: 1.1
+Name: pynumdiff
+Version: 0.1.dev0
+Summary: pynumdiff: numerical derivatives in python
+Home-page: http://github.com/florisvb/pynumdiff
+Author: Floris van Breugel
+Author-email: florisvb@gmail.com
+License: MIT
+Description-Content-Type: UNKNOWN
+Description: 
+        
+        PyNumDiff
+        ============================
+        PyNumDiff (pynumdiff) is a package for calculating numerical derivatives
+        in python, using a variety of different methods.
+        
+        .. _README: https://github.com/florisvb/pynumdiff/blob/master/README.md
+        
+        License
+        =======
+        ``pynumdiff`` is licensed under the terms of the MIT license. See the file
+        "LICENSE" for information on the history of this software, terms & conditions
+        for usage, and a DISCLAIMER OF ALL WARRANTIES.
+        
+        All trademarks referenced herein are property of their respective holders.
+        
+        Copyright (c) 2018--, Floris van Breugel.
+        
+Platform: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Requires: pydmd
+Requires: cvxpy
+Requires: pychebfun
