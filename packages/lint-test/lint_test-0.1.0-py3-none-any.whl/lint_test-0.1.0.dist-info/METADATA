@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: lint-test
+Version: 0.1.0
+Summary: 
+Author: Your Name
+Author-email: you@example.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: black (>=20.8b1,<21.0)
+Requires-Dist: flake8 (>=3.8.3,<4.0.0)
+Requires-Dist: pendulum (>=2.1.2,<3.0.0)
