@@ -1,0 +1,4 @@
+
+class CollateralError(Exception):
+	pass
+
