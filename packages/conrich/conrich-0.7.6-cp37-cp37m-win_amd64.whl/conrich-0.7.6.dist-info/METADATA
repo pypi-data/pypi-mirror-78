@@ -1,0 +1,220 @@
+Metadata-Version: 2.1
+Name: conrich
+Version: 0.7.6
+Summary: Python client for send order to Concords Securities.
+Home-page: https://www.concords.com.tw/
+Author: Leo Wu
+Author-email: leo.wu@concords.com.tw
+License: MIT
+Keywords: stock,futures,option,TWSE,TPEX,TAIFEX
+Platform: Windows
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pythonnet (>=2.5.1)
+Requires-Dist: pandas
+Requires-Dist: psutil
+Requires-Dist: pywin32
+
+# conrich
+
+![PyPI](https://img.shields.io/pypi/v/conrich)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/conrich)
+![PyPI - Format](https://img.shields.io/pypi/format/conrich)
+![PyPI - License](https://img.shields.io/pypi/l/conrich)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/conrich)
+![contact](https://img.shields.io/badge/contact-康和證券集團-red)
+
+康和綜合證券程式下單API整合了.net framework 4.5架構下的交易介面，讓使用者可以輕鬆的運用python執行快速下單。
+
+>conrich is a securities, futures, option API, which send orders to Concord Securities Group.
+This package integrated with .net framework 4.5, and is compatible with Python 3.5+.
+It is distributed under the MIT license.
+
+- [Installation](#installation)
+    - [Preinstall](#preinstall)
+    - [Binaries](#binaries)
+- [Quick Starts](#quick-starts)
+    - [Login](#login)
+- [Place Order](#place-order)
+    - [Stock](#stock)
+    - [Futures](#futures)
+    - [Foreign Futures](#foreign-futures)
+- [Register Event](#register-event)
+- [Quote](#quote)
+- [Reference](#reference)
+
+
+## Installation
+### Preinstall
+>API usage needs application in advance. In order to use this package, please contact us.
+
+### Binaries
+
+simply use pip to install
+```
+pip install conrich
+```
+
+## Quick Starts
+### Login
+```python
+from conrich import StockAPI
+
+agent = StockAPI()
+agent.login("YOUR_PERSON_ID", "YOUR_PASSWORD")
+```
+```python
+from conrich import FuturesAPI
+
+agent = FuturesAPI()
+agent.login("YOUR_PERSON_ID", "YOUR_PASSWORD")
+```
+```python
+from conrich import ForeignFuturesAPI
+
+agent = ForeignFuturesAPI()
+agent.login("YOUR_PERSON_ID", "YOUR_PASSWORD")
+```
+
+## Place Order
+### Stock
+```python
+from conrich.Stock import constant
+
+result = agent.order(action = constant.Action.NEW_ORDER.value,
+                     branch_no = '8450',
+                     account_no = "YOUR_ACCOUNT",
+                     lot_type = constant.LotType.ROUND_LOT.value,
+                     order_type = constant.OrderType.ORDINARY.value,
+                     side = constant.Side.BUY.value,
+                     day_trade_flag = constant.DayTradeFlag.N.value,
+                     symbol = '6016',
+                     quantity = 1,
+                     price = 10.0, 
+                     price_flag = constant.PriceFlag.FIX.value,
+                     time_in_force = constant.TimeInForce.ROD.value)
+```
+### Futures
+```python
+from conrich.Futures import constant
+
+result = agent.order(action = constant.Action.NEW_ORDER.value,
+                     branch_no = 'F029000',
+                     account_no = "YOUR_ACCOUNT",
+                     market_type = constant.Market.FUTURES.value,
+                     compound_type = constant.CompoundType.FUTURES_SINGLE.value,
+                     commodity = 'TXFI0',
+                     time_in_force = constant.TimeInForce.ROD.value,
+                     writeoff = constant.WriteOff.AUTO.value,
+                     order_type = constant.OrderType.LIMIT.value,
+                     side = constant.Side.BUY.value,
+                     quantity = 1,
+                     price = 12000.00)
+```
+### Foreign Futures
+```python
+agent.order(action=constant.Action.NEW_ORDER.value,
+            branch_no = 'F029000',
+            account_no = "YOUR_ACCOUNT",
+            exchange = 'NYM',
+            side1 = constant.Side.BUY.value,
+            market_type1 = constant.Market.FUTURES.value,
+            commodity1 = 'QM',
+            commodity_month1 = '202010',
+            strike_price1 = 0,
+            put_call1 = constant.PutCall.NONE.value,
+            side2 = '',
+            market_type2 = '',
+            commodity2 = '',
+            commodity_month2 = '',
+            strike_price2 = 0,
+            put_call2 = constant.PutCall.NONE.value,
+            order_type = constant.ForeignOrderType.LIMIT.value,
+            price = 0,
+            price_numerator = 0,
+            price_denominator = 0,
+            stop_price = 42.95,
+            stop_price_numerator = 0,
+            stop_price_denominator = 0,
+            quantity = 1,
+            writeoff = constant.Writeoff.OPEN.value)
+```
+
+## Register Event
+>If you want to catch order or match report, one can define a function and register
+
+### Stock
+```python
+def OrderReportHandler(result, msg):
+        order_result = {'result'    : result.ResultType,
+                        'status'    : result.StatusCode,
+                        'desc'      : result.CodeDesc,
+                        'order_guid'    : result.OrderGuid,
+                        'net_no'    : result.ClOrdID
+                        }
+
+        if result.ResultType=='1':
+            report = result.ExcReport
+            exe_report = {'order_id'  : report.OrderID,
+                        'orig_net_no'   : report.OrigClOrdID,
+                        'execute_status'    : report.ExecType,
+                        'account_no'    : report.Account,
+                        'symbol'    : report.Symbol,
+                        'side'      : report.Side,
+                        'quantity'  : report.OrderQty,
+                        'price'     : report.Price,
+                        'strike_quantity'   : report.LastQty,
+                        'strike_price'   : report.LastPx,
+                        'transaction_time'  : report.TransactTime}
+
+agent.OrderReportEvent += OrderReportHandler
+```
+
+### Futures
+```python
+def OrderReportHandler(code, msg):
+    dict_msg = dict((agent.msg_tag[k], v) for k,v in [tag.split('=') for tag in msg.split('|')])
+    print(dict_msg)
+
+agent.OnFOrderReport += OrderReportHandler
+```
+
+## Quote
+When you want to initiate a quote server, you should open and connect to 康和金好康 first.
+
+```python
+from conrich import QuoteServer
+
+def test_get_quote(commodity, topic, value):
+    print('[{}][{}] {}'.format(commodity, topic, value))
+
+agent = QuoteServer()
+agent.OnQuoteUpdate += test_get_quote
+
+agent.register_topic('2330.TW','Bid')
+agent.register_topic('2330.TW','Ask')
+
+topic1 = agent.code_convert(commodity='TXO', commodity_type='P', strike_price=12500, expire_date=datetime(2020, 10, 18), after_hour=True)
+agent.register_topic(topic1, 'Bid')
+topic2 = agent.code_convert(commodity='TX', commodity_type='F', strike_price=0, expire_date=datetime(2020, 10, 18), after_hour=False)
+agent.register_topic(topic2, 'Ask')
+```
+
+## Reference
+
+[FuturesAPI](./conrich/Futures/README.md)
+
+https://www.concords.com.tw/download/20200318_證券API客戶使用元件及文件.zip
+https://www.concordfutures.com.tw/WebSiteUpload//Files/Document/20200728_期貨API.zip
+
