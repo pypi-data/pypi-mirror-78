@@ -1,0 +1,35 @@
+[package]
+name = "pyduckling-native"
+version = "0.1.0"
+authors = ["Edgar Andrés Margffoy Tuay <andfoy@gmail.com>"]
+description = "Rust-based Python wrapper for duckling library in Haskell."
+repository = "https://github.com/treble-ai/pyduckling"
+license = "MIT"
+keywords = ["haskell", "python", "parse", "duckling"]
+readme = "README.md"
+build = "build.rs"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "duckling"
+crate-type = ["cdylib"]
+
+[dependencies]
+libc = "0.2"
+
+[dependencies.pyo3]
+version = "0.10.1"
+features = ["extension-module"]
+
+[package.metadata.maturin]
+requires-dist = ["pendulum"]
+classifier = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8"
+]
