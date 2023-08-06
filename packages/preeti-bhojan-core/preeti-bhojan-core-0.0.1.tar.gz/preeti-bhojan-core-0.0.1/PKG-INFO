@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: preeti-bhojan-core
+Version: 0.0.1
+Summary: Preeti Bhojan Dore is the core of the backend for Preeti Bhojan app
+Home-page: https://gitlab.com/preetibhojan/backend-core
+Author: Hemil R
+Author-email: hemilruparel2002@gmail.com
+License: UNKNOWN
+Description: # Preeti Bhojan Core
+        
+        Preeti Bhojan Dore is the core of the backend for Preeti Bhojan app.
+        It contains only use cases (the core business logic), models (simple
+        data structure optionally with validation to make sure input makes 
+        sense), and repository interfaces that need to be implemented by the
+        data store. 
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
