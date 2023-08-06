@@ -1,0 +1,9 @@
+Click
+click-log==0.2.0
+pure_pcapy3==1.0.1
+pyserial-asyncio
+voluptuous
+zigpy>=0.20.1a3
+
+[:python_version < "3.7"]
+dataclasses
