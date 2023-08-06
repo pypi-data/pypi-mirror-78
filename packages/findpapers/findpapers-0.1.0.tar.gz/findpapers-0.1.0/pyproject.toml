@@ -1,0 +1,65 @@
+[tool.poetry]
+name = "findpapers"
+version = "0.1.0"
+description = "Easy way to find academic papers across scientific databases by using a single query."
+authors = ["Jonatas Grosman <jonatasgrosman@gmail.com>"]
+maintainers = ["Jonatas Grosman <jonatasgrosman@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://gitlab.com/jonatasgrosman/findpapers"
+repository = "https://gitlab.com/jonatasgrosman/findpapers"
+documentation = "https://gitlab.com/jonatasgrosman/findpapers"
+keywords = ["Paper", "Academic", "Scrapper", "Crawler"]
+
+[tool.poetry.scripts]
+findpapers = "findpapers.cli:main"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+lxml = "^4.5.2"
+requests = "^2.24.0"
+fake-useragent = "^0.1.11"
+colorama = "^0.4.3"
+inquirer = "^2.7.0"
+edlib = "^1.3.8"
+xmltodict = "^0.12.0"
+typer = "^0.3.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pytest-cov = "^2.10.1"
+pytest-randomly = "^3.4.1"
+Sphinx = "^3.2.1"
+coverage = {version = "^5.2.1", extras = ["toml"]}
+
+[tool.poetry.urls]
+issues = "https://gitlab.com/jonatasgrosman/findpapers/-/issues"
+
+[tool.pytest.ini_options]
+junit_family = "xunit2"
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests"
+]
+
+[tool.coverage.run]
+source = ['.']
+omit = [
+    "findpapers/models/__init__.py",
+    "findpapers/searcher/__init__.py"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:"
+]
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
