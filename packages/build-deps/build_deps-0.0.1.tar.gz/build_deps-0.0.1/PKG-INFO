@@ -1,0 +1,153 @@
+Metadata-Version: 2.1
+Name: build_deps
+Version: 0.0.1
+Summary: A python script to automate building of native dependencies
+Home-page: https://github.com/khrykin/build_deps
+Author: Dmitry Khrykib
+Author-email: khrykin@me.com
+License: UNKNOWN
+Description: # build_deps
+        ### A python script to automate the building of native dependencies
+        
+        This script builds native dependencies according to the rules described in a file named `dependencies.py`. It provides a convenient DSL which helps you to install all your binary as well as header-only dependencies in a project-scoped location with a single command.
+        
+        After install, the third-party directory will have the following structure:
+        
+        ```
+        lib
+        ├── %platform%
+            ├── libsomelib1.a
+            ├── libsomelib2.a
+            ...
+        ...
+        
+        include
+        ├── some_solitary_header.h
+        ├── lib_with_include_folder
+            ├── lib_with_include_folder.h
+            ...
+        ...
+        
+        ```
+        
+        ## Example dependencies.py 
+        
+        ```python
+        # dependencies.py
+        
+        from os import path
+        
+        # Custom third-party directory name (default: "third-party")
+        # THIRD_PARTY_DIR = 'dependencies'
+        
+        
+        # Binary dependency:
+        
+        def utf8proc(src_path, build_path, platform, actions):
+            actions.download(
+                "https://github.com/JuliaStrings/utf8proc/archive/v2.5.0.zip")
+        
+            # Copy all headers, excluding folders
+            actions.copy_headers(exclude_dirs=['test', 'bench'])
+        
+            # Run commands are executed in the build path of the current library,
+            # so we provide library source path as an argument to cmake:
+        
+            actions.run('cmake', [src_path])
+            actions.run('cmake', ['--build', '.'])
+        
+            # Copy all library binaries found in the current library build folder
+            actions.copy_binaries()
+        
+        
+        # Header-only dependency:
+        
+        def nlohmann(src_path, build_path, platform, actions):
+            actions.download(
+                "https://github.com/nlohmann/json/releases/download/v3.9.0/include.zip")
+            actions.copy_headers()
+        
+        
+        # Header-only dependency:
+        
+        def cxxopts(src_path, build_path, platform, actions):
+            actions.download("https://github.com/jarro2783/cxxopts/archive/v2.2.0.zip")
+            actions.copy_headers()
+        
+        
+        # Custom boost setup:
+        
+        def boost(src_path, build_path, platform, actions):
+            actions.download(
+                "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2")
+            actions.run('./bootstrap.sh', [
+                f'--prefix="{build_path}"',
+                '--with-libraries=filesystem'
+            ], cwd=src_path)
+        
+            actions.run('./b2', ['install'], cwd=src_path)
+        
+            actions.copy_binaries(path.join(build_path, 'lib'))
+            actions.copy_headers(build_path)
+        
+        
+        # Library with a custom build process:
+        
+        def openssl(src_path, build_path, platform, actions):
+            actions.download(
+                "https://github.com/openssl/openssl/archive/OpenSSL_1_1_1g.zip")
+            actions.run(path.join(src_path, 'config'))
+            actions.copy_headers(exclude_dirs=['internal'])
+            actions.run(_make_cmd(platform))
+            actions.run(_make_cmd(platform), ['test'])
+            actions.copy_headers(build_path)
+            actions.copy_binaries()
+        
+        
+        # Helper functions must start with an underscore:
+        def _make_cmd(platform: str):
+            if platform.startswith('win'):
+                return 'nmake'
+        
+            return 'make'
+        
+        
+        ```
+        
+        ## CLI Command Installation
+        
+        `pip3 install build_deps`
+        
+        ## CLI Usage
+        
+        ```
+        $ build-deps -h
+        
+        usage: build-deps [-h] [--platforms PLATFORMS [PLATFORMS ...]] [--clean]
+                             [libraries [libraries ...]]
+        
+        Builds dependecies from dependencies.py
+        
+        positional arguments:
+          libraries             List of libraries to build. If none is provided, every
+                                library will be buit.
+        
+        optional arguments:
+          -h, --help            show this help message and exit
+          --platforms PLATFORMS [PLATFORMS ...]
+                                List of platofrms to build for. If none is provided,
+                                it will be guessed based on the current machine.
+          --clean               Clean third-party folder before build
+        
+        
+        ```
+        
+        ## License
+        See [LICENSE](LICENSE) (MIT)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
