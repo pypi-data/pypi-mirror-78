@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: maxim
+Version: 1.0.0
+Summary: A simple description of maxim project
+Home-page: https://github.com/so07/docs
+Author: so07
+Author-email: so07@mail.com
+License: UNKNOWN
+Description: # Maxim Project
+        
+        Simple wrapper to fortune module
+        
+        ## Install
+        
+        ```shell
+        pip install maxim
+        ```
+        
+        ## Usage
+        
+        ```shell
+        maxim
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
