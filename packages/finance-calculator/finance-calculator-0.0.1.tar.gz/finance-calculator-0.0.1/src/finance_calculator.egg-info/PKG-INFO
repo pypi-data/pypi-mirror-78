@@ -1,0 +1,94 @@
+Metadata-Version: 1.2
+Name: finance-calculator
+Version: 0.0.1
+Summary: A simple python based tool for financial calculations of all ratios and metrics like xiir, alpha, beta, volatility, upside capture, sdownside capture, sortino, treynor etc.
+Home-page: https://github.com/sprksh/finance_calculator
+Author: Surya Prakash
+Author-email: sprksh.j@gmail.com
+License: BSD-2-Clause
+Project-URL: Documentation, https://finance_calculator.readthedocs.io/
+Project-URL: Changelog, https://finance_calculator.readthedocs.io/en/latest/changelog.html
+Project-URL: Issue Tracker, https://github.com/sprksh/finance_calculator/issues
+Description: ========
+        Overview
+        ========
+        
+        
+        
+        A simple python based tool for financial calculations of all ratios and metrics like xirr, alpha, beta, volatility,
+        upside capture, downside capture, sortino ratio, treynor ratio etc.
+        
+        * Free software: BSD 2-Clause License
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install finance-calculator
+        
+        You can also install the in-development version with::
+        
+            pip install https://github.com/sprksh/finance_calculator/archive/master.zip
+        
+        
+        Documentation
+        =============
+        
+        
+        https://finance_calculator.readthedocs.io/
+        
+        
+        Development
+        ===========
+        
+        To run all the tests run::
+        
+            tox
+        
+        Note, to combine the coverage data from all the tox environments run:
+        
+        .. list-table::
+            :widths: 10 90
+            :stub-columns: 1
+        
+            - - Windows
+              - ::
+        
+                    set PYTEST_ADDOPTS=--cov-append
+                    tox
+        
+            - - Other
+              - ::
+        
+                    PYTEST_ADDOPTS=--cov-append tox
+        
+        https://www.valueresearchonline.com/funds/197/sbi-large-and-midcap-fund
+        
+        
+        Changelog
+        =========
+        
+        0.0.0 (2020-07-29)
+        ------------------
+        
+        * First release on PyPI.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*
