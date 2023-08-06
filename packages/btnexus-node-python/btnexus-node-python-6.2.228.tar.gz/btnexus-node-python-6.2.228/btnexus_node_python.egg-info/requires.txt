@@ -1,0 +1,7 @@
+pyyaml
+six>=1.9.0
+certifi
+backports.ssl_match_hostname
+requests
+python-engineio==3.11.2
+python-socketio[client]==4.4.0
