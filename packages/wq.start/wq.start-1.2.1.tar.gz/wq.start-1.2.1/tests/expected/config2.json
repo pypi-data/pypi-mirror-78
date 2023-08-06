@@ -1,0 +1,91 @@
+{
+    "pages": {
+        "location": {
+            "name": "location",
+            "url": "locations",
+            "list": true,
+            "form": [
+                {
+                    "hint": "The unique name of the site",
+                    "name": "name",
+                    "type": "text",
+                    "label": "Site Name",
+                    "bind": {
+                        "required": true
+                    }
+                },
+                {
+                    "hint": "Site classification",
+                    "name": "type",
+                    "choices": [
+                        {
+                            "name": "water",
+                            "label": "Water"
+                        },
+                        {
+                            "name": "air",
+                            "label": "Air"
+                        },
+                        {
+                            "name": "land",
+                            "label": "Land"
+                        }
+                    ],
+                    "type": "select one",
+                    "label": "Site Type",
+                    "bind": {
+                        "required": true
+                    }
+                },
+                {
+                    "hint": "The location of the site",
+                    "name": "geometry",
+                    "type": "geopoint",
+                    "label": "Location",
+                    "bind": {
+                        "required": true
+                    }
+                }
+            ],
+            "map": [
+                {
+                    "mode": "list",
+                    "layers": [],
+                    "autoLayers": true
+                },
+                {
+                    "mode": "detail",
+                    "layers": [],
+                    "autoLayers": true
+                },
+                {
+                    "mode": "edit",
+                    "layers": [
+                        {
+                            "type": "geojson",
+                            "url": "locations/{{id}}/edit.geojson",
+                            "name": "geometry",
+                            "flatten": true,
+                            "geometryField": "geometry",
+                            "draw": {
+                                "marker": {},
+                                "circle": false,
+                                "polyline": false,
+                                "rectangle": false,
+                                "polygon": false
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "login": {
+            "name": "login",
+            "url": "login"
+        },
+        "logout": {
+            "name": "logout",
+            "url": "logout"
+        }
+    }
+}
