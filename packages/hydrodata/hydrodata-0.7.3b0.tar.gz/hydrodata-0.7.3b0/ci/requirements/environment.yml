@@ -1,0 +1,53 @@
+name: hydrodata-dev
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.8
+  - pip
+  - setuptools
+  - owslib
+  - pandas
+  - matplotlib-base
+  - xarray
+  - scipy
+  - geopandas
+  - geojson
+  - folium
+  - rasterio
+  - networkx
+  - orjson
+  - defusedxml
+
+  - dask
+  - netCDF4
+  - bottleneck
+  - descartes
+
+  - bump2version
+  - pytest-cov
+  - pytest-xdist
+  - pre-commit
+  - codecov
+  - coverage
+
+  - ipykernel
+  - ipython
+  - jupyter_client
+  - recommonmark
+  - nbsphinx
+  - sphinx
+  - sphinx-copybutton
+  - numpydoc
+
+  - beautifulsoup4
+  - python-slugify
+  - css-html-js-minify
+  - unidecode
+  - pip:
+    - nbsphinx_link
+    - git+https://github.com/bashtage/sphinx-material.git
+    - git+https://github.com/cheginit/pygeoogc.git
+    - git+https://github.com/cheginit/pygeoutils.git
+    - git+https://github.com/cheginit/pynhd.git
+    - git+https://github.com/cheginit/py3dep.git
+    - git+https://github.com/cheginit/pydaymet.git

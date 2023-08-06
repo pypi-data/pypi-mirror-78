@@ -1,0 +1,15 @@
+name: hydrodata
+channels:
+  - conda-forge
+dependencies:
+  - python=3.6
+  - pip
+  - matplotlib-base
+  - folium
+  - lxml
+  - pip:
+    - git+https://github.com/cheginit/pygeoogc.git
+    - git+https://github.com/cheginit/pygeoutils.git
+    - git+https://github.com/cheginit/pynhd.git
+    - git+https://github.com/cheginit/py3dep.git
+    - git+https://github.com/cheginit/pydaymet.git
