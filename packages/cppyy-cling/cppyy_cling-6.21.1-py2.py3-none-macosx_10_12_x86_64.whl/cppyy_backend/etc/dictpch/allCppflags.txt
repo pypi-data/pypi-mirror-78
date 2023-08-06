@@ -1,0 +1,8 @@
+-std=c++17
+-m64
+-pipe
+-fsigned-char
+-fno-common
+-Qunused-arguments
+-pthread
+-stdlib=libc++
