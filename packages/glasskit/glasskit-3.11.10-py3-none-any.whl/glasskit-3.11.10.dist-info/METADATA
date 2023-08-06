@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: glasskit
+Version: 3.11.10
+Summary: a micro webframework based on flask and pymongo
+Home-page: https://gitlab.com/viert/glasskit
+Author: Pavel Vorobyov
+Author-email: aquavitale@yandex.ru
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: cachelib
+Requires-Dist: flask
+Requires-Dist: ipython
+Requires-Dist: jinja2
+Requires-Dist: lazy-object-proxy
+Requires-Dist: mongomock
+Requires-Dist: mtprof
+Requires-Dist: pymongo
+Requires-Dist: requests
+Requires-Dist: simplejson
+
+UNKNOWN
+
+
