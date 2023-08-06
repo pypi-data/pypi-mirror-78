@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: codingclash2020
+Version: 0.0.5
+Summary: Pip package for CodingClash2020
+Home-page: https://github.com/CodingClash2020/codingclash2020
+Author: Srikar Gouru
+Author-email: srikarg89@gmail.com
+License: MIT
+Description: # CodingClash2020
+        CodingClash2020
+        
+        
+        ## Updating the pip package
+        To update the _dist/_ folder: `python3 setup.py sdist bdist_wheel` for Linux and `python setup.py sdist bdist_wheel` for Windows.
+        To upload to the pip server: `python3 -m twine upload dist/*` for Linux and `python -m twine upload dist/*` for Windows.
+        
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
