@@ -1,0 +1,3 @@
+[console_scripts]
+startds = startds.core.management:execute_from_command_line
+
