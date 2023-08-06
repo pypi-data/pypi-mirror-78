@@ -1,0 +1,17 @@
+tf-yarn>=0.4.20
+cluster-pack>=0.0.7
+fire>=0.3
+graphyte<2,>=1
+jsonnet>=0.15
+mlflow
+numpy<2,>=1.18
+pandas>=1
+psutil<6,>=5
+pyarrow>=0.14
+skein>=0.8
+
+[cpu]
+tensorflow<2,>=1.15
+
+[gpu]
+tensorflow-gpu<2,>=1.15
