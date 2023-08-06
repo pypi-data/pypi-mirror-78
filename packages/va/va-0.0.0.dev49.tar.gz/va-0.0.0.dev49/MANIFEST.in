@@ -1,0 +1,11 @@
+exclude va/symmetry.py
+exclude va/onedepva.py
+exclude va/PATHS.py
+exclude va/PATHS_dev.py
+exclude va/PATHS_loc.py
+exclude va/prepareandrun.py
+exclude va/test.log
+exclude va/vtkrender_nomodel.py
+exclude va/test/*
+exclude va/test_data/*
+global-exclude *.test.*
