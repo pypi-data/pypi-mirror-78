@@ -1,0 +1,27 @@
+Metadata-Version: 1.2
+Name: modern-greek-accentuation
+Version: 0.2.1
+Summary: Python 3 library for accenting, analyzing accentuation, syllabification, augmentaion and transcription of Modern Greek words
+Home-page: http://github.com/PicusZeus/modern-greek-accentuation
+Author: Krzysztof Hilman
+Author-email: krzysztof.hilman@gmail.com
+License: MIT
+Description: # Modern-greek-accentuation
+        
+        Python 3 library for analyzing, accenting, syllabification, augmentation and transcription of Modern Greek Words
+        
+        # Documentaion
+        
+        see [docs.rst](https://github.com/PicusZeus/modern_greek_accentuation/blob/master/docs.rst)
+        
+        
+        # Change Log
+        
+        
+         * 0.2.1 Added transcription module (simple, Erasmian and modern for Polish readers)
+         * 0.1.1 Initial release
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >+3.6
