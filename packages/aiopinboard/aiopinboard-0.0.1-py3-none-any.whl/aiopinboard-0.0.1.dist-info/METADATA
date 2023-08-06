@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: aiopinboard
+Version: 0.0.1
+Summary: A Python 3, asyncio-based library for the Pinboard API
+Home-page: https://github.com/bachya/aiopinboard
+License: MIT
+Author: Aaron Bach
+Author-email: bachya1208@gmail.com
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: aiohttp (>=3.6.2,<4.0.0)
+Requires-Dist: async_timeout (>=3.0.1,<4.0.0)
+Requires-Dist: maya (>=0.6.1,<0.7.0)
+Project-URL: Repository, https://github.com/bachya/aiopinboard
+Description-Content-Type: text/markdown
+
+# 📌 aiopinboard: A Python 3, asyncio-based library for the Pinboard API
+
+`aioguardian` is a Python3, `asyncio`-based library for interacting with
+[Pinboard](https://pinboard.in) API.
+
