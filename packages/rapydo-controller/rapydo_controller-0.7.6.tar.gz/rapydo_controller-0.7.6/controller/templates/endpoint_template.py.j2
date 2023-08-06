@@ -1,0 +1,114 @@
+from restapi import decorators
+from restapi.models import fields, InputSchema, Schema  #,  validate
+from restapi.rest.definition import EndpointResource
+from restapi.utilities.logs import log
+
+
+class MyInputSchema(InputSchema):
+    myfield = fields.Str()
+
+
+class MySchema(Schema):
+    myfield = fields.Str()
+
+
+class {{name.title().replace(" ", "")}}(EndpointResource):
+    """ Current user informations """
+
+    labels = ["custom"]
+
+    @decorators.auth.require()
+    @decorators.marshal_with(MySchema, code=200)
+    @decorators.endpoint(
+        path="/{{name.replace(" ", "_").lower()}}",
+        summary="...",
+        responses={
+            "200": "..."
+        }
+    )
+    def get(self):
+
+        db = self.get_service_instance("{{auth}}")
+        # current_user = self.get_user()
+
+        data = {}
+        return self.response(data)
+
+    @decorators.auth.require()
+    @decorators.use_kwargs(MyInputSchema)
+    @decorators.endpoint(
+        path="/{{name.replace(" ", "_").lower()}}",
+        summary="...",
+        responses={
+            "200": "..."
+        }
+    )
+    def post(self, **kwargs):
+        """ Update password for current user """
+
+        db = self.get_service_instance("{{auth}}")
+        # user = self.get_user()
+        log.info("Created")
+
+        # Assign with the uuid of newly created resource
+        data = {}
+
+        return self.response(data)
+
+    @decorators.auth.require()
+    @decorators.use_kwargs(MyInputSchema)
+    @decorators.endpoint(
+        path="/{{name.replace(" ", "_").lower()}}/<uuid>",
+        summary="...",
+        responses={
+            "204": "..."
+        }
+    )
+    def put(self, uuid, **kwargs):
+        """ Update password for current user """
+
+        db = self.get_service_instance("{{auth}}")
+        # user = self.get_user()
+        # db.update_properties(user, kwargs)
+        log.info("Updated")
+
+        return self.empty_response()
+
+    @decorators.auth.require()
+    @decorators.use_kwargs(MyInputSchema)
+    @decorators.endpoint(
+        path="/{{name.replace(" ", "_").lower()}}/<uuid>",
+        summary="...",
+        responses={
+            "204": "..."
+        }
+    )
+    def patch(self, uuid, **kwargs):
+        """ Update profile for current user """
+
+        db = self.get_service_instance("{{auth}}")
+        # user = self.get_user()
+
+        # db = self.get_service_instance(?)
+        # db.update_properties(user, kwargs)
+
+        log.info("Updated")
+
+        return self.empty_response()
+
+    @decorators.auth.require()
+    @decorators.endpoint(
+        path="/{{name.replace(" ", "_").lower()}}/<uuid>",
+        summary="...",
+        responses={
+            "204": "..."
+        }
+    )
+    def delete(self, uuid, **kwargs):
+        """ Update password for current user """
+
+        db = self.get_service_instance("{{auth}}")
+        # user = self.get_user()
+        log.info("Deleted")
+
+        return self.empty_response()

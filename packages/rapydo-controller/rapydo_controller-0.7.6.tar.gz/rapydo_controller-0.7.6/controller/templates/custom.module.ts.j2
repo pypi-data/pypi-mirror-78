@@ -1,0 +1,61 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { SharedModule } from '@rapydo/shared.module';
+import { AuthGuard } from '@rapydo/app.auth.guard';
+
+// import { MyComponent } from './components/mycomponent'
+{% if testing -%}
+import { SinkComponent } from '@app/components/sink/sink';
+{% endif -%}
+
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/app/profile',
+    pathMatch: 'full'
+  },
+  {
+    path: 'app',
+    redirectTo: '/app/profile',
+    pathMatch: 'full'
+  },
+  {% if testing -%}
+  {
+    path: 'app/sink',
+    component: SinkComponent,
+    canActivate: [AuthGuard],
+    runGuardsAndResolvers: 'always',
+  },
+  {% endif -%}
+/*
+  {
+    path: 'app/myroute',
+    component: MyComponent,
+    canActivate: [AuthGuard],
+    runGuardsAndResolvers: 'always',
+  },
+*/
+];
+
+@NgModule({
+  imports: [
+    SharedModule,
+    RouterModule.forChild(routes),
+  ],
+  declarations: [
+    {% if testing -%}
+    SinkComponent,
+    {% endif -%}
+    // MyComponent
+  ],
+
+  providers: [],
+
+  exports: [
+    RouterModule
+  ]
+
+})
+export class CustomModule {
+} 
