@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: light-curve-python
+Version: 0.1.11
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Rust
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Requires-Dist: numpy
+Summary: Feature extractor from noisy time series
+Author: Konstantin Malanchev <hombit@gmail.com>
+Author-Email: Konstantin Malanchev <hombit@gmail.com>
+License: GPL-3.0-or-later
