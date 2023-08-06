@@ -1,0 +1,14 @@
+include *.py
+include *.rst
+include LICENSE
+include MANIFEST.in
+include tox.ini
+recursive-include mopidy_choosmoos *.html
+recursive-include mopidy_choosmoos *.js
+
+recursive-include .circleci *
+
+include mopidy_*/ext.conf
+
+recursive-include tests *.py
+recursive-include tests/data *
