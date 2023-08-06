@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+mkdocs-pom-parser-plugin = mkdocs_pom_parser_plugin.plugin:PomParserPlugin
+
