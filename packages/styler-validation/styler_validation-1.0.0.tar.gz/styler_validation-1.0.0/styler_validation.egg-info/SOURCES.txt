@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+styler_validation/__init__.py
+styler_validation/messages.py
+styler_validation/validators.py
+styler_validation.egg-info/PKG-INFO
+styler_validation.egg-info/SOURCES.txt
+styler_validation.egg-info/dependency_links.txt
+styler_validation.egg-info/not-zip-safe
+styler_validation.egg-info/top_level.txt
+tests/__init__.py
+tests/test_base.py
+tests/test_validators.py
