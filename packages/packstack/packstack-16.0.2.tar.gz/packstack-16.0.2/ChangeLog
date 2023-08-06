@@ -1,0 +1,1598 @@
+CHANGES
+=======
+
+16.0.2
+------
+
+* Replace markdown by rst format
+
+16.0.1
+------
+
+* Replace nova\_metadata\_ip by nova\_metadata\_host
+
+16.0.0
+------
+
+* Fix CI jobs
+* Revert "Fix deprecated parameters in Heat and Manila"
+
+16.0.0.0rc1
+-----------
+
+* Fix deprecated parameters in Heat and Manila
+* Add the packstack-upload-git-mirror job to release pipeline
+* Fix manage\_rdo function for CentOS8
+* Remove deprecated os\_region\_name for glance::api
+* Remove CentOS7 jobs from packstack pipelines in master branch
+* Some fixes required for CentOS 8
+* Remove explicit compress of log files
+* Use same Puppetfile for CentOS8 and CentOS7
+* Add dependency on puppet-systemd
+* Use keystone::bootstrap
+* Do not create heat\_stack\_owner role in keystone.pp
+* Add jobs for CentOS 8
+* Make sure rabbitmq can read CA certificate file
+* Ensure the Aodh DB is synced
+* Use rabbitmq parameters for tcp\_listen\_options
+* Set unixsocket to undef in redis class
+* Enable debug mode for services in scenario000 and scenario001
+* Use https for cirros downloads
+* Use cirros image from cached for demo provisioning
+* Reduce unnecessary log storage
+* Open Ussuri
+
+15.0.0
+------
+
+* Remove usage of deprecated cinder parameters
+* Fix setup.py for Pypi
+* Enable replication to redhat-openstack/packstack with upload-git-mirror
+* Remove Fedora 28 job
+* Replace ceilometer central agent by polling agent
+* Use upper-constraints when installing packstack from source
+* Start nova services after keystone endpoints are created
+* add IPv6 support for choose\_my\_ip function
+* change memcached IPv6 bind host to IPv6 format
+* Make enable\_rabbitmq uses implied file namespace
+* Force qemu emulation in CI and add dmidecode command to logs
+* Remove legacy ram/disk/core filter
+* Use upper-constraints file when running tests
+* Use nova::metadata::neutron\_metadata\_proxy\_shared\_secret
+* fix mechanism drivers not found error
+* Add OS\_REGION\_NAME when keystone api is >= 2 in rc file
+* Stop deploying nova consoleauth
+* Remove reference to ::nova::compute::neutron
+* Remove parameters removed from nova::network::neutron
+* Fixes typo in neutron\_350.py
+* Fix URL to get the list of projects
+* Rename package resouce for pythonX-redis
+* Remove Neutron LBaaS
+* Pin sphinx to <2.0.0
+* Move placement to extracted service
+* OpenDev Migration Patch
+* Open Train
+
+14.0.0.0rc1
+-----------
+
+* Replace openstack.org git:// URLs with https://
+* Cast redis port to Integer for use with puppet-redis
+* Switch to default -2 for libvirt\_inject\_partition
+* Add iptables-services to installed packages in run\_tests.sh
+* When generating self-signed certs, ensure cn length is <=64
+* Additional fixes for RHEL 8 support
+* Fix pip setup for RHEL 8
+* Fix package installs in run\_tests.sh for RHEL 8
+* Set tempest flavor disk size to non-zero
+* Enable fwaas in scenario002
+* Switch to supported firewall v2 driver
+* Switch the default Neutron ML2 driver to OVN
+* Deploy Sahara with unversioned endpoints
+* Work around Fedora umask issues in run\_tests.sh
+* Remove port 35357
+* Use glance::registry::logging to set logging
+* Remove usage of 'use\_neutron' sahara option
+* Move debug param to aodh::logging class
+* Fix Hiera keys with a dot
+* Move debug param to <module>::logging class
+* Set metadata\_host instead of metadata\_ip
+* Remove dhcp\_agent\_scheduler API extension for OVN in tempest conf
+* Replace deprecated puppet-magnum parameters
+* Increase the timeout of nova db-sync to 10 minutes
+* Fix virtualization detection for Fedora jobs
+* Update min tox version to 2.0
+* Adjust client packages for Fedora and RedHat > 7
+* [Fedora] Use tested repo for deployment
+* Add a new job on fedora-28 images to test python3
+* Replace os\_region\_name by region\_name in nova::placement
+* Use python3 mod\_wsgi when running in fedora
+* Initial Python 3 support
+* Pin r10k to version 2.6.4
+* Change file ownership and group to nova
+* Remove nova\_catalog\*\_info params for cinder::api
+
+13.0.0.0rc1
+-----------
+
+* Revert "Temporary switch to ovs in scenario 001, fix gate"
+* Replace keystone db flush cron job with a Fernet key rotation job
+* Use SSL options from nova::
+* Set threads=1 for gnocchi in wsgi configuration
+* Remove parameters deprecated by puppet-neutron
+* Run scenario000 with service-workers=2
+* Remove the deprecated parameters for gnocchi
+* Switch to using stestr
+* Remove unnecessary use of rpc\_backend setting
+* Set default\_floating\_pool and aliases param correctly
+* Temporary switch to ovs in scenario 001, fix gate
+* Remove ironic\_host\_manager usage
+* Fix rabbitmq configuration
+* Add OVN Metadata service support to Packstack
+* Add basic system arch support to test scenarios
+* Use system arch to determine what cirros images to use in run\_tests.sh
+* Revert "Define key\_manager/api\_class to a class full path"
+* Revert "Pin puppet\_forge gem to version 2.2.6 for tests"
+* Install openstack-heat-ui when Heat and Horizon are deployed
+* Open Rocky
+* Remove UUID and PKI Keystone token format support
+* Switch to stestr for generating subunit results
+
+12.0.0.0rc1
+-----------
+
+* Add multinode CI job
+* Remove Heat CloudWatch API
+* Add missing underline in packstack.rst
+* Zuul: Remove project name
+* Fix a typo of "authentication"
+* Add openstack-ceilometer-ipmi package when enabling Ceilometer
+* Revert "TEMP disable OVN and Gnocchi"
+* Open Queens
+* Move playbook implementation to a role
+* fix docs packstack.rst format error
+* TEMP disable OVN and Gnocchi
+* Use the versionless URL for trove auth\_url
+* Remove setting of version/release from releasenotes
+* Remove --skip-metering-database when calling ceilometer-upgrade
+* Update Cirros image to 0.3.5
+* Disable vpnaas from scenario002
+* Zuul: add file extension to playbook path
+* Enable qos and trunk service\_plugins
+* Fix glance\_api\_servers config param
+* Zuul v3 support for Packstack jobs
+* Switch to nova::compute::pci for PCI passthrough
+* Define key\_manager/api\_class to a cass full path
+* Disable Keystone v2 tests for Tempest
+* Always install gnocchi when ceilometer is enabled
+* Drop mongodb from packstack
+* Move panko to port 8977
+* Ensure rabbitmq ports are integer
+* Remove runtime dependency on setuptools
+* Remove cryptography from requirements.txt
+* Revert "Use alternative cirros url until download.cirros-cloud.net is fixed"
+
+11.0.0.0rc1
+-----------
+
+* Use alternative cirros url until download.cirros-cloud.net is fixed
+* Ability to customize flavors in Tempest
+* Fix service configuration when AMQP SSL is requested
+* Update README, drop mentioning of O-P-M
+* Update puppet-stdlib
+* Add switch to check unexpected answerfile options
+* Disable ceilometer middleware by default
+* Change value for pci\_alias parameter when empty
+* CONFIG\_NOVA\_ALLOW\_RESIZE\_TO\_SAME to nova::api
+* Add function to automatically install sahara-ui will install sahara-ui when Sahara is enabled
+* Add function to automatically install trove-ui will install trove-ui when Trove is enabled
+* Introduce mappings between CPUs and target names
+* Add function to automatically install ironic-ui
+* Automatically install magnum-ui
+* Automatically install neutron-lbaas-ui
+* Fix Horizon SSL when AMQP SSL is not configured
+* Remove enable\_notifications when using sahara::notify
+* Bump required version of pyOpenSSL
+* Quote OS\_PASSWORD values in generated rc files
+* Configure ignore\_projects in ceilometer middleware
+* Pin puppet\_forge gem to version 2.2.6 for tests
+* Pass qcow2 image properties to UEC image too
+* Ability to provide demo image's properties
+* Implements custom lvm names
+* Add sphinx.ext.autodoc for doc build
+* Add support for OVN
+* Move the imports to the top of the file
+* Allocation pools for demo subnet
+* Use qcow2 as disk format for ami images
+* Add port\_security extension to neutron ML2 driver
+* Removed test\_plugin\_prescript.py
+* Remove old workaround for libvirt-guests file
+* Make SELinux enforcing/permisssive configurable for tests
+* Improve security of the Nova migration
+* Remove nagios deployment options
+* Remove EPEL support
+* Fix database configuration for remote MariaDB setups
+* Remove deprecated ceilometer services from packstack
+* Synchronize Puppetfile constraints with puppet-openstack-integration
+* Remove Nova Cert service
+* Pin stdlib Puppet module to the last known good commit
+* fix overriden error
+* Adjust live migration config to changes in puppet-nova
+* Remove legacy resource type creation from Gnocchi DB sync
+* Switch trunk/cbs/buildlogs to use https
+* Remove nova compute manager option
+* neutron: configure authtoken auth\_uri versionless
+* Open Pike
+* Run SSH validation in Tempest
+* Allow resize to same host in all-in-one
+* Fix VPNaaS setup
+* Fix Ironic provisioning
+* Align the stars to fix CI
+
+10.0.0.0rc1
+-----------
+
+* Add openstack tag to python-redis package
+* Use versionless Keystone endpoint for Nova API
+* Do not require a nameserver to detect the local IP address
+* Add deprecation note for nagios in pike
+* Add options to display parameter specific messages
+* Add support for Packstack to configure the new Nova requirements
+* Install tempest from rpm
+* Add nova cell v2 setup
+* Remove parameter external\_network\_bridge from neutron::l3
+* Disable nagios installation by default
+* Fixed cinder backend tunes on compute node
+* Revert cells v2 support
+* Remove rabbit\_use\_ssl in class swift::proxy::ceilometer
+* Remove support for nova-network
+* Add Panko service support
+* Align stars to fix CI
+* Replace deprecated rabbit\_\* parameters with default\_transport\_url
+* Update Magnum's project description
+* Fix several deprecation warnings
+* Fix check for MariaDB Galera package
+* Fix deployment of FWAAS
+* Move AODH to mysql storage driver
+* Add update step after enabling OpenStack repos
+* Do not purge existing Apache config
+* Move tox dependencies to requirements.txt/test-requirements.txt
+* Use centos-master for tests and fix Puppet4 compatibility
+* Add releasenotes for bp/add-magnum-support
+* Add reno cmd in tox venv
+* Add Magnum deployment in packstack
+* Larger default range for floating IP and Tempest network
+* Fixes packstack failure when interface has no assigned ip address
+* Avoid error if logFile is not defined
+* Fixed puppetfile install step
+* Use ostestr instead of nosetest
+* Switch to fernet tokens by default
+* Fix unrecognized escape sequence warning
+* Update ceilometer telemetry\_secret
+* Switch glance,cinder to use authtoken classes
+* Support puppetlabs hiera.yaml update
+* Fix two puppet parse errors
+* Switch to ceilometer polling agent
+* nova\_url deprecated for neutron notifications
+* Remove keystone::python
+* Change default Identity API from v2.0 to v3
+* Ensure Puppet4 compatibility
+* swift formpost earlier in the pipeline
+* Specify auth\_url in aodh::auth
+* Remove unix socket from redis configuration
+* Use neutron::keystone::authtoken for Neutron manifests
+* Remove double quotes around additional arguments in tests
+* Enable release notes translation
+* Revert "Pin pycparser to 2.13"
+* Nested kvm needs explicit hypervisor type
+* Use ADDITIONAL\_ARGS to pass extra commands to Packstack scenarios
+* Pin pycparser to 2.13
+* Fix LBaaSv2 deployment
+* Open Packstack master for Ocata
+* Use PBR
+* Fix Neutron lbaas and add it to scenario002
+* Change ironic identity to authtoken
+* Add vxlan to linuxbridge agent when enabled
+* Include SSL cert parameters even for existing CACERT files
+* Nova API endpoint versions
+
+9.0.0.0b1
+---------
+
+* Fix Tempest test execution
+* Properly handle Cinder backends
+* Change manila identity to authtoken
+* Update swift::proxy::authtoken parameters
+* Change trove identity to authtoken
+* Change heat identity to authtoken
+* Change aodh identity to authtoken
+* Use proper tox directory when printing Tempest results
+* Change nova identity to authtoken
+* Use lbaasv2 instead of v1
+* Change ceilometer identity to authtoken
+* Improve default hypervisor config, make hypervisor configurable
+* No longer define libvirt\_cpu\_mode
+* Use pre-cached images for tests (or pre-cache prior to testing)
+* Increase neutron timeout in nova.conf
+* Fix CONFIG\_NEUTRON\_L3\_EXT\_BRIDGE invalid parameter
+* Update Packstack to use ::gnocchi::keystone::authtoken
+* Move other-requirements.txt to bindep.txt
+* Add default\_volume\_type to cinder.conf file
+* neutron: use modern parameters
+* Set allow\_virtual => true for packages
+* Create Gnocchi legacy resources
+* Fix pep8 and py27 tests in Ubuntu Xenial
+* add wsgi threads for gnocchi::api
+* add workers for heat::api and heat::engine
+* add workers for trove::conductor
+* add number of workers for nova::conductor
+* Fix user creation for nova network
+* Fixes interface character processing
+* Fix LinuxBridge support
+* Let neutron::server install \*aas when needed
+* Follow redirects when using curl to setup repositories
+* Refactor manifest execution
+* Enable heat-cfn installation by default
+* Fix Heat CFN template
+* Add service\_providers to neutron server
+* Remove erlang package installation
+* Change dependency for certificate file resource
+* Use versionless keystone url for auth\_url
+* Enable SSL in scenario001
+* Added uec images for tempest tests
+* Revert "Fix cinder directory permissions" and fix swift manifest
+* Bump repository to newton for master branch
+* Properly set memcache backend for Horizon
+* Fix notifications for services
+* Use nova flavor provider to create Manila flavor
+* Remove cinder\_type workarounds for Keystone v3
+* Use versionless auth\_url for cinder
+* Remove workaround for openstack gate locales
+* Remove workaround for VPNaaS configuration
+* Revert "Dashboard's local\_settings file should not be world readable"
+* Allow members from the \_member\_ group to manage swift
+* Find available loop device for cinder-volumes
+* Reserve keystone admin ports in test executions
+* Add sudo to easy\_install pip
+* Fix RHSM repos in Newton
+* Remove eventlet support for Keystone
+* Remove requirement of puppet-vlan
+* Added libssl-dev to packages installed by ci
+* Move flavor provisioning to nova flavor provider
+* Added options for SolidFire as backend for Cinder
+* Change way of cloning OPM from source
+* Remove deprecated params from templates
+* Change name for Red Hat OpenStack when using rhsm
+* Remove OPM dependency resolution in prescript
+* [trivial] delete redundant blank space
+* Stop configuring neutron to enforce DHCP MTU option
+* Move neutron variable definitions within provision\_neutron
+* Fix requirements when installing from source
+* Gnocchi DB is skipped if ceilometer is disabled
+* Configure securitygroup/firewall\_driver in plugin.ini with ml2
+* Simplify apache::listen for services relying on httpd
+* Create only required OVS bridges in compute nodes
+* Change name for Red Hat OpenStack Platform when using rhsm
+* Don't fail everything if one copy-logs command momentarily fails
+* Fix pep8 and python27 tests
+* Remove whitespace character
+* Add support for Packstack to manage a default set of flavors
+* Don't assume pip is installed in run\_tests.sh
+* Make tempest use smaller flavors to reduce the resource usage
+* Add /etc/hosts and /etc/pip.conf to files retrieved for diagnostic
+* Workaround for /dev/kvm permissions issues
+* Use pip install for run\_tests.sh
+* Fix bridge creation for compute nodes when using VLAN
+* Fix gate: Tempest setup and repositories
+* Add keystone v3 release note
+* Packstack should not specify release when installint rdo repo
+* Trove: use default api-paste.ini location
+* Support new mariadb-server-galera package
+* Manage CentOS Cloud SIG repo if installed
+* Add release notes for the Mitaka cycle
+* Try setting the tuned profile more than once
+* Fix mode for rabbitmq.config
+* Start managing release notes in Packstack with Reno
+* Configure gnocchi statsd service
+* Make ceilometer metering backend configurable
+
+8.0.0rc1
+--------
+
+* Deploy ceilometer api as wsgi
+* Add libyaml-devel to list of dependencies
+* Add a switch to install from source or binary
+* Allow arbitrary amount of lines between Subscription Name and Pool ID
+* Do not enable RabbitMQ repo during installation
+* Replacing keystone user-list with openstack user list
+* Fixing Glance to work with Liberty --all-tenants depricated
+* Remove S3 endpoint
+* Pass operator\_roles to swift::keystone::auth
+* Update Keystone authentication URL for Swift glance backend
+* Use tox instead of run\_tempest.sh
+* Add missing cinder\_available parameter to ::tempest
+* Alphabetically sort long list of parameters for ::tempest
+* Configure Glance known stores
+* Revert "Add Documentation URL to horizon"
+* Add scenario003, rebalance projects across scenarios and tweak workers
+* Add --service-workers parameter and scale mariadb connections
+* Small fixes for copy-logs.sh
+* Drop require on keystone user and group
+* Fix integration jobs
+* Add Documentation URL to horizon
+* Revert "auth\_uri and auth\_version fix for services"
+* Remove python-iso8601 installation from osc template
+* Renamed a file from sahara\_800 to sahara\_900
+* Use correct endpoint name
+* Remove galera module
+* Remove Gnocchi stuff from Tempest
+* Set manila nova\_flavor id
+* Use the Libreswan driver for VPNaaS
+* Add gnocchi support to packstack
+* Adapt to new parameters in puppet-nova
+* Nova now requires an api database to be created
+* auth\_uri and auth\_version fix for services
+* Drop deprecated parameters from \*::keystone::auth
+* Fix cinder directory permissions
+* Drop dependancy on puppet-galera
+* Catch packstack execution failures so we can still recover logs
+* Add tooling for run\_tests to be able to recover service logs
+* Use relative path instead of absolute path for latest symlink
+* Configure service\_provider for VPNaaS
+* Install service\_plugins packages on neutron api node
+* Set driver in FWaaS configuration
+* Set service\_providers when deploying LBaaS
+* Remove nova-network workarounds
+* Add version number to admin\_url parameter in nova.conf ironic section
+* testr needs to run with CWD being the tempest directory
+* Bump default delorean repository to current-passed-ci
+* Add tempest in the list of things that are configured
+* Provide framework for integration testing with run\_tests.sh
+* Fix lvm.conf edition
+* Enable VPN tab in Horizon when enabling VPNaaS
+* Ensure aodh does not disable Keystone ports in Apache
+* Use absolute path for Trove's api-paste.ini
+* Use correct environment for Cinder using Kestone v3 API
+* Packstack master branch is now Mitaka
+* Remove qpid support
+* Drop use of deprecated neutron auth options
+* Use logging.warning instead of logging.warn
+* Fix Sahara templates to work with latest puppet-sahara
+* Install python-redis when using Redis
+* Use assertTrue/False instead of assertEqual(T/F)
+* Add neutron plugin option CONFIG\_NEUTRON\_OVS\_TUNNEL\_SUBNETS
+* Replace deprecated LOG.warn with LOG.warning
+* Rename stackforge to openstack
+* py26 is no longer supported by Infra's CI
+* Fix heat template with latest puppet-heat
+* Set proper OPM branch
+* Switch to PyMySQL
+* Add support for OpenStack Telemetry Alarming (Aodh)
+* Deprecated tox -downloadcache option removed
+* Send tempest.log to the packstack log directory
+* Send run\_tempest.sh output to a logfile
+* Provide support for specifying which tempest suites are run
+* Fix Nova notifications for Neutron
+* Fix nagios service configuration
+* Fix glance backend selection
+* Add notification driver
+* /etc/rabbitmq/rabbitmq.config should not be world readable
+* Dashboard's local\_settings file should not be world readable
+* Allow registering to Satellite 6 Server
+* Install neutron metering agent by default
+* Add posibility to run tempest as one of the steps
+* Complete refactor of tempest provisioning
+* Refactor provisioning
+* Adapt to newest puppet-keystone
+* Update demo Cirros version to 0.3.4
+* Do not enable EPEL when installing RDO
+* Add symlink to support hiera >= 3.0
+* [vmware] Add support for multiple VMware vCenetr clusters
+* Set proper permissions for /etc/neutron/api-paste.ini
+* Do not create OVS bridges in compute nodes
+* Stop also ntpd
+* Correctly construct type drivers from CONFIG\_NEUTRON\_ML2\_TYPE\_DRIVERS
+* Sync keystone config with upstream changes
+* Move passprase note to correct option
+* Change of versioning
+* Sync service questions
+* Also install Heat if Sahara is being installed
+* Update .gitreview for new namespace
+* Remove deprecated params from puppet-sahara
+* Fix IPv6
+* Add support for Neutron ML2 SR-IOV mechanism driver
+* Use short names in rpc\_backend
+* Make runs reproducible when using --answer-file
+* [Ceilometer] set region to CONFIG\_KEYSTONE\_REGION
+* Hostname support
+* Remove deprecated configure\_delegated\_roles param from heat::engine
+* Properly set default\_floating\_pool on nova::api
+* Fix demo bridge setup
+* Fix Sahara support
+* Added Neutron VPNaaS
+* Remove deleted Nova rows
+* Remove deleted Cinder rows
+* Switch for Keystone DB cron job
+* Add support for swift-object-expirer
+* Packstack master branch is now Liberty
+* Make dhcp service subscribe instead of require
+* Add require for /etc/neutron/dnsmasq-neutron.conf
+* Remove now duplicate installation of python-keystone
+* Fix SSL files package dependancies
+* Fix iptables comment for  neutron tunnels
+* Import exceptions into nova plugin
+* Revert "Allow network range for nova networks"
+* [neutron] Avoid running neutron-db-manage twice
+* Use dummy interface
+* Update README
+* Integrate GlusterFS drivers with manila module
+* [neutron] Config extension plugin by names
+* Sync DB when neutron service is enabled
+* removing unused assignement from puppet\_950.py
+* [Neutron] Don't run fwaas/lbaas classes on standalone api nodes
+* [Horizon] [SSL] resolve coding error to fix user supplied certs
+* Set LBaaS/FWaaS classes before neutron class
+* Fix parameter rabbit\_user in ironic template for rabbitmq
+* keystone: use keystone::cron::token\_flush
+* Fix Keytone API Version
+* Fix keystonerc\_demo file generation
+* [horizon] COMPRESS\_OFFLINE should be set to true
+* Revert "Fix answer file duplicate values"
+* standardizing on Vserver in documentation and packstack plugins
+* Spellchecking cleanup
+* Spellchecking cleanup in prescript\_000.py "pre installing"
+* Fix double slash in adminUrl
+* spelling correction for typo in prescript\_ooo.py
+* Fix answer file duplicate values
+* Fix sahara template for qpid
+* [Neutron] Fix linuxbridge and switch it to ml2 plugin
+* [AMQP] ensure nssdb pw is set to undef if we don't use ssl
+* Make sure Manila always runs after Glance
+* Fix 'File mode must be a string, not "Fixnum"' error
+* [Cinder] set correct backup\_swift\_url
+* Depend on package resource names
+* [Horizon] ensure horizon secret key stays same
+* [Nagios] rework packstack nagios puppet generation
+* Fix br-ext IP configuration
+* [Neutron] use correct iface addresses on tunnel firewall rules
+* [Apache] don't purge apache configs in prescript
+* [Apache] Fix apache module issues
+* Updated LDAP doc entries
+* [Packstack] Base force\_interface on ipaddr instead of ipaddress
+* [Packstack] Add symbolic link for latest log dir
+* Add processor process\_string\_nofloat
+* Make keystonrc file compatible with keystone v3 API
+* Fix Nova Networking with Manila Generic Driver
+* [Nova] Fix instance metadata when not installing neutron
+* [Swift] temporary use ipv6 address without brackets
+* [memcached] fix memory consumption and add temporary IPv6 hack
+* [Provision] re-enable provisioning subnets with ipv6
+* [Keystone] Unite keystone admin and public url configuration
+* [SSL] fix validate\_writeable\_directory
+* Correctly switch all admin usernames to CONFIG\_KEYSTONE\_ADMIN\_USERNAME
+* Refactor SSL setup to use CA to sign certificates
+* Correct value of $public\_bridge\_name
+* Add ability to enable rdo testing repo
+* Allow CIDR instead of iterface name
+* Fix mongodb configuration
+* Tagged releases
+* Allow ipv6 address for cinder nfs backend
+* Support Manila network plugin model
+* Update Manila share driver options
+* Fix forgotten openstack client and trove ipv6 support
+* Do not configure sshd\_config from swift\_common
+* Explicitly set MongoDB config file
+* Update NetApp params for Kilo
+* Fix puppet-lint errors in puppet-packstack module
+* Use versioncmp for ::operatingsystemmajrelease comparison
+* [Neutron] Fix LBaaS and FWaaS setup for kilo
+* [Packstack] enchange ipv6 support
+* allow to specify admin name and email
+* Allow --keystone-service-name option
+* Fix Keystone service name
+* Fix check for is\_virtual fact
+* Improve discovery logic
+* added "mlnx" to list of supported ml2 mechanism drivers
+* support the ldap user\_enabled\_invert parameter
+* Making Packstack Compatible with Puppet 4.x
+* reflect puppet-nova changes for novncproxy\_base\_url
+* Single source of documentation
+* revert erroneous change to packstack/puppet/templates/amqp.pp
+* reflect puppet-nova changes for novncproxy\_base\_url
+* [Packstack] pass rabbitmq ssl args to trove and manila
+* allow provision demo image to be user-selected
+* BZ#1199847 - Edited Packstack help strings
+* implement debug mode for libvirtd
+* Only use sentinel when redis ha is chosen
+* updated README.md to document --allinone
+* Add support for new nfs\_shares parameter
+* Combine NetApp Puppet templates into one file
+* Fix identity\_uri in Glance config
+* [Packstack] Manpage sync
+* [Neutron] open tunnel port also for compute\_hosts
+* [Glance] Fix deprecation of \*auth\_host\* parameter in Glance::Api
+* Do not enable Manila by default
+* Allow network range for nova networks
+* Allow command-line options with --gen-answer-file
+* Generate random password for ironic
+* Enable Manila in Packstack
+* Fix Printing messages
+* Fix duplicate configure\_delegated\_roles in Heat
+* [AMQP] cherrypick ssl fixes from freeipa patches
+* Install rhos-log-collector only on RHEL systems
+* Add Openstack unified client
+* Removing puppet-remote
+* Get rid of puppet-openstack dependency
+* load br\_netfilter module if necessary
+* Packstack master is Kilo now
+* [Keystone] Fix keystone url
+* Fix missing heat\_stack\_owner role
+* Fixes heat missing configuration file
+* Enable PEP8 checks H102, H232, H233, H301, H904
+* Add vmdk to cinder usage option
+* Add a note to use 16, 24, or 32 chars for CONFIG\_HEAT\_AUTH\_ENC\_KEY
+* Unified validators
+* Fixed Cirros image provisioning
+* [Neutron] start using bridge\_uplinks for ovs agent
+* Revert "[Apache] Fix concat::setup deprecation warning"
+* [Nova] use new libvirt\_inject\_partition parameter
+* [Nova] remove deprecated option nova\_shell
+* [Horizon] switch from fqdn option to allowed\_hosts and server\_aliases
+* [Horizon] Switch deprecated can\_set\_mount\_point to hypervisor\_options
+* [Keystone] Fix deprecation of cinder parameter in Nova::Keystone::Auth
+* support Keystone LDAP identity backend
+* IPv6 fixes
+* Enable several PEP8 checks
+* [Keystone] Fix keystone::endpoint deprecation
+* Standardize DB Product Name
+* Fix: Correctly set the use\_neutron option
+* Add missing usage information for CONFIG\_IRONIC\_DB\_PW
+* Enable PEP8 checks for E111, E241, E261, E401, E502, E713, E721
+* Enable PEP8 checks for F401, E202, E271, E272, E711, E712
+* Update redis-sentinel support to handle multiple sentinels
+* Remove QPID ssl package installation
+* Bulletproof novncproxy setting
+* [Apache] Fix concat::setup deprecation warning
+* Fix --version switch error
+* Enable PEP8 checks for E121, E129, E231, E265, E302
+* Enable PEP8 checks for E211, E222, E225, E228
+* Add support for redis sentinel and slaves
+* Set correct vncserver\_proxyclient\_address
+* Don't always delete temporary directories
+* Use flake8 and hacking instead of pep8 for Python syntax checks
+* Ironic support for packstack
+* Trove Support
+* Load br\_netfilter module on Fedora 22+
+* Sahara support to Packstack in time for Juno
+* [Provision] Don't provision glance images if Glance wasn't installed
+* [Rabbitmq] allow non-localhost connections to 'guest' user
+* Ensure yum-utils is installed on nodes before running yum-config
+* Fix duplicate declaration of neutron\_tunnel firewall rule
+* Fix deprecations
+* Remove Puppet templates endings when calling getManifestTemplate
+* Fix spelling of OpenStack
+* 'if' expects 'bool' but gets 'string'
+* network: set the default floating ip pool name
+* Print the used logfile also at the beginning
+* Update to Fedora 21 and remove Fedora 19 support
+* Change the APP\_NAME to Packstack
+* Fix Tempest Provisioning
+* Use '.pp' as default ending for template files
+* Fix issues if ML2 neutron is configured with linuxbridge
+* redis-based group membership coordination for ceilometer
+* Remove deprecated code in packstack/plugins/serverprep\_001.py
+* change default keystone service to httpd
+* Use is\_virtual instead of is\_virtual\_packstack
+* Open VXLAN port only to NETWORK\_HOSTS
+* Packstack Plugins Clean-up
+* The httpd service should only be installed on the controller node
+* Remove RHEL6 specific code in prescript.pp
+* Check packstack/version.py for PEP8 issues
+* Do not create cinder-volumes if not needed
+* Avoid KeyError: 'CONFIG\_CINDER\_VOLUMES\_SIZE' error
+* [Neutron] Deprecate ovs and linuxbridge plugins
+* Remove code only used for RHEL 6.3
+* [Neutron] Ensure ovs agent setup runs for all CONFIG\_NEUTRON\_ML2\_TENANT\_NETWORK\_TYPES
+* Configure TCP keepalive setting to all nodes
+* Adds Warning when NetworkManager is active on hosts
+* [Neutron] Fix undef hiera value for gre protocol
+* Remove Deprecated parameters for keystone::endpoint class
+* Add workaround for PuppetLint.configuration.ignore\_paths
+* Introduce Puppet-lint/syntax test into Packstack
+* Switch README file to Markdown
+* Do not override defaults in local\_settings
+* Ensure Heat is set up before running provisioning
+* Revert "Configures Heat to use Trusts by default"
+* Set MTU=1400 for GRE and VXLAN tenant networks
+* Fix swift loopback creation
+* Allow alternate locations for Cirros image
+* Fix virbr0 elimination on compute nodes
+* Fix several deprecation warnings
+* Allow --default-password with --gen-answer-file
+* Fix LVM Cinder Volume Creation
+* Instructions for development setup
+* Check for puppet execution errors
+* Always enable EPEL repo when installing RDO
+* Adds Hiera implementation within Packstack
+* Switch packstack o-p-m branch to master-patches
+* Fix Neutron FWaaS configuration
+* Remove firewalld workaround as it should be part of puppet-firewall now
+* Revert "Adds Warning when NetworkManager is active on hosts"
+* Grammar tweak
+* Generate answer file only when needed
+* Configure chronyd for RHEL 7/CentOS 7/Fedora
+* Fixes the duplicate creation of service/endpoint for cinder v2
+* Reverts InnoDB performance setting
+* support other components using apache mod\_wsgi
+* Use UUID as default Keystone token format
+* Implement Swift storage backend for Glance
+* Set up NOVNC with https when using SSL on HORIZON
+* Load bridge module
+* Fixed typo
+* Removed MariaDB special case
+* Remove mariadb-server package during installation
+* Remove submodule initialisation as we now use subtrees
+* Fix NetworkManager facter error
+* Rename process\_args to config in processors.py
+* Add CONFIG\_KEYSTONE\_REGION option
+* Use a valid e-mail for admin user in keystone
+* Allow specifying of a global --password option
+* Fix Warning when NetworkManager is active on hosts
+* Adds usage examples for CONFIG\_NEUTRON\_L2\_PLUGIN
+* Remove obsolete dependancy
+* Typo fix
+* Just reraise
+* Fixes the swift loopback device creation for test setup
+* Missing validator
+* Applies packstack::neutron::bridge class to network hosts
+* Add docs environment to tox.ini
+* Refactor cinder plugin and extend it with multiple backends support
+* Deprecates MySQL parameters in favor of MariaDB
+* Links to get-involved type resources
+* Call rpm --whatprovides on packages required to run puppet
+* Add dependant openstacklib to list of puppet modules
+* Unsupported option
+* Improved versioning
+* Make packstack compatible with latest puppetlabs-mysql module
+* Enables config of NetApp's Cinder driver
+* Correct value of $public\_bridge\_name
+* Install and update packages required by packstack
+* RHSM HTTP proxy
+* Add ignore unknown variables errors switch
+* Enable API services to all hosts
+* Removed iptables rules duplication
+* Added FW rules for live migration
+* Add live migration support and firewall rules
+* Fixed remote DB installations
+* Remove ServerAlias definitions
+* Don't create default MySQL/MariaDB users
+* Ensures RHOS SOS Plugins is installed on all nodes
+* Sets up NOVNC with https when using SSL on HORIZON
+* Reload sysctl
+* Adds Warning when NetworkManager is active on hosts
+* Don't use ML2 parameters for other plugins
+* Adds Better rst Output when using 'packstack -o'
+* Adds Undocumented HEAT Options
+* Enable migration support in libvirt
+* Fixes Duplicated variables in neutron manifests
+* Sets l2population to true on nodes that populate l2 agents
+* Adds Scientific Linux 7 Support
+* Fixes Facts string comparisons in CentOS 7
+* Configures Heat to use Trusts by default
+* Revert "Configures NTP Servers by default"
+* Fixes incomplete Tempest question in interactive mode
+* Configures NTP Servers by default
+* Ensure ceilometer depends on nova-common package
+* Fixes libvirtd restart
+* Change nova api steps generating puppet manifests to fix neutron
+* Make sure bridge provision is disabled for Nova network
+* Restart libvirt only when deploying nova network on compute
+* Compare CONFIG\_PROVISION\_ALL\_IN\_ONE\_OVS\_BRIDGE to 'false'
+* Stop firewalld before service iptables and not class firewall
+* Adds usage examples for CONFIG\_NEUTRON\_L2\_PLUGIN
+* Prevents packstack to create user/tenant called undef
+* Enable MRG channel by default
+* Change swift proxy pipeline quota entriers to use underscore instead of dash
+* Fixed lbaas to be installed on network nodes
+* Connect bridge with interface only on network hosts
+* Setup neutron l2 plugin configs only on neutron api nodes
+* Fixes DHCP firewall protocol
+* Revert "Better Hardware Virt Support checking"
+* Fix wrong CONFIG\_PROVSION\_TEMPEST test
+* Enables Debugging Mode for Neutron Agents
+* Provision Demo/Tempest Separation
+* Fixed metering to be installed on each L3 agent
+* Connect bridge with interface also for GRE and VXLAN
+* don't install l2 agent on api node by default
+* Fixed subscription-manager registration
+* configure authorized\_keys locally for --allinone
+* prevent packstack from aborting of o-p-m package has no deps
+* Better Hardware Virt Support checking
+* Fix check for CentOS in mysql\_install
+* Unite qpid configuration across services
+* Ensure correct order when using qpidd with ssl
+* Fix qpid setup
+* Remove documentation URL
+* Add CONFIG\_CONTROLLER\_HOST to heat cfn config
+* Fixes horizon error when neutron disabled
+* Make sure firewalld is down before iptables starts
+* Restart libvirtd after Nova Network install
+* Auditd not enabled by default
+* Provision also on multinode setup
+* Add forgotten cinder backend vmdk
+* Fix libvirt livemigration
+* Use openstack-selinux on RHEL-7
+* Handle interface names containing ".", "-" or ":"
+* Set EC2 auth url for Heat
+* Add crossdomain middleware into switf proxy pipeline
+* Allow specifying includedir in packstack::innodb
+* Make mysql\_install innodb hacks package independent
+* Only setup nova notifications if nova is being installed
+* Add special backward compat layer
+* Moved cinder::volume::iscsi out of main template
+* Added neutron options for Horizon
+* Make innodb tweaking compatible with mysql
+* Synced packstack.rst
+* Make sure swift cactch\_errors middleware is first in pipeline
+* Don't use vs\_bridge with provider network
+* fix firewall rules with multiple network hosts
+* Refactor horizon ssl setup to use puppet-horizon
+* Open VXLAN udp port
+* Add Keystone domain for Heat support
+* Added Neutron FWaaS
+* updating nagios checks for cinder and glance to list all items not just the admins
+* Removed residual parameter
+* Fixes language parsing problems
+* Fixed firewall protocols
+* Use except x as y instead of except x, y
+* Fix {nagios,monitoring}-plugins-ping confusion
+* Fixed Heat plugin
+* Adds Neutron L3 Metering Agent
+* Opens GRE and VXLAN port
+* Revert "Add Automation for generating the packstack man page"
+* firewalld workaround
+* Fixup fallback for qemu-kvm by silencing yum
+* Fallback for qemu-kvm
+* Add compatibility fixes for innodb optimalisations on EL6
+* Switch default packstack neutron l2 plugin to ml2 and switch segregation type to vxlan
+* Parameter deprecation support
+* Removed show-breaking hack
+* Update README
+* README file needs to be updated
+* Install Ceilometer notification agent
+* Add Automation for generating the packstack man page
+* Plugins refactor
+* Force qemu-kvm-rhev on RHELs
+* Add performance configuration for InnoDB
+* Make prescript template RHEL-7 aware
+* Add infos about ML2 params in the packstack man page
+* Removed unnecessary hacks
+* Ensure sshkey title is unique
+* Install ceilometer compute agent on nova-cpu nodes
+* Update to Move libvirt options into a group
+* Install o-p-m dependencies on all nodes
+* Extend default swift-proxy configuration for Tempest
+* [vCenter] Fix the parameters duplicated in answer file
+* Set correct keystone\_default\_role for Horizon
+* Better localhost checking for SSL configuration
+* Ensure that we run token-flush cron job under correct user
+* Add hostname to SSL redirection
+* [Horizon] Fixed help\_url to point to upstream docs
+* Support EPEL for RHEL-7
+* support ssh-based live migration
+* Introduce support for mocking command output
+* add support for neutron/nova notifications
+* teach packstack about "could not autoload" errors
+* Added puppet resource sequence for cinder backup (used by swift)
+* Redirect to https port when SSL enabled
+* Make RabbitMQ default AMQP provider
+* [heat] updated the templates according to latest stable/havana
+* Use mariadb-galera-server for server package
+* Make CONFIG\_NEUTRON\_OVS\_VXLAN\_UDP\_PORT work with ML2
+* Fix QPID config path compatibility
+* Changes the mysql charset to utf8
+* Fixes wrong host list for firewall rules
+* mongodb/ceilmoneter manifests cannot depend on eachother
+* mongodb modules want bind\_ip to be a list
+* Explicitly include the firewall module
+* Ensure ovs\_neutron\_plugin.ini has correct ownership
+* Disable provisioning for multihost installations
+* Fixes test\_utils resolution problem
+* Add race condition for keystone.log
+* convert heat templates to use CONFIG\_AMQP\_ variables
+* Removed objects breaking Swift operability
+* Fix Swift pipeline settings
+* Updated the README file
+* Configure swift middleware that is used in Tempest
+* Simplified the mongodb configuration
+* Enable DHCP ports on neutron-dhcp-agent hosts
+* [RFE] Added support for vmware vcenter in packstack
+* Fixed Neutron ML2 issues
+* [swift] Add firewall template per host, not device
+* [core] Executing --allinone now we honor the default values
+* Ensure keystone log ownership
+* Add RabbitMQ as option for Qpid
+* Fixed status message alignment
+* Specify tunneling type for OVS agent
+* [swift] Added allow\_versions for swift storage all
+* Use own command for modules
+* Ask for CONFIG\_NEUTRON\_OVS\_VXLAN\_UDP\_PORT with ML2
+* Use openstack-puppet-modules
+* Fixes apache duplicated Listen statements
+* Use public url in generated credentials files
+* Make it easier to copy the dashboard URL from the terminal
+* [Update] Module openstack updated to stable/havana
+* Fixing syntax error
+* Workaround for stucked tuned
+* Update ceilometer module
+* Fixes nagios overwrite of apache configuration
+* Install necessary packages for ML2
+* Unified verbose and debug settings
+* getInterfaceDriver was ranemed
+* Fix token\_flush command
+* [Enhancement] Added --version flag
+* Run token-flush every minute
+* Update puppet-tempest module to stable/havana
+* Moved puppetlabs-firewall to puppetlabs upstream master
+* VXLAN support
+* ML2 support
+* [Fix] Updated the puppet module and add the smallfile support
+* Don't use old arguments
+* Fixes qpid SSL installation errors
+* [Keystone][Firewall] Open Keystone port for ALL
+* Fixes qpid ssl error
+* [Swift] Updated puppet-swift to stable/havana
+* [Fix] Update Neutron to stable/havana and fixes for puppet 3.4+
+* Open DHCP ports for neutron firewall rules
+* Change puppet qpid module to upstream
+* [Horizon] Install php only with nagios and add ensure to package
+* remove unsupported libvirt\_vif\_driver nova.conf setting
+* use correct syntax to install multiple packages
+* Add missing example options
+* Move to the upstream puppet-vswitch
+* Don't override cinder's default service type
+* Use class for notifier strategy
+* CONFIG\_NEUTRON\_LBAAS\_HOSTS should be empty in allinone
+* service\_plugins must not be list with empty string
+* Revert "Move packstack logs to /var/log/packstack"
+* Allow Ceilometer API for all hosts
+* Require also core\_plugin setting
+* NEUTRON\_LBAAS\_HOSTS should be empty by default
+* Add cinder API v2 endpoint to keystone
+* Upgrade DB before neutron server starts
+* Add localhost to the list of Horizon's ALLOWED\_HOSTS
+* Added the help\_url pointing to RH doc
+* Fixes missing split\_hosts function import on mysql
+* Don't yield empty value
+* Don't touch NetworkManager and iptables
+* Don't set up the L3\_EXT\_BRIDGE twice
+* Add support for LBaaS agent
+* Update neutron puppet module to latest stable/havana branch
+* [heat] Fix heat installer when executed in interactive mode
+* [ceilometer] Fixed the nova\_ceilometer.pp template
+* Updated puppet-pacemaker, added puppet-openstack-storage
+* Fixes errors when nova is disabled
+* Added auth option to qpid
+* This patch will add support for cinder::backup::swift in packstack
+* Update puppet-nova module
+* Fixes typos in packstack man file
+* Move packstack logs to /var/log/packstack
+* Validate type of given ssh key
+* Sync submodules before update
+* Add validation for gluster volumes using hostnames
+* Add missing options to packstack man page
+* Update upstream puppet-certmonger module
+* Add information on location of horizon password
+* Disable unsupported features in Horizon for RHOS
+* Add missing options to packstack man page
+* Align packstack templates with ceilometer upstream git repo
+* Ensure the creation of /etc/nagios/nrpe.cfg
+* cinder\_ceilometer: use the class
+* Adds separate firewall rules for qpid
+* Adds fault resilency to ntpd configuration
+* Make sure iptables are enabled
+* Include the host's FQDN in Horizon's ALLOWED\_HOSTS
+* Revert "Add swift middleware for Tempest tests"
+* Replace qpid\_host with qpid\_hostname
+* Fixed comments for interactive installation
+* Configure SSL for qpid in clients
+* Improve error reporting for shell commands
+* Add swift middleware for Tempest tests
+* Added advice option values to neutron options
+* Disables port 80 for horizon when SSL is enabled
+* Increase the size of swift loopback storage
+* Make network\_vlan\_ranges available in GRE setups
+* Use packstack fork of puppet-keystone
+* Module update
+* Update puppet-keystone module
+* Don't log Puppet commands
+* Set priority for havana channel
+* Fixes EPEL problem
+* Update Horizon submodule to the latest
+* Fixed extra firewall rule in qpid
+* - fix regex of nameserver's address
+* Fixes Neutron firewall rule creation on wrong host
+* Added Swift hash setting
+* Ensure horizon SSL is configured when enabled
+* use rpm -q --whatprovides as a more general check
+* Adds Firewall rules for nagios nrpe access
+* Added SSL configuration to qpid
+* Fixed str formating
+* exposes tempest uri/branch selection if provision-tempest is y
+* Include Logging and Debug info to packstack docs
+* Add puppet-certmonger as a submodule
+* Change msg with Exec resource too
+* Ensure Nova Network-compatible demo provisioning
+* Improves EPEL and RDO repo setup
+* vswitch module fix
+* qpid: Changed the settings for qpid >= 0.24
+* packstack: find out which package provides 'nc'
+* Adds error checking when puppet fails internally
+* Adds Firewall rules for keystone access
+* adding the pacemaker submodule to the puppet modules directory
+* Store iptables in file
+* Exclude create\_resources only for Fedora
+* Update setuptool URL to the current primary repository
+* Add ability to set puppet Exec timeout and to do a "dry run"
+* Fix CONFIG\_PROVISION\_TEMPEST\_REPO\_URI default
+* Prescript plugin improvement
+* Creates keystonerc\_admin for user
+* Adds Firewall rules for swift access
+* Adds Firewall rules for cinder access
+* Adds support for multihost nova-network
+* Fixes typo
+* Fix typo in ntp-servers option
+* Allow packstack to detect linux sub-interfaces properly
+* Improved logging
+* Rephrase support message
+* Change message in certain cases
+* Adds Firewall rules for neutron access
+* Adds Firewall rules for glance access
+* Enable optional channel when RHSM is used
+* Allow overlapping IPs for Neutron
+* Adds Firewall rules for nova access
+* Heat: updated puppet-heat submodule to the latest commit
+* Packstack adds "default-storage-engine=InnoDB" to /etc/my.cnf"
+* Adds Firewall rules for mysql access
+* Packstack accepts more CLI options
+* Changing the debug flag to false for modules heat and ceilometer
+* Use python-pymongo for EL distros too
+* Fixed KeyErrors in case VlanManager is not used
+* Fixed typo
+* Fixed cinder-volumes invalid size
+* Revert "Added SSL option to the qpid plugin"
+* Heat support
+* Added SSL option to the qpid plugin
+* Make sure agent config gets done on api hosts
+* Support for Ceilometer installation
+* Added posibility to change Nova network manager
+* Add race conditions to config edit
+* Add the haproxy submodule
+* Changed the repository for the neutron submodule
+* Added net.bridge.bridge-nf-call\*=1 for --allinone installation
+* Fix Rawhide support
+* ovs\_use\_veth=True is no longer required
+* Remove libvirt's default network (i.e. virbr0) to avoid confusion
+* Allow tempest repo uri and revision configuration
+* Just rename quantum to neutron everywhere
+* adds support for configuration of cinder nfs backend driver
+* Removing CONFIG\_QUANTUM\_USE\_NAMESPACES option
+* Use 3% more space for cinder-volumes
+* Add GRE support
+* Install openstack-selinux on all EL distros
+* Added MySQL admin password confirmation
+* Made MySQL installation optional
+* Persist allinone OVS bridge
+* Default to use emX instead of ethX on Fedora
+* Refactor patch 1
+* Solve qemu-kvm/qemu-kvm-rhev conflict
+* Make demo floating\_range configurable
+* Update vswitch module to support keep-ip option
+* Default to ovs\_use\_veth = True on non-Fedora systems
+* Point at ripienaar/puppet-concat
+* Don't access iface\_arr unless using OVS
+* Fix traffic inbound to floating IP in AIO
+* Use multi validators in CONFIG\_SWIFT\_PROXY\_HOSTS
+* Inform about support only on RHEL
+* Accept IPv6 address and single IP in range parameters
+* Correct CIDR values in case of invalid is given
+* Enable qpidd on boot
+* Fixes install on CentOS 6.4
+* Bump release number
+* Swithed to https://github.com/packstack/puppet-qpid
+* Ensure CONFIG\_PROVISION\_\* variables always get set
+* Add a missing comma in the netns manifest
+* Update documentation grammar
+* Set debug=true to have some logs
+* Increase timeout of kernel update
+* Don't fail to install when CONFIG\_CINDER\_INSTALL=n
+* Ensure ip forwarding on L3 agent hosts
+* Move over to new puppetlabs inifile module
+* Build keystonerc\_demo for demo user
+* If allinone and quantum selected, install basic network
+* Add firewall rules for demo outbound connectivity
+* Add support for post-deployment provisioning
+* Removing needless slash from 2 usage strings
+* Load kvm.modules only if it exists
+* adds support for gluster backend configuration
+*     rhbz#947381 Changes to the service name to make them more descriptive
+* Add global option --exclude-servers=EXCLUDE\_SERVERS
+* Fix provider network option
+* Updated puppetlabs-mysql to support mariadb
+* Add support for linuxbridge
+* Add support for provider networks
+* Changed nmap-ncat to nc
+* Moved exception raising to get\_localhoist\_ip
+* Disable starting VMs by libvirt
+* Install netns.py dependency
+* Made token\_format configurable
+* Enable LVM snap autoextend
+* Restart openstack-cinder-volume service
+* Add network isolation check to the netns script
+* Add check for 'nc' command to the netns script
+* Update glance for auth config fix
+* Make token\_format=PKI the default
+* Change references to DHCP plugin to DHCP agent
+* Changing colored output to use Linux standard colors
+* Always update kernel package
+* Find free device during host startup
+* Omit Nova DB password only on compute nodes
+* Revert "Removed SQL password in sql\_connection for compute hosts"
+* Ensure ovs cleanup installed before starting it
+* Activate cinder-volumes VG and scan PVs after reboot
+* Fixed color usage
+* Install qemu-kvm before libvirt
+* Add template for quantum API server
+* Update puppet module to add ovs\_cleanup
+* Don't use module name for list
+* Added submodule update to release.sh
+* Don't install RDO repo
+* Whitespace filter for nova and quantum plugins
+* Removed SQL password in sql\_connection for compute hosts
+* Update quantum submodule to fix root\_helper
+* Change firewall rules before main stage
+* Use CONFIG\_QUANTUM\_OVS\_BRIDGE\_MAPPINGS parameter
+* Set verbose=True by default in quantum.conf
+* Don't prompt for nova networking info if quantum is being installed
+* Set vif\_driver when using quantum/ovs
+* Remove default value for CONFIG\_QUANTUM\_OVS\_BRIDGE\_MAPPINGS
+* Make OVS db name ovs\_quantum to mimic devstack/setup scripts
+* Fixed typo
+* Add netns support check
+* Update to most recient keystone modules
+* Open port for Quantum server
+* Don't ask L2 plugin question if Quantum is not isntalled
+* Update to more recent nova/quantum puppet modules for Puppet 2.6
+* Add Quantum support to Packstack
+* Synchronize time using all ntp servers
+* Disable glance caching
+* Change ownership of /var/tmp/packstack if it is possible
+* Don't allow --allinone and --answer file together
+* Update to most recent version of openstack modules
+* Strip host CONFIG\_NOVA\_COMPUTE\_HOSTS from whitespaces
+* Explicitly enable nagios and nrpe services
+* Moved parts of ospluginutils and puppet plugin to installer core
+* Refactored packstack.installer.setup\_sequences
+* Remove validate\_not\_empty from validate\_multi\_ssh
+* Set verbose=True
+* Fix for nagios multiple installation failures
+* Fixed old name and added accidentaly deleted function
+* Get rid of empty flags
+* Fix Typo
+* Adding another possible error from puppet
+* Removing call to setenforce
+* Adding files to pep8 tests
+* Remove returnYes
+* Cleaned packstack.installer.common\_utils
+* Only add RHEL specific options to the answer file when run on RHEL
+* Made packstack.installer.setup\_params pep8 compliant and added unit test for this module
+* Only ask RHEL specific questions when run on RHEL
+* Add unit test to test running from command line
+* Grizzly changes
+* Use systemd to reload xinetd on Fedora
+* Ensure permissions of keystone.log are correct
+* Ensure cinder-volumes VG persists reboot
+* Fix "nagios-install" reference in allinone help
+* Remove option checking from optparse options
+* Add --allinone option
+* propagate the --debug flag down to puppet apply
+* Adding more error message that can come from puppet
+* Fixes for Nagios on F18
+* Moving back to cprice-puppet/puppetlabs-inifile/master
+* Moving back to puppetlabs/puppetlabs-glance/master
+* Add param to change the default floating pool's name
+* Replace broadcast address with 255.255.255.255 in tests
+* Fix a single typo, s/expresion/expression/
+* Reword EPEL message
+* Only print warning about cert if it was generated
+* Properly set the key length
+* Specifiy the network size when creating fixed network
+* Insert space in proof-of-conceptinstallation
+* Change wording of beta prompt
+* Properly escape $ in PS1
+* Add a parameter to enable auto\_assign\_floating\_ip in nova-network
+* Fix rebase error
+* Adding a little grizzly details
+* Adding the nova-conductor service
+* Prepared packstack for puppet modules outside of site-packages
+* Added processors tests and made processors module pep8 compliant
+* Added missing validator test renamed validators module to be pep8 compliant
+* Update the response expected by keystone client
+* Explicitly set the token format to UUID
+* Added cinder-volumes explanation
+* Added yum-utils as dependency
+* HTTPS cert changes
+* Fix Typo nove -> nova
+* Remove hard coded path to loop2
+* Don't ask for cider-volumes creation if Cinder should not be installed
+* Raise exception with proper option name
+* Removed useless sentence
+* Return with exit code 1 on error
+* Fixed a stupid typo in cinder\_250.py
+* Install lvm2 package before using vgdisplay, vgcreate and pvcreate
+* Start the dbus service
+* Allow access to nagios
+* Start the swift support services
+* Set secure modes on answer file as its being created
+* Don't print twirl when stdout is redirected
+* Updating man page and authors
+* Disable can\_set\_mount\_point in horizon local\_settings
+* Fixing \_handleGroupCondition
+* Only set priority of rhel-server-ost-6-folsom-rpms if it exists
+* Add message details about host format
+* Fixing double First typo
+* Add configuration options for CPU and RAM overcommitment
+* Separate satellite configuration from the rest
+* Adding another possible Error from puppet
+* Adding option to enable SSL to horizon
+* Don't throw false message in case root home dir was changed
+* Use rpc\_backend = nova.openstack.common.rpc.impl\_qpid
+* Improve support for RHEL derivatives
+* Tune the host with a virtual hosts profile
+* Only install qemu workaround on RHEL 6.3
+* Fixed hardcoded /root in mysql module and add /root/.my.cnf mode 0600
+* Strip host and device when parsing Swift storage hosts
+* Replace usage of ifconfig with ip
+* Adding Nagios Support
+* Ensure Firewall changes happen before nova services start
+* Don't add v[12] to URLs in Keystone service catalog
+* Bring network interface up if it is down
+* Use correct validation
+* Check device on correct host
+* Use cinder\_config for cinder keystone auth credentials
+* Now using ini\_file to parse nova.conf
+* Catch KeyError if thrown while removing data from remote hosts
+* Rename some answerfile directives to add consistency
+* Adding a install option to install in one step
+* Fixed temp dir conflict Fixed invalid validator
+* compacting the testing puppet output
+* Updated cinder module
+* Securely create temp directorys / files
+* Renamed CONFIG\_SATELLITE\_PROXY\_HOST to CONFIG\_SATELLITE\_PROXY
+* Small improvments
+* Adding an option to subscribe to RHEL beta repositories
+* Removing the verison in the epel-release installed
+* Fixing exported classes in exceptions.py
+* Adding details about the need to precreate filesystem for swift
+* Quoting double quotes in subscription manager password
+* Update to new version of puppetlab-swift module
+* don't ask for cinder vg data if present in answers file
+* Added RHN Satellite registration possibility
+* Raise NetworkError when ScriptRunner fails to connect
+* Changing list of default modules for Fedora >= 18
+* Adding tar as a dependency
+* Set the service provider to systemd for Fedora >= 18
+* Fail when Nova API, Nova network and Swift hosts are not set as IP addresses
+* Add support EPEL on CentOS and Scientific Linux
+* Removing references to s3
+* Allow access to metadata service
+* validate that CONFIG\_NOVA\_COMPUTE\_PRIVIF is correct
+* Typo fixes
+* Stop ntpd before calling ntpdate
+* Only set selinux booleans if selinux is enabled
+* Don't try and delete the same user from mysql twice
+* Perform tilde expansion on answer file
+* Cleaning up standard out
+* Installing openssh-clients along with puppet
+* Properly quote RHN passwords
+* Adding the ip of the glance host to the cinder config
+* Ignore errors prefetching database\_grant
+* Remove pointless Debian support to simplify code
+* Adding Scientific Linux as an option firewall persist rules
+* Unified info messages, OpenStack names and Packstack names
+* Update the git URL in the README instructions to the new primary repository
+* Create a cinder volume if it doesn't exists
+* Create a new answer file when running on interactive mode
+* chain load\_kvm after nova::compute
+* Fixed typo
+* Added ntpd service start to prescript
+* Bump release number
+* Update puppet error messages for puppet 3.0.x
+* Use full service's names in user prompts
+* Use /var/tmp/packstack/{%Y%m%d-%H%M} as working dir name
+* Set the default indentation to 0 in inifile puppet module
+* Load kvm modules after libvirt is installed
+* The operatingsystem fact on Fedora begins in a uppercase F
+* Force Glance installation when Nova is being installed
+* Added comments to answer file
+* Don't print options for regular expressions
+* Don't create modules' db classes if the module isn't marked for install
+* Added random passwords for components
+* Adding class['swift'] as a dependency of the ring sync
+* Include stdout message to ScriptRuntimeError
+* Don't define FACTERLIB when applying horizon manifest
+* Keep existing FACTERLIB value
+* Using custom fact to determine if we're in a VM
+* replacing mysql::server::account\_security
+* Install cinderclient before nova
+* Clean the yum cache
+* Solved second use case of bug #890822 bug/890822
+* No longer scp the log file to packstack with same path
+* No longer ask user to provide a Horizon secret
+* Only generating a ssh key if none exists
+* Increase the length of generated passwords
+* Mask subscription manager password
+* No longer default IP addresses to 127.0.0.1
+* Fix minor typo
+* making sure mysql is installed before we try to clean the anon user and test db BZ896107
+* Adding another possible error to watch logs for
+* Use openstack-config instead
+* Adding homedir custom fact
+* Change permissions of keystonerc\_admin to 0600
+* Made Firewall rules persistent
+* Creating a single unit and pep8 test
+* Add .gitreview file
+* Create SSH key if none is set
+* adding mysql account security class to clean test db and users fixes BZ891700
+* Fixed exception issues
+* Unified place for exceptions + started to getting rid of exception masking
+* Fixed EPEL RPM URL and lowered EPEL repository priority
+* Ordering some swift dependencies
+* Fixes the new --debug implementation
+* There was no need for this function to be recursive
+* Reimplements the handling of --debug
+* Fixes BZ #888357
+* Fixes BZ #888357
+* Create the /srv/node for storage devices
+* Only apply the swift::ringsync to storage nodes that aren't a proxy
+* Cinder Fixes
+* TEMP improve ssh handling
+* Fixing Typos and spelling mistakes in messages
+* Improving documentation on options
+* Installing python-iso8601 on the OSCLIENT server
+* Now using the is\_virtual facter fact to decide on libvirt type
+* Test the puppet logs for errors
+* Some pep8 changes
+* Redirect / to /dashboard on Horizon Server
+* Display message with information on Horizon
+* Test hosts by attempting to connect to ssh port
+* Report a more accurate message to user about keystonerc file
+* Prompt for mysql password in interactive mode
+* Terminating a string correctly
+* Fixing typo
+* Fix Typo in iptables rules incomming -> incoming
+* refining the packages installed on the openstack client
+* Adding two python modules required horizon
+* Local (development) copy of packstack should have a higher priority than system-wide version. This helps to develop on Packstack without having to install it
+* glance.pp overrides sql\_connection for glance-api.conf also
+* Added hostname processor to all plugins which require it
+* dded hostname processor for Cinder plugin
+* Added hostname processor for MySQL plugin
+* Added value processing capability for plugins
+* Don't be silent on invalid parameter
+* Added MySQL password also to puppet template
+* Revert "Some configurations require IP address"
+* Some configurations require IP address
+* Added missing basedef
+* Added default MySQL password
+* Test to make sure that the cinder-volumes vg exists
+* Ensure python-keystone is installed along with cinder-api
+* Prevent the nova-volumes endpoint from being created
+* Adding support to configure yum repositories
+* Suppress expected errors
+* Adding novnc support
+* Point cinder at keystone
+* Clear the contents of the extra nova config options in \_\_init\_\_
+* wait for outstanding puppet runs befor exiting
+* Now only install EPEL if configured todo so
+* No longer removing shebang from .sh files
+* Adding a debug option
+* bumping release sequence to 2
+* Updating vlan module to one containing a license
+* Now applying some puppet manifests in parallel
+* Files copied to remote servers now copied to /var/tmp/<uuid>
+* Renaming the answers.txt to ans.txt
+* Making the error catching more explicit
+* cleaning up tarball and spec file
+* spec file update
+* renaming spec file
+* need python-sphinx10 on rhel
+* No longer hard coding git revision number into spec file
+* Added shebang to release script
+* Loglevel was too verbose
+* removing unused imports
+* Removed some duplicate code
+* Updated man page and include it in spec file
+* Initial spec file for RHEL / Fedora
+* Define PUPPET\_MANIFEST\_DIR in basedefs
+* The workaround to create this link is only needed on RHEL
+* No longer install epel by default
+* Don't copy the create\_resources module if on Fedora
+* We no longer get puppet modules on the fly
+* Define missing message ERR\_EXP\_VALIDATE\_PARAM
+* Moving log dir to /var/tmp
+* Version typo
+* Restructuring project for python's setuptools
+* disable selinux on swift servers
+* nova-network need dnsmasq installed
+* Adding all puppet modules as git submodules
+* Changes to Readme
+* Adding a packstack command
+* Add 'installer/' from commit '39ffc6da62a6510e3c63b8f5ed3f8943c0c80ccb'
+* Added some packaging
+* Allow more then just 127.0.0.1 connect to the cinder db
+* Man page update
+* Print answerfile options in rst format
+* Fixed typo in template config options
+* Renamed dashboard to horizon
+* Describing some config options better
+* Spawning a new process to run 'test -f' in order to check whether a file exists might <cough!> be too much
+* Removed keystone mentioned in man page
+* Adding a man page for packstack
+* Add option to print values available in answer file
+* Fixes a upper/lower-case inconsistency in one of the error reports. Also, rewrites one of the warning messages
+* CONFIG\_LIBVIRT\_TYPE's default value used to be 'kvm'. Now, it tries to figure out whether or not the installer is being executed inside a VM, so it can set 'qemu' as default value instead
+* Don't transfer symbolic links, transfer the data
+* Convert puppet dir to an absolute path
+* Only attempt a git checkout if puppet module is a git repo
+* removing validatePassword
+* Adding cinder support
+* There is no reason for common\_utils to be executable
+* Added a little more detail to README
+* explicitly set swift password
+* renamed to packstack
+* Add option to install from epel
+* make sure workaround symbolic link is created before compute service
+* we now have a dependency on puppetlabs-cinder
+* Folsom Horizon changes
+* Explicitly set force\_dhcp\_release
+* Adding nova-common as a dependency to nova::api
+* set libvirt\_cpu\_mode if on vm
+* Removing notifies
+* Changing various default passwords
+* template changes for folsom packages
+* Specify branches for folsom puppet modules
+* No longet need to point to custom puppet modules
+* Added some version info to README
+* Only use epel on RHEL
+* If password is blank we souldn't replace it
+* Using a version of puppetlabs-mysql that works on fedora 17
+* Changing localhost -> 127.0.0.1
+* Updating usage details
+* changing localhost to 127.0.0.1
+* Using generic installer
+* Adding insertSequence to the Controller
+* Adding module directory to pythonpath
+* Adding some more validators
+* Adding sample project
+* Initial Subset of oVirt setup script
+* Fixing the IP of the keystone server on the swift machine
+* Installing openstack-swift on the client target
+* Numerical default values should be strings
+* Making client server optional
+* Disable EPEL after puppet is installed
+* Adding ability to specify swift storage devices
+* Make config option names more consistent
+* Setting selinux boolean httpd\_can\_network\_connect on dashboard host
+* Only sync ring files on proxy servers if they arn't also a storage node
+* Adding support for swift multi host
+* Allowing tcp conections to port 80 for dashboard
+* Adding support for user to select fs type
+* Adding support for specifying fixed and floating ip ranges
+* Specifying ext4 as file system to use for swift storage device
+* Changing to use puppetlabs module
+* Change into the correct directory after checking out a branch
+* Adding swift support
+* Adding puppet modules needed for swift
+* Adding support for specifying git branch for puppet modules
+* Only attempt to install glance init sequences if installing glance
+* Only install qpid if installing nova
+* Making Glance optional
+* Adding dashboard as an optional install
+* Moved getManifestTemplate and ammendManifestFile into utils module
+* Reworked how nova is organsied
+* Fixed typos in puppet templates
+* Add new nova-network public interface option
+* Adding option that specifies the private interface for flatdhcp on the compute node
+* Fix postition of puppet cleanup method
+* Adding README file
+* Adding option that specifies the private interface for flatdhcp
+* Move handling of ssh keys to start of the apply sequence
+* Removing mentions of vlans until we add in functionality fully
+* Adding Initial openstack plugins
+* Initial Subset of oVirt setup script
+* packaging: engin-setup - Drop DB before restore when upgrade fails (BZ#844341)
+* packaging: Ports 8006, 8007 and 8008 are not required
+* packaging: Disable HTTP and HTTPS when using Apache as proxy
+* packaging: Modify user interface of engine-setup (#832767)
+* packaging: Disable versionlock plugin during upgrade
+* packaging: Added service name parameter to checking Jboss status
+* packaging: Removed obsolete jboss checking code (#837812)
+* packaging: Added function to fetch password from pgpass
+* packaging: Added function to parse web-conf.js
+* packaging: Fixed stopping and starting engine during upgrade
+* packaging: updated stopJboss function to recieve service name
+* packaging: adding functionality to MYUM class
+* packaging, tools: Generate engine-config.xml from template
+* packaging: engine-setup - Use semange instead of setsebool
+* packaging: Don't install postgres-ds.xml
+* setup: test effective user id instead of 'root' user name
+* packaging: Handle the new way to handle passwords in engine-config
+* packaging: engine-setup - Replace hardcoded ovirt string
+* packaging: Moving to use execCmd in all scripts (#731686)
+* packaging: engine-cleanup - Replace hardcoded Jboss string
+* packaging: added updates to pgpass creation and reading
+* packaging:  Move application name const to correct location
+* packaging: engine-setup-validators - Fix controller decleration
+* packaging: engine-setup - Don't use httpd proxy when ipa installed
+* packaging: Updating flow and error messages in cleanup (#825998)
+* packaging:  Updated upgrade flow to rename DB before its upgrade
+* packaging: Don't modifiy limits.conf during setup
+* packaging: Add key-alias to SSL connector
+* core: Remove ovirtengine.war
+* packaging: Updated error message for preallocated http port (#813688)
+* packaging: Added the ability to get y/n for answers (#733292)
+* packaging: Renamed 'rhevm' to 'ovirt-engine' in iptables (#773583)
+* packaging: engine-upgrade - Don't list duplicate packages
+* packaging: Build and run with Fedora 17 jboss-as
+* virt-engine: Support RHEVManager url
+* packaging:  Added traceback info to the log when error happens (#818079)
+* packaging:  Fixed allinone plugin libvirt service handling
+* packaging: engine-setup - Add no-mem-check option
+* packaging: Move ROOT.war to the EAR
+* tools: Separate tools into different packages (BZ803240)
+* packaging:  Fixed size calculations and dirname parsing in validation
+* packaging: Fixed permissions for local storage in AIO (#817360)
+* packaging: Fixed creating app user on postgresql 8.4
+* packaging:  Added colorizing of the plugin name during setup
+* packaging:  Fixed Exception handling in allinone plugin
+* packaging:  Fixed upgrade script name in user output (#810679)
+* packaging: engine-setup - Determinate JBoss XML namespaces
+* packaging: add the all-in-one plugin
+* packaging:  Fixed adding VirtualHost clause to ssl.conf
+* packaging:  Fixed directories and links creation
+* packaging:  removed duplicated string in output\_messages
+* packaging: Stop engine-notifierd service on cleanup (#796604)
+* packaging: Fixed incorrect upgrade flow (#810685)
+* packaging: engine-setup - Use python 2.6 exceptions (#812636)
+* packagin: closing unnecessary opened iptables ports (#771665)
+* packaging: remoteDB support
+* packaging: enable ovirt installation on ports lower than 1024
+* packaging: Move sysprep files to /etc
+* packaging: Allow easy change of JBoss version
+* packaging: engine-cleanup - Fix ca backup dir
+* packaging: Improve services handling
+* packaging: Remote DB support
+* packaging: engine-upgrade - Fix yum history execution
+* packaging: add controller class (plugins step 3/3)
+* packaging: Add engine-upgrade utility
+* packaging: add sequences to engine-setup (plugins step 2/3)
+* packaging: when using services, always use files in execCmd (#737814)
+* packaging: classify params and groups (plugins step 1/3)
+* packaging: Rename engine war to ovirtengine
+* packaging:  Fixed using "ovirt-engine" instead of 'rhevm' (#784850)
+* Packaging: changed the way engine-cleanup removes DB (#782176)
+* packaging: use files instead of pipe in execCmd
+* packaging: engine-setup -support long host fqdn  (#782810)
+* Packaging: Updated ambiguous text message (#784206)
+* packaging: engine-setup - Remove locale check (#769319)
+* Packaging: Update configuration in logcollector and isouploader (#784303)
+* engine + installer: add needed paths to sun.jndi module
+* packaging: BZ#782439 - nfsconfig should be set with at least one daemon per processor
+* packaging: adjust setup to JbossAS7.1
+* packaging: engine-setup - Improve ear and pgsql\_ds links creation proccess
+* engine: rename RHEVKerberosAuth to EngineKerberosAuth
+* packaging: Add engine-cleanup utility
+* packaging: minor fixes in ovirt-engine and rpm deployment
+* packaging: remove proprietry images from resources dir
+* packaging: add engine-setup and adjust code to fedora 16

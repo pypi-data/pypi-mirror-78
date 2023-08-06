@@ -1,0 +1,3 @@
+[console_scripts]
+packstack = packstack.installer.run_setup:main
+
