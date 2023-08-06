@@ -1,0 +1,145 @@
+Metadata-Version: 2.1
+Name: akc-mamba
+Version: 2.0.1
+Summary: A production ready, complete experience in deploying a Hyperledger Fabric
+Home-page: https://github.com/Akachain/akc-mamba
+Author: akaChain
+Author-email: admin@akachain.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: astroid (==2.3.3)
+Requires-Dist: autopep8 (==1.4.4)
+Requires-Dist: botocore (==1.12.133)
+Requires-Dist: cachetools (==4.0.0)
+Requires-Dist: certifi (==2019.11.28)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: Click (==7.0)
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: docutils (==0.15.2)
+Requires-Dist: gitdb2 (==2.0.6)
+Requires-Dist: GitPython (==3.0.5)
+Requires-Dist: google-auth (==1.10.0)
+Requires-Dist: grpcio (==1.26.0)
+Requires-Dist: grpcio-tools (==1.26.0)
+Requires-Dist: idna (==2.8)
+Requires-Dist: isort (==4.3.21)
+Requires-Dist: jmespath (==0.9.4)
+Requires-Dist: kubernetes (==10.0.1)
+Requires-Dist: lazy-object-proxy (==1.4.3)
+Requires-Dist: mccabe (==0.6.1)
+Requires-Dist: oauthlib (==3.1.0)
+Requires-Dist: progressbar (==2.5)
+Requires-Dist: protobuf (==3.11.2)
+Requires-Dist: pyasn1 (==0.4.8)
+Requires-Dist: pyasn1-modules (==0.2.7)
+Requires-Dist: pycodestyle (==2.5.0)
+Requires-Dist: pyhelm (==2.14.5)
+Requires-Dist: pylint (==2.4.4)
+Requires-Dist: python-dateutil (==2.8.0)
+Requires-Dist: python-dotenv (==0.10.3)
+Requires-Dist: pyyaml (>=4.2b1)
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: requests-oauthlib (==1.3.0)
+Requires-Dist: rsa (==4.0)
+Requires-Dist: s3transfer (==0.2.0)
+Requires-Dist: six (==1.13.0)
+Requires-Dist: smmap2 (==2.0.5)
+Requires-Dist: supermutes (==0.2.5)
+Requires-Dist: typed-ast (==1.4.0)
+Requires-Dist: urllib3 (==1.24.2)
+Requires-Dist: virtualenv (==16.7.9)
+Requires-Dist: websocket-client (==0.57.0)
+Requires-Dist: wrapt (==1.11.2)
+
+# AKC-MAMBA manuals
+
+## 1. Installation Instructions
+
+### a. Install AKC-Mamba
+Install AKC-Mamba with
+
+```
+pip3 install akc-mamba
+```
+
+We now can use the Mamba tool to prepare required helm and k8s components
+
+```
+find . -type f -iname "*.sh" -exec chmod +x {} \;
+mamba environment
+```
+Configuration parameters in `~/.akachain/akc-mamba/mamba/config/.env`, the file content is pretty much self-explained.
+
+### b. Deploy and bootstrap network
+
+```
+mamba start
+```
+
+The `mamba start` command executes a series of sub commands that installs various network components. For more information on each command for individual components, please refer to help section
+
+```
+mamba --help
+```
+
+To terminate the network, just run
+
+```
+mamba terminate
+```
+
+## 2. Development Guide
+
+### 2.1 Project structure
+Mamba makes use of [Click_](http://click.palletsprojects.com/en/7.x/), an elegant python package for creating command line interfaces. The project structure is depicted in the tree below.
+
+```
+.
+├── command_group_1
+│   ├── commands.py
+│   ├── __init__.py
+│
+├── utils
+│   ├── __init__.py
+│   ├── kube.py
+│
+├── mamba.py
+├── settings
+├   ├──settings.py
+
+```
+
+There are 4 main components: 
+- mamba.py : The bootstrap instance module of Mamba 
+- settings/settings.py : Contains global variables that are shared accross all sub modules
+- command_group : Each command group is separated into its own directory.
+- utils : helper functions that must be initialized via settings.py
+
+### 2.2 Coding Convention
+Please follow [PEP8](https://www.python.org/dev/peps/pep-0008/) - Style guide for Python Code. 
+
+Another example can be found [here](https://gist.github.com/RichardBronosky/454964087739a449da04)
+
+There are several notes that are different with other languages
+
+```
+Function names should be lowercase, with words separated by underscores as necessary to improve readability.
+
+Camel case is for class name
+```
+
+### 2.3 Logging instruction
+
+A snake must know how hiss ... or sometimes rattle.
+
+Normally we can just use echo to print out message during execution
+However:
+- It is mandatory to `hiss` when there is error
+- also, `rattle` is needed when a snake meet something ... at the beginning or at the end of an execution.
+
+For more information about logging, please follow the standard convention in `mamba/utils/hiss.py`
+
