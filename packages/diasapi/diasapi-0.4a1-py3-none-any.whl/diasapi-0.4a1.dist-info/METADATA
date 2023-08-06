@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: diasapi
+Version: 0.4a1
+Summary: Python Client Library for accessing CMCC data
+Home-page: https://github.com/CMCC-Foundation/CMCC-DIAS-Client/diasapi/diasapi
+Author: Marco Mancini
+Author-email: marco.mancini@cmcc.it
+License: Apache License, Version 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Classifier: Topic :: Scientific/Engineering :: Hydrology
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: xarray (==0.15.1)
+
+# CMCC-DIAS-Client
+DIAS API Client for access and analysis of CMCC data
+
+## Requirements
+Python 3.7
+
+### Installation  
+Conda Installation
+```bash
+$ conda install -c ppos-cmcc diasapi 
+```
+
+Pip installation
+```bash
+$ pip install diasapi
+```
+Cloning the repository
+```bash
+$ git clone https://github.com/CMCC-Foundation/cmcc-dias-client
+$ cd cmcc-dias-client
+$ python setup.py install
+```
+
+### Configuration
+To use the tool a file `$HOME/.diasapirc` must be created as following
+
+```bash
+url: http://dias.cmcc.scc:8282/api/v1
+key: <uid>:<api-key>
+```
+
+### Examples
+
+For some examples how to use the tool see [here](examples/)
+
+
+
