@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: pygitee
+Version: 0.1
+Summary: Use the full gitee API v5
+Home-page: https://gitee.com/kingreatwill/pygitee
+Author: kingreatwill
+Author-email: kingreatwill@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# pygitee
+
+#### 介绍
+pygitee 是封装了gitee的OpenAPI的python库.
+
+#### 安装教程
+pip install pygitee
+
+#### 使用说明
+
+```python
+from gitee import Gitee
+g = Gitee()
+# g = Gitee(access_token='xxx')
+print(g.get_issues().list('kingreatwill', 'kingreatwill'))
+```
+
