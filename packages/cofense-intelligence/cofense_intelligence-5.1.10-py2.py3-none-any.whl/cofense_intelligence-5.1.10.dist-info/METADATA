@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: cofense-intelligence
+Version: 5.1.10
+Summary: Cofense Intelligence Integration Library
+Home-page: https://www.threathq.com/docs/
+Author: Cofense Intelligence Solutions Engineering
+Author-email: support@cofense.com
+License: Proprietary
+Keywords: phishing threat intelligence cofense intelligence
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: Free To Use But Restricted
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Security
+Requires-Dist: requests (>=2.3)
+Requires-Dist: defusedxml (>=0.5.0)
+Requires-Dist: six (>=1.11.0)
+Requires-Dist: jinja2 (>=2.10)
+
+
+A library created by Cofense Intelligence to support developing integregations with client security architecture.
+
+For more information on gaining access to Cofense Intelligence data at
+https://cofense.com/product-services/phishing-intelligence
+
+If you are already a customer, detailed documentation on the Intelligence API can be found at
+https://www.threathq.com/docs/
+
+The download and/or use of this Cofense application is subject to the terms and conditions set forth at https://cofense.com/legal/integration-applications/.
+
+Copyright 2013-2018 Cofense, Inc.  All rights reserved.
+
+This software is provided by Cofense, Inc. ("Cofense") on an "as is" basis and any express or implied warranties,
+including but not limited to the implied warranties of merchantability and fitness for a particular purpose, are
+disclaimed in all aspects.  In no event will Cofense be liable for any direct, indirect, special, incidental or
+consequential damages relating to the use of this software, even if advised of the possibility of such damage. Use of
+this software is pursuant to, and permitted only in accordance with, the agreement between you and Cofense.
+
+Author: Cofense Intelligence Solutions Engineering
+Support: support@cofense.com
+
+
