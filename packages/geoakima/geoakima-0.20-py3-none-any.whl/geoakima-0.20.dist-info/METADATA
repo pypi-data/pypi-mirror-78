@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: geoakima
+Version: 0.20
+Summary: This package allows to perform an interpolation with the Akima method specially adapted to fill the geographic data
+Home-page: https://modelwiki.cerege.fr/
+Author: G.Gassier and S.Meulé
+Author-email: gassier@cerege.fr, meule@cerege.fr
+License: ACM
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 1 - Planning
+Classifier: Natural Language :: French
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.5
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: shapely
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: descartes
+Requires-Dist: pandas
+Requires-Dist: geopandas
+
+Akima - This package allows to perform an Akima interpolation 
+=============================================================
+
+This package allows to perform an interpolation with the Akima method specially adapted to fill the geographic data
+
+Systeme recquired
+
+    gfortran 7
+ python3-dev 
+
+installation with pip
+
+    pip install geoakima
+
+Trying Akima3D
+
+    >>> import geoakima.geoakima as ga
+    >>> akima=ga.geoakima()
+    >>> akima.read()#FileName.txt or .csv
+    >>>akima.Akima()
+	>>>akima.output()
+By default the file containing the data to Interpolated is called "DataTrain.txt",
+it is placed in the sources.
+Here are its formatting (4 first lines)
+
+DataTain.txt
+
+	20111021-0001	153901.098	2560282.065	1.256
+	20111021-0002	153901.091	2560282.527	1.239
+	20111021-0003	153900.996	2560283.208	1.249
+	20111021-0004	153900.93	2560284.064	1.288
+
+
+The script "Example.py" and the file "FileName.txt"
+must be placed in the working folder, 
+not forgetting to pass the name of the data file
+to the read function "akima.read("FileName.txt")".
+
+code based on :
+
+akima.new.f,  tripack.f
+
+Hiroshi Akima
+U.S. Department of Commerce, NTIA/ITS
+Version of 1995/05
+
+Robert J. Renka
+Dept. of Computer Science
+Univ. of North Texas
+11/12/94
+
+
