@@ -1,0 +1,30 @@
+---
+in: "STEEL\nThe man's a myth!"
+out:
+    - '@STEEL'
+    - "=The man's a myth!"
+---
+in: "\nMOM (O. S.)\nLuke! Come down for supper!"
+out:
+    - '@MOM (O. S.)'
+    - "=Luke! Come down for supper!"
+---
+in: "\nHANS (on the radio)\nWhat was it you said?"
+out:
+    - '@HANS (on the radio)'
+    - "=What was it you said?"
+---
+in: "@McCLANE\nYippie ki-yay!"
+out:
+    - '@McCLANE'
+    - "=Yippie ki-yay!"
+---
+in: "DR. BENNET\nHere's your medication."
+out:
+    - '@DR. BENNET'
+    - "=Here's your medication."
+---
+in: "CROWD (VARIOUS)\nWe want free t-shirts!"
+out:
+    - "@CROWD (VARIOUS)"
+    - "=We want free t-shirts!"

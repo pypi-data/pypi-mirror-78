@@ -1,0 +1,14 @@
+syntax:glob
+__pycache__
+venv
+.cache
+.eggs
+.sass-cache
+*.css.map
+*.pyc
+
+dist
+Jouvence.egg-info
+jouvence/version.py
+
+docs/_build
