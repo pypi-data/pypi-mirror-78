@@ -1,0 +1,172 @@
+Metadata-Version: 2.1
+Name: wetterdienst
+Version: 0.6.0
+Summary: Python library to ease access to open weather data
+Home-page: https://wetterdienst.readthedocs.io/
+License: MIT
+Keywords: dwd,deutscher wetterdienst,german weather service,weather,weather-data,open-data,observations,historical-data,forecasts,radar
+Author: Benjamin Gutzmann
+Author-email: gutzemann@gmail.com
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Communications
+Classifier: Topic :: Database
+Classifier: Topic :: Internet
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Interface Engine/Protocol Translator
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Archiving
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Utilities
+Provides-Extra: ipython
+Requires-Dist: aiofiles (>=0.4.0,<0.5.0)
+Requires-Dist: beautifulsoup4 (>=4.9.1,<5.0.0)
+Requires-Dist: cachetools (>=3.1.1,<4.0.0)
+Requires-Dist: dateparser (>=0.7.4,<0.8.0)
+Requires-Dist: docopt (>=0.6.2,<0.7.0)
+Requires-Dist: fire (>=0.3.1,<0.4.0)
+Requires-Dist: h5py (==2.10.0)
+Requires-Dist: importlib_metadata (==1.6.1); python_version < "3.8"
+Requires-Dist: ipython (>=7.10.1,<8.0.0); extra == "ipython"
+Requires-Dist: ipython-genutils (>=0.2.0,<0.3.0); extra == "ipython"
+Requires-Dist: matplotlib (>=3.0.3,<4.0.0); extra == "ipython"
+Requires-Dist: munch (>=2.5.0,<3.0.0)
+Requires-Dist: numpy (==1.18.3)
+Requires-Dist: pandas (==1.0.4)
+Requires-Dist: python-dateutil (>=2.8.0,<3.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Requires-Dist: scipy (==1.4.1)
+Requires-Dist: tables (==3.6.1)
+Project-URL: Repository, https://github.com/earthobservations/wetterdienst
+Description-Content-Type: text/x-rst
+
+Introduction to wetterdienst
+############################
+
+.. image:: https://github.com/earthobservations/wetterdienst/workflows/Tests/badge.svg
+   :target: https://github.com/earthobservations/wetterdienst/actions?workflow=Tests
+.. image:: https://codecov.io/gh/earthobservations/wetterdienst/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/earthobservations/wetterdienst
+.. image:: https://readthedocs.org/projects/wetterdienst/badge/?version=latest
+    :target: https://wetterdienst.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/psf/black
+
+
+.. image:: https://img.shields.io/pypi/pyversions/wetterdienst.svg
+   :target: https://pypi.python.org/pypi/wetterdienst/
+.. image:: https://img.shields.io/pypi/v/wetterdienst.svg
+   :target: https://pypi.org/project/wetterdienst/
+.. image:: https://img.shields.io/pypi/status/wetterdienst.svg
+   :target: https://pypi.python.org/pypi/wetterdienst/
+.. image:: https://pepy.tech/badge/wetterdienst/month
+   :target: https://pepy.tech/project/wetterdienst/month
+.. image:: https://img.shields.io/github/license/earthobservations/wetterdienst
+   :target: https://github.com/earthobservations/wetterdienst/blob/master/LICENSE.rst
+.. image:: https://zenodo.org/badge/160953150.svg
+   :target: https://zenodo.org/badge/latestdoi/160953150
+
+
+Welcome to wetterdienst, your friendly weather service library for Python from the
+neighbourhood! We are a group of people, who try to make access to weather data in
+Python feel like a warm summer breeze, similar to other projects like
+`rdwd <https://github.com/brry/rdwd>`_
+for the R language ,which originally drew our interest in this project. As we long-term
+goal is to provide you with data from multiple weather services, we are still stuck with
+the German Weather Service (DWD).
+
+We currently cover
+
+- historical weather data from ground stations
+- RADOLAN fitted radar data for areal precipitation
+
+and soon
+
+- MOSMIX statistical optimized scalar forecasts extracted from weather models
+
+
+To get better insight on which data we have currently made available, with this library
+take a look at
+`Data Coverage <https://wetterdienst.readthedocs.io/en/latest/pages/data_coverage.html>`_
+.
+
+**CAUTION**
+Although the data is specified as being open, the DWD asks you to reference them as
+Copyright owner. To check out further, take a look at the
+`Open Data Strategy at the DWD <https://www.dwd.de/EN/ourservices/opendata/opendata.html>`_
+and the
+`Official Copyright <https://www.dwd.de/EN/service/copyright/copyright_artikel.html?nn=495490&lsbId=627548>`_
+
+To keep you updated about added features etc. we provide a
+`Changelog <https://wetterdienst.readthedocs.io/en/latest/pages/development.html#current>`_
+.
+
+We strongly recommend reading the full documentation, which will be updated continuously
+as we make progress with this library:
+https://wetterdienst.readthedocs.io/en/latest/
+
+Getting started
+***************
+
+Run the following to make wetterdienst available in your current environment:
+
+.. code-block:: Python
+
+    pip install wetterdienst
+
+To get some historical observed station data call
+
+.. code-block:: Python
+
+    from wetterdienst import collect_dwd_data
+    from wetterdienst import Parameter, PeriodType, TimeResolution
+
+    station_data = collect_dwd_data(
+        station_ids=[1048],
+        parameter=Parameter.CLIMATE_SUMMARY,
+        time_resolution=TimeResolution.DAILY,
+        period_type=PeriodType.HISTORICAL
+    )
+
+Furthermore we currently offer:
+
+- RADOLAN radar based precipitation for Germany
+- getting metadata for a set of Parameter, PeriodType and TimeResolution
+- getting station(s) nearby a selected location for a given set...
+
+and also
+
+- storing/recovering collected data
+- a prepared Docker image to run the library dockerized
+- a client to run the library from command line
+
+For the whole functionality, check out the
+`API <https://wetterdienst.readthedocs.io/en/latest/pages/api.html>`_
+section of our documentation, which will be constantly updated. Also don't miss out our
+`examples <https://github.com/earthobservations/wetterdienst/tree/master/example>`_
+.
+
+
+
+
