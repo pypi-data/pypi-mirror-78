@@ -1,0 +1,9 @@
+wheel
+numpy<1.19
+hyperopt<0.2
+pymongo
+prometheus_client
+
+[dev]
+tox
+mock
