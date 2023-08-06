@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: python-sketch
+Version: 0.2.0
+Summary: A Python library to read Sketch files
+Home-page: https://gitlab.com/superfly/python-sketch
+Author: Raoul Snyman
+Author-email: raoul@snyman.info
+License: MIT
+Keywords: sketch
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries
+
+=============
+python-sketch
+=============
+
+python-sketch is a simple Sketch file reader.
+
+Install
+-------
+
+Install python-sketch via pip::
+
+   pip install python-sketch
+
+
+Usage
+-----
+
+Import the ``SketchFile`` class and pass it either a file-like object, a Path object or a string:
+
+.. code:: python
+
+   from sketch import SketchFile
+
+   sketch = SketchFile('/path/to/file.sketch')
+
+
