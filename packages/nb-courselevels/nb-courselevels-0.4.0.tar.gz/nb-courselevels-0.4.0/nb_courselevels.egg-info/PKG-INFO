@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: nb-courselevels
+Version: 0.4.0
+Summary: Jupyter nbextension to outline 3 course levels through colors
+Home-page: UNKNOWN
+Author: Thierry Parmentelat
+Author-email: thierry.parmentelat@inria.fr
+License: UNKNOWN
+Project-URL: source, https://github.com/parmentelat/nb-courselevels
+Description: # courselevels
+        Jupyter notebook extension for background colouring selected cells.
+        
+        Install via:
+        
+        `pip install nb-courselevels`
+        
+        The extension should be automatically installed and enabled.
+        
+        Three buttons are provided that toggle the colour of selected cells;
+        this is designed for course contents, so that students can better navigate it :
+        
+        - basic (green)
+        - intermediate (blue)
+        - advanced/expert (red)
+        
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
