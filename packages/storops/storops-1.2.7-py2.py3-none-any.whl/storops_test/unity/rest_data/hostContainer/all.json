@@ -1,0 +1,32 @@
+{
+  "@base": "https://172.18.15.150/api/types/hostContainer/instances?filter=(type eq 2)&fields=health,address,operatingSystem::@concat( productName,\" \",productVersion ),vasaProviderState,id,description,hostsCount::@count(hosts)&orderby=address ASC&per_page=100&compact=true",
+  "updated": "2020-04-15T21:48:10.279Z",
+  "links": [
+    {
+      "rel": "self",
+      "href": "&page=1"
+    }
+  ],
+  "entryCount": 1,
+  "entries": [
+    {
+      "content": {
+        "id": "mss_3",
+        "vasaProviderState": 1,
+        "address": "172.18.15.201",
+        "description": "",
+        "health": {
+          "value": 5,
+          "descriptionIds": [
+            "ALRT_COMPONENT_OK"
+          ],
+          "descriptions": [
+            "The component is operating normally. No action is required."
+          ]
+        },
+        "hostsCount": 3,
+        "operatingSystem": "VMware vCenter Server 7.0.0"
+      }
+    }
+  ]
+}

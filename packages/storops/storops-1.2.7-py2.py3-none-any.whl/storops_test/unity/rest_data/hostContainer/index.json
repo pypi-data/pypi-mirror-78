@@ -1,0 +1,114 @@
+{
+  "indices": [
+    {
+      "url": "/api/types/hostContainer?compact=True&fields=attributes.description,attributes.displayValue,attributes.initialValue,attributes.name,attributes.type,description,documentation,name,type",
+      "response": "type.json"
+    },
+    {
+      "url": "/api/types/hostContainer/instances?compact=True&fields=address,description,health,hosts,id,instanceId,lastPollTime,name,operationalStatus,port,productName,productVersion,type,vasaProviderState",
+      "response": "all.json"
+    },
+    {
+      "url": "/api/instances/hostContainer/mss_3?compact=True&fields=address,description,health,hosts,id,instanceId,lastPollTime,name,operationalStatus,port,productName,productVersion,type,vasaProviderState",
+      "response": "mss_3.json"
+    },
+    {
+      "url": "/api/types/hostContainer/instances?compact=true",
+      "body": {
+        "potentialHosts": [
+          {
+            "osName": "VMware ESXi",
+            "osVersion": "7.0.0",
+            "serverName": "vcluster306-esx03",
+            "kernelIPs": [
+              "172.18.15.103",
+              "172.18.15.139",
+              "172.18.15.213"
+            ],
+            "iscsiInitiators": [
+              "iqn.1998-01.com.vmware:vcluster306-esx03-70fa5764"
+            ],
+            "matchedConditions": [
+              7
+            ],
+            "importOption": 3,
+            "uuid": "rfc4122.5c7a3d42-1b27-1cb3-755d-f4ea4edbbde3",
+            "name": "vcluster306-esx03.vv002.local",
+            "matchedHosts": [
+              {
+                "id": "Host_3"
+              }
+            ]
+          },
+          {
+            "osName": "VMware ESXi",
+            "osVersion": "7.0.0",
+            "serverName": "vcluster306-esx01",
+            "kernelIPs": [
+              "172.18.15.101",
+              "172.18.15.137",
+              "172.18.15.211"
+            ],
+            "iscsiInitiators": [
+              "iqn.1998-01.com.vmware:vcluster306-esx01-39b5a955"
+            ],
+            "matchedConditions": [
+              7
+            ],
+            "importOption": 3,
+            "uuid": "rfc4122.6ad63d42-942e-59b0-4eae-7eb3761616cc",
+            "name": "vcluster306-esx01.vv002.local",
+            "matchedHosts": [
+              {
+                "id": "Host_4"
+              }
+            ]
+          },
+          {
+            "osName": "VMware ESXi",
+            "osVersion": "7.0.0",
+            "serverName": "vcluster306-esx02",
+            "kernelIPs": [
+              "172.18.15.102",
+              "172.18.15.138",
+              "172.18.15.212"
+            ],
+            "iscsiInitiators": [
+              "iqn.1998-01.com.vmware:vcluster306-esx02-6000f166"
+            ],
+            "matchedConditions": [
+              7
+            ],
+            "importOption": 3,
+            "uuid": "rfc4122.010e3d42-0086-0b1c-8124-97e4c8aa1b4c",
+            "name": "vcluster306-esx02.vv002.local",
+            "matchedHosts": [
+              {
+                "id": "Host_5"
+              }
+            ]
+          }
+        ],
+        "serviceType": 2,
+        "targetName": "172.18.15.201",
+        "targetAddress": "172.18.15.201",
+        "username": "administrator@vsphere.local",
+        "password": "Test123!",
+        "vasaProviderParameters": {
+          "localUsername": "admin",
+          "localPassword": "Test123!"
+        }
+      },
+      "response": "create_host_container.json"
+    },
+    {
+      "url": "/api/types/hostContainer/action/recommend?compact=true",
+      "body": {
+        "address": "172.18.15.201",
+        "username": "administrator@vsphere.local",
+        "password": "Test123!"
+      },
+      "response": "recommend.json"
+    }
+  ]
+}
