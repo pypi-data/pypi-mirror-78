@@ -1,0 +1,333 @@
+Metadata-Version: 2.1
+Name: bmd-py
+Version: 1.1.0
+Summary: Change scripts into Markdown documentation
+Home-page: https://git.sr.ht/~vlnk/bmd
+Author: vlnk
+Author-email: vlnk@protonmail.com
+License: GPLv3+
+Description: # Bash to Markdown Documentation
+        [![builds.sr.ht status](https://builds.sr.ht/~vlnk/bmd.svg)](https://builds.sr.ht/~vlnk/bmd?)
+        
+        `bmd` is the dumbest documentation framework you could find on the earth !
+        It changes your bash scripts into a useful Markdown documentation.
+        
+        ## Features
+        1. It removes the `shebang` line for an aesthetic output.
+        2. It removes the `#` string of your bash comments.
+        
+        > You should **write all your bash comments into a compliant markdown format**, and then *it will work*.
+        
+        Also, we don't care about all the Markdown flavours. Choose the one for your use cases.
+        
+        But, let's dissipate all doubts by seeing a compatibility table :
+        
+        | Flavor         | bmd |
+        |----------------|-----|
+        | GFM            | ✅   |
+        | ExtraMark      | ✅   |
+        | All the others | ✅   |
+        ## Getting started
+        
+        Start by documenting a hello world :
+        
+        ```sh
+        # hello.sh: My Hello World bash script
+        # ------------------------------------
+        #
+        # This **hello world** comes from my *heart*.
+        # See [Hello World!](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)
+        # ```sh
+        echo "Hello World!"
+        # ```
+        ```
+        
+        Indeed, your script code will *never* be compliant with any Markdown formats.
+        
+        So, the purposed solution is to encapsulate your code in a code block with **the 3 backticks**.
+        You can specify the script langage, and you'll have a formated code rendering !
+        The drawback is : your documentation will be an *annoted* bash script.
+        
+        By default, `bmd` will remove the common scripting langage comment lines but the option
+        **--regex** should be used to change all others languages.
+        
+        You can do the trick with a NodeJS script :
+        
+        ```js
+        // # hello.js
+        // You know what I mean
+        // ```js
+        console.log('Hello World!')
+        // ```
+        ```
+        
+        This one can be changed with `./bmd.sh -r '^\/\/ ?' hello.js`
+        ## The bash way : bmd.sh
+        ### Installing
+        
+        The bash script should be installed by using `curl`:
+        
+        ```sh
+        curl https://git.sr.ht/~vlnk/bmd/blob/main/src/bmd.sh > bmd.sh
+        ./bmd.sh
+        ```sh
+        
+        ### How it works ?
+        
+        It is 2 `sed` commands. That's all folks.
+        
+        ```sh
+        set -e
+        
+        bmd () {
+          cat "$1" | \
+          sed "/^#!/d" | \
+          sed -r "s/$2//"
+        }
+        ```
+        
+        ### How to use it ?
+        
+        I suggest to do `./bmd.sh bmd.sh`, but please, follow the help :
+        
+        ```sh
+        usage () {
+          echo "bmd - Bash to Markdown Documentation"
+          echo ""
+          echo "USAGE: ./bmd.sh [OPTIONS] INPUT"
+          echo ""
+          echo "Change the script file INPUT to a Markdown documentation."
+          echo ""
+          echo "Options:"
+          echo "-r, --regex PATTERN Specify the regex PATTERN to remove [default: '^# ?']."
+          echo "-h, --help          Print help."
+        }
+        
+        REGEX="^# ?"
+        INPUT=""
+        
+        for i in "$@"; do
+          case $i in
+            -h|--help)
+              usage;
+              exit 0;;
+            -r|--regex)
+              HAS_REGEX=true;;
+            *)
+              if [ "$HAS_REGEX" ]; then
+                REGEX="$i"
+                unset HAS_REGEX
+              else
+                INPUT="$i"
+              fi;;
+          esac
+        done
+        
+        if [ "$INPUT" ]; then
+          bmd "$INPUT" "$REGEX"
+        else
+          echo "error: missing required argument 'INPUT'"
+        fi
+        ```
+        ## The python way : bmd.py
+        ## Installing
+        
+        `bmd` is published on *PyPi* under the `bmd-py` package.
+        You should be able to install it with:
+        
+        ```sh
+        pip install bmd-py
+        bmd.py --help
+        ```sh
+        
+        ### How it works?
+        
+        The python script do the same thing as the bash one but without `sed`, it uses `regex` instead
+        
+        ```py
+        import click
+        import regex
+        
+        SHEBANG_REGEX = r'^#!'
+        REGEX_HELP='Specify the TEXT regex pattern to remove.'
+        
+        @click.command()
+        @click.argument('input')
+        @click.option('-r', '--regex', 'pattern', default='^# ?', show_default=True, help=REGEX_HELP)
+        def bmd(input, pattern):
+          """Change the script file INPUT to a Markdown documentation."""
+          with open(input) as f:
+            output = []
+        
+            for line in f:
+              if not regex.match(SHEBANG_REGEX, line):
+                if regex.match(pattern, line):
+                  output.append(
+                    regex.sub(pattern, '', line)
+                  )
+                else:
+                  output.append(line)
+        
+            print(''.join(output), end='')
+        
+        if __name__ == '__main__':
+            bmd()
+        ```
+        ## The javascript way : bmd.js
+        ## Installing
+        
+        `bmd` is published on npm under the `bmd-js` package.
+        You should be able to install it with:
+        
+        ```sh
+        npm install bmd-js
+        bmd-js --help
+        ```
+        
+        ## How it works?
+        
+        The javascript code is using the NodeJS API to do the same thing as others.
+        Is uses the asynchronous reading of each line to do the job.
+        
+        ```js
+        const fs = require('fs')
+        const readline = require('readline');
+        const { program } = require('commander')
+        
+        const SHEBANG_REGEX = /^#!/
+        
+        function bmd (input, pattern) {
+          const output = []
+          const regex = new RegExp(pattern)
+          const rl = readline.createInterface({
+            input: fs.createReadStream(input),
+            output: process.stdout,
+            terminal: false
+          });
+        
+          rl.on('line', (line) => {
+            if (!line.match(SHEBANG_REGEX)) {
+              if (line.match(regex)) {
+                output.push(
+                  line.replace(regex, '')
+                )
+              } else {
+                output.push(line)
+              }
+            }
+          })
+        
+          rl.on('close', () => {
+            process.stdout.write(
+              output.join('\n') + '\n'
+            );
+          });
+        }
+        
+        let input = ''
+        
+        program
+          .name('bmd.js')
+          .description('Change the script file INPUT to a Markdown documentation.')
+          .arguments('<INPUT>')
+          .action(inputArg => { input = inputArg })
+          .option('-r, --regex <PATTERN>', 'Specify the regex PATTERN to remove.', '^# ?')
+          .parse(process.argv)
+        
+        bmd(input, program.regex)
+        ```
+        ## Contributing
+        
+        Don't hesitate to submit issues in the [`bmd` tracker](https://todo.sr.ht/~vlnk/bmd).
+        
+        ### Testing
+        Each new contribution should be applied with an associated **unit test**.
+        The [`bmd CI`](https://builds.sr.ht/~vlnk/bmd) is triggered on every push with:
+        
+        ```makefile
+        .PHONY: test
+        test: install-all
+        	./tasks/test.sh
+        
+        ```
+        ### Documenting
+        I recommand you to use the `pre-commit` hook in order to always generate the new `README.md` file:
+        
+        ```sh
+        cd bmd
+        ln hooks/* .git/hooks/
+        ```
+        But the **README** can be generated manually by using `make doc`:
+        
+        ```makefile
+        .PHONY: doc
+        doc:
+        	./tasks/doc.sh 'README.md'
+        
+        ```
+        ### Building and publishing
+        Check the supported distributions:
+        + [python](https://pypi.org/project/bmd-py)
+        + [javascript](https://www.npmjs.com/package/bmd-js)
+        
+        Don't forget to be logged before publishing a new `bmd` package !
+        
+        The Makefile contains all recipes in order to:
+        - install dependencies (bmd-py, bmd-js)
+        - bundle package (bmd-py, bmd-js)
+        - check package (bmd-py)
+        - publish (bmd-py, bmd-js)
+        
+        ```makefile
+        .PHONY: install-py
+        install-py:
+        	pip3 install -r requirements.txt
+        
+        .PHONY: build-py
+        bundle-py:
+        	python3 setup.py sdist
+        
+        .PHONY: check-py
+        check-py: bundle-py
+        	twine check dist/*
+        
+        .PHONY: publish-py
+         publish-py: clean bundle-py
+        	twine upload dist/*
+        
+        .PHONY: install-js
+        install-js:
+        	npm install
+        
+        .PHONY: bundle-js
+        bundle-js:
+        	npm pack
+        
+        .PHONY: publish-js
+        publish-js:
+        	npm publish
+        
+        .PHONY: install-all
+        install-all: install-py install-js
+        
+        .PHONY: publish-all
+        publish-all: publish-py publish-js
+        
+        clean:
+        	if [ -d 'dist' ]; then rm -rd 'dist'; fi
+        	if [ -d 'bmd_py.egg-info' ]; then rm -rd 'bmd_py.egg-info'; fi
+        ```
+        ## Foire aux Questions
+        + **Is it a joke ?** Yes, and no. I wrote this for my own usage, I hope it would be useful for your owns.
+        + **Is it tested with all the flavours ?** Of course not.
+        + **Where did you get this dumb idea ?** From the [`rustdoc`][1] tool.
+        + **Is it a meta program?** Yes, `bmd` is documented with *itself*.
+        
+        KISS, [@vlnk][2]
+        
+        [1]: https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html
+        [2]: https://git.sr.ht/~vlnk/
+        
+Platform: UNKNOWN
+Requires-Python: >=3.7.8
+Description-Content-Type: text/markdown
