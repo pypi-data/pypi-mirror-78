@@ -1,0 +1,225 @@
+/* This file is part of 'The Ember Factory', but you may copy anything from it without giving credit */
+
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  margin:15px 0px 0px 0px;
+  line-height: 1.3em;
+}
+/* For more development about fonts, consider reading
+https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals */
+
+.outerbox {
+  max-width: 750px;
+  margin: auto;
+  padding: 0px 20px 0px 20px;
+  border-width: 0 1px 0 1px;
+  border-style: solid;
+  border-color: #444;
+}
+
+.outerbox-main {
+  background-color: #FFF;
+  min-height: calc(100vh - 60px);
+}
+
+.sticky {
+  position: fixed;
+  max-width: 750px;
+  width: calc(100vw - 40px);
+  top: 0;
+  box-shadow: 0 1px 7px -1px #999;
+}
+
+.sticky + .content {
+  padding-top: 37px;
+}
+
+footer {
+  background-color: #EEE;
+  max-width: 750px;
+}
+
+.innerframe
+{
+  border-radius: 5px;
+  border: thin solid;
+  border-color: #999;
+  padding: 10px;
+  margin-top: 12px;
+}
+
+.slbox
+{
+  border: solid;
+  border-color: #999;
+  border-width: 0 0 0 1px;
+  padding-left: 8px;
+  margin: 8px 0px 15px 0px;
+}
+
+.icon{
+	width:1.5em;
+	height:1.5em;
+	vertical-align: text-bottom;
+}
+
+p{
+    margin-top: 6px;
+    margin-bottom: 9px;
+}
+
+h1 {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-size: 1.3em;
+}
+
+h2, h3 {
+    font-size: 1em;
+    font-weight: normal;
+    color: #903;
+    margin-top: 14px;
+    margin-bottom: 5px;
+}
+
+h4 {
+    font-size: 1em;
+    font-weight: bold;
+    color: navy;
+    margin-top: 12px;
+    margin-bottom: 0px;
+}
+
+h5 {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 6px;
+    margin-bottom: 0px;
+}
+
+.error {
+    color: red;
+}
+
+.compact{
+    margin-top: 2px;
+    margin-bottom: 1px;
+}
+
+legend{
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+
+.switches {
+      margin-top:0px;
+      margin-bottom:1em;
+}
+
+.switches input{
+      clear: left;
+      float: left;
+      margin-top: 2px;
+ }
+
+.switches label{
+      margin-top: 3px;
+      margin-left: 20px;
+      display: block;
+ }
+
+.btn {
+  display: inline-block;
+  background-color: #F5F5F5;
+  height: 100%;
+  border: 1px solid;
+  margin: 0px 0px 5px 5px;
+  border-color: #A55;
+  border-radius: 2px;
+  color: Black;
+  cursor: pointer;
+  padding: 0.3rem;
+  font-size: 13px;
+  font-family: Helvetica,Arial,sans-serif;
+  text-decoration: none;
+  text-align: center;
+  line-height: 20px;
+}
+
+.btn:hover {
+  background-color: #FDC;
+}
+
+.hidden{
+  display: none;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+/* Move anchors so that the text scrolls up to under the sticky navbar */
+:target {
+padding-top: 60px;
+margin-top: -60px;}
+
+.navbar {
+  overflow: hidden;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-bottom: 18px;
+  padding: 0px 20px 6px 20px;
+  font-size: 15px;
+  background-color: #A55;
+  background-image: linear-gradient(to right, #C2001C, #D33, #E84, #FCA);
+}
+
+.navbar a {
+  float: left;
+  color: #DDD;
+  padding: 8px 3px 4px 3px;
+  margin-right:20px;
+  border-bottom: 1.5px solid transparent;
+  border-top: 1.5px solid transparent;
+  text-align: center;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: rgba(0,0,0, 0.2);
+  color: white;
+}
+
+.navbar a.active {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.navbar .dropbutton {
+  display: none;
+}
+
+@media screen and (max-width: 550px) {
+  .navbar a {
+   display: none;
+  }
+  .navbar a.active {
+   float: left;
+   text-align: left;
+   display: block;
+   clear:left;
+  }
+  .navbar a.dropbutton {
+    float: right;
+    display: block;
+    padding: 6px 2px 2px 2px;
+    border: 0px;
+    margin: 0px;
+  }
+  .dropdown .menu {
+    clear: left;
+    display: block;
+    text-align: left;
+  }
+}

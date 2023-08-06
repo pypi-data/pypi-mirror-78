@@ -1,0 +1,36 @@
+{% set active_page = "more" %}
+{% extends 'base.html' %}
+{% block content %}
+<p> This application is written in Python,
+    with the help of the <a href="https://www.reportlab.com">ReportLab</a> library
+    (the web part is powered by the <a href="https://flask.palletsprojects.com">flask</a> framework).
+    The code is open-source
+    and is available here: <a href="https://framagit.org/marbaix/ember-factory">framagit.org</a>.
+    The ability of this application to reproduce several figures (independently) published by the IPCC was
+    carefully tested. However, this is not a product of the IPCC (which is
+    not responsible for projects or researches).
+<p>
+<h1>Versions</h1>
+<p>
+    Although the web application and layout details were improved over time, there is no change affecting the translation
+    of the risk levels provided as input to colours in the burning embers. The changes are recorded on
+    <a href="https://framagit.org/marbaix/ember-factory">framagit.org</a>. A short summary is provided below.
+</p>
+<h2>2020/08: Median value in the transitions and better handling of input file issues</h2>
+An optinal median, or 'midpoint' between the start and end of each transition, is added in the 'Basic format'.
+This results in the 'standard template' provided in <a href="{{ url_for('.examples')}}">Examples and documentation</a>.
+Input files containing missing data, errors, or other unexpected characteristics are better handled, through workarounds
+and/or improved feedback messages to users.
+<p>
+
+</p>
+<h1>Development history</h1>
+<p>
+This software was created by philippe.marbaix -at- uclouvain.be at the end of 2019.
+The first objective was to produce a figure for a paper that is now accepted for publication (08/2020).
+Help is welcome to further improve the application. All contributions will be recognised :-).
+</p>
+<p>
+    For more information, please e-mail philippe.marbaix -at- uclouvain.be.
+</p>
+{% endblock %}

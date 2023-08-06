@@ -1,0 +1,56 @@
+{% set active_page = "index" %}
+{% extends 'base.html' %}
+{% block content %}
+
+<p> To get the resulting diagram, click here (it will open in a new tab or window): </p>
+<p>
+	<a href="{{ message['outfile']}}" target="_blank" class="btn">
+	    <svg class="icon" aria-hidden="true" style="padding-right: 0.5em;">
+		<use href="{{ url_for('static', filename='icons.svg')}}#download"></use>
+	    </svg>Ember graph as PDF</a>
+</p>
+
+{% if message['error'] %}
+	<h3>Critical issue message(s)</h3>
+	This ember may contain errors and should not be published without investigating.<br>
+	The detected problem(s) are:
+	{% for aline in message['error'] %}
+		<p class="compact"> - {{aline|safe}} </p>
+	{% endfor %}
+{% endif %}
+
+{% if message['warning'] %}
+	<h3>Warning message(s)</h3>
+	Warning messages do not necessarily mean that there is an error, but  you should pay attention:
+	{% for aline in message['warning'] %}
+		<p class="compact"> - {{aline|safe}} </p>
+	{% endfor %}
+{% endif %}
+
+{%if not (message['error'] or message['warning']) %}
+	Everything appears ok (no error or warning message).
+{% endif %}
+
+<p style="margin-top:12px;">
+	<button onclick="logToggle()" class="btn">View / hide log information</button>
+	<a href="{{ url_for('sitenav.index') }}" class="btn">Back to home page</a>
+</p>
+
+<div id="log" class="hidden">
+	{% for aline in message['log'] %}
+		{{aline|safe}}
+	{% endfor %}
+</div>
+
+<script>
+function logToggle() {
+  var x = document.getElementById("log");
+  if (x.style.display != "block") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+{% endblock %}

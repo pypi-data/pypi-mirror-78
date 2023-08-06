@@ -1,0 +1,56 @@
+{% set active_page = "index" %}
+{% extends 'base.html' %}
+
+{% block topmessage %}
+    <h1> An error occurred !</h1>
+{% endblock %}
+
+{% block content %}
+    <p>
+        {{ message["error"] }}
+    </p>
+    {%if message["uncaught-err"]%}
+        <p id="delmsg">
+            <button onclick="deletein()" class="btn" style="float: right;">Delete input file</button>
+            When an unknown error occurs, the input file is not deleted automatically. You may ask to delete
+            it now if you wish, but we prefer that you don't, so that it helps us investigating. Thanks!
+        </p>
+    {%endif%}
+    {% for aline in message["log"] %}
+        {{aline|safe}}
+    {% endfor %}
+    <p>
+        Please try again
+    </p>
+    <button onclick="goBack()" class="btn" style="width: 15em;">Go Back</button>
+
+<script>
+	function goBack() {
+		window.history.back();
+	}
+
+    // Action for the 'delete' button: send the request to Flask and dynamically adjust this page.
+    // This only JavaScript/AJAX, without jQuery.
+    function deletein() {
+        var delmsg = document.getElementById("delmsg");
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'delete-in');
+
+        // Track the state changes of the request.
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.responseText === "deleted") {
+                    delmsg.innerHTML="The input file was deleted on your request.";
+                }else{
+                    delmsg.innerHTML="In addition, a problem occured when deleting the input file; please contact us.";
+                }
+            }
+        };
+
+        // Send the request
+        xhr.send(null);
+    }
+
+</script>
+
+{% endblock %}
