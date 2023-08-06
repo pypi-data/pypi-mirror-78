@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: gnote
+Version: 0.2.2
+Summary: code note book
+Author: guojian
+Author-email: guojian_k@qq.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: configparser (>=5.0.0,<6.0.0)
+Requires-Dist: gitpython (>=3.1.7,<4.0.0)
+Requires-Dist: loguru (>=0.5.1,<0.6.0)
+Requires-Dist: rich (==5.1.2)
+Requires-Dist: toml (>=0.10.1,<0.11.0)
