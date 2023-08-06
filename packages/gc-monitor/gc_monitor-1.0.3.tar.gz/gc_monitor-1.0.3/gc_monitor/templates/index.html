@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FPGA Info</title>
+    <link rel="stylesheet" href="static/bootstrap.min.css">
+    <script src="static/jquery.min.js"></script>
+    <script src="static/bootstrap.min.js"></script>
+    <style>
+        .sfont {
+            font-size:.5em;
+            font-weight:normal;
+        }
+        .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+          background-color:#FAEBD7;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="well well-sm" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+        <h1>FPGA Idle Information：</h1>
+        <div style="border:gray 1px dotted;">
+            <table class="table table-hover">
+                <thead style="background:lightgray;"><tr><th>FPGA Name</th><th>Idle Time</th></tr></thead>
+                <tbody>
+                    {% for fpga in data %}
+                        <tr style="background:{{ data[fpga]['color'] }};">
+                            <td style="width:50%">{{fpga}} <span class="label label-default sfont">{{ data[fpga]["ip"] }}</span></td>
+                            <td>
+                                {{ data[fpga]["time_h"] }}<span class="sfont">h</span>
+                                {{ data[fpga]["time_m"] }}<span class="sfont">m</span>
+                                {{ data[fpga]["time_s"] }}<span class="sfont">s</span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
