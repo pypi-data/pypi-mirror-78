@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: google-domains
+Version: 0.1.2
+Summary: Command-line client for Google Domains
+Home-page: https://github.com/obradovic/google-domains
+Author: Zo Obradovic
+Author-email: ping@obradovic.com
+License: UNKNOWN
+Keywords: google domains
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: PyYAML
+Requires-Dist: fqdn (>=1.2.0)
+Requires-Dist: splinter (>=0.14.0)
+Requires-Dist: tabulate (>=0.4.2)
+
+[![Coverage Status](https://coveralls.io/repos/github/obradovic/google-domains-api/badge.svg?branch=master)](https://coveralls.io/github/obradovic/google-domains-api?branch=master)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fobradovic%2Fgoogle-domains-api%2Fbadge&style=flat)](https://actions-badge.atrox.dev/obradovic/google-domains-api/goto)
+
+How can google domains NOT have an API?!? 
+
+Now it has a slow, brittle one.
+
+Better docs, screencasts, etc all TBD
+
+
