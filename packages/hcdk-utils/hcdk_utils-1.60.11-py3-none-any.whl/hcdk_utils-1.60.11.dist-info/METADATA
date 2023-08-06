@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: hcdk-utils
+Version: 1.60.11
+Summary: General utility library for CDK projects
+Home-page: https://github.com/sentiampc/hcdk-utils
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: aws-cdk.aws-secretsmanager (>=1.60.0)
+Requires-Dist: aws-cdk.aws-cloudwatch (>=1.60.0)
+Requires-Dist: aws-cdk.aws-cloudwatch-actions (>=1.60.0)
+Requires-Dist: aws-cdk.aws-docdb (>=1.60.0)
+Requires-Dist: aws-cdk.aws-ec2 (>=1.60.0)
+Requires-Dist: aws-cdk.aws-rds (>=1.60.0)
+Requires-Dist: aws-cdk.aws-sns (>=1.60.0)
+Requires-Dist: aws-cdk.core (>=1.60.0)
+Requires-Dist: deepmerge
+Requires-Dist: pyyaml
+
+# Halloumi Utilities library for the CDK
+
+A collection of frequently used libraries in Halloumi CDK projects. 
+
+## Installation
+
+`pip install hcdk_utils`
+
+
+
