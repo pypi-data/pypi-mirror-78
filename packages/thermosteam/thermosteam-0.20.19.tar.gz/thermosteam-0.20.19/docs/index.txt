@@ -1,0 +1,75 @@
+.. thermosteam documentation master file, created by
+   sphinx-quickstart on Sun Jan  5 10:57:34 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Thermosteam: BioSTEAM's Premier Thermodynamic Engine
+====================================================
+
+Thermosteam is a standalone thermodynamic engine capable of creating property packages for the rigorous estimation of temperature and pressure dependent mixture properties and thermodynamic equilibrium. Thermosteam builds upon `chemicals <https://github.com/CalebBell/chemicals>`_, the chemical properties component of the Chemical Engineering Design Library, with a robust and flexible framework that facilitates the creation of property packages.  `The Biorefinery Simulation and Techno-Economic Analysis Modules (BioSTEAM) <https://biosteam.readthedocs.io/en/latest/>`_ is dependent on thermosteam for the simulation of unit operations.
+
+Key Features & Capabilities
+---------------------------
+* **Simple** and straight foward estimation of mixture properties and thermodynamic equilibrium with just a few lines of code.
+
+* **Clear** representation of chemical and phase data within every object using IPython's rich display system.
+
+* **Fast** estimation of thermodynamic equilibrium within hundreds of microseconds through the smart use of cache and Numba Jit compiled functions.
+
+* **Flexible** implemention of thermodynamic models for estimating pure component properties in just a few lines of code.
+
+* **Extendable** framework that allows easy integration of new methods for computing thermodynamic equilibrium coefficients and mixture properties.
+
+.. toctree::
+   :maxdepth: 1
+   :numbered:
+   :caption: Tutorial
+   
+   Overview
+   Installation
+   tutorial/An_hour_blitz_to_practical_thermodynamics
+   tutorial/Thermodynamic_equilibrium
+   tutorial/Thermo_property_packages
+   tutorial/Stoichiometric_reactions
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: API
+   
+   Chemical
+   Chemicals
+   Thermo
+   Stream
+   MultiStream
+   ThermalCondition
+   ThermoData
+   functor
+   exceptions
+   functional
+   equilibrium/equilibrium_module
+   reaction/reaction_module
+   indexer/indexer_module
+   mixture/mixture_module
+   separations
+
+Related Projects
+----------------
+
+There are many third party open-source Python libraries that may provide additional
+resources for designing and modeling chemical processes:
+
+* `chemicals <https://chemicals.readthedocs.io/en/latest/>`_: Chemical properties component of Chemical Engineering Design Library.
+* `fluids <https://fluids.readthedocs.io/>`_: Fluid dynamics component of Chemical Engineering Design Library (ChEDL) 
+* `chempy <https://pythonhosted.org/chempy/>`_: A package useful for chemistry written in Python.
+* `thermochem <https://thermochem.readthedocs.io/en/latest/>`_: Useful Python modules for Thermodynamics and Thermochemistry.
+* `chemics <https://chemics.github.io/>`_: A Python package for chemical reactor engineering.
+* `ase <https://gitlab.com/ase/ase>`_: The Atomic Simulation Environment.
+* `pMuTT <https://vlachosgroup.github.io/pMuTT/includeme.html>`_: The Python Multiscale Thermochemistry Toolbox.
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>thermosteam.properties.interface &mdash; Thermosteam  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Thermosteam
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Overview.html">1. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/An_hour_blitz_to_practical_thermodynamics.html">3. An hour blitz to practical thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermodynamic_equilibrium.html">4. Thermodynamic equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Thermo_property_packages.html">5. Thermo property packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Stoichiometric_reactions.html">6. Stoichiometric reactions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemical.html">Chemical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Chemicals.html">Chemicals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Thermo.html">Thermo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Stream.html">Stream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MultiStream.html">MultiStream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermalCondition.html">ThermalCondition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ThermoData.html">ThermoData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functor.html">functor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../exceptions.html">exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional.html">functional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../equilibrium/equilibrium_module.html">equilibrium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reaction/reaction_module.html">reaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexer/indexer_module.html">indexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../properties/properties_module.html">properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mixture/mixture_module.html">mixture</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Thermosteam</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>thermosteam.properties.interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for thermosteam.properties.interface</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">All data and methods related to a chemical&#39;s surface tension.</span>
+
+<span class="sd">References</span>
+<span class="sd">----------</span>
+<span class="sd">.. [1] Diky, Vladimir, Robert D. Chirico, Chris D. Muzny, Andrei F.</span>
+<span class="sd">    Kazakov, Kenneth Kroenlein, Joseph W. Magee, Ilmutdin Abdulagatov, and</span>
+<span class="sd">    Michael Frenkel. &quot;ThermoData Engine (TDE): Software Implementation of</span>
+<span class="sd">    the Dynamic Data Evaluation Concept.&quot; Journal of Chemical Information</span>
+<span class="sd">    and Modeling 53, no. 12 (2013): 3418-30. doi:10.1021/ci4005699.</span>
+<span class="sd">.. [2] Somayajulu, G. R. &quot;A Generalized Equation for Surface Tension from</span>
+<span class="sd">    the Triple Point to the Critical Point.&quot; International Journal of</span>
+<span class="sd">    Thermophysics 9, no. 4 (July 1988): 559-66. doi:10.1007/BF00503154.</span>
+<span class="sd">.. [3] Jasper, Joseph J. &quot;The Surface Tension of Pure Liquid Compounds.&quot;</span>
+<span class="sd">    Journal of Physical and Chemical Reference Data 1, no. 4</span>
+<span class="sd">    (October 1, 1972): 841-1010. doi:10.1063/1.3253106.</span>
+<span class="sd">.. [4] Speight, James. Lange&#39;s Handbook of Chemistry. 16 edition.</span>
+<span class="sd">    McGraw-Hill Professional, 2005.</span>
+<span class="sd">.. [5] Brock, James R., and R. Byron Bird. &quot;Surface Tension and the</span>
+<span class="sd">    Principle of Corresponding States.&quot; AIChE Journal 1, no. 2</span>
+<span class="sd">    (June 1, 1955): 174-77. doi:10.1002/aic.690010208</span>
+<span class="sd">.. [6] Poling, Bruce E. The Properties of Gases and Liquids. 5th edition.</span>
+<span class="sd">   New York: McGraw-Hill Professional, 2000.</span>
+<span class="sd">.. [7] Curl, R. F., and Kenneth Pitzer. &quot;Volumetric and Thermodynamic</span>
+<span class="sd">   Properties of Fluids-Enthalpy, Free Energy, and Entropy.&quot; Industrial &amp;</span>
+<span class="sd">   Engineering Chemistry 50, no. 2 (February 1, 1958): 265-74.</span>
+<span class="sd">   doi:10.1021/ie50578a047</span>
+<span class="sd">.. [8] Pitzer, K. S.: Thermodynamics, 3d ed., New York, McGraw-Hill,</span>
+<span class="sd">   1995, p. 521.</span>
+<span class="sd">.. [9] Sastri, S. R. S., and K. K. Rao. &quot;A Simple Method to Predict</span>
+<span class="sd">    Surface Tension of Organic Liquids.&quot; The Chemical Engineering Journal</span>
+<span class="sd">    and the Biochemical Engineering Journal 59, no. 2 (October 1995): 181-86.</span>
+<span class="sd">    doi:10.1016/0923-0467(94)02946-6.</span>
+<span class="sd">.. [10] Zuo, You-Xiang, and Erling H. Stenby. &quot;Corresponding-States and</span>
+<span class="sd">    Parachor Models for the Calculation of Interfacial Tensions.&quot; The</span>
+<span class="sd">    Canadian Journal of Chemical Engineering 75, no. 6 (December 1, 1997):</span>
+<span class="sd">    1130-37. doi:10.1002/cjce.5450750617</span>
+<span class="sd">.. [11] Hakim, D. I., David Steinberg, and L. I. Stiel. &quot;Generalized</span>
+<span class="sd">    Relationship for the Surface Tension of Polar Fluids.&quot; Industrial &amp;</span>
+<span class="sd">    Engineering Chemistry Fundamentals 10, no. 1 (February 1, 1971): 174-75.</span>
+<span class="sd">    doi:10.1021/i160037a032.</span>
+<span class="sd">.. [12] Miqueu, C, D Broseta, J Satherley, B Mendiboure, J Lachaise, and</span>
+<span class="sd">    A Graciaa. &quot;An Extended Scaled Equation for the Temperature Dependence</span>
+<span class="sd">    of the Surface Tension of Pure Compounds Inferred from an Analysis of</span>
+<span class="sd">    Experimental Data.&quot; Fluid Phase Equilibria 172, no. 2 (July 5, 2000):</span>
+<span class="sd">    169-82. doi:10.1016/S0378-3812(00)00384-8.</span>
+<span class="sd">.. [13] Aleem, W., N. Mellon, S. Sufian, M. I. A. Mutalib, and D. Subbarao.</span>
+<span class="sd">    &quot;A Model for the Estimation of Surface Tension of Pure Hydrocarbon </span>
+<span class="sd">    Liquids.&quot; Petroleum Science and Technology 33, no. 23-24 (December 17, </span>
+<span class="sd">    2015): 1908-15. doi:10.1080/10916466.2015.1110593.</span>
+<span class="sd">.. [14] Mersmann, Alfons, and Matthias Kind. &quot;Prediction of Mechanical and </span>
+<span class="sd">    Thermal Properties of Pure Liquids, of Critical Data, and of Vapor </span>
+<span class="sd">    Pressure.&quot; Industrial &amp; Engineering Chemistry Research, January 31, </span>
+<span class="sd">    2017. https://doi.org/10.1021/acs.iecr.6b04323.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span><span class="p">,</span> <span class="n">exp</span>
+<span class="kn">from</span> <span class="nn">..base</span> <span class="kn">import</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">TDependentHandleBuilder</span><span class="p">,</span> <span class="n">InterpolatedTDependentModel</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">CASDataReader</span>
+<span class="kn">from</span> <span class="nn">.._constants</span> <span class="kn">import</span> <span class="n">N_A</span><span class="p">,</span> <span class="n">k</span>
+<span class="kn">from</span> <span class="nn">.miscdata</span> <span class="kn">import</span> <span class="n">VDI_saturation_dict</span><span class="p">,</span> <span class="n">VDI_tabular_data</span>
+<span class="kn">from</span> <span class="nn">.dippr</span> <span class="kn">import</span> <span class="n">DIPPR_EQ106</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;REFPROP&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Somayajulu&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Jasper&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Brock_Bird&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Pitzer&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Sastri_Rao&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Zuo_Stenby&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Hakim_Steinberg_Stiel&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;Miqueu&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Mersmann_Kind_surface_tension&#39;</span>
+<span class="p">)</span>
+
+<span class="n">read</span> <span class="o">=</span> <span class="n">CASDataReader</span><span class="p">(</span><span class="vm">__file__</span><span class="p">,</span> <span class="s1">&#39;Interface&#39;</span><span class="p">)</span>
+<span class="n">_Mulero_Cachadina</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;MuleroCachadinaParameters.tsv&#39;</span><span class="p">)</span>
+<span class="n">_Jasper_Lange</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;Jasper-Lange.tsv&#39;</span><span class="p">)</span>
+<span class="n">_Somayajulu</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;Somayajulu.tsv&#39;</span><span class="p">)</span>
+<span class="n">_Somayajulu_2</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;SomayajuluRevised.tsv&#39;</span><span class="p">)</span>
+<span class="n">_VDI_PPDS_11</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;VDI PPDS surface tensions.tsv&#39;</span><span class="p">)</span>
+
+
+<span class="c1">### Regressed coefficient-based functions</span>
+
+<div class="viewcode-block" id="REFPROP"><a class="viewcode-back" href="../../../properties/interface.html#thermosteam.properties.interface.REFPROP">[docs]</a><span class="nd">@sigma</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[1]_&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;regression-based REFPROP&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">REFPROP</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">sigma0</span><span class="p">,</span> <span class="n">n0</span><span class="p">,</span> <span class="n">sigma1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n2</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Relatively recent, and most accurate. Function as implemented in [1]_:</span>
+<span class="sd">        </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \sigma(T)=\sigma_0\left(1-\frac{T}{T_c}\right)^{n_0}+</span>
+<span class="sd">        \sigma_1\left(1-\frac{T}{T_c}\right)^{n_1}+</span>
+<span class="sd">        \sigma_2\left(1-\frac{T}{T_c}\right)^{n_2}</span>
+<span class="sd">        </span>
+<span class="sd">    Form of function returns imaginary results when T &gt; Tc, in which case None </span>
+<span class="sd">    is returned instead.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Parameters for water at 298.15 K:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = REFPROP(647.096, -0.1306, 2.471, 0.2151, 1.233)</span>
+<span class="sd">    &gt;&gt;&gt; f(298.15)</span>
+<span class="sd">    0.07205503890847453</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">invTr</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">Tr</span>
+    <span class="k">return</span> <span class="n">sigma0</span><span class="o">*</span><span class="p">(</span><span class="n">invTr</span><span class="p">)</span><span class="o">**</span><span class="n">n0</span> <span class="o">+</span> <span class="n">sigma1</span><span class="o">*</span><span class="p">(</span><span class="n">invTr</span><span class="p">)</span><span class="o">**</span><span class="n">n1</span> <span class="o">+</span> <span class="n">sigma2</span><span class="o">*</span><span class="p">(</span><span class="n">invTr</span><span class="p">)</span><span class="o">**</span><span class="n">n2</span></div>
+
+<div class="viewcode-block" id="Somayajulu"><a class="viewcode-back" href="../../../properties/interface.html#thermosteam.properties.interface.Somayajulu">[docs]</a><span class="nd">@sigma</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[2]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Somayajulu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The surface tension in [2]_ is given by:</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \sigma=aX^{5/4}+bX^{9/4}+cX^{13/4}</span>
+<span class="sd">        </span>
+<span class="sd">        X=(T_c-T)/T_c</span>
+<span class="sd">    </span>
+<span class="sd">    Internal units are mN/m. Form of function returns imaginary results</span>
+<span class="sd">    when T &gt; Tc; None is returned if this is the case. Function is claimed</span>
+<span class="sd">    valid from the triple to the critical point. Results can be evaluated</span>
+<span class="sd">    beneath the triple point.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Water at 300 K:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Somayajulu(647.126, 232.713514, -140.18645, -4.890098)</span>
+<span class="sd">    &gt;&gt;&gt; f(300)</span>
+<span class="sd">    0.07166386387996757</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tc</span><span class="o">-</span><span class="n">T</span><span class="p">)</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mf">1.25</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mf">2.25</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">X</span><span class="o">**</span><span class="mf">3.25</span><span class="p">)</span><span class="o">/</span><span class="mf">1000.</span></div>
+
+<div class="viewcode-block" id="Jasper"><a class="viewcode-back" href="../../../properties/interface.html#thermosteam.properties.interface.Jasper">[docs]</a><span class="nd">@sigma</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s2">&quot;[3]_ [4]_&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Jasper</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates surface tension of a fluid given two parameters, a linear</span>
+<span class="sd">    fit in Celcius from [1]_ with data reprinted in [2]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \sigma = a - bT</span>
+<span class="sd">    </span>
+<span class="sd">    Internal units are mN/m, and degrees Celcius.</span>
+<span class="sd">    This function has been checked against several references.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; f = Jasper(24, 0.0773)</span>
+<span class="sd">    &gt;&gt;&gt; f(298.15)</span>
+<span class="sd">    0.0220675</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="o">-</span><span class="mf">273.15</span><span class="p">))</span><span class="o">/</span><span class="mi">1000</span></div>
+
+
+<span class="c1">### CSP methods</span>
+
+<div class="viewcode-block" id="Brock_Bird"><a class="viewcode-back" href="../../../properties/interface.html#thermosteam.properties.interface.Brock_Bird">[docs]</a><span class="nd">@sigma</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s2">&quot;[5]_&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Brock_Bird</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates air-water surface tension  using the [1]_</span>
+<span class="sd">    emperical method. Old and tested.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \sigma = P_c^{2/3}T_c^{1/3}Q(1-T_r)^{11/9}</span>
+<span class="sd">        </span>
+<span class="sd">        Q = 0.1196 \left[ 1 + \frac{T_{br}\ln (P_c/1.01325)}{1-T_{br}}\right]-0.279</span>
+<span class="sd">    </span>
+<span class="sd">    Numerous arrangements of this equation are available.</span>
+<span class="sd">    This is a DIPPR Procedure 7A: Method for the Surface Tension of Pure,</span>
+<span class="sd">    Nonpolar, Nonhydrocarbon Liquids.</span>
+<span class="sd">    The exact equation is not in the original paper.</span>
+<span class="sd">    If the equation yields a negative result, returns None instead.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    p-dichloribenzene at 412.15 K, from DIPPR; value differs due to a slight</span>
+<span class="sd">    difference in method:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Brock_Bird(447.3, 685, 3.952E6)</span>
+<span class="sd">    &gt;&gt;&gt; f(412.15)</span>
+<span class="sd">    0.02208448325192495</span>
+<span class="sd">    </span>
+<span class="sd">    Chlorobenzene from Poling, as compared with a % error value at 293 K:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Brock_Bird(404.75, 633.0, 4530000.0)</span>
+<span class="sd">    &gt;&gt;&gt; f(293.15)</span>
+<span class="sd">    0.032985686413713036</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Tbr</span> <span class="o">=</span> <span class="n">Tb</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">Pc</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">/</span><span class="mf">1E5</span>  <span class="c1"># Convert to bar</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="mf">0.1196</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">Tbr</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">Pc</span><span class="o">/</span><span class="mf">1.01325</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Tbr</span><span class="p">))</span><span class="o">-</span><span class="mf">0.279</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="p">(</span><span class="n">Pc</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">*</span><span class="n">Tc</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">*</span><span class="n">Q</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Tr</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">11</span><span class="o">/</span><span class="mf">9.</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sigma</span><span class="o">/</span><span class="mi">1000</span>  <span class="c1"># convert to N/m</span></div>
+
+<div class="viewcode-block" id="Pitzer"><a class="viewcode-back" href="../../../properties/interface.html#thermosteam.properties.interface.Pitzer">[docs]</a><span class="nd">@sigma</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s2">&quot;[6]_&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Pitzer</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates air-water surface tension using the correlation derived</span>
+<span class="sd">    by [6]_ from the works of [7]_ and [8]_. Based on critical property CSP</span>
+<span class="sd">    methods.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \sigma = P_c^{2/3}T_c^{1/3}\frac{1.86 + 1.18\omega}{19.05}</span>
+<span class="sd">        \left[ \frac{3.75 + 0.91 \omega}{0.291 - 0.08 \omega}\right]^{2/3} (1-T_r)^{11/9}</span>
+<span class="sd">    </span>
+<span class="sd">    The source of this equation has not been reviewed.</span>
+<span class="sd">    Internal units of presure are bar, surface tension of mN/m.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Chlorobenzene from Poling, as compared with a % error value at 293 K:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Pitzer(633.0, 4530000.0, 0.249)</span>
+<span class="sd">    &gt;&gt;&gt; f(293.)</span>
+<span class="sd">    0.03458453513446387</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">Pc</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">/</span><span class="mf">1E5</span>  <span class="c1"># Convert to bar</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span><span class="o">*</span><span class="n">Tc</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.86</span><span class="o">+</span><span class="mf">1.18</span><span class="o">*</span><span class="n">omega</span><span class="p">)</span><span class="o">/</span><span class="mf">19.05</span> <span class="o">*</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">3.75</span><span class="o">+</span><span class="mf">0.91</span><span class="o">*</span><span class="n">omega</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">0.291</span><span class="o">-</span><span class="mf">0.08</span><span class="o">*</span><span class="n">omega</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Tr</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">11</span><span class="o">/</span><span class="mf">9.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sigma</span><span class="o">/</span><span class="mf">1000.</span>  <span class="c1"># N/m, please</span></div>
+
+<div class="viewcode-block" id="Sastri_Rao"><a class="viewcode-back" href="../../../properties/interface.html#thermosteam.properties.interface.Sastri_Rao">[docs]</a><span class="nd">@sigma</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[9]_&#39;</span><span class="p">,</span> <span class="n">other_params</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chemicaltype&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">Sastri_Rao</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">chemicaltype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Other Parameters</span>
+<span class="sd">    ----------------</span>
+<span class="sd">    chemicaltype : &#39;alcohol&#39; or &#39;acid&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates air-water surface tension using the correlation derived by</span>
+<span class="sd">    [9]_ based on critical property CSP methods and chemical classes.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \sigma = K P_c^xT_b^y T_c^z\left[\frac{1-T_r}{1-T_{br}}\right]^m</span>
+<span class="sd">    </span>
+<span class="sd">    The source of this equation has not been reviewed.</span>
+<span class="sd">    Internal units of presure are bar, surface tension of mN/m.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Chlorobenzene from Poling, as compared with a % error value at 293 K.</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Sastri_Rao(404.75, 633.0, 4530000.0)</span>
+<span class="sd">    &gt;&gt;&gt; f(293.15)</span>
+<span class="sd">    0.03234567739694441</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">chemicaltype</span> <span class="o">==</span> <span class="s1">&#39;alcohol&#39;</span><span class="p">:</span>
+        <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mf">2.28</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.175</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.8</span>
+    <span class="k">elif</span> <span class="n">chemicaltype</span> <span class="o">==</span> <span class="s1">&#39;acid&#39;</span><span class="p">:</span>
+        <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mf">0.125</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.85</span><span class="p">,</span> <span class="mi">11</span><span class="o">/</span><span class="mf">9.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mf">0.158</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.85</span><span class="p">,</span> <span class="mi">11</span><span class="o">/</span><span class="mf">9.0</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">Tbr</span> <span class="o">=</span> <span class="n">Tb</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">Pc</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">/</span><span class="mf">1E5</span>  <span class="c1"># Convert to bar</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">Pc</span><span class="o">**</span><span class="n">x</span><span class="o">*</span><span class="n">Tb</span><span class="o">**</span><span class="n">y</span><span class="o">*</span><span class="n">Tc</span><span class="o">**</span><span class="n">z</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Tr</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Tbr</span><span class="p">))</span><span class="o">**</span><span class="n">m</span> 
+    <span class="k">return</span> <span class="n">sigma</span><span class="o">/</span><span class="mf">1000.</span>  <span class="c1"># N/m</span></div>
+
+<span class="k">def</span> <span class="nf">ST_r</span><span class="p">(</span><span class="n">ST</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">log</span><span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">ST</span><span class="o">/</span><span class="p">(</span><span class="n">Tc</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span><span class="o">*</span><span class="n">Pc</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)))</span>
+
+<div class="viewcode-block" id="Zuo_Stenby"><a class="viewcode-back" href="../../../properties/interface.html#thermosteam.properties.interface.Zuo_Stenby">[docs]</a><span class="nd">@sigma</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s2">&quot;[10]_&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Zuo_Stenby</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates air-water surface tension using the reference fluids</span>
+<span class="sd">    methods of [10]_:</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \sigma^{(1)} = 40.520(1-T_r)^{1.287}</span>
+<span class="sd">        </span>
+<span class="sd">        \sigma^{(2)} = 52.095(1-T_r)^{1.21548}</span>
+<span class="sd">        </span>
+<span class="sd">        \sigma_r = \sigma_r^{(1)}+ \frac{\omega - \omega^{(1)}}</span>
+<span class="sd">        {\omega^{(2)}-\omega^{(1)}} (\sigma_r^{(2)}-\sigma_r^{(1)})</span>
+<span class="sd">        </span>
+<span class="sd">        \sigma = T_c^{1/3}P_c^{2/3}[\exp{(\sigma_r)} -1]</span>
+<span class="sd">    </span>
+<span class="sd">    Presently untested. Have not personally checked the sources.</span>
+<span class="sd">    I strongly believe it is broken.</span>
+<span class="sd">    The reference values for methane and n-octane are from the DIPPR database.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Chlorobenzene:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Zuo_Stenby(633.0, 4530000.0, 0.249)</span>
+<span class="sd">    &gt;&gt;&gt; f(293.)</span>
+<span class="sd">    0.03345569011871088    </span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Tc_1</span><span class="p">,</span> <span class="n">Pc_1</span><span class="p">,</span> <span class="n">omega_1</span> <span class="o">=</span> <span class="mf">190.56</span><span class="p">,</span> <span class="mf">4599000.0</span><span class="o">/</span><span class="mf">1E5</span><span class="p">,</span> <span class="mf">0.012</span>
+    <span class="n">Tc_2</span><span class="p">,</span> <span class="n">Pc_2</span><span class="p">,</span> <span class="n">omega_2</span> <span class="o">=</span> <span class="mf">568.7</span><span class="p">,</span> <span class="mf">2490000.0</span><span class="o">/</span><span class="mf">1E5</span><span class="p">,</span> <span class="mf">0.4</span>
+    <span class="n">Pc</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">/</span><span class="mf">1E5</span>
+    <span class="n">ST_1</span> <span class="o">=</span> <span class="mf">40.520</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span><span class="p">)</span><span class="o">**</span><span class="mf">1.287</span>  <span class="c1"># Methane</span>
+    <span class="n">ST_2</span> <span class="o">=</span> <span class="mf">52.095</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span><span class="p">)</span><span class="o">**</span><span class="mf">1.21548</span>  <span class="c1"># n-octane</span>
+    <span class="n">ST_r_1</span><span class="p">,</span> <span class="n">ST_r_2</span> <span class="o">=</span> <span class="n">ST_r</span><span class="p">(</span><span class="n">ST_1</span><span class="p">,</span> <span class="n">Tc_1</span><span class="p">,</span> <span class="n">Pc_1</span><span class="p">),</span> <span class="n">ST_r</span><span class="p">(</span><span class="n">ST_2</span><span class="p">,</span> <span class="n">Tc_2</span><span class="p">,</span> <span class="n">Pc_2</span><span class="p">)</span>
+    <span class="n">sigma_r</span> <span class="o">=</span> <span class="n">ST_r_1</span> <span class="o">+</span> <span class="p">(</span><span class="n">omega</span><span class="o">-</span><span class="n">omega_1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">omega_2</span> <span class="o">-</span> <span class="n">omega_1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">ST_r_2</span><span class="o">-</span><span class="n">ST_r_1</span><span class="p">)</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">Tc</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span><span class="o">*</span><span class="n">Pc</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">sigma_r</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sigma</span><span class="o">/</span><span class="mi">1000</span>  <span class="c1"># N/m, please</span></div>
+
+<div class="viewcode-block" id="Hakim_Steinberg_Stiel"><a class="viewcode-back" href="../../../properties/interface.html#thermosteam.properties.interface.Hakim_Steinberg_Stiel">[docs]</a><span class="nd">@sigma</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[11]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Hakim_Steinberg_Stiel</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">StielPolar</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates air-water surface tension using the reference fluids methods</span>
+<span class="sd">    of [11]_:</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \sigma = 4.60104\times 10^{-7} P_c^{2/3}T_c^{1/3}Q_p \left(\frac{1-T_r}{0.4}\right)^m</span>
+<span class="sd">        </span>
+<span class="sd">        Q_p = 0.1574+0.359\omega-1.769\chi-13.69\chi^2-0.51\omega^2+1.298\omega\chi</span>
+<span class="sd">        </span>
+<span class="sd">        m = 1.21+0.5385\omega-14.61\chi-32.07\chi^2-1.65\omega^2+22.03\omega\chi</span>
+<span class="sd">    </span>
+<span class="sd">    Original equation for m and Q are used. Internal units are atm and mN/m.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    1-butanol, as compared to value in CRC Handbook of 0.02493:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Hakim_Steinberg_Stiel(563.0, 4414000.0, 0.59, StielPolar=-0.07872)</span>
+<span class="sd">    &gt;&gt;&gt; f(298.15)</span>
+<span class="sd">    0.021907902575190447</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.1574</span> <span class="o">+</span> <span class="mf">0.359</span><span class="o">*</span><span class="n">omega</span> <span class="o">-</span> <span class="mf">1.769</span><span class="o">*</span><span class="n">StielPolar</span> <span class="o">-</span> <span class="mf">13.69</span><span class="o">*</span><span class="n">StielPolar</span><span class="o">**</span><span class="mi">2</span>
+        <span class="o">-</span> <span class="mf">0.510</span><span class="o">*</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">1.298</span><span class="o">*</span><span class="n">StielPolar</span><span class="o">*</span><span class="n">omega</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.210</span> <span class="o">+</span> <span class="mf">0.5385</span><span class="o">*</span><span class="n">omega</span> <span class="o">-</span> <span class="mf">14.61</span><span class="o">*</span><span class="n">StielPolar</span> <span class="o">-</span> <span class="mf">32.07</span><span class="o">*</span><span class="n">StielPolar</span><span class="o">**</span><span class="mi">2</span>
+        <span class="o">-</span> <span class="mf">1.656</span><span class="o">*</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">22.03</span><span class="o">*</span><span class="n">StielPolar</span><span class="o">*</span><span class="n">omega</span><span class="p">)</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">Pc</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">/</span><span class="mf">101325.</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">Pc</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">*</span><span class="n">Tc</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">*</span><span class="n">Q</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Tr</span><span class="p">)</span><span class="o">/</span><span class="mf">0.4</span><span class="p">)</span><span class="o">**</span><span class="n">m</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span><span class="o">/</span><span class="mf">1000.</span>  <span class="c1"># convert to N/m</span>
+    <span class="k">return</span> <span class="n">sigma</span></div>
+
+<div class="viewcode-block" id="Miqueu"><a class="viewcode-back" href="../../../properties/interface.html#thermosteam.properties.interface.Miqueu">[docs]</a><span class="nd">@sigma</span><span class="p">(</span><span class="n">ref</span><span class="o">=</span><span class="s2">&quot;[12]_&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Miqueu</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calculates air-water surface tension using the methods of [1]_.</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \sigma = k T_c \left( \frac{N_a}{V_c}\right)^{2/3}</span>
+<span class="sd">        (4.35 + 4.14 \omega)t^{1.26}(1+0.19t^{0.5} - 0.487t)</span>
+<span class="sd">    </span>
+<span class="sd">    Uses Avogadro&#39;s constant and the Boltsman constant.</span>
+<span class="sd">    Internal units of volume are mL/mol and mN/m. However, either a typo</span>
+<span class="sd">    is in the article or author&#39;s work, or my value of k is off by 10; this is</span>
+<span class="sd">    corrected nonetheless.</span>
+<span class="sd">    Created with 31 normal fluids, none polar or hydrogen bonded. Has an</span>
+<span class="sd">    AARD of 3.5%.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Bromotrifluoromethane, 2.45 mN/m:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; f = Miqueu(340.1, 0.000199, 0.1687)</span>
+<span class="sd">    &gt;&gt;&gt; f(300.)</span>
+<span class="sd">    0.003474099603581931</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Vc</span> <span class="o">=</span> <span class="n">Vc</span><span class="o">*</span><span class="mf">1E6</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">-</span><span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="k">return</span> <span class="n">k</span><span class="o">*</span><span class="n">Tc</span><span class="o">*</span><span class="p">(</span><span class="n">N_A</span><span class="o">/</span><span class="n">Vc</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">4.35</span> <span class="o">+</span> <span class="mf">4.14</span><span class="o">*</span><span class="n">omega</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mf">1.26</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.19</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="mi">10000</span></div>
+
+<div class="viewcode-block" id="Mersmann_Kind_surface_tension"><a class="viewcode-back" href="../../../properties/interface.html#thermosteam.properties.interface.Mersmann_Kind_surface_tension">[docs]</a><span class="nd">@sigma</span><span class="p">(</span><span class="n">other_params</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_associated&#39;</span><span class="p">],</span> <span class="n">ref</span><span class="o">=</span><span class="s1">&#39;[14]_&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Mersmann_Kind_surface_tension</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">n_associated</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Other Parameters</span>
+<span class="sd">    ----------------</span>
+<span class="sd">    n_associated : int</span>
+<span class="sd">        Number of associated molecules in a cluster (2 for alcohols, 1</span>
+<span class="sd">        otherwise), [-]</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Estimates the surface tension of organic liquid substances</span>
+<span class="sd">    according to the method of [1]_:</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \sigma^* = \frac{\sigma n_{ass}^{1/3}} {(kT_c)^{1/3} T_{rm}P_c^{2/3}}</span>
+<span class="sd">        </span>
+<span class="sd">        \sigma^* = \left(\frac{T_b - T_m}{T_m}\right)^{1/3}</span>
+<span class="sd">        \left[6.25(1-T_r) + 31.3(1-T_r)^{4/3}\right]</span>
+<span class="sd">    </span>
+<span class="sd">    In the equation, all quantities must be in SI units. `k` is the boltzman</span>
+<span class="sd">    constant.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    MTBE at STP (the actual value is 0.0181):</span>
+<span class="sd">        </span>
+<span class="sd">    &gt;&gt;&gt; f = Mersmann_Kind_surface_tension(164.15, 328.25, 497.1, 3430000.0)</span>
+<span class="sd">    &gt;&gt;&gt; f(298.15)</span>
+<span class="sd">    0.016744309508833335</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Tr</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Tc</span>
+    <span class="n">sigma_star</span> <span class="o">=</span> <span class="p">((</span><span class="n">Tb</span> <span class="o">-</span> <span class="n">Tm</span><span class="p">)</span><span class="o">/</span><span class="n">Tm</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">6.25</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">Tr</span><span class="p">)</span> <span class="o">+</span> <span class="mf">31.3</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">Tr</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mf">3.</span><span class="p">))</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma_star</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">Tc</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Tm</span><span class="o">/</span><span class="n">Tc</span><span class="p">)</span><span class="o">*</span><span class="n">Pc</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">*</span><span class="n">n_associated</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sigma</span></div>
+
+<span class="nd">@TDependentHandleBuilder</span><span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">surface_tension_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">CAS</span><span class="p">,</span> <span class="n">MW</span><span class="p">,</span> <span class="n">Tb</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">Zc</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">StielPolar</span><span class="p">):</span>
+    <span class="n">add_model</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">add_model</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_Mulero_Cachadina</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">sigma0</span><span class="p">,</span> <span class="n">n0</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">sigma2</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="n">_Mulero_Cachadina</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">STREFPROP_coeffs</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">sigma0</span><span class="p">,</span> <span class="n">n0</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">sigma2</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">REFPROP</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">STREFPROP_coeffs</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_Somayajulu_2</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">Tt</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">_Somayajulu_2</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">SOMAYAJULU2_coeffs</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+        <span class="n">Tmin</span> <span class="o">=</span> <span class="n">Tt</span><span class="p">;</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="n">Tc</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Somayajulu</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">SOMAYAJULU2_coeffs</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_Somayajulu</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">Tt</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">_Somayajulu</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">SOMAYAJULU_coeffs</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+        <span class="n">Tmin</span> <span class="o">=</span> <span class="n">Tt</span><span class="p">;</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="n">Tc</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Somayajulu</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">SOMAYAJULU_coeffs</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">VDI_saturation_dict</span><span class="p">:</span>
+        <span class="n">Ts</span><span class="p">,</span> <span class="n">Ys</span> <span class="o">=</span> <span class="n">VDI_tabular_data</span><span class="p">(</span><span class="n">CAS</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">)</span>
+        <span class="n">Tmin</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="o">*</span><span class="n">Ts</span><span class="p">,</span> <span class="n">Tmax</span> <span class="o">=</span> <span class="n">Ts</span>
+        <span class="n">Ys</span> <span class="o">=</span> <span class="n">Ys</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">InterpolatedTDependentModel</span><span class="p">(</span><span class="n">Ts</span><span class="p">,</span> <span class="n">Ys</span><span class="p">),</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_Jasper_Lange</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">Tmin</span><span class="p">,</span> <span class="n">Tmax</span><span class="o">=</span> <span class="n">_Jasper_Lange</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">JASPER_coeffs</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Jasper</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">JASPER_coeffs</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">Vc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Miqueu</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tb</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Brock_Bird</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Sastri_Rao</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">Pc</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Pitzer</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">Zuo_Stenby</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">Tc</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">CAS</span> <span class="ow">in</span> <span class="n">_VDI_PPDS_11</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">_VDI_PPDS_11</span><span class="p">[</span><span class="n">CAS</span><span class="p">]</span>
+        <span class="n">VDI_PPDS_coeffs</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">add_model</span><span class="p">(</span><span class="n">DIPPR_EQ106</span><span class="o">.</span><span class="n">from_args</span><span class="p">(</span><span class="n">VDI_PPDS_coeffs</span><span class="p">))</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Yoel Cortes-Pena
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
