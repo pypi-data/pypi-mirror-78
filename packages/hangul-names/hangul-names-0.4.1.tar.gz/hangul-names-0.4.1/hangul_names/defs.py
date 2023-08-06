@@ -1,0 +1,78 @@
+UCD_INITIAL_CONSONANT_START = 0x1100
+UCD_VOWEL_START = 0x1161
+UCD_FINAL_CONSONANT_START = 0x11A7
+
+REVISED_INITIALS = (
+    "g",  # ᄀ
+    "kk",  # ᄁ
+    "n",  # ᄂ
+    "d",  # ᄃ
+    "tt",  # ᄄ
+    "r",  # ᄅ
+    "m",  # ᄆ
+    "b",  # ᄇ
+    "pp",  # ᄈ
+    "s",  # ᄉ
+    "ss",  # ᄊ
+    "",  # ᄋ
+    "j",  # ᄌ
+    "jj",  # ᄍ
+    "ch",  # ᄎ
+    "k",  # ᄏ
+    "t",  # ᄐ
+    "p",  # ᄑ
+    "h",  # ᄒ
+)
+REVISED_VOWELS = (
+    "a",  # ᅡ
+    "ae",  # ᅢ
+    "ya",  # ᅣ
+    "yae",  # ᅤ
+    "eo",  # ᅥ
+    "e",  # ᅦ
+    "yeo",  # ᅧ
+    "ye",  # ᅨ
+    "o",  # ᅩ
+    "wa",  # ᅪ
+    "wae",  # ᅫ
+    "oe",  # ᅬ
+    "yo",  # ᅭ
+    "u",  # ᅮ
+    "wo",  # ᅯ
+    "we",  # ᅰ
+    "wi",  # ᅱ
+    "yu",  # ᅲ
+    "eu",  # ᅳ
+    "ui",  # ᅴ
+    "i",  # ᅵ
+)
+REVISED_FINALS = (
+    "",  # ᆧ
+    "k",  # ᆨ
+    "k",  # ᆩ
+    "ks",  # ᆪ
+    "n",  # ᆫ
+    "nj",  # ᆬ
+    "nh",  # ᆭ
+    "t",  # ᆮ
+    "l",  # ᆯ
+    "lg",  # ᆰ
+    "lm",  # ᆱ
+    "lb",  # ᆲ
+    "ls",  # ᆳ
+    "lt",  # ᆴ
+    "lp",  # ᆵ
+    "lh",  # ᆶ
+    "m",  # ᆷ
+    "p",  # ᆸ
+    "ps",  # ᆹ
+    "t",  # ᆺ
+    "t",  # ᆻ
+    "ng",  # ᆼ
+    "t",  # ᆽ
+    "t",  # ᆾ
+    "k",  # ᆿ
+    "t",  # ᇀ
+    "p",  # ᇁ
+    "t",  # ᇂ
+)

@@ -1,0 +1,36 @@
+[build-system]
+requires = [
+  "setuptools >= 40.9.0",
+  "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ['py37', 'py38']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.mypy_cache
+    | \.tox
+    | _build
+    | build
+    | dist
+    | [^/]+/migrations  # App migrations
+  )/
+)
+'''
+[tool.coverage.run]
+data_file = "var/tmp/.coverage"
+source = [
+    "hangul_names",
+]
+
+[tool.coverage.report]
+precision = 0
+
+[tool.coverage.html]
+directory = "var/tmp/coverage_html"
