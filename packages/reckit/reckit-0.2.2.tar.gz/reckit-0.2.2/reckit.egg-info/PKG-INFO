@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: reckit
+Version: 0.2.2
+Summary: A toolkit for recommender systems
+Home-page: https://github.com/ZhongchuanSun/reckit
+Author: ZhongchuanSun
+Author-email: zhongchuansun@gmail.com
+License: UNKNOWN
+Description: <!-- Add banner here -->
+        
+        # RecKit
+        
+        ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ZhongchuanSun/reckit?include_prereleases)
+        ![PyPI](https://img.shields.io/pypi/v/reckit)
+        ![Travis (.com)](https://img.shields.io/travis/com/ZhongchuanSun/reckit?label=Travis%20CI&logo=Travis)
+        ![AppVeyor](https://img.shields.io/appveyor/build/ZhongchuanSun/reckit?label=AppVeyor&logo=AppVeyor)
+        
+        <!-- Describe your project in brief -->
+        RecKit is a collection of recommender utility codes.
+        
+        # Feature
+        
+        - Parse arguments from command line and ini-style files
+        - Diverse data preprocessing
+        - Fast negative sampling
+        - Fast model evaluating
+        - Convenient records logging
+        - Flexible batch data iterator
+        
+        # Installation
+        
+        ## Installation from binary
+        
+        Binary installers are available at the [Python package index](https://pypi.org/project/reckit/)
+        
+        ```sh
+        # PyPI
+        pip install reckit
+        ```
+        
+        ## Build from sources
+        
+        To install reckit from source you need Cython:
+        
+        ```sh
+        pip install cython
+        ```
+        
+        In the reckit directory, execute:
+        
+        ```sh
+        python setup.py bdist_wheel
+        ```
+        
+        Then, you can find a `*.whl` file in `./dist/`, and install it:
+        
+        ```sh
+        pip install ./dist/*.whl
+        ```
+        
+        # Usage
+        
+        You can find examples in [NeuRec](https://github.com/wubinzzu/NeuRec/tree/v3.x).
+        
+Platform: Windows
+Platform: Linux
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: C
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
