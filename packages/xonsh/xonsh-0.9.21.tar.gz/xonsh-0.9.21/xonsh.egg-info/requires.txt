@@ -1,0 +1,25 @@
+
+[full]
+ptk
+pygments
+distro
+
+[linux]
+distro
+
+[mac]
+gnureadline
+
+[proctitle]
+setproctitle
+
+[ptk]
+prompt-toolkit>=2.0
+
+[pygments]
+pygments>=2.2
+
+[zipapp]
+
+[zipapp:python_version < "3.7"]
+importlib_resources
