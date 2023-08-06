@@ -1,0 +1,29 @@
+alembic>=1.4.2
+psycopg2-binary>=2.6.1
+SQLAlchemy>=1.2.7
+cryptography>=2.9.2
+reana-commons>=0.7.0.dev20200602
+
+[:python_version == "2.7"]
+sqlalchemy-utils<=0.36.3
+
+[:python_version >= "3"]
+sqlalchemy-utils>=0.35.0
+
+[all]
+Sphinx>=1.4.4
+sphinx-rtd-theme>=0.1.9
+sphinx-click>=1.0.4
+pytest-reana<0.8.0,>=0.7.0a1
+Sphinx>=1.4.4
+sphinx-rtd-theme>=0.1.9
+sphinx-click>=1.0.4
+pytest-reana<0.8.0,>=0.7.0a1
+
+[docs]
+Sphinx>=1.4.4
+sphinx-rtd-theme>=0.1.9
+sphinx-click>=1.0.4
+
+[tests]
+pytest-reana<0.8.0,>=0.7.0a1
