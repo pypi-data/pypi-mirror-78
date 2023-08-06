@@ -1,0 +1,10 @@
+include LICENSE.txt
+include README.rst
+include lib/hawat/Makefile*
+recursive-include lib/hawat/static *
+recursive-include lib/hawat/templates *
+recursive-include lib/hawat/migrations *
+recursive-include lib/hawat/translations *
+recursive-include lib/hawat/blueprints *
+recursive-include lib/vial/blueprints *
+global-exclude *.pyc
