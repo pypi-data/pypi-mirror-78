@@ -1,0 +1,6 @@
+[archan]
+dependenpy.InternalDependencies=dependenpy.plugins:InternalDependencies
+
+[console_scripts]
+dependenpy=dependenpy.cli:main
+
