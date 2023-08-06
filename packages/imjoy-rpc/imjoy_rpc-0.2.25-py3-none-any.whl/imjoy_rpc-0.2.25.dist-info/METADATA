@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: imjoy-rpc
+Version: 0.2.25
+Summary: ImJoy Plugin Engine for running Python plugins locally or remotely from ImJoy.io
+Home-page: http://github.com/imjoy-team/imjoy-rpc
+Author: ImJoy Team
+Author-email: imjoy.team@gmail.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: werkzeug
+Requires-Dist: numpy
+Requires-Dist: contextvars ; python_version < "3.7"
+Requires-Dist: aiocontextvars ; python_version < "3.7"
+Provides-Extra: jupyter
+Requires-Dist: ipykernel ; extra == 'jupyter'
+Provides-Extra: socketio
+Requires-Dist: python-socketio[client] ; extra == 'socketio'
+
+# ImJoy RPC
+
+Remote Procedure Calls for ImJoy
+
+
+[More details](../README.md)
+
