@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: nbpretty
+Version: 0.1.1
+Summary: A tool to convert sets of Jupyter notebook files into a single, cohesive set of linked pages
+Home-page: https://gitlab.com/milliams/nbpretty
+License: MIT
+Author: Matt Williams
+Author-email: matt@milliams.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: PyYAML (>=5.1,<6.0)
+Requires-Dist: nbconvert (>=5.6,<6.0)
+Project-URL: Repository, https://gitlab.com/milliams/nbpretty
+Description-Content-Type: text/x-rst
+
+nbpretty
+========
+
+nbpretty is a tool to convert sets of notebook files into a single, cohesive set of linked pages.
+
+Usage
+-----
+
+Create a file called ``config.yaml`` with the following contents:
+
+.. code-block:: yaml
+
+   ---
+   course_title: Best practices in software engineering
+
+The main pages will be created bases on their names.
+You should name your chapters like: ``00 Introduction.ipynb``, ``01 First Chapter.ipynb`` etc.
+
+and then run it with:
+
+.. code-block:: shell-session
+
+   nbpretty .
+
+It will write out HTML and CSS files which can then be uploaded/viewed/whatever.
+
+For development, I recommend using `entr <http://eradman.com/entrproject/>`_ with:
+
+.. code-block:: shell-session
+
+   while sleep 1 ; do find . -name '*.ipynb' | entr -d nbpretty . ; done
+
