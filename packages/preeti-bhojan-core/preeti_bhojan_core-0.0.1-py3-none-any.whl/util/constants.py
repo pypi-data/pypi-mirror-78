@@ -1,0 +1,5 @@
+HOME = 0
+OFFICE = 1
+
+SUNDAY = 7
+SATURDAY = 6
