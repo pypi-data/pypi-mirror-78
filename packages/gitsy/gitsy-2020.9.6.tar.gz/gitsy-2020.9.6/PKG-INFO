@@ -1,0 +1,96 @@
+Metadata-Version: 2.1
+Name: gitsy
+Version: 2020.9.6
+Summary: Git made easy
+Home-page: https://github.com/kobibarhanin/gitsy
+Author: kobibarhanin
+Author-email: 
+License: UNKNOWN
+Description: [![Build Status](https://travis-ci.com/kobibarhanin/gitenv.svg?branch=master)](https://travis-ci.com/kobibarhanin/gitenv)
+        [![PyPI version](https://badge.fury.io/py/gitsy.svg)](https://badge.fury.io/py/gitsy)
+        
+        # Gitsy - Git made easy!
+        
+        | NOTICE: gitsy is still very much under construction, I'll notify when a standard beta version is ready. |
+        | --- |
+        
+        Gitsy is a supplementary CLI to git for a better git flow and git experience.
+        
+        I started it to enhance my git productivity and answer 4 main use cases:
+        1. Fast commits - a combination of git's add, commit and push. 
+        2. Undo changes - easily undo all changes made to a file, whether it was staged or unstaged.
+        3. Easy branch hopping - move between branches, even if you have unstaged changes, without having to stage them.
+        4. Simplify git ignore resetting - that annoying thing where you accidentally pushed something you wanted ignored. 
+        
+        Other then that I've added some interactiveness to the git flow - selectors, checkboxes, prompts, etc.
+        
+        
+        ## Installation
+        
+        Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+        
+        ```bash
+        pip install gitsy
+        ```
+        
+        ## Usage
+        gitsy can be used in a globaly with no context (out-of-the-box) or in a branch context.
+        
+        ### No context:
+        
+        ```bash
+        # git add .
+        # git commit -m "commit message"
+        # git push 
+        
+        # IS NOW:
+        gitsy up "commit message" 
+        
+        # Notes:
+        # - Commit message is optional (defaulted to 'fast commit').
+        # - Auto handles the case of setting remote origin for new branches.
+        ```
+        ![Alt text](examples/images/gitsy_up.png?raw=true "Title")
+        ```bash
+        # To undo changes in an unstaged changed file:
+        gitsy undo file_1.py 
+        # To pick a file just drop the file's name:
+        gitsy undo
+        ```
+        ![Alt text](examples/images/gitsy_undo.png?raw=true "Title")
+        ```bash
+        
+        # for staged files use:
+        gitsy regret
+        
+        # ... 
+        ```
+        
+        ### Branch context:
+        
+        - TBD
+        
+        ## Built with
+        
+        - google-fire
+        - gitpython
+        - inquirer
+        - emoji
+        
+        ## Contributing
+        Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+        
+        Please make sure to update tests as appropriate.
+        ### Local dev environment
+        
+        - TBD
+        
+        ## License
+        [MIT](https://choosealicense.com/licenses/mit/)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
