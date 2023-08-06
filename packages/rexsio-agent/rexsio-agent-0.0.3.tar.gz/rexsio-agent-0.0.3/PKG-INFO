@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: rexsio-agent
+Version: 0.0.3
+Summary: Rexsio Agent
+Home-page: https://gitlab.com/rexsio/agent
+Author: rexs.io sp. z o.o.
+Author-email: hello@rexs.io
+License: UNKNOWN
+Description: # REXS.IO Agent
+        REXS.IO Agent is a lightweight process running on the host server (the _node_) and facilitating connectivity between the node and REXS.IO's User Interface. It:
+        * Monitors the health of the node (CPU, Memory)
+        * Provides information about the node’s hardware
+        * Deploys REXS.IO core services: Notaries and Secretaries
+        * Monitors the health of REXS.IO Core Services
+        
+        The Agent is part of a larger REXS.IO Suite.
+        
+        ## What is REXS.IO?
+        ![REXS.IO High Level Overview](https://i.imgur.com/gbdn8pw.jpg)
+        
+        REXS.IO is a blockchain-based data notarization service that creates a shield of trust for any data, including IoT streams, live video feeds, documents, images and more.
+        
+        Data origin is guaranteed by preserving notary proofs on distributed ledgers. REXS.IO additionally enables full data acknowledgment and incontestability through end-to-end chains of trust with hardware security components.
+        
+        With our product, organizations can benefit from the security and immutability of the distributed ledgers without their inherent bottlenecks and prohibitive storage costs. REXS.IO’s core technology is scalable and affordable without compromising security.
+        
+        REXS.IO goes beyond data security and puts the user experience in the focus as well. It abstracts the technical complexities and nuances of the DLT ecosystem with intuitive user interfaces.
+        
+        By design, REXS.IO is technology-agnostic and privacy-centric. We provide a framework with the freedom to choose and deploy the most suitable stack, rather than forcing a user to utilize a particular blockchain or a storage solution.
+        
+        ## Installation
+        
+        Typically you won't install an Agent without triggering the process from the User Interface. Visit [app.rexs.io](https://app.rexs.io/config/pools), create a **new node** pool and a new **node** using the configuration tool. The setup process will walk you through the installaiton procedure.
+        
+        Find out more by visiting the [Agent Instalator Git repository](https://gitlab.com/rexsio/agent-installer).
+        
+        ## Tutorial Videos
+        
+        If you'd like to find out more about REXS.IO's architecture, inner-workings and installation process, see our YouTube playlist:
+        
+        [![](http://img.youtube.com/vi/CiFXS4DeCbY/0.jpg)](http://www.youtube.com/watch?v=CiFXS4DeCbY "REXS.IO")
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
