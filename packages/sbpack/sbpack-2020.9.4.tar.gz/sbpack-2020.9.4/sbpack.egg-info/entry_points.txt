@@ -1,0 +1,5 @@
+[console_scripts]
+cwlpack = sbpack.pack:localpack
+sbpack = sbpack.pack:main
+sbpull = sbpack.unpack:main
+
