@@ -1,0 +1,2 @@
+class StatesGroup:
+    pass
