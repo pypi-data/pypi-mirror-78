@@ -1,0 +1,10 @@
+__pycache__/
+*.egg-info/
+.ipynb_checkpoints/
+dist/
+env/gcp-credentials.json
+hemlock-venv/
+data.db
+data.db-journal
+blackboard.ipynb
+test.py
