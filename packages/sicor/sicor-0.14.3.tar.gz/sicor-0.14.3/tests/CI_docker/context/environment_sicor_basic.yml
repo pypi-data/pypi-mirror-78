@@ -1,0 +1,40 @@
+name: sicor_env
+
+channels: &id1
+    - http://conda.anaconda.org/ioam  # only for holoviews
+    - http://conda.anaconda.org/conda-forge
+
+dependencies:
+    - python=3.*.*
+    - pyqt
+    - numpy
+    - gdal
+    - conda-forge::libgdal  # force to use conda-forge for libgdal to avoid package version incompatiblies due to mixed channels (libkea.so.1.4.7: cannot open shared object file: No such file or directory)
+    - scikit-image
+    - rasterio
+    - pyproj
+    - lxml
+    - geopandas
+    - ipython
+    - pip:
+      - dicttoxml
+      - jsmin
+      - cerberus
+      - pyprind
+      - pint
+      - iso8601
+      - tqdm
+      - mpld3
+      - sphinx-argparse
+      - six
+      - spectral
+      - flake8
+      - pycodestyle
+      - pylint
+      - pydocstyle
+      - nose
+      - nose2
+      - nose-htmloutput
+      - coverage
+      - rednose
+      - netCDF4
