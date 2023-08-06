@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: keymaster-client
+Version: 0.0.6
+Summary: Configures wireguard using information received from keymaster-server
+Home-page: https://github.com/telus/keymaster-client
+Author: Adam Pickering
+Author-email: adamkpickering@gmail.com
+License: Proprietary
+Keywords: keymaster_client
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests
+Requires-Dist: click
+
+# keymaster-client
+Configures wireguard using information from keymaster-server
+
+
