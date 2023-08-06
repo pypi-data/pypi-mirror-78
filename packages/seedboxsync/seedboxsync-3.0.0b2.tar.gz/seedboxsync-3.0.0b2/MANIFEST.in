@@ -1,0 +1,12 @@
+# Include docs
+include *.md
+include LICENSE
+
+recursive-include seedboxsync *.py
+include setup.cfg
+include *.txt
+#recursive-include seedboxsync/templates *
+
+# Include yml example
+
+recursive-include config *
