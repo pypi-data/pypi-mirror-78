@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "packinit"
+version = "0.2.4"
+description = "A docker friendly startup routine for Minecraft servers."
+homepage = "https://gitlab.routh.io/minecraft/tools/packinit"
+repository = "https://gitlab.routh.io/minecraft/tools/packinit"
+authors = ["Chris Routh <chris@routh.io>"]
+license = "MIT"
+readme = "README.rst"
+
+[tool.poetry.dependencies]
+# These packages are mandatory and form the core of this package’s distribution.
+python = ">=3.6"
+packmaker = "0.4.3"
+
+[tool.poetry.scripts]
+packinit = "packinit:main"
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
