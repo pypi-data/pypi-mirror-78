@@ -1,0 +1,4 @@
+[console_scripts]
+netrec = NetRecorder.NetTraRec:record_starter
+netrec-server = NetRecorder.NetTraRec:record_starter_server
+
