@@ -1,0 +1,60 @@
+{% set name = "rbc" %}
+{% set version = "0.4.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/xnd-project/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: b4be59341bb3f9153b956b02a0e96dcaf0f198ca65662cd7e564113394a9d998
+
+build:
+  number: 0
+  skip: True  # [py<35]
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+
+requirements:
+  build:
+    - python
+  host:
+    - python
+    - setuptools
+    - pip
+  run:
+    - python
+    - thriftpy2
+    - tblib
+    - llvmlite >=0.29
+    - numba
+    - netifaces
+
+test:
+  requires:
+    - pytest
+  commands:
+    - pytest -sv -r s --pyargs rbc
+  imports:
+    - rbc
+    - rbc.thrift
+
+about:
+  home: https://github.com/xnd-project/rbc
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE.txt
+  summary: 'RBC - Remote Backend Compiler'
+  description: |
+    The aim of the Remote Backend Compiler project is to distribute
+    the tasks of a program JIT compilation process to separate
+    computer systems using the client-server model. The frontend of
+    the compiler runs on the client computer and the backend runs on
+    the server computer. The compiler frontend will send the program
+    code to compiler backend in LLVM IR form where it will be compiled
+    to machine code.
+  doc_url: https://rbc.readthedocs.io/
+  dev_url: https://github.com/xnd-project/rbc
+
+extra:
+  recipe-maintainers:
+    - pearu
