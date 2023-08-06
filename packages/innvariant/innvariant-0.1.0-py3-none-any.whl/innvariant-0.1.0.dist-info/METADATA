@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: innvariant
+Version: 0.1.0
+Summary: 
+Author: Julian Stier
+Author-email: julian.stier@uni-passau.de
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: all
+Provides-Extra: networkx
+Requires-Dist: networkx (>=2.5,<3.0); extra == "all" or extra == "networkx"
