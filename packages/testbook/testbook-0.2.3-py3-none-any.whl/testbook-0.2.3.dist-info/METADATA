@@ -1,0 +1,123 @@
+Metadata-Version: 2.1
+Name: testbook
+Version: 0.2.3
+Summary: A unit testing framework for Jupyter Notebooks
+Home-page: https://github.com/nteract/testbook
+Author: nteract contributors
+Author-email: nteract@googlegroups.com
+License: BSD
+Project-URL: Documentation, https://testbook.readthedocs.io
+Project-URL: Funding, https://nteract.io
+Project-URL: Source, https://github.com/nteract/testbook/
+Project-URL: Tracker, https://github.com/nteract/testbook/issues
+Keywords: jupyter mapreduce nteract pipeline notebook
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: nbformat (>=5.0.4)
+Requires-Dist: nbclient (>=0.4.0)
+Provides-Extra: dev
+Requires-Dist: codecov ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: ipython ; extra == 'dev'
+Requires-Dist: ipykernel ; extra == 'dev'
+Requires-Dist: ipywidgets ; extra == 'dev'
+Requires-Dist: pytest (>=4.1) ; extra == 'dev'
+Requires-Dist: pytest-cov (>=2.6.1) ; extra == 'dev'
+Requires-Dist: check-manifest ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: tox ; extra == 'dev'
+Requires-Dist: bumpversion ; extra == 'dev'
+Requires-Dist: xmltodict ; extra == 'dev'
+Requires-Dist: pip (>=18.1) ; extra == 'dev'
+Requires-Dist: wheel (>=0.31.0) ; extra == 'dev'
+Requires-Dist: setuptools (>=38.6.0) ; extra == 'dev'
+Requires-Dist: twine (>=1.11.0) ; extra == 'dev'
+Requires-Dist: black ; (python_version >= "3.6") and extra == 'dev'
+Provides-Extra: sphinx
+Requires-Dist: Sphinx (<3.0,>=1.7) ; extra == 'sphinx'
+Requires-Dist: sphinx-book-theme (==0.0.35) ; extra == 'sphinx'
+Requires-Dist: myst-parser (==0.9.1) ; extra == 'sphinx'
+Provides-Extra: test
+Requires-Dist: codecov ; extra == 'test'
+Requires-Dist: coverage ; extra == 'test'
+Requires-Dist: ipython ; extra == 'test'
+Requires-Dist: ipykernel ; extra == 'test'
+Requires-Dist: ipywidgets ; extra == 'test'
+Requires-Dist: pytest (>=4.1) ; extra == 'test'
+Requires-Dist: pytest-cov (>=2.6.1) ; extra == 'test'
+Requires-Dist: check-manifest ; extra == 'test'
+Requires-Dist: flake8 ; extra == 'test'
+Requires-Dist: tox ; extra == 'test'
+Requires-Dist: bumpversion ; extra == 'test'
+Requires-Dist: xmltodict ; extra == 'test'
+Requires-Dist: pip (>=18.1) ; extra == 'test'
+Requires-Dist: wheel (>=0.31.0) ; extra == 'test'
+Requires-Dist: setuptools (>=38.6.0) ; extra == 'test'
+Requires-Dist: twine (>=1.11.0) ; extra == 'test'
+Requires-Dist: black ; (python_version >= "3.6") and extra == 'test'
+
+[![Build Status](https://github.com/nteract/testbook/workflows/CI/badge.svg)](https://github.com/nteract/testbook/actions)
+[![image](https://codecov.io/github/nteract/testbook/coverage.svg?branch=master)](https://codecov.io/github/nteract/testbook?branch=master)
+[![Documentation Status](https://readthedocs.org/projects/testbook/badge/?version=latest)](https://testbook.readthedocs.io/en/latest/?badge=latest)
+[![PyPI](https://img.shields.io/pypi/v/testbook.svg)](https://pypi.org/project/testbook/)
+[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/)
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
+# testbook
+
+**testbook** is a unit testing framework extension for testing code in Jupyter Notebooks.
+
+Previous attempts at unit testing notebooks involved writing the tests in the notebook itself.
+However, testbook will allow for unit tests to be run against notebooks in separate test files,
+hence treating .ipynb files as .py files.
+
+testbook helps you set up **conventional unit tests for your Jupyter Notebooks**.
+
+Here is an example of a unit test written using testbook
+
+Consider the following code cell in a Jupyter Notebook:
+
+```python
+def func(a, b):
+   return a + b
+```
+
+You would write a unit test using `testbook` in a Python file as follows:
+
+```python
+import testbook
+
+
+
+@testbook.testbook('/path/to/notebook.ipynb', execute=True)
+def test_func(tb):
+   func = tb.ref("func")
+
+   assert func(1, 2) == 3
+```
+
+## Installing `testbook`
+
+```{code-block} bash
+pip install testbook
+```
+
+## Documentation
+
+See [readthedocs](https://testbook.readthedocs.io/en/latest/) for more in-depth details.
+
+## Development Guide
+
+Read [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how to setup a local development environment and make code changes back to testbook.
+
+
