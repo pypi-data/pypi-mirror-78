@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: madtornado4
+Version: 4.0.1
+Summary: Madtornado is a tool for generating Tornado projects for MVC.【生成tornado MVC项目模板 CLI脚手架(scaffolding)】
+Home-page: https://github.com/SystemLight/madtornado4
+Author: SystemLight
+Author-email: 1466335092@qq.com
+Maintainer: SystemLight
+Maintainer-email: 1466335092@qq.com
+License: MIT
+Download-URL: https://github.com/SystemLight/madtornado4/releases
+Keywords: tornado,web,http_server,mt,Mad_tornado,madtornado,Tornado project template,python3,mvc,mad,generate the Tornado project,tornado cli,tornado mvc,tornado脚手架,生成tornado项目
+Platform: Windows
+Platform: Linux
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: tornado (==6.0.4)
+Requires-Dist: aiomysql (==0.0.20)
+
+# Madtornado4
+
+Madtornado4是一个构建MVC Tornado项目的工具。
+
+[![Documentation Status](https://readthedocs.org/projects/madtornado4/badge/?version=latest)](https://madtornado4.readthedocs.io/?badge=latest)
+[![Build Status](https://www.travis-ci.org/SystemLight/madtornado4.svg?branch=master)](https://www.travis-ci.org/SystemLight/madtornado4)
+
+## 安装
+
+```
+pip install madtornado4
+```
+
+## 用法
+
+madtornado4通过`mad`命令提供构建操作，在控制台中键入mad即可获得帮助
+
+- mad install [version]: 指定madtornado的版本号在当前目录下初始化项目。
+- mad list: 查看所有可用的madtornado版本。
+- mad new [Template]: 在madtornado4项目下新建制定模板文件，如果不输入模板名称列出所有模板。
+
+## 文档
+
+- 你可以阅读 [madtornado4 Documentation](https://madtornado4.readthedocs.io/?badge=latest) 在线文档获取更多使用方法。
+- 你也可以阅读 [tornado Documentation](https://www.osgeo.cn/tornado/index.html) 来了解tornado基础使用
+
+## License
+
+Madtornado4 uses the MIT license, see LICENSE file for the details.
+
+
