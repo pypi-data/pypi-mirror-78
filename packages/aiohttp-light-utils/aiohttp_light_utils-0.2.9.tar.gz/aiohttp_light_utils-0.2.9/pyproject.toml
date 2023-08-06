@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "aiohttp_light_utils"
+version = "0.2.9"
+description = ""
+authors = ["Khaziev Radik <xazrad@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+trafaret-config = "^2.0"
+ujson = "^1.35"
+jsonrpcclient = {version = "^3.3", extras = ["aiohttp"]}
+pymongo = "^3.9"
+python-json-logger = "^0.1.11"
+aiohttp_graphql = "^1.0.0"
+graphene-file-upload = "^1.2.2"
+graphene = "^2.1.8"
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
