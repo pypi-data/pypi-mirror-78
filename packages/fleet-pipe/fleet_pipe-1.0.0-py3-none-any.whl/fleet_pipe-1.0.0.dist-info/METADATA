@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: fleet-pipe
+Version: 1.0.0
+Summary: Finding Luminous and Exotic Extragalactic Transients
+Home-page: https://github.com/gmzsebastian/FLEET
+Author: ['Sebastian Gomez']
+Author-email: sgomez@cfa.harvard.edu
+License: GNU GPL 3.0
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: astroquery
+Requires-Dist: dustmaps
+Requires-Dist: bs4
+Requires-Dist: ephem
+Requires-Dist: datetime
+Requires-Dist: astral
+Requires-Dist: PyAstronomy
+Requires-Dist: Pillow
+Requires-Dist: matplotlib
+Requires-Dist: lmfit
+Requires-Dist: extinction
+Requires-Dist: pandas
+Requires-Dist: python-dateutil
+Requires-Dist: astropy
+Requires-Dist: pathlib
+Requires-Dist: requests
+Requires-Dist: scipy
+Requires-Dist: emcee
+
+UNKNOWN
+
+
