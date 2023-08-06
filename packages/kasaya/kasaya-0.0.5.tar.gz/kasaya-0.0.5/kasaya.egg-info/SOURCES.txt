@@ -1,0 +1,16 @@
+README.md
+setup.py
+kasaya/__init__.py
+kasaya.egg-info/PKG-INFO
+kasaya.egg-info/SOURCES.txt
+kasaya.egg-info/dependency_links.txt
+kasaya.egg-info/requires.txt
+kasaya.egg-info/top_level.txt
+kasaya/scrape/__init__.py
+kasaya/scrape/url_to_favicon.py
+kasaya/scrape/url_to_imagelist.py
+kasaya/scrape/url_to_urllist.py
+kasaya/utils/__init__.py
+kasaya/utils/dir_to_dict.py
+kasaya/utils/url_to_soup.py
+kasaya/utils/url_utils.py
