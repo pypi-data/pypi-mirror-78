@@ -1,0 +1,228 @@
+<script lang="ts">
+  import type { Addon, AddonWithMeta } from "../api";
+  import { Strategies } from "../api";
+  import {
+    faEllipsisH,
+    faExternalLinkSquareAlt,
+    faHistory,
+  } from "@fortawesome/free-solid-svg-icons";
+  import { ipcRenderer } from "electron";
+  import { DateTime } from "luxon";
+  import { createEventDispatcher } from "svelte";
+  import { fade } from "svelte/transition";
+  import Icon from "./SvgIcon.svelte";
+
+  export let addon: AddonWithMeta,
+    otherAddon: Addon,
+    isOutdated: boolean,
+    supportsRollback: boolean,
+    beingModified: boolean,
+    showCondensed: boolean,
+    refreshing: boolean;
+
+  const dispatch = createEventDispatcher();
+</script>
+
+<style lang="scss">
+  @import "vars";
+
+  .addon {
+    position: relative;
+    display: flex;
+    padding: 0.4em 0.75em;
+    border-radius: inherit;
+    transition: all 0.2s;
+
+    &.status-being-modified {
+      pointer-events: none;
+    }
+
+    &.status-damaged {
+      @include striped-background(-45deg, rgba(red, 0.1));
+    }
+
+    &.status-outdated {
+      @include striped-background(-45deg, rgba(lime, 0.1));
+    }
+
+    &.status-pinned {
+      @include striped-background(-45deg, rgba(gold, 0.1));
+    }
+  }
+
+  .addon-details {
+    @include unstyle-list;
+    flex-grow: 1;
+    overflow-x: hidden;
+
+    &.two-col {
+      display: flex;
+      line-height: 1.5rem;
+
+      .name {
+        flex-grow: 1;
+      }
+
+      .versions {
+        margin-top: 0;
+      }
+    }
+
+    li {
+      display: block;
+    }
+
+    .name {
+      font-weight: 600;
+    }
+
+    .versions {
+      float: right;
+    }
+
+    .defn,
+    .versions {
+      margin-top: 0.25rem;
+      font-family: $mono-font-stack;
+      font-size: 0.7em;
+    }
+
+    .description {
+      margin-top: 0.25rem;
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 0.8em;
+      color: var(--inverse-color-tone-20);
+    }
+
+    &:hover .description {
+      display: block;
+    }
+  }
+
+  .addon-actions {
+    @include unstyle-list;
+    display: flex;
+    flex-wrap: nowrap;
+    align-self: center;
+    padding-left: 0.625rem;
+
+    button {
+      padding: 0 0.625rem;
+      line-height: 1.8em;
+      font-size: 0.8em;
+      font-weight: 500;
+      border: 0;
+      border-radius: 1em;
+      background-color: $action-button-bg-color;
+      color: $action-button-text-color;
+      transition: all 0.2s;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+
+      &:focus {
+        background-color: $action-button-focus-bg-color;
+      }
+
+      + button {
+        margin-left: 4px;
+      }
+
+      :global(.icon) {
+        display: block;
+        width: 0.8rem;
+        height: 0.8rem;
+        fill: $action-button-text-color;
+      }
+    }
+  }
+
+  .modification-status-indicator {
+    @include spinner(18px, $action-button-bg-color);
+    align-self: center;
+    justify-self: right;
+    margin-left: 0.75em;
+  }
+</style>
+
+<div
+  class="addon"
+  class:status-damaged={false}
+  class:status-outdated={isOutdated}
+  class:status-pinned={addon.options.strategy === Strategies.version}
+  class:status-being-modified={beingModified}>
+  <ul class="addon-details" class:two-col={showCondensed}>
+    <li class="name">{addon.name}</li>
+    <li class="versions">
+      {addon.version}
+      {#if isOutdated}
+        {'<'}
+        {otherAddon.version}
+        <span
+          title={otherAddon.date_published}>({DateTime.fromISO(otherAddon.date_published).toRelative()})</span>
+      {:else}
+        <span title={addon.date_published}>
+          ({DateTime.fromISO(addon.date_published).toRelative()})
+        </span>
+      {/if}
+      {#if (isOutdated ? otherAddon : addon).options.strategy !== Strategies.default}
+        @ {(isOutdated ? otherAddon : addon).options.strategy}
+      {/if}
+    </li>
+    {#if !showCondensed}
+      <li class="defn">{addon.source}:{addon.id}</li>
+      <li class="description">{addon.description || 'No description.'}</li>
+    {/if}
+  </ul>
+  {#if beingModified}
+    <div class="modification-status-indicator" in:fade />
+  {:else}
+    <menu class="addon-actions">
+      {#if addon.__installed__}
+        {#if isOutdated}
+          <button
+            disabled={refreshing}
+            on:click|stopPropagation={() => dispatch('requestUpdate')}>update</button>
+        {/if}
+        <!-- {#if false}
+          <button disabled={refreshing} on:click|stopPropagation={() => requestReinstall()}>
+            reinstall
+          </button>
+        {/if} -->
+        {#if addon.logged_versions.length > 1 && supportsRollback}
+          <button
+            aria-label="rollback"
+            title="rollback"
+            disabled={refreshing}
+            on:click|stopPropagation={() => dispatch('requestShowRollbackModal')}>
+            <Icon icon={faHistory} />
+          </button>
+        {/if}
+        <button
+          aria-label="show options"
+          title="show options"
+          disabled={refreshing}
+          on:click|stopPropagation={() => dispatch('showGenericAddonContextMenu')}>
+          <Icon icon={faEllipsisH} />
+        </button>
+        <button
+          disabled={refreshing}
+          on:click|stopPropagation={() => dispatch('requestRemove')}>remove</button>
+      {:else}
+        <button
+          aria-label="open in browser"
+          title="open in browser"
+          on:click|stopPropagation={() => ipcRenderer.send('open-url', addon.url)}>
+          <Icon icon={faExternalLinkSquareAlt} />
+        </button>
+        <button
+          disabled={refreshing}
+          on:click|stopPropagation={() => dispatch('requestInstall')}
+          on:contextmenu={() => dispatch('showInstallAddonContextMenu')}>install</button>
+      {/if}
+    </menu>
+  {/if}
+</div>
