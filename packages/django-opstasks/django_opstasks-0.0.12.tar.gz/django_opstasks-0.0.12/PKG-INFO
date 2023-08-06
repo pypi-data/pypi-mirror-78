@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: django_opstasks
+Version: 0.0.12
+Summary: opstasks
+Home-page: UNKNOWN
+Author: lunuan
+Author-email: admin@lunuan.com.cn
+License: BSD
+Description: Django_opstasks is a distributed task queue that integrates celery/celert, celery/django-celery-beat, celery/django-celery-results using the Django ORM/Cache framework
+        
+        : Django: https://www.djangoproject.com/
+        : celery/celery: https://github.com/celery/celery/
+        : celery/django-celery-beat: http://github.com/celery/django-celery-beat
+        : celery/django-celery-results: http://github.com/celery/django-celery-results
+        
+        Thanks to the authors and maintainers of the above software
+Keywords: opstasks
+Platform: any
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.0
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Communications
+Classifier: Topic :: System :: Distributed Computing
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
