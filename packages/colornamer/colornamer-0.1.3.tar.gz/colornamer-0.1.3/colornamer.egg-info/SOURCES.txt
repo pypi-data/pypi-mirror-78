@@ -1,0 +1,13 @@
+README.md
+setup.py
+colornamer/__init__.py
+colornamer/colornamer.py
+colornamer.egg-info/PKG-INFO
+colornamer.egg-info/SOURCES.txt
+colornamer.egg-info/dependency_links.txt
+colornamer.egg-info/requires.txt
+colornamer.egg-info/top_level.txt
+static/__init__.py
+static/color_hierarchy.csv
+static/color_hierarchy.json
+test/test_get_color_from_rgb.py
