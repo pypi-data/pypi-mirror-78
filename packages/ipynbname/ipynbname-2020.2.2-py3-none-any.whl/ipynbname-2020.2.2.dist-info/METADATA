@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: ipynbname
+Version: 2020.2.2
+Summary: Simply returns either notebook filename or the full path to the notebook when run from Jupyter notebook in browser.
+Home-page: https://github.com/msm1089/ipynbname
+Author: Mark McPherson
+Author-email: msm1089@yahoo.co.uk
+License: MIT
+Keywords: jupyter,notebook,filename
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Jupyter
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.4, <4
+Description-Content-Type: text/markdown
+
+# ipynbname
+
+When run in a Jupyter notebook, simply returns the notebook filename or the full path to the notebook.
+
+## Examples
+
+Get the notebook name:
+
+```python
+import ipynbname
+nb_fname = ipynbname.name()
+```
+
+Get the full path to the notebook:
+
+```python
+import ipynbname
+nb_path = ipynbname.path()
+```
+
+You would think there was already some built-in way to access the current notebook name, but it took many hours
+of searching for a way to do it. As it seems many others did, I tried using Javascript, but the async nature of
+JS meant that it was unreliable. Finally I stumbled on this [post](https://forums.fast.ai/t/jupyter-notebook-enhancements-tips-and-tricks/17064/39).
+Credit for most of the code goes to the author of this post, thanks!
+
