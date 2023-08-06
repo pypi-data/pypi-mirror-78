@@ -1,0 +1,34 @@
+<!--
+ Copyright 2018 by Embrapa.  All rights reserved.
+
+ This code is part of the machado distribution and governed by its
+ license. Please see the LICENSE.txt and README.md files that should
+ have been included as part of this package for licensing information.
+-->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="rounded bg-light p-5">
+    <p>Just use the <a href="{% url 'feature_search' %}?q="><b>Search box</b></a> or click on <a href="{% url 'data_numbers' %}"><b>Data summary</b></a> to find out all the data that was loaded using <a href="https://github.com/lmb-embrapa/machado">machado</a>!</p>
+
+    <h2>Demo</h2>
+
+    <p>This demo was built using <a href="https://github.com/lmb-embrapa/machado">machado</a></p>
+
+    <p>machado is a Django application that contains tools to interact with a Chado database. It provides users with a framework to store, search and visualize biological data.</p>
+    <h3>Features</h3>
+
+    <ul>
+      <li>There are data loaders for the major bioinformatics formats: fasta, gff, obo, bibtex, blast, interproscan, orthomcl</li>
+      <li>The machado API delivers data directly to the JBrowse genome browser</li>
+      <li>The Haystack framework provides a very fast search interface using the Elasticsearch engine</li>
+    </ul>
+
+    <h3>Installation</h3>
+
+    Please refer to the complete documentation at <a href="https://machado.readthedocs.io">Read the docs</a>.
+
+</div>
+
+{% endblock %}
