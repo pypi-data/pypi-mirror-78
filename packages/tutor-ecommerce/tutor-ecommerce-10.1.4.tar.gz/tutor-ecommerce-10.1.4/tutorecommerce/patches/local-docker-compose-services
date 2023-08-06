@@ -1,0 +1,23 @@
+ecommerce:
+  image: {{ ECOMMERCE_DOCKER_IMAGE }}
+  environment:
+    DJANGO_SETTINGS_MODULE: ecommerce.settings.tutor.production
+  restart: unless-stopped
+  volumes:
+    - ../plugins/ecommerce/apps/ecommerce/settings:/openedx/ecommerce/ecommerce/settings/tutor:ro
+    - ../../data/ecommerce/media:/openedx/ecommerce/course_ecommerce/media
+  depends_on:
+    - mysql
+    - discovery
+    {% if ACTIVATE_LMS %}- lms{% endif %}
+
+ecommerce-worker:
+    image: {{ ECOMMERCE_WORKER_DOCKER_IMAGE }}
+    environment:
+      WORKER_CONFIGURATION_MODULE: ecommerce_worker.configuration.tutor.production
+      C_FORCE_ROOT: "1"
+    restart: unless-stopped
+    volumes:
+      - ../plugins/ecommerce/apps/ecommerce-worker/settings:/openedx/ecommerce_worker/ecommerce_worker/configuration/tutor:ro
+    depends_on:
+      - ecommerce
