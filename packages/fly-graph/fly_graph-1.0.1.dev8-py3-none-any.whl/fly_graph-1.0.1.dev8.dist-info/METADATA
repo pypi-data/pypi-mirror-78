@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: fly-graph
+Version: 1.0.1.dev8
+Summary: A graph library for FLY language, written in Python
+Home-page: https://github.com/bissim/FLY-graph
+Author: Simone Bisogno
+Author-email: s.bisogno90@gmail.com
+License: MIT
+Project-URL: Source, https://github.com/bissim/FLY-graph
+Project-URL: Tracker, https://github.com/bissim/FLY-graph/issues
+Keywords: FLY graph management
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 6 - Mature
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Other
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: ~=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: networkx
+
+
+# FLY Graph
+
+Python graph library for [FLY language](https://github.com/spagnuolocarmine/FLY-language).
+
+
