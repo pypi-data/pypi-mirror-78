@@ -1,0 +1,21 @@
+# Copyright (c) 2017, NXP
+# Copyright (c) 2019 Bobby Noelte
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# Common fields for PWM controllers
+
+include: base.yaml
+
+properties:
+    label:
+      required: true
+
+    "#pwm-cells":
+      type: int
+      required: true
+      description: Number of items to expect in a pwm specifier
+
+    clocks:
+      required: false
+

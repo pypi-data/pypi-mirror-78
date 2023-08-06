@@ -1,0 +1,16 @@
+# Copyright (c) 2020 Bobby Noeltw
+# SPDX-License-Identifier: Apache-2.0
+
+# Common fields for reserved memory
+
+description: Reserved memory properties
+
+compatible: "reserved-memory"
+
+include: base.yaml
+
+properties:
+    ranges:
+      type: boolean
+      required: true
+      description: standard definition

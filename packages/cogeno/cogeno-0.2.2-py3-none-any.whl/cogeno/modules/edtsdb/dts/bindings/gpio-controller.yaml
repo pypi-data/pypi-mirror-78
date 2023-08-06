@@ -1,0 +1,37 @@
+# Copyright (c) 2019, Linaro Limited
+# Copyright (c) 2019..2020 Bobby Noelte
+# SPDX-License-Identifier: Apache-2.0
+
+# Common fields for GPIO controllers
+
+include: base.yaml
+
+properties:
+    "gpio-controller":
+      type: boolean
+      required: true
+      description: Convey's this node is a GPIO controller
+
+    "#gpio-cells":
+      type: int
+      required: true
+      description: Number of items to expect in a GPIO specifier
+
+    ngpios:
+      type: int
+      required: false
+      description: Number of gpios supported
+
+    gpio-ranges:
+      type: phandle-array
+      required: false
+      description: gpio range in pin controller
+
+    gpio-ranges-group-names:
+      type: string-array
+      required: false
+      description: gpio range names
+
+gpio-cells:
+  - pin
+  - flags
