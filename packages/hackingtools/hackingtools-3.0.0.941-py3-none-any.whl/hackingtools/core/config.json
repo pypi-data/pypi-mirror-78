@@ -1,0 +1,314 @@
+{
+    "modules": {
+        "ht_shodan": {
+            "bad_api_key_error": "The specified APIKey is invalid, please insert another one.",
+            "error_ip_no_exists": "No data available for the IP",
+            "search_limit_date_format": "%d/%m/%Y",
+            "scan_interesting_data_keys": [
+                "hostnames",
+                "ip_str",
+                "city",
+                "country_name",
+                "org",
+                "isp",
+                "last_update",
+                "asn",
+                "os",
+                "port"
+            ],
+            "msg_result_found": "Results found",
+            "msg_fetch_page": "Fetched page",
+            "error": "Error",
+            "shodan_host_ip": "shodan/host/{ip}",
+            "shodan_count_search": "shodan/host/count",
+            "shodan_host_search": "shodan/host/search",
+            "shodan_token_search": "shodan/host/search/tokens",
+            "shodan_ports": "shodan/ports",
+            "shodan_exploit_author": "shodan/exploit/author",
+            "shodan_exploit_cve": "shodan/exploit/cve",
+            "shodan_exploit_msb": "shodan/exploit/msb",
+            "shodan_exploit_bid": "shodan/exploit/bugtraq-id",
+            "shodan_exploit_osvdb": "shodan/exploit/osvdb",
+            "shodan_exploit_title": "shodan/exploit/title",
+            "shodan_exploit_description": "shodan/exploit/description",
+            "shodan_exploit_date": "shodan/exploit/date",
+            "shodan_exploit_code": "shodan/exploit/code",
+            "shodan_exploit_platform": "shodan/exploit/platform",
+            "shodan_exploit_port": "shodan/exploit/port",
+            "shodan_dns_lookup": "dns/resolve",
+            "shodan_dns_reverse": "dns/reverse",
+            "shodan_honeyscore": "labs/honeyscore/{ip}",
+            "shodan_profile": "account/profile",
+            "shodan_myip": "tools/myip",
+            "shodan_httpheaders": "tools/httpheaders",
+            "shodan_api_info": "api-info"
+        },
+        "ht_sqlinjection": {
+            "__gui_label__": "SQLI",
+            "color_error": "RED",
+            "color_verbose": "BLUE",
+            "color_info": "YELLOW",
+            "color_ok": "GREEN"
+        },
+        "ht_crypter": {
+            "pyinstaller": "pyinstaller -F -w --clean --noconsole --specpath {path}",
+            "error_encrypt": "Something went wrong"
+        },
+        "ht_rsa": {
+            "bad_identical_prime": "Both numbers must be prime",
+            "p_q_equal_error": "p and q cannot be equal",
+            "error_encrypt": "Something went wrong"
+        },
+        "ht_metadata": {},
+        "ht_bruteforce": {
+            "max_for_chunk": 10000,
+            "msg_password_is": "Password is",
+            "dictionaryOptions": [
+                "lalpha",
+                "ualpha",
+                "numeric",
+                "symbols14",
+                "symbols-all",
+                "symbols-all-space"
+            ]
+        },
+        "ht_unzip": {
+            "posible_combinations": "Posible Combinations"
+        },
+        "ht_nmap": {},
+        "ht_twitter": {},
+        "ht_virustotal": {},
+        "ht_objectdetection": {
+            "systems": [
+                "nt"
+            ],
+            "_comment": "Rename templates if have to use: (remove underscore) 'django_form_main_function' and 'django_form_module_function'",
+            "allowed_extensions": [
+                "png",
+                "jpg",
+                "jpeg"
+            ],
+            "models_tests_extension": "clf",
+            "training_log_message": "Training directory",
+            "training_log_bad_image": "not suitable for training",
+            "training_log_no_recognition": "Didn't find a recognition object",
+            "training_log_much_recognition": "Found more than one recognition object",
+            "training_log_n_neighbors": "Chose n_neighbors automatically",
+            "predicting_invalid_path": "Invalid image path",
+            "predicting_no_knn_or_model_path": "Must supply knn classifier either thourgh knn_clf or model_path"
+        },
+        "ht_spider": {},
+        "ht_cve": {},
+        "ht_cpe": {},
+        "ht_cwe": {},
+        "ht_hash": {},
+        "ht_pastebin": {},
+        "ht_bannergrabber": {},
+        "ht_facebook": {},
+        "ht_r2": {},
+        "ht_radare2": {},
+        "ht_finder": {},
+        "ht_ssh": {},
+        "ht_nessus": {},
+        "ht_qualys": {},
+        "ht_openvas": {},
+        "ht_scapy": {},
+        "ht_keylogger": {},
+        "ht_nuevo": {},
+        "ht_parser": {},
+        "ht_sia": {},
+        "ht_mimikatz": {},
+        "ht_supernet": {},
+        "ht_vulndb": {},
+        "ht_instagram": {},
+        "ht_urlshortener": {},
+        "ht_router": {},
+        "ht_fuzz": {},
+        "ht_rc4": {}
+    },
+    "core": {
+        "__WANT_TO_BE_IN_POOL__": true,
+        "LOAD_DJANGO_CONF": true,
+        "__cant_install_requirements__": {
+            "ht_objectdetection": [
+                "face_recognition"
+            ],
+            "ht_cwe": [
+                "requests_html"
+            ],
+            "ht_pastebin": [
+                "StringIO"
+            ],
+            "ht_twitter": [
+                "pandas"
+            ],
+            "ht_instagram": [
+                "slugify",
+                "igramscraper"
+            ],
+            "ht_radare2": [
+                "r2pipe"
+            ],
+            "ht_scapy": [
+                "scapy"
+            ],
+            "ht_metadata": [
+                "mutagen",
+                "pdfrw",
+                "taglib",
+                "eyeD3"
+            ],
+            "ht_builtwith": [
+                "buildwith"
+            ]
+        },
+        "Connections": {
+            "ngrok": {
+                "__load_on_boot__": false
+            }
+        },
+        "Repositories": {
+            "servers": [
+                "hackingtoolsrepo.pentestinglab.es"
+            ]
+        },
+        "Pool": {
+            "known_nodes": [
+                "http://pool1.pentestinglab.es",
+                "http://pool2.pentestinglab.es",
+                "http://pool3.pentestinglab.es"
+            ]
+        },
+        "TelegramBot": {
+            "bot-name": "HackingTools Portable",
+            "bot-token": ""
+        },
+        "__API_KEY__": {
+            "botscout_api": "",
+            "builtwith_api": "",
+            "censysio_id": "",
+            "censysio_secret": "",
+            "clearbit_apikey": "",
+            "clearbit_secret": "",
+            "cymon_api": "",
+            "emailhunter": "",
+            "facebook_id": "",
+            "facebook_access_token": "",
+            "flickr_api": "",
+            "fullcontact_id": "",
+            "fullcontact_api": "",
+            "github_access_token": "",
+            "google_api": "",
+            "google_cse_cx": "",
+            "google_cse_key": "",
+            "google_maps_api": "",
+            "instagram_client_id": "",
+            "instagram_client_secret": "",
+            "ipinfodb_api": "",
+            "jsonwhois": "",
+            "linkedin_api": "",
+            "linkedin_secret": "",
+            "mailboxlayer_api": "",
+            "reddit_id": "",
+            "reddit_secret": "",
+            "rosette_api": "",
+            "security_trails_api": "",
+            "shodan_api": "",
+            "spyonweb_access_token": "",
+            "twitter_access_token": "",
+            "twitter_access_token_secret": "",
+            "twitter_consumer_key": "",
+            "twitter_consumer_secret": "",
+            "zoomeyeuser": "",
+            "zoomeyepass": "",
+            "freewallet_pub_key": "",
+            "freewallet_pri_key": "",
+            "virustotal": "",
+            "walletbuilders_masternode_key": "",
+            "walletbuilders_masternode_acc_addr_MN1": ""
+        },
+        "Logger": {
+            "__DEBUG_CORE_FLAG__": true,
+            "__DEBUG_MODULE_FLAG__": true,
+            "__DEBUG_USER__": true,
+            "clear_on_load": false,
+            "log_save_date_format": "%Y-%m-%d-%H-%M-%S-%f",
+            "log_print_date_format": "%Y-%m-%d %H:%M:%S.%f"
+        },
+        "locales": {
+            "error_json_data_loaded": "You have errors on your JSON config",
+            "error_json_data_not_loaded": "Error loading some data of your JSON config"
+        },
+        "import_modules": {
+            "package_name": "hackingtools",
+            "__blacklist_extensions__": [
+                ".pyc"
+            ],
+            "__blacklist_directories__": [
+                "__"
+            ],
+            "__ignore_files__": [
+                "ht_flask.py"
+            ],
+            "__ignore_folders__": [
+                "templates",
+                "core",
+                "build",
+                "dist",
+                "hackingtools",
+                "gui"
+            ],
+            "__class_name_starts_with_modules__": "ht_",
+            "__function_name_starts_with_modules__": "__",
+            "__function_param_exclude__": "self",
+            "__default_class_name_for_all__": "StartModule",
+            "__default_template_modules_ht__": "from hackingtools.core import Logger, Utils, Config\nif Utils.amIdjango(__name__):\n\tfrom .library.core import hackingtools as ht\nelse:\n\timport hackingtools as ht\nimport os\n\nconfig = Config.getConfig(parentKey='modules', key='ht_{moduleName}')\noutput_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'output'))\n\nclass StartModule():\n\n\tdef __init__(self):\n\t\tself._main_gui_func_ = ''\n\t\tself._funcArgFromFunc_ = {\n\t\t\t'_functionName_' : {\n\t\t\t\t'_functionParamName_' : {\n\t\t\t\t\t'_moduleName_' : '_functionName_' \n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\tdef help(self):\n\t\tLogger.printMessage(message=ht.getFunctionsNamesFromModule('ht_{moduleName}'), debug_module=True)"
+        },
+        "Utils": {
+            "empty_directory_strict": "modules/",
+            "resources_cryptography_rest_api": {
+                "md5_decrypt": "https://md5.pinasthika.com/api/decrypt"
+            },
+            "dictionaries": {
+                "hex-lower": "0123456789abcdef",
+                "hex-upper": "0123456789ABCDEF",
+                "numeric": "0123456789",
+                "numeric-space": "0123456789 ",
+                "symbols14": "!@#$%^&*()-_+:",
+                "symbols14-space": "!@#$%^&*()-_+: ",
+                "symbols-all": "!@#$%^&*()-_+:~`[]{}|\\:;\"'<>,.?/",
+                "symbols-all-space": "!@#$%^&*()-_+:~`[]{}|\\:;\"'<>,.?/ ",
+                "ualpha": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "ualpha-space": "ABCDEFGHIJKLMNOPQRSTUVWXYZ ",
+                "ualpha-symbol14": "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_+:",
+                "ualpha-all": "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_+:~`[]{}|\\:;\"'<>,.?/",
+                "ualpha-numeric": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                "ualpha-numeric-space": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ",
+                "ualpha-numeric-symbol14": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+:",
+                "ualpha-numeric-symbol14-space": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+: ",
+                "ualpha-numeric-all": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+:~`[]{}|\\:;\"'<>,.?/",
+                "ualpha-numeric-all-space": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+:~`[]{}|\\:;\"'<>,.?/ ",
+                "lalpha": "abcdefghijklmnopqrstuvwxyz",
+                "lalpha-space": "abcdefghijklmnopqrstuvwxyz ",
+                "lalpha-symbol14": "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-_+:",
+                "lalpha-all": "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-_+:~`[]{}|\\:;\"'<>,.?/",
+                "lalpha-numeric": "abcdefghijklmnopqrstuvwxyz0123456789",
+                "lalpha-numeric-space": "abcdefghijklmnopqrstuvwxyz0123456789 ",
+                "lalpha-numeric-symbol14": "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+:",
+                "lalpha-numeric-symbol14-space": "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+: ",
+                "lalpha-numeric-all": "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+:~`[]{}|\\:;\"'<>,.?/",
+                "lalpha-numeric-all-space": "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+:~`[]{}|\\:;\"'<>,.?/ ",
+                "mixalpha": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "mixalpha-space": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ",
+                "mixalpha-symbol14": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_+:",
+                "mixalpha-all": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_+:~`[]{}|\\:;\"'<>,.?/",
+                "mixalpha-numeric": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                "mixalpha-numeric-space": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ",
+                "mixalpha-numeric-symbol14": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+:",
+                "mixalpha-numeric-symbol14-space": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+: ",
+                "mixalpha-numeric-all": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+:~`[]{}|\\:;\"'<>,.?/",
+                "mixalpha-numeric-all-space": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+:~`[]{}|\\:;\"'<>,.?/ "
+            }
+        }
+    }
+}
