@@ -1,0 +1,27 @@
+recursive-include model_clone *.py *.html
+recursive-exclude sample *
+recursive-include model_clone/templates *.html
+
+include *.md
+exclude *.png
+exclude *.egg-info
+include *.py
+include *.txt
+exclude .bumpversion.cfg
+exclude .coveragerc
+include LICENSE
+exclude Makefile
+exclude tox.ini
+exclude .tox
+exclude sample
+exclude django_clone
+exclude sample_assignment
+exclude sample_company
+exclude sample_driver
+exclude .all-contributorsrc
+exclude .circleci
+exclude .circleci/config.yml
+exclude .github
+exclude .github/ISSUE_TEMPLATE
+exclude .github/ISSUE_TEMPLATE/feature_request.md
+exclude .pypirc
