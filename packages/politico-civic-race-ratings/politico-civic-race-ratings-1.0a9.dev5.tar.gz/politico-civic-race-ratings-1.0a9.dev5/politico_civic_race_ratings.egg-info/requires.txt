@@ -1,0 +1,17 @@
+celery
+django
+djangorestframework
+django-filter
+psycopg2-binary
+politico-civic-utils
+politico-civic-entity
+politico-civic-geography
+politico-civic-election
+politico-civic-government
+openpyxl
+tqdm
+us
+us-elections
+
+[test]
+pytest
