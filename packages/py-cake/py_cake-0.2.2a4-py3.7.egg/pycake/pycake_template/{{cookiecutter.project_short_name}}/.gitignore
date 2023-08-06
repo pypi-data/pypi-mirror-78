@@ -1,0 +1,35 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+.eggs
+.env
+
+.coverage
+MANIFEST
+coverage.xml
+nosetests.xml
+junit-report.xml
+report.xml
+pylint.txt
+.cache/
+.pytest_cache/
+.tox
+cover/
+build/
+docs/_build
+*.egg-info
+*.pyc
+*.swp
+*.egg
+env/
+dist/
+logs
+
+# MAC
+.DS_store
+
+
+# pycake
+.release
+!.app
