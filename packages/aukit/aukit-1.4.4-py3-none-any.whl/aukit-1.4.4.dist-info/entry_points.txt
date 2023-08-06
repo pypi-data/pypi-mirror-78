@@ -1,0 +1,5 @@
+[console_scripts]
+auformat = aukit.audio_cli:convert_format_cli
+aunoise = aukit.audio_cli:remove_noise_cli
+auplay = aukit.audio_cli:play_audio_cli
+
