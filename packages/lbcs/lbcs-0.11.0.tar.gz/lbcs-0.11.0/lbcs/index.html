@@ -1,0 +1,30 @@
+<html>
+   <head>
+      <title>{{ title }}</title>
+      <style>
+         .grid-container {
+            height: auto;
+            display: grid;
+            grid-template-columns: {% for i in range(cfg.columns) %}auto {% end %};
+         }
+         .grid-item {
+            outline: 1px solid rgb(145, 145, 145);
+         }
+      </style>
+   </head>
+   <body style="font-family: 'Courier New', Courier, monospace; text-align: center; background-color: rgb(159, 184, 231);">
+       <h1>{{ header }}</h1>
+       <img src={{ static_url("splash.png") }} width=500 height=500></img>
+       <h4>Parsed Configuration</h4>
+       <pre>{{ cfg.pretty() }}</pre>
+       <button class="reset-button" id='reset-button'>Reset</button>
+       <button class="fill-button" id='fill-button'>Random route</button>
+       <h4>Server grid state</h4>
+      <div class="grid-container">
+         {% for i in range(cfg.rows * cfg.columns) %}
+            <div class="grid-item" id="grid-item-{{ i }}" {% if state[i] != (0, 0, 0) %}style="background-color: rgb{{ state[i] }};"{% end %}}]>{{ computed_indices[i] }}</div>
+         {% end %}
+      </div>
+      <script src={{ static_url("gridWebSocket.js") }} allStateUrl={{ reverse_url("all_leds") }} websocketUrl={{ websocket_url }}></script>
+   </body>
+ </html>
