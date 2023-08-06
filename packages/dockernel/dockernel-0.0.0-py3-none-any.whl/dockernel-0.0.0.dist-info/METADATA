@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: dockernel
+Version: 0.0.0
+Summary: Utility for creating dockerized Jupyter kernels
+Home-page: UNKNOWN
+Author: Blazej Michalik
+Author-email: im.mr.mino@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/MrMino/dockernel
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: BSD
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: docker
+
+# Dockernel
+
+Makes it possible to utilize arbitrary docker images as Jupyter kernels.
+
+
