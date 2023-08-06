@@ -1,0 +1,10 @@
+click
+LbAPCommon
+LbEnv
+LbDiracWrappers
+requests
+requests_kerberos
+
+[testing]
+pytest
+pytest-cov
