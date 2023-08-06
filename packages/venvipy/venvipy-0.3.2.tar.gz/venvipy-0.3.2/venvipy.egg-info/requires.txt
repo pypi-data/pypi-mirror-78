@@ -1,0 +1,5 @@
+PyQt5==5.14.0
+PyQt5-sip
+
+[:python_version < "3.7"]
+dataclasses
