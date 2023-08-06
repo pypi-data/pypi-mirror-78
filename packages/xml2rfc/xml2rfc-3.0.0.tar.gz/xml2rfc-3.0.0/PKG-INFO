@@ -1,0 +1,392 @@
+Metadata-Version: 1.1
+Name: xml2rfc
+Version: 3.0.0
+Summary: Xml2rfc generates RFCs and IETF drafts from document source in XML according to the IETF xml2rfc v2 and v3 vocabularies.
+Home-page: https://tools.ietf.org/tools/xml2rfc/trac/
+Author: Henrik Levkowetz
+Author-email: henrik@levkowetz.com
+License: BSD-3-Clause
+Download-URL: https://pypi.python.org/pypi/xml2rfc
+Description: Introduction
+        ============
+        
+        The IETF_ uses a specific format for the standards and other documents it
+        publishes as RFCs_, and for the draft documents which are produced when
+        developing documents for publications.  There exists a number of different
+        tools to facilitate the formatting of drafts and RFCs according to the
+        existing rules, and this tool, **xml2rfc**, is one of them.  It takes as input
+        an xml file which contains the text and meta-information about author names
+        etc., and transforms it into suitably formatted output.  The input xml file
+        should follow the grammars in RFC7749_ (for v2 documents) or RFC7991_ (for 
+        v3 documents). Note that the grammar for v3 is still being refined, and 
+        changes will eventually be captured in the `bis draft for 7991`_. 
+        Changes not yet captured can be seen in the xml2rfc source `v3.rng`_.
+        
+        **xml2rfc** provides a variety of output formats. See the command line
+        help for a full list of formats. It also provides conversion from v2 to
+        v3, and can run the preptool_ on its input.
+        
+        .. _IETF: https://www.ietf.org/
+        .. _RFCs: https://www.rfc-editor.org/
+        .. _RFC7749: https://tools.ietf.org/html/rfc7749
+        .. _RFC7991: https://tools.ietf.org/html/rfc7991
+        .. _bis draft for 7991: https://tools.ietf.org/html/draft-iab-rfc7991bis
+        .. _v3.rng: https://trac.tools.ietf.org/tools/xml2rfc/trac/browser/trunk/cli/xml2rfc/data/v3.rng
+        .. _preptool: https://tools.ietf.org/html/rfc7998
+        
+        Installation
+        ============
+        
+        Installation of the python package is done as usual with 'pip install xml2rfc',
+        using appropriate switches and/or sudo.
+        
+        Installation of support libraries for the PDF-formatter
+        -------------------------------------------------------
+        
+        In order to generate PDFs, xml2rfc uses the WeasyPrint module, which
+        depends on external libaries that must be installed as native packages
+        on your platform, separately from the xml2rfc install.
+        
+        First, install the Cairo, Pango, and GDK-PixBuf library files on your
+        system.  See installation instructions on the WeasyPrint Docs:
+        
+            https://weasyprint.readthedocs.io/en/stable/install.html
+        
+        (Python 3 is not needed if your system Python is 2.7, though).
+        
+        (On some OS X systems with System Integrity Protection active, you may
+        need to create a symlink from your home directory to the library installation
+        directory (often /opt/local/lib):
+        
+            ln -s /opt/local/lib ~/lib
+        
+        in order for weasyprint to find the installed cairo and pango libraries.
+        Whether this is needed or not depends on whether you used macports or homebrew
+        to install cairo and pango, and the homebrew / macport version.)
+        
+        Next, install the pycairo and weasyprint python modules using pip.
+        Depending on your system, you may need to use 'sudo' or install in
+        user-specific directories, using the --user switch.  On OS X in
+        particular, you may also need to install a newer version of setuptools
+        using --user before weasyprint can be installed.  If you install with 
+        the --user switch, you may need to also set PYTHONPATH, e.g.,
+        
+            PYTHONPATH=/Users/henrik/Library/Python/2.7/lib/python/site-packages
+        
+        for Python 2.7.
+        
+        The basic pip commands (modify as needed according to the text above)
+        are:
+        
+            pip install 'pycairo>=1.18' 'weasyprint<=0.42.3'
+        
+        With these installed and available to xml2rfc, the --pdf switch will be
+        enabled.
+        
+        For PDF output, you also need to install the Noto font set.  Download the full
+        set from https://noto-website-2.storage.googleapis.com/pkgs/Noto-unhinted.zip,
+        and install as appropriate for your platform.
+        
+        Usage
+        =====
+        
+        xml2rfc accepts a single XML document as input and outputs to one or more conversion formats.
+        
+        **Basic Usage**: ``xml2rfc SOURCE [options] FORMATS...``
+        
+        Run ``xml2rfc --help`` for a full listing of command-line options.
+        
+        
+        Changelog
+        =========
+        
+        
+        Version 3.0.0 (02 Sep 2020)
+        ------------------------------------------------
+        
+        
+          **Transition to using the new schema v3 output formatters by default**
+        
+          This release provides the functionality that the 2.47.0 release had (with
+          some enhancements), but is backwards incompatible because the default
+          settings for some switches has changed.  The --legacy switch must now be set
+          explicitly in order to use the old output formatters.  By default, XML input
+          files with schema v2 content will be converted to v3 on the fly and the
+          output formatting of the converted XML will be done with the new schema v3
+          formatters.  With this release, support of Python 2.7, which is past
+          end-of-life, will no longer be part of the test suite.
+        
+          There are also a number of other changes.  From the commit log:
+        
+          * Replaced the use of the deprecated optparse module with the newer 
+            argparse python module.
+        
+          * Removed testing with Python 2.7, and added Python 3.8
+        
+          * Updated the bin/mkrelease script to generate documentation HTML and text
+            for the release, place it on xml2rfc.tools.ietf.org, and mention the
+            documentation URL in the release notes.
+        
+          * Updated the major revision to 3, given that we no longer support Py27 and
+            have switched default output formatters.
+        
+          * Changed bin/mkrelease to install using pip3.6 on the tools servers (the 
+            default pip might be for Py2.7).
+        
+          * Added an 'indent' attribute for <t>, in order to support indented
+            paragraphs without the one-item unordered list workaround, as approved by
+            the schema change board.  Added default values for the 'indent' attributes
+            for <dl>, <ul>, <ol>, <t>.  For the <t> element, the 'indent' attribute
+            indicates any extra amount of indentation to be used when rendering the
+            paragraph of text.  The indentation amount is interpreted as characters when
+            rendering plain-text documents, and en-space units when rendering in formats
+            that have richer typographic support such as HTML or PDF.  One en-space is
+            assumed to be the length of 0.5 em-space in CSS units.  Only non-negative
+            integer amounts of indentation are supported.
+        
+          * Improved an error message about bad attribute values to show the line 
+            of XML source on which the error was found.
+        
+          * Added information about command-line switches that have negations 
+            (--no-foo... versions) to the context handed to the documentation template.
+        
+          * Changed the default of some switches for the 3.0.0 release: --v3 => 
+            true; --legacy-date => true; --external-js => false.
+        
+          * Improved the documentation file output for switch default values and 
+            for options with negation switches.
+        
+          * Updated the Makefile to use the appropriate 3.x release series switches.
+        
+          * Updated the requirements for a number of python modules.
+        
+          * Fixed an issue where hrefs without matching ids could be generated by 
+            the HTML renderer from empty <name> elements.  This also fixed an issue 
+            with missing figure and table captions in some unusual cases.
+        
+          * Added support for multi-level ordered lists through a '%p' (for parent) 
+            code for use in the <ol> 'type' attribute.  Fixes issue #465.
+        
+          * Added more documentation for the --version switch
+        
+          * Updated the schema and tests to permit <blockquote> within <aside>.  
+            Fixes issue #524.
+        
+          * Added a list of available postal elements for a country to the warning 
+            for unused postal address parts.
+        
+          * Added a length limitation for the running header title in paginated 
+            text documents, to avoid overwriting other parts of the running header.
+        
+          * Changed the schema to permit nested <sub> and <sup>, as approved by the
+            v3 schema change board.
+        
+          * Added support for outdent handling to propagate upwards to parent 
+            elements if the full needed outdent amount could not be done in the local 
+            context, in order to be able to apply artwork outdenting to <artwork> 
+            elements which aren't situated immediately under <section>.
+        
+          * Changed many instances of reference source indications (xml:base) from
+            "xml2rfc.tools.ietf.org" to just "xml2rfc.ietf.org".  Removed the massaging
+            of reference XML to place seriesInfo elements in the backwards-incomplatible
+            location inside reference/front.  Changed the --add-xinclude flag to use
+            datatracker.ietf.org/doc/bibxml3/ as the location of draft reference
+            entries.
+        
+          * Added a couple of entries to the test suite reference cache.
+        
+          * Improved the handling of missing day information for <date> to make sure we 
+            don't pick days outside the acceptable range for the given month and also 
+            pick a reasonable value based on whether the year and month is in the past, 
+            present or future.
+        
+          * Improved an error message for a case of disallowed XML text content.  
+            Tweaked the 'block_tags' list.
+        
+          * Changed the manpage template to not use comma before 'and' when 
+            rendering a list of 2 elements.
+        
+          * Changed the schema to permit <aside> within <dl> on request from the 
+            RPC, with schema change board approval.  Updated renderers, CSS and tests 
+            accordingly.
+        
+          * Tweaked the CSS for block elements that are direct first children of 
+            <dd> to render the same way in HTML as in text (i.e., vertically distinct, 
+            not on the same line as <dt>).
+        
+        
+        
+        
+        
+        
+        
+        Version 2.47.0 (17 Jul 2020)
+        ------------------------------------------------
+        
+        
+          **CSS fixes, Built-in documentation, manpage mode, and more**
+        
+          The major feature in this release is the addition of built-in documentation
+          generated from:
+        
+           - the actual XML schema distributed with the tool
+           - the differences between the current schema and the RFC7991 schema
+           - the code's settings for which elements and attributes are deprecated
+           - text snippets describing the schema parts and how the code handles them.
+        
+          There are new --doc/--docfile and --man/--manpage switches; the first will
+          generate documentation in the form of a v3 XML document that can then itself
+          be processed to generate the various supported formats. The second, --man,
+          will generate the documentation XML internally and then process it to text
+          output which is shown with a pager, like 'man'.
+        
+          From the commit log:
+        
+          * Corrected the CSS line height of compact lists (it should not be different
+            than for non-compact lists; compact should only affect spacing between
+            items, not line height).  Also corrected the CSS top margin for nested
+            lists; extra top margin is desired for a top-level list, but not when
+            nesting them, due to the resulting inconsistency in apparent line height
+            variations.
+        
+          * Changed <section> within <toc> from oneOrMore to zeroOrMore, in order to
+            make it possible to honour the tocInclude setting, and reordered some
+            true/false entries for consistency, and changed the line breaking of some
+            lines in the RNG compact representation to fit on 72-character lines.
+        
+          * Added .rng and .rnc files with the RFC7991 schema, in order to be able to
+            automatically determine which elements and attributes are new in the schema
+            since 7991.
+        
+          * Added a new writer, 'doc', and template and text snippet files for 
+            autogenerated documentation.
+        
+          * Updated the requirements file with some new module requirements.
+        
+          * Refactured the code a bit to make it more straightforward to generate 
+            text without writing it out to file.
+        
+          * Moved the list of deprecated attributes to writers/base.py, and did some
+            slight refactoring for consistent naming of some class variables and
+            avoidance of duplicate parsing of the schema file.
+        
+          * Did some minor code cleanup and dead code removal, and corrected the 
+            header generation for non-IETF documents (using <rfc ipr=''>).
+        
+          * Fixed an issue where XML parser errors could be reported for '<string>' 
+            instead of the actual input file name.
+        
+          * Added new options --docfile/--doc and --manpage/--man, used to trigger
+            generation and display of the built-in documentation.  Reorganised the
+            option grouping.  Updated some option help strings.  Made it possible to
+            propagate all command-line option information to the documentation template.
+        
+          * Corrected the default templates path.  This is related to change [3723].
+        
+          * Reverted a change from [3722] in the v2v3 converter.
+        
+          * Added a custom Jinja2 filter 'capfirst()', for use in the documentation 
+            template.
+        
+          * Tweaked the documentation template: Some changed wording, support for 
+            sub-items not wrapped in <t>, corrected capitalisation using the 'capfirst' 
+            filter.
+        
+          * Updated hastext() and iscomment() to do the right thing if given 
+            content with embedded xml processing instructions.
+        
+          * Tweaked the handling of default values for --date, so as to give better 
+            documentation of the option, and also tweaked the help text for 
+            --table-borders.
+        
+          * Added a class utility method to get any current PI related to a given 
+            setting, and fixed another case of template path default value, related to 
+            [3722].
+        
+          * Added PI support for text table borders setting, and improved the text 
+            table output for transitions between <th> and <td> rows> for 'light' and 
+            'minimal' borders.
+        
+          * Added makefile support for testing of the --manpage and --docfile 
+            switches.  Added silencing of one unavoidable warning in the test of 
+            --unprep.
+        
+        
+        
+        
+        
+        
+        
+        Version 2.46.0 (23 Jun 2020)
+        ------------------------------------------------
+        
+        
+          * Added <dd class='break'/> and <span class='break'/> entries in
+            additional places, as a workaround for WeasyPrint's eagerness to break
+            between <dt> and <dd>.  Fixes issue #529.
+        
+          * Tweaked the rendering of <tt> inside table cells in text mode to not 
+            use double quotes to distinguish the <tt> content from surrounding text 
+            when the only cell content is the <tt> element.
+        
+          * Modified the text rendering of table cells.  <thead> and <tfoot> now 
+            implies no special rendering (earlier, they caused a change in table border 
+            on transition) while <th> now always renders with distinct borders compared 
+            with <td>.  Also added 'light', and 'minimal' table renderings, with 
+            different table border settings when compared to the previous rendering, 
+            which now is available as 'full'.  The 'light' rendering is closer to the 
+            v2 formatter table rendering, but does not permit table cells with colspan 
+            or rowspan different from 1 to be properly distinguished.  The changes in 
+            <th> rendering fixes issue #527.
+        
+          * Added a --table-borders option with possible values 'full', 'light', 
+            'minimal', to control the table rendering of the text renderer.  The 
+            current default value is 'full', but 'light' is closer to the v2 text 
+            renderer's output.
+        
+          * Added a new internal join/indent setting to the Joiner nametuple to
+            control outdenting.  Used the outdenting setting to enable outdenting
+            for artwork wider than 69 characters in the v3 text renderer.  Fixes
+            issue #518.
+        
+          * Added missing support for @indent for <ul> in the HTML renderer, and 
+            tweaked the same for <ol>.  Fixes issue #528.
+        
+          * Corrected is_htmlblock() to not count <dt>, <dd>, and <li> as block 
+            elements as they cannot be wrapped in <div>.
+        
+          * Updated and refined the div-wrapping used to introduce additional IDs
+            to deal better with anchors on <dt>, <dd>, and <li>.  Fixes issue #530.
+        
+          * Made the CSS setting of background colour on <tt> and <code> more 
+            selective in order not to interfere with background colour in tables, for 
+            instance.
+        
+          * Removed CSS that made URLs in references not break across lines -- the 
+            drawbacks turn out to be more of a bother than the original reason not to 
+            let these wrap.
+        
+          * Did some HTML cleanup to make the w3.org validator happy.
+        
+          * Fixed a few places in the HTML renderer where an empty tag could cause 
+            an exception.
+        
+          * Added test cases for empty and double email addresses, and added
+            support for multiple email addresses within an author's address block.
+            Fixes issue #522.
+        
+        
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Markup :: XML
+Classifier: License :: OSI Approved :: BSD License
