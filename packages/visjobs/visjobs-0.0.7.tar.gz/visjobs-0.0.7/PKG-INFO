@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: visjobs
+Version: 0.0.7
+Summary: Get Latest Atmospheric Model Data | Analyse | Visualize Easily
+Home-page: https://github.com/donmezkutay/visjobs
+Author: Kutay Donmez & Berkay Donmez
+Author-email: donmezk@outlook.com
+License: UNKNOWN
+Description: # visjobs
+        
+        Visjobs offers plotting effective variables in effective way using atmospheric models.
+        
+        ## 1.Installation
+        
+        #### 1.1. Dependencies
+        - xarray
+        - siphon
+        - pandas
+        - numpy
+        - matplotlib
+        - cartopy
+        - datetime
+        
+        #### 1.2. Pypi Installation
+        - pip install visjobs
+        
+        #### 1.3. Github Clone
+        - git clone https://github.com/donmezkutay/visjobs
+        
+        ## 2. Usage
+        Usage can be found at [Visjobs Documentation Page]
+        
+        [Visjobs Documentation Page]: <https://donmezkutay.github.io/visjobs/>
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
