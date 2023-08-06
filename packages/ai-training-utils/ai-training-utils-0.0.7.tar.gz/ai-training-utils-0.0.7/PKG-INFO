@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: ai-training-utils
+Version: 0.0.7
+Summary: Utils to use while training AI models
+Home-page: UNKNOWN
+Author: Labs
+Author-email: fn-labs@avisi.nl
+License: UNKNOWN
+Description: # AI Training utils
+        
+        This package contains utils which can be used while training AI models:
+        - Path Helper: Makes use of argparse to obtain the right directories for the dataset, output artifacts and logging output.
+        - Logging Helper: Logger with file handler which writes the logging output to the given path in the arguments.
+        - Singleton: Helper class to make it possible to use classes as Singleton
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
