@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+RELEASE
+setup.py
+brs_utils/__init__.py
+brs_utils/file.py
+brs_utils/misc.py
+brs_utils/print.py
+brs_utils/rpSBML.py
+brs_utils.egg-info/PKG-INFO
+brs_utils.egg-info/SOURCES.txt
+brs_utils.egg-info/dependency_links.txt
+brs_utils.egg-info/requires.txt
+brs_utils.egg-info/top_level.txt
+extras/.env
+extras/requirements.txt
