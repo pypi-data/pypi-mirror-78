@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "py-aiger-bv"
+readme="README.md"
+version = "4.3.0"
+description = "A python library for manipulating sequential and-inverter gates."
+authors = ["Marcell Vazquez-Chanlatte <mvc@linux.com>"]
+license = "MIT"
+packages = [
+    { include = "aiger_bv" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+attrs = "^19.1"
+funcy = "^1.12"
+py-aiger = "^6.1.1"
+pyrsistent = "^0.15.4"
+
+[tool.poetry.dev-dependencies]
+hypothesis_cfg = {git = "git://github.com/mvcisback/hypothesis-cfg.git"}
+hypothesis = "^4.28"
+pytest-cov = "^2.7"
+pytest-flake8 = "^1.0"
+pytest-xdist = "^1.29"
+coverage = "^4.5"
+codecov = "^2.0"
+pdoc3 = "^0.8.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
