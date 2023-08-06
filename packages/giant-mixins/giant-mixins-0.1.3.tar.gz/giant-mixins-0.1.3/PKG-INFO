@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: giant-mixins
+Version: 0.1.3
+Summary: A mixins app that provides some standard mixins for Giant projects
+Home-page: https://github.com/giantmade/giant-mixins
+License: MIT
+Keywords: mixins,app
+Author: Will-Hoey
+Author-email: will.hoey@giantmade.com
+Requires-Python: >=3.6,<4.0
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: cms
+Requires-Dist: django-cms (>=3.7.3,<4.0.0); extra == "cms"
+Project-URL: Repository, https://github.com/giantmade/giant-mixins
+Description-Content-Type: text/markdown
+
+# Giant Mixins
+
+A small, re-usable package which can be used in any project that requires mixins (which is 99% of them)
+This will include the standard mixins such as TimestampMixin, PublishingMixin and YoutubeURLMixin
+
+## Installation
+
+To install the standard app with no extras simply run
+
+    $ poetry add giant-mixins
+
+However if your project has django-cms installed then you can make use of the full range of mixins in this app. For this, install the package with the extra dependencies,
+
+    $ poetry add giant-mixins --extras "cms"
+
+You should then add `"mixins"` to the `INSTALLED_APPS` in your settings file.
+
