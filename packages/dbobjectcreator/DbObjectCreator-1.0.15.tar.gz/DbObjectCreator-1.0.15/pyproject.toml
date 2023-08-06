@@ -1,0 +1,48 @@
+[tool.poetry]
+name = 'DbObjectCreator'
+version = '1.0.15'
+description = 'A database object creator'
+authors = ['Gary Haag <haagimus@gmail.com>']
+maintainers = ['Gary Haag <haagimus@gmail.com>']
+license = 'MIT'
+readme = 'README.md'
+homepage = ''
+repository = 'https://github.com/Haagimus/DbObjectCreator'
+documentation = 'https://hackersandslackers.com/python-poetry/'
+keywords = ['Database',
+            'MySQL',
+            'MSSQL',
+            'PostgreSQL',
+            'Packaging']
+
+[tool.poetry.dependencies]
+python = '^3.7'
+bcrypt = '*'
+cffi = '*'
+cryptography = '*'
+Cython = '*'
+importlib_metadata = '*'
+numpy = '*'
+pandas = '*'
+paramiko = '*'
+psycopg2 = '*'
+pycparser = '*'
+pymssql = '*'
+PyMySQL = '*'
+PyNaCl = '*'
+python-dateutil = '*'
+pytz = '*'
+six = '*'
+SQLAlchemy = '*'
+sshtunnel = '*'
+wheel = '*'
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ['poetry>=0.12']
+build-backend = 'poetry.masonry.api'
+
+[tool.poetry.scripts]
+
+[tool.poetry.urls]

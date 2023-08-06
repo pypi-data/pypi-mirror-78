@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: dbobjectcreator
+Version: 1.0.15
+Summary: A database object creator
+Home-page: https://github.com/Haagimus/DbObjectCreator
+License: MIT
+Keywords: Database,MySQL,MSSQL,PostgreSQL,Packaging
+Author: Gary Haag
+Author-email: haagimus@gmail.com
+Maintainer: Gary Haag
+Maintainer-email: haagimus@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: Cython
+Requires-Dist: PyMySQL
+Requires-Dist: PyNaCl
+Requires-Dist: SQLAlchemy
+Requires-Dist: bcrypt
+Requires-Dist: cffi
+Requires-Dist: cryptography
+Requires-Dist: importlib_metadata
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: paramiko
+Requires-Dist: psycopg2
+Requires-Dist: pycparser
+Requires-Dist: pymssql
+Requires-Dist: python-dateutil
+Requires-Dist: pytz
+Requires-Dist: six
+Requires-Dist: sshtunnel
+Requires-Dist: wheel
+Project-URL: Documentation, https://hackersandslackers.com/python-poetry/
+Project-URL: Repository, https://github.com/Haagimus/DbObjectCreator
+Description-Content-Type: text/markdown
+
+# Database Object Creator (D.O.C.)
+This library provides a method of creating database connector objects for quick and easy access to multiple
+databases (both types and servers).
+
+---
+
+## DOC Setup
+This library can be installed via Pypi.org[https://pypi.org/project/DbObjectCreator/] or locally:
+
+Run `pip install Cython` before proceeding with either install. This package is required prior to installing this library.
+This library can now be installed by running `pip install DbObjectCreator`
+
+## DOC Usage
+1. Import the library into your project using `from DbObjectCreator import DbObjectCreator`
+2. Create a new DbObject using `new_db = DbObjectCreator.DbObject()`
+3. new_db can now be used to call multiple methods against the database.
+
+
+This library supports both Windows and OSX architecture. If installing on OSX you will need FreeTDS installed.
+
