@@ -1,0 +1,6 @@
+__title__ = "traingame"
+__description__ = "Train your own AI and race it!"
+__url__ = ""
+__version__ = "0.3.0"
+__author__ = "Timo Lesterhuis"
+__author_email__ = "timo.lesterhuis@nl.ey.com"
