@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: ledregulator
+Version: 0.8.0
+Summary: 
+Author: DonQueso89
+Author-email: kg.v.ekeren@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: fastapi (>=0.61.1,<0.62.0)
+Requires-Dist: uvicorn (>=0.11.8,<0.12.0)
