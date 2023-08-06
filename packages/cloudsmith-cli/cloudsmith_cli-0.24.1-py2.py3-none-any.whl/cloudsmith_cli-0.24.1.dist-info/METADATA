@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: cloudsmith-cli
+Version: 0.24.1
+Summary: Cloudsmith Command-Line Interface (CLI)
+Home-page: https://github.com/cloudsmith-io/cloudsmith-cli
+Author: Cloudsmith Ltd
+Author-email: support@cloudsmith.io
+License: Apache License 2.0
+Keywords: cloudsmith,cli,devops
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Requires-Dist: click (>=7.0)
+Requires-Dist: click-configfile (>=0.2.3)
+Requires-Dist: click-didyoumean (>=0.0.3)
+Requires-Dist: click-spinner (>=0.1.7)
+Requires-Dist: cloudsmith-api (<1.0,>=0.0.0)
+Requires-Dist: colorama (>=0.3.9)
+Requires-Dist: future (>=0.16.0)
+Requires-Dist: requests (>=2.18.4)
+Requires-Dist: requests-toolbelt (>=0.8.0)
+Requires-Dist: semver (>=2.7.9)
+Requires-Dist: simplejson (>=3.12.0)
+Requires-Dist: six (>=1.11.0)
+
+Cloudsmith CLI
+
+
