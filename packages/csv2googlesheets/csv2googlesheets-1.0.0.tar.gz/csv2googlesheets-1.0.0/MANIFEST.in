@@ -1,0 +1,6 @@
+recursive-include csv2googlesheets *
+
+include LICENSE.txt
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

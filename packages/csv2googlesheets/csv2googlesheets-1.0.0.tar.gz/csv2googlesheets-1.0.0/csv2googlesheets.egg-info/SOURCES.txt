@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+setup.py
+csv2googlesheets/__init__.py
+csv2googlesheets/gapi_authorization.py
+csv2googlesheets/gapi_create_sheet.py
+csv2googlesheets/gapi_write_to_sheet.py
+csv2googlesheets/parse_cli_args.py
+csv2googlesheets/parse_file.py
+csv2googlesheets/to_google_sheets.py
+csv2googlesheets.egg-info/PKG-INFO
+csv2googlesheets.egg-info/SOURCES.txt
+csv2googlesheets.egg-info/dependency_links.txt
+csv2googlesheets.egg-info/entry_points.txt
+csv2googlesheets.egg-info/requires.txt
+csv2googlesheets.egg-info/top_level.txt
