@@ -1,0 +1,182 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "collection.json",
+	"type": "object",
+	"title": "RAC JSON Schema",
+	"allOf": [{
+		"$id": "#/collection",
+		"type": "object",
+		"title": "Collection",
+		"required": [
+			"category",
+			"creators",
+			"dates",
+			"extents",
+			"external_identifiers",
+			"formats",
+			"group",
+			"languages",
+			"online",
+			"title",
+			"type"
+		],
+		"properties": {
+			"category": {
+				"$id": "#/collection/properties/category",
+				"type": "string",
+				"title": "Collection Category",
+				"enum": [
+					"collection"
+				]
+			},
+			"title": {
+				"$id": "#/collection/properties/title",
+				"type": "string",
+				"title": "Collection Title",
+				"examples": [
+					"John D. Rockefeller papers"
+				],
+				"pattern": "^(.*)$"
+			},
+			"type": {
+				"$id": "#/collection/properties/type",
+				"type": "string",
+				"enum": [
+					"collection"
+				]
+			},
+			"dates": {
+				"type": "array",
+				"minItems": 1,
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/date"
+					}]
+				}
+			},
+			"extents": {
+				"type": "array",
+				"minItems": 1,
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/extent"
+					}]
+				}
+			},
+			"notes": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/note"
+					}]
+				}
+			},
+			"terms": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/reference"
+					}]
+				}
+			},
+			"people": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/reference"
+					}]
+				}
+			},
+			"organizations": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/reference"
+					}]
+				}
+			},
+			"families": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/reference"
+					}]
+				}
+			},
+			"creators": {
+				"type": "array",
+				"minItems": 1,
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/reference"
+					}]
+				}
+			},
+			"languages": {
+				"type": "array",
+				"minItems": 1,
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/language"
+					}]
+				}
+			},
+			"rights": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/rights_statement"
+					}]
+				}
+			},
+			"ancestors": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/reference"
+					}]
+				}
+			},
+			"children": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/reference"
+					}]
+				}
+			},
+			"formats": {
+				"type": "array",
+				"minItems": 1,
+				"items": {
+						"oneOf": [
+							{
+								"type": "string",
+								"enum": [
+									"documents",
+									"audio",
+									"photographs",
+									"moving image"
+								]
+							}
+						]
+					}
+			},
+			"online": {
+				"type": "boolean"
+			},
+			"group": {
+				"type": "string"
+			},
+			"external_identifiers": {
+				"type": "array",
+				"minItems": 1,
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/external_identifier"
+					}]
+				}
+			}
+		}
+	}]
+}
