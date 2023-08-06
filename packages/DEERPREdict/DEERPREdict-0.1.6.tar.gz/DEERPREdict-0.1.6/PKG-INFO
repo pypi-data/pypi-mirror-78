@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: DEERPREdict
+Version: 0.1.6
+Summary: A package for DEER and PRE predictions based on molecular dynamics ensembles. Can be installed with pip.
+Home-page: https://github.com/KULL-Centre/DEERpredict
+Author: João M Martins, Micha BA Kunze, Ramon Crehuet and Giulio Tesei
+License: GPLv3
+Description: [![Build Status](https://travis-ci.com/gitesei/DEERpredict.svg?branch=master)](https://travis-ci.com/gitesei/DEERpredict)
+        [![Documentation Status](https://readthedocs.org/projects/deerpredict/badge/?version=latest)](https://deerpredict.readthedocs.io)
+        [![DOI](https://zenodo.org/badge/217526987.svg)](https://zenodo.org/badge/latestdoi/217526987)
+        
+        DEER-PREdict
+        ===========
+        
+        Overview
+        --------
+        
+        A package for double electron-electron resonance (DEER) and paramagnetic relaxation enhancement (PRE) predictions from molecular dynamics ensembles.
+        
+        Installation
+        ------------
+        
+        To install DEER-PREdict, use the [PyPI package](https://pypi.org/project/DEERPREdict):
+        
+        ```bash
+          pip install DEERPREdict
+        ```
+        
+        or clone the repo:
+        
+        ```bash
+          git clone https://github.com/KULL-Centre/DEERpredict.git
+          cd DEERpredict
+        
+          pip install -e . 
+        ```
+        
+        The software requires Python 3.6+.
+            
+        Documentation
+        -------------
+        
+        [![Documentation Status](https://readthedocs.org/projects/deerpredict/badge/?version=latest&style=for-the-badge)](https://deerpredict.readthedocs.io)
+        
+        
+        Testing
+        -------
+        
+        ```bash
+          git clone https://github.com/KULL-Centre/DEERpredict.git
+          cd DEERpredict
+        
+          python -m pytest
+        ```
+        Contributors
+        -------------
+        
+        [João M Martins (@joaommartins)](https://github.com/joaommartins)
+        
+        [Micha BA Kunze (@mbakunze)](https://github.com/mbakunze)
+        
+        [Ramon Crehuet (@rcrehuet)](https://github.com/rcrehuet)
+        
+        [Giulio Tesei (@gitesei)](https://github.com/gitesei)
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Description-Content-Type: text/markdown
