@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "deep-filter"
+version = "1.0.1"
+description = "Removes values from nested dicts and lists"
+authors = ["kasper.space"]
+readme = 'README.md'
+repository = "https://github.com/probablykasper/deep-filter"
+# homepage = ""
+keywords = [
+    'filter', 'remove', 'nested',
+    'recursively', 'delete', 'dicts', 'lists'
+]
+
+[tool.poetry.dependencies]
+python = "^3.5"
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.5"
