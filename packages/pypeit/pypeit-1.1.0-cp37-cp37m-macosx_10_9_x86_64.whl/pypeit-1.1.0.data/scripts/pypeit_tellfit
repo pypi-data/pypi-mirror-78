@@ -1,0 +1,11 @@
+#!python
+
+"""
+Computes sensitivity function
+"""
+
+import pypeit.scripts.tellfit as tellfit
+
+if __name__ == '__main__':
+    args = tellfit.parser()
+    tellfit.main(args)
