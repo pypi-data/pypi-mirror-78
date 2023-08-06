@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+{% load static i18n %}
+
+{% block title %}{{ title }} | {{ settings.SITE_NAME }}{% endblock %}
+
+{% block branding %}
+  <h1 id="site-name">
+    {{ settings.SITE_NAME }}
+  </h1>
+{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+
+  <style>
+    @media (min-width: 960px) {
+      .mce-tinymce {
+        width: calc(100% - 170px) !important;
+        margin-left: 170px !important;
+      }
+    }
+
+    .related-widget-wrapper .vForeignKeyRawIdAdminField ~ .change-related,
+    .related-widget-wrapper .delete-related {
+      display: none;
+    }
+
+    .related-widget-wrapper {
+      display: inline-block;
+    }
+  </style>
+{% endblock %}
+
+{% block extrahead %}
+  <script type="text/javascript" src="{% static 'cms/js/misc/index.js' %}"></script>
+  <script type="text/javascript" src="{% static 'jet/js/sidebar.js' %}"></script>
+
+  <script>
+    window.cmsUrls = window.cmsUrls || {}
+    window.cmsUrls.imageLibraryIframe = '{% url "admin:media_file_wysiwyg_list" %}';
+  </script>
+
+  {% include "admin/cms/scripts.html" %}
+
+  {{ block.super }}
+{% endblock %}
+
+{% block nav_global %}
+  {% include 'admin/nav_links.html' %}
+{% endblock %}
+
+{% block body_bottom %}
+  {% include 'admin/body_bottom.html' %}
+{% endblock %}
+
+{% block body_top %}
+  {% include 'admin/body_top.html' %}
+{% endblock %}

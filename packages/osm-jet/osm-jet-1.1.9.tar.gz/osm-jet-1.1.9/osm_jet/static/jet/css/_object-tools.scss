@@ -1,0 +1,128 @@
+@import "globals";
+
+/* OBJECT TOOLS */
+
+.admin-tools {
+  align-items: flex-start;
+  justify-content: space-between;
+
+  display: flex;
+  margin-bottom: 20px;
+
+  @include for-mobile {
+    flex-direction: column;
+  }
+}
+
+.object-tools {
+  display: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+
+  @include for-mobile {
+    text-align: left;
+    margin-bottom: 12px;
+  }
+
+  &.initialized {
+    display: flex;
+  }
+
+  .form-row & {
+    float: none;
+
+    height: 2em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 3.5em;
+  }
+
+  a {
+    font-size: 14px;
+
+    box-shadow: $box-shadow;
+
+    &:hover {
+      background-color: transparent;
+      color: $Color_Dark;
+    }
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 0 0 5px;
+
+    list-style-type: none;
+    vertical-align: top;
+
+    a {
+      box-shadow: $box-shadow;
+
+      &:hover {
+        background-color: transparent;
+        color: $Color_Dark;
+      }
+    }
+  }
+
+  body.change-list & {
+    position: relative;
+    z-index: 1;
+
+    float: right;
+
+    @include for-mobile {
+      float: none;
+    }
+
+    li {
+      display: list-item;
+    }
+  }
+
+  a.addlink {
+    &:before {
+      @include font-icon;
+
+      margin-top: -3px;
+      margin-right: 3px;
+
+      font-size: 13px;
+
+      color: $Color_Silver;
+      vertical-align: middle;
+    }
+
+    &:hover:before {
+      color: $Color_Dark;
+    }
+  }
+}
+
+.sharing-links {
+  align-items: center;
+  flex-wrap: wrap;
+
+  display: flex;
+
+  h3 {
+    margin: 0 6px 0 0;
+
+    @include for-mobile {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  }
+
+  input {
+    margin: 0 4px;
+
+    box-shadow: $box-shadow;
+    cursor: pointer;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+}

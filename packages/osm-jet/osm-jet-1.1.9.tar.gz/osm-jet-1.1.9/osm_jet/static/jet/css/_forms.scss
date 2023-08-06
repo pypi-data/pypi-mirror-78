@@ -1,0 +1,212 @@
+/* stylelint-disable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type,order/order */
+@import "globals";
+
+/* FORM BUTTONS */
+
+.button,
+input[type='submit'],
+input[type='button'],
+.object-tools a,
+.viewsitelink {
+  &, &:visited, &:hover {
+    display: inline-block;
+    max-width: 100%;
+    height: 32px;
+    padding: 0 10px;
+
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 32px;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    appearance: none;
+    background-color: $button-background-color;
+    border: 0;
+    border-radius: $button-border-radius;
+    box-shadow: $box-shadow;
+    color: $button-text-color;
+    cursor: pointer;
+    outline: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    transition: background $transitions-duration, color $transitions-duration;
+  }
+
+  &.default {
+    margin: 0 8px 0 0;
+    padding: 0 20px;
+
+    background-color: $primary-button-background-color;
+    color: $primary-button-text-color;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $primary-button-hover-background-color;
+      color: $primary-button-text-color;
+    }
+  }
+
+  &.transparent {
+    background-color: transparent;
+  }
+
+  &:hover, &:focus {
+    background-color: transparent;
+    color: $Color_Dark;
+  }
+
+  &:active {
+    background-color: transparent;
+    color: $Color_Dark;
+  }
+}
+
+.button[disabled], input[type='submit'][disabled], input[type='button'][disabled] {
+  opacity: 0.4;
+}
+
+input[type='text'], input[type='email'], input[type='password'], input[type='url'], input[type='number'], textarea, select, .vTextField {
+  @include Font_Input;
+
+  height: $input-height;
+  margin: 0;
+  padding: 0 12px;
+
+  appearance: none;
+  background-color: $input-background-color;
+  border: 1px solid $input-border-color;
+  border-radius: $button-border-radius;
+  white-space: nowrap;
+  outline: 0;
+  box-sizing: border-box;
+  color: $input-text-color;
+
+  transition: background $transitions-duration, box-shadow $transitions-duration, border $transitions-duration;
+
+  //noinspection CssInvalidPseudoSelector
+  &::placeholder {
+    color: $input-placeholder-color;
+  }
+
+  @include for-mobile {
+    fieldset.module & {
+      box-shadow: inset 0 2px 6px 0 rgba(0, 0, 0, 0.04)
+    }
+  }
+
+  &:focus, fieldset.module &:focus {
+    border-color: $input-border-color;
+  }
+}
+
+.inline-deletelink {
+  display: inline-block;
+  height: 32px;
+
+  font-size: 12px;
+  font-weight: lighter;
+  line-height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+
+  border: 0;
+  border-radius: $button-border-radius;
+  box-sizing: border-box;
+  color: $Color_Red;
+  outline: 0;
+
+  transition: background $transitions-duration, box-shadow $transitions-duration, border $transitions-duration;
+
+  &:hover {
+    color: $Color_Red;
+  }
+
+  @include for-phone {
+    display: block;
+    width: 100%;
+  }
+}
+
+textarea {
+  height: auto;
+  padding: 12px;
+
+  line-height: normal;
+  white-space: pre-wrap;
+  vertical-align: top;
+}
+
+.segmented-button {
+  &, &:visited, &:hover {
+    display: inline-block;
+    height: 32px;
+    padding: 0 10px;
+
+    font-size: 12px;
+    line-height: 32px;
+    text-align: center;
+    text-transform: none;
+
+    background-color: $button-background-color;
+    border: 0;
+    border-radius: 0;
+    color: $button-text-color;
+
+    transition: background $transitions-duration;
+  }
+
+  &:hover, &:focus {
+    background-color: transparent;
+    color: $Color_Dark;
+  }
+
+  &:active {
+    background-color: $button-active-background-color;
+    color: $button-active-text-color;
+  }
+
+  &.disabled {
+    background-color: $button-background-color !important;
+    color: $button-text-color;
+  }
+
+  &.left {
+    border-radius: $button-border-radius 0 0 $button-border-radius;
+  }
+
+  &.right {
+    border-radius: 0 $button-border-radius $button-border-radius 0;
+  }
+}
+
+input[type='checkbox'] {
+  &#action-toggle {
+    display: none !important;
+  }
+
+  + label::before {
+    @include font-icon;
+
+    font-size: 12px;
+    letter-spacing: 10px;
+
+    color: $input-checkbox-color;
+
+    .action-checkbox-column & {
+      color: $content-contrast2-text-color;
+    }
+  }
+
+  &:checked + label::before {
+    color: $input-checkbox-checked-color;
+  }
+}
+
+/* SELECTOR */
+
+.selector {
+  display: none;
+}
