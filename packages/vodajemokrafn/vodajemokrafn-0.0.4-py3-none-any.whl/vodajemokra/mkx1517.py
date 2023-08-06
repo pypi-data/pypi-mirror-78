@@ -1,0 +1,2 @@
+fortnitebotapi = "Ahoj {0.display_name} tento bot je vytvořen Kojofixem. Pokud chceš vlastního bota napiš na instagram @kojofix Offical Discord: https://discord.gg/XXcnbhQ sac: kojofix #ad"
+from fortnite import *
