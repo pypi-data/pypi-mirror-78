@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: caer
+Version: 1.3.0
+Summary: A Computer Vision library in Python with powerful image processing operations, including support for Deep Learning models built using the Keras framework
+Home-page: https://github.com/jasmcaus/caer
+Author: Jason Dsouza
+Author-email: jasmcaus@gmail.com
+License: MIT
+Keywords: computer vision,deep learning,image processing,opencv,matplotlib
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: numpy
+Requires-Dist: opencv-contrib-python
+
+A Computer Vision library in Python with powerful image processing operations, including support for Deep Learning models built using the Keras framework
+
+This repository is actively being maintained. If there are any issues, kindly open a thread in the 'Issues' pane on the official Github repository. 
+
+
