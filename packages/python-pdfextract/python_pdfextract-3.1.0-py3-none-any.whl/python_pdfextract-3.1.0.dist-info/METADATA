@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: python-pdfextract
+Version: 3.1.0
+Summary: Python interface to pdf-extract, HTML Extraction from PDF pages
+Home-page: https://github.com/bitextor/python-pdfextract/
+Author: Misja Hoebe, Leopoldo Pla
+Author-email: misja.hoebe@gmail.com, lpla@dlsi.ua.es
+Maintainer: Matthew Russell, Leopoldo Pla
+Maintainer-email: ptwobrussell@gmail.com, lpla@dlsi.ua.es
+License: Apache 2.0
+Keywords: pdfextract
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Natural Language :: English
+Requires-Dist: JPype1
+Requires-Dist: chardet
+
+UNKNOWN
+
+
