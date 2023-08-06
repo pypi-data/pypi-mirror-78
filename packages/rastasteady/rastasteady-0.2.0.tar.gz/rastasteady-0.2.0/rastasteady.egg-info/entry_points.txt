@@ -1,0 +1,6 @@
+
+        [console_scripts]
+        rastasteady=rastasteady.cli:cli
+        rastasteady-cli=rastasteady.cli:cli
+        rastasteady-web=rastasteady.web.web:web
+    
