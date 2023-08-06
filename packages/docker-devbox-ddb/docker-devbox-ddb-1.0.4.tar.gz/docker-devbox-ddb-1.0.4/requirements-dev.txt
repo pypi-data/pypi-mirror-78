@@ -1,0 +1,12 @@
+zest.releaser[recommended]
+githubrelease
+tox
+pylint
+pytest
+coverage
+pytest-docker-compose
+waiting
+pytest-mock
+pex
+
+-r requirements.txt

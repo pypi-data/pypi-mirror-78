@@ -1,0 +1,219 @@
+local _docker_registry_name = std.extVar("docker.registry.name");
+local _docker_registry_repository = std.extVar("docker.registry.repository");
+local _docker_restart_policy = std.extVar("docker.restart_policy");
+local _docker_user_uid = std.extVar("docker.user.uid");
+local _docker_user_gid = std.extVar("docker.user.gid");
+local _docker_path_mapping = std.extVar("docker.path_mapping");
+local _docker_debug_host = std.extVar("docker.debug.host");
+local _docker_debug_disabled = std.extVar("docker.debug.disabled");
+local _docker_cache_from_image = std.extVar("docker.cache_from_image");
+local _docker_build_image_tag = std.extVar("docker.build_image_tag");
+local _docker_directory = std.extVar("docker.directory");
+local _docker_reverse_proxy_type = std.extVar("docker.reverse_proxy.type");
+local _docker_reverse_proxy_network_id = std.extVar("docker.reverse_proxy.network_id");
+local _docker_reverse_proxy_network_names = std.extVar("docker.reverse_proxy.network_names");
+local _docker_reverse_proxy_certresolver = std.extVar("docker.reverse_proxy.certresolver");
+local _docker_reverse_proxy_redirect_to_https = std.extVar("docker.reverse_proxy.redirect_to_https");
+local _core_project_name = std.extVar("core.project.name");
+local _core_os = std.extVar("core.os");
+local _core_env_current = std.extVar("core.env.current");
+local _core_env_available = std.extVar("core.env.available");
+local _core_path_project_home = std.extVar("core.path.project_home");
+local _core_path_ddb_home = std.extVar("core.path.ddb_home");
+local _core_path_home = std.extVar("core.path.home");
+
+# local sep = if _core_os == "nt" then std.char(92) else "/"; # Backslash can't be escaped properly, so use std.char
+
+local mapPath(path) =
+  local key = std.filter(function(mapping_field) std.startsWith(path, mapping_field), std.objectFields(_docker_path_mapping));
+  if std.length(key) > 0 then _docker_path_mapping[key[0]] + std.substr(path, std.length(_docker_path_mapping[key[0]]), std.length(path)) else path;
+
+local path = {
+    map: mapPath,
+    project: mapPath(_core_path_project_home),
+    project_home: mapPath(_core_path_project_home),
+    ddb_home: mapPath(_core_path_ddb_home),
+    home: mapPath(_core_path_home)
+};
+
+local Service(restart_policy=_docker_restart_policy) = {
+    "init": true,
+    "restart": restart_policy,
+};
+
+local Image(image=null) = Service() + {
+    [if image != null then "image"]: image
+};
+
+local image_uri(image_name, with_tag = true) =
+    local image_uri = std.join('/', std.filter(function(s) s != null, [_docker_registry_name, _docker_registry_repository, image_name]));
+    if (with_tag == true && _docker_build_image_tag != null) then image_uri + ':' + _docker_build_image_tag else image_uri;
+
+local Build(name, image=name, cache_from_image=_docker_cache_from_image, directory=_docker_directory) = Service() + {
+    "build": {
+        [if (cache_from_image && (_docker_registry_name != null || _docker_registry_repository != null) != null) then "cache_from"]: [
+            image_uri(image)
+        ],
+        "context": std.join("/", [directory, image])
+    },
+    [if (image != null && (_docker_registry_name != null || _docker_registry_repository != null)) then "image"]: image_uri(image)
+};
+
+local User(uid=_docker_user_uid, gid=_docker_user_gid) = {
+    "user": uid + ":" + gid
+};
+
+local volume_is_named(v) =
+    !std.setMember("/", v) && !std.setMember(std.char(92), v);
+
+local volume_source(v) =
+    if std.type(v) == 'object' then
+        mapPath(v.source)
+    else
+        local splitted = std.split(mapPath(v), ":");
+        local last = if std.length(splitted) >= 1 then splitted[std.length(splitted) - 1];
+        if (last == 'rw' || last == 'ro') then
+            std.join(":", splitted[:std.length(splitted) - 2])
+        else
+            std.join(":", splitted[:std.length(splitted) - 1]);
+
+
+local Volumes(services) = {
+        [key]: {} for key in
+        std.uniq(
+            std.filter(volume_is_named,
+                std.map(volume_source,
+                    std.flatMap(function (f) if std.objectHas(services[f], "volumes") then services[f].volumes else [],
+                        std.objectFields(services)
+                    )
+                )
+            )
+        )
+};
+
+local BinaryOptionsLabels(name, options, options_condition = null, index = null) = {
+    ["ddb.emit.docker:binary[" + name + "](options)" + (if index != null then "(c" + index + ")" else "")]: options,
+    [if options_condition != null then "ddb.emit.docker:binary[" + name + "](options_condition)" + (if index != null then "(c" + index + ")" else "")]: options_condition
+};
+
+local BinaryOptions(name, options, condition = null, index = null) = {
+    labels +: BinaryOptionsLabels(name, options, condition, index),
+};
+
+local BinaryLabels(name, workdir = null, args = null, options = null, options_condition = null, exe = null) = {
+    ["ddb.emit.docker:binary[" + name + "](name)"]: name,
+    [if workdir != null then "ddb.emit.docker:binary[" + name + "](workdir)"]: workdir,
+    [if args != null then "ddb.emit.docker:binary[" + name + "](args)"]: args,
+    [if options != null then "ddb.emit.docker:binary[" + name + "](options)"]: options,
+    [if options_condition != null then "ddb.emit.docker:binary[" + name + "](options_condition)"]: options_condition,
+    [if exe != null then "ddb.emit.docker:binary[" + name + "](exe)"]: exe
+};
+
+local Binary(name, workdir = null, args = null, options = null, options_condition = null, exe = null) = {
+    labels +: BinaryLabels(name, workdir, args, options, options_condition, exe),
+};
+
+local Networks(services, network_names=_docker_reverse_proxy_network_names) = {
+        [key]: {
+            "external": true,
+            "name": if std.objectHas(network_names, key) then network_names[key] else key
+        } for key in
+        std.uniq(
+            std.filter(function (n) n != "default",
+                std.flatMap(function (f) if std.objectHas(services[f], "networks") then services[f].networks else [],
+                    std.objectFields(services)
+                )
+            )
+        )
+};
+
+local Compose(network_names=_docker_reverse_proxy_network_names, version="3.7") = {
+	"version": version,
+	"networks": Networks(self.services, network_names),
+	"volumes": Volumes(self.services)
+};
+
+local TraefikCertLabels(hostname, service_name, certresolver=null) = {
+    [if certresolver != null then "traefik.http.routers." + service_name + "-tls.tls.certresolver"]: certresolver,
+    [if (certresolver == null && _docker_reverse_proxy_certresolver != null) then "traefik.http.routers." + service_name + "-tls.tls.certresolver"]: _docker_reverse_proxy_certresolver,
+    [if (certresolver == null && _docker_reverse_proxy_certresolver == null) then "ddb.emit.certs:generate[" + service_name + "]"]: hostname,
+};
+
+local TraefikRoutersRuleLabels(hostname, service_name, router_rule=null) = {
+    [if router_rule == null then "traefik.http.routers." + service_name + ".rule"]: "Host(`" + hostname + "`)",
+    [if router_rule == null then "traefik.http.routers." + service_name + "-tls.rule"]: "Host(`" + hostname + "`)",
+    [if router_rule != null then "traefik.http.routers." + service_name + ".rule"]: router_rule,
+    [if router_rule != null then "traefik.http.routers." + service_name + "-tls.rule"]: router_rule,
+};
+
+local TraefikRedirectToHttpsLabels(hostname, service_name, redirect_to_https=null) =
+    local effective_redirect_to_https = if redirect_to_https != null then redirect_to_https else _docker_reverse_proxy_redirect_to_https;
+    {
+      [if effective_redirect_to_https == true then "traefik.http.routers." + service_name + ".middlewares"]: service_name + "-redirect-to-https",
+      [if effective_redirect_to_https == true then "traefik.http.middlewares." + service_name + "-redirect-to-https.redirectscheme.scheme"]: "https",
+    };
+
+local TraefikLabels(port, hostname, name=null, certresolver=null, router_rule=null, redirect_to_https=null) =
+{
+    "traefik.enable": "true",
+    ["traefik.http.routers." + std.join("-", std.prune([_core_project_name, name])) + ".service"]: std.join("-", std.prune([_core_project_name, name])),
+    ["traefik.http.routers." + std.join("-", std.prune([_core_project_name, name])) + "-tls.service"]: std.join("-", std.prune([_core_project_name, name])),
+    ["traefik.http.routers." + std.join("-", std.prune([_core_project_name, name])) + "-tls.tls"]: "true",
+    ["traefik.http.services." + std.join("-", std.prune([_core_project_name, name])) + ".loadbalancer.server.port"]: port
+}
++ TraefikCertLabels(hostname, std.join("-", std.prune([_core_project_name, name])), certresolver)
++ TraefikRoutersRuleLabels(hostname, std.join("-", std.prune([_core_project_name, name])), router_rule)
++ TraefikRedirectToHttpsLabels(hostname, std.join("-", std.prune([_core_project_name, name])), redirect_to_https);
+
+local TraefikVirtualHost(port, hostname, name=null, network_id=_docker_reverse_proxy_network_id, certresolver=null, router_rule=null, redirect_to_https=null) =
+  local vh = {
+    labels +: TraefikLabels(port, hostname, name, certresolver, router_rule, redirect_to_https),
+    networks +: [
+        "default",
+        network_id
+    ]
+  };
+
+  vh + {networks: std.uniq(vh.networks)};
+
+local NoVirtualHost(port, hostname, name=null, network_id=_docker_reverse_proxy_network_id, certresolver=null, router_rule=null, redirect_to_https=null) = {};
+
+local VirtualHost = if _docker_reverse_proxy_type == "traefik" then TraefikVirtualHost else NoVirtualHost;
+
+local XDebug() = {
+    [if !_docker_debug_disabled then "environment"]: {
+        "PHP_IDE_CONFIG": "serverName=" + _core_project_name,
+        "XDEBUG_CONFIG": "remote_enable=on remote_autostart=off idekey=" + _core_project_name + " remote_host=" + _docker_debug_host
+    }
+};
+
+local envIndex(env=_core_env_current) =
+    local indexes = std.find(env, _core_env_available);
+    local index = if std.length(indexes) > 0 then indexes[0] else null;
+    index;
+
+local envIs(env) =
+    env == _core_env_current;
+
+{
+    Image: Image,
+    Build: Build,
+    TraefikVirtualHost: TraefikVirtualHost,
+    NoVirtualHost: NoVirtualHost,
+    VirtualHost: VirtualHost,
+    TraefikLabels: TraefikLabels,
+    TraefikCertLabels: TraefikCertLabels,
+    Binary: Binary,
+    BinaryLabels: BinaryLabels,
+    BinaryOptions: BinaryOptions,
+    BinaryOptionsLabels: BinaryOptionsLabels,
+    XDebug: XDebug,
+    Compose: Compose,
+    Volumes: Volumes,
+    User: User,
+    env: {
+      index: envIndex,
+      is: envIs
+    },
+    path: path
+}
