@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: Orange3-SingleCell
+Version: 1.4.0
+Summary: Add-on for bioinformatics analysis of single cell data.
+Home-page: https://github.com/biolab/orange3-single-cell
+Author: Bioinformatics Laboratory, FRI UL
+Author-email: info@biolab.si
+License: GPLv3+
+Project-URL: Bug Tracker, https://github.com/biolab/orange3-single-cell/issues
+Project-URL: Documentation, https://singlecell.biolab.si/docs/
+Project-URL: Source Code, https://github.com/biolab/orange3-single-cell
+Keywords: orange3 add-on
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Orange3 (>=3.23.0)
+Requires-Dist: orange3-bioinformatics (>=4.0.0)
+Requires-Dist: fastdtw (==0.3.2)
+Requires-Dist: pandas (<1.1,>=0.23)
+Requires-Dist: loompy (>=2.0.10)
+Requires-Dist: xlrd (~=1.2.0)
+Requires-Dist: anndata (>=0.6.21)
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Provides-Extra: doc
+Requires-Dist: sphinx ; extra == 'doc'
+Requires-Dist: recommonmark ; extra == 'doc'
+Provides-Extra: package
+Requires-Dist: twine ; extra == 'package'
+Requires-Dist: wheel ; extra == 'package'
+Provides-Extra: test
+Requires-Dist: pytest (~=5.1.0) ; extra == 'test'
+Requires-Dist: pytest-cov (~=2.7.1) ; extra == 'test'
+Requires-Dist: coverage (~=4.5.4) ; extra == 'test'
+Requires-Dist: codecov (~=2.0.15) ; extra == 'test'
+
+Orange3 Single Cell
+======================
+
+The Single Cell add-on for [Orange3](http://orange.biolab.si) adds functionality
+for analysis of single cell data. The widgets enable gene filtering,
+preprocessing, batch effect removal, gene and cell scoring and cluster analysis.
+The widgets can be used seamlessly with other Orange widgets, including those
+from [Orange3-Bioinformatics](https://github.com/biolab/orange3-bioinformatics)
+add-on.
+
+Features
+--------
+#### Explore the Diversity of Cells
+* load data from any platform and filter outlier cells
+* normalize expression values across samples and platforms
+* identify and explore sub-populations with a sample and across multiple samples
+
+#### Discover New Marker Genes
+* identify signature genes for each subpopulation using multiple methods
+* use gene ontology enrichment to explore the biological meaning and identify cell types
+
+#### Predict New Cell Types
+* build classifiers to identify the cell type of each subpopulation
+* use classifier on new data samples to predict cell types and focus on interesting cell type populations
+
+
