@@ -1,0 +1,140 @@
+# {{ ansible_managed }}
+
+[DEFAULT]
+debug = {{ testing | bool }}
+# NOTE(TheJulia): Until Bifrost supports neutron or some other network
+# configuration besides a flat network where bifrost orchustrates the
+# control instead of ironic, noop is the only available network driver.
+enabled_network_interfaces = noop
+default_deploy_interface = {{ default_deploy_interface }}
+{% if enable_inspector | bool == true %}
+enabled_inspect_interfaces = no-inspect,inspector
+default_inspect_interface = inspector
+{% endif %}
+enabled_bios_interfaces = {{ enabled_bios_interfaces }}
+enabled_boot_interfaces = {{ enabled_boot_interfaces }}
+enabled_management_interfaces = {{ enabled_management_interfaces }}
+enabled_power_interfaces = {{ enabled_power_interfaces }}
+enabled_deploy_interfaces = {{ enabled_deploy_interfaces }}
+
+enabled_hardware_types = {{ enabled_hardware_types }}
+
+{% if use_rabbitmq is defined and use_rabbitmq | bool == true %}
+transport_url = rabbit://ironic:{{ironic_db_password }}@{{ message_queue_host | default('127.0.0.1') }}:{{ message_queue_port | default('5672') }}/{{ rabbit_virtual_host | default('') }}
+{% else %}
+rpc_transport = json-rpc
+{% endif %}
+
+{% if enable_keystone is defined and enable_keystone | bool == true %}
+auth_strategy = keystone
+{% else %}
+auth_strategy = noauth
+{% endif %}
+
+{% if ironic_log_dir is defined %}
+log_dir = {{ ironic_log_dir }}
+{% endif %}
+
+{% if ironic_agent_deploy_logs_local_path | default("") != "/var/log/ironic/deploy" %}
+[agent]
+deploy_logs_local_path = {{ ironic_agent_deploy_logs_local_path }}
+{% endif %}
+
+[pxe]
+{% if testing | bool %}
+pxe_append_params = console=/dev/ttyS0
+{% else %}
+pxe_append_params = systemd.journald.forward_to_console=yes {{ extra_kernel_options | default('') }}
+{% endif %}
+pxe_config_template = $pybasedir/drivers/modules/ipxe_config.template
+tftp_server = {{ hostvars[inventory_hostname]['ansible_' + ans_network_interface]['ipv4']['address'] }}
+tftp_root = /tftpboot
+pxe_bootfile_name = undionly.kpxe
+ipxe_enabled = true
+ipxe_boot_script = /etc/ironic/boot.ipxe
+tftp_master_path = {{ ironic_tftp_master_path }}
+{% if enable_uefi_ipxe | bool %}
+uefi_pxe_bootfile_name = {{ ipxe_efi_binary }}
+uefi_pxe_config_template = $pybasedir/drivers/modules/ipxe_config.template
+{% endif %}
+
+[deploy]
+http_url = http://{{ hostvars[inventory_hostname]['ansible_' + ans_network_interface]['ipv4']['address'] }}:{{ file_url_port }}/
+http_root = {{ http_boot_folder }}
+default_boot_option = local
+
+[conductor]
+clean_nodes = {{ cleaning | lower }}
+automated_clean = {{ cleaning | lower }}
+
+[database]
+connection = mysql+pymysql://{{ ironic.database.username }}:{{ ironic.database.password }}@{{ ironic.database.host }}/{{ ironic.database.name }}?charset=utf8
+
+[dhcp]
+dhcp_provider = none
+
+{% if enable_cors | bool == true %}
+[cors]
+allowed_origin = {{ cors_allowed_origin | default('allowed_origin=http://localhost:8000') }}
+allow_credentials = {{ enable_cors_credential_support | default('true') }}
+{% endif %}
+
+[ilo]
+use_web_server_for_images = true
+
+{% if enable_inspector | bool == true %}
+[inspector]
+enabled = true
+{% if enable_keystone is defined and enable_keystone | bool == true %}
+auth_type = password
+auth_url = {{ ironic.service_catalog.auth_url }}
+username = {{ ironic.service_catalog.username }}
+password = {{ ironic.service_catalog.password }}
+user_domain_id = default
+project_name = {{ ironic.service_catalog.project_name }}
+project_domain_id = default
+region_name = {{ keystone.bootstrap.region_name | default('RegionOne')}}
+{% else %}
+auth_type=none
+endpoint_override={{ ironic_inspector_api_url }}
+{% endif %}
+{% endif %}
+
+{% if enable_keystone is defined and enable_keystone | bool == true %}
+[keystone_authtoken]
+auth_plugin = password
+auth_url = {{ ironic.service_catalog.auth_url }}
+username = {{ ironic.service_catalog.username }}
+password = {{ ironic.service_catalog.password }}
+user_domain_id = default
+project_name = {{ ironic.service_catalog.project_name }}
+project_domain_id = default
+{% endif %}
+
+[service_catalog]
+{% if enable_keystone is defined and enable_keystone | bool == true %}
+auth_url = {{ ironic.service_catalog.auth_url }}
+auth_type = password
+project_name = {{ ironic.service_catalog.project_name }}
+username = {{ ironic.service_catalog.username }}
+password = {{ ironic.service_catalog.password }}
+user_domain_id = default
+project_domain_id = default
+region_name = {{ keystone.bootstrap.region_name | default('RegionOne')}}
+{% else %}
+auth_type = none
+{% endif %}
+endpoint_override = http://{{ hostvars[inventory_hostname]['ansible_' + ans_network_interface]['ipv4']['address'] }}:6385
+
+[json_rpc]
+{% if enable_keystone is defined and enable_keystone | bool == true %}
+auth_url = {{ ironic.service_catalog.auth_url }}
+auth_type = password
+project_name = {{ ironic.service_catalog.project_name }}
+username = {{ ironic.service_catalog.username }}
+password = {{ ironic.service_catalog.password }}
+user_domain_id = default
+project_domain_id = default
+{% else %}
+auth_type = none
+{% endif %}

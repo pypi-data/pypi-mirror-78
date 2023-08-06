@@ -1,0 +1,84 @@
+# {{ ansible_managed }}
+
+[DEFAULT]
+{% if enable_keystone is defined and enable_keystone | bool == true %}
+auth_strategy = keystone
+{% else %}
+auth_strategy = noauth
+{% endif %}
+debug = {{ inspector_debug | bool }}
+
+{% if inspector_log_dir is defined %}
+log_dir = {{ inspector_log_dir }}
+{% endif %}
+
+{% if use_rabbitmq is defined and use_rabbitmq | bool == true %}
+transport_url = rabbit://ironic:{{ironic_db_password }}@{{ message_queue_host | default('127.0.0.1') }}:{{ message_queue_port | default('5672') }}/{{ rabbit_virtual_host | default('') }}
+{% else %}
+transport_url = fake://
+{% endif %}
+
+[database]
+connection=mysql+pymysql://{{ ironic_inspector.database.username }}:{{ ironic_inspector.database.password }}@{{ ironic_inspector.database.host }}/{{ ironic_inspector.database.name }}?charset=utf8
+
+[pxe_filter]
+{% if inspector_manage_firewall | bool | default('false') == false %}
+driver = noop
+{% else %}
+driver = iptables
+{% endif %}
+
+[ironic]
+{% if enable_keystone is defined and enable_keystone | bool == true %}
+os_region = {{ keystone.bootstrap.region_name | default('RegionOne') }}
+project_name = baremetal
+username = {{ ironic_inspector.keystone.default_username }}
+password = {{ ironic_inspector.keystone.default_password }}
+auth_url = {{ ironic_inspector.service_catalog.auth_url }}
+auth_type = password
+user_domain_id = default
+project_domain_id = default
+
+{% else %}
+auth_type = none
+endpoint_override = {{ ironic_api_url }}
+{% endif %}
+
+{% if enable_keystone is defined and enable_keystone | bool == true %}
+[keystone_authtoken]
+auth_plugin = password
+auth_url = {{ ironic_inspector.service_catalog.auth_url }}
+username = {{ ironic_inspector.service_catalog.username }}
+password = {{ ironic_inspector.service_catalog.password }}
+user_domain_id = default
+project_name = service
+project_domain_id = default
+
+{% endif %}
+
+[processing]
+add_ports = {{ inspector_port_addition | default('pxe') }}
+keep_ports = {{ inspector_keep_ports | default('present') }}
+ramdisk_logs_dir = {{ inspector_data_dir }}/log
+always_store_ramdisk_logs = {{ inspector_store_ramdisk_logs | default('true') | bool }}
+{% if inspector_processing_hooks is defined %}
+processing_hooks = {{ inspector_processing_hooks }}
+{% endif %}
+{% if inspector_store_data_in_nginx | bool %}
+store_data = swift
+{% else %}
+store_data = database
+{% endif %}
+{% if inspector.discovery.enabled == true %}
+node_not_found_hook = enroll
+
+[discovery]
+enroll_node_driver = {{ inspector.discovery.default_node_driver }}
+{% endif %}
+
+{% if inspector_store_data_in_nginx | bool %}
+[swift]
+# Use the local nginx web server as a Swift-list object storage service.
+auth_type = none
+endpoint_override = {{ inspector_store_data_url }}
+{% endif %}
