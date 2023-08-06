@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: gbd-tools
+Version: 3.2.1
+Summary: GBD Benchmark Database Tools: Maintenance of Benchmark Instances and their Attributes
+Home-page: https://github.com/Udopia/gbd
+Author: Markus Iser, Luca Springer
+Author-email: markus.iser@kit.edu
+License: UNKNOWN
+Description: # GBD Benchmark Database Tools
+        
+        ## Programming Language
+        Python 3
+        
+        ## Installation
+        - Setup python3 and pip3
+        - Install GBD via ```pip3 install gbd-tools```
+        
+        ## Configuration
+        - Download a database, e.g., [http://gbd.iti.kit.edu/getdatabase/](http://gbd.iti.kit.edu/getdatabase/), and safe it as [path/file]
+        - ```export GBD_DB=[path/file]``` (and put it in your .bashrc)
+        - If no database path is given via --db, then gbd uses path in ```GBD_DB```
+        
+        ## Initialize local paths to benchmark instances
+        > ```gbd init /path/to/cnf```
+        
+        ## GBD Command Line Interface
+        > ```gbd --help```
+        
+        ### Help on specific command
+        >	```gbd [command] --help```
+        
+        ### Using GBD Server and Microservices
+        > ```gbd-server --help```.
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
