@@ -1,0 +1,6 @@
+include LICENSE.txt
+include requirements.txt
+global-include *.pyx
+global-include *.pxd
+global-include *.h
+global-include *.c
