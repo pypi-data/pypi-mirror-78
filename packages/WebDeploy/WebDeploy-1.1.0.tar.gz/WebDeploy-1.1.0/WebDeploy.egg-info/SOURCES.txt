@@ -1,0 +1,14 @@
+README.md
+setup.py
+WebDeploy/__init__.py
+WebDeploy.egg-info/PKG-INFO
+WebDeploy.egg-info/SOURCES.txt
+WebDeploy.egg-info/dependency_links.txt
+WebDeploy.egg-info/entry_points.txt
+WebDeploy.egg-info/top_level.txt
+WebDeploy/scripts/__init__.py
+WebDeploy/scripts/config.py
+WebDeploy/scripts/config_db.py
+WebDeploy/scripts/deploy_django.py
+WebDeploy/scripts/deploy_flask.py
+WebDeploy/scripts/runner.py
