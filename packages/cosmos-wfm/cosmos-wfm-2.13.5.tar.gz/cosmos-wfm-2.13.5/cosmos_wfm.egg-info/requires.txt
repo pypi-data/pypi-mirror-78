@@ -1,0 +1,17 @@
+blinker
+boto3
+decorator
+drmaa
+flask
+funcsigs
+more-itertools
+networkx>=2.0
+python-dateutil
+six
+sqlalchemy
+
+[test]
+black
+flask
+ipython
+sphinx_rtd_theme
