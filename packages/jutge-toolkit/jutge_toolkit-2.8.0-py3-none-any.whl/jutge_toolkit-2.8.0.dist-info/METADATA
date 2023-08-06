@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: jutge-toolkit
+Version: 2.8.0
+Summary: Toolkit to make problems for Jutge.org
+Home-page: https://github.com/jutge-org/jutge-toolkit
+Author: Jordi Petit et al
+Author-email: jpetit@cs.upc.edu
+License: Apache
+Download-URL: https://github.com/jutge-org/jutge-toolkit/tarball/2.8.0
+Keywords: jutge,jutge.org,education,problems,quizzes,toolkit
+Platform: UNKNOWN
+Requires-Dist: colorama
+Requires-Dist: jutge-util
+Requires-Dist: lizard
+Requires-Dist: pyyaml (>=5.1)
+
+Toolkit to make problems for Jutge.org
+
+
