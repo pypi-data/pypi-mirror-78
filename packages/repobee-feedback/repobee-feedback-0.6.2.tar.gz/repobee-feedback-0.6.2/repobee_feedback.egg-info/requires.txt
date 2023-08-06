@@ -1,0 +1,7 @@
+repobee>=3.0.0-beta.1
+
+[TEST]
+pytest
+pytest-cov
+repobee
+codecov
