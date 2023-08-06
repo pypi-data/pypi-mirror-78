@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: MhcVizPipe
+Version: 0.4.2
+Summary: A reporting pipeline for visualization of immunopeptidomics MS data.
+Home-page: https://github.com/CaronLab/MhcVizPipe
+Author: Kevin Kovalchik
+Author-email: 
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Requires-Dist: dash (>=1.12.0)
+Requires-Dist: plotly
+Requires-Dist: dash-bootstrap-components
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: dominate
+Requires-Dist: upsetplot
+Requires-Dist: seaborn
+Requires-Dist: plotly-logo
+Requires-Dist: waitress
+
+UNKNOWN
+
+
