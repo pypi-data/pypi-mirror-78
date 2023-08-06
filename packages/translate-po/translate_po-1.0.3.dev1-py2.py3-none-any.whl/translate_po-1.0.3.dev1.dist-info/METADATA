@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: translate-po
+Version: 1.0.3.dev1
+Summary: Automatic PO file translator
+Home-page: https://github.com/pypa/sampleproject
+Author: Erlend Eelmets
+Author-email: erlend.eelmets@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/zcribe/translate-po
+Project-URL: Documentation, https://github.com/zcribe/translate-po/docs/main.html
+Project-URL: Author, http://www.erlend.ee
+Keywords: po translate automatic google
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Internationalization
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# translate-po
+
+Simple quick script for automatically translating .po files using Google. In attempt to give translators a quick baseline to correct and work off from. Which speeds up and simplifies the internationalization process.
+
+## Usage
+
+```python
+from translate_po.main import run
+
+run(fro="en" to="et" src="./untranslated" dest="./translated")
+```
+
+
