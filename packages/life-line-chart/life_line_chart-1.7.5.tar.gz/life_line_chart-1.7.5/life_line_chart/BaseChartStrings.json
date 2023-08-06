@@ -1,0 +1,539 @@
+{
+    "en_US.UTF-8": {
+        "formatting": {
+            "warp_shape": {
+                "short_description": "Warp the chart shape",
+                "long_description": "The overall shape of the chart can be warped.",
+                "choices": {
+                    "normal": "Normal grid shape",
+                    "sine": "Sine shape",
+                    "triangle": "Triangular shape"
+                }
+            },
+            "individual_photo_active": {
+                "short_description": "Show photos",
+                "long_description": "Photos of the individual are shown."
+            },
+            "individual_photo_relative_size": {
+                "short_description": "Photo size",
+                "long_description": "Photos which are shown are fitted into a square of this extent. The size is given relative to the line thickness."
+            },
+            "total_height": {
+                "short_description": "Total height",
+                "long_description": "Total height of the whole chart."
+            },
+            "relative_line_thickness": {
+                "short_description": "Relative line thickness",
+                "long_description": "The line thickness of an individual is given relatively to the horizontal step size."
+            },
+            "horizontal_step_size": {
+                "short_description": "Horizontal step size",
+                "long_description": "This is the distance from one line to another. This value is also used for scaling of other items."
+            },
+            "birth_label_active": {
+                "short_description": "Show birth label",
+                "long_description": "Activate the birth label."
+            },
+            "birth_label_along_path": {
+                "short_description": "Birth label along path",
+                "long_description": "The birth label is aligned to the individual line.",
+                "tab": "Label Configuration"
+            },
+            "birth_label_rotation": {
+                "short_description": "Birth label rotation",
+                "long_description": "The birth label is written in a text frame rotated by this value.",
+                "tab": "Label Configuration"
+            },
+            "birth_label_letter_x_offset": {
+                "short_description": "Horizontal offset of birth label",
+                "long_description": "The birth label is moved horizontally by this value, which is given relatively to the font size.",
+                "tab": "Label Configuration"
+            },
+            "birth_label_letter_y_offset": {
+                "short_description": "Vertical offset of birth label",
+                "long_description": "The birth label is moved vertically by this value, which is given relatively to the font size.",
+                "tab": "Label Configuration"
+            },
+            "birth_label_wrapping_active": {
+                "short_description": "Wrap words in birth label",
+                "long_description": "The birth label content is wrapped where possible.",
+                "tab": "Label Configuration"
+            },
+            "birth_label_anchor": {
+                "short_description": "Birth label anchor",
+                "long_description": "Text alignment of the birth label.",
+                "choices": {
+                    "start": "Left",
+                    "middle": "Center",
+                    "end": "Right"
+                },
+                "tab": "Label Configuration"
+            },
+            "death_label_active": {
+                "short_description": "Show death label",
+                "long_description": "Activate the death label."
+            },
+            "death_label_rotation": {
+                "short_description": "Death label rotation",
+                "long_description": "The death label is written in a text frame rotated by this value.",
+                "tab": "Label Configuration"
+            },
+            "death_label_letter_x_offset": {
+                "short_description": "Horizontal offset of death label",
+                "long_description": "The death label is moved horizontally by this value, which is given relatively to the font size.",
+                "tab": "Label Configuration"
+            },
+            "death_label_letter_y_offset": {
+                "short_description": "Vertical offset of death label",
+                "long_description": "The death label is moved vertically by this value, which is given relatively to the font size.",
+                "tab": "Label Configuration"
+            },
+            "death_label_wrapping_active": {
+                "short_description": "Wrap words in death label",
+                "long_description": "The death label content is wrapped where possible.",
+                "tab": "Label Configuration"
+            },
+            "death_label_anchor": {
+                "short_description": "Death label anchor",
+                "long_description": "Text alignment of the death label.",
+                "choices": {
+                    "start": "Left",
+                    "middle": "Center",
+                    "end": "Right"
+                },
+                "tab": "Label Configuration"
+            },
+            "marriage_label_active": {
+                "short_description": "Show marriage label",
+                "long_description": "Activate the marriage label."
+            },
+            "fade_individual_color": {
+                "short_description": "Fade individual color",
+                "long_description": "The color of the individuals is faded to black with increasing age."
+            },
+            "font_name": {
+                "short_description": "Font name",
+                "long_description": "Name of the font family used for labels.",
+                "tab": "Label Configuration"
+            },
+            "font_size_description": {
+                "short_description": "Relative font size",
+                "long_description": "The font size is given relatively to the line thickness.",
+                "tab": "Label Configuration"
+            },
+            "family_shape": {
+                "short_description": "Family shape",
+                "long_description": "The shape of the families can be varied.",
+                "choices": {
+                    "0": "Rectangular",
+                    "1": "Softer"
+                }
+            },
+            "margin_year_max": {
+                "short_description": "Upper year minimum margin",
+                "long_description": "The upper bound of the chart is extended by at least this number of years."
+            },
+            "margin_year_min": {
+                "short_description": "Lower year minimum margin",
+                "long_description": "The lower bound of the chart is extended by at least this number of years."
+            },
+            "debug_visualize_connections": {
+                "short_description": "Visualize connections",
+                "long_description": "Visualize the connections between families and individuals. This is for debugging purposes."
+            },
+            "debug_visualize_ambiguous_placement": {
+                "short_description": "Visualize ambiguous placement",
+                "long_description": "Visualize automatically detected errors in the placement algorithm."
+            },
+            "coloring_of_individuals": {
+                "short_description": "Coloring of individuals",
+                "long_description": "There are different ways to determine the color of an individual.",
+                "choices": {
+                    "unique": "Unique",
+                    "surname": "Based on surname"
+                }
+            },
+            "flip_vertically": {
+                "short_description": "Flip vertically",
+                "long_description": "If active, the chart is flipped vertically."
+            },
+            "line_weighting": {
+                "short_description": "Line weighting",
+                "long_description": "The line width can be configured.",
+                "choices": {
+                    "none": "none"
+                }
+            }
+        },
+        "positioning": {
+            "unique_graphical_representation": {
+                "short_description": "Show pedigree collapse",
+                "long_description": "Due to pedigree collapse one individual might appear several times in a simple ancestor chart. If this is active, then every individual only appears once."
+            }
+        },
+        "chart_configuration_root_individual": {
+            "generations": {
+                "short_description": "Maximum number of generations",
+                "long_description": "if this number of generations has been reached, the algorithm doesn't go any deeper"
+            }
+        }
+    },
+    "nl_NL.UTF-8": {
+        "formatting": {
+            "warp_shape": {
+                "short_description": "Vervorm de diagramvorm",
+                "long_description": "De algehele vorm van het diagram kan worden vervormd.",
+                "choices": {
+                    "normal": "Normale rastervorm",
+                    "sine": "Sinusvorm",
+                    "triangle": "Driehoekige vorm"
+                }
+            },
+            "individual_photo_active": {
+                "short_description": "Toon foto's",
+                "long_description": "Foto's van het individu worden getoond."
+            },
+            "individual_photo_relative_size": {
+                "short_description": "Foto grootte",
+                "long_description": "De getoonde foto's zijn in een vierkant van deze omvang ingepast. De maat wordt gegeven in verhouding tot de lijndikte."
+            },
+            "total_height": {
+                "short_description": "Totale hoogte",
+                "long_description": "Totale hoogte van de hele kaart."
+            },
+            "relative_line_thickness": {
+                "short_description": "Relatieve lijndikte",
+                "long_description": "De lijndikte van een individu wordt gegeven in verhouding tot de horizontale stapgrootte."
+            },
+            "horizontal_step_size": {
+                "short_description": "Horizontale stapgrootte",
+                "long_description": "Dit is de afstand van de ene lijn naar de andere. Deze waarde wordt ook gebruikt voor het schalen van andere items."
+            },
+            "birth_label_active": {
+                "short_description": "Laat het geboortelabel zien",
+                "long_description": "Activeer het geboortelabel."
+            },
+            "birth_label_along_path": {
+                "short_description": "Geboortelabel langs pad",
+                "long_description": "Het geboortelabel is uitgelijnd met de individuele lijn.",
+                "tab": "Labelconfiguratie"
+            },
+            "birth_label_rotation": {
+                "short_description": "Geboortelabel rotatie",
+                "long_description": "Het geboortelabel is geschreven in een tekstkader dat met deze waarde is geroteerd.",
+                "tab": "Labelconfiguratie"
+            },
+            "birth_label_letter_x_offset": {
+                "short_description": "Horizontale offset van geboortelabel",
+                "long_description": "Het geboortelabel wordt horizontaal verplaatst met deze waarde, die wordt gegeven in verhouding tot de lettergrootte.",
+                "tab": "Labelconfiguratie"
+            },
+            "birth_label_letter_y_offset": {
+                "short_description": "Verticale offset van geboortelabel",
+                "long_description": "Het geboortelabel wordt verticaal verplaatst met deze waarde, die wordt gegeven in verhouding tot de lettergrootte.",
+                "tab": "Labelconfiguratie"
+            },
+            "birth_label_wrapping_active": {
+                "short_description": "Verpak de woorden in een geboortelabel",
+                "long_description": "De inhoud van het geboortelabel is waar mogelijk verpakt.",
+                "tab": "Labelconfiguratie"
+            },
+            "birth_label_anchor": {
+                "short_description": "Geboortelabel anker",
+                "long_description": "Tekstuitlijning van het geboortelabel.",
+                "choices": {
+                    "start": "Links",
+                    "middle": "Midden",
+                    "end": "Rechts"
+                },
+                "tab": "Labelconfiguratie"
+            },
+            "death_label_active": {
+                "short_description": "Toon overlijdenslabel",
+                "long_description": "Activeer het overlijdenslabel."
+            },
+            "death_label_rotation": {
+                "short_description": "Rotatie overlijdenslabel",
+                "long_description": "Het overlijdenslabel wordt geschreven in een tekstkader dat met deze waarde wordt geroteerd.",
+                "tab": "Labelconfiguratie"
+            },
+            "death_label_letter_x_offset": {
+                "short_description": "Horizontale offset overlijdenslabel",
+                "long_description": "Het overlijdenslabel wordt horizontaal verplaatst met deze waarde, die wordt gegeven in verhouding tot de lettergrootte.",
+                "tab": "Labelconfiguratie"
+            },
+            "death_label_letter_y_offset": {
+                "short_description": "Verticale offset overlijdenslabel",
+                "long_description": "Het overlijdenslabel wordt verticaal verplaatst met deze waarde, die wordt gegeven in verhouding tot de lettergrootte.",
+                "tab": "Labelconfiguratie"
+            },
+            "death_label_wrapping_active": {
+                "short_description": "Verpak woorden in het overlijdenslabel",
+                "long_description": "De inhoud van het death label is waar mogelijk ingepakt.",
+                "tab": "Labelconfiguratie"
+            },
+            "death_label_anchor": {
+                "short_description": "Overlijdenslabel anker",
+                "long_description": "Tekstuitlijning van het overlijdenslabel.",
+                "choices": {
+                    "start": "Links",
+                    "middle": "Midden",
+                    "end": "Rechts"
+                },
+                "tab": "Labelconfiguratie"
+            },
+            "marriage_label_active": {
+                "short_description": "Toon huwelijkslabel",
+                "long_description": "Activeer het huwelijkslabel."
+            },
+            "fade_individual_color": {
+                "short_description": "Vervaag individuele kleur",
+                "long_description": "De kleur van de individuen vervaagt naar zwart met het ouder worden."
+            },
+            "font_name": {
+                "short_description": "Lettertypenaam",
+                "long_description": "Naam van de lettertypefamilie die voor labels wordt gebruikt.",
+                "tab": "Labelconfiguratie"
+            },
+            "font_size_description": {
+                "short_description": "Relatieve lettergrootte",
+                "long_description": "De lettergrootte wordt gegeven in verhouding tot de lijndikte.",
+                "tab": "Labelconfiguratie"
+            },
+            "family_shape": {
+                "short_description": "Gezinsvorm",
+                "long_description": "De vorm van de gezinnen kan worden gevarieerd.",
+                "choices": {
+                    "0": "Rechthoekig",
+                    "1": "Zachter"
+                }
+            },
+            "margin_year_max": {
+                "short_description": "Minimum marge boven jaar",
+                "long_description": "De bovengrens van het diagram wordt met minimaal dit aantal jaren verlengd."
+            },
+            "margin_year_min": {
+                "short_description": "Minimum marge voor een lager jaar",
+                "long_description": "De ondergrens van het diagram wordt met minimaal dit aantal jaren verlengd."
+            },
+            "debug_visualize_connections": {
+                "short_description": "Visualiseer verbindingen",
+                "long_description": "Visualiseer de verbindingen tussen families en individuen. Dit is voor foutopsporingsdoeleinden."
+            },
+            "debug_visualize_ambiguous_placement": {
+                "short_description": "Visualiseer dubbelzinnige plaatsing",
+                "long_description": "Visualiseer automatisch gedetecteerde fouten in het plaatsingsalgoritme."
+            },
+            "coloring_of_individuals": {
+                "short_description": "Inkleuren van individuen",
+                "long_description": "Er zijn verschillende manieren om de kleur van een persoon te bepalen.",
+                "choices": {
+                    "unique": "Uniek",
+                    "surname": "Gebaseerd op achternaam"
+                }
+            },
+            "flip_vertically": {
+                "short_description": "Verticaal spiegelen",
+                "long_description": "Indien actief, wordt het diagram verticaal gespiegeld."
+            },
+            "line_weighting": {
+                "short_description": "Lijnweging",
+                "long_description": "De lijndikte kan worden geconfigureerd.",
+                "choices": {
+                    "none": "geen"
+                }
+            }
+        },
+        "positioning": {
+            "unique_graphical_representation": {
+                "short_description": "Toon kwartierherhaling",
+                "long_description": "Door kwartierherhaling kan een persoon meerdere keren voorkomen in een eenvoudige vooroudergrafiek. Als dit actief is, komt elk individu maar één keer voor."
+            }
+        },
+        "chart_configuration_root_individual": {
+            "generations": {
+                "short_description": "Maximaal aantal generaties",
+                "long_description": "als dit aantal generaties is bereikt, gaat het algoritme niet dieper"
+            }
+        }
+    },
+    "de_DE.UTF-8": {
+        "formatting": {
+            "warp_shape": {
+                "short_description": "Diagramm verzerren",
+                "long_description": "Die gesamte Form des Diagramms kann verzerrt werden.",
+                "choices": {
+                    "normal": "Gitterstruktur",
+                    "sine": "Sinusform",
+                    "triangle": "Dreiecksform"
+                }
+            },
+            "individual_photo_active": {
+                "short_description": "Fotos anzeigen",
+                "long_description": "Fotos von Personen auf den Linien anzeigen."
+            },
+            "individual_photo_relative_size": {
+                "short_description": "Gr\u00f6\u00dfe der Fotos",
+                "long_description": "Die Bilder werden in eine Quadrat dieser Kantenl\u00e4nge eingepasst. Die L\u00e4nge wird relativ zur Linienbreite angegeben."
+            },
+            "total_height": {
+                "short_description": "Gesamth\u00f6he",
+                "long_description": "H\u00f6he des gesamten Diagramms."
+            },
+            "relative_line_thickness": {
+                "short_description": "Relative Linienbreite",
+                "long_description": "Die Breite eine Lebenslinie wird relativ zur horizontalen Schrittweite angegeben."
+            },
+            "horizontal_step_size": {
+                "short_description": "Horizontale Schrittweite",
+                "long_description": "Dies ist der Abstand zwischen zwei Lebenslinien. Dieser Wert wird h\u00e4ufig zur Skalierung anderer Objekte verwendet."
+            },
+            "birth_label_active": {
+                "short_description": "Geburts-Textfeld anzeigen",
+                "long_description": "Dieses Flag aktiviert die Darstellung eines kurzen Infotextes zur Geburt."
+            },
+            "birth_label_along_path": {
+                "short_description": "Geburts-Textfeld auf der Linie",
+                "long_description": "Das Geburts-Textfeld kann entlang der Linie dargestellt werden.",
+                "tab": "Label Configuration"
+            },
+            "birth_label_rotation": {
+                "short_description": "Geburts-Textfeld drehen",
+                "long_description": "Das Geburts-Textfeld wird um diesen Wikel gegen den Uhrzeigersinn gedreht.",
+                "tab": "Label Configuration"
+            },
+            "birth_label_letter_x_offset": {
+                "short_description": "Horizontale Verschiebung des Geburts-Textfeldes",
+                "long_description": "Das Geburts-Textfeld wird um diesen Wert horizontal verschoben. Die die Verschiebung wird relativ zur Schriftgr\u00f6\u00dfe angegeben.",
+                "tab": "Label Configuration"
+            },
+            "birth_label_letter_y_offset": {
+                "short_description": "Vertikale Verschiebung des Geburts-Textfeldes",
+                "long_description": "Das Geburts-Textfeld wird um diesen Wert vertikal verschoben. Die die Verschiebung wird relativ zur Schriftgr\u00f6\u00dfe angegeben.",
+                "tab": "Label Configuration"
+            },
+            "birth_label_wrapping_active": {
+                "short_description": "Zeilenumbruch im Geburts-Textfeld",
+                "long_description": "Wo es m\u00f6glich ist, wird der Text im Geburts-Textfeld umgebrochen.",
+                "tab": "Label Configuration"
+            },
+            "birth_label_anchor": {
+                "short_description": "Textausrichtung des Geburts-Textfeld",
+                "long_description": "Der Text im Geburts-Textfeld kann unterschiedliche ausgerichtet werden.",
+                "choices": {
+                    "start": "Links",
+                    "middle": "Zentriert",
+                    "end": "Rechts"
+                },
+                "tab": "Label Configuration"
+            },
+            "death_label_active": {
+                "short_description": "Sterbe-Textfeld anzeigen",
+                "long_description": "Dieses Flag aktiviert die Darstellung eines kurzen Infotextes zum Tod."
+            },
+            "death_label_rotation": {
+                "short_description": "Sterbe-Textfeld drehen",
+                "long_description": "Das Sterbe-Textfeld wird um diesen Wikel gegen den Uhrzeigersinn gedreht.",
+                "tab": "Label Configuration"
+            },
+            "death_label_letter_x_offset": {
+                "short_description": "Horizontale Verschiebung des Sterbe-Textfeldes",
+                "long_description": "Das Sterbe-Textfeld wird um diesen Wert horizontal verschoben. Die die Verschiebung wird relativ zur Schriftgr\u00f6\u00dfe angegeben.",
+                "tab": "Label Configuration"
+            },
+            "death_label_letter_y_offset": {
+                "short_description": "Vertikale Verschiebung des Sterbe-Textfeldes",
+                "long_description": "Das Sterbe-Textfeld wird um diesen Wert vertikal verschoben. Die die Verschiebung wird relativ zur Schriftgr\u00f6\u00dfe angegeben.",
+                "tab": "Label Configuration"
+            },
+            "death_label_wrapping_active": {
+                "short_description": "Zeilenumbruch im Sterbe-Textfeld",
+                "long_description": "Wo es m\u00f6glich ist, wird der Text im Sterbe-Textfeld umgebrochen.",
+                "tab": "Label Configuration"
+            },
+            "death_label_anchor": {
+                "short_description": "Textausrichtung des Sterbe-Textfeld",
+                "long_description": "Der Text im Sterbe-Textfeld kann unterschiedliche ausgerichtet werden.",
+                "choices": {
+                    "start": "Links",
+                    "middle": "Zentriert",
+                    "end": "Rechts"
+                },
+                "tab": "Label Configuration"
+            },
+            "marriage_label_active": {
+                "short_description": "Ehe-Textfeld anzeigen",
+                "long_description": "Dieses Flag aktiviert die Darstellung eines kurzen Infotextes zur Ehe."
+            },
+            "fade_individual_color": {
+                "short_description": "Farbgradient der Lebenslinie",
+                "long_description": "Die Farbe der Lebenslinien verblasst mit zunehmendem Alter."
+            },
+            "font_name": {
+                "short_description": "Schriftart",
+                "long_description": "Der Name der Schriftfamilie, die f\u00fcr Textfelder verwendet wird.",
+                "tab": "Label Configuration"
+            },
+            "font_size_description": {
+                "short_description": "Relative Schriftgr\u00f6\u00dfe",
+                "long_description": "Die Schriftgr\u00f6\u00dfe ist relativ zu der Breite der Lebenslinien angegeben.",
+                "tab": "Label Configuration"
+            },
+            "family_shape": {
+                "short_description": "Familienform",
+                "long_description": "Die Form der Familien kann variiert werden.",
+                "choices": {
+                    "0": "Rechteckig",
+                    "1": "Weicher"
+                }
+            },
+            "margin_year_max": {
+                "short_description": "Mindestabstand des oberen Randes",
+                "long_description": "Die obere Grenze des Diagramms wird mindestens um diese Anzahl an Jahre vergr\u00f6\u00dfert."
+            },
+            "margin_year_min": {
+                "short_description": "Mindestabstand des unteren Randes",
+                "long_description": "Die untere Grenze des Diagramms wird mindestens um diese Anzahl an Jahre vergr\u00f6\u00dfert."
+            },
+            "debug_visualize_connections": {
+                "short_description": "Verbindungen anzeigen",
+                "long_description": "Visualisieren Sie die Verbindungen zwischen Familien und Einzelpersonen. Dies ist f\u00fcr Debugging-Zwecke."
+            },
+            "debug_visualize_ambiguous_placement": {
+                "short_description": "Mehrdeutig Platzierung anzeigen",
+                "long_description": "Visualisieren Sie automatisch erkannte Fehler des Platzierungs-Algorithmus."
+            },
+            "coloring_of_individuals": {
+                "short_description": "Einf\u00e4rben von Individuen",
+                "long_description": "Es gibt verschiedene M\u00f6glichkeiten die Farbe eines Individuums zu bestimmen.",
+                "choices": {
+                    "unique": "Einzigartig",
+                    "surname": "Basierend auf dem Nachnamen"
+                }
+            },
+            "flip_vertically": {
+                "short_description": "Vertikal spiegeln",
+                "long_description": "Falls aktiv, wird das Diagramm vertikal gespiegelt."
+            },
+            "line_weighting": {
+                "short_description": "Liniengewichtung",
+                "long_description": "Die Linienbreite kann konfiguriert werden.",
+                "choices": {
+                    "none": "keine"
+                }
+            }
+        },
+        "positioning": {
+            "unique_graphical_representation": {
+                "short_description": "Ahnenschwund darstellen",
+                "long_description": "Aufgrund des Ahnenschwundes k\u00f6nnte eine Person mehrmals in einem einfachen Vorfahren Diagramm gezeigt werden. Wenn dieses Flag aktiv ist, dann erscheint jede Person nur einmal."
+            }
+        },
+        "chart_configuration_root_individual": {
+            "generations": {
+                "short_description": "Maximale Anzahl an Generationen",
+                "long_description": "Wenn diese Anzahl von Generationen erreicht worden ist, wird der Algorithmus nicht tiefer gehen."
+            }
+        }
+    }
+}
